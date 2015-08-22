@@ -146,6 +146,9 @@ sympy-plots-for-*.tex/
 *.bak
 *.sav
 
+# Kile
+*.backup
+
 
 ##------------------------------------------------------------------------------
 # Linux default .gitignore
