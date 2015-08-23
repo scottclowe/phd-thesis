@@ -132,25 +132,70 @@
 \usepackage{caption}
 \captionsetup{font=small,font=singlespacing,format=plain,indention=0cm} %font=sf,
 \usepackage{subfig}  
+
+
+% ****************************************************************************************************
+% 4b. Other useful packages
+% ****************************************************************************************************
+% If you don't have any of these, you can find them on CTAN
 %
-% Other packages added by Helen Ramsden
-\usepackage{pdflscape}
-\usepackage{rotating}
-\usepackage{array}
-\usepackage{grffile}
-\usepackage{longtable}
-\usepackage{keyval}
-\usepackage{verbatim}
-\usepackage{setspace}
-\usepackage{framed}
-\usepackage{color}
-\definecolor{shadecolor}{gray}{0.9}
-%\usepackage{bibspacing}
-\usepackage{placeins}
-\usepackage{float}
-\usepackage{multirow}
-\usepackage{glossaries}
-\usepackage{soul}
+%\usepackage{bibspacing}     % Don't need to use this, I guess
+%
+\usepackage{pdflscape}       % Lets you put pages into landscape
+\usepackage{rotating}        % Lets you rotate tables and figures
+%
+\usepackage{keyval}          % Key-value decoder (Part of the graphics bundle, so probably already included)
+%
+\usepackage{glossaries}      % Comprehensive glossary package
+%
+% ********************************************************************
+% Things for tables
+% ********************************************************************
+\usepackage{array}           % Extended version of array and table environments
+\usepackage{longtable}       % For tables spanning multiple pages
+\usepackage{multirow}        % Items can span multiple table rows/cols
+\usepackage{dcolumn}                % Lets you align decimal points within columns of a table
+\newcolumntype{d}[1]{D{.}{.}{#1}}   % Adds decimal point column type. Must specify the number of decimal places as arg.
+% NB: no need to import the (essential) booktabs package, because
+% classicthesis.sty does this for us
+%
+% ********************************************************************
+% Laying out text nicely
+% ********************************************************************
+% Things for maths
+\usepackage{amssymb,amstext} % Full math equation support
+\usepackage{amsthm}          % Better theorem environments
+\usepackage{amsfonts}        % For blackboard bold, etc
+\usepackage{nicefrac}        % Nicer fractions
+%
+\usepackage{units}           % nice units, for 10Hz with a thin space, etc
+\usepackage{soul}            % Provides hy­phen­at­able spacing
+%
+% For displaying text in special ways
+\usepackage{verbatim}        % Useful for program listings
+% NB: listings (in its own section below) is useful for program listings too.
+\usepackage{framed}          % Framed and/or shaded regions
+\usepackage{color}           % Set text color
+\definecolor{shadecolor}{gray}{0.9} % and make a new named color
+%
+% ********************************************************************
+% Things for including images
+% ********************************************************************
+\usepackage{grffile}         % allow dots in middle of filenames
+\usepackage{epstopdf}        % automatically convert eps files to pdf files
+% when using epstopdf, on command line you must call pdflatex with arguments:
+%--shell-escape --enable-write18
+% NB: we also use the svg package, but that must be done later, after including
+% the classicthesis class.
+%
+% ********************************************************************
+% Moving things around
+% ********************************************************************
+\usepackage{calc}            % Allows raisebox, can move baselines
+\usepackage{placeins}        % Provides \FloatBarrier which is an impass for figures 
+\usepackage{float}           % Improved float interface
+\usepackage{setspace}        % Can set space between lines
+%
 % ****************************************************************************************************
 
 
@@ -293,6 +338,9 @@
 \usepackage{classicthesis} 
 % ****************************************************************************************************
 
+% Need to include the svg package afterward classicthesis because it does not
+% play nicely with importing several required packages too early
+\usepackage{svg}             % can include svg files with \includesvg
 
 % ****************************************************************************************************
 % 8. Further adjustments (experimental)
