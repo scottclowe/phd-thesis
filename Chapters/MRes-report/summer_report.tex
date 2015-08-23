@@ -1,0 +1,272 @@
+%----------------------------------------------------------------------------------------------------------------------
+% \documentclass[a4paper,10pt]{report}  % class article, amsart, report, IEEEtran, etc
+%\documentclass[journal]{IEEEtran}
+\documentclass[mscres,ianc,logo,twoside,deptreport]{infthesis} %deptreport,singlespacing,abbreviations
+%-----------------------------------   start of generic preamble -----------------------------------
+%
+% \usepackage{geometry}         % See geometry.pdf to learn the layout options. There are lots.
+% \geometry{a4paper}            % letterpaper or a4paper or a5paper or ... 
+% \geometry{landscape}          % Activate for rotated page geometry
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+%
+% \usepackage{multicol}         % For n-column layout
+% These things may be useful when using multicol:
+% \usepackage{calc}             % allows raisebox, can more baselines
+% \usepackage{stfloats}         % page-wide floats at h or b as well as t
+% \usepackage{fixltx2e}         % number-ordering with page-wide floats
+%
+%
+%%%%% For making PDFs with eps graphics
+%
+% it's different for making dvis!
+\usepackage[pdftex]{graphicx}
+%
+\usepackage{epstopdf}
+% on command line, call with:
+%--shell-escape --enable-write18
+%
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+%\epstopdfsetup{suffix=-\SourceExt-converted-to}
+%
+\usepackage{grffile}                    % allow dots in middle of filenames
+%
+%
+%%%%% Math Styling Packages
+\usepackage{amssymb,amstext,amsmath}    % full math equation support
+\usepackage{amsfonts}                   % for blackboard bold, etc
+\usepackage{amsthm}                     % better theorem environments
+%
+%
+%%%%% General Packages
+%\usepackage{mathtools}              % includes the ability to put text over => arrows
+%... Alternatively, can use \stackrel
+%\usepackage[tight]{subfigure}       % ability to place figures side-by-side %need to swap to subfig sometime!
+% \usepackage{subfig}                 % the new version of subfigure (not backward compatible)
+% \usepackage{caption}
+% \usepackage{subcaption}              % the even newer version of subfigure (not backward compatible)
+\usepackage{hyperref}               % hyperlinks references and citations
+\usepackage{placeins}               % adds \FloatBarrier
+\usepackage[super,nospace]{cite}    % superscript citations. NB: sort,compress on by default.
+%
+%
+%%%%% Table packages
+%
+\usepackage{multirow}               % items can span multiple table rows/cols
+%
+\usepackage{booktabs}               % professional quality tables
+% see http://ctan.mackichan.com/macros/latex/contrib/booktabs/booktabs.pdf
+%
+\usepackage{dcolumn}                % lets you align decimal points
+\newcolumntype{d}[1]{D{.}{.}{#1}}   % Adds decimal point column type. Must specify the number of decimal places as arg.
+%
+% \usepackage{ctable}                % for different table captions in the text/footnotes/list of tables (uses booktabs)
+%
+% \usepackage{longtable}             % for tables spanning multiple pages
+%
+%
+%%%%% Quoting Code
+% \usepackage{color}                % use if color is used in text
+\usepackage{verbatim}               % useful for program listings
+% \usepackage{listings}             % also useful for program listings (use lstlisting environment)
+% \lstset{language=Python}          % set params for listings
+\usepackage[numbered]{mcode}        % for including matlab code
+% mcode info at http://my.opera.com/locksley90/blog/2008/02/25/how-to-include-matlab-source-code-in-a-latex-document
+% http://www.mathworks.com/matlabcentral/fileexchange/8015/
+%
+%
+%%%%% Various Theorems etc (numbered by chapter)
+% \theoremstyle{plain}% default
+% \newtheorem{thm}{Theorem}%[chapter]
+% \newtheorem*{thm*}{Theorem}               %un-numbered
+% \newtheorem{lem}[thm]{Lemma}
+% \newtheorem{prop}[thm]{Proposition}
+% \newtheorem{cor}[thm]{Corollary}
+% %
+% \theoremstyle{definition}
+% \newtheorem{defn}[thm]{Definition}
+% \newtheorem{conj}[thm]{Conjecture}
+% \newtheorem{exmp}[thm]{Example}
+% %
+% \theoremstyle{remark}
+% \newtheorem*{rem}{Remark}
+% \newtheorem*{note}{Note}
+% \newtheorem{case}{Case}[chapter]
+%
+%
+%%%%% Math notation
+%
+% These curly letters can be useful for making unique math symbols
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+% use this in body with just \mathpzc{H} etc
+%
+%
+%%% Operators
+%
+% Derivatives
+\let\underdot=\d                                        % rename builtin command \d{} to \underdot{}
+%\renewcommand{\d}{\operatorname{d}}                     % old method
+\renewcommand{\d}{\ensuremath{\operatorname{d}\!}}      % straight operator d (\! for no space after)
+%\renewcommand{\d}{\ensuremath{d}}                       % italic (variable-like) d
+\newcommand{\od}[1]{\frac{\d}{\d#1}}                    % first order ordinary derivative operator
+\newcommand{\odn}[2]{\frac{\d^{#2}}{\d#1^{#2}}}         % n-th order ordinary derivative operator
+\newcommand{\pd}[1]{\frac{\partial}{\partial #1}}       % first order partial derivative operator
+\newcommand{\pdn}[2]{\frac{\partial^{#2}}{\partial #1^{#2}}}    % n-th order partial derivative operator
+%
+%%% `Log-like' functions
+\DeclareMathOperator{\sgn}{sgn}                         % sign
+\DeclareMathOperator*{\E}{\mathop{\mathbb E\/}}         % expectation
+%
+%
+%%% Ordinals
+%\newcommand{\ord}[2]{#1#2}                              %where we are doing normal 1st, 2nd, 3rd, 4th and not n-th
+\newcommand{\ord}[2]{\ensuremath{\text{#1}^\text{#2}}}  %where we are doing normal 1st, 2nd, 3rd, 4th and not n-th
+%\newcommand{\nth}[1]{#1\text{-th}}                      %where the argument is mathematical and we are in math-mode
+%\newcommand{\mth}[1]{$#1$-th}                           %where the argument is mathematical but we are not in math-mode
+\newcommand{\nth}[1]{\ensuremath{#1\text{-th}}}         %NEW: where argument is mathematical (may be used in any mode)
+\newcommand{\mth}[1]{\nth{#1}}                          %ditto. for backward compatibility.
+%
+%%% Vectors
+\newcommand{\mtx}[1]{\left[ \begin{matrix} #1 \end{matrix} \right]} %matrix
+\newcommand{\col}[1]{\mtx{#1}}                                      %column vector
+\newcommand{\row}[1]{[#1]}                                          %row vector
+\newcommand{\tcol}[1]{\row{#1}^T}                                   %transposed col vector
+%
+%%% Notation
+\newcommand{\VEC}[1]{\mathbf{#1}}                                   %vector symbol typeface
+\newcommand{\SET}[1]{\mathbf{#1}}                                   %set symbol typeface
+\newcommand{\NSYS}[1]{\mathbb{#1}}                                  %number system typeface (R, C, Z, N)
+%
+%
+%%%%% Homebrew commands (to save typing)
+%
+% Text
+%\newcommand{\ie}{i.e. }
+%\newcommand{\eg}{e.g. }
+%
+%
+%-----------------------------------   end of generic preamble -----------------------------------
+%
+%-----------------------------------   start of file-specific preamble -----------------------------------
+%
+%
+% \usepackage[numbers,sort&compress]{natbib}
+% \usepackage{natmove} % moves superscript references after the punctuation mark regardless of where \cite command appears
+% \usepackage{hypernat}
+% \bibpunct{}{}{,}{s}{}{} % superscript citation
+%
+%
+\usepackage{caption}
+\usepackage{subcaption}              % the even newer version of subfigure (not backward compatible)
+\renewcommand{\thesubfigure}{\Alph{subfigure}}
+%
+\captionsetup{margin=.5cm,indention=.2cm,labelsep=period}
+\captionsetup[subfigure]{singlelinecheck=off,labelformat=simple,labelfont=bf}
+%
+% http://www.tug.org/texlive/Contents/live/texmf-dist/doc/latex/units/units.pdf
+\usepackage{nicefrac}                % nice fractions
+\usepackage{units}                   % nice units
+%
+\newcommand{\etal}{\textit{et al.}}
+\newcommand{\eg}{\textit{e.g.}}
+\newcommand{\ie}{\textit{i.e.}}
+\newcommand{\NB}{{N.B.}}
+%
+\newcommand{\R}{\NSYS{R}}                                           %number system typeface (R, C, Z, N)
+\newcommand{\C}{\NSYS{C}}                                           %number system typeface (R, C, Z, N)
+\newcommand{\Z}{\NSYS{Z}}                                           %number system typeface (R, C, Z, N)
+\newcommand{\N}{\NSYS{N}}                                           %number system typeface (R, C, Z, N)
+% 
+\makeatletter
+\def\cleartoevenpage{\clearpage\if@twoside \ifodd\c@page
+    \hbox{}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
+\makeatother
+%
+\usepackage[perpage,symbol*,splitrule]{footmisc}
+\interfootnotelinepenalty=10000                                     % no carrying on to next page
+%
+%-----------------------------------   end of file-specific preamble -----------------------------------
+%
+%----------------------------------------------------------------------------------------------------------------------
+%
+%
+\title{An information theoretic analysis of perceptual learning data from macaque V1 and V4}
+\author{Scott~Lowe}
+\abstract{%
+A three month project applying information theoretic techniques to a dataset of spiking activity collected from Multi-Electrode Arrays in visual cortex regions V1 and V4, for two macaque monkeys is described.
+We consider how the mutual information between the spiking activity patterns of individual neurons and the contrast of the presented stimulus changes with learning.
+In particular, a spike timing neural code is compared to a spike count code, and it is found that the spike timing code only offers more information during the onset transient response, and this is additional information does not change with learning.
+The effects of perceptual learning on coarse and fine contrast discrimination is also explored within the information theoretic framework, and it is found that there is no increase information in the spike-trains of individual neurons for either fine or coarse discrimination for V1, and in V4 there is an increase only for coarse discrimination.
+For coarse discrimination in V4, the results also indicate there is a decrease in the latency of information, which we believe to be an entirely novel result, though current work only finds this in one of the two monkeys in the study.
+Along the way, several problems inherent to the dataset had to be overcome, and a novel method of removing periodic artifacts from spiking data is proposed and utilised.
+}
+%
+%
+\begin{document}
+%
+%% First, the preliminary pages
+\begin{preliminary}
+%
+%% This creates the title page
+\maketitle
+%
+%
+%% Acknowledgements
+\begin{acknowledgements}
+Thanks to the Engineering and Physical Sciences Research Council (EPSRC), Medical Research Council (MRC) and Biotechnology and Biological Sciences Research Council (BBSRC) for providing funding which supported me throughout this project.
+
+Thanks to Xing Chen, for collecting and making available all the data analysed in this report.
+% Given the amount of data which must be collected for a perceptual learning study, this is certainly a significant undertaking.
+
+Thanks to Prof. Stefano Panzeri, for collaborating on the project, offering pertinent advice on how proceed with several aspects of the information theoretic analysis, and casting his eye on the preliminary results.
+
+Thanks to Prof. Alex Thiele, for taking a very active and helpful role in supervision throughout this project.
+\end{acknowledgements}
+%
+%
+%% Next we need to have the declaration.
+\standarddeclaration
+%
+%% Finally, a dedication (this is optional -- uncomment the following line if
+%% you want one).
+% \dedication{To my mummy.}
+%
+%% Create the table of contents
+\tableofcontents
+%
+%% If you want a list of figures or tables, uncomment the appropriate line(s)
+% \listoffigures
+% \listoftables
+%
+\end{preliminary}
+%
+%
+%%%%%%%%
+%% Include your chapter files here. See the sample chapter file for the basic
+%% format.
+%
+\include{ch1_intro}
+% \include{ch2_background}
+\include{ch3_experiment}
+\include{ch4_analysis}
+\include{ch5_conclusion}
+%
+%
+%%%%%%%%
+%% Any appendices should go here. The appendix files should look just like the
+%% chapter files.
+\appendix
+% \include{appendix1}
+%
+%
+%\addcontentsline{toc}{chapter}{\numberline{}Bibliography}
+%
+%% Choose your favourite bibliography style here.
+% \bibliographystyle{apalike}
+\bibliographystyle{ieeetr}  % plain, ieeetr
+%
+\bibliography{summer.bib,summer_custom.bib}
+%
+%
+\end{document}
+%
+%----------------------------------------------------------------------------------------------------------------------

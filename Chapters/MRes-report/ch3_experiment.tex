@@ -1,0 +1,196 @@
+%----------------------------------------------------------------------------------------------------------------------
+\chapter{Experimental Data}
+\label{ch:exp}
+
+The dataset we will be analysing is taken from a set of ongoing experiments into perceptual learning in macaque monkeys, which is being undertaken by the Visual Neuroscience laboratory group of the Institute of Neuroscience, Newcastle University.
+% The research group is led by Prof. Alexander Thiele, who was also the supervisor for the 2 month research project which this report concerns.
+
+Extracellular recordings were taken from multi-electrode arrays (MEA) chronically implanted in both V1 and V4 for two macaque monkeys: M1 and M2. The study was performed first on M1, and then M2. For each monkey, the two implants were undertaken simultaneously by a fully trained brain surgeon with prior experience with these implants in animals. Though these implants would ideally be located in V1 and V4 such that the surrounding neurons respond to the same area of the visual field, this did not happen to be the case for either animal. Consequently, experimentation had to be performed first with stimuli in the appropriate location for the V4 implant, and then the V1 implant.
+The MEAs are not tetrodes, so electrodes on the implanted MEAs are sufficiently distant from one another such that no spike detected by one electrode will be detected as an isolated spike at another electrode. The number of channels recorded from for each animal is given in Table~\ref{tab:nchannels}.
+
+\begin{table}[hbtp]
+\caption{\small{}Number of channels recorded from for each of the monkeys and brain regions. The number of channels on the implanted MEA was the same for all 4 implants, but not all electrodes were viable to record from after implantation.}
+\label{tab:nchannels}
+\begin{center}
+\begin{tabular}{rlr}
+\toprule
+Animal  & Region & Number of channels
+\\
+\midrule
+M1  & V4    & 30
+\\
+        & V1    & 23
+\\
+M2    & V4    & 20
+\\
+        & V1    & 25
+\\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{table}
+
+The experiment comprised 4 stages, each of which conform to the same overarching structure.
+Each experiment is composed of a series of trials. On each trial, the monkey must first fixate on a fixation point, which is a black cross on a grey background with 50\% contrast displayed on a monitor in front of the monkey. For M1, the refresh rate of the monitor was \unit[85]{Hz}, whilst for M2 it was \unit[75]{Hz}.
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=\linewidth]{./figs/PLtask1.png}
+\end{center}
+\caption{\small{}
+Experimental procedure.
+1:~The monkey fixates upon a central spot. 2:~A sample stimulus in the form of either a Gabor patch or a sine grating is presented at the pedestal contrast (\eg{}~30\%). 3:~Blank sample-test interval. 4:~Test stimulus presented. 5:~Blank test-target interval. 6:~Two target stimuli appear to the left and right of the test stimulus location, signalling that the subject is allowed make a saccade to their chosen target.
+Subject's overall objective is to make a comparison between the contrasts of the sample and test stimuli (presented during steps 2 and 4, respectively): if the test stimulus was of a higher contrast (\eg{}~32\%) than the pedestal contrast, they should saccade to the white target, otherwise if the second patch was of lower contrast (\eg{}~28\%), they should saccade to the black target (step 6).
+Durations shown are approximates as the actual durations vary slightly depending on the animal: see Table.~\ref{tab:tptimes} for more accurate values.}
+\label{fig:pltask1}
+\end{figure}
+
+After the monkey has been fixated on the fixation point for a randomised period of time
+$t_1$,
+a grey-scale Gabor function with a contrast $C_{sample}$ appears on the screen. We refer to this as the \textit{sample stimulus}, and it appears in the animal's field of vision such that it is retinotopic to the location of the implanted brain region.
+This Gabor stimulus remains on screen for $t_2$, after which it vanishes.
+There follows a delay of $t_3$, during which the animal must continue to fixate on the fixation point.
+After this, a second Gabor stimulus with contrast $C_{test}$ appears in the same location as the sample stimulus, also for $t_4$. We refer to this as the test stimulus.
+There is then a delay of $t_5$ before the fixation target vanishes and a pair of black and white response target squares appear in a region away from the stimulus location. The monkey is tasked with saccading to the white target if the test stimulus has lower contrast than the sample, or the black target if test has higher contrast. If the monkey responds correctly, it is immediately given a water reward. The experiment is thus a two-alternate forced-choice experiment.
+After the animal has given its response, the next trial begins without delay, and the fixation target again appears alone on the screen until the monkey has fixated for some randomised duration $t_1$.
+The durations used for each part of the experiment are given in Table.~\ref{tab:tptimes}.
+
+\begin{table}[hbtp]
+\caption{\small{}Durations of each section of the trials.
+$t_1$:~interval from fixation-start until sample presentation.
+$t_2$:~sample presentation.
+$t_3$:~sample-test stimulus interval.
+$t_4$:~test presentation.
+$t_5$:~test-targets interval.
+Differing monitor refresh rates for the two monkeys results in different durations because stimuli can only be presented at the start of the monitor refresh cycle.
+\NB{}~A random duration for $t_3$ was used when the experiment was performed on M1 in V4, but this was changed to a static delay for data collected later.}
+\label{tab:tptimes}
+\begin{center}
+\begin{tabular}{rlr}
+\toprule
+Animal  & Region & Time ($\unit{ms}$)
+% \\
+%         &       & Inter-trial delay
+\\
+\midrule
+M1  & V4    & $530.872 \le t_1 \le 545.526$
+\\
+        & V1    & $525.803 \le t_1 \le 538.983$
+\\
+M2    & V4    & $526.295 \le t_1 \le 540.641$
+\\
+        & V1    & $525.834 \le t_1 \le 540.702$
+% \\
+% \midrule
+%         &       & Sample presentation duration
+\\
+\midrule
+M1  & V4    & $t_2 = 529.275$ 
+\\
+        & V1    & $t_2 = 529.275$
+\\
+M2    & V4    & $t_2 = 533.176$
+\\
+        & V1    & $t_2 = 533.176$
+% \\
+% \midrule
+%         &       & Post-sample stimulus delay
+\\
+\midrule
+M1  & V4    & $539.720 \le t_3 \le 1058.673$
+\\
+        & V1    & $t_3 = 541.164$
+\\
+M2    & V4    & $t_3 = 546.632$
+\\
+        & V1    & $t_3 = 546.570$
+% \\
+% \midrule
+%         &       & Test presentation duration
+\\
+\midrule
+M1  & V4    & $t_4 = 529.275$
+\\
+        & V1    & $t_4 = 529.275$
+\\
+M2    & V4    & $t_4 = 533.176$
+\\
+        & V1    & $t_4 = 533.176$
+% \\
+% \midrule
+%         &       & Post-test stimulus delay
+\\
+\midrule
+M1  & V4    & $t_5 = 423.475$
+\\
+        & V1    & $t_5 = 423.475$
+\\
+M2    & V4    & $t_5 = 426.578$
+\\
+        & V1    & $t_5 = 426.640$
+\\
+\bottomrule
+% \toprule
+%         &       & Time(ms)
+% \\
+% Animal  & Brain region & $t_1$  & $t_2$  & $t_3$  & $t_4$   & $t_5$
+% \\
+% \midrule
+% M1  & V4    & $530.872 \le t_1 \le 545.526$   & $t_2 = 529.275$  & $539.720 \le t_3 \le 1058.673$  & $t_4 = 529.275$  & $t_5 = 423.475$
+% \\
+%         & V1    & $525.803 \le t_1 \le 538.983$   & $t_2 = 529.275$  & $t_3 = 541.164$  & $t_4 = 529.275$  & $t_5 = 423.475$
+% \\
+% M2    & V4    & $526.295 \le t_1 \le 540.641$   & $t_2 = 529.275$  & $t_3 = 546.632$  & $t_4 = 533.176$  & $t_5 = 426.578$
+% \\
+%         & V1    & $525.834 \le t_1 \le 540.702$   & $t_2 = 533.176$  & $t_3 = 546.570$  & $t_4 = 533.176$  & $t_5 = 426.640$
+% \\
+% \bottomrule
+\end{tabular}
+\end{center}
+\end{table}
+
+Following a period of rest after surgery, during which the implants should settle into stable locations, the animals are pre-trained to sit in the chair and fixate on the fixation point. They are then trained in the procedure of the experiment, whilst recordings are taken from V4. Their preliminary training involves a grey disc as the sample, whilst the test is either white or black. This then changes to be a set of Gabor functions.
+% check this
+
+
+After the preliminary training, the main perceptual learning experiment is performed, first for V4, then V1.
+In the main experiment, we keep the contrast of the sample as $C_{sample} = 30\%$ throughout.
+
+The test contrast is chosen from a set of 14 contrasts:
+\{10, 15, 20, 25, 27, 28, 29, 31, 32, 33, 35, 40, 50, 60\}\% for V1 and
+ \{5, 10, 15, 20, 22, 25, 28, 32, 35, 40, 45, 50, 60, 90\}\% for V4,
+for both of the animals. These groups are chosen such that the animal has a similar initial accuracy for both V1 and V4. We note that half of the contrasts are above and half below the sample contrast of 30\%.
+The contrast is not chosen randomly at the start of each trial; instead a batch of trials containing a set number of each test contrast is placed into sequence all at once.
+If the monkey responds incorrectly at the end of the trial, this contrast is added to a list to be repeated at the end of the batch.
+At the end of the batch, another batch of trials begins in a similar fashion.
+% This \textit{delayed repeat} method is used because ...
+%(This will be an important fact later in the study.)
+
+The duration of daily training was typically limited by the animal's desire to preform the task. On some days the animal was reluctant to train at all and only 250 trials could be conducted; whilst on other days the animal would be willing to train for three hours and complete up to 1250 trials.
+As expected, the psychometric performance of the monkey increased each day for around 20 days due to perceptual learning. After the performance stayed the same for 5 consecutive days, the experiment progressed to the next stage.
+
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=0.8\linewidth]{./figs/PLtask2.png}
+\end{center}
+\caption{\small{}The experimental task during both the non-roving and roving stages. The analysis contained in this report concerns only the first, non-roving, stage.}
+\label{fig:pltask2}
+\end{figure}
+
+% \begin{figure}[htbp]
+% \begin{center}
+% \includegraphics[width=0.8\linewidth]{./figs/PLtask3.png}
+% \end{center}
+% \caption{\small{}The experiment was composed of 4 stages. In this analysis, we are concerned only with the first stage.}
+% \label{fig:pltask3}
+% \end{figure}
+
+In this study, we will focus on analysing data from the non-roving perceptual learning task as described above. However, it should be noted that once the animals had completed the non-roving stage of the experiment, they progressed to further stages involving a roving task. In the roving task, the sample contrast was chosen at random with $C_{sample} \in \{20, 30, 40\}\%$. Subsequently, once the test stimulus had been shown and the targets appeared, the animal was tasked with responding by comparing the test contrast to whichever sample contrast was presented on that particular trial. During this task, the test contrast would be selected from a set of 12 contrasts specific to each of the three sample stimuli, such that 6 test stimuli were higher and 6 lower in contrast than the sample. The difference between the non-roving and roving stages is illustrated in Fig.~\ref{fig:pltask2}.
+%
+% One small inconsistency in the experimental setup is that for M1 during the V4-based task, the inter-stimuli wait was chosen randomly as $t_3 \in [x,y]ms$. For later experiments, including the V1 recordings for M1 and both V4 and V1 recordings for M2, the inter-stimuli wait was fixed at $t_3 = z ms$.
+
+As mentioned in Sec.~\ref{sec:bgpl}, some previous research has found flankers around the stimuli are necessary to induce perceptual learning.
+During this experiment, the researchers found flankers were not necessary for perceptual learning during the first stage, but to subsequently learn to the roving task, flankers around the stimuli were necessary.
+
+% A related experiment to investigate which neural receptors are important for perceptual learning to take place has been undertaken on a third monkey. This monkey, Frank, has been exposed to neuropharmacological agents to see how they affect perceptual learning; the two agents used are the NMDA-receptor antagonist APV, and the muscarinic and nicotinic receptor antagonist scopolamine.
