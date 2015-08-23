@@ -224,6 +224,40 @@
 %%% `Log-like' maths functions
 \DeclareMathOperator{\sgn}{sgn}                         % sign
 \DeclareMathOperator*{\E}{\mathop{\mathbb E\/}}         % expectation
+%
+% Derivatives
+\let\underdot=\d                                        % rename builtin command \d{} to \underdot{}
+%\renewcommand{\d}{\operatorname{d}}                     % old method
+\renewcommand{\d}{\ensuremath{\operatorname{d}\!}}      % straight operator d (\! for no space after)
+%\renewcommand{\d}{\ensuremath{d}}                       % italic (variable-like) d
+\newcommand{\od}[1]{\frac{\d}{\d#1}}                    % first order ordinary derivative operator
+\newcommand{\odn}[2]{\frac{\d^{#2}}{\d#1^{#2}}}         % n-th order ordinary derivative operator
+\newcommand{\pd}[1]{\frac{\partial}{\partial #1}}       % first order partial derivative operator
+\newcommand{\pdn}[2]{\frac{\partial^{#2}}{\partial #1^{#2}}}    % n-th order partial derivative operator
+%
+%%% Ordinals
+%\newcommand{\ord}[2]{#1#2}                              %where we are doing normal 1st, 2nd, 3rd, 4th and not n-th
+\newcommand{\ord}[2]{\ensuremath{\text{#1}^\text{#2}}}  %where we are doing normal 1st, 2nd, 3rd, 4th and not n-th
+%\newcommand{\nth}[1]{#1\text{-th}}                      %where the argument is mathematical and we are in math-mode
+%\newcommand{\mth}[1]{$#1$-th}                           %where the argument is mathematical but we are not in math-mode
+\newcommand{\nth}[1]{\ensuremath{#1\text{-th}}}         %NEW: where argument is mathematical (may be used in any mode)
+\newcommand{\mth}[1]{\nth{#1}}                          %ditto. for backward compatibility.
+%
+%%% Vectors
+\newcommand{\mtx}[1]{\left[ \begin{matrix} #1 \end{matrix} \right]} %matrix
+\newcommand{\col}[1]{\mtx{#1}}                                      %column vector
+\newcommand{\row}[1]{[#1]}                                          %row vector
+\newcommand{\tcol}[1]{\row{#1}^T}                                   %transposed col vector
+%
+%%% Notation
+\newcommand{\VEC}[1]{\mathbf{#1}}                                   %vector symbol typeface
+\newcommand{\SET}[1]{\mathbf{#1}}                                   %set symbol typeface
+\newcommand{\NSYS}[1]{\mathbb{#1}}                                  %number system typeface (R, C, Z, N)
+%
+\newcommand{\R}{\NSYS{R}}                                           %number system typeface (R, C, Z, N)
+\newcommand{\C}{\NSYS{C}}                                           %number system typeface (R, C, Z, N)
+\newcommand{\Z}{\NSYS{Z}}                                           %number system typeface (R, C, Z, N)
+\newcommand{\N}{\NSYS{N}}                                           %number system typeface (R, C, Z, N)
 % ****************************************************************************************************
 
 % ****************************************************************************************************
