@@ -1,5 +1,5 @@
 %----------------------------------------------------------------------------------------------------------------------
-\chapter{Introduction}
+\section{Introduction}
 
 In this study, we will be examining how the ability of individual neurons to discriminate between multiple stimuli changes over many exposures to the stimuli.
 This will be done by means of an information theoretic analysis of the experimentally collected data.
@@ -7,14 +7,14 @@ To begin, we will consider some background material to give the reader a feel fo
 
 %----------------------------------------------------------------------------------------------------------------------
 %----------------------------------------------------------------------------------------------------------------------
-\section{Background}
+\subsection{Background}
 \label{ch:bg}
 
 To the best of the author's knowledge, surprisingly, no previous study to date has analysed perceptual learning in an information theoretic framework.
 Consequently in this section we will offer the reader an overview in both perceptual learning and information theory in isolation from one another.
 
 %----------------------------------------------------------------------------------------------------------------------
-\subsection{Perceptual Learning}
+\subsubsection{Perceptual Learning}
 \label{sec:bgpl}
 
 When an individual repeatedly performs a sensory perception task they will typically demonstrate an improvement in performance. If the task is repeated until performance reaches saturation, the effect can persist for months. This phenomenon is known as perceptual learning, and its duration sets it apart from shorter term effects such as sensitization (transient increase in sensitivity following a period of stimulation) and priming (change in perception of one stimulus immediately following a different, faint, stimulus).
@@ -47,7 +47,7 @@ When the properties of individual neurons have been observed to change during pe
 Since all neurons in the visual system have contrast tuning to some degree, one might think a contrast discrimination task a good choice for a perceptual learning study. However, perceptual learning has proven unreliable for such discrimination problems, possibly because contrast sensitivity is already overtrained due to its importance in low-light conditions. Better results have sometimes been found if the contrast test stimulus is accompanied with flanking stimuli \cite{Adini2002}, a phenomenon known as context-dependent learning, though other studies have found learning occurs at the same rate both with and without flankers \cite{Yu2004}, despite nearly identical setup between the experiments with the conflicting two results.
 
 %----------------------------------------------------------------------------------------------------------------------
-\subsection{Information Theory in Neuroscience}
+\subsubsection{Information Theory in Neuroscience}
 \label{sec:bgit}
 
 A common method used in neuroscience is to record the extracellular activity of a single neuron under different conditions. Frequently, the approach used is to take many recordings of the same neuron for the same condition, and then take the average across these repetitions (``trials'') to reduce the effects of neuronal variability. However, this is not how the brain processes stimuli, as it has access to many neurons but only one trial at a time.
@@ -122,7 +122,7 @@ All these bias correction methods tend to make a trade off between variability a
 
 
 %----------------------------------------------------------------------------------------------------------------------
-% \section{Applying Information Theory to Neuroscience data}
+% \subsection{Applying Information Theory to Neuroscience data}
 
 % Previous research has looked at the information in the onset transient in V1. There lower variability in the transient response, and this gives the most information about the stimuli. Adding activity from later is not useful. \cite{Muller2001}
 
@@ -131,7 +131,7 @@ All these bias correction methods tend to make a trade off between variability a
 
 
 %----------------------------------------------------------------------------------------------------------------------
-\section{Hypotheses}
+\subsection{Hypotheses}
 
 In the course of the analysis, we will be testing several hypotheses.
 The most obvious of these is that we would expect the information contained in the population spiking activity to increases over time as perceptual learning occurs. This is likely to involve an increase in information for some of the individual neurons, but not necessarily all.

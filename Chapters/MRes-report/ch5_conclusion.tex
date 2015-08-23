@@ -1,10 +1,10 @@
 %----------------------------------------------------------------------------------------------------------------------
-\chapter{Discussions}
+\section{Discussions}
 
 We now discuss the findings of the analysis described in the previous chapter, and suggest ways in which this work may proceed in the future.
 
 %----------------------------------------------------------------------------------------------------------------------
-\section{Validity of results}
+\subsection{Validity of results}
 
 From Figs.~\ref{fig:b1-trialwise}--\ref{fig:j4-trialwise}, we can conclude several things about the reliability of our other results.
 Firstly, it seems the data for M2 is more trustworthy than that of M1.
@@ -12,7 +12,7 @@ Secondly, from the information measured in the spontaneous activity, it seems th
 Thirdly, this latter point may call into jeopardy the reliability of the results for the spike count code, since these problems seem to be inherent to the raw data, though the information in the spike count code is more robust due to its fewer possible response vectors.
 
 %----------------------------------------------------------------------------------------------------------------------
-\section{Discussion of results}
+\subsection{Discussion of results}
 
 The analysis has demonstrated there is far more information given by the onset transient response, which is in keeping with previous findings \cite{Muller2001}.
 
@@ -21,12 +21,12 @@ The finding that information increases more rapidly with learning in V4 than V1 
 The result that the peak in information in V4 neurons moves to being sooner after stimulus onset (Fig.~\ref{fig:j4-1x20tp4}) is an entirely novel finding. Although the values for the information here are very low --- only \unit[0.02]{bits} --- this is the average over many channels, only a couple of which exhibit the increase with time. The more responsive channels have information peaking at around \unit[0.65]{bits}, but the non-responsive channels pull this average down. I have also done some work to identify which channels should be excluded on the basis of their $d'$, but this is not presented here.
 
 %----------------------------------------------------------------------------------------------------------------------
-\section{Fine versus coarse contrast differences}
+\subsection{Fine versus coarse contrast differences}
 
 We did not find that learning was focused on the more difficult contrasts with the fine differences between them. If there is an increase in the information in V1, it is not very large and occurs for all groups of contrasts to the same degree. Curiously, for V4, it seems that the neurons improve their discriminability for the coarsely differentiated contrasts, but not the fine differences, which is the opposite to what was anticipated. It could be that fine stimuli differences cannot be accurately resolved using the signals from only individual neurons, and concurrent signals from a population of neurons are needed for this to be finer discrimination to be possible.
 
 %----------------------------------------------------------------------------------------------------------------------
-\section{Information in millisecond-level spike timing}
+\subsection{Information in millisecond-level spike timing}
 
 The observation about there being more information in the shuffled timebins than when they are in their genuine order (Fig.~\ref{fig:j1-fdif}) should be an impossibility because shuffling the response bins around can only destroy information and cannot generate it as it is a random process, unrelated to the stimuli.
 This could, however, be explained if spikes are similarly timed in the actual data for many stimuli, which causes their responses to be more similar than one would expect by chance. In this case, there might be reliably more information measured in the shuffled bins due to the bias of the measurement being higher when the responses are less predictable.
@@ -42,14 +42,14 @@ As the bodies of work suggesting there would be differences for fine and coarse 
 However, as we have already stated, any results from our analysis on spike timing codes are questionable due to the our control of the information in the spontaneous activity.
 
 %----------------------------------------------------------------------------------------------------------------------
-\section{Future Work}
+\subsection{Future Work}
 
 Further work will need to be done on this analysis to try and fix the inconsistencies in data between days so they can be studied together more easily. Also, work will need to be done to establish if any of the results presented here are genuinely statistically significant.
 
 Here we describe some follow-up work which could be performed, either by myself or the perceptual learning lab group.
 
 %----------------------------------------------------------------------------------------------------------------------
-\subsection{Elimination of artifacts from continuous data}
+\subsubsection{Elimination of artifacts from continuous data}
 
 Fig.~\ref{fig:mahist-j1s56} shows that the current method of correcting for the monitor artifact is flawed.
 If the monitor artifact were an artifact similar to previously known artifacts, such as the ``reward artifact'' generated by the water dispenser, a large potential is induced in the electrode, which can be registered as a spike since it exceeds the threshold. However, this sort of behaviour would not cause a reduction in the number of spikes preceding the artifact incident, as seen here and in many of the sessions for other channels too.
@@ -61,7 +61,7 @@ Lending credence to this theory is the way the spikes detected as the monitor ar
 If this is the effect we are witnessing, this can be fixed in a manner similar to the way the monitor artifacts were removed in this paper. Instead of considering the spiking data, we will need to look at the continuous data. We can take the modulo of the times with respect to the monitor refresh rate again, and bin the datapoints together with a bin width the reciprocal of the sampling frequency, but instead of taking the number of datapoints in each bin (which will be the same since there is always a continuous voltage value even if there isn't a spike), we take the mean of the voltages. The amount of modification made on each trial to the voltages should then appear as a fluctuation in the mean voltage recorded and can consequently be subtracted from the original data.
 
 %----------------------------------------------------------------------------------------------------------------------
-\subsection{Normalisation of firing rates}
+\subsubsection{Normalisation of firing rates}
 
 Combining trials from different sessions in one analysis has problems because the recording quality varies from day to day.
 Can possibly be normalised by adjusting the spike detection threshold so that there is always the same spontaneous activity exceeding the threshold
@@ -70,14 +70,14 @@ This is justifiable because even if neuronal firing rates change greatly due to 
 This will hopefully make the measured information content of the spontaneous activity be consistent throughout training. If this is the case, the result will be much more trustworthy results. This will be especially important in improving the potential of the results for M1, and for the spike-timing code, potentially yielding some more interesting results.
 
 %----------------------------------------------------------------------------------------------------------------------
-\subsection{Comparison with pyschometrics}
+\subsubsection{Comparison with pyschometrics}
 
 An interesting comparison would be to see how the information correlates with the behaviour of the monkey.
 In particular, it is suspected that there might be a correlation between the magnitude of the maximum information available to the animal in V4 and the performance of the monkey in the task.
 Also, there is reason to suspect there might be a correlation between the latency of the information in V4 and the response time of the monkey, and I tentatively hypothesise this will be the case.
 
 %----------------------------------------------------------------------------------------------------------------------
-\subsection{Statistical analysis of significance of results}
+\subsubsection{Statistical analysis of significance of results}
 
 It will be very important to clarify the statistical significance, if any, of the results tentatively presented here.
 The statistical significance of mutual information can be estimated by using bootstrapping, which is where the stimuli and response vectors are shuffled and paired together at random \cite{Ince2011}. Because some combinations will happen to provide more discriminability than others, the distributed of the mutual information fits a Gaussian distribution with a certain mean and standard deviation. By taking the distribution of information with bootstrapping, the mean and variance can be computed, and the actual value of the information from the data can be compared with this to see if its distance above the mean is statistically significant.
@@ -85,7 +85,7 @@ The statistical significance of mutual information can be estimated by using boo
 Using this method, we can also pick out a value of information which is statistically significant and see how long after test presentation it takes for the information about the test stimulus to become significant. This will provide a metric for information latency.
 
 %----------------------------------------------------------------------------------------------------------------------
-\subsection{Further directions}
+\subsubsection{Further directions}
 
 There are several different routes down which the project could be more broadly extended.
 
@@ -101,7 +101,7 @@ If we were to use information theory directly, even with binary bins for every c
 
 % 
 % %----------------------------------------------------------------------------------------------------------------------
-\section{Summary}
+\subsection{Summary}
 
 The project has expanded on existing literature and demonstrated that the millisecond-level timing of spikes from individual neurons, both in V1 and V4, is not important for contrast discrimination tasks, but the firing rate is important. It has also been demonstrated that little information regarding the discrimination between similar contrasts can be gained from the spiking activity of individual neurons, even during/after perceptual learning has occurred. In V1, there is no discernible change in contrast information in individual neurons at all, but in V4 there is an increase with perceptual learning in the magnitude of the peak information after stimulus onset, and the peak occurs sooner after stimulus onset as well.
 
