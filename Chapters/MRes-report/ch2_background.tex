@@ -1,0 +1,120 @@
+%-----------------------------------------------------------
+\section{Background}
+\label{ch:bg}
+
+As far as I am aware, surprisingly no previous study to date has analysed perceptual learning in an information theoretic framework.
+Consequently in this section we will offer the author a brief overview in both perceptual learning and information theory in isolation.
+
+%-----------------------------------------------------------
+\subsection{Perceptual Learning}
+\label{sec:bgpl}
+
+When an individual repeatedly performs a sensory perception task they will typically demonstrate an improvement in performance. If the task is repeated until performance reaches saturation (approached asymptotically), the effect can persist for months. This phenomenon is known as perceptual learning, and its duration sets it apart from shorter term effects such as sensitization (transient increase in sensitivity following a period of stimulation) and priming (change in perception of one stimulus immediately following a different, faint, stimulus).
+Tasks well suited to studying perceptual learning involve making fine distinctions between different sensory inputs, such as discerning between lines of similar orientations.
+
+It has been noted that improvements in perception are highly specific to the task at hand. For example, for visual tasks perceptual learning has no effect on performance if the stimulus is displaced by as little as $3^\circ$ in the visual field from the training location \cite{Gilbert1994}, 
+and a vernier acuity task on the separation of lines has no transfer to the same task with dots \cite{Poggio1992}.
+
+% extend, more examples, cited
+
+Psychologists and psychophysicists have long known that it is possible for training to improve performance on discrimination tasks across a variety of sensory modalities, such as visual acuity, somatosensory spatial resolution, hue discrimination, estimation of weight and discrimination of pitch \cite{Gilbert2001}; but the fact that it occurs for such a low-level tasks is still surprising to the uninitiated. More specific examples of perceptual learning in the visual system include discrimination of differences in the offset of two lines, discrimination of orientation of lines, discrimination of direction of motion, and perception of depth in random-dot stereograms \cite{Gilbert2001,Fine2002}.
+
+There is still some contention over where the physiological changes which lead to perceptual learning are situated in the brain. Consequently, there are several competing models which attempt to explain how perceptual learning arises.
+The `early' model hypothesises that improvements principally occur at a low level in the sensory cortex \cite{Gilbert2001,Fahle2005}.
+The `late' model states that improvements are in higher level cortical areas related to decision making \cite{Yu2004}.
+Whilst according to the `reverse hierarchy model', improvements are made first in higher level decision areas, and then these are propagated down the cortical hierarchy to lower levels via top-down feedback signals if the changes at higher levels are insufficient \cite{Ahissar2004,Hochstein2002}.
+
+Perceptual learning is thought to be connected to cortical remapping and reorganisation in response to similar stimuli \cite{Dinse2003,Pleger2003,Polley2006}. In such experiments, the region of the cortex coding for the stimulus is seen to expand.
+Some researchers in this field have suggested that perceptual learning might be the mechanism which underpins all adult plasticity in the sensory and association cortices \cite{Gilbert2001}.
+
+
+Neural changes correlated with perceptual learning have been observed at many levels of the cortical hierarchy. Studies have found changes in the orientation tuning curves of neurons in both V1 \cite{Schoups2001} and V4 \cite{Yang2004,Raiguel2006}, however the effects are greater in V4 than in V1 \cite{Raiguel2006}, and not all studies find neural changes in V1 and V2 which relate to perceptual learning, even when the subject has demonstrated psychometric improvement in the task \cite{Ghose2002}.
+
+Due to the specificity of perceptual learning, only neurons in the retinotopic area where the stimulus falls are affected. 
+When the properties of individual neurons have been observed to change during perceptual learning, their tuning curves for task-relevant features have become sharper (\ie the bandwidth narrows). Under activity-based models of neural information processing, this will provide more information about the task-relevant stimulus property if it falls on the steeper slope of the tuning curve. Studies have also shown that the effect of perceptual learning is most pronounced on the most relevant neurons from the perspective of information conveyed \cite{Raiguel2006}. 
+
+% Perceptual learning has also been demonstrated in the inferotemporal region (IT) for face classification tasks in monkeys \cite{Sigala2002}. In this study, discriminatory features relevant to the task were more represented across the neural population than task irrelevant features.
+
+% stuff about contrast sensitivity anomaly
+Since all neurons in the visual system have contrast tuning to some degree, one might think a contrast discrimination task a good choice for a perceptual learning study. However, perceptual learning has proven unreliable for such discrimination problems, possibly because contrast sensitivity is already overtrained due to its importance in low-light conditions. Better results have sometimes been found if the contrast test stimulus is accompanied with flanking stimuli \cite{Adini2002}, a phenomenon known as context-dependent learning, though other studies have found learning occurs at the same rate both with and without flankers \cite{Yu2004}, despite nearly identical setup between the experiments with the conflicting two results.
+
+%-----------------------------------------------------------
+\subsection{Information Theory in Neuroscience}
+\label{sec:bgit}
+
+A common method used in neuroscience is to record the extracellular activity of a single neuron under different conditions. Frequently, the approach used is to take many recordings of the same neuron for the same condition, and then take the average across these repetitions (``trials'') to reduce the effects of neuronal variability. However, this is not how the brain processes stimuli, as it has access to many neurons but only one trial at a time.
+On the other hand, by using information theory to extracellular recordings allows it to be studied on the basis of single-trial activity.
+
+When appling information theory to neuronal data, we treat the brain as a communication channel, transmitting information about sensory input. 
+In the perspective of sensory recordings, the different conditions used on the trial are typically different stimuli, and the extracellular recordings provide us with the neuron's response to the stimuli.
+For such an experimental setup, let us assume that on each trial the stimulus $s$ is selected at random with probability $P(s)$ from a set of stimuli $\SET{S}$, containing $S$ unique stimuli.
+For our purposes, we will be considering response given by the neuron in the spike-train it ellicits, though an information approach can be performed on data from the Local Field Potential (LFP) of extracellular recordings, or collected by Magnetic Resonance Imaging (MRI) Blood Oxygen-Level Dependent (BOLD) signal or Electroencephalography (EEG) \cite{Magri2009,Quiroga2009}.
+
+Using information theory, we can also investigate the nature of the neural code used by individual neurons and populations of neurons.
+For example, we might look at whether a neuron is conveying information in the millisecond level timing of its spikes, or if all the information is conveyed in its firing rate.
+This can be done by choosing a way of quantifying the neural activity which reflects what we think are its most salient properties, and then comparing the how much information can be extracted for different codes.
+Typically \cite{Quiroga2009,Brasselet2012,Panzeri2007,Arabzadeh2006,Strong1998}, a certain poststimulus time window of duration $t \in [20,40]$ is chosen and a neural code is constructed which forms a discrete, multi-dimensional array $r = \{r_1, \ldots, r_L\}$ of dimension $L$, because a discrete response of this form is appropriate for performing an information theoretic analysis on.
+To look at the information given by the firing rate of a single neuron, we might use a spike-count code where $L=1$ and $r$ is equal to the number of spikes elicited in the window $t$.
+Similarly, to look at the information contained in the firing rate of a many neurons, we would use a spike-count code where $r_i$ is equal to the number of spikes elicited in the window $t$ for spiketrain of the \nth{i} neuron, and let $L$ equal the number of neurons to be studied.
+In comparison, to look at the information contained in the millisecond level spike timing of a single neurons, we would divide the time window into $L$ bins of length $\Delta t = \nicefrac{t}{L}$ such that $\Delta t$ is the assumed time precision of the code, and set $r_i$ to be the number of spikes elicited in \nth{i} time-bin.
+
+Having chosen a neural code, we can let $\SET{R}$ denote the set of possible response arrays.
+The relationship between the distribution of responses and stimuli is equaluated by first quantifying the variability of the responses.
+This can be done with the entropy \cite{Shannon1948} of the responses, and we define the \textit{response entropy} to be
+\begin{equation}
+H( \SET{R} )
+= - \sum_{r} P(r) \log_2 P(r)
+\end{equation}
+where $P(r)$ is the probability of observing the response $r$ on any trial regardless of the stimulus.
+However, the responses given by neurons are ``noisy'', so they do not give the same response on every trial even if the same stimulus is presented.
+Consequently, we must also consider the variability due to noise by computing the \textit{noise entropy}, defined as
+\begin{equation}
+H( \SET{R} | \SET{S} )
+= - \sum_{r,s} P(s) P(r|s) \log_2 P(r|s)
+.\end{equation}
+The information about the stimulus which is transmitted in the response is then given by the difference of these, and the \textit{mutual information} between stimulus and response is given by
+\begin{equation}
+I( \SET{S} ; \SET{R} )
+= H( \SET{R} ) - H( \SET{R} | \SET{S} )
+= \sum_{r,s} P(r,s) \log_2 \frac{P(r|s)}{P(r)}
+.\end{equation}
+The mutual information can conceptualised how much an independent observer can expect their uncertainty in the stimulus $s$ presented on a single trial to be reduced by if they were to observe the neural response. When using base two logarithms, the mutual information is measured in bits, where gaining \unit[1]{bit} of information about something means a halving in uncertainty about it.
+The mutual information is zero if and only if responses are completely independent of stimuli.
+We will frequently abbreviate mutual information to just information.
+% CITE MacKay
+
+When working with experimental data, the probabilities $P(s)$, $P(r)$ and $P(r|s)$ must be estimated from the available data.
+This presents a major problem, because precise values for the probabilities can only be found exactly from their frequencies in the data if there is an infinite amount number of trials available, and real-world experiments (somewhat inconviniently) contain only a limited number of trials.
+The estimated probabilities are subject to statistical error, leading to an associated systematic error (bias) and statistical variance in the estimates of the entropies and mutual information. The bias in particular is an issue, causing the mutual information to be upwardly biased, which can lead to incorrect conclusions if not corrected. Conceptually, this is because finite sampling can lead to spurious differences in the response distributions, making them seem more discriminable that they really are.
+We refer to the bias uncorrected mutual information as the ''plug-in'' measurement, $I_{\text{plugin}}(\SET{S};\SET{R})$.
+
+Fortunately, several techniques exist to correct for the bias.
+Several of these bias correction methods focus on expanding out the measured information as a power series \cite{Miller1955,Treves1995} in terms of $\nicefrac{1}{N}$, where $N$ is the number of trials in the dataset, though technically the relationship with the power series only holds in the asyptotic sampling regime with a very large number of trials. The first term in the bias, proportional to $\nicefrac{1}{N}$, has a coefficient which depends only on the number of stimuli, $S$, and possible responses $\overbar{R}$ . However, $\overbar{R} \neq R$ because many responses which are theoretically possible by the construction of the response code may be in fact be impossible to generate. Furthermore, $\overbar{R}$ cannot be found simply by looking at the number of unique responses in the dataset, since low probability responses may not have occurred in the finite number of trials sampled, leading to an underestimation of $\overbar{R}$.
+Consequently, one approach to bias correction, the Panzeri-Treves method \cite{Panzeri1996} (PT), uses a Bayesian procedure to estimate the true number of possible responses and then subtracts the leading term of the bias from the mutual information.
+A second method of correcting for the bias which makes use of the power series expansion is the Quadratic Extrapolation method \cite{Strong1998} (QE). Here, the uncorrected mutual information is assumed to be well approximated by
+$$
+I_{\text{plugin}}(\SET{S};\SET{R}) = I_{\text{true}}(\SET{S};\SET{R}) + \nicefrac{a}{N} + \nicefrac{b}{N^2}
+,$$
+with the free parameters $a$ and $b$ found by computing the information content with fractions of the full available dataset (\ie using $\nicefrac{N}{2}$ and $\nicefrac{N}{2}$ trials).
+
+Other bias correction methods which do not utilise the power series expansion include the Nemenman-Shafee-Bialek (NSB) entropy estimation method.
+This uses a Bayesian inference approach to entropy estimation with a specially chosen prior probability distribution to make the prior expected entropy distribution uniform \cite{Nemenman2004}.
+
+A completely different method of bias correction which works for responses with dimension $L > 1$, is to compute an estimate of the information known as $I_{\text{sh}}$.
+This is found \cite{Montemurro2007} by computing two additional terms: $H_\text{ind}( \SET{R} | \SET{S} )$, the noise entropy estimate if the dimensions of $r$ are assumed to be independent from one another; and $H_\text{sh}( \SET{R} | \SET{S} )$, the noise entropy estimate when bins are shuffled along each dimension, $r_i$, of the response to generate pseudo-response arrays. The advantage of this is $H_\text{ind}( \SET{R} | \SET{S} )$ and $H_\text{sh}( \SET{R} | \SET{S} )$ should be equal, but $H_\text{sh}( \SET{R} | \SET{S} )$ has a bias around the same magnitude as $H( \SET{R} | \SET{S} )$, so we can compute
+$$
+I_{\text{sh}}(\SET{S};\SET{R}) = H( \SET{R} ) - H_\text{ind}( \SET{R} | \SET{S} ) + H_\text{sh}( \SET{R} | \SET{S} ) - H( \SET{R} | \SET{S} )
+,$$
+which has a much smaller bias than $I_(\SET{S};\SET{R})$.
+
+Both the PT and QE correction methods give similar approximations to the true information, whilst NSB outperforms them with a less biased estimate \cite{Panzeri2007}. However, NSB is very computationally intensive \cite{Panzeri2007}, so we will not be making use of it in the presented body work.
+All these bias correction methods tend to make a trade off between variability and bias, introducing more terms and hence more variability to reduce the size of bias term.
+
+% rule of thumb number of trials per stimulus required for decent estimate in each case
+
+
+%-----------------------------------------------------------
+% \section{Applying Information Theory to Neuroscience data}
+
+% Previous research has looked at the information in the onset transient in V1. There lower variability in the transient response, and this gives the most information about the stimuli. Adding activity from later is not useful. \cite{Muller2001}
+
