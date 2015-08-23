@@ -1,7 +1,7 @@
 %----------------------------------------------------------------------------------------------------------------------
 % \chapter{Data Analysis}
 %----------------------------------------------------------------------------------------------------------------------
-\chapter{Spike-Sorting}
+\section{Spike-Sorting}
 \label{sec:sorting}
 
 The initial intention in this study was to first analyse the pre-filtered continuous data using an automated spike detection and sorting program. The output from the automated sorting would then be used for the main portion of the study and analysed using information theoretic techniques.
@@ -14,7 +14,7 @@ Secondly, automated spike-sorting will use the same rules to sort the spikes for
 Thirdly, sorting spikes manually is very time consuming, and not practical to do within the time constraints of this project.
 
 %----------------------------------------------------------------------------------------------------------------------
-\section{Methods}
+\subsection{Methods}
 
 Before the project began, a candidate spike-detection and spike-sorting program, \textit{Wave Clus}, was identified.%
 \footnote{
@@ -37,7 +37,7 @@ followed by a wavelet transformation of the spikes, and then superparamagnetic c
 In a related paper, Rodrigo Quian Quiroga \etal{} found that in tests with simulated data this method outperforms older techniques such as using PCA for feature extraction and $K$-means for clustering~\cite{Quiroga2004}.
 
 %----------------------------------------------------------------------------------------------------------------------
-\section{Results}
+\subsection{Results}
 \label{sec:sorting-result}
 
 It was found that, despite the author's claims of offering a fully automated spike-sorting algorithm, in reality the output from \textit{Wave Clus} needed manual adjustment to merge the neurons sorted at different temperatures during the superparamagnetic clustering into a single set of neurons.
@@ -63,20 +63,20 @@ The researcher found that for some channels multiple individual neurons could be
 %----------------------------------------------------------------------------------------------------------------------
 %----------------------------------------------------------------------------------------------------------------------
 %----------------------------------------------------------------------------------------------------------------------
-\chapter{Information Theoretic Analysis}
+\section{Information Theoretic Analysis}
 %----------------------------------------------------------------------------------------------------------------------
 
 As mentioned in Sec.~\ref{sec:sorting-result}, the automated spike sorting had to be abandoned. The dataset used in this section consists of spiking activity manually sorted by the researcher who collected the data.
 
 %----------------------------------------------------------------------------------------------------------------------
-\section{Methods}
+\subsection{Methods}
 
 To best illustrate the process gone through in the study, we include some preliminary results amongst the methods.
 This is presented so the reader will better understand the decisions taken whilst progressing with the analysis.
 
 %----------------------------------------------------------------------------------------------------------------------
 \FloatBarrier
-\subsection{Artifact elimination}
+\subsubsection{Artifact elimination}
 \label{sec:ma}
 
 Looking at rasters generated to include all the trials across all the sessions, an anomaly was apparent.
@@ -211,7 +211,7 @@ It is possible that the dynamically targeted removal method may cause issues due
 
 %----------------------------------------------------------------------------------------------------------------------
 \FloatBarrier
-\subsection{Session-based analysis}
+\subsubsection{Session-based analysis}
 
 merged all neurons together for a single channels
 
@@ -306,7 +306,7 @@ No trend in information content with learning can be discerned because the measu
 % %----------------------------------------------------------------------------------------------------------------------
 % \chapter{}
 % %----------------------------------------------------------------------------------------------------------------------
-% \section{Methods}
+% \subsection{Methods}
 
 
 % Demonstrate how this is dominated by the number of trials in the session, regardless of bias correction technique
@@ -424,7 +424,7 @@ In particular, in the asymptotic regime the leading term in the expansion of $I_
 In particular, the difficult faced is changes due to perceptual learning which are of interest may only be slight, but the the number of trials per session varies five-fold: from 250 up to 1250. Consequently it is unsurprising that the observed differences in information day-to-day are dominated by the number of trials.
 
 % %----------------------------------------------------------------------------------------------------------------------
-% \section{Results}
+% \subsection{Results}
 % 
 % %----------------------------------------------------------------------------------------------------------------------
 % \chapter{Information Theoretic Analysis (trial-wise)}
@@ -432,7 +432,7 @@ In particular, the difficult faced is changes due to perceptual learning which a
 
 %----------------------------------------------------------------------------------------------------------------------
 \FloatBarrier
-\subsection{Trial-based analysis}
+\subsubsection{Trial-based analysis}
 
 To counter the correlation between measured information and number of trials, an obvious solution is to use the same number of trials for every computation. We now consider how many trials should be taken at once to obtain a reasonably reliable estimate.
 
@@ -470,7 +470,7 @@ Using both the correct and incorrectly responded trials means our distribution f
 
 %----------------------------------------------------------------------------------------------------------------------
 \FloatBarrier
-\subsection{Information in fine vs. coarse distinctions}
+\subsubsection{Information in fine vs. coarse distinctions}
 
 The difference between information about fine differences in contrast can be studied by only considering trials where the contrast presented is one of the middle 6 contrasts:
 \{22, 25, 28, 32, 35, 40\}\% for V1 and
@@ -482,7 +482,7 @@ For V4, the group of coarsely differentiated contrasts is the outer most six con
 
 %----------------------------------------------------------------------------------------------------------------------
 \FloatBarrier
-\subsection{Information in spike timing code vs. spike count code}
+\subsubsection{Information in spike timing code vs. spike count code}
 
 Because the possible responses in the spike timing and count codes have different dimensionality, they have different biases \cite{Panzeri2007} and it is not possible to compare them directly.
 Consequently, to investigate how much more information there is in a spike timing based code we must consider a set of responses which have the same dimensionality, but lack the timing information.
@@ -498,7 +498,7 @@ The information contained in the \unit[4]{ms} level spike timing can then be fou
 
 %----------------------------------------------------------------------------------------------------------------------
 \FloatBarrier
-\subsection{Spontaneous activity}
+\subsubsection{Spontaneous activity}
 
 To check whether changes in the data quality between sessions and other differences between sessions could be influencing the results, the information theoretic analysis was also applied the spontaneous activity from the animal.
 In particular, the spontaneous activity from prior to the sample presentation was used, so the animal had not yet seen the test contrast.
@@ -507,7 +507,7 @@ Although monkey's brain activity cannot possibly contain any genuine information
 %----------------------------------------------------------------------------------------------------------------------
 %----------------------------------------------------------------------------------------------------------------------
 %----------------------------------------------------------------------------------------------------------------------
-\section{Results}
+\subsection{Results}
 
 During the course of the analysis, results were inspected using PT and using QE for bias correction. The plots were similar in distribution, and each gave a similar magnitude for the information. However, PT gave visibly lower variance than QE, so only plots using PT are presented in this results section.
 Using the $I_{\text{sh}}$ approach where the bias is corrected by shuffling bins across trials \cite{Montemurro2007} was also attempted for the spike timing code, but this increased the variance far too much to be of any practical use. The unexpectedly significant increase in variance is probably due to the nature of the correlations between the bins which are being shuffled.
@@ -516,7 +516,7 @@ We also compared some of the results both with the monitor artifact left in the 
 
 %----------------------------------------------------------------------------------------------------------------------
 % \FloatBarrier
-% \subsection{General Information plots}
+% \subsubsection{General Information plots}
 
 Starting with V1, the first thing which is noticed in Figs.~\ref{fig:b1-trialwise} and \ref{fig:j1-trialwise} \subref{fig:b1-1x20tp4} and \subref{fig:b1-5x4tp4} is the large peak in information over the \unit[20]{ms} window starting at around \unit[40]{ms} after stimulus onset. This is due to the onset transient response, where there is a larger amount of neural activity, and this is also less variable than usual \cite{Muller2001}. A second, smaller peak from the ``rebound'' of the transient also occurs around \unit[100]{ms} after stimulus onset. Looking at the scalebars, we can see there is about 10 times as much information on average from the neurons in M2 than M1. This is probably due to differences in data quality between the two animals.
 
@@ -850,7 +850,7 @@ In M1, there is a small increase in the information content with time which may 
 
 %----------------------------------------------------------------------------------------------------------------------
 \FloatBarrier
-\subsection{Fine vs coarse contrast differences}
+\subsubsection{Fine vs coarse contrast differences}
 
 Comparing Figs.~\ref{fig:b1-1x20cc} and \ref{fig:j1-1x20cc} where the outer 6 contrasts are included with Figs.~\ref{fig:b1-1x20tp4} and \ref{fig:b1-1x20tp4} where all contrasts are included, it seems as if the amount of information has increased, which should not be possible. However, the difference will be due to the difference in trials contained in each of the analyses. In each case, an average of 100 trials per stimulus is used, but since the easier test conditions are presented less frequently, they are under-represented in Figs.~\ref{fig:b1-1x20tp4} and \ref{fig:b1-1x20tp4} (about 75 trials per stimulus). Obviously these are more discriminable, so the under-representation comparably reduces the information.
 
@@ -959,7 +959,7 @@ For V4, we find there is no information about fine contrast differences in eithe
 
 %----------------------------------------------------------------------------------------------------------------------
 \FloatBarrier
-\subsection{Information in millisecond-level spike timing}
+\subsubsection{Information in millisecond-level spike timing}
 
 For M2 V1, there seems to be some information in the millisecond-level timing of the spikes during the transient response, but not afterward this has elapsed (Fig.~\ref{fig:v1-dif}, right-hand panels). This band due to the transient is clearly well above the variance of the sampling for the rest of the window offsets.
 However, the information in the transient is only present for the coarse contrasts and not for the fine contrasts.
@@ -1130,7 +1130,7 @@ For any of these figures there certainly does not seem to be any change in the i
 % $d'$ is ...
 % 
 % %----------------------------------------------------------------------------------------------------------------------
-% \section{Methods}
+% \subsection{Methods}
 % 
 % % How is it computed?
 % 
@@ -1161,7 +1161,7 @@ For any of these figures there certainly does not seem to be any change in the i
 % Compared the mean firing rate for spontaneous activity and the highest contrast test stimulus
 % 
 % %----------------------------------------------------------------------------------------------------------------------
-% \section{Results}
+% \subsection{Results}
 % 
 % d' increases with learning
 % 
