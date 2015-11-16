@@ -63,7 +63,7 @@ The researcher found that for some channels multiple individual neurons could be
 %----------------------------------------------------------------------------------------------------------------------
 %----------------------------------------------------------------------------------------------------------------------
 %----------------------------------------------------------------------------------------------------------------------
-\section{Information Theoretic Analysis}
+\chapter{Information Theoretic Analysis}
 %----------------------------------------------------------------------------------------------------------------------
 
 As mentioned in Sec.~\ref{sec:sorting-result}, the automated spike sorting had to be abandoned. The dataset used in this section consists of spiking activity manually sorted by the researcher who collected the data.
@@ -141,10 +141,10 @@ When the visual stimulus has remained unchanged for at least \unit[150]{ms}, the
 ./figs/monitor_hist_jack_v1_ch9_s56_20120817T084855.eps}
     \end{subfigure}
     \caption{Crosses: Histogram of spikes in bins of width \unit[0.030716]{ms}.
-\subref{fig:mahist-b4}: M1 V4, channel 4, session 336; a channel and session very strongly exhibiting the monitor artifact.
-\subref{fig:mahist-j4}: M2 V4, channel 41, session 31; a dataset where the artifact is not present.
-\subref{fig:mahist-j1s51}: M2 V1, channel 9, session 51; data strongly presenting the monitor artifact.
-\subref{fig:mahist-j1s56}: M2 V1, channel 9, session 56; data mildly showing the effect of the monitor artifact.
+\ref{fig:mahist-b4}: M1 V4, channel 4, session 336; a channel and session very strongly exhibiting the monitor artifact.
+\ref{fig:mahist-j4}: M2 V4, channel 41, session 31; a dataset where the artifact is not present.
+\ref{fig:mahist-j1s51}: M2 V1, channel 9, session 51; data strongly presenting the monitor artifact.
+\ref{fig:mahist-j1s56}: M2 V1, channel 9, session 56; data mildly showing the effect of the monitor artifact.
 Green vertical lines: extremities of search window (contained between the lines).
 Cyan vertical lines: extremities of mean region.
 Blue line: mean of the data (excluding area between cyan lines).
@@ -251,43 +251,57 @@ Following the methods employed by the research group, only trials in which the m
 % ./figs/I_sessionwise_jack_v1_chmean25_s51-72_oc1_5bins_of_4ms_dr_naive_pcolorhot_20120815T202053.png
 % ./figs/I_sessionwise_jack_v4_chmean20_s24-49_oc1_5bins_of_4ms_dr_naive_pcolorhot_20120815T202058.png
 
-\begin{figure}[htbp]
-    \begin{subfigure}[b]{0.5\linewidth}
-        \centering
-        \caption{M1 V1}
-        \label{fig:sessb1}
+
+\begin{figure}
+\centering
+\subfloat[A big tikz picture.\label{fig:one}]{%
+  \makebox[\textwidth][l]{% %%% as above
+  \resizebox{.45\largefigure}{!}{%
+    \input{fig/tikzfile}}}}%
+\hfill%
+\subfloat[Another big tikz picture.\label{fig:two}]{%
+  \makebox[\textwidth][l]{% %%% as above
+  \resizebox{.45\largefigure}{!}{%
+    \input{fig/tikzfile}}}}%
+\caption{Two tikz pictures}
+\label{fig:label}
+\end{figure}
+
+\begin{figure}%
+\centering
+\subfloat[][]{...figure code...}%
+\qquad
+\subfloat[][]{...figure code...}%
+\caption{Here are the first two figures of a continued figure.}%
+\label{fig:cont}%
+\end{figure}
+
+\begin{figure}[htbp]%
+    \centering
+    \subfloat[][M1 V1.\label{fig:sessb1}]{%
         \includegraphics[scale=.25]{%
 ./figs/I_sessionwise_blanco_v1_chmean23_s343-359_oc1_5bins_of_4ms_dr_naive_pcolorhot_20120815T202102.png}
-    \end{subfigure}
+    }%
     ~~
-    \begin{subfigure}[b]{0.5\linewidth}
-        \centering
-        \caption{M1 V4}
-        \label{fig:sessb4}
+    \subfloat[][M1 V4.\label{fig:sessb4}]{%
         \includegraphics[scale=.25]{%
 ./figs/I_sessionwise_blanco_v4_chmean31_s307,308,311,313,314,317,318,320,321,329-341_oc1_5bins_of_4ms_dr_naive_pcolorhot_20120815T202106.png}
-    \end{subfigure}
+    }%
     \\
-    \begin{subfigure}[b]{0.5\linewidth}
-        \centering
-        \caption{M2 V1}
-        \label{fig:sessj1}
+    \subfloat[][M2 V1.\label{fig:sessj1}]{%
         \includegraphics[scale=.25]{%
 ./figs/I_sessionwise_jack_v1_chmean25_s51-72_oc1_5bins_of_4ms_dr_naive_pcolorhot_20120815T202053.png}
-    \end{subfigure}
+    }%
     ~~
-    \begin{subfigure}[b]{0.5\linewidth}
-        \centering
-        \caption{M2 V4}
-        \label{fig:sessj4}
+    \subfloat[][M2 V4.\label{fig:sessj4}]{%
         \includegraphics[scale=.25]{%
 ./figs/I_sessionwise_jack_v4_chmean20_s24-49_oc1_5bins_of_4ms_dr_naive_pcolorhot_20120815T202058.png}
-    \end{subfigure}
+    }%
     \caption{Mutual information between the test stimulus and the neural activity during test presentation.
 The mutual information with the test stimulus is taken for a spike timing based code for a \unit[20]{ms} window of spiking activity, sampled with the start of the window offset ($y$-axis) from \unit[0]{ms} up to \unit[500]{ms} after test stimulus onset (which is slightly more than \unit[20]{ms} before test stimulus offset). The sampling is in intervals of \unit[5]{ms}, so any 4 adjacent squares within each session are highly correlated.
 The recording session number for the data is given along the $x$-axis, and the number of days the animal has been trained for increases from left to right.
 Average mutual information across all the channels is denoted by the pseudo-colour of each of the rectangular patches, centred around the $(x,y)$ co-ordinate to which the measurement relates.
-In each case the average is taken across all available channel data: \subref{fig:sessb1}~23 channels, \subref{fig:sessb4}~30 channels, \subref{fig:sessj1}~25 channels, \subref{fig:sessj4}~20 channels.
+In each case the average is taken across all available channel data: \ref{fig:sessb1}~23 channels, \ref{fig:sessb4}~30 channels, \ref{fig:sessj1}~25 channels, \ref{fig:sessj4}~20 channels.
 % The PT bias correction method was used (see text).
 The plug-in method without bias correction was used (see text).
 }
@@ -518,9 +532,9 @@ We also compared some of the results both with the monitor artifact left in the 
 % \FloatBarrier
 % \subsubsection{General Information plots}
 
-Starting with V1, the first thing which is noticed in Figs.~\ref{fig:b1-trialwise} and \ref{fig:j1-trialwise} \subref{fig:b1-1x20tp4} and \subref{fig:b1-5x4tp4} is the large peak in information over the \unit[20]{ms} window starting at around \unit[40]{ms} after stimulus onset. This is due to the onset transient response, where there is a larger amount of neural activity, and this is also less variable than usual \cite{Muller2001}. A second, smaller peak from the ``rebound'' of the transient also occurs around \unit[100]{ms} after stimulus onset. Looking at the scalebars, we can see there is about 10 times as much information on average from the neurons in M2 than M1. This is probably due to differences in data quality between the two animals.
+Starting with V1, the first thing which is noticed in Figs.~\ref{fig:b1-trialwise} and \ref{fig:j1-trialwise} \ref{fig:b1-1x20tp4} and \ref{fig:b1-5x4tp4} is the large peak in information over the \unit[20]{ms} window starting at around \unit[40]{ms} after stimulus onset. This is due to the onset transient response, where there is a larger amount of neural activity, and this is also less variable than usual \cite{Muller2001}. A second, smaller peak from the ``rebound'' of the transient also occurs around \unit[100]{ms} after stimulus onset. Looking at the scalebars, we can see there is about 10 times as much information on average from the neurons in M2 than M1. This is probably due to differences in data quality between the two animals.
 
-Comparing the information found using the spike timing code \subref{fig:b1-5x4tp4} with the spike count code \subref{fig:b1-1x20tp4}, it seems that there is significantly more information when the binned spike times are considered: there is three times as much information for the spike timing code for M1 and twice as much for M2. However, if we look at information in the spontaneous activity, this reveals we cannot trust this result, as the bias for the information from the spontaneous activity is much higher for the spike timing code than spike count.
+Comparing the information found using the spike timing code \ref{fig:b1-5x4tp4} with the spike count code \ref{fig:b1-1x20tp4}, it seems that there is significantly more information when the binned spike times are considered: there is three times as much information for the spike timing code for M1 and twice as much for M2. However, if we look at information in the spontaneous activity, this reveals we cannot trust this result, as the bias for the information from the spontaneous activity is much higher for the spike timing code than spike count.
 
 For M1, aside from the transient, the information measured with the spike timing code from the spontaneous activity is about the same as the information from the test presentation, suggesting something has gone very wrong!
 
@@ -600,19 +614,19 @@ In short, the data for M1 V1 does not seem to be of good enough quality whilst M
     \end{subfigure}
     \caption{M1 V1: Mutual information between the test stimulus and \unit[20]{ms} of spiking activity, averaged across 23 channels.
 The PT bias correction method was used in all estimates of the information, and the modification to the spiking data to remove the artifact as described in Sec.~\ref{sec:ma} was performed.
-The neural code used in \subref{fig:b1-1x20tp4}, \subref{fig:b1-1x20tp1} is a spike count code, whilst in \subref{fig:b1-5x4tp4} and \subref{fig:b1-5x4tp1} it is a spike timing code where the \unit[20]{ms} window was subdivided into 5 bins each of \unit[4]{ms}.
-In \subref{fig:b1-1x20tp4} and \subref{fig:b1-5x4tp4} the spike-train is taken from the test presentation part of the trial;
-for \subref{fig:b1-1x20tp1} and \subref{fig:b1-5x4tp1} the spike-train is taken from spontaneous pre-stimulus activity.
+The neural code used in \ref{fig:b1-1x20tp4}, \ref{fig:b1-1x20tp1} is a spike count code, whilst in \ref{fig:b1-5x4tp4} and \ref{fig:b1-5x4tp1} it is a spike timing code where the \unit[20]{ms} window was subdivided into 5 bins each of \unit[4]{ms}.
+In \ref{fig:b1-1x20tp4} and \ref{fig:b1-5x4tp4} the spike-train is taken from the test presentation part of the trial;
+for \ref{fig:b1-1x20tp1} and \ref{fig:b1-5x4tp1} the spike-train is taken from spontaneous pre-stimulus activity.
 The data is sampled in intervals of \unit[350]{trials} in the $x$-direction and \unit[5]{ms} in the $y$-direction, so there is significant correlation between any pair of pixels in the image with less than 4 pixels between them in either cartesian direction.
-% In \subref{fig:b1-1x20tp4ma}, \subref{fig:b1-1x20tp4}, and \subref{fig:b1-5x4tp4}, the spike-train is taken from the test presentation part of the trial;
-% for \subref{fig:b1-1x20tp1ma}, \subref{fig:b1-1x20tp1}, and \subref{fig:b1-5x4tp1}, the spike-train is taken from spontaneous pre-stimulus activity.
-% In \subref{fig:b1-1x20tp4ma} and \subref{fig:b1-1x20tp1ma} no attempt was made to remove the monitor artifact from the raw data, whilst in the rest of the panels the data was modified to counter this as described in \ref{sec:ma}.
-% \subref{fig:b1-1x20tp4ma}
-% \subref{fig:b1-1x20tp1ma}
-% \subref{fig:b1-1x20tp4}
-% \subref{fig:b1-1x20tp1}
-% \subref{fig:b1-5x4tp4}
-% \subref{fig:b1-5x4tp1}
+% In \ref{fig:b1-1x20tp4ma}, \ref{fig:b1-1x20tp4}, and \ref{fig:b1-5x4tp4}, the spike-train is taken from the test presentation part of the trial;
+% for \ref{fig:b1-1x20tp1ma}, \ref{fig:b1-1x20tp1}, and \ref{fig:b1-5x4tp1}, the spike-train is taken from spontaneous pre-stimulus activity.
+% In \ref{fig:b1-1x20tp4ma} and \ref{fig:b1-1x20tp1ma} no attempt was made to remove the monitor artifact from the raw data, whilst in the rest of the panels the data was modified to counter this as described in \ref{sec:ma}.
+% \ref{fig:b1-1x20tp4ma}
+% \ref{fig:b1-1x20tp1ma}
+% \ref{fig:b1-1x20tp4}
+% \ref{fig:b1-1x20tp1}
+% \ref{fig:b1-5x4tp4}
+% \ref{fig:b1-5x4tp1}
 }
     \label{fig:b1-trialwise}
 \end{figure}
@@ -675,17 +689,17 @@ The data is sampled in intervals of \unit[350]{trials} in the $x$-direction and 
     \end{subfigure}
     \caption{M2 V1: Mutual information between the test stimulus and \unit[20]{ms} of spiking activity, averaged across 25 channels.
 The PT bias correction method was used in all estimates of the information.
-Panels \subref{fig:j1-1x20tp4}--\subref{fig:j1-5x4tp1} are the same as for Fig.~\ref{fig:b1-trialwise}.
-% The neural code used in \subref{fig:j1-1x20tp4ma}--\subref{fig:j1-1x20tp1} is a spike count code, whilst in \subref{fig:j1-5x4tp4}, \subref{fig:j1-5x4tp1} it is a spike timing code where the \unit[20]{ms} window was subdivided into 5 bins each of \unit[4]{ms}.
-% In \subref{fig:j1-1x20tp4ma}, \subref{fig:j1-1x20tp4}, and \subref{fig:j1-5x4tp4}, the spike-train is taken from the test presentation part of the trial;
-% for \subref{fig:j1-1x20tp1ma}, \subref{fig:j1-1x20tp1}, and \subref{fig:j1-5x4tp1}, the spike-train is taken from spontaneous pre-stimulus activity.
-% In \subref{fig:j1-1x20tp4ma} and \subref{fig:j1-1x20tp1ma} no attempt was made to remove the monitor artifact from the raw data, whilst in the rest of the panels the data was modified to counter this as described in \ref{sec:ma}.
-% \subref{fig:j1-1x20tp4ma}
-% \subref{fig:j1-1x20tp1ma}
-% \subref{fig:j1-1x20tp4}
-% \subref{fig:j1-1x20tp1}
-% \subref{fig:j1-5x4tp4}
-% \subref{fig:j1-5x4tp1}
+Panels \ref{fig:j1-1x20tp4}--\ref{fig:j1-5x4tp1} are the same as for Fig.~\ref{fig:b1-trialwise}.
+% The neural code used in \ref{fig:j1-1x20tp4ma}--\ref{fig:j1-1x20tp1} is a spike count code, whilst in \ref{fig:j1-5x4tp4}, \ref{fig:j1-5x4tp1} it is a spike timing code where the \unit[20]{ms} window was subdivided into 5 bins each of \unit[4]{ms}.
+% In \ref{fig:j1-1x20tp4ma}, \ref{fig:j1-1x20tp4}, and \ref{fig:j1-5x4tp4}, the spike-train is taken from the test presentation part of the trial;
+% for \ref{fig:j1-1x20tp1ma}, \ref{fig:j1-1x20tp1}, and \ref{fig:j1-5x4tp1}, the spike-train is taken from spontaneous pre-stimulus activity.
+% In \ref{fig:j1-1x20tp4ma} and \ref{fig:j1-1x20tp1ma} no attempt was made to remove the monitor artifact from the raw data, whilst in the rest of the panels the data was modified to counter this as described in \ref{sec:ma}.
+% \ref{fig:j1-1x20tp4ma}
+% \ref{fig:j1-1x20tp1ma}
+% \ref{fig:j1-1x20tp4}
+% \ref{fig:j1-1x20tp1}
+% \ref{fig:j1-5x4tp4}
+% \ref{fig:j1-5x4tp1}
 }
     \label{fig:j1-trialwise}
 \end{figure}
@@ -747,17 +761,17 @@ Panels \subref{fig:j1-1x20tp4}--\subref{fig:j1-5x4tp1} are the same as for Fig.~
     \end{subfigure}
     \caption{M1 V4: Mutual information between the test stimulus and \unit[20]{ms} of spiking activity, averaged across 30 channels.
 The PT bias correction method was used in all estimates of the information.
-Panels \subref{fig:b4-1x20tp4}--\subref{fig:b4-5x4tp1} are the same as for Fig.~\ref{fig:b1-trialwise}.
-% The neural code used in \subref{fig:b4-1x20tp4ma}--\subref{fig:b4-1x20tp1} is a spike count code, whilst in \subref{fig:b4-5x4tp4}, \subref{fig:b4-5x4tp1} it is a spike timing code where the \unit[20]{ms} window was subdivided into 5 bins each of \unit[4]{ms}.
-% In \subref{fig:b4-1x20tp4ma}, \subref{fig:b4-1x20tp4}, and \subref{fig:b4-5x4tp4}, the spike-train is taken from the test presentation part of the trial;
-% for \subref{fig:b4-1x20tp1ma}, \subref{fig:b4-1x20tp1}, and \subref{fig:b4-5x4tp1}, the spike-train is taken from spontaneous pre-stimulus activity.
-% In \subref{fig:b4-1x20tp4ma} and \subref{fig:b4-1x20tp1ma} no attempt was made to remove the monitor artifact from the raw data, whilst in the rest of the panels the data was modified to counter this as described in \ref{sec:ma}.
-% \subref{fig:b4-1x20tp4ma}
-% \subref{fig:b4-1x20tp1ma}
-% \subref{fig:b4-1x20tp4}
-% \subref{fig:b4-1x20tp1}
-% \subref{fig:b4-5x4tp4}
-% \subref{fig:b4-5x4tp1}
+Panels \ref{fig:b4-1x20tp4}--\ref{fig:b4-5x4tp1} are the same as for Fig.~\ref{fig:b1-trialwise}.
+% The neural code used in \ref{fig:b4-1x20tp4ma}--\ref{fig:b4-1x20tp1} is a spike count code, whilst in \ref{fig:b4-5x4tp4}, \ref{fig:b4-5x4tp1} it is a spike timing code where the \unit[20]{ms} window was subdivided into 5 bins each of \unit[4]{ms}.
+% In \ref{fig:b4-1x20tp4ma}, \ref{fig:b4-1x20tp4}, and \ref{fig:b4-5x4tp4}, the spike-train is taken from the test presentation part of the trial;
+% for \ref{fig:b4-1x20tp1ma}, \ref{fig:b4-1x20tp1}, and \ref{fig:b4-5x4tp1}, the spike-train is taken from spontaneous pre-stimulus activity.
+% In \ref{fig:b4-1x20tp4ma} and \ref{fig:b4-1x20tp1ma} no attempt was made to remove the monitor artifact from the raw data, whilst in the rest of the panels the data was modified to counter this as described in \ref{sec:ma}.
+% \ref{fig:b4-1x20tp4ma}
+% \ref{fig:b4-1x20tp1ma}
+% \ref{fig:b4-1x20tp4}
+% \ref{fig:b4-1x20tp1}
+% \ref{fig:b4-5x4tp4}
+% \ref{fig:b4-5x4tp1}
 }
     \label{fig:b4-trialwise}
 \end{figure}
@@ -821,17 +835,17 @@ Panels \subref{fig:b4-1x20tp4}--\subref{fig:b4-5x4tp1} are the same as for Fig.~
     \end{subfigure}
     \caption{M2 V4: Mutual information between the test stimulus and \unit[20]{ms} of spiking activity, averaged across 20 channels.
 The PT bias correction method was used in all estimates of the information.
-Panels \subref{fig:j4-1x20tp4}--\subref{fig:j4-5x4tp1} are the same as for Fig.~\ref{fig:b1-trialwise}.
-% The neural code used in \subref{fig:j4-1x20tp4ma}--\subref{fig:j4-1x20tp1} is a spike count code, whilst in \subref{fig:j4-5x4tp4}, \subref{fig:j4-5x4tp1} it is a spike timing code where the \unit[20]{ms} window was subdivided into 5 bins each of \unit[4]{ms}.
-% In \subref{fig:j4-1x20tp4ma}, \subref{fig:j4-1x20tp4}, and \subref{fig:j4-5x4tp4}, the spike-train is taken from the test presentation part of the trial;
-% for \subref{fig:j4-1x20tp1ma}, \subref{fig:j4-1x20tp1}, and \subref{fig:j4-5x4tp1}, the spike-train is taken from spontaneous pre-stimulus activity.
-% In \subref{fig:j4-1x20tp4ma} and \subref{fig:j4-1x20tp1ma} no attempt was made to remove the monitor artifact from the raw data, whilst in the rest of the panels the data was modified to counter this as described in \ref{sec:ma}.
-% \subref{fig:j4-1x20tp4ma}
-% \subref{fig:j4-1x20tp1ma}
-% \subref{fig:j4-1x20tp4}
-% \subref{fig:j4-1x20tp1}
-% \subref{fig:j4-5x4tp4}
-% \subref{fig:j4-5x4tp1}
+Panels \ref{fig:j4-1x20tp4}--\ref{fig:j4-5x4tp1} are the same as for Fig.~\ref{fig:b1-trialwise}.
+% The neural code used in \ref{fig:j4-1x20tp4ma}--\ref{fig:j4-1x20tp1} is a spike count code, whilst in \ref{fig:j4-5x4tp4}, \ref{fig:j4-5x4tp1} it is a spike timing code where the \unit[20]{ms} window was subdivided into 5 bins each of \unit[4]{ms}.
+% In \ref{fig:j4-1x20tp4ma}, \ref{fig:j4-1x20tp4}, and \ref{fig:j4-5x4tp4}, the spike-train is taken from the test presentation part of the trial;
+% for \ref{fig:j4-1x20tp1ma}, \ref{fig:j4-1x20tp1}, and \ref{fig:j4-5x4tp1}, the spike-train is taken from spontaneous pre-stimulus activity.
+% In \ref{fig:j4-1x20tp4ma} and \ref{fig:j4-1x20tp1ma} no attempt was made to remove the monitor artifact from the raw data, whilst in the rest of the panels the data was modified to counter this as described in \ref{sec:ma}.
+% \ref{fig:j4-1x20tp4ma}
+% \ref{fig:j4-1x20tp1ma}
+% \ref{fig:j4-1x20tp4}
+% \ref{fig:j4-1x20tp1}
+% \ref{fig:j4-5x4tp4}
+% \ref{fig:j4-5x4tp1}
 }
     \label{fig:j4-trialwise}
 \end{figure}
@@ -901,7 +915,7 @@ Unsurprisingly, there is more information when considering the coarsely distinct
 In the top panels, the six contrasts included are \{5, 15, 22, 40, 50, 90\}\%; bottom panels \{22, 25, 28, 32, 35, 40\}\%. An average of 100 trials per stimulus is used in each of these.
 Left panels are for M1, right are M2.
 In each case, mutual information between the six test stimuli and \unit[20]{ms} of spiking activity was measured using a spike count code, and bias corrected using the PT method.
-% Panels \subref{fig:b1-1x20cc} and \subref{fig:b1-1x20fc} are for M1, \subref{fig:b1-1x20cc} and \subref{fig:b1-1x20fc} for M2.
+% Panels \ref{fig:b1-1x20cc} and \ref{fig:b1-1x20fc} are for M1, \ref{fig:b1-1x20cc} and \ref{fig:b1-1x20fc} for M2.
 }
     \label{fig:v1-fvc}
 \end{figure}
@@ -950,7 +964,7 @@ In each case, mutual information between the six test stimuli and \unit[20]{ms} 
 In the top panels, the six contrasts included are \{10, 15, 20, 40, 50, 60\}\%; bottom panels \{27, 28, 29, 31, 32, 33\}\%. An average of 100 trials per stimulus is used in each of these.
 Left panels are for M1, right are M2.
 In each case, mutual information between the six test stimuli and \unit[20]{ms} of spiking activity was measured using a spike count code, and bias corrected using the PT method.
-% Panels \subref{fig:b1-1x20cc} and \subref{fig:b1-1x20fc} are for M1, \subref{fig:b1-1x20cc} and \subref{fig:b1-1x20fc} for M2.
+% Panels \ref{fig:b1-1x20cc} and \ref{fig:b1-1x20fc} are for M1, \ref{fig:b1-1x20cc} and \ref{fig:b1-1x20fc} for M2.
 }
     \label{fig:v4-fvc}
 \end{figure}
@@ -1033,7 +1047,7 @@ Top panels: all contrasts, \{10, 15, 20, 25, 27, 28, 29, 31, 32, 33, 35, 40, 50,
 Centre panels: \{5, 15, 22, 40, 50, 90\}\%.
 Bottom panels: \{22, 25, 28, 32, 35, 40\}\%.
 An average of 100 trials per stimulus is used in the analysis for each.
-% Panels \subref{fig:b1-1x20cc} and \subref{fig:b1-1x20fc} are for M1, \subref{fig:b1-1x20cc} and \subref{fig:b1-1x20fc} for M2.
+% Panels \ref{fig:b1-1x20cc} and \ref{fig:b1-1x20fc} are for M1, \ref{fig:b1-1x20cc} and \ref{fig:b1-1x20fc} for M2.
 }
     \label{fig:v1-dif}
 \end{figure}
@@ -1105,7 +1119,7 @@ Top panels: all contrasts, \{5, 10, 15, 20, 22, 25, 28, 32, 35, 40, 45, 50, 60, 
 Centre panels: \{10, 15, 20, 40, 50, 60\}\%.
 Bottom panels: \{27, 28, 29, 31, 32, 33\}\%.
 An average of 100 trials per stimulus is used in the analysis for each.
-% Panels \subref{fig:b1-1x20cc} and \subref{fig:b1-1x20fc} are for M1, \subref{fig:b1-1x20cc} and \subref{fig:b1-1x20fc} for M2.
+% Panels \ref{fig:b1-1x20cc} and \ref{fig:b1-1x20fc} are for M1, \ref{fig:b1-1x20cc} and \ref{fig:b1-1x20fc} for M2.
 }
     \label{fig:v4-dif}
 \end{figure}
