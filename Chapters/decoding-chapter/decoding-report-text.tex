@@ -119,79 +119,79 @@ Fig.~\ref{fig:dec_nbest} indicates how the performance of the decoder improves a
 
 NB: the order in which channels were added in Fig.~\ref{fig:dec_nbest} is not the same ordering as they are shown in Fig.~\ref{fig:dec_singles}.
 
-\begin{figure}[htbp]
-    \begin{subfigure}[b]{0.5\linewidth}
-        \centering
-        \caption{}
-        \label{fig:dec_singles}
-        \includegraphics[width=\linewidth]{%
-./figures/ncl_decoding/2FC_singles.eps}
-    \end{subfigure}
-    ~~
-    \begin{subfigure}[b]{0.5\linewidth}
-        \centering
-        \caption{}
-        \label{fig:dec_nbest}
-        \includegraphics[width=\linewidth]{%
-./figures/ncl_decoding/2FC_nbest_all.eps}
-    \end{subfigure}
-    \caption{
-\protect\subref{fig:dec_singles}: Distribution of decoder performance based on spike rate for individual channels, sorted by performance.
-\protect\subref{fig:dec_nbest}: Decoding performance versus number of channels included in spiking data. Channels were added one at a time, chosen so they maximise the decoder performance for that number of channels whilst keeping all the channels which had come before.
-}
-    \label{fig:dec_n}
-\end{figure}
+% % \begin{figure}[htbp]
+% %     \begin{subfigure}[b]{0.5\linewidth}
+% %         \centering
+% %         \caption{}
+% %         \label{fig:dec_singles}
+% %         \includegraphics[width=\linewidth]{%
+% % ./figures/ncl_decoding/2FC_singles.eps}
+% %     \end{subfigure}
+% %     ~~
+% %     \begin{subfigure}[b]{0.5\linewidth}
+% %         \centering
+% %         \caption{}
+% %         \label{fig:dec_nbest}
+% %         \includegraphics[width=\linewidth]{%
+% % ./figures/ncl_decoding/2FC_nbest_all.eps}
+% %     \end{subfigure}
+% %     \caption{
+% % \protect\subref{fig:dec_singles}: Distribution of decoder performance based on spike rate for individual channels, sorted by performance.
+% % \protect\subref{fig:dec_nbest}: Decoding performance versus number of channels included in spiking data. Channels were added one at a time, chosen so they maximise the decoder performance for that number of channels whilst keeping all the channels which had come before.
+% % }
+% %     \label{fig:dec_n}
+% % \end{figure}
 
 For each of the datasets, the performance decreases as the last 3 channels are added (Fig.~\ref{fig:dec_nbest}). I speculate that this is because these channels only contain redundant information, and the increase in dimensionality decreases the quality of the classifier selected from the finite training data available.
 
 
-\begin{figure}[htbp]
-    \begin{subfigure}[b]{0.5\linewidth}
-        \centering
-        \caption{}
-        \label{fig:dec_b4_allp}
-	\includegraphics[width=\linewidth]{./figures/ncl_decoding/perf_v4_blanco.eps}
-    \end{subfigure}
-    ~~
-    \begin{subfigure}[b]{0.5\linewidth}
-        \centering
-        \caption{}
-        \label{fig:dec_j4_allp}
-	\includegraphics[width=\linewidth]{./figures/ncl_decoding/perf_v4_jack.eps}
-    \end{subfigure}
-    \caption{%
-    Decoding analysis for V4. Performance of behavioural and decoding predictors by session, averaged across all conditions.
-    Left panels: Blanco. Right: Jack.
-	Along the x-axis, `Session' is the animal's unique session ID, which increments by one for every day of training.
-    On the y-axis, `proportion correct' is the proportion of trials for which the response is the same as the target.
-    This is presented for behavioural performance (black), decoder performance (blue), and decoder performance when trials are shuffled, destroying noise correlations (red; see text).
-}
-    \label{fig:dec_all_v4}
-\end{figure}
+% % \begin{figure}[htbp]
+% %     \begin{subfigure}[b]{0.5\linewidth}
+% %         \centering
+% %         \caption{}
+% %         \label{fig:dec_b4_allp}
+% % 	\includegraphics[width=\linewidth]{./figures/ncl_decoding/perf_v4_blanco.eps}
+% %     \end{subfigure}
+% %     ~~
+% %     \begin{subfigure}[b]{0.5\linewidth}
+% %         \centering
+% %         \caption{}
+% %         \label{fig:dec_j4_allp}
+% % 	\includegraphics[width=\linewidth]{./figures/ncl_decoding/perf_v4_jack.eps}
+% %     \end{subfigure}
+% %     \caption{%
+% %     Decoding analysis for V4. Performance of behavioural and decoding predictors by session, averaged across all conditions.
+% %     Left panels: Blanco. Right: Jack.
+% % 	Along the x-axis, `Session' is the animal's unique session ID, which increments by one for every day of training.
+% %     On the y-axis, `proportion correct' is the proportion of trials for which the response is the same as the target.
+% %     This is presented for behavioural performance (black), decoder performance (blue), and decoder performance when trials are shuffled, destroying noise correlations (red; see text).
+% % }
+% %     \label{fig:dec_all_v4}
+% % \end{figure}
 
-\begin{figure}[htbp]
-    \begin{subfigure}[b]{0.5\linewidth}
-        \centering
-        \caption{}
-        \label{fig:dec_b1_allp}
-	\includegraphics[width=\linewidth]{./figures/ncl_decoding/perf_v1_blanco.eps}
-    \end{subfigure}
-    ~~
-    \begin{subfigure}[b]{0.5\linewidth}
-        \centering
-        \caption{}
-        \label{fig:dec_j1_allp}
-	\includegraphics[width=\linewidth]{./figures/ncl_decoding/perf_v1_jack.eps}
-    \end{subfigure}
-    \caption{%
-    Decoding analysis for V1. Performance of behavioural and decoding predictors by session, averaged across all conditions.
-    Left panels: Blanco. Right: Jack.
-	Along the x-axis, `Session' is the animal's unique session ID, which increments by one for every day of training.
-    On the y-axis, `proportion correct' is the proportion of trials for which the response is the same as the target.
-    This is presented for behavioural performance (black), decoder performance (blue), and decoder performance when trials are shuffled, destroying noise correlations (red; see text).
-}
-    \label{fig:dec_all_v1}
-\end{figure}
+% % \begin{figure}[htbp]
+% %     \begin{subfigure}[b]{0.5\linewidth}
+% %         \centering
+% %         \caption{}
+% %         \label{fig:dec_b1_allp}
+% % 	\includegraphics[width=\linewidth]{./figures/ncl_decoding/perf_v1_blanco.eps}
+% %     \end{subfigure}
+% %     ~~
+% %     \begin{subfigure}[b]{0.5\linewidth}
+% %         \centering
+% %         \caption{}
+% %         \label{fig:dec_j1_allp}
+% % 	\includegraphics[width=\linewidth]{./figures/ncl_decoding/perf_v1_jack.eps}
+% %     \end{subfigure}
+% %     \caption{%
+% %     Decoding analysis for V1. Performance of behavioural and decoding predictors by session, averaged across all conditions.
+% %     Left panels: Blanco. Right: Jack.
+% % 	Along the x-axis, `Session' is the animal's unique session ID, which increments by one for every day of training.
+% %     On the y-axis, `proportion correct' is the proportion of trials for which the response is the same as the target.
+% %     This is presented for behavioural performance (black), decoder performance (blue), and decoder performance when trials are shuffled, destroying noise correlations (red; see text).
+% % }
+% %     \label{fig:dec_all_v1}
+% % \end{figure}
 
 
 
@@ -206,53 +206,53 @@ For Jack V1, the benifit from shuffling seems to be reduced with training; the s
 % \marginnote{It might well be better to plot, for each area, the performances for both animals on the same plot and the expected vs observed behavioural agreement for both animals on a seperate plot.}
 
 
-\begin{figure}[htbp]
-    \begin{subfigure}[b]{0.5\linewidth}
-        \centering
-        \caption{}
-        \label{fig:decag_b4_allp}
-	\includegraphics[width=\linewidth]{./figures/ncl_decoding/agree_v4_blanco.eps}
-    \end{subfigure}
-    ~~
-    \begin{subfigure}[b]{0.5\linewidth}
-        \centering
-        \caption{}
-        \label{fig:decag_j4_allp}
-	\includegraphics[width=\linewidth]{./figures/ncl_decoding/agree_v4_jack.eps}
-    \end{subfigure}
-    \caption{%
-    Decoding analysis for V4. Trial-to-trial agreement between behavioural and decoding predictors.
-    Left panels: Blanco. Right: Jack.
-	Along the x-axis, `Session' is the animal's unique session ID, which increments by one for every day of training.
-    On the y-axis is the proportion of trials for which the response is the same as the behavioural response.
-    The agreement between behaviour and decoding (unshuffled only) is presented alongside the null hypothesis of completely independent binomial distributions. The dashed line indicates the 95\% confidence interval of the null hypothesis.
-}
-    \label{fig:decag_all_v4}
-\end{figure}
+% % \begin{figure}[htbp]
+% %     \begin{subfigure}[b]{0.5\linewidth}
+% %         \centering
+% %         \caption{}
+% %         \label{fig:decag_b4_allp}
+% % 	\includegraphics[width=\linewidth]{./figures/ncl_decoding/agree_v4_blanco.eps}
+% %     \end{subfigure}
+% %     ~~
+% %     \begin{subfigure}[b]{0.5\linewidth}
+% %         \centering
+% %         \caption{}
+% %         \label{fig:decag_j4_allp}
+% % 	\includegraphics[width=\linewidth]{./figures/ncl_decoding/agree_v4_jack.eps}
+% %     \end{subfigure}
+% %     \caption{%
+% %     Decoding analysis for V4. Trial-to-trial agreement between behavioural and decoding predictors.
+% %     Left panels: Blanco. Right: Jack.
+% % 	Along the x-axis, `Session' is the animal's unique session ID, which increments by one for every day of training.
+% %     On the y-axis is the proportion of trials for which the response is the same as the behavioural response.
+% %     The agreement between behaviour and decoding (unshuffled only) is presented alongside the null hypothesis of completely independent binomial distributions. The dashed line indicates the 95\% confidence interval of the null hypothesis.
+% % }
+% %     \label{fig:decag_all_v4}
+% % \end{figure}
 
-\begin{figure}[htbp]
-    \begin{subfigure}[b]{0.5\linewidth}
-        \centering
-        \caption{}
-        \label{fig:decag_b1_allp}
-	\includegraphics[width=\linewidth]{./figures/ncl_decoding/agree_v1_blanco.eps}
-    \end{subfigure}
-    ~~
-    \begin{subfigure}[b]{0.5\linewidth}
-        \centering
-        \caption{}
-        \label{fig:decag_j1_allp}
-	\includegraphics[width=\linewidth]{./figures/ncl_decoding/agree_v1_jack.eps}
-    \end{subfigure}
-    \caption{%
-    Decoding analysis for V1. Trial-to-trial agreement between behavioural and decoding predictors.
-    Left panels: Blanco. Right: Jack.
-	Along the x-axis, `Session' is the animal's unique session ID, which increments by one for every day of training.
-    On the y-axis is the proportion of trials for which the response is the same as the behavioural response.
-    The agreement between behaviour and decoding (unshuffled only) is presented alongside the null hypothesis of completely independent binomial distributions. The dashed line indicates the 95\% confidence interval of the null hypothesis.
-}
-    \label{fig:decag_all_v1}
-\end{figure}
+% % \begin{figure}[htbp]
+% %     \begin{subfigure}[b]{0.5\linewidth}
+% %         \centering
+% %         \caption{}
+% %         \label{fig:decag_b1_allp}
+% % 	\includegraphics[width=\linewidth]{./figures/ncl_decoding/agree_v1_blanco.eps}
+% %     \end{subfigure}
+% %     ~~
+% %     \begin{subfigure}[b]{0.5\linewidth}
+% %         \centering
+% %         \caption{}
+% %         \label{fig:decag_j1_allp}
+% % 	\includegraphics[width=\linewidth]{./figures/ncl_decoding/agree_v1_jack.eps}
+% %     \end{subfigure}
+% %     \caption{%
+% %     Decoding analysis for V1. Trial-to-trial agreement between behavioural and decoding predictors.
+% %     Left panels: Blanco. Right: Jack.
+% % 	Along the x-axis, `Session' is the animal's unique session ID, which increments by one for every day of training.
+% %     On the y-axis is the proportion of trials for which the response is the same as the behavioural response.
+% %     The agreement between behaviour and decoding (unshuffled only) is presented alongside the null hypothesis of completely independent binomial distributions. The dashed line indicates the 95\% confidence interval of the null hypothesis.
+% % }
+% %     \label{fig:decag_all_v1}
+% % \end{figure}
 
 
 With regards to the behavioural and decoding response agreement, we find there is no consistent significant deviation from the null hypothesis for V1 data. There are a couple of sessions where unshuffled agreement is above the boundary for significance for each of the animals, but this is not a consistent effect. The agreement between shuffled decoding and behaviour does not deviate from the corresponding null hypothesis. This shows that the shuffled is higher than the unshuffled decoding agreement only because the shuffled decoder is more accurate at matching the target response.
@@ -276,36 +276,36 @@ Comparing Figs.~\ref{fig:dec_b4_6easy_a} and \ref{fig:dec_j4_6easy_a} with Figs.
 For both V1 and V4, the average noise correlation between pairs of channels seem to remain stable for Blanco and decrease by a small margin for Jack (see Fig.~\ref{fig:noise_r_all}). The increase in noise correlation for Blanco V1 for the last two sessions (session numbers 358 and 359) is due to a decline in data quality and an increase in noise from artificial sources. There is a large amount of variance in the noise correlations for different pairs, so the decline in mean correlation for Jack does not seem very large considering the amount of variance.
 
 
-\begin{figure}[htb]
-    \begin{subfigure}[b]{0.5\linewidth}
-        \centering
-        \caption{}
-        \label{fig:noise_r_v1_all}
-%         \includegraphics[width=\linewidth]{%
-% ./rcoef_2013-04-09/rcoef_sess_meanpc_2013-04-09/png/rcoef_sess_meanpc_v1_both.png}
-%        \includegraphics[width=\linewidth]{./figures/ncl_decoding/rcoef_sess_meanpc_v1_both}
-        \includegraphics[width=\linewidth]{./figures/ncl_decoding/rcoef_sess_meanpc_v1_both.pdf}
-    \end{subfigure}
-    ~~
-    \begin{subfigure}[b]{0.5\linewidth}
-        \centering
-        \caption{}
-        \label{fig:noise_r_v4_all}
-%         \includegraphics[width=\linewidth]{%
-% ./rcoef_2013-04-09/rcoef_sess_meanpc_2013-04-09/png/rcoef_sess_meanpc_v4_both.png}
-        \includegraphics[width=\linewidth]{./figures/ncl_decoding/rcoef_sess_meanpc_v4_both.pdf}
-    \end{subfigure}
-    \caption{Change in noise correlations with learning.
-\protect\subref{fig:noise_r_v1_all}:~V1.
-\protect\subref{fig:noise_r_v4_all}:~V4.
-Blue:~Blanco.
-Red:~Jack.
-On the x-axis, the number of sessions since the animal began training in the part of the visual field retinotopic to the recording site is shown.
-Line: pearson r coefficient, averaged across the possible pairings between channels for each of the 14 trial conditions.
-Shaded region indicates one standard deviation from mean.
-}
-    \label{fig:noise_r_all}
-\end{figure}
+% % \begin{figure}[htb]
+% %     \begin{subfigure}[b]{0.5\linewidth}
+% %         \centering
+% %         \caption{}
+% %         \label{fig:noise_r_v1_all}
+% % %         \includegraphics[width=\linewidth]{%
+% % % ./rcoef_2013-04-09/rcoef_sess_meanpc_2013-04-09/png/rcoef_sess_meanpc_v1_both.png}
+% % %        \includegraphics[width=\linewidth]{./figures/ncl_decoding/rcoef_sess_meanpc_v1_both}
+% %         \includegraphics[width=\linewidth]{./figures/ncl_decoding/rcoef_sess_meanpc_v1_both.pdf}
+% %     \end{subfigure}
+% %     ~~
+% %     \begin{subfigure}[b]{0.5\linewidth}
+% %         \centering
+% %         \caption{}
+% %         \label{fig:noise_r_v4_all}
+% % %         \includegraphics[width=\linewidth]{%
+% % % ./rcoef_2013-04-09/rcoef_sess_meanpc_2013-04-09/png/rcoef_sess_meanpc_v4_both.png}
+% %         \includegraphics[width=\linewidth]{./figures/ncl_decoding/rcoef_sess_meanpc_v4_both.pdf}
+% %     \end{subfigure}
+% %     \caption{Change in noise correlations with learning.
+% % \protect\subref{fig:noise_r_v1_all}:~V1.
+% % \protect\subref{fig:noise_r_v4_all}:~V4.
+% % Blue:~Blanco.
+% % Red:~Jack.
+% % On the x-axis, the number of sessions since the animal began training in the part of the visual field retinotopic to the recording site is shown.
+% % Line: pearson r coefficient, averaged across the possible pairings between channels for each of the 14 trial conditions.
+% % Shaded region indicates one standard deviation from mean.
+% % }
+% %     \label{fig:noise_r_all}
+% % \end{figure}
 % \marginnote{In Fig.~\ref{fig:noise_r_all} and \ref{fig:noise_r_hist}, the text is too small due to saving the figure with transparencies in PNG format; if I could get the SVG to load correctly, the text would be sized correctly.}
 
 Fig.~\ref{fig:noise_r_hist} is intended to reproduce Figure 2C from \citet{Gu2011}, with the distribution of $r$ shown across pairs for one pre-training and one post-training session. These sessions were chosen from a restricted set of sessions which did not have problems with artificially high correlations from the motion artifact, and selected from this set such that they were as close to the start and end of the training period as possible. However, this selection was made before the set of trials was redacted as mentioned in \S\ref{sec:dec-meth-noise}, so the sessions selected could possibly be made further apart.
@@ -314,51 +314,51 @@ The data presented in Fig.~\ref{fig:noise_r_hist} shows that the distribution of
 
 Cherry-picking is a significant problem here, as there is sizable day-to-day variation in the noise correlation across the pairs. Choosing a session where there is more noise correlation than neighbouring sessions at the beginning of training and less at the end of training will give the impression that there is a more significant decrease in noise correlations. More effort should be made to counter inadvertently cherry-picking in the session selection, as Fig.~\ref{fig:noise_r_j1_pmc} indicates this may be one reason for such a sizable decrease in noise correlation for Jack V1.
 
-\begin{figure}[htbp]
-    \begin{subfigure}[b]{0.5\linewidth}
-        \centering
-        \caption{}
-        \label{fig:noise_r_b1_hist}
-%         \includegraphics[width=\linewidth]{%
-% ./rcoef_2013-03-25/rcoef_sess_histallover_2013-03-25/png/rcoef_sess_histallover_v1_blanco.png}
-        \includegraphics[width=\linewidth]{./figures/ncl_decoding/rcoef_sess_histallover_v1_blanco.pdf}
-    \end{subfigure}
-    ~~
-    \begin{subfigure}[b]{0.5\linewidth}
-        \centering
-        \caption{}
-        \label{fig:noise_r_j1_hist}
-%         \includegraphics[width=\linewidth]{%
-% ./rcoef_2013-03-25/rcoef_sess_histallover_2013-03-25/png/rcoef_sess_histallover_v1_jack.png}
-        \includegraphics[width=\linewidth]{./figures/ncl_decoding/rcoef_sess_histallover_v1_jack.pdf}
-    \end{subfigure}
-    \\
-    \begin{subfigure}[b]{0.5\linewidth}
-        \centering
-        \caption{}
-        \label{fig:noise_r_b4_hist}
-%         \includegraphics[width=\linewidth]{%
-% ./rcoef_2013-03-25/rcoef_sess_histallover_2013-03-25/png/rcoef_sess_histallover_v4_blanco.png}
-        \includegraphics[width=\linewidth]{./figures/ncl_decoding/rcoef_sess_histallover_v4_blanco.pdf}
-    \end{subfigure}
-    ~~
-    \begin{subfigure}[b]{0.5\linewidth}
-        \centering
-        \caption{}
-        \label{fig:noise_r_j4_hist}
-%         \includegraphics[width=\linewidth]{%
-% ./rcoef_2013-03-25/rcoef_sess_histallover_2013-03-25/png/rcoef_sess_histallover_v4_jack.png}
-        \includegraphics[width=\linewidth]{./figures/ncl_decoding/rcoef_sess_histallover_v4_jack.pdf}
-    \end{subfigure}
-    \caption{Distribution of the noise correlations for the pairings across all conditions.
-Two sessions, one at the beginning of training (black) and one at the end of training (red) are shown for comparitive purposes.
-\protect\subref{fig:noise_r_b1_hist}: Blanco V1; sessions 343 and 354.
-\protect\subref{fig:noise_r_j1_hist}: Jack V1; sessions 51 and 71.
-\protect\subref{fig:noise_r_b4_hist}: Blanco V4; sessions 307 and 338.
-\protect\subref{fig:noise_r_j4_hist}: Jack V4; sessions 27 and 46.
-}
-    \label{fig:noise_r_hist}
-\end{figure}
+% % \begin{figure}[htbp]
+% %     \begin{subfigure}[b]{0.5\linewidth}
+% %         \centering
+% %         \caption{}
+% %         \label{fig:noise_r_b1_hist}
+% % %         \includegraphics[width=\linewidth]{%
+% % % ./rcoef_2013-03-25/rcoef_sess_histallover_2013-03-25/png/rcoef_sess_histallover_v1_blanco.png}
+% %         \includegraphics[width=\linewidth]{./figures/ncl_decoding/rcoef_sess_histallover_v1_blanco.pdf}
+% %     \end{subfigure}
+% %     ~~
+% %     \begin{subfigure}[b]{0.5\linewidth}
+% %         \centering
+% %         \caption{}
+% %         \label{fig:noise_r_j1_hist}
+% % %         \includegraphics[width=\linewidth]{%
+% % % ./rcoef_2013-03-25/rcoef_sess_histallover_2013-03-25/png/rcoef_sess_histallover_v1_jack.png}
+% %         \includegraphics[width=\linewidth]{./figures/ncl_decoding/rcoef_sess_histallover_v1_jack.pdf}
+% %     \end{subfigure}
+% %     \\
+% %     \begin{subfigure}[b]{0.5\linewidth}
+% %         \centering
+% %         \caption{}
+% %         \label{fig:noise_r_b4_hist}
+% % %         \includegraphics[width=\linewidth]{%
+% % % ./rcoef_2013-03-25/rcoef_sess_histallover_2013-03-25/png/rcoef_sess_histallover_v4_blanco.png}
+% %         \includegraphics[width=\linewidth]{./figures/ncl_decoding/rcoef_sess_histallover_v4_blanco.pdf}
+% %     \end{subfigure}
+% %     ~~
+% %     \begin{subfigure}[b]{0.5\linewidth}
+% %         \centering
+% %         \caption{}
+% %         \label{fig:noise_r_j4_hist}
+% % %         \includegraphics[width=\linewidth]{%
+% % % ./rcoef_2013-03-25/rcoef_sess_histallover_2013-03-25/png/rcoef_sess_histallover_v4_jack.png}
+% %         \includegraphics[width=\linewidth]{./figures/ncl_decoding/rcoef_sess_histallover_v4_jack.pdf}
+% %     \end{subfigure}
+% %     \caption{Distribution of the noise correlations for the pairings across all conditions.
+% % Two sessions, one at the beginning of training (black) and one at the end of training (red) are shown for comparitive purposes.
+% % \protect\subref{fig:noise_r_b1_hist}: Blanco V1; sessions 343 and 354.
+% % \protect\subref{fig:noise_r_j1_hist}: Jack V1; sessions 51 and 71.
+% % \protect\subref{fig:noise_r_b4_hist}: Blanco V4; sessions 307 and 338.
+% % \protect\subref{fig:noise_r_j4_hist}: Jack V4; sessions 27 and 46.
+% % }
+% %     \label{fig:noise_r_hist}
+% % \end{figure}
 
 
 % Fig.~\ref{fig:noise_r_pmc} indicates that noise correlations are correlated for pairs across sessions.
@@ -366,48 +366,48 @@ A pairs of channels which have higher noise correlations in one session are like
 
 This figure provides an easy way of visually inspecting whether noise correlations are conserved, but does not allow us to quantify this.
 
-\begin{figure}[htbp]
-    \begin{subfigure}[b]{0.5\linewidth}
-        \centering
-        \caption{}
-        \label{fig:noise_r_b1_pmc}
-        \includegraphics[width=\linewidth]{%
-./figures/ncl_decoding/rcoef_sess_pairsmeanc_v1_blanco.eps}
-    \end{subfigure}
-    ~~
-    \begin{subfigure}[b]{0.5\linewidth}
-        \centering
-        \caption{}
-        \label{fig:noise_r_j1_pmc}
-        \includegraphics[width=\linewidth]{%
-./figures/ncl_decoding/rcoef_sess_pairsmeanc_v1_jack.eps}
-    \end{subfigure}
-    \\
-    \begin{subfigure}[b]{0.5\linewidth}
-        \centering
-        \caption{}
-        \label{fig:noise_r_b4_pmc}
-        \includegraphics[width=\linewidth]{%
-./figures/ncl_decoding/rcoef_sess_pairsmeanc_v4_blanco.eps}
-    \end{subfigure}
-    ~~
-    \begin{subfigure}[b]{0.5\linewidth}
-        \centering
-        \caption{}
-        \label{fig:noise_r_j4_pmc}
-        \includegraphics[width=\linewidth]{%
-./figures/ncl_decoding/rcoef_sess_pairsmeanc_v4_jack.eps}
-    \end{subfigure}
-    \caption{Noise correlations for each pair, meaned across the 14 conditions.
-\protect\subref{fig:noise_r_b1_pmc}: Blanco V1.
-\protect\subref{fig:noise_r_j1_pmc}: Jack V1.
-\protect\subref{fig:noise_r_b4_pmc}: Blanco V4.
-\protect\subref{fig:noise_r_j4_pmc}: Jack V4.
-Colour is assigned by sorting the pairs into ascending order for one of the sessions near the middle of the training period.
-The degree of session-to-session correlation of the noise correlation can hence be inferred by visual inspection.
-}
-    \label{fig:noise_r_pmc}
-\end{figure}
+% % \begin{figure}[htbp]
+% %     \begin{subfigure}[b]{0.5\linewidth}
+% %         \centering
+% %         \caption{}
+% %         \label{fig:noise_r_b1_pmc}
+% %         \includegraphics[width=\linewidth]{%
+% % ./figures/ncl_decoding/rcoef_sess_pairsmeanc_v1_blanco.eps}
+% %     \end{subfigure}
+% %     ~~
+% %     \begin{subfigure}[b]{0.5\linewidth}
+% %         \centering
+% %         \caption{}
+% %         \label{fig:noise_r_j1_pmc}
+% %         \includegraphics[width=\linewidth]{%
+% % ./figures/ncl_decoding/rcoef_sess_pairsmeanc_v1_jack.eps}
+% %     \end{subfigure}
+% %     \\
+% %     \begin{subfigure}[b]{0.5\linewidth}
+% %         \centering
+% %         \caption{}
+% %         \label{fig:noise_r_b4_pmc}
+% %         \includegraphics[width=\linewidth]{%
+% % ./figures/ncl_decoding/rcoef_sess_pairsmeanc_v4_blanco.eps}
+% %     \end{subfigure}
+% %     ~~
+% %     \begin{subfigure}[b]{0.5\linewidth}
+% %         \centering
+% %         \caption{}
+% %         \label{fig:noise_r_j4_pmc}
+% %         \includegraphics[width=\linewidth]{%
+% % ./figures/ncl_decoding/rcoef_sess_pairsmeanc_v4_jack.eps}
+% %     \end{subfigure}
+% %     \caption{Noise correlations for each pair, meaned across the 14 conditions.
+% % \protect\subref{fig:noise_r_b1_pmc}: Blanco V1.
+% % \protect\subref{fig:noise_r_j1_pmc}: Jack V1.
+% % \protect\subref{fig:noise_r_b4_pmc}: Blanco V4.
+% % \protect\subref{fig:noise_r_j4_pmc}: Jack V4.
+% % Colour is assigned by sorting the pairs into ascending order for one of the sessions near the middle of the training period.
+% % The degree of session-to-session correlation of the noise correlation can hence be inferred by visual inspection.
+% % }
+% %     \label{fig:noise_r_pmc}
+% % \end{figure}
 
 
 % ----------------------------------------------
@@ -424,5 +424,4 @@ However, these findings are not supported by the data from Blanco.
 % In addition to this, the increase in reponse agreement between our rate-based decoder and the animal's behavioural responses for Jack V4 (Fig.~\ref{fig:dec_j4_alla}) indicates the monkey is increasingly relying on the activity from the channels which were recorded from in V4 in order to make its decisions about the presented stimulus contrast.
 
 For both animals, from the data from V4 we find there is a statistically significant level of agreement between decoded and behavioural trial-to-trial responses after training but not before, which shows the neural activity in V4 and the behavioural resposes are correlated. This implies that the monkey becomes dependent on the activity of the population of neurons for which the recordings are representative. That the agreement is better without shuffling could be taken to mean the neural correlations are important in the determination of the animal's response, however shuffling does by its very nature destroy the correspondence between the trials given to the decoder and those experienced by the animal.
-
 
