@@ -2,18 +2,19 @@
 \section{Introduction}
 The cortical column is widely regarded as the fundamental processing unit of the neocortex (Mountcastle, 1957).
 Under this hypothesis, there is a common microcircuit spanning the depth of the cortex which is repeated across the cortical plane.
-As \ Tthe circuitry of the microcolumn is expected to have structural and functional similarities across the sensory modalities, therefore understanding this generic circuitry of the columnar computation will have far reaching impacts.
-However, despite some progress towards understanding knowing the different types of neurons in present in different layers [CITATION], and the distribution of their most prominent inter-connections [CITATION], and aa structural wiring diagram for the cortical microcircuit [CITATION], is still unknown.
+As the circuitry of the microcolumn is expected to have structural and functional similarities across the sensory modalities, therefore understanding this generic circuitry of the columnar computation will have far reaching impacts.
+However, despite some progress towards understanding knowing the different types of neurons in present in different layers [CITATION], and the distribution of their most prominent inter-connections [CITATION], and a structural wiring diagram for the cortical microcircuit [CITATION], is still unknown.
 Furthermore, the functional structure and computation of the microcircuit, which is to say the purpose of the processing in each cortical layer, is also still unknown.
 In this paper, we aim to elucidate the functional structure of the cortical layers in \ac{V1} by examining the information contained in population activity at the various layers using \acp{LFP}.
 
 \acp{LFP} are thought to reflect an integration of the membrane depolarisation in the neurons surrounding the electrode location.
 The \ac{LFP} captures changes within the dendritic trees of neighbouring neurons as well as the soma.
-The low frequency \ac{LFP} ({\textless} XXXX Hz) captures slower changes in the population activity, and reflects more of the dendritic level of processing, integrated over a larger region than the high frequency \ac{LFP} (Leski, Linden, Tetzlaff, Pettersen, \& Einevoll, 2013).
-The idea of isolated frequency bands conveying complementarySince early \ac{EEG} studies, it is has been hypothesized that different frequencies convey complementary information [CITATION] originates with \ac{EEG} studies, but and this has subsequently been extended to the \ac{LFP} [CITATION NEEDED].
+The low frequency \ac{LFP} (\unit[XXXX]{Hz}) captures slower changes in the population activity, and reflects more of the dendritic level of processing, integrated over a larger region than the high frequency \ac{LFP} (Leski, Linden, Tetzlaff, Pettersen, \& Einevoll, 2013).
+%The idea of isolated frequency bands conveying complementary
+Since early \ac{EEG} studies, it is has been hypothesized that different frequencies convey complementary information [CITATION] originates with \ac{EEG} studies, but and this has subsequently been extended to the \ac{LFP} [CITATION NEEDED].
 
 
-We previously found that in the macaque \ac{V1} there are two \ac{LFP} frequency bands, 1-8Hz and 60-100Hz, which encodecontaining independent information in the macaque \ac{V1} about natural stimuli (Belitski et al., 2008).
+We previously found that in the macaque \ac{V1} there are two \ac{LFP} frequency bands, \unit[1--8]{Hz} and \unit[60--100]{Hz}, which encode independent information in the macaque \ac{V1} about natural stimuli (Belitski et al., 2008).
 In this study we expand the previous study by studying information as a function of cortical depth, and identify one aspect of natural scenes which is encoded differently by the two cortical frequency bands.
 We hypothesised the two bands of information are generated through different cortical processes and originate at different locations in the cortex.
 In this study we expand the previous study by studying information as a function of cortical depth, and identify one aspect of natural scenes which is encoded differently by the two cortical frequency bands.
@@ -22,16 +23,16 @@ Recent work has shown stimulation in \ac{V1} induces gamma activity in \ac{V4} (
 %-------------------------------------------------------------------------------
 \section{Experimental Methods}
 \subsection{Ethics Statement}
-Data was collected from \ac{V1} of four healthy rhesus monkeys (Macaca mulatta; four males 8--11 kg; 10--12 years).
+Data was collected from \ac{V1} in four healthy rhesus monkeys (Macaca mulatta; four males \unit[8--11]{kg}; \unit[10--12]{years}).
 All the experimental procedures were approved by the local authorities (Regierungspr\"asidium, Baden-W\"urttemberg, T\"ubingen, Germany; Project Number KY4/09) and were in full compliance with the guidelines of the European Community (EUVD 86/609/EEC) and were in concordance with the recommendation of the Weatherall report for the care and use of non-human primates (Weatherall, 2006).
-The animals were socially (group-) housed in an enriched environment, under daily veterinarian care.
+The animals were group-housed in an enriched environment, under daily veterinarian care.
 Weight, food and water intake were carefully monitored on a daily basis.
 
 \subsection{Anesthesia for Neurophysiology Experiments}
 The anesthesia protocol for all the experimental procedures have been described previously (Logothetis, Guggenberger, Peled, \& Pauls, 1999; Logothetis, Pauls, Augath, Trinath, \& Oeltermann, 2001).
-Briefly, glycopyrrolate (0.01 mg{\textperiodcentered}kg{}-1) and ketamine (15 mg{\textperiodcentered}kg{}-1), were used previous to general anesthesia.
-Induction with fentanyl (3 mg{\textperiodcentered}kg{}-1), thiopental (5 mg.kg{}-1) and succinylcholine chloride (3 mg.kg{}-1), animals were intubated and ventilated using a Servo Ventilator 900C (Siemens, Germany) maintaining an end-tidal CO2 of 33-35 mm Hg and oxygen saturation above 95\%.
-The anesthesia was maintained with remifentanil (0.5--2 $\mu$g.kg{}-1min) and mivacurium chloride (2--6 mg.kg{}-1h) which ensured no eye movement during electrophygiological recordings.
+Briefly, glycopyrrolate (\unit[0.01]{mg\dot{}{kg}^{-1}}) and ketamine (\unit[15]{mg\dot{}{kg}^{-1}}), were used previous to general anesthesia.
+Induction with fentanyl (\unit[3]{mg\dot{}{kg}^{-1}}), thiopental (\unit[5]{mg\dot{}{kg}^{-1}}) and succinylcholine chloride (\unit[3]{mg\dot{}{kg}^{-1}}), animals were intubated and ventilated using a Servo Ventilator 900C (Siemens, Germany) maintaining an end-tidal CO2 of \unit[33--35]{mm Hg} and oxygen saturation above 95\%.
+The anesthesia was maintained with remifentanil (\unit[0.5--2]{$\mu$g\dot{}kg{}^{-1}\dot{}min}) and mivacurium chloride (2--6 mg.kg{}-1h) which ensured no eye movement during electrophygiological recordings.
 The anesthetics dosage were established by measuring stress hormones and were selected to ensure unaffected physiological response at normal catecholamine concentrations \ (Logothetis et al., 1999).
 In addition, it has been shown that using remifentanil has no significant effect on the neurovascular and neural activity of brain areas that do not belong to the pain matrix (Goense \& Logothetis, 2008; Zappe, Pfeuffer, Merkle, Logothetis, \& Goense, 2008).
 In particular, visual cortex does not bind remifentanil.
