@@ -7,7 +7,9 @@ This will be done by means of an information theoretic analysis of the experimen
 To begin, we will consider some background material to give the reader a feel for the field.
 
 Here we will consider the effect of noise correlations in \ac{V1} and \ac{V4} on the information contained within the firing rates across a population of 20--30 neurons and how this changes with perceptual learning.
-First we will consider how noise correlations between pairs of neurons changes with learning. Then we will apply a decoder to the spike rate data and investigate how the performance of the decoder changes with learning. We will also investigate how the noise correlations impact the decoder and whether this changes with learning.
+First we will consider how noise correlations between pairs of neurons changes with learning.
+Then we will apply a decoder to the spike rate data and investigate how the performance of the decoder changes with learning.
+We will also investigate how the noise correlations impact the decoder and whether this changes with learning.
 
 %------------------------------------------------------------------------------
 
@@ -15,10 +17,12 @@ First we will consider how noise correlations between pairs of neurons changes w
 \section{Hypotheses}
 
 In the course of the analysis, we will be testing several hypotheses.
-The most obvious of these is that we would expect the information contained in the population spiking activity to increases over time as perceptual learning occurs. This is likely to involve an increase in information for some of the individual neurons, but not necessarily all.
+The most obvious of these is that we would expect the information contained in the population spiking activity to increases over time as perceptual learning occurs.
+This is likely to involve an increase in information for some of the individual neurons, but not necessarily all.
 In line with previous experiments \cite{Raiguel2006}, I also expect to see more of a change in information for neurons in \ac{V4} than \ac{V1}, and also a greater change in the \ac{V4} neurons which are the most informative to begin with \cite{Raiguel2006}.
 In keeping with the reverse hierarchy model, learning should begin in \ac{V4} first before being propagated down to \ac{V1}, so one would expect to see distinct increases in the mutual information between the stimulus and \ac{V4} on a shorter timescale than between \ac{V1} and \ac{V4}.
 
-Since temporal coding, in particular response latency, has been found to be important for subtle contrast differences \cite{Reich2001,Arabzadeh2006}, I hypothesise that the amount of information in the temporal coding of the spiking data will have increased above and beyond any increase in the information contained in the firing rates alone. Furthermore, I expect to see that response latencies become more stimulus dependent, conveying an increasing amount of information about the stimulus contrast.
+Since temporal coding, in particular response latency, has been found to be important for subtle contrast differences \cite{Reich2001,Arabzadeh2006}, I hypothesise that the amount of information in the temporal coding of the spiking data will have increased above and beyond any increase in the information contained in the firing rates alone.
+Furthermore, I expect to see that response latencies become more stimulus dependent, conveying an increasing amount of information about the stimulus contrast.
 
 Furthermore, since these studies \cite{Reich2001,Arabzadeh2006} also found the information contained within firing rate alone was sufficient for gross discrimination of contrast, I hypothesise that information in the latency and temporal code will only increase significantly for test stimuli close in contrast to the sample stimulus (see the following section for an explanation of the experimental setup).
