@@ -759,7 +759,7 @@ I speculate that this is because these channels only contain redundant informati
 % %     \caption{%
 % %     Decoding analysis for \ac{V4}.
 % %     Performance of behavioural and decoding predictors by session, averaged across all conditions.
-% %     Left panels: Blanco. Right: Jack.
+% %     Left panels: \ac{M1}. Right: \ac{M2}.
 % % 	Along the x-axis, `Session' is the animal's unique session ID, which increments by one for every day of training.
 % %     On the y-axis, `proportion correct' is the proportion of trials for which the response is the same as the target.
 % %     This is presented for behavioural performance (black), decoder performance (blue), and decoder performance when trials are shuffled, destroying noise correlations (red; see text).
@@ -784,7 +784,7 @@ I speculate that this is because these channels only contain redundant informati
 % %     \caption{%
 % %     Decoding analysis for \ac{V1}.
 % %     Performance of behavioural and decoding predictors by session, averaged across all conditions.
-% %     Left panels: Blanco. Right: Jack.
+% %     Left panels: \ac{M1}. Right: \ac{M2}.
 % % 	Along the x-axis, `Session' is the animal's unique session ID, which increments by one for every day of training.
 % %     On the y-axis, `proportion correct' is the proportion of trials for which the response is the same as the target.
 % %     This is presented for behavioural performance (black), decoder performance (blue), and decoder performance when trials are shuffled, destroying noise correlations (red; see text).
@@ -794,17 +794,17 @@ I speculate that this is because these channels only contain redundant informati
 
 
 
-For Jack \ac{V4}, the trend in increase for behavioural performance is well matched by the change in performance of the decoder (Fig.~\ref{fig:dec_j4_allp}, blue and red lines).
-In contrast to this, for Blanco \ac{V4} we see the decoding performance is steady despite training, although it should be noted that the increase in behavioural performance was not so large for this animal.
+For \ac{M2} \ac{V4}, the trend in increase for behavioural performance is well matched by the change in performance of the decoder (Fig.~\ref{fig:dec_j4_allp}, blue and red lines).
+In contrast to this, for \ac{M1} \ac{V4} we see the decoding performance is steady despite training, although it should be noted that the increase in behavioural performance was not so large for this animal.
 
-For Jack \ac{V1}, there is a small gradual increase in decoder performance throughout training, though the increase does not match the timescales and rate of the increase in behavioural performance which is a much sharper transition.
-Results for Jack \ac{V1} could be interpreted as indicating that no further improvements can be obtained from changes in \ac{V1}, and the behavioural performance is limited by the performance of the decoder.
-For Blanco \ac{V1}, there is a decrease in decoder in performance despite the increase in behavioural performance (Fig.~\ref{fig:dec_b1_allp}, blue and red lines respectively).
+For \ac{M2} \ac{V1}, there is a small gradual increase in decoder performance throughout training, though the increase does not match the timescales and rate of the increase in behavioural performance which is a much sharper transition.
+Results for \ac{M2} \ac{V1} could be interpreted as indicating that no further improvements can be obtained from changes in \ac{V1}, and the behavioural performance is limited by the performance of the decoder.
+For \ac{M1} \ac{V1}, there is a decrease in decoder in performance despite the increase in behavioural performance (Fig.~\ref{fig:dec_b1_allp}, blue and red lines respectively).
 
 
-Shuffling the trials to destroy any noise correlations provides an improvement in performance for the data from Jack, indicating that noise correlations are detrimental to the successful decoding of stimuli.
-However, there is no significant difference in decoder performance before and after shuffling for Blanco datasets, which suggests noise correlations have no impact on decoding the contrast of stimuli using firing rate data from a population of neurons.
-For Jack \ac{V1}, the benifit from shuffling seems to be reduced with training; the shuffled decoding performance is reasonably steady throughout training whilst the decoder with noise correlations included increases in performance, closing the gap.
+Shuffling the trials to destroy any noise correlations provides an improvement in performance for the data from \ac{M2}, indicating that noise correlations are detrimental to the successful decoding of stimuli.
+However, there is no significant difference in decoder performance before and after shuffling for \ac{M1} datasets, which suggests noise correlations have no impact on decoding the contrast of stimuli using firing rate data from a population of neurons.
+For \ac{M2} \ac{V1}, the benifit from shuffling seems to be reduced with training; the shuffled decoding performance is reasonably steady throughout training whilst the decoder with noise correlations included increases in performance, closing the gap.
 
 % \marginnote{It might well be better to plot, for each area, the performances for both animals on the same plot and the expected vs observed behavioural agreement for both animals on a seperate plot.}
 
@@ -826,7 +826,7 @@ For Jack \ac{V1}, the benifit from shuffling seems to be reduced with training; 
 % %     \caption{%
 % %     Decoding analysis for \ac{V4}.
 % %     Trial-to-trial agreement between behavioural and decoding predictors.
-% %     Left panels: Blanco. Right: Jack.
+% %     Left panels: \ac{M1}. Right: \ac{M2}.
 % % 	Along the x-axis, `Session' is the animal's unique session ID, which increments by one for every day of training.
 % %     On the y-axis is the proportion of trials for which the response is the same as the behavioural response.
 % %     The agreement between behaviour and decoding (unshuffled only) is presented alongside the null hypothesis of completely independent binomial distributions.
@@ -852,7 +852,7 @@ For Jack \ac{V1}, the benifit from shuffling seems to be reduced with training; 
 % %     \caption{%
 % %     Decoding analysis for \ac{V1}.
 % %     Trial-to-trial agreement between behavioural and decoding predictors.
-% %     Left panels: Blanco. Right: Jack.
+% %     Left panels: \ac{M1}. Right: \ac{M2}.
 % % 	Along the x-axis, `Session' is the animal's unique session ID, which increments by one for every day of training.
 % %     On the y-axis is the proportion of trials for which the response is the same as the behavioural response.
 % %     The agreement between behaviour and decoding (unshuffled only) is presented alongside the null hypothesis of completely independent binomial distributions.
@@ -867,8 +867,8 @@ There are a couple of sessions where unshuffled agreement is above the boundary 
 The agreement between shuffled decoding and behaviour does not deviate from the corresponding null hypothesis.
 This shows that the shuffled is higher than the unshuffled decoding agreement only because the shuffled decoder is more accurate at matching the target response.
 
-For \ac{V4}, we see that the agreement does not deviate significantly from the null hypothesis for earlier sessions, but after a cut off point all later sessions do (Blanco: all sessions before 321 are not, after 329 are significant; Jack: Before 28 are not, after 28 are significant).
-The effect is stronger for Jack, but present for both animals.
+For \ac{V4}, we see that the agreement does not deviate significantly from the null hypothesis for earlier sessions, but after a cut off point all later sessions do (\ac{M1}: all sessions before 321 are not, after 329 are significant; \ac{M2}: Before 28 are not, after 28 are significant).
+The effect is stronger for \ac{M2}, but present for both animals.
 This indicates that the behavioural responses and the decoded responses based on the neural data were not notably correlated, but have become so with training.
 
 Because the shuffled decoded responses are more accurate (with respect to the target response), they are predicted under the null hypothesis to be in better agreement with the behavioural responses.
@@ -885,9 +885,9 @@ Comparing Figs.~\ref{fig:dec_b4_6easy_a} and \ref{fig:dec_j4_6easy_a} with Figs.
 \subsection{Noise correlations}
 %------------------------------------------------------------------------------
 
-For both \ac{V1} and \ac{V4}, the average noise correlation between pairs of channels seem to remain stable for Blanco and decrease by a small margin for Jack (see Fig.~\ref{fig:noise_r_all}).
-The increase in noise correlation for Blanco \ac{V1} for the last two sessions (session numbers 358 and 359) is due to a decline in data quality and an increase in noise from artificial sources.
-There is a large amount of variance in the noise correlations for different pairs, so the decline in mean correlation for Jack does not seem very large considering the amount of variance.
+For both \ac{V1} and \ac{V4}, the average noise correlation between pairs of channels seem to remain stable for \ac{M1} and decrease by a small margin for \ac{M2} (see Fig.~\ref{fig:noise_r_all}).
+The increase in noise correlation for \ac{M1} \ac{V1} for the last two sessions (session numbers 358 and 359) is due to a decline in data quality and an increase in noise from artificial sources.
+There is a large amount of variance in the noise correlations for different pairs, so the decline in mean correlation for \ac{M2} does not seem very large considering the amount of variance.
 
 
 % % \begin{figure}[htb]
@@ -912,8 +912,8 @@ There is a large amount of variance in the noise correlations for different pair
 % %     \caption{Change in noise correlations with learning.
 % % \protect\subref{fig:noise_r_v1_all}:~\ac{V1}.
 % % \protect\subref{fig:noise_r_v4_all}:~\ac{V4}.
-% % Blue:~Blanco.
-% % Red:~Jack.
+% % Blue:~\ac{M1}.
+% % Red:~\ac{M2}.
 % % On the x-axis, the number of sessions since the animal began training in the part of the visual field retinotopic to the recording site is shown.
 % % Line: pearson r coefficient, averaged across the possible pairings between channels for each of the 14 trial conditions.
 % % Shaded region indicates one standard deviation from mean.
@@ -926,13 +926,13 @@ Fig.~\ref{fig:noise_r_hist} is intended to reproduce Figure 2C from \citet{Gu201
 These sessions were chosen from a restricted set of sessions which did not have problems with artificially high correlations from the motion artifact, and selected from this set such that they were as close to the start and end of the training period as possible.
 However, this selection was made before the set of trials was redacted as mentioned in \S\ref{sec:dec-meth-noise}, so the sessions selected could possibly be made further apart.
 
-The data presented in Fig.~\ref{fig:noise_r_hist} shows that the distribution of noise correlation pairs does not move significantly for Blanco \ac{V1}, which is contrasted by a clear decrease for Jack \ac{V1}.
-It should be noted though that the distribution for Jack \ac{V1} begins higher than Blanco and decreases to a similar value as Blanco \ac{V1}.
-For \ac{V4}, there is an increase in mean noise correlation for Blanco and a decrease for Jack, though as Jack begins higher than Blanco the two do tend toward to one another.
+The data presented in Fig.~\ref{fig:noise_r_hist} shows that the distribution of noise correlation pairs does not move significantly for \ac{M1} \ac{V1}, which is contrasted by a clear decrease for \ac{M2} \ac{V1}.
+It should be noted though that the distribution for \ac{M2} \ac{V1} begins higher than \ac{M1} and decreases to a similar value as \ac{M1} \ac{V1}.
+For \ac{V4}, there is an increase in mean noise correlation for \ac{M1} and a decrease for \ac{M2}, though as \ac{M2} begins higher than \ac{M1} the two do tend toward to one another.
 
 Cherry-picking is a significant problem here, as there is sizable day-to-day variation in the noise correlation across the pairs.
 Choosing a session where there is more noise correlation than neighbouring sessions at the beginning of training and less at the end of training will give the impression that there is a more significant decrease in noise correlations.
-More effort should be made to counter inadvertently cherry-picking in the session selection, as Fig.~\ref{fig:noise_r_j1_pmc} indicates this may be one reason for such a sizable decrease in noise correlation for Jack \ac{V1}.
+More effort should be made to counter inadvertently cherry-picking in the session selection, as Fig.~\ref{fig:noise_r_j1_pmc} indicates this may be one reason for such a sizable decrease in noise correlation for \ac{M2} \ac{V1}.
 
 % % \begin{figure}[htbp]
 % %     \begin{subfigure}[b]{0.5\linewidth}
@@ -972,10 +972,10 @@ More effort should be made to counter inadvertently cherry-picking in the sessio
 % %     \end{subfigure}
 % %     \caption{Distribution of the noise correlations for the pairings across all conditions.
 % % Two sessions, one at the beginning of training (black) and one at the end of training (red) are shown for comparitive purposes.
-% % \protect\subref{fig:noise_r_b1_hist}: Blanco \ac{V1}; sessions 343 and 354.
-% % \protect\subref{fig:noise_r_j1_hist}: Jack \ac{V1}; sessions 51 and 71.
-% % \protect\subref{fig:noise_r_b4_hist}: Blanco \ac{V4}; sessions 307 and 338.
-% % \protect\subref{fig:noise_r_j4_hist}: Jack \ac{V4}; sessions 27 and 46.
+% % \protect\subref{fig:noise_r_b1_hist}: \ac{M1} \ac{V1}; sessions 343 and 354.
+% % \protect\subref{fig:noise_r_j1_hist}: \ac{M2} \ac{V1}; sessions 51 and 71.
+% % \protect\subref{fig:noise_r_b4_hist}: \ac{M1} \ac{V4}; sessions 307 and 338.
+% % \protect\subref{fig:noise_r_j4_hist}: \ac{M2} \ac{V4}; sessions 27 and 46.
 % % }
 % %     \label{fig:noise_r_hist}
 % % \end{figure}
@@ -983,7 +983,7 @@ More effort should be made to counter inadvertently cherry-picking in the sessio
 
 % Fig.~\ref{fig:noise_r_pmc} indicates that noise correlations are correlated for pairs across sessions.
 A pairs of channels which have higher noise correlations in one session are likely to have higher noise correlation in other sessions.
-However, this effect is not present for Blanco \ac{V1}, Fig.~\ref{fig:noise_r_b1_pmc}, and could suggest there is less session-to-session consistency for this dataset.
+However, this effect is not present for \ac{M1} \ac{V1}, Fig.~\ref{fig:noise_r_b1_pmc}, and could suggest there is less session-to-session consistency for this dataset.
 
 This figure provides an easy way of visually inspecting whether noise correlations are conserved, but does not allow us to quantify this.
 
@@ -1020,10 +1020,10 @@ This figure provides an easy way of visually inspecting whether noise correlatio
 % % ./figs/decoding/rcoef_sess_pairsmeanc_v4_jack.eps}
 % %     \end{subfigure}
 % %     \caption{Noise correlations for each pair, meaned across the 14 conditions.
-% % \protect\subref{fig:noise_r_b1_pmc}: Blanco \ac{V1}.
-% % \protect\subref{fig:noise_r_j1_pmc}: Jack \ac{V1}.
-% % \protect\subref{fig:noise_r_b4_pmc}: Blanco \ac{V4}.
-% % \protect\subref{fig:noise_r_j4_pmc}: Jack \ac{V4}.
+% % \protect\subref{fig:noise_r_b1_pmc}: \ac{M1} \ac{V1}.
+% % \protect\subref{fig:noise_r_j1_pmc}: \ac{M2} \ac{V1}.
+% % \protect\subref{fig:noise_r_b4_pmc}: \ac{M1} \ac{V4}.
+% % \protect\subref{fig:noise_r_j4_pmc}: \ac{M2} \ac{V4}.
 % % Colour is assigned by sorting the pairs into ascending order for one of the sessions near the middle of the training period.
 % % The degree of session-to-session correlation of the noise correlation can hence be inferred by visual inspection.
 % % }
