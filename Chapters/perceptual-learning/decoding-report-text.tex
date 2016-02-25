@@ -1,22 +1,22 @@
-% ----------------------------------------------
+%------------------------------------------------------------------------------
 % \section{Introduction}
 \label{sec:intro}
 
 Here we will consider the effect of noise correlations in V1 and V4 on the information contained within the firing rates across a population of 20--30 neurons and how this changes with perceptual learning.
 First we will consider how noise correlations between pairs of neurons changes with learning. Then we will apply a decoder to the spike rate data and investigate how the performance of the decoder changes with learning. We will also investigate how the noise correlations impact the decoder and whether this changes with learning.
 
-% ----------------------------------------------
+%------------------------------------------------------------------------------
 \section{Background}
 
 The firing rate of neurons in the sensory system will vary trial-to-trial, even if the stimulus presented is the same. The manner in which these responses fluctuate together is known as the noise correlation between neurons. If there are positive noise correlations, the changes in neural activity across a population will increase and decrease together. Long-standing theoretical work has indicated such correlations will hamper the ability of upstream neurons to accurately decode the stimulus% [cite]
 , which is in keeping with experimental results demonstrating attention reduces noise correlations \citep{Cohen2009}. This fits with intuition --- if stimulus A is encoded with one firing rate across a population and stimulus B with a slightly higher rate, a systematic increase or decrease in the population firing rates can easily cause A and B to be confused with one another. However, recent theoretical results indicate that for a more realistic non-homogeneous population of neurons, neural correlations do not limit the population-wide information as the number of neurons increases \citep{Oram1998,Averbeck2006,Ecker2011}.
 A recent paper by \citet{Gu2011} on neurons recoded from the macaque dorsal medial superior temporal area (MSTd) before and after training in a head direction discrimination task, found that although pairwise noise correlations between neurons are reduced with training, this does not yield an increase in performance in a decoder. We will see if these findings hold here as well.
 
-% ----------------------------------------------
+%------------------------------------------------------------------------------
 \section{Methods}
-% ----------------------------------------------
+%------------------------------------------------------------------------------
 
-% ----------------------------------------------
+%------------------------------------------------------------------------------
 \subsection{Linear Decoder}
 \label{sec:dec-meth-lin}
 
@@ -42,7 +42,7 @@ This is repeated for all the 500 trials, and then the performance is defined as 
 
 The impact of noise correlations on the decoder is considered by comparing the regular decoder performance with the performance of a decoder applied to data which has been shuffled across trials under the same stimulus conditions. After shuffling, specific neural response vectors no longer correspond to any particular trial, since the spike counts for each channel are taken from different trials.
 
-% ----------------------------------------------
+%------------------------------------------------------------------------------
 \subsection{Probabilistic Model}
 \label{sec:dec-meth-prob}
 
@@ -81,7 +81,7 @@ The expected agreement under the assumption of two independent binomial processe
 
 The multi-binomial model should not be confused with a multinomial distribution, which would map one random variable to $n$ possible responses. The model used here is instead a two-step process where there are a set of binomial distributions, which binomial is used is determined by one random variable (the output of which is the same for both behaviour and decoder), and the output of the selected binomial is given by a second random variable. In essence, the simple, single binomial model is similar to shuffling the responses across all trials regardless of condition, and the multi-binomial model we use is similar to shuffling the responses with the same condition presented.
 
-% ----------------------------------------------
+%------------------------------------------------------------------------------
 \subsection{Noise correlations}
 \label{sec:dec-meth-noise}
 
@@ -106,11 +106,11 @@ As noted previously, on some trials movements of the subject produced a recordin
 
 To counter this problem, all trials where at least a quarter of the channels had a number of spikes more than 2.5 standard deviations above their mean spike count were removed. This should be effective at fixing the problem because the motion-triggered artifact occurs always effects multiple channels simultaneously with the same artifact.
 
-% ----------------------------------------------
+%------------------------------------------------------------------------------
 \section{Results}
-% ----------------------------------------------
+%------------------------------------------------------------------------------
 
-% ----------------------------------------------
+%------------------------------------------------------------------------------
 % \clearpage
 \subsection{Decoding}
 
@@ -269,10 +269,10 @@ Comparing Figs.~\ref{fig:dec_b4_6easy_a} and \ref{fig:dec_j4_6easy_a} with Figs.
 
 
 
-% ----------------------------------------------
+%------------------------------------------------------------------------------
 \clearpage
 \subsection{Noise correlations}
-% ----------------------------------------------
+%------------------------------------------------------------------------------
 
 For both V1 and V4, the average noise correlation between pairs of channels seem to remain stable for Blanco and decrease by a small margin for Jack (see Fig.~\ref{fig:noise_r_all}). The increase in noise correlation for Blanco V1 for the last two sessions (session numbers 358 and 359) is due to a decline in data quality and an increase in noise from artificial sources. There is a large amount of variance in the noise correlations for different pairs, so the decline in mean correlation for Jack does not seem very large considering the amount of variance.
 
@@ -411,10 +411,10 @@ This figure provides an easy way of visually inspecting whether noise correlatio
 % % \end{figure}
 
 
-% ----------------------------------------------
+%------------------------------------------------------------------------------
 \clearpage
 \section{Discussion}
-% ----------------------------------------------
+%------------------------------------------------------------------------------
 
 Based on data from Jack V4, one might conclude our results to offer some coroboration with those of \citet{Gu2011}, since we find a decrease in noise correlations and in increase in decoder performance. However, comparing the perforance of the decoder to a decoder based on shuffled data without the noise correlations present suggests that the improvement in decoder performance is not due to the relatively small reduction in noise correlation observed, but is from other sources.
 
