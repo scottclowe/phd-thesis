@@ -1,16 +1,16 @@
-%----------------------------------------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
 \section{Information Theoretic Analysis}
-%----------------------------------------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
 
 As mentioned in Sec.~\ref{sec:sorting-result}, the automated spike sorting had to be abandoned. The dataset used in this section consists of spiking activity manually sorted by the researcher who collected the data.
 
-%----------------------------------------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
 \subsection{Methods}
 
 To best illustrate the process gone through in the study, we include some preliminary results amongst the methods.
 This is presented so the reader will better understand the decisions taken whilst progressing with the analysis.
 
-%----------------------------------------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
 \FloatBarrier
 \subsubsection{Artifact elimination}
 \label{sec:ma}
@@ -145,7 +145,7 @@ From observations on the typical width time of the width and peak time (Table.~\
 This allows us to have prior assumptions about the location and width of the monitor artifact effect, but be flexible about exactly where it falls and which sets of bins are affected.
 It is possible that the dynamically targeted removal method may cause issues due to inconsistency in the data across different sessions, but there is a clearly a gain in the amount of preserved data and a gain in the reliability of the data which remains.
 
-%----------------------------------------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
 \FloatBarrier
 \subsubsection{Session-based analysis}
 
@@ -170,7 +170,7 @@ By assembling the trials according to their test contrast, the mutual informatio
 
 Following the methods employed by the research group, only trials in which the monkey responded correctly were used for this analysis.
 
-%----------------------------------------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
 % 5bins of 4ms
 % ./figs/info/I_sessionwise_blanco_v1_chmean23_s343-359_oc1_5bins_of_4ms_dr_naive_pcolorhot_20120815T150057.png
 % ./figs/info/I_sessionwise_blanco_v4_chmean31_s307,308,311,313,314,317,318,320,321,329-341_oc1_5bins_of_4ms_dr_naive_pcolorhot_20120815T150100.png
@@ -253,9 +253,9 @@ The results of this initial analysis are shown in Fig.~\ref{fig:sess}.
 % Although the relationship between different window offsets and the mutual information is similar for each of the sessions, the
 No trend in information content with learning can be discerned because the measured mutual information content varies wildly from session-to-session.
 
-% %----------------------------------------------------------------------------------------------------------------------
+% %------------------------------------------------------------------------------
 % \chapter{}
-% %----------------------------------------------------------------------------------------------------------------------
+% %------------------------------------------------------------------------------
 % \subsection{Methods}
 
 
@@ -373,14 +373,14 @@ In particular, in the asymptotic regime the leading term in the expansion of $I_
 
 In particular, the difficult faced is changes due to perceptual learning which are of interest may only be slight, but the the number of trials per session varies five-fold: from 250 up to 1250. Consequently it is unsurprising that the observed differences in information day-to-day are dominated by the number of trials.
 
-% %----------------------------------------------------------------------------------------------------------------------
+% %------------------------------------------------------------------------------
 % \subsection{Results}
 % 
-% %----------------------------------------------------------------------------------------------------------------------
+% %------------------------------------------------------------------------------
 % \chapter{Information Theoretic Analysis (trial-wise)}
-% %----------------------------------------------------------------------------------------------------------------------
+% %------------------------------------------------------------------------------
 
-%----------------------------------------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
 \FloatBarrier
 \subsubsection{Trial-based analysis}
 
@@ -418,7 +418,7 @@ Using both the correct and incorrectly responded trials means our distribution f
 
 % Using 50 and 100 trials explored: not considerable difference between results. 100 shown for conciseness
 
-%----------------------------------------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
 \FloatBarrier
 \subsubsection{Information in fine vs. coarse distinctions}
 
@@ -430,7 +430,7 @@ To keep the dimensionality of the stimulus the same, this has been compared to t
 \{10, 15, 20, 40, 50, 60\}\% for V4.
 For V4, the group of coarsely differentiated contrasts is the outer most six contrasts, but for V1 the coarsely differentiated contrasts are alternate
 
-%----------------------------------------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
 \FloatBarrier
 \subsubsection{Information in spike timing code vs. spike count code}
 
@@ -446,7 +446,7 @@ Since the 5 bins are now in a random order, any information contained in their o
 
 The information contained in the \unit[4]{ms} level spike timing can then be found by subtracting the mean shuffled information from the unshuffled information.
 
-%----------------------------------------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
 \FloatBarrier
 \subsubsection{Spontaneous activity}
 
@@ -454,9 +454,9 @@ To check whether changes in the data quality between sessions and other differen
 In particular, the spontaneous activity from prior to the sample presentation was used, so the animal had not yet seen the test contrast.
 Although monkey's brain activity cannot possibly contain any genuine information about the test contrast, we expect to measure a non-zero value for the information content due to the sampling bias.
 
-%----------------------------------------------------------------------------------------------------------------------
-%----------------------------------------------------------------------------------------------------------------------
-%----------------------------------------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
 \subsection{Results}
 
 During the course of the analysis, results were inspected using PT and using QE for bias correction. The plots were similar in distribution, and each gave a similar magnitude for the information. However, PT gave visibly lower variance than QE, so only plots using PT are presented in this results section.
@@ -464,7 +464,7 @@ Using the $I_{\text{sh}}$ approach where the bias is corrected by shuffling bins
 
 We also compared some of the results both with the monitor artifact left in the data and with the dataset redacted to have it removed. There was no appreciable difference for any of the plots, though the amount of information went down when the data was redacted due to the loss of some of the spikes.
 
-%----------------------------------------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
 % \FloatBarrier
 % \subsubsection{General Information plots}
 
@@ -802,7 +802,7 @@ For the spike count code in M2, the spontaneous information is nearly distribute
 
 In M1, there is a small increase in the information content with time which may or may not significant. However, it is reassuring to see that this is not due to an improvement in the data with time, as the trend in the spontaneous activity information bias (Fig.~\ref{fig:j4-5x4tp1}) is a decrease with time.
 
-%----------------------------------------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
 \FloatBarrier
 \subsubsection{Fine vs coarse contrast differences}
 
@@ -911,7 +911,7 @@ Unsurprisingly, there is more information when considering the coarsely distinct
 
 For V4, we find there is no information about fine contrast differences in either animal (Figs.~\ref{fig:b4-1x20fc} and \ref{fig:j4-1x20fc}). The information about the coarse differences is higher than when all conditions are considered, for reasons discussed above, and these show the same trends as when we analysed all the conditions, in Figs.~\ref{fig:b4-1x20tp4} and \ref{fig:j4-1x20tp4}.
 
-%----------------------------------------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
 \FloatBarrier
 \subsubsection{Information in millisecond-level spike timing}
 
@@ -1071,11 +1071,11 @@ For any of these figures there certainly does not seem to be any change in the i
 
 % This is true even if we only consider fine contrast differences as well, refuting our hypothesis that there will be more information in the spike timing for more finely differing stimuli contrasts.
 % 
-% %----------------------------------------------------------------------------------------------------------------------
-% %----------------------------------------------------------------------------------------------------------------------
-% %----------------------------------------------------------------------------------------------------------------------
+% %------------------------------------------------------------------------------
+% %------------------------------------------------------------------------------
+% %------------------------------------------------------------------------------
 % \chapter{$d'$ Analysis}
-% %----------------------------------------------------------------------------------------------------------------------
+% %------------------------------------------------------------------------------
 % 
 % In an attempt to clean up the data and only use the channels and sessions which provide the most relevant results
 % 
@@ -1083,7 +1083,7 @@ For any of these figures there certainly does not seem to be any change in the i
 % 
 % $d'$ is ...
 % 
-% %----------------------------------------------------------------------------------------------------------------------
+% %------------------------------------------------------------------------------
 % \subsection{Methods}
 % 
 % % How is it computed?
@@ -1114,7 +1114,7 @@ For any of these figures there certainly does not seem to be any change in the i
 % Compared the mean firing rate for spontaneous activity and the sample stimulus of 30\% contrast
 % Compared the mean firing rate for spontaneous activity and the highest contrast test stimulus
 % 
-% %----------------------------------------------------------------------------------------------------------------------
+% %------------------------------------------------------------------------------
 % \subsection{Results}
 % 
 % d' increases with learning
