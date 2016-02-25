@@ -13,9 +13,9 @@ Looking at rasters generated to include all the trials across all the sessions, 
 For several of the channels in the data from each of the brain regions of each of the animals, some sessions have spikes which align at the same time relative to the stimulus onset. The temporal alignment is very precise, indicating the effect not part of the animal's brain activity but instead due to an external source influencing the detected signal in the recordings. Furthermore, the ``lines'' occurred at regularly spaced intervals, with a period very nearly equal to the refresh rate of the monitor. The spikes across multiple trials line up like this because the experimental equipment will only begin presenting a stimulus when the first pixel on the monitor is being updated, and we of course normalise for the stimulus presentation time across multiple trials.
 % INCLUDE RASTER EXAMPLE
 
-An empirical estimate of the artifact periodicity was found by choosing an arbitrary channel which strongly expresses the artifact and measuring by eye the duration of the completed artifact cycles within \unit[530]{ms} (44 for M1, 39 for M2). Since the artifact is tightly localised in time, this could be done with relatively high accuracy. For M1, the period was estimated to be \unit[85.023(1)]{Hz}, whilst for M2 it was \unit[75.023(1)]{Hz}. The discrepancies from the programmed monitor refresh rates of \unit[85]{Hz} and \unit[75]{Hz} respectively can be put down to the specific electronic circuitry used, perhaps issuing the command to the monitor. The discrepancy is small enough to be of little consequence, except we will need \unit[5]{sf} of accuracy rather than \unit[2]{sf} in the following treatment of the artifact. Why it should be out by exactly \unit[0.023]{Hz} for both animals remains unclear, since this corresponds to the refresh cycle running \unit[0.0031]{ms} fast for M1 and \unit[0.0042]{ms} fast for M2. An even bigger mystery is how the artifact has made its way into the recordings. Although it remains possible that the cause is some other piece of equipment also locked to the same refresh cycle, in the following we will refer to this artifact as the ``monitor artifact''. When a collection of datapoints exhibits the monitor artifact, we refer to the data as ``contaminated''.
+An empirical estimate of the artifact periodicity was found by choosing an arbitrary channel which strongly expresses the artifact and measuring by eye the duration of the completed artifact cycles within \unit[530]{ms} (44 for \ac{M1}, 39 for \ac{M2}). Since the artifact is tightly localised in time, this could be done with relatively high accuracy. For \ac{M1}, the period was estimated to be \unit[85.023(1)]{Hz}, whilst for \ac{M2} it was \unit[75.023(1)]{Hz}. The discrepancies from the programmed monitor refresh rates of \unit[85]{Hz} and \unit[75]{Hz} respectively can be put down to the specific electronic circuitry used, perhaps issuing the command to the monitor. The discrepancy is small enough to be of little consequence, except we will need \unit[5]{sf} of accuracy rather than \unit[2]{sf} in the following treatment of the artifact. Why it should be out by exactly \unit[0.023]{Hz} for both animals remains unclear, since this corresponds to the refresh cycle running \unit[0.0031]{ms} fast for \ac{M1} and \unit[0.0042]{ms} fast for \ac{M2}. An even bigger mystery is how the artifact has made its way into the recordings. Although it remains possible that the cause is some other piece of equipment also locked to the same refresh cycle, in the following we will refer to this artifact as the ``monitor artifact''. When a collection of datapoints exhibits the monitor artifact, we refer to the data as ``contaminated''.
 
-From the rasters, it seemed as if three-quarters of the channels in M1 V4 were contaminated for at least one session; over two-thirds of the channels for M1 V1 and M2 V4 were contaminated for at least one session; and around a third of the channels for M2 V4 were contaminated for at least one session. The contaminated channels include both high-quality channels with a lot of detected spikes, and low-quality channels with fewer detected spikes. For some of the lowest quality channels and sessions, the artificial spikes were clearly more numerous than the genuine ones. It was considered paramount that the effects of the artifact be corrected for.
+From the rasters, it seemed as if three-quarters of the channels in \ac{M1} \ac{V4} were contaminated for at least one session; over two-thirds of the channels for \ac{M1} \ac{V1} and \ac{M2} \ac{V4} were contaminated for at least one session; and around a third of the channels for \ac{M2} \ac{V4} were contaminated for at least one session. The contaminated channels include both high-quality channels with a lot of detected spikes, and low-quality channels with fewer detected spikes. For some of the lowest quality channels and sessions, the artificial spikes were clearly more numerous than the genuine ones. It was considered paramount that the effects of the artifact be corrected for.
 
 To clean up the contamination, a more rigorous method of evaluating the problem was required.
 For the collection of spike times from a single channel across multiple trials during a single session, we perform the following steps:
@@ -25,14 +25,14 @@ For the collection of spike times from a single channel across multiple trials d
 $$
 t \leftarrow t - T_{\text{onset}}
 $$
-\item Take the modulo of the spiketimes with respect to the monitor period, $\tau_m$ (\unit[11.7616]{ms} for M1, \unit[13.3292]{ms} for M2).
+\item Take the modulo of the spiketimes with respect to the monitor period, $\tau_m$ (\unit[11.7616]{ms} for \ac{M1}, \unit[13.3292]{ms} for \ac{M2}).
 $$
 t \leftarrow t \bmod \tau_m
 $$
 \item Take a histogram of the spiketimes over bins with the width of the reciprocal of the sampling frequency of the spikes (sampling frequency \unit[32556.000]{Hz}; bin width \unit[0.030716]{ms}).
 \end{enumerate}
 Conceptually, this is equivalent to stacking all the ``lines'' in the raster on top of each other and seeing how thick the resulting line is.
-When the visual stimulus has remained unchanged for at least \unit[150]{ms}, the neurons in V1 and V4 settle down to a steady firing rate, so we expect there to be about the same number of spikes in each of these bins. However, as the monitor artifact increases the number of spikes at set intervals after the monitor refresh commences, there will be an increase in the number of spikes in these bins when the monitor artifact is manifest in the data.
+When the visual stimulus has remained unchanged for at least \unit[150]{ms}, the neurons in \ac{V1} and \ac{V4} settle down to a steady firing rate, so we expect there to be about the same number of spikes in each of these bins. However, as the monitor artifact increases the number of spikes at set intervals after the monitor refresh commences, there will be an increase in the number of spikes in these bins when the monitor artifact is manifest in the data.
 
 % ./figs/info/monitor_hist_blanco_v4_ch4_s336_20120817T085037.eps
 % ./figs/info/monitor_hist_jack_v1_ch9_s51_20120817T084845.eps
@@ -71,10 +71,10 @@ When the visual stimulus has remained unchanged for at least \unit[150]{ms}, the
 %%./figs/info/monitor_hist_jack_v1_ch9_s56_20120817T084855.eps}
 %%    \end{subfigure}
 %%    \caption{Crosses: Histogram of spikes in bins of width \unit[0.030716]{ms}.
-%%\ref{fig:mahist-b4}: M1 V4, channel 4, session 336; a channel and session very strongly exhibiting the monitor artifact.
-%%\ref{fig:mahist-j4}: M2 V4, channel 41, session 31; a dataset where the artifact is not present.
-%%\ref{fig:mahist-j1s51}: M2 V1, channel 9, session 51; data strongly presenting the monitor artifact.
-%%\ref{fig:mahist-j1s56}: M2 V1, channel 9, session 56; data mildly showing the effect of the monitor artifact.
+%%\ref{fig:mahist-b4}: \ac{M1} \ac{V4}, channel 4, session 336; a channel and session very strongly exhibiting the monitor artifact.
+%%\ref{fig:mahist-j4}: \ac{M2} \ac{V4}, channel 41, session 31; a dataset where the artifact is not present.
+%%\ref{fig:mahist-j1s51}: \ac{M2} \ac{V1}, channel 9, session 51; data strongly presenting the monitor artifact.
+%%\ref{fig:mahist-j1s56}: \ac{M2} \ac{V1}, channel 9, session 56; data mildly showing the effect of the monitor artifact.
 %%Green vertical lines: extremities of search window (contained between the lines).
 %%Cyan vertical lines: extremities of mean region.
 %%Blue line: mean of the data (excluding area between cyan lines).
@@ -92,7 +92,7 @@ However, doing the analysis in this more rigorous manner revealed the contaminat
 For the most part, the timing of the monitor artifact $\bmod \tau_m$ is very reliable and it affects the same 6 or so bins whenever the data is contaminated. The contaminated part of each monitor cycle is thus restricted to at most \unit[0.2]{ms}, and, assuming this period of time contains both genuine spikes and artificial spikes, if we simply delete all datapoints with this \unit[0.2]{ms} window, we will lose at most less than 2\% of the genuine spikes. This level of data loss is not terribly significant, and justifiable for the gain in reliability of the remaining dataset, particularly for sessions where artificial spikes seem to be more common than genuine ones.
 
 \begin{table}[hbtp]
-\caption{Typical time of the peak in number of spikes due to the monitor artifact effect. The time is given relative to the start of the monitor refresh as given by the stimulus onset times. Monitor artifacts occur at $t = t^*_m + k \tau_m$, for $k \in \Z$. For channels recording from M2 V1, the artifact will occur at one of the two stated times throughout a given session, but which of the two varies from channel-to-channel for any individual session, and from session-to-session for any individual channel. Why this happens is unclear.}
+\caption{Typical time of the peak in number of spikes due to the monitor artifact effect. The time is given relative to the start of the monitor refresh as given by the stimulus onset times. Monitor artifacts occur at $t = t^*_m + k \tau_m$, for $k \in \Z$. For channels recording from \ac{M2} \ac{V1}, the artifact will occur at one of the two stated times throughout a given session, but which of the two varies from channel-to-channel for any individual session, and from session-to-session for any individual channel. Why this happens is unclear.}
 \label{tab:mapeak}
 \begin{center}
 \begin{tabular}{rlc}
@@ -119,7 +119,7 @@ However, it is possible to do better that this and to isolate and remove only th
 From observations on the typical width time of the width and peak time (Table.~\ref{tab:mapeak}) of the artifact, along with its periodicity ($\tau_m$), the following method of removal was devised and implemented.
 \begin{enumerate}
 \item Perform the modulo $\tau_m$ and take the histogram as described above.
-\item Define the ``search region'' as bins which contain spike within $t^*_m \pm \unit[0.130]{ms}$, so we have one bin more than the anticipated artifact width in either direction. (For M2 V1, we use the range \unit[$(0.968 - 0.130 , 1.190 + 0.130)$]{ms}.)
+\item Define the ``search region'' as bins which contain spike within $t^*_m \pm \unit[0.130]{ms}$, so we have one bin more than the anticipated artifact width in either direction. (For \ac{M2} \ac{V1}, we use the range \unit[$(0.968 - 0.130 , 1.190 + 0.130)$]{ms}.)
 \item Find the mean, $\mu$, and standard deviation, $\sigma$, of all the bins which are at least 10 away (\unit[0.3]{ms} away) from the search region. We also exclude the final bin since $0.030716 \bmod \tau_m \neq 0$ and it is only part-full.
 \item If any one of the bins in the search region exceeds $\mu + 3 \sigma$, we declare the session contaminated and proceed with the following steps. If not, it is declared intact and left as it is.
 \item All bins in the search region which contain more than $\mu + 3 \sigma$ spikes are declared contaminated.
@@ -208,22 +208,22 @@ Following the methods employed by the research group, only trials in which the m
 
 \begin{figure}[htbp]%
     \centering
-    \subfloat[][M1 V1.\label{fig:sessb1}]{%
+    \subfloat[][\ac{M1} \ac{V1}.\label{fig:sessb1}]{%
         \includegraphics[scale=.25]{%
 ./figs/info/I_sessionwise_blanco_v1_chmean23_s343-359_oc1_5bins_of_4ms_dr_naive_pcolorhot_20120815T202102.png}
     }%
     ~~
-    \subfloat[][M1 V4.\label{fig:sessb4}]{%
+    \subfloat[][\ac{M1} \ac{V4}.\label{fig:sessb4}]{%
         \includegraphics[scale=.25]{%
 ./figs/info/I_sessionwise_blanco_v4_chmean31_s307,308,311,313,314,317,318,320,321,329-341_oc1_5bins_of_4ms_dr_naive_pcolorhot_20120815T202106.png}
     }%
     \\
-    \subfloat[][M2 V1.\label{fig:sessj1}]{%
+    \subfloat[][\ac{M2} \ac{V1}.\label{fig:sessj1}]{%
         \includegraphics[scale=.25]{%
 ./figs/info/I_sessionwise_jack_v1_chmean25_s51-72_oc1_5bins_of_4ms_dr_naive_pcolorhot_20120815T202053.png}
     }%
     ~~
-    \subfloat[][M2 V4.\label{fig:sessj4}]{%
+    \subfloat[][\ac{M2} \ac{V4}.\label{fig:sessj4}]{%
         \includegraphics[scale=.25]{%
 ./figs/info/I_sessionwise_jack_v4_chmean20_s24-49_oc1_5bins_of_4ms_dr_naive_pcolorhot_20120815T202058.png}
     }%
@@ -232,7 +232,7 @@ The mutual information with the test stimulus is taken for a spike timing based 
 The recording session number for the data is given along the $x$-axis, and the number of days the animal has been trained for increases from left to right.
 Average mutual information across all the channels is denoted by the pseudo-colour of each of the rectangular patches, centred around the $(x,y)$ co-ordinate to which the measurement relates.
 In each case the average is taken across all available channel data: \ref{fig:sessb1}~23 channels, \ref{fig:sessb4}~30 channels, \ref{fig:sessj1}~25 channels, \ref{fig:sessj4}~20 channels.
-% The PT bias correction method was used (see text).
+% The \ac{PT} bias correction method was used (see text).
 The plug-in method without bias correction was used (see text).
 }
     \label{fig:sess}
@@ -278,14 +278,14 @@ No trend in information content with learning can be discerned because the measu
 % % \begin{figure}[htbp]
 % %     \begin{subfigure}[b]{0.5\linewidth}
 % %         \centering
-% %         \caption{M1 V1}
+% %         \caption{\ac{M1} \ac{V1}}
 % %         \label{fig:IandNb1}
 % %         \includegraphics[width=\linewidth]{%
 % % ./figs/info/ntrialsIandNindiv_blanco_v1_dr_naive_5bins_of_4ms_20120815T201856.eps}
 % %     \end{subfigure}
 % %     \begin{subfigure}[b]{0.5\linewidth}
 % %         \centering
-% %         \caption{M1 V4}
+% %         \caption{\ac{M1} \ac{V4}}
 % %         \label{fig:IandNb4}
 % %         \includegraphics[width=\linewidth]{%
 % % ./figs/info/ntrialsIandNindiv_blanco_v4_dr_naive_5bins_of_4ms_20120815T201856.eps}
@@ -293,26 +293,26 @@ No trend in information content with learning can be discerned because the measu
 % %     \\
 % %     \begin{subfigure}[b]{0.5\linewidth}
 % %         \centering
-% %         \caption{M2 V1}
+% %         \caption{\ac{M2} \ac{V1}}
 % %         \label{fig:IandNj1}
 % %         \includegraphics[width=\linewidth]{%
 % % ./figs/info/ntrialsIandNindiv_jack_v1_dr_naive_5bins_of_4ms_20120815T201856.eps}
 % %     \end{subfigure}
 % %     \begin{subfigure}[b]{0.5\linewidth}
 % %         \centering
-% %         \caption{M2 V4}
+% %         \caption{\ac{M2} \ac{V4}}
 % %         \label{fig:IandNj4}
 % %         \includegraphics[width=\linewidth]{%
 % % ./figs/info/ntrialsIandNindiv_jack_v4_dr_naive_5bins_of_4ms_20120815T201856.eps}
 % %     \end{subfigure}
 % %     \caption{Mutual information seems to be anti-correlated with the number of trials in the session. The number of correctly responded trials in each session is plotted on top of the mean information in individual sessions. The mutual information is the ``plug-in estimate'', not corrected for bias, and averaged across the whole period of test stimulus presentation.
-% % %There is a missing data point for M2 V4 because in one session there were not enough trials per condition for the QE algorithm to function.
+% % %There is a missing data point for \ac{M2} \ac{V4} because in one session there were not enough trials per condition for the \ac{QE} algorithm to function.
 % % }
 % %     \label{fig:IandN}
 % % \end{figure}
 
 Fig.~\ref{fig:IandN} shows that the changes in the measured mutual information are dominated by the number of trials in the session, not by increases with perceptual learning (corresponding to increments in the session number).
-The only exception to this rule seems to be for M2 V1, shown in Fig.~\ref{fig:IandNj1}, where the information increases with learning despite an increase in the number of trials per session over this period.
+The only exception to this rule seems to be for \ac{M2} \ac{V1}, shown in Fig.~\ref{fig:IandNj1}, where the information increases with learning despite an increase in the number of trials per session over this period.
 
 % ./figs/info/ntrialsIvsinvNcombindiv_blanco_v1_20120812T164553.eps
 % ./figs/info/ntrialsIvsinvNcombindiv_blanco_v4_20120812T164553.eps
@@ -327,14 +327,14 @@ The only exception to this rule seems to be for M2 V1, shown in Fig.~\ref{fig:Ia
 % % \begin{figure}[htbp]
 % %     \begin{subfigure}[b]{0.5\linewidth}
 % %         \centering
-% %         \caption{M1 V1}
+% %         \caption{\ac{M1} \ac{V1}}
 % %         \label{fig:IvNb1}
 % %         \includegraphics[width=\linewidth]{%
 % % ./figs/info/ntrialsIvsinvNcombindiv_blanco_v1_5bins_of_4ms_20120815T204808.eps}
 % %     \end{subfigure}
 % %     \begin{subfigure}[b]{0.5\linewidth}
 % %         \centering
-% %         \caption{M1 V4}
+% %         \caption{\ac{M1} \ac{V4}}
 % %         \label{fig:IvNb4}
 % %         \includegraphics[width=\linewidth]{%
 % % ./figs/info/ntrialsIvsinvNcombindiv_blanco_v4_5bins_of_4ms_20120815T204808.eps}
@@ -342,27 +342,27 @@ The only exception to this rule seems to be for M2 V1, shown in Fig.~\ref{fig:Ia
 % %     \\
 % %     \begin{subfigure}[b]{0.5\linewidth}
 % %         \centering
-% %         \caption{M2 V1}
+% %         \caption{\ac{M2} \ac{V1}}
 % %         \label{fig:IvNj1}
 % %         \includegraphics[width=\linewidth]{%
 % % ./figs/info/ntrialsIvsinvNcombindiv_jack_v1_5bins_of_4ms_20120815T204808.eps}
 % %     \end{subfigure}
 % %     \begin{subfigure}[b]{0.5\linewidth}
 % %         \centering
-% %         \caption{M2 V4}
+% %         \caption{\ac{M2} \ac{V4}}
 % %         \label{fig:IvNj4}
 % %         \includegraphics[width=\linewidth]{%
 % % ./figs/info/ntrialsIvsinvNcombindiv_jack_v4_5bins_of_4ms_20120815T204808.eps}
 % %     \end{subfigure}
-% %     \caption{Mutual information is inversely correlated with the number of trials in the session. The mutual information for a single session is averaged over all channels, and averaged over all times during stimulus presentation, and plotted against the reciprocal of the number of trials in the session ($\nicefrac{1}{N}$). Plug-in:~with no bias correction. PT:~using the Panzeri-Treves method to correct for bias \cite{Panzeri1996}. QE:~using quadratic extrapolation for bias correction \cite{Strong1998}.
-% % %There is a missing data point for M2 V4 because in one session there were not enough trials per condition for the QE algorithm to function.
+% %     \caption{Mutual information is inversely correlated with the number of trials in the session. The mutual information for a single session is averaged over all channels, and averaged over all times during stimulus presentation, and plotted against the reciprocal of the number of trials in the session ($\nicefrac{1}{N}$). Plug-in:~with no bias correction. \ac{PT}:~using the Panzeri-Treves method to correct for bias \cite{Panzeri1996}. \ac{QE}:~using quadratic extrapolation for bias correction \cite{Strong1998}.
+% % %There is a missing data point for \ac{M2} \ac{V4} because in one session there were not enough trials per condition for the \ac{QE} algorithm to function.
 % % }
 % %     \label{fig:IvN}
 % % \end{figure}
 
-In particular, the measured value for the mutual information is strongly correlated with the reciprocal of the number of trials in the session (Fig.~\ref{fig:IvN}). The correlation is still very strong even if we use one of the two bias correction techniques. As discussed above, for M2 V1 the number of trials per session and the measured information  are both correlated with time, which reduces the correlation observed in Fig.~\ref{fig:IvNj1}.
+In particular, the measured value for the mutual information is strongly correlated with the reciprocal of the number of trials in the session (Fig.~\ref{fig:IvN}). The correlation is still very strong even if we use one of the two bias correction techniques. As discussed above, for \ac{M2} \ac{V1} the number of trials per session and the measured information  are both correlated with time, which reduces the correlation observed in Fig.~\ref{fig:IvNj1}.
 
-The problem is that although PT and QE both do a reasonable attempt at removing the bias, they are not perfect and some bias will remain. As the bias is dependent on the number of trials, it is unsurprising the remaining bias follows the same dependency.
+The problem is that although \ac{PT} and \ac{QE} both do a reasonable attempt at removing the bias, they are not perfect and some bias will remain. As the bias is dependent on the number of trials, it is unsurprising the remaining bias follows the same dependency.
 In particular, in the asymptotic regime the leading term in the expansion of $I_{\text{measured}}$ is known to be proportional \cite{Treves1995} to $\nicefrac{1}{N}$; the same relationship observed here.
 
 In particular, the difficult faced is changes due to perceptual learning which are of interest may only be slight, but the the number of trials per session varies five-fold: from 250 up to 1250. Consequently it is unsurprising that the observed differences in information day-to-day are dominated by the number of trials.
@@ -383,7 +383,7 @@ To counter the correlation between measured information and number of trials, an
 Some rules-of-thumb for the number of trials are offered by \cite{Panzeri2007}.
 Let $\overline{R}$ denote the number of possible response codes.
 Then, for the plug-in estimate of mutual information, we need to have at least $N_S \ge 2^{32} \, \overline{R}$ trials per stimulus,
-whilst if the PT or QE bias correction methods are applied, we only need $N_S > 2 \, \overline{R}$.
+whilst if the \ac{PT} or \ac{QE} bias correction methods are applied, we only need $N_S > 2 \, \overline{R}$.
 
 % The spike detection software was set to only detect spikes at least \unit[3]{ms} apart, and moreover, 
 The probability of having two spikes within \unit[4]{ms} from a non-bursting neuron is very low. For example, a neuron with a high firing rate might fire at \unit[100]{Hz}, which means inter-spike intervals are typically around \unit[10]{ms} (and \unit[100]{Hz} is a high firing rate for the channels in our dataset).
@@ -404,7 +404,7 @@ However, the session-concatenation approach was attempted regardless, and a valu
 As mentioned in Chap.~\ref{ch:exp}, a delayed repeat is used for any trials to which the animal does not correctly respond. Consequently, more difficult test stimuli (with contrasts close to the sample contrast) are presented significantly more frequently than easier stimuli.
 For instance, when presented with the most difficult test stimuli, the animal will have a success rate only just above 50\% on the first day of the experiment, rising to around 70\% by the last day. For the easiest stimuli, the success rate will be nearly 100\% throughout.
 
-Say we arrange all the trials into groups based on their stimulus, then take 100 subsequent trials from each of the groups to perform the analysis on. Due to the different number of trials per stimulus, it will not be long before the trials selected for each stimulus are from very different points in time and from different sessions.\footnote{Even if we only analyse the correctly responded trials, there is still a difference in the number of trials per stimulus due to a limit on the number of repeats of any test condition. The difference was negligible for M1, but accumulated to a 100 trial difference over all the sessions between the most and least correctly responded conditions for M2.}
+Say we arrange all the trials into groups based on their stimulus, then take 100 subsequent trials from each of the groups to perform the analysis on. Due to the different number of trials per stimulus, it will not be long before the trials selected for each stimulus are from very different points in time and from different sessions.\footnote{Even if we only analyse the correctly responded trials, there is still a difference in the number of trials per stimulus due to a limit on the number of repeats of any test condition. The difference was negligible for \ac{M1}, but accumulated to a 100 trial difference over all the sessions between the most and least correctly responded conditions for \ac{M2}.}
 To ensure all the trials are from when the animal has had the same amount of training, we can instead take a group of $S \cdot N_S = 14 \cdot 100 = 1400$ consecutive trials regardless of the stimulus presented and analysed. The differences in number of trials per stimulus are not particularly important, so long as there are always  enough.
 
 All trials where the monkey completed the trial and gave a response (either correct or incorrect) were included in the analysis. Trials where the monkey did not complete the task by fixating and then providing a response as required were excluded.
@@ -417,12 +417,12 @@ Using both the correct and incorrectly responded trials means our distribution f
 \subsection{Information in fine vs. coarse distinctions}
 
 The difference between information about fine differences in contrast can be studied by only considering trials where the contrast presented is one of the middle 6 contrasts:
-\{22, 25, 28, 32, 35, 40\}\% for V1 and
-\{27, 28, 29, 31, 32, 33\}\% for V4.
+\{22, 25, 28, 32, 35, 40\}\% for \ac{V1} and
+\{27, 28, 29, 31, 32, 33\}\% for \ac{V4}.
 To keep the dimensionality of the stimulus the same, this has been compared to the information across some more separated contrasts:
- \{5, 15, 22, 40, 50, 90\}\% for V1 and
-\{10, 15, 20, 40, 50, 60\}\% for V4.
-For V4, the group of coarsely differentiated contrasts is the outer most six contrasts, but for V1 the coarsely differentiated contrasts are alternate
+ \{5, 15, 22, 40, 50, 90\}\% for \ac{V1} and
+\{10, 15, 20, 40, 50, 60\}\% for \ac{V4}.
+For \ac{V4}, the group of coarsely differentiated contrasts is the outer most six contrasts, but for \ac{V1} the coarsely differentiated contrasts are alternate
 
 %------------------------------------------------------------------------------
 \FloatBarrier

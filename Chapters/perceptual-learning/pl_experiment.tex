@@ -5,11 +5,11 @@
 The dataset we will be analysing is taken from a set of ongoing experiments into perceptual learning in macaque monkeys, which is being undertaken by the Visual Neuroscience laboratory group of the Institute of Neuroscience, Newcastle University.
 % The research group is led by Prof. Alexander Thiele, who was also the supervisor for the 2 month research project which this report concerns.
 
-Extracellular recordings were taken from multi-electrode arrays (MEA) chronically implanted in both V1 and V4 for two macaque monkeys: M1 and M2. The study was performed first on M1, and then M2. For each monkey, the two implants were undertaken simultaneously by a fully trained brain surgeon with prior experience with these implants in animals. Though these implants would ideally be located in V1 and V4 such that the surrounding neurons respond to the same area of the visual field, this did not happen to be the case for either animal. Consequently, experimentation had to be performed first with stimuli in the appropriate location for the V4 implant, and then the V1 implant.
-The MEAs are not tetrodes, so electrodes on the implanted MEAs are sufficiently distant from one another such that no spike detected by one electrode will be detected as an isolated spike at another electrode. The number of channels recorded from for each animal is given in Table~\ref{tab:nchannels}.
+Extracellular recordings were taken from \ac{MEA} chronically implanted in both \ac{V1} and \ac{V4} for two macaque monkeys: \ac{M1} and \ac{M2}. The study was performed first on \ac{M1}, and then \ac{M2}. For each monkey, the two implants were undertaken simultaneously by a fully trained brain surgeon with prior experience with these implants in animals. Though these implants would ideally be located in \ac{V1} and \ac{V4} such that the surrounding neurons respond to the same area of the visual field, this did not happen to be the case for either animal. Consequently, experimentation had to be performed first with stimuli in the appropriate location for the \ac{V4} implant, and then the \ac{V1} implant.
+The \acp{MEA} are not tetrodes, so electrodes on the implanted \acp{MEA} are sufficiently distant from one another such that no spike detected by one electrode will be detected as an isolated spike at another electrode. The number of channels recorded from for each animal is given in Table~\ref{tab:nchannels}.
 
 \begin{table}[hbtp]
-\caption{Number of channels recorded from for each of the monkeys and brain regions. The number of channels on the implanted MEA was the same for all 4 implants, but not all electrodes were viable to record from after implantation.}
+\caption{Number of channels recorded from for each of the monkeys and brain regions. The number of channels on the implanted \ac{MEA} was the same for all 4 implants, but not all electrodes were viable to record from after implantation.}
 \label{tab:nchannels}
 \begin{center}
 \begin{tabular}{rlr}
@@ -31,7 +31,7 @@ M2    & V4    & 20
 \end{table}
 
 The experiment comprised 4 stages, each of which conform to the same overarching structure.
-Each experiment is composed of a series of trials. On each trial, the monkey must first fixate on a fixation point, which is a black cross on a grey background with 50\% contrast displayed on a monitor in front of the monkey. For M1, the refresh rate of the monitor was \unit[85]{Hz}, whilst for M2 it was \unit[75]{Hz}.
+Each experiment is composed of a series of trials. On each trial, the monkey must first fixate on a fixation point, which is a black cross on a grey background with 50\% contrast displayed on a monitor in front of the monkey. For \ac{M1}, the refresh rate of the monitor was \unit[85]{Hz}, whilst for \ac{M2} it was \unit[75]{Hz}.
 
 \begin{figure}[htbp]
 \begin{center}
@@ -63,7 +63,7 @@ $t_3$:~sample-test stimulus interval.
 $t_4$:~test presentation.
 $t_5$:~test-targets interval.
 Differing monitor refresh rates for the two monkeys results in different durations because stimuli can only be presented at the start of the monitor refresh cycle.
-\NB{}~A random duration for $t_3$ was used when the experiment was performed on M1 in V4, but this was changed to a static delay for data collected later.}
+\NB{}~A random duration for $t_3$ was used when the experiment was performed on \ac{M1} in \ac{V4}, but this was changed to a static delay for data collected later.}
 \label{tab:tptimes}
 \begin{center}
 \begin{tabular}{rlr}
@@ -149,17 +149,17 @@ M2    & V4    & $t_5 = 426.578$
 \end{center}
 \end{table}
 
-Following a period of rest after surgery, during which the implants should settle into stable locations, the animals are pre-trained to sit in the chair and fixate on the fixation point. They are then trained in the procedure of the experiment, whilst recordings are taken from V4. Their preliminary training involves a grey disc as the sample, whilst the test is either white or black. This then changes to be a set of Gabor functions.
+Following a period of rest after surgery, during which the implants should settle into stable locations, the animals are pre-trained to sit in the chair and fixate on the fixation point. They are then trained in the procedure of the experiment, whilst recordings are taken from \ac{V4}. Their preliminary training involves a grey disc as the sample, whilst the test is either white or black. This then changes to be a set of Gabor functions.
 % check this
 
 
-After the preliminary training, the main perceptual learning experiment is performed, first for V4, then V1.
+After the preliminary training, the main perceptual learning experiment is performed, first for \ac{V4}, then \ac{V1}.
 In the main experiment, we keep the contrast of the sample as $C_{sample} = 30\%$ throughout.
 
 The test contrast is chosen from a set of 14 contrasts:
-\{10, 15, 20, 25, 27, 28, 29, 31, 32, 33, 35, 40, 50, 60\}\% for V1 and
- \{5, 10, 15, 20, 22, 25, 28, 32, 35, 40, 45, 50, 60, 90\}\% for V4,
-for both of the animals. These groups are chosen such that the animal has a similar initial accuracy for both V1 and V4. We note that half of the contrasts are above and half below the sample contrast of 30\%.
+\{10, 15, 20, 25, 27, 28, 29, 31, 32, 33, 35, 40, 50, 60\}\% for \ac{V1} and
+ \{5, 10, 15, 20, 22, 25, 28, 32, 35, 40, 45, 50, 60, 90\}\% for \ac{V4},
+for both of the animals. These groups are chosen such that the animal has a similar initial accuracy for both \ac{V1} and \ac{V4}. We note that half of the contrasts are above and half below the sample contrast of 30\%.
 The contrast is not chosen randomly at the start of each trial; instead a batch of trials containing a set number of each test contrast is placed into sequence all at once.
 If the monkey responds incorrectly at the end of the trial, this contrast is added to a list to be repeated at the end of the batch.
 At the end of the batch, another batch of trials begins in a similar fashion.
@@ -188,7 +188,7 @@ As expected, the psychometric performance of the monkey increased each day for a
 
 In this study, we will focus on analysing data from the non-roving perceptual learning task as described above. However, it should be noted that once the animals had completed the non-roving stage of the experiment, they progressed to further stages involving a roving task. In the roving task, the sample contrast was chosen at random with $C_{sample} \in \{20, 30, 40\}\%$. Subsequently, once the test stimulus had been shown and the targets appeared, the animal was tasked with responding by comparing the test contrast to whichever sample contrast was presented on that particular trial. During this task, the test contrast would be selected from a set of 12 contrasts specific to each of the three sample stimuli, such that 6 test stimuli were higher and 6 lower in contrast than the sample. The difference between the non-roving and roving stages is illustrated in Fig.~\ref{fig:pltask2}.
 %
-% One small inconsistency in the experimental setup is that for M1 during the V4-based task, the inter-stimuli wait was chosen randomly as $t_3 \in [x,y]ms$. For later experiments, including the V1 recordings for M1 and both V4 and V1 recordings for M2, the inter-stimuli wait was fixed at $t_3 = z ms$.
+% One small inconsistency in the experimental setup is that for \ac{M1} during the \ac{V4}-based task, the inter-stimuli wait was chosen randomly as $t_3 \in [x,y]ms$. For later experiments, including the \ac{V1} recordings for \ac{M1} and both \ac{V4} and \ac{V1} recordings for \ac{M2}, the inter-stimuli wait was fixed at $t_3 = z ms$.
 
 As mentioned in Sec.~\ref{sec:bgpl}, some previous research has found flankers around the stimuli are necessary to induce perceptual learning.
 During this experiment, the researchers found flankers were not necessary for perceptual learning during the first stage, but to subsequently learn to the roving task, flankers around the stimuli were necessary.

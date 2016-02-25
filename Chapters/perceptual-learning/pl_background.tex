@@ -27,7 +27,7 @@ Perceptual learning is thought to be connected to cortical remapping and reorgan
 Some researchers in this field have suggested that perceptual learning might be the mechanism which underpins all adult plasticity in the sensory and association cortices \cite{Gilbert2001}.
 
 
-Neural changes correlated with perceptual learning have been observed at many levels of the cortical hierarchy. Studies have found changes in the orientation tuning curves of neurons in both V1 \cite{Schoups2001} and V4 \cite{Yang2004,Raiguel2006}, however the effects are greater in V4 than in V1 \cite{Raiguel2006}, and not all studies find neural changes in V1 and V2 which relate to perceptual learning, even when the subject has demonstrated psychometric improvement in the task \cite{Ghose2002}.
+Neural changes correlated with perceptual learning have been observed at many levels of the cortical hierarchy. Studies have found changes in the orientation tuning curves of neurons in both \ac{V1} \cite{Schoups2001} and \ac{V4} \cite{Yang2004,Raiguel2006}, however the effects are greater in \ac{V4} than in \ac{V1} \cite{Raiguel2006}, and not all studies find neural changes in \ac{V1} and V2 which relate to perceptual learning, even when the subject has demonstrated psychometric improvement in the task \cite{Ghose2002}.
 
 Due to the specificity of perceptual learning, only neurons in the retinotopic area where the stimulus falls are affected. 
 When the properties of individual neurons have been observed to change during perceptual learning, their tuning curves for task-relevant features have become sharper (\ie{} the bandwidth narrows). Under activity-based models of neural information processing, this will provide more information about the task-relevant stimulus property if it falls on the steeper slope of the tuning curve. Studies have also shown that the effect of perceptual learning is most pronounced on the most relevant neurons from the perspective of information conveyed \cite{Raiguel2006}. 
@@ -47,7 +47,7 @@ On the other hand, by using information theory to extracellular recordings allow
 When applying information theory to neuronal data, we treat the brain as a communication channel, transmitting information about sensory input. 
 In the perspective of sensory recordings, the different conditions used on the trial are typically different stimuli, and the extracellular recordings provide us with the neuron's response to the stimuli.
 For such an experimental setup, let us assume that on each trial the stimulus $s$ is selected at random with probability $P(s)$ from a set of stimuli $\SET{S}$, containing $S$ unique stimuli.
-For our purposes, we will be considering response given by the neuron in the spike-train it elicits, though an information approach can be performed on data from the Local Field Potential (LFP) of extracellular recordings, or collected by Magnetic Resonance Imaging (MRI) Blood Oxygen-Level Dependent (BOLD) signal or Electroencephalography (EEG) \cite{Magri2009,Quiroga2009}.
+For our purposes, we will be considering response given by the neuron in the spike-train it elicits, though an information approach can be performed on data from the \ac{LFP} of extracellular recordings, or collected by \ac{BOLD} signal or \ac{EEG} \cite{Magri2009,Quiroga2009}.
 
 Using information theory, we can also investigate the nature of the neural code used by individual neurons and populations of neurons \cite{Optican1987}.
 For example, we might look at whether a neuron is conveying information in the millisecond level timing of its spikes, or if all the information is conveyed in its firing rate.
@@ -89,14 +89,14 @@ We refer to the bias uncorrected mutual information as the ``plug-in'' measureme
 
 Fortunately, several techniques exist to correct for the bias.
 Several of these bias correction methods focus on expanding out the measured information as a power series \cite{Miller1955,Treves1995} in terms of $\nicefrac{1}{N}$, where $N$ is the number of trials in the dataset, though technically the relationship with the power series only holds in the asymptotic sampling regime with a very large number of trials. The first term in the bias, proportional to $\nicefrac{1}{N}$, has a coefficient which depends only on the number of stimuli, $S$, and possible responses $\overline{R}$ . However, $\overline{R} \neq R$ because many responses which are theoretically possible by the construction of the response code may be in fact be impossible to generate. Furthermore, $\overline{R}$ cannot be found simply by looking at the number of unique responses in the dataset, since low probability responses may not have occurred in the finite number of trials sampled, leading to an underestimation of $\overline{R}$.
-Consequently, one approach to bias correction, the Panzeri-Treves method \cite{Panzeri1996} (PT), uses a Bayesian procedure to estimate the true number of possible responses and then subtracts the leading term of the bias from the mutual information.
-A second method of correcting for the bias which makes use of the power series expansion is the Quadratic Extrapolation method \cite{Strong1998} (QE). Here, the uncorrected mutual information is assumed to be well approximated by
+Consequently, one approach to bias correction, \iac{PT} \cite{Panzeri1996}, uses a Bayesian procedure to estimate the true number of possible responses and then subtracts the leading term of the bias from the mutual information.
+A second method of correcting for the bias which makes use of the power series expansion is \iac{QE} method \cite{Strong1998}. Here, the uncorrected mutual information is assumed to be well approximated by
 $$
 I_{\text{plugin}}(\SET{S};\SET{R}) = I_{\text{true}}(\SET{S};\SET{R}) + \frac{a}{N} + \frac{b}{N^2}
 ,$$
 with the free parameters $a$ and $b$ found by computing the information content with fractions of the full available dataset (\ie{} using $\nicefrac{N}{2}$ and $\nicefrac{N}{2}$ trials).
 
-Other bias correction methods which do not utilise the power series expansion include the Nemenman-Shafee-Bialek (NSB) entropy estimation method.
+Other bias correction methods which do not utilise the power series expansion include \iac{NBS}.
 This uses a Bayesian inference approach to entropy estimation with a specially chosen prior probability distribution to make the prior expected entropy distribution uniform \cite{Nemenman2004}.
 
 A completely different method of bias correction which works for responses with dimension $L > 1$, is to compute an estimate of the information known as $I_{\text{sh}}$.
@@ -106,7 +106,7 @@ I_{\text{sh}}(\SET{S};\SET{R}) = H( \SET{R} ) - H_\text{ind}( \SET{R} | \SET{S} 
 ,$$
 which has a much smaller bias than $I(\SET{S};\SET{R})$.
 
-Both the PT and QE correction methods give similar approximations to the true information, whilst NSB outperforms them with a less biased estimate \cite{Panzeri2007}. However, NSB is very computationally intensive \cite{Panzeri2007}, so we will not be making use of it in the presented body work.
+Both \iac{PT} and \ac{QE} bias correction methods give similar approximations to the true information, whilst \ac{NBS} outperforms them with a less biased estimate \cite{Panzeri2007}. However, \ac{NBS} is very computationally intensive \cite{Panzeri2007}, so we will not be making use of it in the presented body work.
 All these bias correction methods tend to make a trade off between variability and bias, introducing more terms and hence more variability to reduce the size of bias term.
 
 % rule of thumb number of trials per stimulus required for decent estimate in each case
@@ -117,12 +117,12 @@ All these bias correction methods tend to make a trade off between variability a
 
 The firing rate of neurons in the sensory system will vary trial-to-trial, even if the stimulus presented is the same. The manner in which these responses fluctuate together is known as the noise correlation between neurons. If there are positive noise correlations, the changes in neural activity across a population will increase and decrease together. Long-standing theoretical work has indicated such correlations will hamper the ability of upstream neurons to accurately decode the stimulus% [cite]
 , which is in keeping with experimental results demonstrating attention reduces noise correlations \citep{Cohen2009}. This fits with intuition --- if stimulus A is encoded with one firing rate across a population and stimulus B with a slightly higher rate, a systematic increase or decrease in the population firing rates can easily cause A and B to be confused with one another. However, recent theoretical results indicate that for a more realistic non-homogeneous population of neurons, neural correlations do not limit the population-wide information as the number of neurons increases \citep{Oram1998,Averbeck2006,Ecker2011}.
-A recent paper by \citet{Gu2011} on neurons recoded from the macaque dorsal medial superior temporal area (MSTd) before and after training in a head direction discrimination task, found that although pairwise noise correlations between neurons are reduced with training, this does not yield an increase in performance in a decoder. We will see if these findings hold here as well.
+A recent paper by \citet{Gu2011} on neurons recoded from the macaque dorsal \ac{MSTd} before and after training in a head direction discrimination task, found that although pairwise noise correlations between neurons are reduced with training, this does not yield an increase in performance in a decoder. We will see if these findings hold here as well.
 
 %----------------------------------------------------------------------------------------------------------------------
 % \section{Applying Information Theory to Neuroscience data}
 
-% Previous research has looked at the information in the onset transient in V1. There lower variability in the transient response, and this gives the most information about the stimuli. Adding activity from later is not useful. \cite{Muller2001}
+% Previous research has looked at the information in the onset transient in \ac{V1}. There lower variability in the transient response, and this gives the most information about the stimuli. Adding activity from later is not useful. \cite{Muller2001}
 
 
 %----------------------------------------------------------------------------------------------------------------------
