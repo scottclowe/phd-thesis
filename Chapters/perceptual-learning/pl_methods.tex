@@ -16,12 +16,12 @@ Furthermore, the ``lines'' occurred at regularly spaced intervals, with a period
 The spikes across multiple trials line up like this because the experimental equipment will only begin presenting a stimulus when the first pixel on the monitor is being updated, and we of course normalise for the stimulus presentation time across multiple trials.
 % INCLUDE RASTER EXAMPLE
 
-An empirical estimate of the artifact periodicity was found by choosing an arbitrary channel which strongly expresses the artifact and measuring by eye the duration of the completed artifact cycles within \unit[530]{ms} (44 for \ac{M1}, 39 for \ac{M2}).
+An empirical estimate of the artifact periodicity was found by choosing an arbitrary channel which strongly expresses the artifact and measuring by eye the duration of the completed artifact cycles within \SI{530}{ms} (44 for \ac{M1}, 39 for \ac{M2}).
 Since the artifact is tightly localised in time, this could be done with relatively high accuracy.
-For \ac{M1}, the period was estimated to be \unit[85.023(1)]{Hz}, whilst for \ac{M2} it was \unit[75.023(1)]{Hz}.
-The discrepancies from the programmed monitor refresh rates of \unit[85]{Hz} and \unit[75]{Hz} respectively can be put down to the specific electronic circuitry used, perhaps issuing the command to the monitor.
-The discrepancy is small enough to be of little consequence, except we will need \unit[5]{sf} of accuracy rather than \unit[2]{sf} in the following treatment of the artifact.
-Why it should be out by exactly \unit[0.023]{Hz} for both animals remains unclear, since this corresponds to the refresh cycle running \unit[0.0031]{ms} fast for \ac{M1} and \unit[0.0042]{ms} fast for \ac{M2}.
+For \ac{M1}, the period was estimated to be \SI{85.023(1)}{Hz}, whilst for \ac{M2} it was \SI{75.023(1)}{Hz}.
+The discrepancies from the programmed monitor refresh rates of \SI{85}{Hz} and \SI{75}{Hz} respectively can be put down to the specific electronic circuitry used, perhaps issuing the command to the monitor.
+The discrepancy is small enough to be of little consequence, except we will need \SI{5}{sf} of accuracy rather than \SI{2}{sf} in the following treatment of the artifact.
+Why it should be out by exactly \SI{0.023}{Hz} for both animals remains unclear, since this corresponds to the refresh cycle running \SI{0.0031}{ms} fast for \ac{M1} and \SI{0.0042}{ms} fast for \ac{M2}.
 An even bigger mystery is how the artifact has made its way into the recordings.
 Although it remains possible that the cause is some other piece of equipment also locked to the same refresh cycle, in the following we will refer to this artifact as the ``monitor artifact''.
 When a collection of data points exhibits the monitor artifact, we refer to the data as ``contaminated''.
@@ -34,20 +34,20 @@ It was considered paramount that the effects of the artifact be corrected for.
 To clean up the contamination, a more rigorous method of evaluating the problem was required.
 For the collection of spike times from a single channel across multiple trials during a single session, we perform the following steps:
 \begin{enumerate}
-\item Consider the set of all spike times where the visual stimulus has been the same for at least the last \unit[150]{ms}.
+\item Consider the set of all spike times where the visual stimulus has been the same for at least the last \SI{150}{ms}.
 \item From each spike time, $t$, subtract time of nearest stimulus onset/offset, $T_{\text{onset}}$.
       (Both onset and offset are synchronised with the monitor cycle, and the nearest one offers greatest accuracy.)
 $$
 t \leftarrow t - T_{\text{onset}}
 $$
-\item Take the modulo of the spike times with respect to the monitor period, $\tau_m$ (\unit[11.7616]{ms} for \ac{M1}, \unit[13.3292]{ms} for \ac{M2}).
+\item Take the modulo of the spike times with respect to the monitor period, $\tau_m$ (\SI{11.7616}{ms} for \ac{M1}, \SI{13.3292}{ms} for \ac{M2}).
 $$
 t \leftarrow t \bmod \tau_m
 $$
-\item Take a histogram of the spike times over bins with the width of the reciprocal of the sampling frequency of the spikes (sampling frequency \unit[32556.000]{Hz}; bin width \unit[0.030716]{ms}).
+\item Take a histogram of the spike times over bins with the width of the reciprocal of the sampling frequency of the spikes (sampling frequency \SI{32556.000}{Hz}; bin width \SI{0.030716}{ms}).
 \end{enumerate}
 Conceptually, this is equivalent to stacking all the ``lines'' in the raster on top of each other and seeing how thick the resulting line is.
-When the visual stimulus has remained unchanged for at least \unit[150]{ms}, the neurons in \ac{V1} and \ac{V4} settle down to a steady firing rate, so we expect there to be about the same number of spikes in each of these bins.
+When the visual stimulus has remained unchanged for at least \SI{150}{ms}, the neurons in \ac{V1} and \ac{V4} settle down to a steady firing rate, so we expect there to be about the same number of spikes in each of these bins.
 However, as the monitor artifact increases the number of spikes at set intervals after the monitor refresh commences, there will be an increase in the number of spikes in these bins when the monitor artifact is manifest in the data.
 
 % ./figs/info/monitor_hist_blanco_v4_ch4_s336_20120817T085037.eps
@@ -86,7 +86,7 @@ However, as the monitor artifact increases the number of spikes at set intervals
 %%        \includegraphics[width=\linewidth]{%
 %%./figs/info/monitor_hist_jack_v1_ch9_s56_20120817T084855.eps}
 %%    \end{subfigure}
-%%    \caption{Crosses: Histogram of spikes in bins of width \unit[0.030716]{ms}.
+%%    \caption{Crosses: Histogram of spikes in bins of width \SI{0.030716}{ms}.
 %%\ref{fig:mahist-b4}: \ac{M1} \ac{V4}, channel 4, session 336; a channel and session very strongly exhibiting the monitor artifact.
 %%\ref{fig:mahist-j4}: \ac{M2} \ac{V4}, channel 41, session 31; a dataset where the artifact is not present.
 %%\ref{fig:mahist-j1s51}: \ac{M2} \ac{V1}, channel 9, session 51; data strongly presenting the monitor artifact.
@@ -107,7 +107,7 @@ However, doing the analysis in this more rigorous manner revealed the contaminat
 The histograms of spike times indicate that more sessions are contaminated than not, and only a couple of channels are completely clean for every session.
 
 For the most part, the timing of the monitor artifact $\bmod \tau_m$ is very reliable and it affects the same 6 or so bins whenever the data is contaminated.
-The contaminated part of each monitor cycle is thus restricted to at most \unit[0.2]{ms}, and, assuming this period of time contains both genuine spikes and artificial spikes, if we simply delete all data points with this \unit[0.2]{ms} window, we will lose at most less than 2\% of the genuine spikes.
+The contaminated part of each monitor cycle is thus restricted to at most \SI{0.2}{ms}, and, assuming this period of time contains both genuine spikes and artificial spikes, if we simply delete all data points with this \SI{0.2}{ms} window, we will lose at most less than 2\% of the genuine spikes.
 This level of data loss is not terribly significant, and justifiable for the gain in reliability of the remaining dataset, particularly for sessions where artificial spikes seem to be more common than genuine ones.
 
 \begin{table}[hbtp]
@@ -120,7 +120,7 @@ Why this happens is unclear.}
 \begin{center}
 \begin{tabular}{rlc}
 \toprule
-Animal  & Region & Time of artifact peak $t^*_m$ $\pm 0.01$ (\unit{ms})
+Animal  & Region & Time of artifact peak $t^*_m$ $\pm 0.01$ (\si{\milli\second})
 \\
 \midrule
 M1  & V1    & 0.95
@@ -143,15 +143,15 @@ As shown in Fig.~\ref{fig:mahist}, the effect of the artifact is greater for som
 From observations on the typical width time of the width and peak time (Table.~\ref{tab:mapeak}) of the artifact, along with its periodicity ($\tau_m$), the following method of removal was devised and implemented.
 \begin{enumerate}
 \item Perform the modulo $\tau_m$ and take the histogram as described above.
-\item Define the ``search region'' as bins which contain spike within $t^*_m \pm \unit[0.130]{ms}$, so we have one bin more than the anticipated artifact width in either direction.
-      (For \ac{M2} \ac{V1}, we use the range \unit[$(0.968 - 0.130 , 1.190 + 0.130)$]{ms}.)
-\item Find the mean, $\mu$, and standard deviation, $\sigma$, of all the bins which are at least 10 away (\unit[0.3]{ms} away) from the search region.
+\item Define the ``search region'' as bins which contain spike within $t^*_m \pm \SI{0.130}{ms}$, so we have one bin more than the anticipated artifact width in either direction.
+      (For \ac{M2} \ac{V1}, we use the range (0.968 - 0.130 , 1.190 + 0.130)\si{\milli\second}.)
+\item Find the mean, $\mu$, and standard deviation, $\sigma$, of all the bins which are at least 10 away (\SI{0.3}{ms} away) from the search region.
       We also exclude the final bin since $0.030716 \bmod \tau_m \neq 0$ and it is only part-full.
 \item If any one of the bins in the search region exceeds $\mu + 3 \sigma$, we declare the session contaminated and proceed with the following steps.
       If not, it is declared intact and left as it is.
 \item All bins in the search region which contain more than $\mu + 3 \sigma$ spikes are declared contaminated.
 \item Let $t_m$ denote the time of the centre of the bin in the search region containing the most spikes.
-\item All bins which contain spikes within $t_m \pm \unit[0.1]{ms}$ are placed in ``quarantine''.
+\item All bins which contain spikes within $t_m \pm \SI{0.1}{ms}$ are placed in ``quarantine''.
 \item All quarantined bins which contain more than $\mu + 2.5 \sigma$ spikes are declared contaminated.
 \item All bins between the first and last contaminated bins are declared contaminated.
 \item Consider immediate neighbours of the first bin and if they are also contain more than $\mu + 2.5 \sigma$ spikes, they are declared contaminated.
@@ -183,11 +183,11 @@ using a spike-timing based code.
 This computation was done using the \verb|information| function from the freely available Information Break-down Toolbox \cite{Magri2009} for MATLAB.%
 \footnote{Available at \url{http://www.ibtb.org}}
 
-A moving window of $\unit[20]{ms}$ was taken and subdivided into 5 sequential bins, each of $\unit[4]{ms}$.
+A moving window of $\SI{20}{ms}$ was taken and subdivided into 5 sequential bins, each of $\SI{4}{ms}$.
 The number of spikes within each of the 5 bins was totalled up to provide a code letter for the bin.
 The combination of the 5 sequential counts forms a codeword.
 
-This is performed across all the trials in a session with the $\unit[20]{ms}$ window placed with the same offset relative to the test stimulus onset.
+This is performed across all the trials in a session with the $\SI{20}{ms}$ window placed with the same offset relative to the test stimulus onset.
 By assembling the trials according to their test contrast, the mutual information between the contrast and the spiking activity in this window can be computed.
 
 Following the methods employed by the research group, only trials in which the monkey responded correctly were used for this analysis.
@@ -256,8 +256,8 @@ Following the methods employed by the research group, only trials in which the m
 ./figs/info/I_sessionwise_jack_v4_chmean20_s24-49_oc1_5bins_of_4ms_dr_naive_pcolorhot_20120815T202058.png}
     }%
     \caption{Mutual information between the test stimulus and the neural activity during test presentation.
-The mutual information with the test stimulus is taken for a spike timing based code for a \unit[20]{ms} window of spiking activity, sampled with the start of the window offset ($y$-axis) from \unit[0]{ms} up to \unit[500]{ms} after test stimulus onset (which is slightly more than \unit[20]{ms} before test stimulus offset).
-The sampling is in intervals of \unit[5]{ms}, so any 4 adjacent squares within each session are highly correlated.
+The mutual information with the test stimulus is taken for a spike timing based code for a \SI{20}{ms} window of spiking activity, sampled with the start of the window offset ($y$-axis) from \SI{0}{ms} up to \SI{500}{ms} after test stimulus onset (which is slightly more than \SI{20}{ms} before test stimulus offset).
+The sampling is in intervals of \SI{5}{ms}, so any 4 adjacent squares within each session are highly correlated.
 The recording session number for the data is given along the $x$-axis, and the number of days the animal has been trained for increases from left to right.
 Average mutual information across all the channels is denoted by the pseudo-colour of each of the rectangular patches, centred around the $(x,y)$ co-ordinate to which the measurement relates.
 In each case the average is taken across all available channel data: \ref{fig:sessb1}~23 channels, \ref{fig:sessb4}~30 channels, \ref{fig:sessj1}~25 channels, \ref{fig:sessj4}~20 channels.
@@ -419,11 +419,11 @@ Let $\overline{R}$ denote the number of possible response codes.
 Then, for the plug-in estimate of mutual information, we need to have at least $N_S \ge 2^{32} \, \overline{R}$ trials per stimulus,
 whilst if the \ac{PT} or \ac{QE} bias correction methods are applied, we only need $N_S > 2 \, \overline{R}$.
 
-% The spike detection software was set to only detect spikes at least \unit[3]{ms} apart, and moreover, 
-The probability of having two spikes within \unit[4]{ms} from a non-bursting neuron is very low.
-For example, a neuron with a high firing rate might fire at \unit[100]{Hz}, which means inter-spike intervals are typically around \unit[10]{ms} (and \unit[100]{Hz} is a high firing rate for the channels in our dataset).
-Consequently any \unit[4]{ms} bin will realistically contain either 0 or 1 spikes, and the number of possible response codes in our spike timing code analysis with 5 bins each of \unit[4]{ms} is $\overline{R} = 2^5 = 32$.
-In comparison for a spike count code, if we assume spikes cannot be closer together than \unit[3]{ms}, there are between 0 and 7 spikes in any \unit[20]{ms} interval.
+% The spike detection software was set to only detect spikes at least \SI{3}{ms} apart, and moreover, 
+The probability of having two spikes within \SI{4}{ms} from a non-bursting neuron is very low.
+For example, a neuron with a high firing rate might fire at \SI{100}{Hz}, which means inter-spike intervals are typically around \SI{10}{ms} (and \SI{100}{Hz} is a high firing rate for the channels in our dataset).
+Consequently any \SI{4}{ms} bin will realistically contain either 0 or 1 spikes, and the number of possible response codes in our spike timing code analysis with 5 bins each of \SI{4}{ms} is $\overline{R} = 2^5 = 32$.
+In comparison for a spike count code, if we assume spikes cannot be closer together than \SI{3}{ms}, there are between 0 and 7 spikes in any \SI{20}{ms} interval.
 Consequently there are $\overline{R} = 8$ possible response codes.
 
 As we wish our analysis to work for both spike timing and spike count codes, using the above rules we need to use at least 64 trials per stimulus to get a reasonable estimate of the information with one of the bias correction methods in place.
@@ -486,7 +486,7 @@ To make ensure the estimate of the information in the spike-timing code with the
 % \footnote{The five shuffles were performed with a random seed linked to microsecond of execution time.}
  and then the mean was taken.
 
-The information contained in the \unit[4]{ms} level spike timing can then be found by subtracting the mean shuffled information from the unshuffled information.
+The information contained in the \SI{4}{ms} level spike timing can then be found by subtracting the mean shuffled information from the unshuffled information.
 
 %------------------------------------------------------------------------------
 \FloatBarrier
