@@ -1,19 +1,11 @@
-%------------------------------------------------------------------------------
-\section{Introduction}
-
-In this study, we will be examining how the ability of individual neurons to discriminate between multiple stimuli changes over many exposures to the stimuli.
-This will be done by means of an information theoretic analysis of the experimentally collected data.
-To begin, we will consider some background material to give the reader a feel for the field.
-
-%------------------------------------------------------------------------------
-%------------------------------------------------------------------------------
-\subsection{Background}
+%----------------------------------------------------------------------------------------------------------------------
+% Background to Perceptual Learning Chapter
+%----------------------------------------------------------------------------------------------------------------------
+\section{Background}
 \label{ch:bg}
 
-
-
-%------------------------------------------------------------------------------
-\subsubsection{Perceptual Learning}
+%----------------------------------------------------------------------------------------------------------------------
+\subsection{Perceptual Learning}
 \label{sec:bgpl}
 
 When an individual repeatedly performs a sensory perception task they will typically demonstrate an improvement in performance. If the task is repeated until performance reaches saturation, the effect can persist for months. This phenomenon is known as perceptual learning, and its duration sets it apart from shorter term effects such as sensitization (transient increase in sensitivity following a period of stimulation) and priming (change in perception of one stimulus immediately following a different, faint, stimulus).
@@ -45,8 +37,8 @@ When the properties of individual neurons have been observed to change during pe
 % stuff about contrast sensitivity anomaly
 Since all neurons in the visual system have contrast tuning to some degree, one might think a contrast discrimination task a good choice for a perceptual learning study. However, perceptual learning has proven unreliable for such discrimination problems, possibly because contrast sensitivity is already overtrained due to its importance in low-light conditions. Better results have sometimes been found if the contrast test stimulus is accompanied with flanking stimuli \cite{Adini2002}, a phenomenon known as context-dependent learning, though other studies have found learning occurs at the same rate both with and without flankers \cite{Yu2004}, despite nearly identical setup between the experiments with the conflicting two results.
 
-%------------------------------------------------------------------------------
-\subsubsection{Information Theory in Neuroscience}
+%----------------------------------------------------------------------------------------------------------------------
+\subsection{Information Theory in Neuroscience}
 \label{sec:bgit}
 
 A common method used in neuroscience is to record the extracellular activity of a single neuron under different conditions. Frequently, the approach used is to take many recordings of the same neuron for the same condition, and then take the average across these repetitions (``trials'') to reduce the effects of neuronal variability. However, this is not how the brain processes stimuli, as it has access to many neurons but only one trial at a time.
@@ -120,25 +112,17 @@ All these bias correction methods tend to make a trade off between variability a
 % rule of thumb number of trials per stimulus required for decent estimate in each case
 
 
-%------------------------------------------------------------------------------
-% \subsection{Applying Information Theory to Neuroscience data}
+%----------------------------------------------------------------------------------------------------------------------
+\subsection{Noise correlation}
+
+The firing rate of neurons in the sensory system will vary trial-to-trial, even if the stimulus presented is the same. The manner in which these responses fluctuate together is known as the noise correlation between neurons. If there are positive noise correlations, the changes in neural activity across a population will increase and decrease together. Long-standing theoretical work has indicated such correlations will hamper the ability of upstream neurons to accurately decode the stimulus% [cite]
+, which is in keeping with experimental results demonstrating attention reduces noise correlations \citep{Cohen2009}. This fits with intuition --- if stimulus A is encoded with one firing rate across a population and stimulus B with a slightly higher rate, a systematic increase or decrease in the population firing rates can easily cause A and B to be confused with one another. However, recent theoretical results indicate that for a more realistic non-homogeneous population of neurons, neural correlations do not limit the population-wide information as the number of neurons increases \citep{Oram1998,Averbeck2006,Ecker2011}.
+A recent paper by \citet{Gu2011} on neurons recoded from the macaque dorsal medial superior temporal area (MSTd) before and after training in a head direction discrimination task, found that although pairwise noise correlations between neurons are reduced with training, this does not yield an increase in performance in a decoder. We will see if these findings hold here as well.
+
+%----------------------------------------------------------------------------------------------------------------------
+% \section{Applying Information Theory to Neuroscience data}
 
 % Previous research has looked at the information in the onset transient in V1. There lower variability in the transient response, and this gives the most information about the stimuli. Adding activity from later is not useful. \cite{Muller2001}
 
 
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\subsection{Hypotheses}
-
-In the course of the analysis, we will be testing several hypotheses.
-The most obvious of these is that we would expect the information contained in the population spiking activity to increases over time as perceptual learning occurs. This is likely to involve an increase in information for some of the individual neurons, but not necessarily all.
-In line with previous experiments \cite{Raiguel2006}, I also expect to see more of a change in information for neurons in V4 than V1, and also a greater change in the V4 neurons which are the most informative to begin with \cite{Raiguel2006}.
-In keeping with the reverse hierarchy model, learning should begin in V4 first before being propagated down to V1, so one would expect to see distinct increases in the mutual information between the stimulus and V4 on a shorter timescale than between V1 and V4.
-
-Since temporal coding, in particular response latency, has been found to be important for subtle contrast differences \cite{Reich2001,Arabzadeh2006}, I hypothesise that the amount of information in the temporal coding of the spiking data will have increased above and beyond any increase in the information contained in the firing rates alone. Furthermore, I expect to see that response latencies become more stimulus dependent, conveying an increasing amount of information about the stimulus contrast.
-
-Furthermore, since these studies \cite{Reich2001,Arabzadeh2006} also found the information contained within firing rate alone was sufficient for gross discrimination of contrast, I hypothesise that information in the latency and temporal code will only increase significantly for test stimuli close in contrast to the sample stimulus (see the following section for an explanation of the experimental setup).
-
-%------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------------------------------------

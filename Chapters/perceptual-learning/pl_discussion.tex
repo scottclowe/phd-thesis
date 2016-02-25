@@ -106,3 +106,19 @@ If we were to use information theory directly, even with binary bins for every c
 The project has expanded on existing literature and demonstrated that the millisecond-level timing of spikes from individual neurons, both in V1 and V4, is not important for contrast discrimination tasks, but the firing rate is important. It has also been demonstrated that little information regarding the discrimination between similar contrasts can be gained from the spiking activity of individual neurons, even during/after perceptual learning has occurred. In V1, there is no discernible change in contrast information in individual neurons at all, but in V4 there is an increase with perceptual learning in the magnitude of the peak information after stimulus onset, and the peak occurs sooner after stimulus onset as well.
 
 However, the analysis indicates the quality of the results is good for one monkey (M2), but not so good for the other (M1). The discrepancy between the two datasets needs further investigation, and the conclusions made here need to be validated against other studies.
+
+
+%------------------------------------------------------------------------------
+\clearpage
+\section{Other Discussion}
+%------------------------------------------------------------------------------
+
+Based on data from Jack V4, one might conclude our results to offer some coroboration with those of \citet{Gu2011}, since we find a decrease in noise correlations and in increase in decoder performance. However, comparing the perforance of the decoder to a decoder based on shuffled data without the noise correlations present suggests that the improvement in decoder performance is not due to the relatively small reduction in noise correlation observed, but is from other sources.
+
+The data from Jack V1 does not support a ``reduction in noise correlation'' hypothesis either, and indicates that neural spike rates across the V1 population recorded from are no more informative after training than they were before. Together, results from Jack V1 and V4 suggest that information in V1 is consistent throughout training, but the ability of V4 to read out the information in V1 improves over the same period, leading to an improvement in behavioural performance.
+
+However, these findings are not supported by the data from Blanco.
+
+% In addition to this, the increase in reponse agreement between our rate-based decoder and the animal's behavioural responses for Jack V4 (Fig.~\ref{fig:dec_j4_alla}) indicates the monkey is increasingly relying on the activity from the channels which were recorded from in V4 in order to make its decisions about the presented stimulus contrast.
+
+For both animals, from the data from V4 we find there is a statistically significant level of agreement between decoded and behavioural trial-to-trial responses after training but not before, which shows the neural activity in V4 and the behavioural resposes are correlated. This implies that the monkey becomes dependent on the activity of the population of neurons for which the recordings are representative. That the agreement is better without shuffling could be taken to mean the neural correlations are important in the determination of the animal's response, however shuffling does by its very nature destroy the correspondence between the trials given to the decoder and those experienced by the animal.
