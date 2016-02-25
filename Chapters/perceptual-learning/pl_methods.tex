@@ -24,7 +24,7 @@ The discrepancy is small enough to be of little consequence, except we will need
 Why it should be out by exactly \unit[0.023]{Hz} for both animals remains unclear, since this corresponds to the refresh cycle running \unit[0.0031]{ms} fast for \ac{M1} and \unit[0.0042]{ms} fast for \ac{M2}.
 An even bigger mystery is how the artifact has made its way into the recordings.
 Although it remains possible that the cause is some other piece of equipment also locked to the same refresh cycle, in the following we will refer to this artifact as the ``monitor artifact''.
-When a collection of datapoints exhibits the monitor artifact, we refer to the data as ``contaminated''.
+When a collection of data points exhibits the monitor artifact, we refer to the data as ``contaminated''.
 
 From the rasters, it seemed as if three-quarters of the channels in \ac{M1} \ac{V4} were contaminated for at least one session; over two-thirds of the channels for \ac{M1} \ac{V1} and \ac{M2} \ac{V4} were contaminated for at least one session; and around a third of the channels for \ac{M2} \ac{V4} were contaminated for at least one session.
 The contaminated channels include both high-quality channels with a lot of detected spikes, and low-quality channels with fewer detected spikes.
@@ -34,17 +34,17 @@ It was considered paramount that the effects of the artifact be corrected for.
 To clean up the contamination, a more rigorous method of evaluating the problem was required.
 For the collection of spike times from a single channel across multiple trials during a single session, we perform the following steps:
 \begin{enumerate}
-\item Consider the set of all spiketimes where the visual stimulus has been the same for at least the last \unit[150]{ms}.
-\item From each spiketime, $t$, subtract time of nearest stimulus onset/offset, $T_{\text{onset}}$.
+\item Consider the set of all spike times where the visual stimulus has been the same for at least the last \unit[150]{ms}.
+\item From each spike time, $t$, subtract time of nearest stimulus onset/offset, $T_{\text{onset}}$.
       (Both onset and offset are synchronised with the monitor cycle, and the nearest one offers greatest accuracy.)
 $$
 t \leftarrow t - T_{\text{onset}}
 $$
-\item Take the modulo of the spiketimes with respect to the monitor period, $\tau_m$ (\unit[11.7616]{ms} for \ac{M1}, \unit[13.3292]{ms} for \ac{M2}).
+\item Take the modulo of the spike times with respect to the monitor period, $\tau_m$ (\unit[11.7616]{ms} for \ac{M1}, \unit[13.3292]{ms} for \ac{M2}).
 $$
 t \leftarrow t \bmod \tau_m
 $$
-\item Take a histogram of the spiketimes over bins with the width of the reciprocal of the sampling frequency of the spikes (sampling frequency \unit[32556.000]{Hz}; bin width \unit[0.030716]{ms}).
+\item Take a histogram of the spike times over bins with the width of the reciprocal of the sampling frequency of the spikes (sampling frequency \unit[32556.000]{Hz}; bin width \unit[0.030716]{ms}).
 \end{enumerate}
 Conceptually, this is equivalent to stacking all the ``lines'' in the raster on top of each other and seeing how thick the resulting line is.
 When the visual stimulus has remained unchanged for at least \unit[150]{ms}, the neurons in \ac{V1} and \ac{V4} settle down to a steady firing rate, so we expect there to be about the same number of spikes in each of these bins.
@@ -104,10 +104,10 @@ However, as the monitor artifact increases the number of spikes at set intervals
 
 As shown in Fig.~\ref{fig:mahist}, the analysis conforms to our expectations.
 However, doing the analysis in this more rigorous manner revealed the contamination was more widespread than previously assumed.
-The histograms of spiketimes indicate that more sessions are contaminated than not, and only a couple of channels are completely clean for every session.
+The histograms of spike times indicate that more sessions are contaminated than not, and only a couple of channels are completely clean for every session.
 
 For the most part, the timing of the monitor artifact $\bmod \tau_m$ is very reliable and it affects the same 6 or so bins whenever the data is contaminated.
-The contaminated part of each monitor cycle is thus restricted to at most \unit[0.2]{ms}, and, assuming this period of time contains both genuine spikes and artificial spikes, if we simply delete all datapoints with this \unit[0.2]{ms} window, we will lose at most less than 2\% of the genuine spikes.
+The contaminated part of each monitor cycle is thus restricted to at most \unit[0.2]{ms}, and, assuming this period of time contains both genuine spikes and artificial spikes, if we simply delete all data points with this \unit[0.2]{ms} window, we will lose at most less than 2\% of the genuine spikes.
 This level of data loss is not terribly significant, and justifiable for the gain in reliability of the remaining dataset, particularly for sessions where artificial spikes seem to be more common than genuine ones.
 
 \begin{table}[hbtp]
@@ -159,7 +159,7 @@ From observations on the typical width time of the width and peak time (Table.~\
 \item Consider immediate neighbours of the last bin and if they are also contain more than $\mu + 2.5 \sigma$ spikes, they are declared contaminated.
 \item Repeat the above step until either a neighbour is found which is not contaminated, or until a maximum of three bins have been added to the contaminated region.
 \item Consider the full dataset of spikes for this particular channel and session.
-\item For each spike, consider which bin its spiketime would be arranged into.
+\item For each spike, consider which bin its spike time would be arranged into.
 \item If it is a contaminated bin, the spike is removed from the dataset.
 \end{enumerate}
 
@@ -510,15 +510,15 @@ Furthermore, it is possible that the firing rate during the onset response might
 However, finding the optimal window from which to take the spikes is an exercise in of itself.
 
 The decoder used was a Fisher linear discriminant classifier.
-Given a training dataset of labelled datapoints in 20D, the classifier will find the optimal 19D hyperplane such that it separates the two classes of points optimally, under the assumption that the two clusters to be separated are multivariate normal distributions.
+Given a training dataset of labelled data points in 20D, the classifier will find the optimal 19D hyperplane such that it separates the two classes of points optimally, under the assumption that the two clusters to be separated are multivariate normal distributions.
 The vector normal to the hyperplane is 
 \begin{equation}
 \vec{w} = \Sigma^{-1}\left(\vec{\mu_1}-\vec{\mu_0}\right)
 \end{equation}
 where $\Sigma$ is the covariance matrix between the two populations, as determined from the available labelled data, and $\vec{\mu_0}$ and $\vec{\mu_1}$ are the computed means of the two distributions.
 
-Once a classifying hyperplane has been found, test datapoints can be classified by observing the side of the hyperplane on which they fall.
-For a new datapoint, $\vec{x}$,  if
+Once a classifying hyperplane has been found, test data points can be classified by observing the side of the hyperplane on which they fall.
+For a new data point, $\vec{x}$,  if
 \begin{equation}
 \vec{w}\cdot\vec{x}>c
 \end{equation}
@@ -537,10 +537,10 @@ After shuffling, specific neural response vectors no longer correspond to any pa
 \subsection{Probabilistic Model}
 \label{sec:dec-meth-prob}
 
-As well as comparing the behavioural and decoding responses with the target responses to find a value for predictor perforance, we can compare the behavioural and decoding responses with one another and find a value for their agreement, the proportion of trials on which the two responses are the same.
+As well as comparing the behavioural and decoding responses with the target responses to find a value for predictor performance, we can compare the behavioural and decoding responses with one another and find a value for their agreement, the proportion of trials on which the two responses are the same.
 
-We would like to evaluate whether the behavioural respones are dependent on the firing rates of the recorded population of neurons.
-This can be done by considering the behavioural and decoding response agreement, but in order to do this we need to contstruct a model of how much agreement we would expect to find if the two were completely independent, which will form our null hypothesis (NH) to compare against.
+We would like to evaluate whether the behavioural responses are dependent on the firing rates of the recorded population of neurons.
+This can be done by considering the behavioural and decoding response agreement, but in order to do this we need to construct a model of how much agreement we would expect to find if the two were completely independent, which will form our null hypothesis (NH) to compare against.
 
 Throughout this work, it is assumed that the behavioural and decoding responses are given by a Bernoulli distribution.
 In this model, there is a true probability, $p$, of the animal giving the correct answer to the task for each trial, which is sampled from on each of the trials.
@@ -549,7 +549,7 @@ When this is sampled over $n$ trials, we expect to find $np$ trials have been re
 Hence the underlying true probability of a correct response can be approximated by taking the number of correct responses and dividing them by the total number of trials.
 Using one of several statistical methods, we can find an estimate for a percentage confidence interval (PCI).
 It is from this that error bars, indicated by the shaded regions surrounding line plots in Figs.~\ref{fig:dec_all_v1} and ~\ref{fig:dec_all_v4}, are computed.
-These are presented as the standard error, equivalent to a 31.8\%  confidence interval within which 68.2\% of datapoints are expected to lie.
+These are presented as the standard error, equivalent to a 31.8\%  confidence interval within which 68.2\% of data points are expected to lie.
 (This has been done using the function \texttt{binofit} in MATLAB, which utilises the Clopper-Pearson method.
 Although this is not the best method, it should be sufficient for our purposes.)
 

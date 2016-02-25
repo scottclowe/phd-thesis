@@ -34,7 +34,7 @@ It could be that fine stimuli differences cannot be accurately resolved using th
 %------------------------------------------------------------------------------
 \subsection{Information in millisecond-level spike timing}
 
-The observation about there being more information in the shuffled timebins than when they are in their genuine order (Fig.~\ref{fig:j1-fdif}) should be an impossibility because shuffling the response bins around can only destroy information and cannot generate it as it is a random process, unrelated to the stimuli.
+The observation about there being more information in the shuffled time-bins than when they are in their genuine order (Fig.~\ref{fig:j1-fdif}) should be an impossibility because shuffling the response bins around can only destroy information and cannot generate it as it is a random process, unrelated to the stimuli.
 This could, however, be explained if spikes are similarly timed in the actual data for many stimuli, which causes their responses to be more similar than one would expect by chance.
 In this case, there might be reliably more information measured in the shuffled bins due to the bias of the measurement being higher when the responses are less predictable.
 
@@ -70,7 +70,7 @@ Lending credence to this theory is the way the spikes detected as the monitor ar
 
 If this is the effect we are witnessing, this can be fixed in a manner similar to the way the monitor artifacts were removed in this paper.
 Instead of considering the spiking data, we will need to look at the continuous data.
-We can take the modulo of the times with respect to the monitor refresh rate again, and bin the datapoints together with a bin width the reciprocal of the sampling frequency, but instead of taking the number of datapoints in each bin (which will be the same since there is always a continuous voltage value even if there isn't a spike), we take the mean of the voltages.
+We can take the modulo of the times with respect to the monitor refresh rate again, and bin the data points together with a bin width the reciprocal of the sampling frequency, but instead of taking the number of data points in each bin (which will be the same since there is always a continuous voltage value even if there isn't a spike), we take the mean of the voltages.
 The amount of modification made on each trial to the voltages should then appear as a fluctuation in the mean voltage recorded and can consequently be subtracted from the original data.
 
 %------------------------------------------------------------------------------
@@ -85,7 +85,7 @@ If this is the case, the result will be much more trustworthy results.
 This will be especially important in improving the potential of the results for \ac{M1}, and for the spike-timing code, potentially yielding some more interesting results.
 
 %------------------------------------------------------------------------------
-\subsubsection{Comparison with pyschometrics}
+\subsubsection{Comparison with psychometrics}
 
 An interesting comparison would be to see how the information correlates with the behaviour of the monkey.
 In particular, it is suspected that there might be a correlation between the magnitude of the maximum information available to the animal in \ac{V4} and the performance of the monkey in the task.
@@ -115,7 +115,7 @@ There are several different routes down which the project could be more broadly 
 \item Information rate in bits per spike \cite{Rolls2011}.
 \item Population wide information, using a decoding approach.
       There are too many channels to use a direct information theoretic approach \cite{Quiroga2009}.
-      If we were to use information theory directly, even with binary bins for every channel, there are $2^20$ possible responses and we would need in excess of 2 million trials per condition to have a reasonable estimate of the information content.
+      If we were to use information theory directly, even with binary bins for every channel, there are $2^{20}$ possible responses and we would need in excess of 2 million trials per condition to have a reasonable estimate of the information content.
       The dataset is not large enough for this, and even if it were we would have missed the changes due to perceptual learning as they only occur in the first 20,000 trials.
 \item Examining correlations between neurons.
 \item Investigate whether firing rate for different contrasts becomes more discriminable due to the means becoming more distant or due to the variability in rate for each contrast being reduced.
@@ -138,8 +138,8 @@ The discrepancy between the two datasets needs further investigation, and the co
 \section{Other Discussion}
 %------------------------------------------------------------------------------
 
-Based on data from \ac{M2} \ac{V4}, one might conclude our results to offer some coroboration with those of \citet{Gu2011}, since we find a decrease in noise correlations and in increase in decoder performance.
-However, comparing the perforance of the decoder to a decoder based on shuffled data without the noise correlations present suggests that the improvement in decoder performance is not due to the relatively small reduction in noise correlation observed, but is from other sources.
+Based on data from \ac{M2} \ac{V4}, one might conclude our results to offer some corroboration with those of \citet{Gu2011}, since we find a decrease in noise correlations and in increase in decoder performance.
+However, comparing the performance of the decoder to a decoder based on shuffled data without the noise correlations present suggests that the improvement in decoder performance is not due to the relatively small reduction in noise correlation observed, but is from other sources.
 
 The data from \ac{M2} \ac{V1} does not support a ``reduction in noise correlation'' hypothesis either, and indicates that neural spike rates across the \ac{V1} population recorded from are no more informative after training than they were before.
 Together, results from \ac{M2} \ac{V1} and \ac{V4} suggest that information in \ac{V1} is consistent throughout training, but the ability of \ac{V4} to read out the information in \ac{V1} improves over the same period, leading to an improvement in behavioural performance.
@@ -148,6 +148,6 @@ However, these findings are not supported by the data from \ac{M1}.
 
 % In addition to this, the increase in reponse agreement between our rate-based decoder and the animal's behavioural responses for \ac{M2} \ac{V4} (Fig.~\ref{fig:dec_j4_alla}) indicates the monkey is increasingly relying on the activity from the channels which were recorded from in \ac{V4} in order to make its decisions about the presented stimulus contrast.
 
-For both animals, from the data from \ac{V4} we find there is a statistically significant level of agreement between decoded and behavioural trial-to-trial responses after training but not before, which shows the neural activity in \ac{V4} and the behavioural resposes are correlated.
+For both animals, from the data from \ac{V4} we find there is a statistically significant level of agreement between decoded and behavioural trial-to-trial responses after training but not before, which shows the neural activity in \ac{V4} and the behavioural responses are correlated.
 This implies that the monkey becomes dependent on the activity of the population of neurons for which the recordings are representative.
 That the agreement is better without shuffling could be taken to mean the neural correlations are important in the determination of the animal's response, however shuffling does by its very nature destroy the correspondence between the trials given to the decoder and those experienced by the animal.
