@@ -85,7 +85,7 @@ Artefact frequencies were identified by large, localised peaks in the power spec
 In each case, the average artefact waveform was found and subtracted from the recorded signal.
 To correct for phase shifts of the artefact, the averaging and subsequent subtraction were performed in blocks of 50 artefact periods with a phase chosen to maximise the cross-covariance of the signal with the artefact waveform.
 
-\subsection[Current Source Density]{Current Source Density}
+\subsection{Current Source Density}
 The \ac{CSD} was computed using the inverse \ac{CSD} method (Pettersen, Devor, Ulbert, Dale, \& Einevoll, 2006).
 To compute this, we used a $\delta$-source model of local field generation with a diameter of \SI{500}{\micro\metre}, chosen to correspond to the effective size of columnar activity (Horton \& Adams, 2005; Lund, Angelucci, \& Bressloff, 2003).
 Since this method requires an even spacing between voltage measurements, gaps caused by faulty recording contacts in the electrode were filled in with a local average (W\'ojcik \& Leski, 2010).
@@ -93,7 +93,7 @@ A homogeneous cortical conductivity of \SI{0.4}{\siemens\per\metre} was assumed 
 The agar solution placed on top of the recording access point had an \ac{NaCl} concentration of \SI{9}{\mg\per\mL}, and the conductivity of this was estimated to be \SI{2.2}{\siemens\per\metre} (Kandadai, Raymond, \& Shaw, 2012).
 The \ac{CSD} was spatially smoothed with a three-point Hamming filter (add ref that justifies this smoothing).
 
-\subsection{Multiunit Activity }
+\subsection{Multiunit Activity}
 Figure 1: \ac{MUA} was calculated by band-passing the voltage recording between 900 and \SI{3000}{Hz} with a zero-phase sixth-order Butterworth filter, taking the absolute value, applying a \SI{300}{Hz} low pass third-order Butterworth filter, and then downsampling.
 This yields a smoothed spike rate, analogous to a population firing rate.
 
@@ -120,7 +120,7 @@ To identify the depth of each contact, we measured the potential evoked in respo
 From the measured potentials, we identified the boundary between the granular (G; layer 4) and infragranular (IG; layers 5--6) regions as the source/sink reversal in the evoked current source density (\ac{CSD}; see Experimental Procedures and Supplementary Materials).
 We estimated the location of the boundary between the granular and supragranular (SG; layers 1--3) regions by cross-referencing literature describing average thickness of cortical laminae in Macaca mulatta, area 17 (Lund, 1973).
 
-\subsection[Power as a function of depth and frequency]{Power as a function of depth and frequency}
+\subsection{Power as a function of depth and frequency}
 To compute power and information as a function of temporal frequency, the cortical data (\ac{LFP} and \ac{CSD}) were filtered in a series of bands each with a fractional bandwidth of \SI{50}{\percent}, because cortical power falls off rapidly with frequency in a \nicefrac{1}{f} relationship.
 Each successive band begins and ends with frequencies 1.291 times higher than the last, so that each band has \SI{0}{\percent} overlap with bands further away than its immediate neighbours and a \SI{44}{\percent} and \SI{56}{\percent} overlap with its preceding and succeeding bands respectively.
 The data was filtered with a zero-phase sixth-order Butterworth filter, after which the instantaneous power was estimated by taking the squared absolute value of the Hilbert transform.
@@ -138,11 +138,11 @@ Each information calculation was also bootstrapped 20 times with a randomly shuf
 To ensure the amount of information was statistically significant, we checked each information estimate exceeded the bootstrap mean by more than 3 standard deviations of the bootstrap values.
 The bootstrap mean was then subtracted from the estimated information, to counter any residual bias.
 
-\subsection[Cortical Distribution of Power]{Cortical Distribution of Power}
+\subsection{Cortical Distribution of Power}
 For each session, the distribution of power across the cortical depth (2A--B right-hand insets) was determined by normalising the power at each depth by the summed power across all cortical depths for that band.
 We then took an average across sessions, weighted by the number of cortical recording sites in each session to prevent faulty (omitted) electrode contact sites from distorting the result.
 
-\subsection{Information Redundancy }
+\subsection{Information Redundancy}
 Information redundancy was computed with the same stimuli windows as used in the information calculations.
 Let  $S$ denote the set of stimuli, and let  $X$ and  $Y$ each be the set of powers during each stimulus in one of the frequency bands at a particular depth.
 The information in each  $I\left(X;S\right)$ and  $I(Y;S)$ was computed in the same manner as above.
@@ -170,7 +170,7 @@ The mutual information between this stimulus and the neural response --- the pow
 Coarse and fine luminance changes in the stimulus were isolated in the same manner as the spatial components above, but using a low-pass (\SI{<0.3}{cpd}) and high-pass (\SI{>1}{cpd}) fourth-order Butterworth filter respectively.
 For both the \SIrange{4}{16}{Hz} and \SIrange{6}{170}{Hz} \ac{CSD} powers, we computed the correlation and mutual information with the coarse and fine luminance changes, and averaged across sessions.
 
-\subsection[Information lag between granular and infragranular regions]{Information lag between granular and infragranular regions}
+\subsection{Information lag between granular and infragranular regions}
 The information about fine and coarse stimuli contained in \SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz} neural frequency bands was computed as a function of the lag between stimulus and response, in steps of 1.73ms.
 For each cortical recording depth, we found response lag at which the information was at its maximum.
 For each session, the response peak-lag was averaged across the three electrode contacts in \ac{IG} and also averaged across the three electrodes in \ac{G}.
@@ -216,7 +216,7 @@ The data are split into three temporal frequency bands (\SIrange{4}{16}{Hz}, 28-
 %
 \end{figure}
 
-\subsection[Distribution of information across depth and frequency]{Distribution of information across depth and frequency}
+\subsection{Distribution of information across depth and frequency}
 Figure 1C shows, at three cortical depths, \ac{CSD} traces from eight example trials during a portion of the stimulus.
 The traces have been filtered within three frequency bands: \SIrange{4}{16}{Hz}, 28--44Hz and \SIrange{60}{170}{Hz}.
 One can observe that the low-frequency activity repeats across trials for the \ac{G} and \ac{IG} depths.
