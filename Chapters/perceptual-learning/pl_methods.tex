@@ -107,7 +107,7 @@ However, doing the analysis in this more rigorous manner revealed the contaminat
 The histograms of spike times indicate that more sessions are contaminated than not, and only a couple of channels are completely clean for every session.
 
 For the most part, the timing of the monitor artifact $\bmod \tau_m$ is very reliable and it affects the same 6 or so bins whenever the data is contaminated.
-The contaminated part of each monitor cycle is thus restricted to at most \SI{0.2}{ms}, and, assuming this period of time contains both genuine spikes and artificial spikes, if we simply delete all data points with this \SI{0.2}{ms} window, we will lose at most less than 2\% of the genuine spikes.
+The contaminated part of each monitor cycle is thus restricted to at most \SI{0.2}{ms}, and, assuming this period of time contains both genuine spikes and artificial spikes, if we simply delete all data points with this \SI{0.2}{ms} window, we will lose at most less than \SI{2}{\percent} of the genuine spikes.
 This level of data loss is not terribly significant, and justifiable for the gain in reliability of the remaining dataset, particularly for sessions where artificial spikes seem to be more common than genuine ones.
 
 \begin{table}[hbtp]
@@ -444,8 +444,8 @@ Though there are enough trials available to use more and reduce the bias further
 
 As mentioned in Chap.~\ref{ch:exp}, a delayed repeat is used for any trials to which the animal does not correctly respond.
 Consequently, more difficult test stimuli (with contrasts close to the sample contrast) are presented significantly more frequently than easier stimuli.
-For instance, when presented with the most difficult test stimuli, the animal will have a success rate only just above 50\% on the first day of the experiment, rising to around 70\% by the last day.
-For the easiest stimuli, the success rate will be nearly 100\% throughout.
+For instance, when presented with the most difficult test stimuli, the animal will have a success rate only just above \SI{50}{\percent} on the first day of the experiment, rising to around \SI{70}{\percent} by the last day.
+For the easiest stimuli, the success rate will be nearly \SI{100}{\percent} throughout.
 
 Say we arrange all the trials into groups based on their stimulus, then take 100 subsequent trials from each of the groups to perform the analysis on.
 Due to the different number of trials per stimulus, it will not be long before the trials selected for each stimulus are from very different points in time and from different sessions.\footnote{Even if we only analyse the correctly responded trials, there is still a difference in the number of trials per stimulus due to a limit on the number of repeats of any test condition.
@@ -464,11 +464,11 @@ Using both the correct and incorrectly responded trials means our distribution f
 \subsection{Information in fine vs. coarse distinctions}
 
 The difference between information about fine differences in contrast can be studied by only considering trials where the contrast presented is one of the middle 6 contrasts:
-\{22, 25, 28, 32, 35, 40\}\% for \ac{V1} and
-\{27, 28, 29, 31, 32, 33\}\% for \ac{V4}.
+\SIlist{22;25;28;32;35;40}{\percent} for \ac{V1} and
+\SIlist{27;28;29;31;32;33}{\percent} for \ac{V4}.
 To keep the dimensionality of the stimulus the same, this has been compared to the information across some more separated contrasts:
- \{5, 15, 22, 40, 50, 90\}\% for \ac{V1} and
-\{10, 15, 20, 40, 50, 60\}\% for \ac{V4}.
+\SIlist{5;15;22;40;50;90}{\percent} for \ac{V1} and
+\SIlist{10;15;20;40;50;60}{\percent} for \ac{V4}.
 For \ac{V4}, the group of coarsely differentiated contrasts is the outer most six contrasts, but for \ac{V1} the coarsely differentiated contrasts are alternate
 
 %------------------------------------------------------------------------------
@@ -522,11 +522,11 @@ For a new data point, $\vec{x}$,  if
 \begin{equation}
 \vec{w}\cdot\vec{x}>c
 \end{equation}
-then we classify $\vec{x}$ as group 1 (higher than 30\% contrast), otherwise we classify it as 0 (lower).
+then we classify $\vec{x}$ as group 1 (higher than \SI{30}{\percent} contrast), otherwise we classify it as 0 (lower).
 
 This was performed using the function \texttt{classify} with type `linear' in MATLAB.
 For training and testing of the decoder, leave-one-out classification was used across each session individually.
-This means that for a session of 500 trials, the decoder is trained on 499 trials with the spike counts for all the trials and the correct response (higher or lower than 30\% contrast) and we then check whether the decoder identifies the remaining trial correctly.
+This means that for a session of 500 trials, the decoder is trained on 499 trials with the spike counts for all the trials and the correct response (higher or lower than \SI{30}{\percent} contrast) and we then check whether the decoder identifies the remaining trial correctly.
 This is repeated for all the 500 trials, and then the performance is defined as the proportion of trials which are identified correctly.
 Training the decoder in this way means the decoding hyperplane used for classification is optimal for each individual session, but also different for each session.
 
@@ -549,7 +549,7 @@ When this is sampled over $n$ trials, we expect to find $np$ trials have been re
 Hence the underlying true probability of a correct response can be approximated by taking the number of correct responses and dividing them by the total number of trials.
 Using one of several statistical methods, we can find an estimate for a percentage confidence interval (PCI).
 It is from this that error bars, indicated by the shaded regions surrounding line plots in Figs.~\ref{fig:dec_all_v1} and ~\ref{fig:dec_all_v4}, are computed.
-These are presented as the standard error, equivalent to a 31.8\%  confidence interval within which 68.2\% of data points are expected to lie.
+These are presented as the standard error, equivalent to a \SI{31.8}{\percent}  confidence interval within which \SI{68.2}{\percent} of data points are expected to lie.
 (This has been done using the function \texttt{binofit} in MATLAB, which utilises the Clopper-Pearson method.
 Although this is not the best method, it should be sufficient for our purposes.)
 
@@ -594,7 +594,7 @@ If the results of the analysis deviate significantly from this model, we can con
 A $p<0.05$ significance boundary was found by sampling the NH model 100,000 times and noting the agreement for the fifth-percentile of samples.
 During this sampling, the number of trials for each test condition was fixed with the same values as used in the experiment.
 Since we are only interested in sessions where the behavioural and decoded responses agree more than they would if independent, a single-tailed test was used.
-(NB: in the figures below, the single-tailed lower bound is also included for symmetry, so only 90\% of the samples lie within the shaded region).
+(NB: in the figures below, the single-tailed lower bound is also included for symmetry, so only \SI{90}{\percent} of the samples lie within the shaded region).
 
 The multi-binomial model should not be confused with a multinomial distribution, which would map one random variable to $n$ possible responses.
 The model used here is instead a two-step process where there are a set of binomial distributions, which binomial is used is determined by one random variable (the output of which is the same for both behaviour and decoder), and the output of the selected binomial is given by a second random variable.
@@ -623,7 +623,7 @@ When comparing the spike counts for a pair of channels, to trials with erroneous
 \begin{figure}[htbp]
 \centering\includegraphics[width=0.4\linewidth]{%
 ./figs/decoding/rcoef_scatter_jv4_icond5_ch1vch3.eps}
-\caption{Spikes count during around 500ms of presentation of the 27\% contrast stimulus, for two channels plotted against each other.
+\caption{Spikes count during around \SI{500}{ms} of presentation of the \SI{27}{\percent} contrast stimulus, for two channels plotted against each other.
 There is clearly a weak correlation between the two data-series, but one trial is an outlier with a large number of measured spikes for both channels due to a correlated source of noise in the raw signal.
 The outlier will cause the correlation to be measured anomalously high.}
 \label{fig:noise_scatter}
