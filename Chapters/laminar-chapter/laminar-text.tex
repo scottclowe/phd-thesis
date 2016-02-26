@@ -33,7 +33,7 @@ The anesthesia protocol for all the experimental procedures have been described 
 Briefly, glycopyrrolate (\SI{0.01}{mg.{kg}^{-1}}) and ketamine (\SI{15}{mg.{kg}^{-1}}), were used previous to general anesthesia.
 Induction with fentanyl (\SI{3}{mg.{kg}^{-1}}), thiopental (\SI{5}{mg.{kg}^{-1}}) and succinylcholine chloride (\SI{3}{mg.{kg}^{-1}}), animals were intubated and ventilated using a Servo Ventilator 900C (Siemens, Germany) maintaining an end-tidal CO2 of \SIrange{33}{35}{mm.Hg} and oxygen saturation above \SI{95}{\percent}.
 The anesthesia was maintained with remifentanil (\SIrange{0.5}{2}{\micro\gram.kg^{-1}.\min}) and mivacurium chloride (\SIrange{2}{6}{mg.kg^{-1}.h}) which ensured no eye movement during electrophygiological recordings.
-The anesthetics dosage were established by measuring stress hormones and were selected to ensure unaffected physiological response at normal catecholamine concentrations \ (Logothetis et al., 1999).
+The anesthetics dosage were established by measuring stress hormones and were selected to ensure unaffected physiological response at normal catecholamine concentrations (Logothetis et al., 1999).
 In addition, it has been shown that using remifentanil has no significant effect on the neurovascular and neural activity of brain areas that do not belong to the pain matrix (Goense \& Logothetis, 2008; Zappe, Pfeuffer, Merkle, Logothetis, \& Goense, 2008).
 In particular, visual cortex does not bind remifentanil.
 We monitored the physiological state of the monkey continuously and kept within normal limits.
@@ -46,7 +46,7 @@ We used anesthetized animals because the preparation allows longer data acquisit
 \subsection{Visual Stimulation}
 A few drops of \SI{1}{\percent} cyclopentolate hydrochloride were used in each eye to achieve mydriasis.
 Animals were wearing hard contact lenses (W\"ohlk-Contact-Linsen, Sch\"onkirchen, Germany) to focus the eyes on the stimulus plane.
-\ The visual stimulation in all experimental sessions was presented in the eye with stronger ocular preference of recording sites.
+The visual stimulation in all experimental sessions was presented in the eye with stronger ocular preference of recording sites.
 The stimulus was presented using either an in-house custom-built projector (SVGA fibre-optic system with a resolution of 800x600 pixels, a frame rate of \SI{30}{Hz}), or a CRT monitor (Iiyama MA203DT Vision Master Pro 513, frame rate \SI{118}{Hz}) placed at eye level, \SI{50}{\centi\metre} in front of the eye.
 We found the same results with both display devices, except that monitor refresh with the \SI{30}{Hz} stimulus induced cortical oscillations at \SI{30}{Hz}.
 Since this is the result of using an artificial stimulus with a low refresh rate (a well-known issue at this stimulus frequency), we removed this from the data (see Artefact Removal) and pooled the results across all sessions.
@@ -100,14 +100,14 @@ This yields a smoothed spike rate, analogous to a population firing rate.
 Figure 3: \ac{MUA} was calculated by downsampling by a factor of 3, band-passing the voltage recording between \SIrange{900}{3000}{Hz} with a zero-phase sixth-order Butterworth filter, taking the absolute value, downsampling by a further factor of 12.
 
 \subsection{Receptive Field Locations}
-\ The spatial \acp{RF} were found by reverse correlating the \ac{MUA} and the pixel-by-pixel Z-scored frame-by-frame difference in luminance with a fixed lag of \SI{66.7}{ms}.
+The spatial \acp{RF} were found by reverse correlating the \ac{MUA} and the pixel-by-pixel Z-scored frame-by-frame difference in luminance with a fixed lag of \SI{66.7}{ms}.
 The rate of change in luminance was used because it is known to correlate well with thalamic drive.
 For each session, the \ac{RF} centre was located using the average of the reverse correlation across all cortical channels.
 
 \subsection{Identification of Cortical Laminae}
 Depth calibration of the electrode was performed by considering the spikes and \ac{CSD} induced by both the onset of the movie and by \SI{100}{ms} full-screen flashes (\SI{6}{s} flash interval).
 From the measured potentials, we determined the \ac{CSD} and spike densities.
-Spikes were detected \ by high pass filtering the raw signal above \SI{500}{Hz} with a zero-phase eighth-order Butterworth filter, and classifying any points more than 3.5 standard deviations above the mean signal during pre- and post-stimulus periods as a spike, with a minimum inter-spike-interval of \SI{1}{ms}.
+Spikes were detected by high pass filtering the raw signal above \SI{500}{Hz} with a zero-phase eighth-order Butterworth filter, and classifying any points more than 3.5 standard deviations above the mean signal during pre- and post-stimulus periods as a spike, with a minimum inter-spike-interval of \SI{1}{ms}.
 The majority of thalamic afferents in \ac{V1} stimulate \ac{L4} (indirectly: see Hansen et al. (2012)), with the first cortical response manifesting at layer 4C$\alpha$ (E. M. Callaway, 1998), resulting in an initial current sink and first burst of spiking activity located here.
 For each recording session, we found the contact exhibiting the first spiking and \ac{CSD} response, the centre of the most responsive region, and the centre of the first \ac{CSD} sink for both the movie onset and flash evoked activity.
 We took the average of these 8 locations and identified the closest electrode contact as the location of layer 4C$\alpha$.
@@ -125,7 +125,7 @@ To compute power and information as a function of temporal frequency, the cortic
 Each successive band begins and ends with frequencies 1.291 times higher than the last, so that each band has \SI{0}{\percent} overlap with bands further away than its immediate neighbours and a \SI{44}{\percent} and \SI{56}{\percent} overlap with its preceding and succeeding bands respectively.
 The data was filtered with a zero-phase sixth-order Butterworth filter, after which the instantaneous power was estimated by taking the squared absolute value of the Hilbert transform.
 The power in each band was integrated over a series of \SI{50}{ms} windows, centred at the time of each frame change in the movie (once every \SI{33}{ms}, leading to a \SI{50}{\percent} overlap of neighbouring windows).
-\ The power in the \SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz} bands was computed similarly.
+The power in the \SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz} bands was computed similarly.
 Fig~3A--B are plotted with power values averaged over all windows and trials, then expressed in decibels relative to the average power \SIrange{1.5}{248}{Hz} (estimated by summing the power in alternate bands).
 Throughout Figures 3 and S3, datapoints are shown at the band centres.
 
@@ -145,8 +145,8 @@ We then took an average across sessions, weighted by the number of cortical reco
 \subsection{Information Redundancy }
 Information redundancy was computed with the same stimuli windows as used in the information calculations.
 Let  $S$ denote the set of stimuli, and let  $X$ and  $Y$ each be the set of powers during each stimulus in one of the frequency bands at a particular depth.
-\ The information in each  $I\left(X;S\right)$ and  $I(Y;S)$ was computed in the same manner as above.
-\ The information in the joint distribution  $I(\left\{X,Y\right\};S)$ was computed by considering each combination of the binned  $X$ and  $Y$ as a different response, yielding a total of 100 different responses for  $\{X,Y\}$.
+The information in each  $I\left(X;S\right)$ and  $I(Y;S)$ was computed in the same manner as above.
+The information in the joint distribution  $I(\left\{X,Y\right\};S)$ was computed by considering each combination of the binned  $X$ and  $Y$ as a different response, yielding a total of 100 different responses for  $\{X,Y\}$.
 
 The relative redundancy is then defined as
 \begin{equation*}
@@ -251,7 +251,7 @@ Note that the information (C+D) is distributed very differently from the \ac{LFP
 
 We computed information about which frame is currently on screen in various frequency components of the \ac{LFP} and \ac{CSD} (see Experimental Methods).
 Excluding boundary effects at the top and bottom of the cortex where white matter contaminates estimates, power is fairly smooth across depth and decays as frequency increases (Fig~2A-B).
-\ However, the information contained in the power does not have such a smooth distribution and differs from this in both space and frequency domains.
+However, the information contained in the power does not have such a smooth distribution and differs from this in both space and frequency domains.
 Instead, information is contained in specific frequencies at specific depths, in a similar manner for \ac{LFP} and \ac{CSD} (Fig~2C--D), with prominent maxima in the \SIrange{4}{16}{Hz} range at the top of the \ac{G} region, and the \SIrange{60}{250}{Hz} range near the top of the \ac{SG} region.
 Additionally, there are local maxima in \ac{IG} for both the \SIrange{4}{16}{Hz} and \SI{60}{250}{Hz} ranges.
 These results are consistent across sessions (Sup Fig~2).
@@ -417,7 +417,7 @@ One would expect that if certain oscillation frequencies in the visual cortex co
 This would only make sense if the information is utilized by the brain in order to interpret its stimuli.
 Consequently, our results indicate there is multiplexing in the cortex, with low frequency and high frequency oscillations of the same population activity simultaneously encoding low and high spatial frequency components of the stimulus respectively.
 Intuitively, information contained in the two frequency bands can be combined by downstream visual cortical regions to regain the original stimulus as necessary.
-\ The idea of different frequency bands conveying different spatial frequency components of the stimulus has been proposed before from the results of an \ac{EEG} study (Smith, Gosselin, \& Schyns, 2006).
+The idea of different frequency bands conveying different spatial frequency components of the stimulus has been proposed before from the results of an \ac{EEG} study (Smith, Gosselin, \& Schyns, 2006).
 
 Additionally, we can speculate about why separating the visual scene into low frequency (coarse) and high frequency (fine) components in \ac{V1} is useful.
 One possibility is that low frequency oscillations are output from \ac{V1} along the dorsal visual stream, whereas high frequency oscillations travel propagate through the ventral stream [IS THERE EVIDENCE FOR THIS?].
@@ -480,7 +480,7 @@ Neurons in \ac{L5} are known to be related to long-range cortical output (Hill e
 
 
 %-------------------------------------------------------------------------------
-%\section[\ Supplementary Materials]{\ Supplementary Materials}
+%\section{Supplementary Materials}
 %
 % \begin{flushleft}
 % \tablefirsthead{}
