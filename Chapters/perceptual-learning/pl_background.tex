@@ -66,6 +66,19 @@ Furthermore, since these studies \cite{Reich2001,Arabzadeh2006} also found the i
 %%%
 
 %----------------------------------------------------------------------------------------------------------------------
+\subsection{Noise correlation}
+
+The firing rate of neurons in the sensory system will vary trial-to-trial, even if the stimulus presented is the same.
+The manner in which these responses fluctuate together is known as the noise correlation between neurons.
+If there are positive noise correlations, the changes in neural activity across a population will increase and decrease together.
+Long-standing theoretical work has indicated such correlations will hamper the ability of upstream neurons to accurately decode the stimulus% [cite]
+, which is in keeping with experimental results demonstrating attention reduces noise correlations \citep{Cohen2009}.
+This fits with intuition --- if stimulus A is encoded with one firing rate across a population and stimulus B with a slightly higher rate, a systematic increase or decrease in the population firing rates can easily cause A and B to be confused with one another.
+However, recent theoretical results indicate that for a more realistic non-homogeneous population of neurons, neural correlations do not limit the population-wide information as the number of neurons increases \citep{Oram1998,Averbeck2006,Ecker2011}.
+A recent paper by \citet{Gu2011} on neurons recoded from the macaque dorsal \ac{MSTd} before and after training in a head direction discrimination task, found that although pairwise noise correlations between neurons are reduced with training, this does not yield an increase in performance in a decoder.
+We will see if these findings hold here as well.
+
+%----------------------------------------------------------------------------------------------------------------------
 \subsection{Information Theory in Neuroscience}
 \label{sec:bgit}
 
@@ -151,19 +164,6 @@ All these bias correction methods tend to make a trade off between variability a
 
 % rule of thumb number of trials per stimulus required for decent estimate in each case
 
-
-%----------------------------------------------------------------------------------------------------------------------
-\subsection{Noise correlation}
-
-The firing rate of neurons in the sensory system will vary trial-to-trial, even if the stimulus presented is the same.
-The manner in which these responses fluctuate together is known as the noise correlation between neurons.
-If there are positive noise correlations, the changes in neural activity across a population will increase and decrease together.
-Long-standing theoretical work has indicated such correlations will hamper the ability of upstream neurons to accurately decode the stimulus% [cite]
-, which is in keeping with experimental results demonstrating attention reduces noise correlations \citep{Cohen2009}.
-This fits with intuition --- if stimulus A is encoded with one firing rate across a population and stimulus B with a slightly higher rate, a systematic increase or decrease in the population firing rates can easily cause A and B to be confused with one another.
-However, recent theoretical results indicate that for a more realistic non-homogeneous population of neurons, neural correlations do not limit the population-wide information as the number of neurons increases \citep{Oram1998,Averbeck2006,Ecker2011}.
-A recent paper by \citet{Gu2011} on neurons recoded from the macaque dorsal \ac{MSTd} before and after training in a head direction discrimination task, found that although pairwise noise correlations between neurons are reduced with training, this does not yield an increase in performance in a decoder.
-We will see if these findings hold here as well.
 
 %----------------------------------------------------------------------------------------------------------------------
 % \section{Applying Information Theory to Neuroscience data}
