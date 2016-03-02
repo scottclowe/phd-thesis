@@ -1,0 +1,28 @@
+###############################################################################
+before_install:
+  - travis_retry sudo apt-get update
+  - travis_retry sudo apt-get install -y --no-install-recommends
+        texlive
+        texlive-latex-extra
+        texlive-fonts-extra
+
+###############################################################################
+install:
+  - INPUT_FILE=ClassicThesis.tex
+  - OUTPUT_FILE="${INPUT_FILE%.*}.pdf"
+
+###############################################################################
+script:
+  - pdflatex -halt-on-error -interaction nonstopmode "$INPUT_FILE" &&
+    bibtex -halt-on-error -interaction nonstopmode "$INPUT_FILE" &&
+    pdflatex -halt-on-error -interaction nonstopmode "$INPUT_FILE" &&
+    pdflatex -halt-on-error -interaction nonstopmode "$INPUT_FILE"
+
+###############################################################################
+after_success:
+  - mkdir -p shippable;
+    cp "$OUTPUT_FILE" shippable/;
+
+###############################################################################
+# Enable archiving of artifacts on Shippable (does nothing on Travis)
+archive: true
