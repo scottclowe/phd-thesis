@@ -180,7 +180,7 @@ The information was computed for each day of training (hereafter referred to as 
 To gauge the typical behaviour of a neuron, the mean was taken over all the channels.
 The mutual information between the spiking activity during test presentation and the identity of the test stimulus was computed
 using a spike-timing based code.
-This computation was done using the \verb|information| function from the freely available Information Break-down Toolbox \cite{Magri2009} for MATLAB.%
+This computation was done using the \verb|information| function from the freely available Information Break-down Toolbox \citep{Magri2009} for MATLAB.%
 \footnote{Available at \url{http://www.ibtb.org}}
 
 A moving window of $\SI{20}{ms}$ was taken and subdivided into 5 sequential bins, each of $\SI{4}{ms}$.
@@ -383,7 +383,7 @@ The only exception to this rule seems to be for \ac{M2} \ac{V1}, shown in Fig.~\
 % %         \includegraphics[width=\linewidth]{%
 % % ./figs/info/ntrialsIvsinvNcombindiv_jack_v4_5bins_of_4ms_20120815T204808.eps}
 % %     \end{subfigure}
-% %     \caption{Mutual information is inversely correlated with the number of trials in the session. The mutual information for a single session is averaged over all channels, and averaged over all times during stimulus presentation, and plotted against the reciprocal of the number of trials in the session ($\nicefrac{1}{N}$). Plug-in:~with no bias correction. \ac{PT}:~using the Panzeri-Treves method to correct for bias \cite{Panzeri1996}. \ac{QE}:~using quadratic extrapolation for bias correction \cite{Strong1998}.
+% %     \caption{Mutual information is inversely correlated with the number of trials in the session. The mutual information for a single session is averaged over all channels, and averaged over all times during stimulus presentation, and plotted against the reciprocal of the number of trials in the session ($\nicefrac{1}{N}$). Plug-in:~with no bias correction. \ac{PT}:~using the Panzeri-Treves method to correct for bias \citep{Panzeri1996}. \ac{QE}:~using quadratic extrapolation for bias correction \citep{Strong1998}.
 % % %There is a missing data point for \ac{M2} \ac{V4} because in one session there were not enough trials per condition for the \ac{QE} algorithm to function.
 % % }
 % %     \label{fig:IvN}
@@ -395,7 +395,7 @@ As discussed above, for \ac{M2} \ac{V1} the number of trials per session and the
 
 The problem is that although \ac{PT} and \ac{QE} both do a reasonable attempt at removing the bias, they are not perfect and some bias will remain.
 As the bias is dependent on the number of trials, it is unsurprising the remaining bias follows the same dependency.
-In particular, in the asymptotic regime the leading term in the expansion of $I_{\text{measured}}$ is known to be proportional \cite{Treves1995} to $\nicefrac{1}{N}$; the same relationship observed here.
+In particular, in the asymptotic regime the leading term in the expansion of $I_{\text{measured}}$ is known to be proportional \citep{Treves1995} to $\nicefrac{1}{N}$; the same relationship observed here.
 
 In particular, the difficult faced is changes due to perceptual learning which are of interest may only be slight, but the the number of trials per session varies five-fold: from 250 up to 1250.
 Consequently it is unsurprising that the observed differences in information day-to-day are dominated by the number of trials.
@@ -414,7 +414,7 @@ Consequently it is unsurprising that the observed differences in information day
 To counter the correlation between measured information and number of trials, an obvious solution is to use the same number of trials for every computation.
 We now consider how many trials should be taken at once to obtain a reasonably reliable estimate.
 
-Some rules-of-thumb for the number of trials are offered by \cite{Panzeri2007}.
+Some rules-of-thumb for the number of trials are offered by \citep{Panzeri2007}.
 Let $\overline{R}$ denote the number of possible response codes.
 Then, for the plug-in estimate of mutual information, we need to have at least $N_S \ge 2^{32} \, \overline{R}$ trials per stimulus,
 whilst if the \ac{PT} or \ac{QE} bias correction methods are applied, we only need $N_S > 2 \, \overline{R}$.
@@ -475,7 +475,7 @@ For \ac{V4}, the group of coarsely differentiated contrasts is the outer most si
 \FloatBarrier
 \subsection{Information in spike timing code vs. spike count code}
 
-Because the possible responses in the spike timing and count codes have different dimensionality, they have different biases \cite{Panzeri2007} and it is not possible to compare them directly.
+Because the possible responses in the spike timing and count codes have different dimensionality, they have different biases \citep{Panzeri2007} and it is not possible to compare them directly.
 Consequently, to investigate how much more information there is in a spike timing based code we must consider a set of responses which have the same dimensionality, but lack the timing information.
 
 To do this, the spike-timing response codes are taken, then shuffled across the 5 bins for every individual trial.%
