@@ -7,22 +7,25 @@ before_install:
 
 ###############################################################################
 install:
-  - INPUT_FILE=ClassicThesis.tex
-  - OUTPUT_FILE="${INPUT_FILE%.*}.pdf"
+  - INPUT_FILE="ClassicThesis"
+
+###############################################################################
+before_script:
+  - OUTPUT_FILE="${INPUT_FILE%.tex}.pdf"
 
 ###############################################################################
 script:
   - pdflatex -halt-on-error -interaction nonstopmode "$INPUT_FILE" &&
-    bibtex "${INPUT_FILE%.*}.aux" &&
+    bibtex "${INPUT_FILE%.tex}" &&
     pdflatex -halt-on-error -interaction nonstopmode "$INPUT_FILE" &&
     pdflatex -halt-on-error -interaction nonstopmode "$INPUT_FILE"
 
 ###############################################################################
 after_script:
-  - if [ -f "${INPUT_FILE%.*}.log" ];
+  - if [ -f "${INPUT_FILE%.tex}.log" ];
     then
         mkdir -p shippable;
-        cp "${INPUT_FILE%.*}.log" shippable/;
+        cp "${INPUT_FILE%.tex}.log" shippable/;
     fi;
 
 ###############################################################################
