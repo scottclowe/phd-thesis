@@ -16,6 +16,14 @@ script:
     pdflatex -halt-on-error -interaction nonstopmode "$INPUT_FILE"
 
 ###############################################################################
+after_script:
+  - if [ -f "${INPUT_FILE%.*}.log" ];
+    then
+        mkdir -p shippable;
+        cp "${INPUT_FILE%.*}.log" shippable/;
+    fi;
+
+###############################################################################
 after_success:
   - mkdir -p shippable;
     cp "$OUTPUT_FILE" shippable/;
