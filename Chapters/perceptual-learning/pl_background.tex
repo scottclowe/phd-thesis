@@ -79,13 +79,13 @@ A recent paper by \citet{Gu2011} on neurons recoded from the macaque dorsal \ac{
 We will see if these findings hold here as well.
 
 %----------------------------------------------------------------------------------------------------------------------
-\subsection{Information Theory in Neuroscience}
+\subsection{Information Theory, and its applications within Neuroscience}
 \label{sec:bgit}
 
 A common method used in neuroscience is to record the extracellular activity of a single neuron under different conditions.
-Frequently, the approach used is to take many recordings of the same neuron for the same condition, and then take the average across these repetitions (``trials'') to reduce the effects of neuronal variability.
-However, this is not how the brain processes stimuli, as it has access to many neurons but only one trial at a time.
-On the other hand, by using information theory to extracellular recordings allows it to be studied on the basis of single-trial activity.
+Frequently, the approach used is to take many recordings of the same neuron for the same condition, and then take the average across these repetitions (``trials'') to reduce the effects of neuronal variability (also referred to as noise), producing a \ac{PSTH}, for instance.
+However, this is not how the brain processes stimuli --- it has access to many neurons simultaneously, but only a single sample of each of these is instantiated at a time since trials are sequential and not concurrent.
+In contrast to this, using information theory as part of our methodology to study extracellular recordings allows us to consider how much information about a stimulus is present in the system in a the activity of a single-trial.
 
 When applying information theory to neuronal data, we treat the brain as a communication channel, transmitting information about sensory input.
 
