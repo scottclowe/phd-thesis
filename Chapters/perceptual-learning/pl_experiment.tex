@@ -82,85 +82,58 @@ Differing monitor refresh rates for the two monkeys results in different duratio
 \NB{}~A random duration for $t_3$ was used when the experiment was performed on \ac{M1} in \ac{V4}, but this was changed to a static delay for data collected later.}
 \label{tab:tptimes}
 \begin{center}
-\begin{tabular}{rlr}
+%
+\begin{tabular}{ccr}
 \toprule
-Animal  & Region & Time (\si{\milli\second})
-% \\
-%         &       & Inter-trial delay
-\\
+Animal  & Region    & Duration (\si{\milli\second}) \\
 \midrule
-M1  & V4    & $530.872 \le t_1 \le 545.526$
-\\
-        & V1    & $525.803 \le t_1 \le 538.983$
-\\
-M2    & V4    & $526.295 \le t_1 \le 540.641$
-\\
-        & V1    & $525.834 \le t_1 \le 540.702$
-% \\
-% \midrule
-%         &       & Sample presentation duration
-\\
+        &           & Inter-trial delay \\
 \midrule
-M1  & V4    & $t_2 = 529.275$ 
-\\
-        & V1    & $t_2 = 529.275$
-\\
-M2    & V4    & $t_2 = 533.176$
-\\
-        & V1    & $t_2 = 533.176$
-% \\
-% \midrule
-%         &       & Post-sample stimulus delay
-\\
+M1      & V4        & $530.872 \le t_1 \le 545.526$ \\
+        & V1        & $525.803 \le t_1 \le 538.983$ \\
+M2      & V4        & $526.295 \le t_1 \le 540.641$ \\
+        & V1        & $525.834 \le t_1 \le 540.702$ \\
 \midrule
-M1  & V4    & $539.720 \le t_3 \le 1058.673$
-\\
-        & V1    & $t_3 = 541.164$
-\\
-M2    & V4    & $t_3 = 546.632$
-\\
-        & V1    & $t_3 = 546.570$
-% \\
-% \midrule
-%         &       & Test presentation duration
-\\
+        &           & Sample presentation duration \\
 \midrule
-M1  & V4    & $t_4 = 529.275$
-\\
-        & V1    & $t_4 = 529.275$
-\\
-M2    & V4    & $t_4 = 533.176$
-\\
-        & V1    & $t_4 = 533.176$
-% \\
-% \midrule
-%         &       & Post-test stimulus delay
-\\
+M1      & V4        & $t_2 = 529.275$ \\
+        & V1        & $t_2 = 529.275$ \\
+M2      & V4        & $t_2 = 533.176$ \\
+        & V1        & $t_2 = 533.176$ \\
 \midrule
-M1  & V4    & $t_5 = 423.475$
-\\
-        & V1    & $t_5 = 423.475$
-\\
-M2    & V4    & $t_5 = 426.578$
-\\
-        & V1    & $t_5 = 426.640$
-\\
+        &           & Post-sample stimulus delay \\
+\midrule
+M1      & V4        & $539.720 \le t_3 \le 1058.673$ \\
+        & V1        & $t_3 = 541.164$ \\
+M2      & V4        & $t_3 = 546.632$ \\
+        & V1        & $t_3 = 546.570$ \\
+\midrule
+        &           & Test presentation duration \\
+\midrule
+M1      & V4        & $t_4 = 529.275$ \\
+        & V1        & $t_4 = 529.275$ \\
+M2      & V4        & $t_4 = 533.176$ \\
+        & V1        & $t_4 = 533.176$ \\
+\midrule
+        &           & Post-test stimulus delay \\
+\midrule
+M1      & V4        & $t_5 = 423.475$ \\
+        & V1        & $t_5 = 423.475$ \\
+M2      & V4        & $t_5 = 426.578$ \\
+        & V1        & $t_5 = 426.640$ \\
 \bottomrule
+%
+% \begin{tabular}{ccrrrrr}
 % \toprule
-%         &       & Time(ms)
-% \\
-% Animal  & Brain region & $t_1$  & $t_2$  & $t_3$  & $t_4$   & $t_5$
-% \\
+%         &       & Duration (\si{\milli\second}) \\
+% Animal  & Region& $t_1$                         & $t_2$     & $t_3$                         & $t_4$     & $t_5$     \\
 % \midrule
-% M1  & V4    & $530.872 \le t_1 \le 545.526$   & $t_2 = 529.275$  & $539.720 \le t_3 \le 1058.673$  & $t_4 = 529.275$  & $t_5 = 423.475$
-% \\
-%         & V1    & $525.803 \le t_1 \le 538.983$   & $t_2 = 529.275$  & $t_3 = 541.164$  & $t_4 = 529.275$  & $t_5 = 423.475$
-% \\
-% M2    & V4    & $526.295 \le t_1 \le 540.641$   & $t_2 = 529.275$  & $t_3 = 546.632$  & $t_4 = 533.176$  & $t_5 = 426.578$
-% \\
-%         & V1    & $525.834 \le t_1 \le 540.702$   & $t_2 = 533.176$  & $t_3 = 546.570$  & $t_4 = 533.176$  & $t_5 = 426.640$
-% \\
+% M1      & V4    & $530.872 \le t_1 \le 545.526$ & $529.275$ & $539.720 \le t_3 \le 1058.673$& $529.275$ & $423.475$ \\
+%         & V1    & $525.803 \le t_1 \le 538.983$ & $529.275$ & $541.164$                     & $529.275$ & $423.475$ \\
+% M2      & V4    & $526.295 \le t_1 \le 540.641$ & $529.275$ & $546.632$                     & $533.176$ & $426.578$ \\
+%         & V1    & $525.834 \le t_1 \le 540.702$ & $533.176$ & $546.570$                     & $533.176$ & $426.640$ \\
 % \bottomrule
+%
 \end{tabular}
 \end{center}
 \end{table}
