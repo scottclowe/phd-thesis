@@ -1,17 +1,16 @@
 %------------------------------------------------------------------------------
-\section{Experimental Data}
+\section{Experimental Methods}
 \label{ch:exp}
 
-The dataset we will be analysing is taken from a set of ongoing experiments into perceptual learning in macaque monkeys, which is being undertaken by the Visual Neuroscience laboratory group of the Institute of Neuroscience, Newcastle University.
-% The research group is led by Prof. Alexander Thiele, who was also the supervisor for the 2 month research project which this report concerns.
+The experimental data was acquired by Xing Chen, under the supervision of Alexander Thiele, Institute of Neuroscience, Newcastle University.
 
-Extracellular recordings were taken from \ac{MEA} chronically implanted in both \ac{V1} and \ac{V4} for two macaque monkeys: \ac{M1} and \ac{M2}.
-The study was performed first on \ac{M1}, and then \ac{M2}.
+Extracellular recordings were taken from \acp{MEA} chronically implanted in both \ac{V1} and \ac{V4} of two macaque monkeys, which we will refer to as \ac{M1} and \ac{M2}.
 For each monkey, the two implants were undertaken simultaneously by a fully trained brain surgeon with prior experience with these implants in animals.
-Though these implants would ideally be located in \ac{V1} and \ac{V4} such that the surrounding neurons respond to the same area of the visual field, this did not happen to be the case for either animal.
-Consequently, experimentation had to be performed first with stimuli in the appropriate location for the \ac{V4} implant, and then the \ac{V1} implant.
-The \acp{MEA} are not tetrodes, so electrodes on the implanted \acp{MEA} are sufficiently distant from one another such that no spike detected by one electrode will be detected as an isolated spike at another electrode.
-The number of channels recorded from for each animal is given in Table~\ref{tab:nchannels}.
+
+The electrode contacts within each \ac{MEA} had a separation distance of XXX,%[mv]
+which is sufficiently distant from each other such that neurons can be close enough at most one electrode contact for their spiking activity to be detected.%[cn]
+
+The number of electrode contact points (channels) which were recorded from for each \ac{MEA} is shown in Table~\ref{tab:nchannels}.
 
 \begin{table}[hbtp]
 \caption{Number of channels recorded from for each of the monkeys and brain regions.
@@ -36,9 +35,13 @@ M2    & V4    & 20
 \end{center}
 \end{table}
 
-The experiment comprised 4 stages, each of which conform to the same overarching structure.
+The receptive fields of the neurons in the two implant locations did not overlap retinotopically for either monkey.
+Consequently, the experimental procedure was performed twice for each animal, first with stimuli located within the visual field so as to stimulate the neurons recorded from the \ac{V4} implant, and then for the \ac{V1} implant.
+
+The experimental design has been described previously by \cite{Chen2013,Chen2014}.
+The experiment comprised 4 stages, illustrated in Fig.~\ref{fig:pltask1}, each of which conform to the same overarching structure.
 Each experiment is composed of a series of trials.
-On each trial, the monkey must first fixate on a fixation point, which is a black cross on a grey background with \SI{50}{\percent} contrast displayed on a monitor in front of the monkey.
+On each trial, the monkey must first fixate their gaze on a fixation point, which is a black cross on a grey background with \SI{50}{\percent} contrast displayed on a monitor in front of the monkey.
 For \ac{M1}, the refresh rate of the monitor was \SI{85}{Hz}, whilst for \ac{M2} it was \SI{75}{Hz}.
 
 \begin{figure}[htbp]
@@ -190,9 +193,9 @@ At the end of the batch, another batch of trials begins in a similar fashion.
 %(This will be an important fact later in the study.)
 
 The duration of daily training was typically limited by the animal's desire to preform the task.
-On some days the animal was reluctant to train at all and only 250 trials could be conducted; whilst on other days the animal would be willing to train for three hours and complete up to 1250 trials.
-As expected, the psychometric performance of the monkey increased each day for around 20 days due to perceptual learning.
-After the performance stayed the same for 5 consecutive days, the experiment progressed to the next stage.
+On some days the animal was reluctant to train and only 250 trials could be conducted, whilst on other days the animal would be willing to train for three hours and complete up to 1250 trials.
+As expected, the monkey exhibited perceptual learning and their psychometric performance increased each day for around 20 days before reaching a plateau.
+Once performance had not improved for 5 consecutive days, the experiment progressed to the next stage.
 
 
 \begin{figure}[htbp]
