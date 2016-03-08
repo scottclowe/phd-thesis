@@ -415,4 +415,18 @@
 %\renewcommand{\sfdefault}{iwona}
 %\usepackage{lmodern} % <-- no osf support :-(
 %\usepackage[urw-garamond]{mathdesign} <-- no osf support :-(
+
+% ********************************************************************
+% Adjust colour of acronyms
+% ********************************************************************
+\makeatletter
+\AtBeginDocument{%
+  \renewcommand*{\AC@hyperlink}[2]{%
+    \begingroup
+      \hypersetup{linkcolor=webbrown}%
+      \hyperlink{#1}{#2}%
+    \endgroup
+  }%
+}
+\makeatother
 % ****************************************************************************************************
