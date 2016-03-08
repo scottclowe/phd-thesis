@@ -1,0 +1,50 @@
+build_image: harshjv/texlive-2015
+
+###############################################################################
+env:
+  - INPUT_FILE="ClassicThesis"
+
+###############################################################################
+before_install:
+  # Work out what file we expect to be generated as the output
+  - OUTPUT_FILE="${INPUT_FILE%.tex}.pdf"
+
+###############################################################################
+install:
+  # Check texlive version
+  - tlmgr version -v
+  # Update texlive
+  - tlmgr update --all
+
+###############################################################################
+before_script:
+  # Check texlive version
+  - tlmgr version -v
+  # Check which tex packages we have available
+  - tlmgr info --only-installed ||
+        echo "Couldn't retrieve the texlive package list!"
+
+###############################################################################
+script:
+  # Build PDF, with bibtex citations
+  - pdflatex -halt-on-error -interaction nonstopmode "$INPUT_FILE" &&
+    bibtex "${INPUT_FILE%.tex}" &&
+    pdflatex -halt-on-error -interaction nonstopmode "$INPUT_FILE" &&
+    pdflatex -halt-on-error -interaction nonstopmode "$INPUT_FILE"
+
+###############################################################################
+after_script:
+  - if [ -f "${INPUT_FILE%.tex}.log" ];
+    then
+        mkdir -p shippable;
+        cp "${INPUT_FILE%.tex}.log" shippable/;
+    fi;
+
+###############################################################################
+after_success:
+  - mkdir -p shippable;
+    cp "$OUTPUT_FILE" shippable/;
+
+###############################################################################
+# Enable archiving of artifacts
+archive: true
