@@ -94,10 +94,10 @@ The agar solution placed on top of the recording access point had an \ac{NaCl} c
 The \ac{CSD} was spatially smoothed with a three-point Hamming filter (add ref that justifies this smoothing).
 
 \subsection{Multiunit Activity}
-Figure 1: \ac{MUA} was calculated by band-passing the voltage recording between 900 and \SI{3000}{Hz} with a zero-phase sixth-order Butterworth filter, taking the absolute value, applying a \SI{300}{Hz} low pass third-order Butterworth filter, and then downsampling.
+Fig.~\ref{fig:lam_1}: \ac{MUA} was calculated by band-passing the voltage recording between 900 and \SI{3000}{Hz} with a zero-phase sixth-order Butterworth filter, taking the absolute value, applying a \SI{300}{Hz} low pass third-order Butterworth filter, and then downsampling.
 This yields a smoothed spike rate, analogous to a population firing rate.
 
-Figure 3: \ac{MUA} was calculated by downsampling by a factor of 3, band-passing the voltage recording between \SIrange{900}{3000}{Hz} with a zero-phase sixth-order Butterworth filter, taking the absolute value, downsampling by a further factor of 12.
+Fig.~\ref{fig:lam_3}: \ac{MUA} was calculated by downsampling by a factor of 3, band-passing the voltage recording between \SIrange{900}{3000}{Hz} with a zero-phase sixth-order Butterworth filter, taking the absolute value, downsampling by a further factor of 12.
 
 \subsection{Receptive Field Locations}
 The spatial \acp{RF} were found by reverse correlating the \ac{MUA} and the pixel-by-pixel Z-scored frame-by-frame difference in luminance with a fixed lag of \SI{66.7}{ms}.
@@ -126,7 +126,7 @@ Each successive band begins and ends with frequencies 1.291 times higher than th
 The data was filtered with a zero-phase sixth-order Butterworth filter, after which the instantaneous power was estimated by taking the squared absolute value of the Hilbert transform.
 The power in each band was integrated over a series of \SI{50}{ms} windows, centred at the time of each frame change in the movie (once every \SI{33}{ms}, leading to a \SI{50}{\percent} overlap of neighbouring windows).
 The power in the \SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz} bands was computed similarly.
-Fig~3A--B are plotted with power values averaged over all windows and trials, then expressed in decibels relative to the average power \SIrange{1.5}{248}{Hz} (estimated by summing the power in alternate bands).
+Fig.~\ref{fig:lam_3}A--B are plotted with power values averaged over all windows and trials, then expressed in decibels relative to the average power \SIrange{1.5}{248}{Hz} (estimated by summing the power in alternate bands).
 Throughout Figures 3 and S3, datapoints are shown at the band centres.
 
 \subsection{Information as a function of depth and frequency}
@@ -156,7 +156,7 @@ and was computed using the information breakdown toolbox (Magri et al., 2009).
 
 
 \subsection{Information at about Spatial Components}
-The method to find the change in luminance in each spatial frequency band is illustrated in Fig~4.
+The method to find the change in luminance in each spatial frequency band is illustrated in Fig.~\ref{fig:lam_4}.
 First, we took the 2D fast-Fourier transform of a 224px square from the movie.
 A fourth-order Butterworth filter with a width of one octave was applied using a mask in the Fourier domain, and the result was projected back to the spatial domain.
 We then took the pixel-wise difference between each spatially filtered pair of consecutive frames.
@@ -186,9 +186,9 @@ The Modulation Index is then the normalised Kullback-Leibler divergence of this 
 %-------------------------------------------------------------------------------
 \section{Results}
 Four anesthetized monkeys (Macaca mulatta) were presented with a Hollywood movie clip, repeated 40--150 times, whilst we recorded neural activity in the \ac{V1} with a multicontact laminar electrode.
-Each electrode housed 16 equally spaced (150\hspace{0.2em}$\mu$m) contacts spanning a total depth of 2250\hspace{0.2em}$\mu$m, and was inserted perpendicular to the cortical surface (Fig~1A).
+Each electrode housed 16 equally spaced (150\hspace{0.2em}$\mu$m) contacts spanning a total depth of 2250\hspace{0.2em}$\mu$m, and was inserted perpendicular to the cortical surface (Fig.~\ref{fig:lam_1}A).
 We identified the depth of each probe using the \ac{CSD}, and identified \ac{G}, \ac{SG}, and \ac{IG} cortical regions based on literature (see Experimental Methods for details).
-We performed reverse correlation between the rate of change of luminance for each pixel in the movie and the \ac{MUA} at each contact site to find the spatial-\ac{RF} (Fig~1B).
+We performed reverse correlation between the rate of change of luminance for each pixel in the movie and the \ac{MUA} at each contact site to find the spatial-\ac{RF} (Fig.~\ref{fig:lam_1}B).
 The \ac{RF} locations did not vary with depth, indicating that all electrode contacts were recording from the same cortical column.
 
 \begin{figure}[htbp]
@@ -217,7 +217,7 @@ The data are split into three temporal frequency bands (\SIrange{4}{16}{Hz}, 28-
 \end{figure}
 
 \subsection{Distribution of information across depth and frequency}
-Figure 1C shows, at three cortical depths, \ac{CSD} traces from eight example trials during a portion of the stimulus.
+Fig.~\ref{fig:lam_1}C shows, at three cortical depths, \ac{CSD} traces from eight example trials during a portion of the stimulus.
 The traces have been filtered within three frequency bands: \SIrange{4}{16}{Hz}, \SI{28}{44}{Hz} and \SIrange{60}{170}{Hz}.
 One can observe that the low-frequency activity repeats across trials for the \ac{G} and \ac{IG} depths.
 Activity in the \SI{28}{44}{Hz} range is inconsistent at all depths, and does not seem to be stimulus modulated.
@@ -250,11 +250,11 @@ Note that the information (C+D) is distributed very differently from the \ac{LFP
 \end{figure}
 
 We computed information about which frame is currently on screen in various frequency components of the \ac{LFP} and \ac{CSD} (see Experimental Methods).
-Excluding boundary effects at the top and bottom of the cortex where white matter contaminates estimates, power is fairly smooth across depth and decays as frequency increases (Fig~2A-B).
+Excluding boundary effects at the top and bottom of the cortex where white matter contaminates estimates, power is fairly smooth across depth and decays as frequency increases (Fig.~\ref{fig:lam_2}A-B).
 However, the information contained in the power does not have such a smooth distribution and differs from this in both space and frequency domains.
-Instead, information is contained in specific frequencies at specific depths, in a similar manner for \ac{LFP} and \ac{CSD} (Fig~2C--D), with prominent maxima in the \SIrange{4}{16}{Hz} range at the top of the \ac{G} region, and the \SIrange{60}{250}{Hz} range near the top of the \ac{SG} region.
+Instead, information is contained in specific frequencies at specific depths, in a similar manner for \ac{LFP} and \ac{CSD} (Fig.~\ref{fig:lam_2}C--D), with prominent maxima in the \SIrange{4}{16}{Hz} range at the top of the \ac{G} region, and the \SIrange{60}{250}{Hz} range near the top of the \ac{SG} region.
 Additionally, there are local maxima in \ac{IG} for both the \SIrange{4}{16}{Hz} and \SI{60}{250}{Hz} ranges.
-These results are consistent across sessions (Sup Fig~2).
+These results are consistent across sessions (Sup Fig.~\ref{fig:lam_2}).
 As the information in the \ac{CSD} has better spatial localisation than the \ac{LFP} (Einevoll, Kayser, Logothetis, \& Panzeri, 2013; Kajikawa \& Schroeder, 2011), for the remainder of the paper we study only the \ac{CSD}.
 
 These findings suggest that there are different information channels in a single cortical column.
@@ -262,9 +262,9 @@ These findings suggest that there are different information channels in a single
 \subsection{Information redundancy between frequencies}
 Having identified the most informative regions in depth and frequency, there are two possibilities: either these regions contain the same information about the stimulus, through transcoding of one frequency range to another across the cortex [CITE COMPUTATIONAL STUDY ON THIS], or the regions contain different information about the stimulus.
 We investigated how similar the information was by computing the redundancy of information contained in pairs of frequencies (see Experimental Methods).
-We found there are two frequency domains within which information is redundant: \SIrange{4}{40}{Hz} and \SI{>40}{Hz} (Fig~3A).
+We found there are two frequency domains within which information is redundant: \SIrange{4}{40}{Hz} and \SI{>40}{Hz} (Fig.~\ref{fig:lam_3}A).
 Furthermore, the information contained in neural frequencies \SI{<40}{Hz} is different to the information contained in frequencies SI{>40}{Hz}, since these measured to be independent (redundancy \SI{<=0}{\percent}).
-The same \SI{<40}{Hz} and \SI{>40}{Hz} division is observed for the signal correlation (Sup Fig~3), and our results corroborate earlier findings (Belitski et al., 2008).
+The same \SI{<40}{Hz} and \SI{>40}{Hz} division is observed for the signal correlation (Sup Fig.~\ref{fig:lam_3}), and our results corroborate earlier findings (Belitski et al., 2008).
 Based on these and the above results, we extracted two bands (\SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz}) that contain the most information and independently encode information about the stimulus.
 
 \begin{figure}[htbp]
@@ -286,7 +286,7 @@ Note, that while there is substantial redundancy within bands and between the
 \end{figure}
 
 \subsection{Information redundancy across depth}
-Having established the independence of these bands, we investigated the redundancy between the power of oscillations at different cortical depths (Fig~3B).
+Having established the independence of these bands, we investigated the redundancy between the power of oscillations at different cortical depths (Fig.~\ref{fig:lam_3}B).
 For the \SIrange{4}{16}{Hz} frequency range, we found there is some redundancy across the entire cortical depth, but there are two distinct cortical regions (above and below the \ac{CSD} reversal, marked as 0mm depth) within which information is more redundant.
 These findings are in agreement with (Maier, Adams, Aura, \& Leopold, 2010), who found a transition corresponding to the \ac{G}/\ac{IG} boundary which isolated two cortical regions with high coherence \SI{<100}{Hz}.
 
@@ -296,17 +296,17 @@ There is less redundancy of information across cortical depths for \ac{MUA} than
 In agreement with previous findings (Belitski et al., 2008), we find that information contained in the gamma range and information in the \ac{MUA} are redundant with each other.
 This is to be expected, since \ac{MUA} is known to be correlated with the gamma cycle.(due to peaks/troughs in gamma relating to peaks/troughs in firing rate)
 
-Overall redundancy is summarised in Fig~3C, which shows the average across all cortical depths for each pair of frequency bands.
+Overall redundancy is summarised in Fig.~\ref{fig:lam_3}C, which shows the average across all cortical depths for each pair of frequency bands.
 
 Importantly, we find the information in the \SIrange{4}{16}{Hz} range is independent of the information contained in both gamma and \ac{MUA} frequency ranges across all cortical depths.
-In particular, this means the two localised high information regions in depth-frequency space from Figure 2D contain independent information to one-another.
+In particular, this means the two localised high information regions in depth-frequency space from Fig.~\ref{fig:lam_2}D contain independent information to one-another.
 Importantly, this mean this argues against a situation where \ac{SG} contains the same information as \ac{G}/\ac{IG} activity transcoded from low-frequency to high-gamma oscillations; at least some of the information is unique to each.
 
 \subsection{Information about spatial frequency components of visual stimulus}
 In the above, we have seen there are two frequency bands in \ac{V1} which, across all the cortical depth, contain independent information to each other.
 Next we investigate what aspects of the visual scene these two independent components contain.
 Since neurons in the primary visual cortex are known to respond strongly to moving sinusoidal gratings with specific spatial frequencies, we considered how much information the frequency bands contained about changes in luminance as a function of spatial frequency.
-Hereto, we decomposed the series of frames in the movie into set of spatial frequency components by finding the rate of change of luminance within a given set of spatial frequency bands (see Fig~4; Experimental Methods), and then computed the amount of information about this series contained in the neural activity.
+Hereto, we decomposed the series of frames in the movie into set of spatial frequency components by finding the rate of change of luminance within a given set of spatial frequency bands (see Fig.~\ref{fig:lam_4}; Experimental Methods), and then computed the amount of information about this series contained in the neural activity.
 
 \begin{figure}[htbp]
 \centering \includegraphics[width=\columnwidth]{fig4}
@@ -346,18 +346,18 @@ Plots A-D are mean of 6 sessions.}%
 %
 \end{figure}
 
-We found the low frequency \ac{CSD} bands (\SI{<40}{Hz}) contained more information about low, coarse spatial frequencies (\SIrange{0.1}{0.6}{\cpd}), whereas the higher frequencies (\SI{>40}{Hz}) contained more information about high, fine spatial frequencies (\SIrange{0.6}{5.0}{\cpd}) (Fig~5B).
+We found the low frequency \ac{CSD} bands (\SI{<40}{Hz}) contained more information about low, coarse spatial frequencies (\SIrange{0.1}{0.6}{\cpd}), whereas the higher frequencies (\SI{>40}{Hz}) contained more information about high, fine spatial frequencies (\SIrange{0.6}{5.0}{\cpd}) (Fig.~\ref{fig:lam_5}B).
 This was not a continuous transition; instead we observe an abrupt change at \SI{40}{Hz}, with lower and higher neural oscillation frequencies tuned to stimulus features with different spatial frequencies.
-This was true across the entire cortical depth (Fig~5C--D), where the two frequency bands (\SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz}) contained information about opposing spatial frequencies.
-The distribution of information across the cortical depth corresponds to that found in Fig~2D.
-These results are summarised in Fig~5A, which shows the average across the cortical depth.
+This was true across the entire cortical depth (Fig.~\ref{fig:lam_5}C--D), where the two frequency bands (\SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz}) contained information about opposing spatial frequencies.
+The distribution of information across the cortical depth corresponds to that found in Fig.~\ref{fig:lam_2}D.
+These results are summarised in Fig.~\ref{fig:lam_5}A, which shows the average across the cortical depth.
 Information reaches its maxima around \SI{0.2}{\cpd} for the \SIrange{4}{16}{Hz} frequency range and \SI{2.5}{\cpd} for the \SIrange{60}{170}{Hz} frequency range.
 
-In Fig~6, we summarise the previous results by extracting two spatial frequency bands: coarse (\SI{<0.3}{\cpd}, low-pass spatial filter) and fine (\SI{>1}{\cpd}, high-pass spatial filter), example traces for which are shown above Fig~6A.
-These spatial components have low correlation between them (Fig~6B; $r=0.18$).
+In Fig.~\ref{fig:lam_6}, we summarise the previous results by extracting two spatial frequency bands: coarse (\SI{<0.3}{\cpd}, low-pass spatial filter) and fine (\SI{>1}{\cpd}, high-pass spatial filter), example traces for which are shown above Fig.~\ref{fig:lam_6}A.
+These spatial components have low correlation between them (Fig.~\ref{fig:lam_6}B; $r=0.18$).
 Example \ac{CSD} traces are also shown for two electrode contacts over same time period (left side).
 Note that peaks and troughs in the coarse luminance signal are coincident with peaks and troughs with the alpha power, and similarly for the fine luminance and gamma power, indicating the positive relationship between stimulus and cortical response.
-This observation is quantified by the correlation and mutual information between these components (Fig~6A).
+This observation is quantified by the correlation and mutual information between these components (Fig.~\ref{fig:lam_6}A).
 
 \begin{figure}[htbp]
 \centering \includegraphics[width=\columnwidth]{fig6}
@@ -377,7 +377,7 @@ C: Lag between stimulus and response yielding maximal information (green: \SIran
 \subsection{Layer 1 \SIrange{6}{170}{Hz} amplitude is coupled to L5 \SIrange{4}{16}{Hz} phase}
 In previous section ``Information redundancy across depth'', we showed that high and low \ac{LFP} frequencies contain independent information to one-another.
 To further investigate the relationship between these two bands, we computed the cross-frequency coupling between the low frequency phase and high frequency oscillation amplitude.
-In agreement with previous work (Spaak, Bonnefond, Maier, Leopold, \& Jensen, 2012), we found there is significant coupling between the \SIrange{4}{16}{Hz} phase in lower-\ac{G} and mid-\ac{IG} with the and amplitude of \SIrange{6}{170}{Hz} oscillations in upper \ac{SG} (Fig~8).
+In agreement with previous work (Spaak, Bonnefond, Maier, Leopold, \& Jensen, 2012), we found there is significant coupling between the \SIrange{4}{16}{Hz} phase in lower-\ac{G} and mid-\ac{IG} with the and amplitude of \SIrange{6}{170}{Hz} oscillations in upper \ac{SG} (Fig.~\ref{fig:lam_8}).
 There is also localised coupling between the \SIrange{4}{16}{Hz} phase with \SIrange{6}{170}{Hz} amplitude in \ac{G} and \ac{IG}.
 These findings were all true of both the stimulus driven and spontaneous recordings.
 
@@ -398,7 +398,7 @@ Left inset: \ac{IG}/\ac{IG} coupling; Right inset: \ac{IG}/\ac{SG} coupling.}%
 
 %-------------------------------------------------------------------------------
 \section{Discussion}
-In summary, we find while \ac{LFP} power is smooth and its depth profile is close to flat (Fig~2a,b) the information that the \ac{LFP} encodes reveals much more structure.
+In summary, we find while \ac{LFP} power is smooth and its depth profile is close to flat (Fig.~\ref{fig:lam_2}a,b) the information that the \ac{LFP} encodes reveals much more structure.
 We found there are two cortical regions at which oscillations in these frequency ranges are much more informative.
 Namely \SIrange{4}{16}{Hz} at upper granular and mid-infragranular, and \SIrange{6}{170}{Hz} at upper supragranular and mid{}-infragranular regions.Previous work (Belitski et al., 2008) has shown that in the macaque primary visual cortex information is coded in two frequency bands (\SI{<40}{Hz} and \SI{>40}{Hz}) containing independent information about natural visual scenes.
 Our analysis extended across the cortical depth, and we found there are two cortical regions at which oscillations in these frequency ranges are much more informative (\SIrange{4}{16}{Hz} at upper-\ac{G} and mid-\ac{IG}; \SIrange{6}{170}{Hz} at upper-\ac{SG} and mid-\ac{IG} regions).
@@ -456,7 +456,7 @@ This is curious as it indicates that, for any given frequency band, oscillations
 This seems wasteful.
 [important point]
 
-We observed qualitatively that information-carrying events in \ac{L4} were large, temporary deflections with a long duration (low frequency), whereas \acs{L5}/6 contained sustained oscillations (see Fig~1A for examples).
+We observed qualitatively that information-carrying events in \ac{L4} were large, temporary deflections with a long duration (low frequency), whereas \acs{L5}/6 contained sustained oscillations (see Fig.~\ref{fig:lam_1}A for examples).
 The deflections in \ac{L4} were usually coincident with scene cuts or rapid changes in the stimulus.
 This could be interpreted as an error signal, since sudden, large changes in the stimulus would result in any predictive model of the stimulus making large errors.
 However, a more simple interpretation is these deflections correspond to changes in the afferent input to \ac{V1} from \ac{LGN}.
