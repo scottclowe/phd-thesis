@@ -59,36 +59,31 @@ The increase in noise correlation for \ac{M1} \ac{V1} for the last two sessions 
 There is a large amount of variance in the noise correlations for different pairs, so the decline in mean correlation for \ac{M2} does not seem very large considering the amount of variance.
 
 
-% % \begin{figure}[htb]
-% %     \begin{subfigure}[b]{0.5\linewidth}
-% %         \centering
-% %         \caption{}
-% %         \label{fig:noise_r_v1_all}
-% % %         \includegraphics[width=\linewidth]{%
-% % % ./rcoef_2013-04-09/rcoef_sess_meanpc_2013-04-09/png/rcoef_sess_meanpc_v1_both.png}
-% % %        \includegraphics[width=\linewidth]{figs/decoding/rcoef_sess_meanpc_v1_both}
-% %         \includegraphics[width=\linewidth]{figs/decoding/rcoef_sess_meanpc_v1_both.pdf}
-% %     \end{subfigure}
-% %     ~~
-% %     \begin{subfigure}[b]{0.5\linewidth}
-% %         \centering
-% %         \caption{}
-% %         \label{fig:noise_r_v4_all}
-% % %         \includegraphics[width=\linewidth]{%
-% % % ./rcoef_2013-04-09/rcoef_sess_meanpc_2013-04-09/png/rcoef_sess_meanpc_v4_both.png}
-% %         \includegraphics[width=\linewidth]{figs/decoding/rcoef_sess_meanpc_v4_both.pdf}
-% %     \end{subfigure}
-% %     \caption{Change in noise correlations with learning.
-% % \protect\subref{fig:noise_r_v1_all}:~\ac{V1}.
-% % \protect\subref{fig:noise_r_v4_all}:~\ac{V4}.
-% % Blue:~\ac{M1}.
-% % Red:~\ac{M2}.
-% % On the x-axis, the number of sessions since the animal began training in the part of the visual field retinotopic to the recording site is shown.
-% % Line: pearson r coefficient, averaged across the possible pairings between channels for each of the 14 trial conditions.
-% % Shaded region indicates one standard deviation from mean.
-% % }
-% %     \label{fig:noise_r_all}
-% % \end{figure}
+\begin{figure}[htb]
+    \centering
+    \subfloat[][\label{fig:noise_r_v1_all}]{
+%         \includegraphics[width=0.5\linewidth]{%
+% ./rcoef_2013-04-09/rcoef_sess_meanpc_2013-04-09/png/rcoef_sess_meanpc_v1_both.png}
+%        \includegraphics[width=0.5\linewidth]{figs/decoding/rcoef_sess_meanpc_v1_both}
+        \includegraphics[width=0.5\linewidth]{figs/decoding/rcoef_sess_meanpc_v1_both.pdf}
+}
+    ~~
+    \subfloat[][\label{fig:noise_r_v4_all}]{
+%         \includegraphics[width=0.5\linewidth]{%
+% ./rcoef_2013-04-09/rcoef_sess_meanpc_2013-04-09/png/rcoef_sess_meanpc_v4_both.png}
+        \includegraphics[width=0.5\linewidth]{figs/decoding/rcoef_sess_meanpc_v4_both.pdf}
+}
+    \caption{Change in noise correlations with learning.
+\protect\subref{fig:noise_r_v1_all}:~\ac{V1}.
+\protect\subref{fig:noise_r_v4_all}:~\ac{V4}.
+Blue:~\ac{M1}.
+Red:~\ac{M2}.
+On the x-axis, the number of sessions since the animal began training in the part of the visual field retinotopic to the recording site is shown.
+Line: pearson r coefficient, averaged across the possible pairings between channels for each of the 14 trial conditions.
+Shaded region indicates one standard deviation from mean.
+}
+    \label{fig:noise_r_all}
+\end{figure}
 % \marginnote{In Fig.~\ref{fig:noise_r_all} and \ref{fig:noise_r_hist}, the text is too small due to saving the figure with transparencies in PNG format; if I could get the SVG to load correctly, the text would be sized correctly.}
 
 Fig.~\ref{fig:noise_r_hist} is intended to reproduce Figure 2C from \citet{Gu2011}, with the distribution of $r$ shown across pairs for one pre-training and one post-training session.
