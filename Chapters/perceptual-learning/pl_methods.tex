@@ -260,7 +260,7 @@ The recording session number for the data is given along the $x$-axis, and the n
 Average mutual information across all the channels is denoted by the pseudo-colour of each of the rectangular patches, centred around the $(x,y)$ co-ordinate to which the measurement relates.
 In each case the average is taken across all available channel data: \ref{fig:sessb1}~23 channels, \ref{fig:sessb4}~30 channels, \ref{fig:sessj1}~25 channels, \ref{fig:sessj4}~20 channels.
 % The \ac{PT} bias correction method was used (see text).
-The plug-in method without bias correction was used (see text).
+No bias correction method was used.
 }
     \label{fig:sess}
 \end{figure}
@@ -332,7 +332,7 @@ No trend in information content with learning can be discerned because the measu
 % %         \includegraphics[width=\linewidth]{%
 % % figs/info/ntrialsIandNindiv_jack_v4_dr_naive_5bins_of_4ms_20120815T201856.eps}
 % %     \end{subfigure}
-% %     \caption{Mutual information seems to be anti-correlated with the number of trials in the session. The number of correctly responded trials in each session is plotted on top of the mean information in individual sessions. The mutual information is the ``plug-in estimate'', not corrected for bias, and averaged across the whole period of test stimulus presentation.
+% %     \caption{Mutual information seems to be anti-correlated with the number of trials in the session. The number of correctly responded trials in each session is plotted on top of the mean information in individual sessions. The mutual information was not corrected for bias, and averaged across the whole period of test stimulus presentation.
 % % %There is a missing data point for \ac{M2} \ac{V4} because in one session there were not enough trials per condition for the \ac{QE} algorithm to function.
 % % }
 % %     \label{fig:IandN}
@@ -381,7 +381,7 @@ The only exception to this rule seems to be for \ac{M2} \ac{V1}, shown in Fig.~\
 % %         \includegraphics[width=\linewidth]{%
 % % figs/info/ntrialsIvsinvNcombindiv_jack_v4_5bins_of_4ms_20120815T204808.eps}
 % %     \end{subfigure}
-% %     \caption{Mutual information is inversely correlated with the number of trials in the session. The mutual information for a single session is averaged over all channels, and averaged over all times during stimulus presentation, and plotted against the reciprocal of the number of trials in the session ($\nicefrac{1}{N}$). Plug-in:~with no bias correction. \ac{PT}:~using the Panzeri-Treves method to correct for bias \citep{Panzeri1996}. \ac{QE}:~using quadratic extrapolation for bias correction \citep{Strong1998}.
+% %     \caption{Mutual information is inversely correlated with the number of trials in the session. The mutual information for a single session is averaged over all channels, and averaged over all times during stimulus presentation, and plotted against the reciprocal of the number of trials in the session ($\nicefrac{1}{N}$). Plug-in:~without bias correction. \ac{PT}:~using the Panzeri-Treves method to correct for bias \citep{Panzeri1996}. \ac{QE}:~using quadratic extrapolation for bias correction \citep{Strong1998}.
 % % %There is a missing data point for \ac{M2} \ac{V4} because in one session there were not enough trials per condition for the \ac{QE} algorithm to function.
 % % }
 % %     \label{fig:IvN}
@@ -414,7 +414,7 @@ We now consider how many trials should be taken at once to obtain a reasonably r
 
 Some rules-of-thumb for the number of trials are offered by \citep{Panzeri2007}.
 Let $\overline{R}$ denote the number of possible response codes.
-Then, for the plug-in estimate of mutual information, we need to have at least $N_S \ge 2^{32} \, \overline{R}$ trials per stimulus,
+Then, for the bias-uncorrected estimate of mutual information, we need to have at least $N_S \ge 2^{32} \, \overline{R}$ trials per stimulus,
 whilst if the \ac{PT} or \ac{QE} bias correction methods are applied, we only need $N_S > 2 \, \overline{R}$.
 
 % The spike detection software was set to only detect spikes at least \SI{3}{ms} apart, and moreover, 
