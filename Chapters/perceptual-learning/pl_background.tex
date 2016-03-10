@@ -137,7 +137,7 @@ This presents a major problem, because precise values for the probabilities can 
 The estimated probabilities are subject to statistical error, leading to an associated systematic error (bias) and statistical variance in the estimates of the entropies and mutual information.
 The bias in particular is an issue, causing the mutual information to be upwardly biased, which can lead to incorrect conclusions if not corrected.
 Conceptually, this is because finite sampling can lead to spurious differences in the response distributions, making them seem more discriminable that they really are.
-We refer to the bias uncorrected mutual information as the ``plug-in'' measurement, $I_{\text{plugin}}(\SET{S};\SET{R})$.
+We refer to the bias uncorrected mutual information as $I_{\text{uncorrected}}(\SET{S};\SET{R})$.
 
 Fortunately, several techniques exist to correct for the bias.
 Several of these bias correction methods focus on expanding out the measured information as a power series \citep{Miller1955,Treves1995} in terms of $\nicefrac{1}{N}$, where $N$ is the number of trials in the dataset, though technically the relationship with the power series only holds in the asymptotic sampling regime with a very large number of trials.
@@ -148,7 +148,7 @@ Consequently, one approach to bias correction, \iac{PT} \citep{Panzeri1996}, use
 A second method of correcting for the bias which makes use of the power series expansion is \iac{QE} method \citep{Strong1998}.
 Here, the uncorrected mutual information is assumed to be well approximated by
 $$
-I_{\text{plugin}}(\SET{S};\SET{R}) = I_{\text{true}}(\SET{S};\SET{R}) + \frac{a}{N} + \frac{b}{N^2}
+I_{\text{uncorrected}}(\SET{S};\SET{R}) = I_{\text{true}}(\SET{S};\SET{R}) + \frac{a}{N} + \frac{b}{N^2}
 ,$$
 with the free parameters $a$ and $b$ found by computing the information content with fractions of the full available dataset (\ie{} using $\nicefrac{N}{2}$ and $\nicefrac{N}{2}$ trials).
 
