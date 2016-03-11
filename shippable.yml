@@ -42,6 +42,9 @@ after_script:
         mkdir -p shippable;
         cp "$LOG_FILE" shippable/;
     fi;
+  - ls -alh ./;
+  - ls -alh ./Chapters/perceptual-learning;
+  - ls -alh ./Chapters/perceptual-learning/figs/decoding/rcoef_scatter_jv4_icond5_ch1vch3*;
 
 ###############################################################################
 after_success:
