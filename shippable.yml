@@ -34,10 +34,13 @@ script:
 
 ###############################################################################
 after_script:
-  - if [ -f "${INPUT_FILE%.tex}.log" ];
+  - LOG_FILE="${INPUT_FILE%.tex}".log;
+    if [ -f "$LOG_FILE" ];
     then
+        echo "Contents of $LOG_FILE:";
+        cat "$LOG_FILE";
         mkdir -p shippable;
-        cp "${INPUT_FILE%.tex}.log" shippable/;
+        cp "$LOG_FILE" shippable/;
     fi;
 
 ###############################################################################

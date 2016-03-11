@@ -26,3 +26,12 @@ script:
     bibtex "${INPUT_FILE%.tex}" &&
     pdflatex -halt-on-error -interaction nonstopmode "$INPUT_FILE" &&
     pdflatex -halt-on-error -interaction nonstopmode "$INPUT_FILE"
+
+###############################################################################
+after_script:
+  - LOG_FILE="${INPUT_FILE%.tex}".log;
+    if [ -f "$LOG_FILE" ];
+    then
+        echo "Contents of $LOG_FILE:";
+        cat "$LOG_FILE";
+    fi;
