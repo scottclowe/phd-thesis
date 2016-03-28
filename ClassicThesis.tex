@@ -2,7 +2,7 @@
 % A Classic Thesis Style
 % An Homage to The Elements of Typographic Style
 %
-% Copyright (C) 2012 Andr\'e Miede http://www.miede.de
+% Copyright (C) 2015 André Miede http://www.miede.de
 %
 % If you like the style then I would appreciate a postcard. My address 
 % can be found in the file ClassicThesis.pdf. A collection of the 
@@ -42,6 +42,7 @@
 %     Modified by Scott Lowe based on changes made by Helen Ramsden for use with University of Edinbugh
 %     Ph.D. theses within the School of Informatics.
 % **************************************************************************************************************
+\RequirePackage{fix-cm} % fix some latex issues see: http://texdoc.net/texmf-dist/doc/latex/base/fixltx2e.pdf
 \documentclass[
 	 oneside,openright,titlepage,numbers=noenddot,headinclude,%1headlines,
                 footinclude=true,cleardoublepage=empty,
@@ -59,6 +60,11 @@
 %
 \makeglossaries
 %
+%********************************************************************
+% Bibliographies
+%*******************************************************
+\addbibresource{Chapters/perceptual-learning/pl.bib}
+
 %********************************************************************
 % Hyphenation
 %*******************************************************
@@ -85,7 +91,7 @@
 %\cleardoublepage\include{FrontBackmatter/Foreword}
 \cleardoublepage\include{FrontBackmatter/LaySummary}
 \cleardoublepage\include{FrontBackmatter/Abstract}
-%\cleardoublepage\include{FrontBackmatter/Publication}
+%\cleardoublepage\include{FrontBackmatter/Publications}
 \cleardoublepage\include{FrontBackmatter/Acknowledgments}
 \cleardoublepage\include{FrontBackmatter/Declaration}
 \pagestyle{scrheadings} % Show chapter titles as headings
@@ -94,7 +100,7 @@
 %********************************************************************
 % Mainmatter
 %*******************************************************
-\pagenumbering{arabic}
+\cleardoublepage\pagenumbering{arabic}
 %\setcounter{page}{90}
 % use \cleardoublepage here to avoid problems with pdfbookmark
 \cleardoublepage
@@ -112,6 +118,7 @@
 % Backmatter
 %*******************************************************
 \appendix
+%\renewcommand{\thechapter}{\alph{chapter}}
 \cleardoublepage
 %\part{Appendix}
 %\include{Chapters/Chapter0A}

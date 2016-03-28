@@ -10,6 +10,15 @@
 % http://postcards.miede.de
 % ****************************************************************************************************
 
+
+% ****************************************************************************************************
+% 0. Set the encoding of your files. UTF-8 is the only sensible encoding nowadays. If you can't read
+% äöüßáéçèê∂åëæƒÏ€ then change the encoding setting in your editor, not the line below. If your editor
+% does not support utf8 use another editor!
+% ****************************************************************************************************
+\PassOptionsToPackage{utf8}{inputenc}
+ \usepackage{inputenc}
+
 % ****************************************************************************************************
 % 1. Configure classicthesis for your needs here, e.g., remove "drafting" below 
 % in order to deactivate the time-stamp on the pages
@@ -31,9 +40,9 @@
 % ********************************************************************
 % Triggers for this config
 % ******************************************************************** 
-\usepackage{ifthen}
-\newboolean{enable-backrefs} % enable backrefs in the bibliography
-\setboolean{enable-backrefs}{false} % true false
+%\usepackage{ifthen}
+%\newboolean{enable-backrefs} % enable backrefs in the bibliography
+%\setboolean{enable-backrefs}{false} % true false
 % ****************************************************************************************************
 
 
@@ -53,7 +62,7 @@
 \newcommand{\myUni}{University of Edinburgh\xspace}
 \newcommand{\myLocation}{Edinburgh\xspace}
 \newcommand{\myTime}{\the\year\xspace}
-\newcommand{\myVersion}{version 4.1\xspace}
+\newcommand{\myVersion}{version 4.2\xspace}
 
 % ********************************************************************
 % Setup, finetuning, and useful commands
@@ -76,19 +85,28 @@
 % ******************************************************************** 
 % Packages with options that might require adjustments
 % ******************************************************************** 
-\PassOptionsToPackage{latin9}{inputenc}	% latin9 (ISO-8859-9) = latin1+"Euro sign"
- \usepackage{inputenc}				
-
 %\PassOptionsToPackage{ngerman,american}{babel}   % change this to your language(s)
 % Spanish languages need extra options in order to work with this template
 %\PassOptionsToPackage{spanish,es-lcroman}{babel}
- \usepackage{babel}					
+	\usepackage{babel}					
 
-%\PassOptionsToPackage{square,numbers}{natbib}
- \usepackage{natbib,natbibspacing}
+\usepackage{csquotes}
+\PassOptionsToPackage{%
+    %backend=biber, %instead of bibtex
+		backend=bibtex8,bibencoding=ascii,%
+		language=auto,%
+		style=numeric-comp,%
+    %style=authoryear-comp, % Author 1999, 2010
+    %bibstyle=authoryear,dashed=false, % dashed: substitute rep. author with ---
+    sorting=nyt, % name, year, title
+    maxbibnames=10, % default: 3, et al.
+    %backref=true,%
+    natbib=true % natbib compatibility mode (\citep and \citet still work)
+}{biblatex}
+	\usepackage{biblatex}
 
 \PassOptionsToPackage{fleqn}{amsmath}		% math environments and more by the AMS 
- \usepackage{amsmath}
+	\usepackage{amsmath}
 
 % ******************************************************************** 
 % General useful packages
@@ -99,7 +117,8 @@
 \usepackage{scrhack} % fix warnings when using KOMA with listings package          
 \usepackage{xspace} % to get the spacing after macros right  
 \usepackage{mparhack} % get marginpar right
-\usepackage{fixltx2e} % fixes some LaTeX stuff 
+%\usepackage{fixltx2e} % fixes some LaTeX stuff --> since 2015 in the LaTeX kernel (see below)
+%\usepackage[latest]{latexrelease} 
 \PassOptionsToPackage{printonlyused,smaller}{acronym}
 	\usepackage{acronym} % nice macros for handling all acronyms in the thesis
 %\renewcommand*{\acsfont}[1]{\textssc{#1}} % for MinionPro
@@ -124,7 +143,10 @@
 \newcommand{\tableheadline}[1]{\multicolumn{1}{c}{\spacedlowsmallcaps{#1}}}
 \newcommand{\myfloatalign}{\centering} % to be used with each float for alignment
 \usepackage{caption,subcaption}
-\captionsetup{font=small,font=singlespacing,format=plain,indention=0cm} %font=sf,
+% Thanks to cgnieder and Claus Lahiri
+% http://tex.stackexchange.com/questions/69349/spacedlowsmallcaps-in-caption-label
+\DeclareCaptionLabelFormat{smallcaps}{\bothIfFirst{#1}{~}\MakeTextLowercase{\textsc{#2}}}
+\captionsetup{font=small,labelformat=smallcaps,font=singlespacing,format=plain,indention=0cm} % format=hang,
 %\usepackage{subfig}  
 
 
@@ -291,25 +313,25 @@
 % Setup the style of the backrefs from the bibliography
 % (translate the options to any language you use)
 % ********************************************************************
-\newcommand{\backrefnotcitedstring}{\relax}%(Not cited.)
-\newcommand{\backrefcitedsinglestring}[1]{(Cited on page~#1.)}
-\newcommand{\backrefcitedmultistring}[1]{(Cited on pages~#1.)}
-\ifthenelse{\boolean{enable-backrefs}}%
-{%
-		\PassOptionsToPackage{hyperpageref}{backref}
-		\usepackage{backref} % to be loaded after hyperref package 
-		   \renewcommand{\backreftwosep}{ and~} % separate 2 pages
-		   \renewcommand{\backreflastsep}{, and~} % separate last of longer list
-		   \renewcommand*{\backref}[1]{}  % disable standard
-		   \renewcommand*{\backrefalt}[4]{% detailed backref
-		      \ifcase #1 %
-		         \backrefnotcitedstring%
-		      \or%
-		         \backrefcitedsinglestring{#2}%
-		      \else%
-		         \backrefcitedmultistring{#2}%
-		      \fi}%
-}{\relax}    
+%\newcommand{\backrefnotcitedstring}{\relax}%(Not cited.)
+%\newcommand{\backrefcitedsinglestring}[1]{(Cited on page~#1.)}
+%\newcommand{\backrefcitedmultistring}[1]{(Cited on pages~#1.)}
+%\ifthenelse{\boolean{enable-backrefs}}%
+%{%
+		%\PassOptionsToPackage{hyperpageref}{backref}
+		%\usepackage{backref} % to be loaded after hyperref package 
+		   %\renewcommand{\backreftwosep}{ and~} % separate 2 pages
+		   %\renewcommand{\backreflastsep}{, and~} % separate last of longer list
+		   %\renewcommand*{\backref}[1]{}  % disable standard
+		   %\renewcommand*{\backrefalt}[4]{% detailed backref
+		      %\ifcase #1 %
+		         %\backrefnotcitedstring%
+		      %\or%
+		         %\backrefcitedsinglestring{#2}%
+		      %\else%
+		         %\backrefcitedmultistring{#2}%
+		      %\fi}%
+%}{\relax}    
 
 % ********************************************************************
 % Hyperreferences
@@ -319,7 +341,7 @@
     %draft,	% = no hyperlinking at all (useful in b/w printouts)
     colorlinks=true, linktocpage=true, pdfstartpage=3, pdfstartview=FitV,%
     % uncomment the following line if you want to have black links (e.g., for printing)
-    %colorlinks=false, linktocpage=false, pdfborder={0 0 0}, pdfstartpage=3, pdfstartview=FitV,% 
+    %colorlinks=false, linktocpage=false, pdfstartpage=3, pdfstartview=FitV, pdfborder={0 0 0},%
     breaklinks=true, pdfpagemode=UseNone, pageanchor=true, pdfpagemode=UseOutlines,%
     plainpages=false, bookmarksnumbered, bookmarksopen=true, bookmarksopenlevel=1,%
     hypertexnames=true, pdfhighlight=/O,%nesting=true,%frenchlinks,%
@@ -413,11 +435,13 @@
 % ********************************************************************
 %\usepackage[oldstylenums]{kpfonts} % oldstyle notextcomp
 %\usepackage[osf]{libertine}
-%\usepackage{hfoldsty} % Computer Modern with osf
 %\usepackage[light,condensed,math]{iwona}
 %\renewcommand{\sfdefault}{iwona}
 %\usepackage{lmodern} % <-- no osf support :-(
+%\usepackage{cfr-lm} % 
 %\usepackage[urw-garamond]{mathdesign} <-- no osf support :-(
+%\usepackage[default,osfigures]{opensans} % scale=0.95 
+%\usepackage[sfdefault]{FiraSans}
 
 % ********************************************************************
 % Adjust colour of acronyms
