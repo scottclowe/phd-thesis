@@ -1,7 +1,7 @@
 %------------------------------------------------------------------------------
 \section{Results}
 
-During the course of the analysis, results were inspected using PT and using QE for bias correction. The plots were similar in distribution, and each gave a similar magnitude for the information. However, PT gave visibly lower variance than QE, so only plots using PT are presented in this results section.
+During the course of the analysis, results were inspected using \ac{PT} and using \ac{QE} for bias correction. The plots were similar in distribution, and each gave a similar magnitude for the information. However, \ac{PT} gave visibly lower variance than \ac{QE}, so only plots using \ac{PT} are presented in this results section.
 Using the $I_{\text{sh}}$ approach where the bias is corrected by shuffling bins across trials \cite{Montemurro2007} was also attempted for the spike timing code, but this increased the variance far too much to be of any practical use. The unexpectedly significant increase in variance is probably due to the nature of the correlations between the bins which are being shuffled.
 
 We also compared some of the results both with the monitor artifact left in the data and with the dataset redacted to have it removed. There was no appreciable difference for any of the plots, though the amount of information went down when the data was redacted due to the loss of some of the spikes.
@@ -10,14 +10,14 @@ We also compared some of the results both with the monitor artifact left in the 
 % \FloatBarrier
 % \subsection{General Information plots}
 
-Starting with V1, the first thing which is noticed in Figs.~\ref{fig:b1-trialwise} and \ref{fig:j1-trialwise} \ref{fig:b1-1x20tp4} and \ref{fig:b1-5x4tp4} is the large peak in information over the \unit[20]{ms} window starting at around \unit[40]{ms} after stimulus onset. This is due to the onset transient response, where there is a larger amount of neural activity, and this is also less variable than usual \cite{Muller2001}. A second, smaller peak from the ``rebound'' of the transient also occurs around \unit[100]{ms} after stimulus onset. Looking at the scalebars, we can see there is about 10 times as much information on average from the neurons in M2 than M1. This is probably due to differences in data quality between the two animals.
+Starting with \ac{V1}, the first thing which is noticed in Figs.~\ref{fig:b1-trialwise} and \ref{fig:j1-trialwise} \ref{fig:b1-1x20tp4} and \ref{fig:b1-5x4tp4} is the large peak in information over the \unit[20]{ms} window starting at around \unit[40]{ms} after stimulus onset. This is due to the onset transient response, where there is a larger amount of neural activity, and this is also less variable than usual \cite{Muller2001}. A second, smaller peak from the ``rebound'' of the transient also occurs around \unit[100]{ms} after stimulus onset. Looking at the scalebars, we can see there is about 10 times as much information on average from the neurons in \ac{M2} than \ac{M1}. This is probably due to differences in data quality between the two animals.
 
-Comparing the information found using the spike timing code \ref{fig:b1-5x4tp4} with the spike count code \ref{fig:b1-1x20tp4}, it seems that there is significantly more information when the binned spike times are considered: there is three times as much information for the spike timing code for M1 and twice as much for M2. However, if we look at information in the spontaneous activity, this reveals we cannot trust this result, as the bias for the information from the spontaneous activity is much higher for the spike timing code than spike count.
+Comparing the information found using the spike timing code \ref{fig:b1-5x4tp4} with the spike count code \ref{fig:b1-1x20tp4}, it seems that there is significantly more information when the binned spike times are considered: there is three times as much information for the spike timing code for \ac{M1} and twice as much for \ac{M2}. However, if we look at information in the spontaneous activity, this reveals we cannot trust this result, as the bias for the information from the spontaneous activity is much higher for the spike timing code than spike count.
 
-For M1, aside from the transient, the information measured with the spike timing code from the spontaneous activity is about the same as the information from the test presentation, suggesting something has gone very wrong!
+For \ac{M1}, aside from the transient, the information measured with the spike timing code from the spontaneous activity is about the same as the information from the test presentation, suggesting something has gone very wrong!
 
-For the spike timing codes, there is a clear decrease in information with learning in M1, and a clear increase in information for M2. This is, however, present in both the test presentation activity and the spontaneous activity, suggesting it is not a genuine effect. This is believed to be due to a decrease in signal quality in the implants in M1, and possibly an increase in M2.
-The increase is also seen in the spike count code for M2, but not to any real extent and it is doubtful that the result is significant.
+For the spike timing codes, there is a clear decrease in information with learning in \ac{M1}, and a clear increase in information for \ac{M2}. This is, however, present in both the test presentation activity and the spontaneous activity, suggesting it is not a genuine effect. This is believed to be due to a decrease in signal quality in the implants in \ac{M1}, and possibly an increase in \ac{M2}.
+The increase is also seen in the spike count code for \ac{M2}, but not to any real extent and it is doubtful that the result is significant.
 
 The bias in the information for the spontaneous activity changes with time for the spike timing code, but does not for the spike count code.
 Since any changes in the dataset are the same for both of these, this suggests there are too few trials for the spike timing code to give a reliable reading of the information. This would make sense because with an average of $N_S = 100$ trials per stimulus and a spike timing code with $\overline{R} = 32$, there are
@@ -29,11 +29,11 @@ at least $\nicefrac{N_S}{\overline{R}} > 8$ trials per response per stimulus for
 
 The information in the spontaneous activity was subsequently computed with an average of $N_S = 200$ and with $N_S = 400$ trials per stimulus.
 This means there is now $\nicefrac{N_S}{\overline{R}} > 8$ for the spike timing code, however precisely the same relationship was observed.
-From this, we can conclude the problem is due to the inconsistencies between sessions. If the firing rate changes between two sessions, the probability distribution of the responses generated will change for each condition. This will not matter so much for the spike count code because there are only 8 possible responses, and even if there are only 250 trials in the session there should be at least 16 trials per condition, meeting the minimal requirements for the PT method to function.
+From this, we can conclude the problem is due to the inconsistencies between sessions. If the firing rate changes between two sessions, the probability distribution of the responses generated will change for each condition. This will not matter so much for the spike count code because there are only 8 possible responses, and even if there are only 250 trials in the session there should be at least 16 trials per condition, meeting the minimal requirements for the \ac{PT} method to function.
 
 The small bump in the information in the spontaneous activity around \unit[50]{ms} in Figs.~\ref{fig:b1-5x4tp4} and \ref{fig:j1-5x4tp4} will be due to an increase in activity from a transient response. This data is normalised so \unit[0]{ms} is when the animal begins fixating on the fixation target, and there will be a transient response after the animal saccades to the target. Although the increase in activity does not relate to the conditions used on the subsequent test presentation, the extra spikes will increase the variability of the response, and thus $H(\SET{R})$, which will not be cancelled out by an increase in $H(\SET{R}|\SET{S})$ for the same reasons the bias appears in the first place.
 
-In short, the data for M1 V1 does not seem to be of good enough quality whilst M2 V1 does, and the information in the spike timing code cannot be trusted for either monkey.
+In short, the data for \ac{M1} \ac{V1} does not seem to be of good enough quality whilst \ac{M2} \ac{V1} does, and the information in the spike timing code cannot be trusted for either monkey.
 
 %  ./figs/info/I_trialwise_blanco_v1_chmean23_s343-354,355.1,355.2,356-359_tp4_1bins_of_20ms_dr_pt_oc0_test_tc5-5-20,22-3-28,32,35-5-50,60,90_nt1400_ts350_rmvet1_rmvms0_pcolorhot_20120815T234452.png
 % ./figs/info/I_trialwise_blanco_v1_chmean23_s343-354,355.1,355.2,356-359_tp1_1bins_of_20ms_dr_pt_oc0_test_tc5-5-20,22-3-28,32,35-5-50,60,90_nt1400_ts350_rmvet1_rmvms0_pcolorhot_20120815T234326.png
@@ -92,8 +92,8 @@ In short, the data for M1 V1 does not seem to be of good enough quality whilst M
 % %         \includegraphics[scale=.25]{%
 % % ./figs/info/I_trialwise_blanco_v1_chmean23_s343-354,355.1,355.2,356-359_tp1_5bins_of_4ms_dr_pt_oc0_test_tc5-5-20,22-3-28,32,35-5-50,60,90_nt1400_ts350_rmvet1_rmvms1_pcolorbp_20120816T175423.png}
 % %     \end{subfigure}
-% %     \caption{M1 V1: Mutual information between the test stimulus and \unit[20]{ms} of spiking activity, averaged across 23 channels.
-% % The PT bias correction method was used in all estimates of the information, and the modification to the spiking data to remove the artifact as described in Sec.~\ref{sec:ma} was performed.
+% %     \caption{\ac{M1} \ac{V1}: Mutual information between the test stimulus and \unit[20]{ms} of spiking activity, averaged across 23 channels.
+% % The \ac{PT} bias correction method was used in all estimates of the information, and the modification to the spiking data to remove the artifact as described in Sec.~\ref{sec:ma} was performed.
 % % The neural code used in \ref{fig:b1-1x20tp4}, \ref{fig:b1-1x20tp1} is a spike count code, whilst in \ref{fig:b1-5x4tp4} and \ref{fig:b1-5x4tp1} it is a spike timing code where the \unit[20]{ms} window was subdivided into 5 bins each of \unit[4]{ms}.
 % % In \ref{fig:b1-1x20tp4} and \ref{fig:b1-5x4tp4} the spike-train is taken from the test presentation part of the trial;
 % % for \ref{fig:b1-1x20tp1} and \ref{fig:b1-5x4tp1} the spike-train is taken from spontaneous pre-stimulus activity.
@@ -167,8 +167,8 @@ In short, the data for M1 V1 does not seem to be of good enough quality whilst M
 % %         \includegraphics[scale=.25]{%
 % % ./figs/info/I_trialwise_jack_v1_chmean25_s51-72_tp1_5bins_of_4ms_dr_pt_oc0_test_tc5-5-20,22-3-28,32,35-5-50,60,90_nt1400_ts350_rmvet1_rmvms1_pcolorbp_20120816T175343.png}
 % %     \end{subfigure}
-% %     \caption{M2 V1: Mutual information between the test stimulus and \unit[20]{ms} of spiking activity, averaged across 25 channels.
-% % The PT bias correction method was used in all estimates of the information.
+% %     \caption{\ac{M2} \ac{V1}: Mutual information between the test stimulus and \unit[20]{ms} of spiking activity, averaged across 25 channels.
+% % The \ac{PT} bias correction method was used in all estimates of the information.
 % % Panels \ref{fig:j1-1x20tp4}--\ref{fig:j1-5x4tp1} are the same as for Fig.~\ref{fig:b1-trialwise}.
 % % % The neural code used in \ref{fig:j1-1x20tp4ma}--\ref{fig:j1-1x20tp1} is a spike count code, whilst in \ref{fig:j1-5x4tp4}, \ref{fig:j1-5x4tp1} it is a spike timing code where the \unit[20]{ms} window was subdivided into 5 bins each of \unit[4]{ms}.
 % % % In \ref{fig:j1-1x20tp4ma}, \ref{fig:j1-1x20tp4}, and \ref{fig:j1-5x4tp4}, the spike-train is taken from the test presentation part of the trial;
@@ -241,8 +241,8 @@ In short, the data for M1 V1 does not seem to be of good enough quality whilst M
 % %         \includegraphics[scale=.25]{%
 % % ./figs/info/I_trialwise_blanco_v4_chmean31_s307,308,311,313,314,317,318,320,321,329-341_tp1_5bins_of_4ms_dr_pt_oc0_test_tc10-5-25,27-29,31-33,35,40-10-60_nt1400_ts350_rmvet1_rmvms1_pcolorbp_20120816T175438.png}
 % %     \end{subfigure}
-% %     \caption{M1 V4: Mutual information between the test stimulus and \unit[20]{ms} of spiking activity, averaged across 30 channels.
-% % The PT bias correction method was used in all estimates of the information.
+% %     \caption{\ac{M1} \ac{V4}: Mutual information between the test stimulus and \unit[20]{ms} of spiking activity, averaged across 30 channels.
+% % The \ac{PT} bias correction method was used in all estimates of the information.
 % % Panels \ref{fig:b4-1x20tp4}--\ref{fig:b4-5x4tp1} are the same as for Fig.~\ref{fig:b1-trialwise}.
 % % % The neural code used in \ref{fig:b4-1x20tp4ma}--\ref{fig:b4-1x20tp1} is a spike count code, whilst in \ref{fig:b4-5x4tp4}, \ref{fig:b4-5x4tp1} it is a spike timing code where the \unit[20]{ms} window was subdivided into 5 bins each of \unit[4]{ms}.
 % % % In \ref{fig:b4-1x20tp4ma}, \ref{fig:b4-1x20tp4}, and \ref{fig:b4-5x4tp4}, the spike-train is taken from the test presentation part of the trial;
@@ -315,8 +315,8 @@ In short, the data for M1 V1 does not seem to be of good enough quality whilst M
 % %         \includegraphics[scale=.25]{%
 % % ./figs/info/I_trialwise_jack_v4_chmean20_s24-49_tp1_5bins_of_4ms_dr_pt_oc0_test_tc10-5-25,27-29,31-33,35,40-10-60_nt1400_ts350_rmvet1_rmvms1_pcolorbp_20120816T175404.png}
 % %     \end{subfigure}
-% %     \caption{M2 V4: Mutual information between the test stimulus and \unit[20]{ms} of spiking activity, averaged across 20 channels.
-% % The PT bias correction method was used in all estimates of the information.
+% %     \caption{\ac{M2} \ac{V4}: Mutual information between the test stimulus and \unit[20]{ms} of spiking activity, averaged across 20 channels.
+% % The \ac{PT} bias correction method was used in all estimates of the information.
 % % Panels \ref{fig:j4-1x20tp4}--\ref{fig:j4-5x4tp1} are the same as for Fig.~\ref{fig:b1-trialwise}.
 % % % The neural code used in \ref{fig:j4-1x20tp4ma}--\ref{fig:j4-1x20tp1} is a spike count code, whilst in \ref{fig:j4-5x4tp4}, \ref{fig:j4-5x4tp1} it is a spike timing code where the \unit[20]{ms} window was subdivided into 5 bins each of \unit[4]{ms}.
 % % % In \ref{fig:j4-1x20tp4ma}, \ref{fig:j4-1x20tp4}, and \ref{fig:j4-5x4tp4}, the spike-train is taken from the test presentation part of the trial;
@@ -336,13 +336,13 @@ In short, the data for M1 V1 does not seem to be of good enough quality whilst M
 
 % More information with only correct trials used, but this could be due to differences in $P(S)$.
 
-Turning our attention to the V4 results in Figs.~\ref{fig:b4-trialwise} and \ref{fig:j4-trialwise}, we can see the effect of the transient is present in M1's data (at the later start time of \unit[75]{ms}), but not in M2's. This is surprising because, looking at the rasters, in both animals there are some channels which exhibit a transient response and some which do not.
+Turning our attention to the \ac{V4} results in Figs.~\ref{fig:b4-trialwise} and \ref{fig:j4-trialwise}, we can see the effect of the transient is present in \ac{M1}'s data (at the later start time of \unit[75]{ms}), but not in \ac{M2}'s. This is surprising because, looking at the rasters, in both animals there are some channels which exhibit a transient response and some which do not.
 
-Similar to V1, it seems as if there is four times as much information in the timebinned code compared with the count code. However, there is much more information measured for the spontaneous activity data again. This is not reduced by increasing the number of trials either.
+Similar to \ac{V1}, it seems as if there is four times as much information in the timebinned code compared with the count code. However, there is much more information measured for the spontaneous activity data again. This is not reduced by increasing the number of trials either.
 
-For the spike count code in M2, the spontaneous information is nearly distributed around 0, suggesting the bias has been all but removed and the data is of very high quality. For this animal, we can see a distinct increase in the information content with time, for both the spike count and timing codes. Simultaneously, there is a movement of the peak information to earlier times closer to the stimulus onset.
+For the spike count code in \ac{M2}, the spontaneous information is nearly distributed around 0, suggesting the bias has been all but removed and the data is of very high quality. For this animal, we can see a distinct increase in the information content with time, for both the spike count and timing codes. Simultaneously, there is a movement of the peak information to earlier times closer to the stimulus onset.
 
-In M1, there is a small increase in the information content with time which may or may not significant. However, it is reassuring to see that this is not due to an improvement in the data with time, as the trend in the spontaneous activity information bias (Fig.~\ref{fig:j4-5x4tp1}) is a decrease with time.
+In \ac{M1}, there is a small increase in the information content with time which may or may not significant. However, it is reassuring to see that this is not due to an improvement in the data with time, as the trend in the spontaneous activity information bias (Fig.~\ref{fig:j4-5x4tp1}) is a decrease with time.
 
 %------------------------------------------------------------------------------
 \FloatBarrier
@@ -350,9 +350,9 @@ In M1, there is a small increase in the information content with time which may 
 
 Comparing Figs.~\ref{fig:b1-1x20cc} and \ref{fig:j1-1x20cc} where the outer 6 contrasts are included with Figs.~\ref{fig:b1-1x20tp4} and \ref{fig:b1-1x20tp4} where all contrasts are included, it seems as if the amount of information has increased, which should not be possible. However, the difference will be due to the difference in trials contained in each of the analyses. In each case, an average of 100 trials per stimulus is used, but since the easier test conditions are presented less frequently, they are under-represented in Figs.~\ref{fig:b1-1x20tp4} and \ref{fig:b1-1x20tp4} (about 75 trials per stimulus). Obviously these are more discriminable, so the under-representation comparably reduces the information.
 
-Looking at V1 (Fig.~\ref{fig:v1-fvc}), we observe there is much more information for M2 than M1, as we found before. The quality of the data seems to have severely hampered the analysis for M1, destroying the the fine differences in the data needed to evaluate the information contained about fine contrast differences (Fig.~\ref{fig:b1-1x20fc}).
+Looking at \ac{V1} (Fig.~\ref{fig:v1-fvc}), we observe there is much more information for \ac{M2} than \ac{M1}, as we found before. The quality of the data seems to have severely hampered the analysis for \ac{M1}, destroying the the fine differences in the data needed to evaluate the information contained about fine contrast differences (Fig.~\ref{fig:b1-1x20fc}).
 
-Unsurprisingly, there is more information when considering the coarsely distinct contrasts than the finer differences, as the neural activity is bound to be more discriminable for these. For M2, there is a small upward trend again for both coarse and fine contrast differences, which may or may not be genuine.
+Unsurprisingly, there is more information when considering the coarsely distinct contrasts than the finer differences, as the neural activity is bound to be more discriminable for these. For \ac{M2}, there is a small upward trend again for both coarse and fine contrast differences, which may or may not be genuine.
 
 % ./figs/info/I_trialwise_blanco_v1_chmean23_s343-354,355.1,355.2,356-359_tp4_1bins_of_20ms_dr_pt_oc0_test_tc5,15,22,40,50,90_nt600_ts150_rmvet1_rmvms1_pcolorhot_20120816T011936.png
 % ./figs/info/I_trialwise_blanco_v1_chmean23_s343-354,355.1,355.2,356-359_tp4_1bins_of_20ms_dr_pt_oc0_test_tc22-3-28,32,35,40_nt600_ts150_rmvet1_rmvms1_pcolorhot_20120816T011920.png
@@ -391,13 +391,13 @@ Unsurprisingly, there is more information when considering the coarsely distinct
 % %         \includegraphics[scale=.25]{%
 % % ./figs/info/I_trialwise_jack_v1_chmean25_s51-72_tp4_1bins_of_20ms_dr_pt_oc0_test_tc22-3-28,32,35,40_nt600_ts150_rmvet1_rmvms1_pcolorhot_20120816T011800.png}
 % %     \end{subfigure}
-% %     \caption{V1: Fine vs. coarse contrast differences.
+% %     \caption{\ac{V1}: Fine vs. coarse contrast differences.
 % % % Mutual information between the test stimulus and \unit[20]{ms} of spiking activity.
-% % % The PT bias correction method was used in all estimates of the information.
+% % % The \ac{PT} bias correction method was used in all estimates of the information.
 % % In the top panels, the six contrasts included are \{5, 15, 22, 40, 50, 90\}\%; bottom panels \{22, 25, 28, 32, 35, 40\}\%. An average of 100 trials per stimulus is used in each of these.
-% % Left panels are for M1, right are M2.
-% % In each case, mutual information between the six test stimuli and \unit[20]{ms} of spiking activity was measured using a spike count code, and bias corrected using the PT method.
-% % % Panels \ref{fig:b1-1x20cc} and \ref{fig:b1-1x20fc} are for M1, \ref{fig:b1-1x20cc} and \ref{fig:b1-1x20fc} for M2.
+% % Left panels are for \ac{M1}, right are \ac{M2}.
+% % In each case, mutual information between the six test stimuli and \unit[20]{ms} of spiking activity was measured using a spike count code, and bias corrected using the \ac{PT} method.
+% % % Panels \ref{fig:b1-1x20cc} and \ref{fig:b1-1x20fc} are for \ac{M1}, \ref{fig:b1-1x20cc} and \ref{fig:b1-1x20fc} for \ac{M2}.
 % % }
 % %     \label{fig:v1-fvc}
 % % \end{figure}
@@ -440,28 +440,28 @@ Unsurprisingly, there is more information when considering the coarsely distinct
 % %         \includegraphics[scale=.25]{%
 % % ./figs/info/I_trialwise_jack_v4_chmean20_s24-49_tp4_1bins_of_20ms_dr_pt_oc0_test_tc27-29,31-33_nt600_ts150_rmvet1_rmvms1_pcolorhot_20120816T011843.png}
 % %     \end{subfigure}
-% %     \caption{V4: Fine vs coarse contrast differences.
+% %     \caption{\ac{V4}: Fine vs coarse contrast differences.
 % % % Mutual information between the test stimulus and \unit[20]{ms} of spiking activity.
-% % % The PT bias correction method was used in all estimates of the information.
+% % % The \ac{PT} bias correction method was used in all estimates of the information.
 % % In the top panels, the six contrasts included are \{10, 15, 20, 40, 50, 60\}\%; bottom panels \{27, 28, 29, 31, 32, 33\}\%. An average of 100 trials per stimulus is used in each of these.
-% % Left panels are for M1, right are M2.
-% % In each case, mutual information between the six test stimuli and \unit[20]{ms} of spiking activity was measured using a spike count code, and bias corrected using the PT method.
-% % % Panels \ref{fig:b1-1x20cc} and \ref{fig:b1-1x20fc} are for M1, \ref{fig:b1-1x20cc} and \ref{fig:b1-1x20fc} for M2.
+% % Left panels are for \ac{M1}, right are \ac{M2}.
+% % In each case, mutual information between the six test stimuli and \unit[20]{ms} of spiking activity was measured using a spike count code, and bias corrected using the \ac{PT} method.
+% % % Panels \ref{fig:b1-1x20cc} and \ref{fig:b1-1x20fc} are for \ac{M1}, \ref{fig:b1-1x20cc} and \ref{fig:b1-1x20fc} for \ac{M2}.
 % % }
 % %     \label{fig:v4-fvc}
 % % \end{figure}
 
-For V4, we find there is no information about fine contrast differences in either animal (Figs.~\ref{fig:b4-1x20fc} and \ref{fig:j4-1x20fc}). The information about the coarse differences is higher than when all conditions are considered, for reasons discussed above, and these show the same trends as when we analysed all the conditions, in Figs.~\ref{fig:b4-1x20tp4} and \ref{fig:j4-1x20tp4}.
+For \ac{V4}, we find there is no information about fine contrast differences in either animal (Figs.~\ref{fig:b4-1x20fc} and \ref{fig:j4-1x20fc}). The information about the coarse differences is higher than when all conditions are considered, for reasons discussed above, and these show the same trends as when we analysed all the conditions, in Figs.~\ref{fig:b4-1x20tp4} and \ref{fig:j4-1x20tp4}.
 
 %------------------------------------------------------------------------------
 \FloatBarrier
 \subsection{Information in millisecond-level spike timing}
 
-For M2 V1, there seems to be some information in the millisecond-level timing of the spikes during the transient response, but not afterward this has elapsed (Fig.~\ref{fig:v1-dif}, right-hand panels). This band due to the transient is clearly well above the variance of the sampling for the rest of the window offsets.
+For \ac{M2} \ac{V1}, there seems to be some information in the millisecond-level timing of the spikes during the transient response, but not afterward this has elapsed (Fig.~\ref{fig:v1-dif}, right-hand panels). This band due to the transient is clearly well above the variance of the sampling for the rest of the window offsets.
 However, the information in the transient is only present for the coarse contrasts and not for the fine contrasts.
-For the fine contrast discrimination in M2 V1, shown in Fig.~\ref{fig:j1-fdif}, (and possibly to a lesser degree on a couple of the other figures) there is an unusual effect where there seems to be more information in the shuffled bins than the unshuffled bins.\footnote{When this is analysed for the raw data with the artifact included, this is subtly more prominently on several of the plots.}
+For the fine contrast discrimination in \ac{M2} \ac{V1}, shown in Fig.~\ref{fig:j1-fdif}, (and possibly to a lesser degree on a couple of the other figures) there is an unusual effect where there seems to be more information in the shuffled bins than the unshuffled bins.\footnote{When this is analysed for the raw data with the artifact included, this is subtly more prominently on several of the plots.}
 
-For M1 V1, and also M1 V4, there seems to be an increase in the information contained in the spike timing during the transient also. However, these results are not as clear-cut as in M2 V1.
+For \ac{M1} \ac{V1}, and also \ac{M1} \ac{V4}, there seems to be an increase in the information contained in the spike timing during the transient also. However, these results are not as clear-cut as in \ac{M2} \ac{V1}.
 
 % ./figs/info/I_diff_trialwise_dur=20ms_nshuf=1_blanco_v1_chmean23_s343-354,355.1,355.2,356-359_tp4_dr_pt_oc0_test_tc5-5-20,22-3-28,32,35-5-50,60,90_nt1400_ts350_rmvet1_rmvms1_pcolorbp_20120816T010538.png
 % ./figs/info/I_diff_trialwise_dur=20ms_nshuf=1_blanco_v1_chmean23_s343-354,355.1,355.2,356-359_tp4_dr_pt_oc0_test_tc5,15,22,40,50,90_nt600_ts150_rmvet1_rmvms1_pcolorbp_20120816T004933.png
@@ -519,17 +519,17 @@ For M1 V1, and also M1 V4, there seems to be an increase in the information cont
 % %         \includegraphics[scale=.25]{%
 % % ./figs/info/I_diff_trialwise_dur=20ms_nshuf=1_jack_v1_chmean25_s51-72_tp4_dr_pt_oc0_test_tc22-3-28,32,35,40_nt600_ts150_rmvet1_rmvms1_pcolorbp_20120816T004555.png}
 % %     \end{subfigure}
-% %     \caption{V1: Information in millisecond level spike timing.
+% %     \caption{\ac{V1}: Information in millisecond level spike timing.
 % % % Mutual information between the test stimulus and \unit[20]{ms} of spiking activity.
-% % % The PT bias correction method was used in all estimates of the information.
+% % % The \ac{PT} bias correction method was used in all estimates of the information.
 % % The information with time-wise shuffled bins was subtracted from information in the spike time code with a \unit[20]{ms} window subdivided into 5 bins.
-% % Information was bias corrected using the PT method.
-% % Left panels: M1; Right: M2.
+% % Information was bias corrected using the \ac{PT} method.
+% % Left panels: \ac{M1}; Right: \ac{M2}.
 % % Top panels: all contrasts, \{10, 15, 20, 25, 27, 28, 29, 31, 32, 33, 35, 40, 50, 60\}\%.
 % % Centre panels: \{5, 15, 22, 40, 50, 90\}\%.
 % % Bottom panels: \{22, 25, 28, 32, 35, 40\}\%.
 % % An average of 100 trials per stimulus is used in the analysis for each.
-% % % Panels \ref{fig:b1-1x20cc} and \ref{fig:b1-1x20fc} are for M1, \ref{fig:b1-1x20cc} and \ref{fig:b1-1x20fc} for M2.
+% % % Panels \ref{fig:b1-1x20cc} and \ref{fig:b1-1x20fc} are for \ac{M1}, \ref{fig:b1-1x20cc} and \ref{fig:b1-1x20fc} for \ac{M2}.
 % % }
 % %     \label{fig:v1-dif}
 % % \end{figure}
@@ -591,23 +591,23 @@ For M1 V1, and also M1 V4, there seems to be an increase in the information cont
 % %         \includegraphics[scale=.25]{%
 % % ./figs/info/I_diff_trialwise_dur=20ms_nshuf=1_jack_v4_chmean20_s24-49_tp4_dr_pt_oc0_test_tc27-29,31-33_nt600_ts150_rmvet1_rmvms1_pcolorbp_20120816T004741.png}
 % %     \end{subfigure}
-% %     \caption{V4: Information in millisecond level spike timing.
+% %     \caption{\ac{V4}: Information in millisecond level spike timing.
 % % % Mutual information between the test stimulus and \unit[20]{ms} of spiking activity.
-% % % The PT bias correction method was used in all estimates of the information.
+% % % The \ac{PT} bias correction method was used in all estimates of the information.
 % % The information with time-wise shuffled bins was subtracted from information in the spike time code with a \unit[20]{ms} window subdivided into 5 bins.
-% % Information was bias corrected using the PT method.
-% % Left panels: M1; Right: M2.
+% % Information was bias corrected using the \ac{PT} method.
+% % Left panels: \ac{M1}; Right: \ac{M2}.
 % % Top panels: all contrasts, \{5, 10, 15, 20, 22, 25, 28, 32, 35, 40, 45, 50, 60, 90\}\%.
 % % Centre panels: \{10, 15, 20, 40, 50, 60\}\%.
 % % Bottom panels: \{27, 28, 29, 31, 32, 33\}\%.
 % % An average of 100 trials per stimulus is used in the analysis for each.
-% % % Panels \ref{fig:b1-1x20cc} and \ref{fig:b1-1x20fc} are for M1, \ref{fig:b1-1x20cc} and \ref{fig:b1-1x20fc} for M2.
+% % % Panels \ref{fig:b1-1x20cc} and \ref{fig:b1-1x20fc} are for \ac{M1}, \ref{fig:b1-1x20cc} and \ref{fig:b1-1x20fc} for \ac{M2}.
 % % }
 % %     \label{fig:v4-dif}
 % % \end{figure}
 
 
-For M2 V4, there is no information in the spike timing measured on the millisecond timescale: not even during the transient response.
+For \ac{M2} \ac{V4}, there is no information in the spike timing measured on the millisecond timescale: not even during the transient response.
 
 For any of these figures there certainly does not seem to be any change in the information contained in the spike timing alone, so it does not seem to be a trait which can be learned.
 
@@ -714,7 +714,7 @@ For each of the datasets, the performance decreases as the last 3 channels are a
 % % 	\includegraphics[width=\linewidth]{./figs/decoding/perf_v4_jack.eps}
 % %     \end{subfigure}
 % %     \caption{%
-% %     Decoding analysis for V4. Performance of behavioural and decoding predictors by session, averaged across all conditions.
+% %     Decoding analysis for \ac{V4}. Performance of behavioural and decoding predictors by session, averaged across all conditions.
 % %     Left panels: Blanco. Right: Jack.
 % % 	Along the x-axis, `Session' is the animal's unique session ID, which increments by one for every day of training.
 % %     On the y-axis, `proportion correct' is the proportion of trials for which the response is the same as the target.
@@ -738,7 +738,7 @@ For each of the datasets, the performance decreases as the last 3 channels are a
 % % 	\includegraphics[width=\linewidth]{./figs/decoding/perf_v1_jack.eps}
 % %     \end{subfigure}
 % %     \caption{%
-% %     Decoding analysis for V1. Performance of behavioural and decoding predictors by session, averaged across all conditions.
+% %     Decoding analysis for \ac{V1}. Performance of behavioural and decoding predictors by session, averaged across all conditions.
 % %     Left panels: Blanco. Right: Jack.
 % % 	Along the x-axis, `Session' is the animal's unique session ID, which increments by one for every day of training.
 % %     On the y-axis, `proportion correct' is the proportion of trials for which the response is the same as the target.
@@ -749,13 +749,13 @@ For each of the datasets, the performance decreases as the last 3 channels are a
 
 
 
-For Jack V4, the trend in increase for behavioural performance is well matched by the change in performance of the decoder (Fig.~\ref{fig:dec_j4_allp}, blue and red lines). In contrast to this, for Blanco V4 we see the decoding performance is steady despite training, although it should be noted that the increase in behavioural performance was not so large for this animal.
+For Jack \ac{V4}, the trend in increase for behavioural performance is well matched by the change in performance of the decoder (Fig.~\ref{fig:dec_j4_allp}, blue and red lines). In contrast to this, for Blanco \ac{V4} we see the decoding performance is steady despite training, although it should be noted that the increase in behavioural performance was not so large for this animal.
 
-For Jack V1, there is a small gradual increase in decoder performance throughout training, though the increase does not match the timescales and rate of the increase in behavioural performance which is a much sharper transition. Results for Jack V1 could be interpreted as indicating that no further improvements can be obtained from changes in V1, and the behavioural performance is limited by the performance of the decoder.
-For Blanco V1, there is a decrease in decoder in performance despite the increase in behavioural performance (Fig.~\ref{fig:dec_b1_allp}, blue and red lines respectively). 
+For Jack \ac{V1}, there is a small gradual increase in decoder performance throughout training, though the increase does not match the timescales and rate of the increase in behavioural performance which is a much sharper transition. Results for Jack \ac{V1} could be interpreted as indicating that no further improvements can be obtained from changes in \ac{V1}, and the behavioural performance is limited by the performance of the decoder.
+For Blanco \ac{V1}, there is a decrease in decoder in performance despite the increase in behavioural performance (Fig.~\ref{fig:dec_b1_allp}, blue and red lines respectively). 
 
 Shuffling the trials to destroy any noise correlations provides an improvement in performance for the data from Jack, indicating that noise correlations are detrimental to the successful decoding of stimuli. However, there is no significant difference in decoder performance before and after shuffling for Blanco datasets, which suggests noise correlations have no impact on decoding the contrast of stimuli using firing rate data from a population of neurons.
-For Jack V1, the benifit from shuffling seems to be reduced with training; the shuffled decoding performance is reasonably steady throughout training whilst the decoder with noise correlations included increases in performance, closing the gap.
+For Jack \ac{V1}, the benifit from shuffling seems to be reduced with training; the shuffled decoding performance is reasonably steady throughout training whilst the decoder with noise correlations included increases in performance, closing the gap.
 
 % \marginnote{It might well be better to plot, for each area, the performances for both animals on the same plot and the expected vs observed behavioural agreement for both animals on a seperate plot.}
 
@@ -775,7 +775,7 @@ For Jack V1, the benifit from shuffling seems to be reduced with training; the s
 % % 	\includegraphics[width=\linewidth]{./figs/decoding/agree_v4_jack.eps}
 % %     \end{subfigure}
 % %     \caption{%
-% %     Decoding analysis for V4. Trial-to-trial agreement between behavioural and decoding predictors.
+% %     Decoding analysis for \ac{V4}. Trial-to-trial agreement between behavioural and decoding predictors.
 % %     Left panels: Blanco. Right: Jack.
 % % 	Along the x-axis, `Session' is the animal's unique session ID, which increments by one for every day of training.
 % %     On the y-axis is the proportion of trials for which the response is the same as the behavioural response.
@@ -799,7 +799,7 @@ For Jack V1, the benifit from shuffling seems to be reduced with training; the s
 % % 	\includegraphics[width=\linewidth]{./figs/decoding/agree_v1_jack.eps}
 % %     \end{subfigure}
 % %     \caption{%
-% %     Decoding analysis for V1. Trial-to-trial agreement between behavioural and decoding predictors.
+% %     Decoding analysis for \ac{V1}. Trial-to-trial agreement between behavioural and decoding predictors.
 % %     Left panels: Blanco. Right: Jack.
 % % 	Along the x-axis, `Session' is the animal's unique session ID, which increments by one for every day of training.
 % %     On the y-axis is the proportion of trials for which the response is the same as the behavioural response.
@@ -809,9 +809,9 @@ For Jack V1, the benifit from shuffling seems to be reduced with training; the s
 % % \end{figure}
 
 
-With regards to the behavioural and decoding response agreement, we find there is no consistent significant deviation from the null hypothesis for V1 data. There are a couple of sessions where unshuffled agreement is above the boundary for significance for each of the animals, but this is not a consistent effect. The agreement between shuffled decoding and behaviour does not deviate from the corresponding null hypothesis. This shows that the shuffled is higher than the unshuffled decoding agreement only because the shuffled decoder is more accurate at matching the target response.
+With regards to the behavioural and decoding response agreement, we find there is no consistent significant deviation from the null hypothesis for \ac{V1} data. There are a couple of sessions where unshuffled agreement is above the boundary for significance for each of the animals, but this is not a consistent effect. The agreement between shuffled decoding and behaviour does not deviate from the corresponding null hypothesis. This shows that the shuffled is higher than the unshuffled decoding agreement only because the shuffled decoder is more accurate at matching the target response.
 
-For V4, we see that the agreement does not deviate significantly from the null hypothesis for earlier sessions, but after a cut off point all later sessions do (Blanco: all sessions before 321 are not, after 329 are significant; Jack: Before 28 are not, after 28 are significant). The effect is stronger for Jack, but present for both animals.
+For \ac{V4}, we see that the agreement does not deviate significantly from the null hypothesis for earlier sessions, but after a cut off point all later sessions do (Blanco: all sessions before 321 are not, after 329 are significant; Jack: Before 28 are not, after 28 are significant). The effect is stronger for Jack, but present for both animals.
 This indicates that the behavioural responses and the decoded responses based on the neural data were not notably correlated, but have become so with training.
 
 Because the shuffled decoded responses are more accurate (with respect to the target response), they are predicted under the null hypothesis to be in better agreement with the behavioural responses. However we observe these are in worse agreement than the unshuffled decoding, and do not deviate from the corresponding NH line.
@@ -827,7 +827,7 @@ Comparing Figs.~\ref{fig:dec_b4_6easy_a} and \ref{fig:dec_j4_6easy_a} with Figs.
 \subsection{Noise correlations}
 %------------------------------------------------------------------------------
 
-For both V1 and V4, the average noise correlation between pairs of channels seem to remain stable for Blanco and decrease by a small margin for Jack (see Fig.~\ref{fig:noise_r_all}). The increase in noise correlation for Blanco V1 for the last two sessions (session numbers 358 and 359) is due to a decline in data quality and an increase in noise from artificial sources. There is a large amount of variance in the noise correlations for different pairs, so the decline in mean correlation for Jack does not seem very large considering the amount of variance.
+For both \ac{V1} and \ac{V4}, the average noise correlation between pairs of channels seem to remain stable for Blanco and decrease by a small margin for Jack (see Fig.~\ref{fig:noise_r_all}). The increase in noise correlation for Blanco \ac{V1} for the last two sessions (session numbers 358 and 359) is due to a decline in data quality and an increase in noise from artificial sources. There is a large amount of variance in the noise correlations for different pairs, so the decline in mean correlation for Jack does not seem very large considering the amount of variance.
 
 
 % % \begin{figure}[htb]
@@ -850,8 +850,8 @@ For both V1 and V4, the average noise correlation between pairs of channels seem
 % %         \includegraphics[width=\linewidth]{./figs/decoding/rcoef_sess_meanpc_v4_both.pdf}
 % %     \end{subfigure}
 % %     \caption{Change in noise correlations with learning.
-% % \protect\subref{fig:noise_r_v1_all}:~V1.
-% % \protect\subref{fig:noise_r_v4_all}:~V4.
+% % \protect\subref{fig:noise_r_v1_all}:~\ac{V1}.
+% % \protect\subref{fig:noise_r_v4_all}:~\ac{V4}.
 % % Blue:~Blanco.
 % % Red:~Jack.
 % % On the x-axis, the number of sessions since the animal began training in the part of the visual field retinotopic to the recording site is shown.
@@ -864,9 +864,9 @@ For both V1 and V4, the average noise correlation between pairs of channels seem
 
 Fig.~\ref{fig:noise_r_hist} is intended to reproduce Figure 2C from \citet{Gu2011}, with the distribution of $r$ shown across pairs for one pre-training and one post-training session. These sessions were chosen from a restricted set of sessions which did not have problems with artificially high correlations from the motion artifact, and selected from this set such that they were as close to the start and end of the training period as possible. However, this selection was made before the set of trials was redacted as mentioned in \S\ref{sec:dec-meth-noise}, so the sessions selected could possibly be made further apart.
 
-The data presented in Fig.~\ref{fig:noise_r_hist} shows that the distribution of noise correlation pairs does not move significantly for Blanco V1, which is contrasted by a clear decrease for Jack V1. It should be noted though that the distribution for Jack V1 begins higher than Blanco and decreases to a similar value as Blanco V1. For V4, there is an increase in mean noise correlation for Blanco and a decrease for Jack, though as Jack begins higher than Blanco the two do tend toward to one another.
+The data presented in Fig.~\ref{fig:noise_r_hist} shows that the distribution of noise correlation pairs does not move significantly for Blanco \ac{V1}, which is contrasted by a clear decrease for Jack \ac{V1}. It should be noted though that the distribution for Jack \ac{V1} begins higher than Blanco and decreases to a similar value as Blanco \ac{V1}. For \ac{V4}, there is an increase in mean noise correlation for Blanco and a decrease for Jack, though as Jack begins higher than Blanco the two do tend toward to one another.
 
-Cherry-picking is a significant problem here, as there is sizable day-to-day variation in the noise correlation across the pairs. Choosing a session where there is more noise correlation than neighbouring sessions at the beginning of training and less at the end of training will give the impression that there is a more significant decrease in noise correlations. More effort should be made to counter inadvertently cherry-picking in the session selection, as Fig.~\ref{fig:noise_r_j1_pmc} indicates this may be one reason for such a sizable decrease in noise correlation for Jack V1.
+Cherry-picking is a significant problem here, as there is sizable day-to-day variation in the noise correlation across the pairs. Choosing a session where there is more noise correlation than neighbouring sessions at the beginning of training and less at the end of training will give the impression that there is a more significant decrease in noise correlations. More effort should be made to counter inadvertently cherry-picking in the session selection, as Fig.~\ref{fig:noise_r_j1_pmc} indicates this may be one reason for such a sizable decrease in noise correlation for Jack \ac{V1}.
 
 % % \begin{figure}[htbp]
 % %     \begin{subfigure}[b]{0.5\linewidth}
@@ -906,17 +906,17 @@ Cherry-picking is a significant problem here, as there is sizable day-to-day var
 % %     \end{subfigure}
 % %     \caption{Distribution of the noise correlations for the pairings across all conditions.
 % % Two sessions, one at the beginning of training (black) and one at the end of training (red) are shown for comparitive purposes.
-% % \protect\subref{fig:noise_r_b1_hist}: Blanco V1; sessions 343 and 354.
-% % \protect\subref{fig:noise_r_j1_hist}: Jack V1; sessions 51 and 71.
-% % \protect\subref{fig:noise_r_b4_hist}: Blanco V4; sessions 307 and 338.
-% % \protect\subref{fig:noise_r_j4_hist}: Jack V4; sessions 27 and 46.
+% % \protect\subref{fig:noise_r_b1_hist}: Blanco \ac{V1}; sessions 343 and 354.
+% % \protect\subref{fig:noise_r_j1_hist}: Jack \ac{V1}; sessions 51 and 71.
+% % \protect\subref{fig:noise_r_b4_hist}: Blanco \ac{V4}; sessions 307 and 338.
+% % \protect\subref{fig:noise_r_j4_hist}: Jack \ac{V4}; sessions 27 and 46.
 % % }
 % %     \label{fig:noise_r_hist}
 % % \end{figure}
 
 
 % Fig.~\ref{fig:noise_r_pmc} indicates that noise correlations are correlated for pairs across sessions.
-A pairs of channels which have higher noise correlations in one session are likely to have higher noise correlation in other sessions. However, this effect is not present for Blanco V1, Fig.~\ref{fig:noise_r_b1_pmc}, and could suggest there is less session-to-session consistency for this dataset.
+A pairs of channels which have higher noise correlations in one session are likely to have higher noise correlation in other sessions. However, this effect is not present for Blanco \ac{V1}, Fig.~\ref{fig:noise_r_b1_pmc}, and could suggest there is less session-to-session consistency for this dataset.
 
 This figure provides an easy way of visually inspecting whether noise correlations are conserved, but does not allow us to quantify this.
 
@@ -953,10 +953,10 @@ This figure provides an easy way of visually inspecting whether noise correlatio
 % % ./figs/decoding/rcoef_sess_pairsmeanc_v4_jack.eps}
 % %     \end{subfigure}
 % %     \caption{Noise correlations for each pair, meaned across the 14 conditions.
-% % \protect\subref{fig:noise_r_b1_pmc}: Blanco V1.
-% % \protect\subref{fig:noise_r_j1_pmc}: Jack V1.
-% % \protect\subref{fig:noise_r_b4_pmc}: Blanco V4.
-% % \protect\subref{fig:noise_r_j4_pmc}: Jack V4.
+% % \protect\subref{fig:noise_r_b1_pmc}: Blanco \ac{V1}.
+% % \protect\subref{fig:noise_r_j1_pmc}: Jack \ac{V1}.
+% % \protect\subref{fig:noise_r_b4_pmc}: Blanco \ac{V4}.
+% % \protect\subref{fig:noise_r_j4_pmc}: Jack \ac{V4}.
 % % Colour is assigned by sorting the pairs into ascending order for one of the sessions near the middle of the training period.
 % % The degree of session-to-session correlation of the noise correlation can hence be inferred by visual inspection.
 % % }
