@@ -52,7 +52,7 @@ We found the same results with both display devices, except that monitor refresh
 Since this is the result of using an artificial stimulus with a low refresh rate (a well-known issue at this stimulus frequency), we removed this from the data (see Artefact Removal) and pooled the results across all sessions.
 The visual stimulus consisted of high contrast (\SI{100}{\percent}), gamma corrected, fast-moving, colourful movie clips (no soundtrack) from commercially available movies.
 Stimulus timings were controlled by a computer running a real-time OS (QNX, Ottawa, Canada).
-Stimulus-on periods of \SI{120}{s} (5 sessions; 1 session: \SI{40}{s}) were interleaved with stimulus-off periods (isoluminant grey screen) of \SI{30}{s}.
+Stimulus-on periods of \SI{120}{\second} (5 sessions; 1 session: \SI{40}{\second}) were interleaved with stimulus-off periods (isoluminant grey screen) of \SI{30}{\second}.
 
 
 \subsection{Neurophysiology Data Collection and Analysis}
@@ -100,14 +100,14 @@ This yields a smoothed spike rate, analogous to a population firing rate.
 Fig.~\ref{fig:lam_3}: \ac{MUA} was calculated by downsampling by a factor of 3, band-passing the voltage recording between \SIrange{900}{3000}{Hz} with a zero-phase sixth-order Butterworth filter, taking the absolute value, downsampling by a further factor of 12.
 
 \subsection{Receptive Field Locations}
-The spatial \acp{RF} were found by reverse correlating the \ac{MUA} and the pixel-by-pixel Z-scored frame-by-frame difference in luminance with a fixed lag of \SI{66.7}{ms}.
+The spatial \acp{RF} were found by reverse correlating the \ac{MUA} and the pixel-by-pixel Z-scored frame-by-frame difference in luminance with a fixed lag of \SI{66.7}{\milli\second}.
 The rate of change in luminance was used because it is known to correlate well with thalamic drive.
 For each session, the \ac{RF} centre was located using the average of the reverse correlation across all cortical channels.
 
 \subsection{Identification of Cortical Laminae}
-Depth calibration of the electrode was performed by considering the spikes and \ac{CSD} induced by both the onset of the movie and by \SI{100}{ms} full-screen flashes (\SI{6}{s} flash interval).
+Depth calibration of the electrode was performed by considering the spikes and \ac{CSD} induced by both the onset of the movie and by \SI{100}{\milli\second} full-screen flashes (\SI{6}{\second} flash interval).
 From the measured potentials, we determined the \ac{CSD} and spike densities.
-Spikes were detected by high pass filtering the raw signal above \SI{500}{Hz} with a zero-phase eighth-order Butterworth filter, and classifying any points more than 3.5 standard deviations above the mean signal during pre- and post-stimulus periods as a spike, with a minimum inter-spike-interval of \SI{1}{ms}.
+Spikes were detected by high pass filtering the raw signal above \SI{500}{Hz} with a zero-phase eighth-order Butterworth filter, and classifying any points more than 3.5 standard deviations above the mean signal during pre- and post-stimulus periods as a spike, with a minimum inter-spike-interval of \SI{1}{\milli\second}.
 The majority of thalamic afferents in \ac{V1} stimulate \ac{L4} (indirectly: see \cite{Hansen2012}), with the first cortical response manifesting at layer 4C$\alpha$ \citep{Callaway1998}, resulting in an initial current sink and first burst of spiking activity located here.
 For each recording session, we found the contact exhibiting the first spiking and \ac{CSD} response, the centre of the most responsive region, and the centre of the first \ac{CSD} sink for both the movie onset and flash evoked activity.
 We took the average of these 8 locations and identified the closest electrode contact as the location of layer 4C$\alpha$.
@@ -116,7 +116,7 @@ From this, the cortical depth was divided into 3 broad regions: supragranular (S
 High-resolution \ac{MRI} scans of two of the animals were used to determine their cortical thickness at the recording location (see Supplementary Materials).
 
 \subsection{Identification of cortical laminae}
-To identify the depth of each contact, we measured the potential evoked in response to the onset of the movie clip, and in response to full-screen maximum-luminance \SI{100}{ms} flash stimuli with a \SI{6}{s} interval.
+To identify the depth of each contact, we measured the potential evoked in response to the onset of the movie clip, and in response to full-screen maximum-luminance \SI{100}{\milli\second} flash stimuli with a \SI{6}{\second} interval.
 From the measured potentials, we identified the boundary between the granular (G; layer 4) and infragranular (IG; layers 5--6) regions as the source/sink reversal in the evoked current source density (\ac{CSD}; see Experimental Procedures and Supplementary Materials).
 We estimated the location of the boundary between the granular and supragranular (SG; layers 1--3) regions by cross-referencing literature describing average thickness of cortical laminae in Macaca mulatta, area 17 \citep{Lund1973}.
 
@@ -124,13 +124,13 @@ We estimated the location of the boundary between the granular and supragranular
 To compute power and information as a function of temporal frequency, the cortical data (\ac{LFP} and \ac{CSD}) were filtered in a series of bands each with a fractional bandwidth of \SI{50}{\percent}, because cortical power falls off rapidly with frequency in a \nicefrac{1}{f} relationship.
 Each successive band begins and ends with frequencies 1.291 times higher than the last, so that each band has \SI{0}{\percent} overlap with bands further away than its immediate neighbours and a \SI{44}{\percent} and \SI{56}{\percent} overlap with its preceding and succeeding bands respectively.
 The data was filtered with a zero-phase sixth-order Butterworth filter, after which the instantaneous power was estimated by taking the squared absolute value of the Hilbert transform.
-The power in each band was integrated over a series of \SI{50}{ms} windows, centred at the time of each frame change in the movie (once every \SI{33}{ms}, leading to a \SI{50}{\percent} overlap of neighbouring windows).
+The power in each band was integrated over a series of \SI{50}{\milli\second} windows, centred at the time of each frame change in the movie (once every \SI{33}{\milli\second}, leading to a \SI{50}{\percent} overlap of neighbouring windows).
 The power in the \SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz} bands was computed similarly.
 Fig.~\ref{fig:lam_3}A--B are plotted with power values averaged over all windows and trials, then expressed in decibels relative to the average power \SIrange{1.5}{248}{Hz} (estimated by summing the power in alternate bands).
 Throughout Figures \ref{fig:lam_3} and S\ref{fig:lam_3}, datapoints are shown at the band centres.
 
 \subsection{Information as a function of depth and frequency}
-Power in each band was computed as above, then for each frequency band and depth we took a 10-bin histogram of the power across all the \SI{50}{ms} windows for all repetitions.
+Power in each band was computed as above, then for each frequency band and depth we took a 10-bin histogram of the power across all the \SI{50}{\milli\second} windows for all repetitions.
 The bin edges were chosen such that \SI{10}{\percent} of the distribution fell into each bin, and the identity of which bin the window was allocated into was taken to be its ``stimulus''.
 We found the mutual information between the response and which frame was on screen at that time --- the ``stimulus'' --- by computing the Shannon information using the information breakdown toolbox \citep{Magri2009}.
 Bias due to undersampling was corrected for using the \ac{PT} method \citep{Treves1995}.
@@ -164,14 +164,14 @@ To provide a measure of the amount of change in luminance at this spatial resolu
 
 Applying this to the entire movie provided a temporal sequence of luminance changes in each spatial range.
 Similar to before, we took a 10-bin histogram and took the identity the bin in which each luminance change fell to be the ``stimulus''.
-The mutual information between this stimulus and the neural response --- the power within \SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz} frequency bands --- was computed with a \SI{67}{ms} lag between stimulus and response.
+The mutual information between this stimulus and the neural response --- the power within \SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz} frequency bands --- was computed with a \SI{67}{\milli\second} lag between stimulus and response.
 
 \subsection{Information about Fine and Coarse Luminance Changes}
 Coarse and fine luminance changes in the stimulus were isolated in the same manner as the spatial components above, but using a low-pass (\SI{<0.3}{\cpd}) and high-pass (\SI{>1}{\cpd}) fourth-order Butterworth filter respectively.
 For both the \SIrange{4}{16}{Hz} and \SIrange{6}{170}{Hz} \ac{CSD} powers, we computed the correlation and mutual information with the coarse and fine luminance changes, and averaged across sessions.
 
 \subsection{Information lag between granular and infragranular regions}
-The information about fine and coarse stimuli contained in \SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz} neural frequency bands was computed as a function of the lag between stimulus and response, in steps of \SI{1.73}{ms}.
+The information about fine and coarse stimuli contained in \SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz} neural frequency bands was computed as a function of the lag between stimulus and response, in steps of \SI{1.73}{\milli\second}.
 For each cortical recording depth, we found response lag at which the information was at its maximum.
 For each session, the response peak-lag was averaged across the three electrode contacts in \ac{IG} and also averaged across the three electrodes in \ac{G}.
 A paired t-test was performed across all 6 sessions to test whether the \ac{G} information peaked with a shorter lag than the \ac{IG} information.
