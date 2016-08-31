@@ -37,5 +37,47 @@ Our results are in agreement with the observations of \citet[Figure 5B]{Maier201
 
 
 %-------------------------------------------------------------------------------
+\subsection{Signal and Noise Correlation}
+
+\marginnote{Take text from supplemental materials for paper, but here with the addition of phase correlating with itself and with power.}
+
+\begin{figure}[htb]
+    \centering
+    \subfloat[][\label{fig:lam_signal_corr_depth}]{
+        \includegraphics[width=0.47\linewidth]{noisesigcorr/bndflt4-signal-avg_paper.png}
+}
+    ~~
+    \subfloat[][\label{fig:lam_noise_corr_depth}]{
+        %\includegraphics[width=0.47\linewidth]{noisesigcorr/bndflt4-noise-avg_paper.png}
+        <Code running>
+}
+    \caption{
+\protect\subref{fig:lam_signal_corr_depth}:~Signal correlation.
+\protect\subref{fig:lam_noise_corr_depth}:~Noise correlation.
+}
+\label{fig:lam_noisesignal_corr_depth}
+\end{figure}
+
+
+\begin{figure}[htb]
+    \centering
+    \subfloat[][\label{fig:lam_signal_corr_phase}]{
+        \includegraphics[width=0.47\linewidth]{noisesigcorr/cxsfrq-signal-phase-phase-avg-log.png}
+}
+    ~~
+    \subfloat[][\label{fig:lam_noise_corr_phase}]{
+        %\includegraphics[width=0.47\linewidth]{noisesigcorr/cxsfrq-noise-phase-phase-avg-log.png}
+        <Code running>
+}
+    \caption{Phase correlation
+\protect\subref{fig:lam_signal_corr_phase}:~Signal correlation.
+\protect\subref{fig:lam_noise_corr_phase}:~Noise correlation.
+}
+\label{fig:lam_noisesignal_corr_phase}
+\end{figure}
+
+Circular statistics were computed using the CircStat toolbox \citep{Berens2009}.
+
+%-------------------------------------------------------------------------------
 \section{Discussion}
 %-------------------------------------------------------------------------------
