@@ -38,6 +38,50 @@ This is to be expected since the \ac{CSD} is a better representation of the curr
 
 Our results are in agreement with the observations of \citet[Figure 5B]{Maier2010}.
 
+%-------------------------------------------------------------------------------
+\subsection{Latency}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[scale=.5]{lag/lag-heatmap-avg.png}
+    \caption{
+Information between stimulus and response as a function of the delay between them.
+Information contained in \SIrange{4}{16}{Hz} (left), \SIrange{60}{170}{Hz} (middle) and \SIrange{900}{3000}{Hz} (right) power about luminance changes of \SI{<0.3}{cpd} (upper) and \SI{>1.0}{cpd} spatial frequencies.
+}
+\label{fig:lam_lag_hm}
+\end{figure}
+
+
+\begin{figure}[htb]
+    \centering
+    \hspace*{\fill}
+    \subfloat[\label{fig:lam_lag_cut}]{
+        \includegraphics[scale=.5]{lag/lag-line-cut-avg.png}
+}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[\label{fig:lam_lag_latency}]{
+        \includegraphics[scale=.5]{lag/rellagpeak3_mean-of-eachband_avg.png}
+}
+    \hspace*{\fill}
+    \caption{
+}
+\label{fig:lam_lag}
+\end{figure}
+
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[scale=.5]{lag/latencydifference-avg.png}
+    \caption{
+Difference in peak information latency for each pair of channels in the cortical depth, computed from Channel 1 to Channel 2 (if $\Delta$ is positive, Channel 1 leads).
+Left: latency for peak information in the power of \SIrange{4}{16}{Hz} oscillations about luminance changes at scale \SI{<0.3}{cpd}.
+Right: \SIrange{60}{170}{Hz} power about \SI{>1.0}{cpd}.
+Mean of 6 sessions.
+Pairs of channels with no significant difference between their information latency (Student's t-test) are indicated in white.
+}
+\label{fig:lam_lag_dif}
+\end{figure}
+
 
 %-------------------------------------------------------------------------------
 \section{Discussion}
