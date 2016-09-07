@@ -112,6 +112,72 @@ Pairs of channels with no significant difference between their information laten
 \label{fig:lam_lag_dif}
 \end{figure}
 
+%-------------------------------------------------------------------------------
+\subsection{Receptive Field Size}
+
+
+% plot_sngchn_bndamp_generic_v2
+%   Settings:
+%
+% LSTNME = 'LS';
+% SIGNME = 'Csd';
+% PXXNME = 'opt2_whole';
+% SCRIPT = 'sngchn-bndflt-lumspatmfnfo'; % 'sngchn-bndflt-frmnfo' | 'sngchn-bndflt-lumspatmfnfo' | 'sngchn-bndflt-lumdifnfo' | 'sngchn-bndflt-scnchgnfo' | 'sngchn-bndflt-lumphsnfo'
+% ANANME = 'rcfsize'; %,dense50'; % 'basic analysis' | 'rcfsize' | 'lag-fine-long' | 'lag-coarse2' | 'bands low,hgh' | 'spares3' | 'tmfres' | 'tmfres2' | 'spatmf'
+% ANANME2= 'cfd2,v10'; % 'dif2,v10' | 'cfd2,v10';
+%
+% BNDLST = {};
+% ATRLST = {'power'};
+% BNDLST = {'low2' ,'low2' ,'hgh4' ,'mua'};
+% ATRLST = {'phase','power','power','power'};
+% % BNDLST = {'low2' ,'hgh4' ,'mua'};
+% % ATRLST = {'power','power','power'};
+% % ATRLBL = {'Phase','Power','Power','Power'};
+%
+% SPAFLT = 'none'; % Only relevant for spatial resolution. tmfres2:dblband spatmf:dblband
+% TMPFLT = 'none'; % Only relevant for temporal resolution. tmfres2:band spatmf:fixband
+%
+% LOADMD = 'groupall36';
+% FRMTME = 'vsync';
+%
+% LIVCSD = false; % Use on-the-fly iCSD
+% SUBTRCLRG = 2; % Only relevant for patch lum
+% SCNIDS = true; % Whether to preserve id of scenes. Only relevent for scnchg
+% SCNCHG = ''; % '' | 'scnchg' | 'noscnchg'
+% DRPRPT = 1; % Drop repeated frames
+
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[scale=.5]{rcfsize/rcfsize-heatmap-avg.png}
+    \caption{
+Information about coarse (\SI{<0.3}{cpd}, upper row) and fine (\SI{>1.0}{cpd}, lower row) changes in luminance as a function of \ac{RF} size and cortical depth of the site of the neuronal signal.
+Mean of 6 sessions.
+}
+\label{fig:lam_rcfsize_hm}
+\end{figure}
+
+% Max for 4-16Hz, <0.3cdp is 0.057 at 6.400cpd
+% Max for 4-16Hz, >1cpd is 0.013 at 5.600cpd
+% Max for 60-170Hz, <0.3cdp is 0.038 at 6.400cpd
+% Max for 60-170Hz, >1cpd is 0.064 at 2.200cpd
+% Max for 900-3000Hz, <0.3cdp is 0.056 at 6.400cpd
+% Max for 900-3000Hz, >1cpd is 0.091 at 1.800cpd
+
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[scale=.5]{rcfsize/rcfsize-line-region-unbounded.png}
+    \caption{
+Information about coarse and fine changes in luminance as a function of \ac{RF} size.
+For the coarse spatial resolution (\SI{<0.3}{cpd}), the trace is the average information within the \ac{G} compartment.
+For the fine spatial resolution (\SI{>1.0}{cpd}), the trace is the average within the \ac{SG} compartment.
+These compartments were used because they contain the most information about these spatial components.
+Mean of 6 sessions.
+}
+\label{fig:lam_rcfsize_trace}
+\end{figure}
+
 
 %-------------------------------------------------------------------------------
 \section{Discussion}
