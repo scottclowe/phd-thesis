@@ -3,26 +3,10 @@
 \section{Noise correlations}
 %------------------------------------------------------------------------------
 
-\subsection{Background}
-
-When an individual is repeatedly presented with the same stimulus, a representation of the stimulus is formed within the brain of the individual.
-One might expect that, should we eliminate variations in the environment such that an identical audio track is played without any background stimulus or a visual image is presented with the eyes held in place, the activity within the associated sensory cortex would be identical on each repetition of the stimulus presentation.
-
-Whilst the information encoded across the whole population of neurons may indeed be the same, the activity of each individual neuron varies with each presentation of the stimulus. Both the number of spikes evoked (or firing rate) and the timing of these spikes varies for each neuron. 
-
-One can imagine the activity of each neuron fluctuating around a mean (though not with a Gaussian distribution). Each neuron has a certain expected value for its activity in response to any stimulus which could be presented. For classes of stimuli for which the neurons are tuned, such as gratings of different orientations or different contrasts, we can plot a tuning curve mapping the parameter space describing the stimuli to a particular response activity, specific to each neuron.
-
-Noise correlations are observed when the responses to fixed stimuli co-vary for two neurons. That is to say, positive noise correlations are found when two neurons tend to have higher-than-expected activity on the same trials as one another (and lower-than-expected on the same trials too).
-
-Intuitively, one can see that such noise correlations between pairs of neurons can inhibit the accuracy with which the stimulus is encoded in their activities. Suppose that two neurons both respond monotonically more to stimuli of higher contrast. Knowing their tuning curves and their current activity, we can decode the contrast of the current stimulus with some level of accuracy. If the two neurons are independent of one another, knowing the activity of both will give us a more accurate and more precise estimate of the actual contrast of the stimulus. But if the activity the pair of neurons is positively correlated, the information conveyed from the pair of neurons is reduced --- when one gives an overestimate of the contrast from a by-chance elevated activity level, so does the other. In contrast, negative correlations would enhance our decoding accuracy, for an overestimate from one neuron would more frequently be mitigated by an underestimate from the other.
-
-For a long period of time, neuroinformatians had argued that positive noise correlations are always detrimental to the encoding of stimuli. However, more recent theoretical work has found that, when considering a non-homogeneous population of neurons --- a population where the tuning curve is not the same for each neuron --- positive noise correlations can in fact be beneficial to the encoding of information about the stimulus.
-
-This can be envisioned by extending the 1-D mapping between a stimulus parameter and the activity of a single neuron to a 2-D plane of pairwise activity levels which is traversed as the stimulus parameter is adjusted. For orientation tuning (where the angular parametrisation of the stimulus is cyclic), tracing out the expected activity of a pair of neurons in response to the stimulus class will result in a closed loop in the 2-D plane. For other stimuli, which are non-cyclic, the trace is an open curve.
-
-Deviations to the response of the pair of neurons which move in the direction of the curve is detrimental to stimulus decoding, whereas deviations which are tangential to the curve are beneficial (better even than independence). Whether these directions correspond to positive or negative correlations depends on the direction of the line.
+See \S\ref{sec:bg-noisecorr} for an overview of noise correlations.
 
 For contrast-selectivity, the vast majority of neurons do in fact encode stimuli monotonically --- a higher contrast will illicit a stronger neural response. With this in mind, the most beneficial pair-wise neural correlations will nearly always be more negative correlations. This is the direction which more perpendicular to the stimulus encoding direction within the 2-D plane of responses.
+
 
 %% older content
 

@@ -1,0 +1,122 @@
+%!TEX root = ../ClassicThesis.tex
+
+\chapter{Background}
+\label{ch:bg}
+
+%------------------------------------------------------------------------------
+\subsection{Information Theory, and its applications within Neuroscience}
+\label{sec:bgit}
+
+A common method used in neuroscience is to record the extracellular activity of a single neuron under different conditions.
+Frequently, the approach used is to take many recordings of the same neuron for the same condition, and then take the average across these repetitions (``trials'') to reduce the effects of neuronal variability (also referred to as noise), producing a \ac{PSTH}, for instance.
+However, this is not how the brain processes stimuli --- it has access to many neurons simultaneously, but only a single sample of each of these is instantiated at a time since trials are sequential and not concurrent.
+In contrast to this, using information theory as part of our methodology to study extracellular recordings allows us to consider how much information about a stimulus is present in the system in a the activity of a single-trial.
+
+When applying information theory to neuronal data, we treat the brain as a communication channel, transmitting information about sensory input.
+
+In the perspective of sensory recordings, the different conditions used on the trial are typically different stimuli, and the extracellular recordings provide us with the neuron's response to the stimuli.
+For such an experimental setup, let us assume that on each trial the stimulus $s$ is selected at random with probability $P(s)$ from a set of stimuli $\SET{S}$, containing $S$ unique stimuli.
+For our purposes, we will be considering response given by the neuron in the spike-train it elicits, though an information approach can be performed on data from the \ac{LFP} of extracellular recordings, or collected by \ac{BOLD} signal or \ac{EEG} \citep{Magri2009,Quiroga2009}.
+
+Using information theory, we can also investigate the nature of the neural code used by individual neurons and populations of neurons \citep{Optican1987}.
+For example, we might look at whether a neuron is conveying information in the millisecond level timing of its spikes, or if all the information is conveyed in its firing rate.
+This can be done by choosing a way of quantifying the neural activity which reflects what we think are its most salient properties, and then comparing the how much information can be extracted for different codes.
+Typically \citep{Quiroga2009,Brasselet2012,Panzeri2007,Arabzadeh2006,Strong1998}, a certain poststimulus time window of duration $t \in [20,40]$ is chosen and a neural code is constructed which forms a discrete, multi-dimensional array $r = \{r_1, \ldots, r_L\}$ of dimension $L$, because a discrete response of this form is appropriate for performing an information theoretic analysis on.
+To look at the information given by the firing rate of a single neuron, we might use a spike-count code where $L=1$ and $r$ is equal to the number of spikes elicited in the window $t$.
+Similarly, to look at the information contained in the firing rate of a many neurons, we would use a spike-count code where $r_i$ is equal to the number of spikes elicited in the window $t$ for spiketrain of the \nth{i} neuron, and let $L$ equal the number of neurons to be studied.
+In comparison, to look at the information contained in the millisecond level spike timing of a single neurons, we would divide the time window into $L$ bins of length $\Delta t = \nicefrac{t}{L}$ such that $\Delta t$ is the assumed time precision of the code, and set $r_i$ to be the number of spikes elicited in \nth{i} time-bin.
+
+Having chosen a neural code, we can let $\SET{R}$ denote the set of possible response arrays.
+The relationship between the distribution of responses and stimuli is evaluated by first quantifying the variability of the responses.
+This can be done with the entropy \citep{Shannon1948} of the responses, and we define the \textit{response entropy} to be
+\begin{equation}
+H( \SET{R} )
+= - \sum_{r} P(r) \log_2 P(r)
+\end{equation}
+where $P(r)$ is the probability of observing the response $r$ on any trial regardless of the stimulus.
+However, the responses given by neurons are ``noisy'', so they do not give the same response on every trial even if the same stimulus is presented.
+Consequently, we must also consider the variability due to noise by computing the \textit{noise entropy}, defined as
+\begin{equation}
+H( \SET{R} | \SET{S} )
+= - \sum_{r,s} P(s) P(r|s) \log_2 P(r|s)
+.\end{equation}
+The information about the stimulus which is transmitted in the response is then given by the difference of these, and the \textit{mutual information} between stimulus and response is given by
+\begin{equation}
+I( \SET{S} ; \SET{R} )
+= H( \SET{R} ) - H( \SET{R} | \SET{S} )
+= \sum_{r,s} P(r,s) \log_2 \frac{P(r|s)}{P(r)}
+.\end{equation}
+The mutual information can conceptualised how much an independent observer can expect their uncertainty in the stimulus $s$ presented on a single trial to be reduced by if they were to observe the neural response.
+When using base two logarithms, the mutual information is measured in bits, where gaining \SI{1}{bit} of information about something means a halving in uncertainty about it.
+The mutual information is zero if and only if responses are completely independent of stimuli.
+We will frequently abbreviate mutual information to just information.
+% CITE MacKay
+
+When working with experimental data, the probabilities $P(s)$, $P(r)$ and $P(r|s)$ must be estimated from the available data.
+This presents a major problem, because precise values for the probabilities can only be found exactly from their frequencies in the data if there is an infinite amount number of trials available, and real-world experiments (somewhat inconveniently) contain only a limited number of trials.
+The estimated probabilities are subject to statistical error, leading to an associated systematic error (bias) and statistical variance in the estimates of the entropies and mutual information.
+The bias in particular is an issue, causing the mutual information to be upwardly biased, which can lead to incorrect conclusions if not corrected.
+Conceptually, this is because finite sampling can lead to spurious differences in the response distributions, making them seem more discriminable that they really are.
+We refer to the bias uncorrected mutual information as $I_{\text{uncorrected}}(\SET{S};\SET{R})$.
+
+Fortunately, several techniques exist to correct for the bias.
+Several of these bias correction methods focus on expanding out the measured information as a power series \citep{Miller1955,Treves1995} in terms of $\nicefrac{1}{N}$, where $N$ is the number of trials in the dataset, though technically the relationship with the power series only holds in the asymptotic sampling regime with a very large number of trials.
+The first term in the bias, proportional to $\nicefrac{1}{N}$, has a coefficient which depends only on the number of stimuli, $S$, and possible responses $\overline{R}$ .
+However, $\overline{R} \neq R$ because many responses which are theoretically possible by the construction of the response code may be in fact be impossible to generate.
+Furthermore, $\overline{R}$ cannot be found simply by looking at the number of unique responses in the dataset, since low probability responses may not have occurred in the finite number of trials sampled, leading to an underestimation of $\overline{R}$.
+Consequently, one approach to bias correction, \iac{PT} \citep{Panzeri1996}, uses a Bayesian procedure to estimate the true number of possible responses and then subtracts the leading term of the bias from the mutual information.
+A second method of correcting for the bias which makes use of the power series expansion is \iac{QE} method \citep{Strong1998}.
+Here, the uncorrected mutual information is assumed to be well approximated by
+$$
+I_{\text{uncorrected}}(\SET{S};\SET{R}) = I_{\text{true}}(\SET{S};\SET{R}) + \frac{a}{N} + \frac{b}{N^2}
+,$$
+with the free parameters $a$ and $b$ found by computing the information content with fractions of the full available dataset (\ie{} using $\nicefrac{N}{2}$ and $\nicefrac{N}{2}$ trials).
+
+Other bias correction methods which do not utilise the power series expansion include \iac{NSB}.
+This uses a Bayesian inference approach to entropy estimation with a specially chosen prior probability distribution to make the prior expected entropy distribution uniform \citep{Nemenman2004}.
+
+A completely different method of bias correction which works for responses with dimension $L > 1$, is to compute an estimate of the information known as $I_{\text{sh}}$.
+This is found \citep{Montemurro2007} by computing two additional terms: $H_\text{ind}( \SET{R} | \SET{S} )$, the noise entropy estimate if the dimensions of $r$ are assumed to be independent from one another; and $H_\text{sh}( \SET{R} | \SET{S} )$, the noise entropy estimate when bins are shuffled along each dimension, $r_i$, of the response to generate pseudo-response arrays.
+The advantage of this is $H_\text{ind}( \SET{R} | \SET{S} )$ and $H_\text{sh}( \SET{R} | \SET{S} )$ should be equal, but $H_\text{sh}( \SET{R} | \SET{S} )$ has a bias around the same magnitude as $H( \SET{R} | \SET{S} )$, so we can compute
+$$
+I_{\text{sh}}(\SET{S};\SET{R}) = H( \SET{R} ) - H_\text{ind}( \SET{R} | \SET{S} ) + H_\text{sh}( \SET{R} | \SET{S} ) - H( \SET{R} | \SET{S} )
+,$$
+which has a much smaller bias than $I(\SET{S};\SET{R})$.
+
+Both \iac{PT} and \ac{QE} bias correction methods give similar approximations to the true information, whilst \ac{NSB} outperforms them with a less biased estimate \citep{Panzeri2007}.
+However, \ac{NSB} is very computationally intensive \citep{Panzeri2007}, so we will not be making use of it in the presented body work.
+All these bias correction methods tend to make a trade off between variability and bias, introducing more terms and hence more variability to reduce the size of bias term.
+
+% rule of thumb number of trials per stimulus required for decent estimate in each case
+
+
+%------------------------------------------------------------------------------
+% \section{Applying Information Theory to Neuroscience data}
+
+% Previous research has looked at the information in the onset transient in \ac{V1}.
+% There lower variability in the transient response, and this gives the most information about the stimuli.
+% Adding activity from later is not useful.
+% \citep{Muller2001}
+
+
+%------------------------------------------------------------------------------
+
+\subsection{Noise Correlations}
+\label{sec:bg-noisecorr}
+
+When an individual is repeatedly presented with the same stimulus, a representation of the stimulus is formed within the brain of the individual.
+One might expect that, should we eliminate variations in the environment such that an identical audio track is played without any background stimulus or a visual image is presented with the eyes held in place, the activity within the associated sensory cortex would be identical on each repetition of the stimulus presentation.
+
+Whilst the information encoded across the whole population of neurons may indeed be the same, the activity of each individual neuron varies with each presentation of the stimulus. Both the number of spikes evoked (or firing rate) and the timing of these spikes varies for each neuron. 
+
+One can imagine the activity of each neuron fluctuating around a mean (though not with a Gaussian distribution). Each neuron has a certain expected value for its activity in response to any stimulus which could be presented. For classes of stimuli for which the neurons are tuned, such as gratings of different orientations or different contrasts, we can plot a tuning curve mapping the parameter space describing the stimuli to a particular response activity, specific to each neuron.
+
+Noise correlations are observed when the responses to fixed stimuli co-vary for two neurons. That is to say, positive noise correlations are found when two neurons tend to have higher-than-expected activity on the same trials as one another (and lower-than-expected on the same trials too).
+
+Intuitively, one can see that such noise correlations between pairs of neurons can inhibit the accuracy with which the stimulus is encoded in their activities. Suppose that two neurons both respond monotonically more to stimuli of higher contrast. Knowing their tuning curves and their current activity, we can decode the contrast of the current stimulus with some level of accuracy. If the two neurons are independent of one another, knowing the activity of both will give us a more accurate and more precise estimate of the actual contrast of the stimulus. But if the activity the pair of neurons is positively correlated, the information conveyed from the pair of neurons is reduced --- when one gives an overestimate of the contrast from a by-chance elevated activity level, so does the other. In contrast, negative correlations would enhance our decoding accuracy, for an overestimate from one neuron would more frequently be mitigated by an underestimate from the other.
+
+For a long period of time, neuroinformatians had argued that positive noise correlations are always detrimental to the encoding of stimuli. However, more recent theoretical work has found that, when considering a non-homogeneous population of neurons --- a population where the tuning curve is not the same for each neuron --- positive noise correlations can in fact be beneficial to the encoding of information about the stimulus.
+
+This can be envisioned by extending the 1-D mapping between a stimulus parameter and the activity of a single neuron to a 2-D plane of pairwise activity levels which is traversed as the stimulus parameter is adjusted. For orientation tuning (where the angular parametrisation of the stimulus is cyclic), tracing out the expected activity of a pair of neurons in response to the stimulus class will result in a closed loop in the 2-D plane. For other stimuli, which are non-cyclic, the trace is an open curve.
+
+Deviations to the response of the pair of neurons which move in the direction of the curve is detrimental to stimulus decoding, whereas deviations which are tangential to the curve are beneficial (better even than independence). Whether these directions correspond to positive or negative correlations depends on the direction of the line.
