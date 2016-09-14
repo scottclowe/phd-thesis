@@ -4,29 +4,91 @@
 \label{ch:bg}
 
 %------------------------------------------------------------------------------
-\subsection{Information Theory, and its applications within Neuroscience}
+\section{Information Theory, and its applications within Neuroscience}
 \label{sec:bgit}
 
-A common method used in neuroscience is to record the extracellular activity of a single neuron under different conditions.
-Frequently, the approach used is to take many recordings of the same neuron for the same condition, and then take the average across these repetitions (``trials'') to reduce the effects of neuronal variability (also referred to as noise), producing a \ac{PSTH}, for instance.
-However, this is not how the brain processes stimuli --- it has access to many neurons simultaneously, but only a single sample of each of these is instantiated at a time since trials are sequential and not concurrent.
-In contrast to this, using information theory as part of our methodology to study extracellular recordings allows us to consider how much information about a stimulus is present in the system in a the activity of a single-trial.
+A common experimental methodology used in neuroscience is to record the extracellular activity of a single neuron under different conditions.
+From this, we can compare the activity of the neuron under the different conditions to examine whether it is dependent on this set of conditions, and if so investigate the nature of the relationship between the two.
 
+Frequently, the approach used is to take many recordings of the same neuron for the same condition, and then take the average across these repetitions (``trials'') to reduce the effects of neuronal variability, producing a \ac{PSTH}, for instance.
+This neuronal variability is often referred to as ``noise'', however it is debatable as to whether differences in the behaviour of individual neurons between trials are due to noise within the system or are in fact representative of changes in other, as-yet unknown, hidden or latent variables within the system (see \S\ref{sec:bg-noisecorr} for further discussion).
+
+Such a simple treatment of the data --- averaging the over response over repetitions --- is fundamentally flawed, since this is not the manner in which brains process stimuli.
+At any moment in time, the brain has access to the activity of many neurons simultaneously (not a single neuron in isolation), but only has a single sample of each one (not multiple instantiations of the same neuron).
+
+If we instead use information theory to study the neuronal activity, we can consider how much information there is across a system containing multiple neurons during an isolated period of time, for instance a single trial.
+By using an information theoretic technique, we can overcome the limitations of the more simple methods; but no method is perfect and there are other limitations which arise when using information theory instead.
+% CITE no free lunch theorem
+In this section, I will first outline the analytic procedure through which information theoretic analysis is applied to neuroscientific data, some of the problems which arise, and how to try to overcome them.
+
+In the context of trying to experimentally investigate properties of the sensory cortex of the brain, one typically uses an experimental set-up with a finite collection of discrete experimental stimuli.
+These stimuli are then repeatedly presented to the sensory organ in an appropriate fashion, and the responses during each presentation are recorded.
+
+Even when investigating the responses to stimulus features which vary continuously, such as line orientation for the visual stimulation and frequency for auditory stimulation, one has two options.
+Firstly, the features can be preserved in a continuous space and the information about the stimulus estimated using Fisher information. The inverse of the Fisher information provides a lower bound on the mean squared error which any decoder can achieve \citep{Quiroga2009}.
+Alternatively, the stimulus space can be discretized into a finite subset of stimuli from which we can draw samples with repetition.
+Once the samples are discretized and presented repeatedly, we can use Shannon information to compute the amount of information about the stimulus identity contained in the neuronal response.
+If the stimulus set is intrinsically discrete, Fisher information can not be used and an information theoretic analysis can only be performed using Shannon information.
+
+For such an experimental set-up, let us assume that on each trial the stimulus $s$ is selected at random with probability $P(s)$ from a set of discrete stimuli $\SET{S}$, containing $S$ unique stimuli.
+The neuronal response could be one (or more than one) of several data types, such as a spike train from one or more neurons, the \ac{LFP}, \ac{CSD}, \ac{BOLD} signal, a calcium indicator, \ac{EEG}, or others \citep{Magri2009,Quiroga2009}.
+The principles of information theory can be applied whichever neural signal is taken to be the response.
+In Chapter~\ref{ch:pl}, we will work with information encoded in \ac{MUA} and spike trains, whilst in Chapters~\ref{ch:lam}, \ref{ch:xlam} and \ref{ch:plam} we will be considering the \ac{MUA}, \ac{LFP} and \ac{CSD}.
+
+With regards to the analysis of sensory recordings (with which this thesis will be concerned), the different conditions used on the trial are typically different stimuli, and the extracellular recordings provide us with the neuron's response to the stimuli.
 When applying information theory to neuronal data, we treat the brain as a communication channel, transmitting information about sensory input.
+We are hence interested in how much information the response in the brain contains about which stimulus was presented to it.
 
-In the perspective of sensory recordings, the different conditions used on the trial are typically different stimuli, and the extracellular recordings provide us with the neuron's response to the stimuli.
-For such an experimental setup, let us assume that on each trial the stimulus $s$ is selected at random with probability $P(s)$ from a set of stimuli $\SET{S}$, containing $S$ unique stimuli.
-For our purposes, we will be considering response given by the neuron in the spike-train it elicits, though an information approach can be performed on data from the \ac{LFP} of extracellular recordings, or collected by \ac{BOLD} signal or \ac{EEG} \citep{Magri2009,Quiroga2009}.
+However, it should be noted that we frame the problem in the context of a \textit{communication channel} simply because this is the framework around which Shannon information is formulated \citep{mackay2003information}.
+Within information theory, systems are modelled with information passing between a transmitter and receiver through a communication channel.
+The message passing between them in modified as it passes through the channel, and the receiver must attempt to decipher which message was originally sent.
 
-Using information theory, we can also investigate the nature of the neural code used by individual neurons and populations of neurons \citep{Optican1987}.
-For example, we might look at whether a neuron is conveying information in the millisecond level timing of its spikes, or if all the information is conveyed in its firing rate.
-This can be done by choosing a way of quantifying the neural activity which reflects what we think are its most salient properties, and then comparing the how much information can be extracted for different codes.
-Typically \citep{Quiroga2009,Brasselet2012,Panzeri2007,Arabzadeh2006,Strong1998}, a certain poststimulus time window of duration $t \in [20,40]$ is chosen and a neural code is constructed which forms a discrete, multi-dimensional array $r = \{r_1, \ldots, r_L\}$ of dimension $L$, because a discrete response of this form is appropriate for performing an information theoretic analysis on.
-To look at the information given by the firing rate of a single neuron, we might use a spike-count code where $L=1$ and $r$ is equal to the number of spikes elicited in the window $t$.
-Similarly, to look at the information contained in the firing rate of a many neurons, we would use a spike-count code where $r_i$ is equal to the number of spikes elicited in the window $t$ for spiketrain of the \nth{i} neuron, and let $L$ equal the number of neurons to be studied.
-In comparison, to look at the information contained in the millisecond level spike timing of a single neurons, we would divide the time window into $L$ bins of length $\Delta t = \nicefrac{t}{L}$ such that $\Delta t$ is the assumed time precision of the code, and set $r_i$ to be the number of spikes elicited in \nth{i} time-bin.
+In some ways, the function of the brain is similar to that of a compression algorithm.
+The initial encoding of the stimulus as transcribed by the appropriate sensory organ contains a large amount of information about the precise input stimulus --- for example the individual pixel values with an image stimulus --- which has a large amount of redundancy if one is interested only in detecting, classifying, and reacting to stimuli.
+A binary image of only $17 \times 17$ pixels can express \num{9.9e86} different states --- around a million times more than there are atoms in the visible universe, thought to be around \num{1e80}.
+However the vast majority of these images (for this, or equally true for a larger image with more intensity levels and colours) resemble unstructured random noise.
+The set of images which are of interest for interacting with a real world environment is vastly smaller, and with an appropriate high-level statistical model of the appropriate subset of the class of all potential stimuli can be compressed down to a much smaller number of bytes.
+For instance, whether a given visual stimulus contains the face of familiar person.
 
-Having chosen a neural code, we can let $\SET{R}$ denote the set of possible response arrays.
+After a stimulus has been processed by the brain, information about the exact intensities of individual pixels is lost, but salient information about the environment is preserved.
+We can hence investigate how stimuli are encoded within the brain by computing the amount of information about properties of the stimulus contained within the neural recordings.
+Here, we make the following assumption: if the neuronal activity is observed to contain information about the stimulus, we can assume this information is present due to the manner within which information is encoded by the brain, and that this information can be drawn upon to inform decisions taken with regard to the stimulus.
+We rationalise this assumption on the basis that we know the brain contains information about stimuli (otherwise it would be functionally blind/deaf), and it would be wasteful expend resources encoding stimuli accurately but in a non-functional manner.
+
+The neural data which can be collected with modern experimental equipment is very dense and rich in content.
+For instance, individual spikes can be recorded with the precision of fraction of a millisecond, and broadband \acp{LFP} allow for many frequency components to be analysed from the same recording.
+Typically, it is not possible to compute the information about the stimulus contained in the entire data stream all at once.
+The reason for this is the relatively small number of trials which can be collected for any given dataset.
+
+The repetitions of presenting the same stimulus and recording the neural response must be performed with the experimental setup the same, and recording taken from the same neurons.
+However, there is a maximum duration for any \invivo experiment of a few hours, after which the experimenters and subjects will be fatigued.
+This, naturally, leads to a maximum number of repetitions of an experimental protocol which can be completed within this timeframe, and that is in the order of 100.
+Should more trials be undertaken in a different experimental session, there is no guarantee that the neurons recorded from will be the same, so the response structure may be different and can't be combined with that of the prior session.
+
+Using information theory, we can investigate the nature of the neural code used by individual neurons and populations of neurons \citep{Optican1987}.
+For example, if our dataset consists of recordings of neuronal spiking activity, we can consider the amount of information contained in the spike train coincident with a \SI{40}{\milli\second} stimulus, say.
+First, we can consider our response vector to be the total number of spikes over the \SI{40}{\milli\second} window and compute the information contained in these about the identity of the presented stimulus.
+Second, we can consider our response vector to be the number of spikes in each quarter of the stimulus presentation period (four \SI{10}{\milli\second} windows).
+This step could equally be performed with more windows of finer granularity, so in general we would have a response vector $r = [r_1, \ldots, r_L]$, with $L$ windows each of length $\nicefrac{T}{L}$ and $r_i$ the number of spikes during the $i$-th window\footnote{In our example $T = \SI{40}{\milli\second}$.}.
+Since the information contained in single \SI{40}{\milli\second} window approach is, by construction, contained in the vector of responses within the shorter windows, we can investigate amount of information contained within the timing of the spikes.
+If there is no significant difference between the amount of information about the stimulus contained in the two vectors, it seems reasonable to conclude that the stimulus, or some attributes which distinguish it, are encoded in the firing rate, whilst the exact timing of the spikes is unimportant.
+
+% Typically \citep{Quiroga2009,Brasselet2012,Panzeri2007,Arabzadeh2006,Strong1998}, a certain post-stimulus time window of duration $t$ in \SIrange{20}{40}{\milli\second} is chosen and a neural code is constructed which forms a discrete, multi-dimensional array $r = \{r_1, \ldots, r_L\}$ of dimension $L$, because a discrete response of this form is appropriate for performing an information theoretic analysis on.
+% To look at the information given by the firing rate of a single neuron, we might use a spike-count code where $L=1$ and $r$ is equal to the number of spikes elicited in the window $t$.
+% Similarly, to look at the information contained in the firing rate of a many neurons, we would use a spike-count code where $r_i$ is equal to the number of spikes elicited in the window $t$ for spike train of the \nth{i} neuron, and let $L$ equal the number of neurons to be studied.
+% In comparison, to look at the information contained in the millisecond level spike timing of a single neurons, we would divide the time window into $L$ bins of length $\Delta t = \nicefrac{t}{L}$ such that $\Delta t$ is the assumed time precision of the code, and set $r_i$ to be the number of spikes elicited in \nth{i} time-bin.
+
+In general, we will choose some framework through which the raw data is reduced to a manageable finite set of possible states, $\SET{R}$.
+Having constrained both our encoding of the stimulus and the response to a finite set of states, we can investigate the relationship between them using Shannon information \citep{Shannon1948}.
+
+Within this theory, information is quantified in a manner analogous to how ``surprised'' a receiver would be if they were to reveal the contents of a message sent by the transmitter.
+Unless there is only one possible message, there is uncertainty over what will be sent, potentially with some messages more likely than others.
+If an \textit{a priori} likely message is received, this confirms the expectations so the receiver, so they are less ``surprised''.
+If an unlikely message is received, the receiver is more ``surprised''.
+Intuitively, the amount of information gained on receipt of the message is related to how much the uncertainty in the message was reduced upon its arrival.
+
+Rigorously, we define
+
 The relationship between the distribution of responses and stimuli is evaluated by first quantifying the variability of the responses.
 This can be done with the entropy \citep{Shannon1948} of the responses, and we define the \textit{response entropy} to be
 \begin{equation}
