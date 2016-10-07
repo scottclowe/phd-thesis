@@ -7,13 +7,13 @@
 \section{Information Theory, and its applications within Neuroscience}
 \label{sec:bgit}
 
-A common experimental methodology used in neuroscience is to record the extracellular activity of a single neuron under different conditions.
-From this, we can compare the activity of the neuron under the different conditions to examine whether it is dependent on this set of conditions, and if so investigate the nature of the relationship between the two.
+A common experimental methodology used in neuroscience is to record the extracellular activity of individual neurons under different conditions.
+From this, we can compare the activity of the neuron under different conditions to examine whether it is dependent on this set of conditions, and if so investigate the nature of the relationship between the two.
 
 Frequently, the approach used is to take many recordings of the same neuron for the same condition, and then take the average across these repetitions (``trials'') to reduce the effects of neuronal variability, producing a \ac{PSTH}, for instance.
-This neuronal variability is often referred to as ``noise'', however it is debatable as to whether differences in the behaviour of individual neurons between trials are due to noise within the system or are in fact representative of changes in other, as-yet unknown, hidden or latent variables within the system (see \S\ref{sec:bg-noisecorr} for further discussion).
+This neuronal variability is often referred to as ``noise'', however it is debatable as to whether differences in the behaviour of individual neurons between trials are due to noise within the system or are in fact representative of changes in other, as-yet unknown, hidden or latent variables within the system (see \ref{sec:bg-noisecorr} for further discussion).
 
-Such a simple treatment of the data --- averaging the over response over repetitions --- is fundamentally flawed, since this is not the manner in which brains process stimuli.
+Such a simple treatment of the data --- averaging over the response over repetitions --- is fundamentally flawed, since this is not the manner in which brains process stimuli.
 At any moment in time, the brain has access to the activity of many neurons simultaneously (not a single neuron in isolation), but only has a single sample of each one (not multiple instantiations of the same neuron).
 
 If we instead use information theory to study the neuronal activity, we can consider how much information there is across a system containing multiple neurons during an isolated period of time, for instance a single trial.
@@ -61,7 +61,7 @@ Typically, it is not possible to compute the information about the stimulus cont
 The reason for this is the relatively small number of trials which can be collected for any given dataset.
 
 The repetitions of presenting the same stimulus and recording the neural response must be performed with the experimental setup the same, and recording taken from the same neurons.
-However, there is a maximum duration for any \invivo experiment of a few hours, after which the experimenters and subjects will be fatigued.
+However, there is a maximum duration for any \invivo{} experiment of a few hours, after which the experimenters and subjects will be fatigued.
 This, naturally, leads to a maximum number of repetitions of an experimental protocol which can be completed within this timeframe, and that is in the order of 100.
 Should more trials be undertaken in a different experimental session, there is no guarantee that the neurons recorded from will be the same, so the response structure may be different and can't be combined with that of the prior session.
 
@@ -103,19 +103,19 @@ H( \SET{R} | \SET{S} )
 = - \sum_{r,s} P(s) P(r|s) \log_2 P(r|s)
 .\end{equation}
 The information about the stimulus which is transmitted in the response is then given by the difference of these, and the \textit{mutual information} between stimulus and response is given by
-\begin{equation}
+\begin{align}
 I( \SET{S} ; \SET{R} )
-= H( \SET{R} ) - H( \SET{R} | \SET{S} )
-= \sum_{r,s} P(r,s) \log_2 \frac{P(r|s)}{P(r)}
-.\end{equation}
+&= H( \SET{R} ) - H( \SET{R} | \SET{S} ) \notag \\
+&= \sum_{r,s} P(r,s) \log_2 \frac{P(r|s)}{P(r)}
+.\end{align}
 The mutual information can conceptualised how much an independent observer can expect their uncertainty in the stimulus $s$ presented on a single trial to be reduced by if they were to observe the neural response.
 When using base two logarithms, the mutual information is measured in bits, where gaining \SI{1}{bit} of information about something means a halving in uncertainty about it.
 The mutual information is zero if and only if responses are completely independent of stimuli.
-We will frequently abbreviate mutual information to just information.
+For brevity, we will refer to \textit{mutual information} to as \textit{information} in the remainder of this thesis.
 % CITE MacKay
 
 When working with experimental data, the probabilities $P(s)$, $P(r)$ and $P(r|s)$ must be estimated from the available data.
-This presents a major problem, because precise values for the probabilities can only be found exactly from their frequencies in the data if there is an infinite amount number of trials available, and real-world experiments (somewhat inconveniently) contain only a limited number of trials.
+This presents a major problem, because precise values for the probabilities can only be found exactly from their frequencies in the data if there is an infinite amount number of trials available, and real-world experiments contain only a limited number of trials.
 The estimated probabilities are subject to statistical error, leading to an associated systematic error (bias) and statistical variance in the estimates of the entropies and mutual information.
 The bias in particular is an issue, causing the mutual information to be upwardly biased, which can lead to incorrect conclusions if not corrected.
 Conceptually, this is because finite sampling can lead to spurious differences in the response distributions, making them seem more discriminable that they really are.
@@ -129,9 +129,9 @@ Furthermore, $\overline{R}$ cannot be found simply by looking at the number of u
 Consequently, one approach to bias correction, \iac{PT} \citep{Panzeri1996}, uses a Bayesian procedure to estimate the true number of possible responses and then subtracts the leading term of the bias from the mutual information.
 A second method of correcting for the bias which makes use of the power series expansion is \iac{QE} method \citep{Strong1998}.
 Here, the uncorrected mutual information is assumed to be well approximated by
-$$
+\begin{equation}
 I_{\text{uncorrected}}(\SET{S};\SET{R}) = I_{\text{true}}(\SET{S};\SET{R}) + \frac{a}{N} + \frac{b}{N^2}
-,$$
+,\end{equation}
 with the free parameters $a$ and $b$ found by computing the information content with fractions of the full available dataset (\ie{} using $\nicefrac{N}{2}$ and $\nicefrac{N}{2}$ trials).
 
 Other bias correction methods which do not utilise the power series expansion include \iac{NSB}.
@@ -140,9 +140,9 @@ This uses a Bayesian inference approach to entropy estimation with a specially c
 A completely different method of bias correction which works for responses with dimension $L > 1$, is to compute an estimate of the information known as $I_{\text{sh}}$.
 This is found \citep{Montemurro2007} by computing two additional terms: $H_\text{ind}( \SET{R} | \SET{S} )$, the noise entropy estimate if the dimensions of $r$ are assumed to be independent from one another; and $H_\text{sh}( \SET{R} | \SET{S} )$, the noise entropy estimate when bins are shuffled along each dimension, $r_i$, of the response to generate pseudo-response arrays.
 The advantage of this is $H_\text{ind}( \SET{R} | \SET{S} )$ and $H_\text{sh}( \SET{R} | \SET{S} )$ should be equal, but $H_\text{sh}( \SET{R} | \SET{S} )$ has a bias around the same magnitude as $H( \SET{R} | \SET{S} )$, so we can compute
-$$
+\begin{equation}
 I_{\text{sh}}(\SET{S};\SET{R}) = H( \SET{R} ) - H_\text{ind}( \SET{R} | \SET{S} ) + H_\text{sh}( \SET{R} | \SET{S} ) - H( \SET{R} | \SET{S} )
-,$$
+,\end{equation}
 which has a much smaller bias than $I(\SET{S};\SET{R})$.
 
 Both \iac{PT} and \ac{QE} bias correction methods give similar approximations to the true information, whilst \ac{NSB} outperforms them with a less biased estimate \citep{Panzeri2007}.
