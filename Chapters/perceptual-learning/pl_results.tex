@@ -25,6 +25,7 @@ Other studies have indicated that noise correlations are beneficial to populatio
 A recent paper by \citet{Gu2011} on neurons recoded from the macaque dorsal \ac{MSTd} before and after training in a head direction discrimination task, found that although pairwise noise correlations between neurons are reduced with training, this does not yield an increase in performance in a decoder.
 We will see if these findings hold here as well.
 
+
 \subsection{Methods}
 \label{sec:dec-meth-noise}
 
@@ -33,10 +34,10 @@ The noise correlation was investigated by considering how strongly correlated th
 
 To evaluate the strength of noise correlations, the Pearson $r$ correlation coefficient was used.
 For two random variables $X$ and $Y$, this is given by
-$$r_{X,Y} = \frac{\operatorname{cov}(X,Y)}{\sigma_X \, \sigma_Y}$$
+$$r(X,Y) = \frac{\operatorname{cov}(X,Y)}{\operatorname{var}(X) \, \operatorname{var}(Y)}$$
 and provides a version of the covariance between the $X$ and $Y$ which is normalised again their standard deviations.
 This means $-1 \le r \le 1$ indicates how well $X$ and $Y$ fit a straight line relationship of either positive or negative slope, regardless of the gradient of the line, which could be changed by rescaling either $X$ or $Y$.
-If $r=\pm1$, there is a perfect linear relationship between $X$ and $Y$, whilst if $r=0$ then $X$ and $Y$ are completely independent.
+If $r=\pm1$, there is a perfect linear relationship between $X$ and $Y$, whereas $r=0$ when $X$ and $Y$ are completely independent.
 
 For each individual session, the Pearson $r$ correlation coefficient was computed between the spike counts during test stimulus presentation between pairs of channels, across all the trials in the session.
 $r$ was computed for each pair and each condition, and the mean was taken across all of these.
