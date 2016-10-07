@@ -330,6 +330,61 @@ Information about the stimulus contained in the phase of the \ac{CSD}, as a func
 \subsection{Redundancy}
 
 %-------------------------------------------------------------------------------
+
+
+We define redundancy as
+\begin{equation}
+\label{eq:red}
+\operatorname{Redundancy}\left(X,Y;S\right)=\frac{
+\I\left(X;S\right) + \I\left(Y;S\right) - \I\left(\left\{X,Y\right\};S\right)
+}{
+\I\left(\left\{X,Y\right\};S\right)
+},
+\end{equation}
+where $S$ is the stimulus, and $X$ and $Y$ are observed responses.
+If $\operatorname{Redundancy}\left(X,Y;S\right) > 0$, this implies that $X$ and $Y$ contain redundant information about $S$.
+If $\operatorname{Redundancy}\left(X,Y;S\right) < 0$, then $X$ and $Y$ are synergistic, such that knowing the paired state of $X$ and $Y$ simultaneously contains more information about $S$ than one would expect from the information just contained in $X$ and $Y$ individually.
+
+Unfortunately, since redundant and synergistic information co-occur when transitioning from knowing either $X$ or $Y$ to knowing the state $(X,Y)$, it is not possible to quantify the redundancy and synergy in isolation.
+The term which we refer to as ``Redundancy'' in \autoref{eq:red}, is in reality the difference of the true (but unobservable) redundancy and synergy about $S$ in $X$ and $Y$.
+Consequently, we can only conclude how much more redundancy than synergy there is, and when redundancy exceeds synergy that there is at least some redundancy.
+For instance, in the case $\operatorname{Redundancy}\left(X,Y;S\right) = 0$, we can only conclude that there is the same amount of synergy as redundancy; it is not necessarily the case that $X$ and $Y$ contain exclusively independent information about $S$.
+
+
+We define (relative) information gain as
+% \begin{equation}
+% \operatorname{InfoGain}\left(X,Y;S\right)=\frac{
+% \I\left(\left\{i1,i2\right\};S\right) - \I\left(i1;S\right)
+% }{
+% \I\left(i2;S\right)
+% }
+% \end{equation}
+\begin{equation}
+\operatorname{InfoGain}\left(Y\to\left\{X,Y\right\};S\right)=\frac{
+\I\left(\left\{X,Y\right\};S\right) - \I\left(Y;S\right)
+}{
+\I\left(X;S\right)
+},
+\end{equation}
+which is the amount of information gained about the stimulus when we already know $Y$ and $X$ is revealed to us, relative to the amount of information about the stimulus contained in $X$.
+If $X$ contains no more information about $S$ than is already contained in $Y$, then
+$\I\left(\left\{X,Y\right\};S\right) = \I\left(Y;S\right)$
+and we therefore have
+$$\operatorname{InfoGain}\left(Y\to\left\{X,Y\right\};S\right)=0 ,$$
+which makes intuitive sense in line with the concept of information gain.
+However, if $\I\left(X;S\right)=0$, meaning $X$ contains no information about the stimulus, this would be divergent, so we instead choose by definition
+$$\operatorname{InfoGain}\left(Y\to\left\{X,Y\right\};S\right)=0$$
+for this case.
+If $X$ and $Y$ contain independent information about the stimulus,
+$\I\left(\left\{X,Y\right\};S\right) = \I\left(X;S\right) + \I\left(Y;S\right)$,
+then we find that
+$$\operatorname{InfoGain}\left(Y\to\left\{X,Y\right\};S\right) = 1 = 100\%.$$
+However, as stated above, observing
+$\operatorname{InfoGain} = 1$
+is necessary but insufficient to conclude that $X$ and $Y$ contain exclusively independent information about $S$, since the same result can be achieved provided their synergy and redundancy effects cancel each other out.
+Should $X$ and $Y$ contain more synergistic than redundant information about $S$, we will observe a relative information gain exceeding $1$ (or equivalently $100\%$).
+
+
 \subsubsection{Cross channel}
 
 \begin{figure}[htb]
