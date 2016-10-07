@@ -41,21 +41,6 @@ If $r=\pm1$, there is a perfect linear relationship between $X$ and $Y$, whilst 
 For each individual session, the Pearson $r$ correlation coefficient was computed between the spike counts during test stimulus presentation between pairs of channels, across all the trials in the session.
 $r$ was computed for each pair and each condition, and the mean was taken across all of these.
 
-As noted previously, on some trials movements of the subject produced a recording artifact across multiple channels which was incorrectly registered as genuine spikes by the spike detection algorithm.
-When comparing the spike counts for a pair of channels, to trials with erroneously high detected spike rates for both channels, as shown in Fig.~\ref{fig:noise_scatter}.
-
-\begin{figure}[htbp]
-\centering\includegraphics[width=0.4\linewidth]{%
-figs/decoding/rcoef_scatter_jv4_icond5_ch1vch3.eps}
-\caption{Spikes count during around \SI{500}{ms} of presentation of the \SI{27}{\percent} contrast stimulus, for two channels plotted against each other.
-There is clearly a weak correlation between the two data-series, but one trial is an outlier with a large number of measured spikes for both channels due to a correlated source of noise in the raw signal.
-The outlier will cause the correlation to be measured anomalously high.}
-\label{fig:noise_scatter}
-\end{figure}
-
-To counter this problem, all trials where at least a quarter of the channels had a number of spikes more than 2.5 standard deviations above their mean spike count were removed.
-This should be effective at fixing the problem because the motion-triggered artifact occurs always effects multiple channels simultaneously with the same artifact.
-
 
 \subsection{Results}
 
