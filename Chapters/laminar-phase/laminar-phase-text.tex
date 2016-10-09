@@ -420,7 +420,7 @@ Should $X$ and $Y$ contain more synergistic than redundant information about $S$
 
 \begin{figure}[htb]
     \centering
-    <code running>
+    \includegraphics[scale=.5]{redundancy-cxsfrq/cxsfrq-PCred_phase-phase_avg-log}
     \caption{
 Redundancy between frequencies.
 }
@@ -429,7 +429,7 @@ Redundancy between frequencies.
 
 \begin{figure}[htb]
     \centering
-    <code running>
+    \includegraphics[scale=.5]{redundancy-cxsfrq/cxsfrq-PCgain-i2d2_phase-phase_avg-log}
     \caption{
 Information gain between frequencies.
 }
@@ -437,26 +437,39 @@ Information gain between frequencies.
 \end{figure}
 
 %-------------------------------------------------------------------------------
-% \subsubsection{Cross frequency phase vs power}
-%
-% \begin{figure}[htb]
-%     \centering
-%     <code running>
-%     \caption{
-% Redundancy between frequencies.
-% }
-% \label{fig:lam_phase_cxfrq_powerphase_info_red}
-% \end{figure}
-%
-%
-% \begin{figure}[htb]
-%     \centering
-%     <code running>
-%     \caption{
-% Information gain between frequencies.
-% }
-% \label{fig:lam_phase_cxfrq_powerphase_info_gain}
-% \end{figure}
+\subsubsection{Cross frequency phase vs power}
+
+\begin{figure}[htb]
+    \centering
+    \subfloat[\label{fig:lam_phase_cxchn_info_red}]{
+        \includegraphics[scale=.5]{redundancy-cxsfrq/cxsfrq-PCred_phase-power_avg-log}
+}
+    \\
+    \subfloat[\label{fig:lam_phase_cxchn_info_red_bar}]{
+        \includegraphics[scale=.5]{redundancy-cxsfrq/cxsfrq-PCred_power-phase_avg-log}
+}
+    \caption{
+Redundancy between frequencies.
+}
+\label{fig:lam_phase_cxfrq_powerphase_info_red}
+\end{figure}
+
+
+
+\begin{figure}[htb]
+    \centering
+    \subfloat[\label{fig:lam_phase_cxchn_info_red}]{
+        \includegraphics[scale=.5]{redundancy-cxsfrq/cxsfrq-PCgain-i2d2_phase-power_avg-log}
+}
+    \\
+    \subfloat[\label{fig:lam_phase_cxchn_info_red_bar}]{
+        \includegraphics[scale=.5]{redundancy-cxsfrq/cxsfrq-PCgain-i2d2_power-phase_avg-log}
+}
+    \caption{
+Information gain between frequencies.
+}
+\label{fig:lam_phase_cxfrq_powerphase_info_gain}
+\end{figure}
 
 %-------------------------------------------------------------------------------
 \section{Discussion}
