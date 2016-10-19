@@ -24,6 +24,7 @@ In this section, I will first outline the analytic procedure through which infor
 In the context of trying to experimentally investigate properties of the sensory cortex of the brain, one typically uses an experimental set-up with a finite collection of discrete experimental stimuli.
 These stimuli are then repeatedly presented to the sensory organ in an appropriate fashion, and the responses during each presentation are recorded.
 
+% Can cut the Fisher information, since it isn't actually information theoretic
 Even when investigating the responses to stimulus features which vary continuously, such as line orientation for the visual stimulation and frequency for auditory stimulation, one has two options.
 Firstly, the features can be preserved in a continuous space and the information about the stimulus estimated using Fisher information. The inverse of the Fisher information provides a lower bound on the mean squared error which any decoder can achieve \citep{Quiroga2009}.
 Alternatively, the stimulus space can be discretized into a finite subset of stimuli from which we can draw samples with repetition.
@@ -43,7 +44,7 @@ However, it should be noted that we frame the problem in the context of a \texti
 Within information theory, systems are modelled with information passing between a transmitter and receiver through a communication channel.
 The message passing between them in modified as it passes through the channel, and the receiver must attempt to decipher which message was originally sent.
 
-In some ways, the function of the brain is similar to that of a compression algorithm.
+In some ways, some functions of the brain are similar to the process of a compression algorithm.
 The initial encoding of the stimulus as transcribed by the appropriate sensory organ contains a large amount of information about the precise input stimulus --- for example the individual pixel values with an image stimulus --- which has a large amount of redundancy if one is interested only in detecting, classifying, and reacting to stimuli.
 A binary image of only $17 \times 17$ pixels can express \num{9.9e86} different states --- around a million times more than there are atoms in the visible universe, thought to be around \num{1e80}.
 However the vast majority of these images (for this, or equally true for a larger image with more intensity levels and colours) resemble unstructured random noise.
@@ -60,6 +61,7 @@ For instance, individual spikes can be recorded with the precision of fraction o
 Typically, it is not possible to compute the information about the stimulus contained in the entire data stream all at once.
 The reason for this is the relatively small number of trials which can be collected for any given dataset.
 
+% Mark dislikes this paragraph I guess?
 The repetitions of presenting the same stimulus and recording the neural response must be performed with the experimental setup the same, and recording taken from the same neurons.
 However, there is a maximum duration for any \invivo{} experiment of a few hours, after which the experimenters and subjects will be fatigued.
 This, naturally, leads to a maximum number of repetitions of an experimental protocol which can be completed within this timeframe, and that is in the order of 100.
