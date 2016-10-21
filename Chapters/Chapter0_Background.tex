@@ -92,7 +92,7 @@ Intuitively, the amount of information gained on receipt of the message is relat
 Rigorously, we define the \textbf{Shannon information} content of an outcome or result $x$ to be
 \begin{equation}
 \label{eq:shannon-information}
-h( x ) = \log_2 \frac{1}{P(x)}
+\operatorname{h}( x ) = \log_2 \frac{1}{P(x)}
 .\end{equation}
 This corresponds to how ``surprised'' we would be to observe the result $x$ being produced by the system in question.
 Note that $h(x)=0$ if $P(x)=1$ (if an event is certain, we are never surprised and gain no information observing it), and $h(x) \to \infty$ as $P(x) \to 0^+$ (we gain more information --- we are increasingly surprised --- when a diminishingly unlikely event occurs).
@@ -100,23 +100,23 @@ Note that $h(x)=0$ if $P(x)=1$ (if an event is certain, we are never surprised a
 The \textbf{entropy} of a system is a measure of amount of uncertainty we have about its state.
 We define this as the expected amount of information we will gain when we observe it,
 \begin{align}
-H( \SET{X} )
+\HH( \SET{X} )
   &= \EE_{x \in \SET{X}} \left( \log_2 \frac{1}{P(x)} \right) \notag
 \\&= \sum_{x \in \SET{X}} P(x) \log_2 \frac{1}{P(x)}
 \\&= - \sum_{x \in \SET{X}} P(x) \log_2 P(r) \notag
 ,\end{align}
 where $\SET{X}$ is the ensemble of possible states of the system in question.
 
-When studying neural recordings using information theory, we will need to take note of the uncertainty in which stimulus is presented, $H(\SET{S})$, and the uncertainty in the response, $H(\SET{R})$.
+When studying neural recordings using information theory, we will need to take note of the uncertainty in which stimulus is presented, $\HH(\SET{S})$, and the uncertainty in the response, $\HH(\SET{R})$.
 In particular, the amount of information about the stimulus contained in the response is their \textbf{mutual information}, $\I(\SET{S};\SET{R})$.
 This is the amount by which our uncertainty in the stimulus is reduced when we discover the value of the response to that stimulus, which is equivalent to the amount by which our uncertainty in the response decreases when we discover the identity of the stimulus
 \begin{equation}
-\I(\SET{S};\SET{R}) = H(\SET{S}) - H(\SET{S} | \SET{R}) = H(\SET{R}) - H(\SET{R} | \SET{S})
+\I(\SET{S};\SET{R}) = \HH(\SET{S}) - \HH(\SET{S} | \SET{R}) = \HH(\SET{R}) - \HH(\SET{R} | \SET{S})
 .\end{equation}
 Here, we make use of the conditional entropy (also known as noise entropy), so named because it is the entropy of one variable when conditioned on the state of another.
 Analogously to \autoref{eq:shannon-information}, this is defined as
 \begin{align}
-H(\SET{X} | \SET{Y})
+\HH(\SET{X} | \SET{Y})
   &= \EE_{x \in \SET{X}, \, y \in \SET{Y}} \left( \log_2 \frac{1}{P(x|y)} \right) \notag
 \\&= \sum_{x \in \SET{X}, \, y \in \SET{Y}} P(x,y) \log_2 \frac{1}{P(x|y)}
 \\&= \sum_{y \in \SET{Y}} P(y) \sum_{x \in \SET{X}} P(x|y) \log_2 \frac{1}{P(x|y)} \notag
@@ -149,13 +149,13 @@ The simplest of these is to shuffle the data so that responses are paired with s
 
 % Here, insert Ish. Need to adapt text to fit it in
 
-A completely different method of bias correction which works for responses with dimension $L > 1$, is to compute an estimate of the information known as $I_{\text{sh}}$.
-This is found \citep{Montemurro2007} by computing two additional terms: $H_\text{ind}( \SET{R} | \SET{S} )$, the noise entropy estimate if the dimensions of $r$ are assumed to be independent from one another; and $H_\text{sh}( \SET{R} | \SET{S} )$, the noise entropy estimate when bins are shuffled along each dimension, $r_i$, of the response to generate pseudo-response arrays.
-The advantage of this is $H_\text{ind}( \SET{R} | \SET{S} )$ and $H_\text{sh}( \SET{R} | \SET{S} )$ should be equal, but $H_\text{sh}( \SET{R} | \SET{S} )$ has a bias around the same magnitude as $H( \SET{R} | \SET{S} )$, so we can compute
+A completely different method of bias correction which works for responses with dimension $L > 1$, is to compute an estimate of the information known as $\I_{\text{sh}}$.
+This is found \citep{Montemurro2007} by computing two additional terms: $\HH_\text{ind}( \SET{R} | \SET{S} )$, the noise entropy estimate if the dimensions of $r$ are assumed to be independent from one another; and $\HH_\text{sh}( \SET{R} | \SET{S} )$, the noise entropy estimate when bins are shuffled along each dimension, $r_i$, of the response to generate pseudo-response arrays.
+The advantage of this is $\HH_\text{ind}( \SET{R} | \SET{S} )$ and $\HH_\text{sh}( \SET{R} | \SET{S} )$ should be equal, but $\HH_\text{sh}( \SET{R} | \SET{S} )$ has a bias around the same magnitude as $\HH( \SET{R} | \SET{S} )$, so we can compute
 \begin{equation}
-I_{\text{sh}}(\SET{S};\SET{R}) = H( \SET{R} ) - H_\text{ind}( \SET{R} | \SET{S} ) + H_\text{sh}( \SET{R} | \SET{S} ) - H( \SET{R} | \SET{S} )
+\I_{\text{sh}}(\SET{S};\SET{R}) = \HH( \SET{R} ) - \HH_\text{ind}( \SET{R} | \SET{S} ) + \HH_\text{sh}( \SET{R} | \SET{S} ) - \HH( \SET{R} | \SET{S} )
 ,\end{equation}
-which has a much smaller bias than $I(\SET{S};\SET{R})$.
+which has a much smaller bias than $\I(\SET{S};\SET{R})$.
 
 % End insert
 
@@ -185,7 +185,7 @@ The result has less residual bias than the \ac{PT} or \ac{QE} methods, but at hi
 
 Each of these bias correction methods make a trade off between variability and bias.
 Introducing more terms in order to reduce the bias invariably increases variability, but this is a price worth paying since the uncorrected bias is so prominent in the results.
-Unless indicated otherwise, we will be using the \ac{PT} bias correction method when computing mutual information with a single dimensional response, and $I_{\text{sh}}$ with \ac{PT} when using multi-dimensional response vector.
+Unless indicated otherwise, we will be using the \ac{PT} bias correction method when computing mutual information with a single dimensional response, and $\I_{\text{sh}}$ with \ac{PT} when using multi-dimensional response vector.
 
 
 %------------------------------------------------------------------------------
