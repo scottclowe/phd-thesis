@@ -11,7 +11,7 @@ A common experimental methodology used in neuroscience is to record the extracel
 From this, we can compare the activity of the neuron under different conditions to examine whether it is dependent on this set of conditions, and if so investigate the nature of the relationship between the two.
 
 Frequently, the approach used is to take many recordings of the same neuron for the same condition, and then take the average across these repetitions (``trials'') to reduce the effects of neuronal variability, producing a \ac{PSTH}, for instance.
-This neuronal variability is often referred to as ``noise'', however it is debatable as to whether differences in the behaviour of individual neurons between trials are due to noise within the system or are in fact representative of changes in other, as-yet unknown, hidden or latent variables within the system (see \ref{sec:bg-noisecorr} for further discussion).
+This neuronal variability is often referred to as ``noise'', however it is debatable as to whether differences in the behaviour of individual neurons between trials are due to noise within the system or are in fact representative of changes in other, as-yet unknown, hidden or latent variables within the system (see \autoref{sec:bg-noisecorr} for further discussion).
 
 Such a simple treatment of the data --- averaging over the response over repetitions --- is fundamentally flawed, since this is not the manner in which brains process stimuli.
 At any moment in time, the brain has access to the activity of many neurons simultaneously (not a single neuron in isolation), but only has a single sample of each one (not multiple instantiations of the same neuron).
@@ -34,7 +34,7 @@ If the stimulus set is intrinsically discrete, Fisher information can not be use
 For such an experimental set-up, let us assume that on each trial the stimulus $s$ is selected at random with probability $P(s)$ from a set of discrete stimuli $\SET{S}$, containing $S$ unique stimuli.
 The neuronal response could be one (or more than one) of several data types, such as a spike train from one or more neurons, the \ac{LFP}, \ac{CSD}, \ac{BOLD} signal, a calcium indicator, \ac{EEG}, or others \citep{Magri2009,Quiroga2009}.
 The principles of information theory can be applied whichever neural signal is taken to be the response.
-In Chapter~\ref{ch:pl}, we will work with information encoded in \ac{MUA} and spike trains, whilst in Chapters~\ref{ch:lam}, \ref{ch:xlam} and \ref{ch:plam} we will be considering the \ac{MUA}, \ac{LFP} and \ac{CSD}.
+In \autoref{ch:pl}, we will work with information encoded in \ac{MUA} and spike trains, whilst in Chapters~\ref{ch:lam}, \ref{ch:xlam} and \ref{ch:plam} we will be considering the \ac{MUA}, \ac{LFP} and \ac{CSD}.
 
 With regards to the analysis of sensory recordings (with which this thesis will be concerned), the different conditions used on the trial are typically different stimuli, and the extracellular recordings provide us with the neuron's response to the stimuli.
 When applying information theory to neuronal data, we treat the brain as a communication channel, transmitting information about sensory input.
