@@ -71,7 +71,7 @@ Using information theory, we can investigate the nature of the neural code used 
 For example, if our dataset consists of recordings of neuronal spiking activity, we can consider the amount of information contained in the spike train coincident with a \SI{40}{\milli\second} stimulus, say.
 First, we can consider our response vector to be the total number of spikes over the \SI{40}{\milli\second} window and compute the information contained in these about the identity of the presented stimulus.
 Second, we can consider our response vector to be the number of spikes in each quarter of the stimulus presentation period (four \SI{10}{\milli\second} windows).
-This step could equally be performed with more windows of finer granularity, so in general we would have a response vector $r = [r_1, \ldots, r_L]$, with $L$ windows each of length $\nicefrac{T}{L}$ and $r_i$ the number of spikes during the $i$-th window\footnote{In our example $T = \SI{40}{\milli\second}$.}.
+This step could equally be performed with more windows of finer granularity, so in general we would have a response vector $r = [r_1, \ldots, r_L]$, with $L$ windows each of length $\nicefrac{T}{L}$ and $r_i$ the number of spikes during the $i$-th window\footnote{In our example, $T = \SI{40}{\milli\second}$.}.
 Since the information contained in single \SI{40}{\milli\second} window approach is, by construction, contained in the vector of responses within the shorter windows, we can investigate amount of information contained within the timing of the spikes.
 If there is no significant difference between the amount of information about the stimulus contained in the two vectors, it seems reasonable to conclude that the stimulus, or some attributes which distinguish it, are encoded in the firing rate, whilst the exact timing of the spikes is unimportant.
 
@@ -80,7 +80,7 @@ If there is no significant difference between the amount of information about th
 % Similarly, to look at the information contained in the firing rate of a many neurons, we would use a spike-count code where $r_i$ is equal to the number of spikes elicited in the window $t$ for spike train of the \nth{i} neuron, and let $L$ equal the number of neurons to be studied.
 % In comparison, to look at the information contained in the millisecond level spike timing of a single neurons, we would divide the time window into $L$ bins of length $\Delta t = \nicefrac{t}{L}$ such that $\Delta t$ is the assumed time precision of the code, and set $r_i$ to be the number of spikes elicited in \nth{i} time-bin.
 
-In general, we will choose some framework through which the raw data is reduced to a manageable finite set of possible states, $\SET{R}$.
+In general, we will choose some framework through which the raw data is reduced to a manageable finite ensemble of possible states, $\SET{R}$.
 Having constrained both our encoding of the stimulus and the response to a finite set of states, we can investigate the relationship between them using Shannon information \citep{Shannon1948}.
 
 Within this theory, information is quantified in a manner analogous to how ``surprised'' a receiver would be if they were to reveal the contents of a message sent by the transmitter.
