@@ -89,55 +89,65 @@ If an \textit{a priori} likely message is received, this confirms the expectatio
 If an unlikely message is received, the receiver is more ``surprised''.
 Intuitively, the amount of information gained on receipt of the message is related to how much the uncertainty in the message was reduced upon its arrival.
 
-Rigorously, we define
-
-The relationship between the distribution of responses and stimuli is evaluated by first quantifying the variability of the responses.
-This can be done with the entropy \citep{Shannon1948} of the responses, and we define the \textit{response entropy} to be
+Rigorously, we define the \textbf{Shannon information} content of an outcome or result $x$ to be
 \begin{equation}
-H( \SET{R} )
-= - \sum_{r} P(r) \log_2 P(r)
-\end{equation}
-where $P(r)$ is the probability of observing the response $r$ on any trial regardless of the stimulus.
-However, the responses given by neurons are ``noisy'', so they do not give the same response on every trial even if the same stimulus is presented.
-Consequently, we must also consider the variability due to noise by computing the \textit{noise entropy}, defined as
-\begin{equation}
-H( \SET{R} | \SET{S} )
-= - \sum_{r,s} P(s) P(r|s) \log_2 P(r|s)
+\label{eq:shannon-information}
+h( x ) = \log_2 \frac{1}{P(x)}
 .\end{equation}
-The information about the stimulus which is transmitted in the response is then given by the difference of these, and the \textit{mutual information} between stimulus and response is given by
+This corresponds to how ``surprised'' we would be to observe the result $x$ being produced by the system in question.
+Note that $h(x)=0$ if $P(x)=1$ (if an event is certain, we are never surprised and gain no information observing it), and $h(x) \to \infty$ as $P(x) \to 0^+$ (we gain more information --- we are increasingly surprised --- when a diminishingly unlikely event occurs).
+
+The \textbf{entropy} of a system is a measure of amount of uncertainty we have about its state.
+We define this as the expected amount of information we will gain when we observe it,
 \begin{align}
-I( \SET{S} ; \SET{R} )
-&= H( \SET{R} ) - H( \SET{R} | \SET{S} ) \notag \\
-&= \sum_{r,s} P(r,s) \log_2 \frac{P(r|s)}{P(r)}
-.\end{align}
-The mutual information can conceptualised how much an independent observer can expect their uncertainty in the stimulus $s$ presented on a single trial to be reduced by if they were to observe the neural response.
-When using base two logarithms, the mutual information is measured in bits, where gaining \SI{1}{bit} of information about something means a halving in uncertainty about it.
-The mutual information is zero if and only if responses are completely independent of stimuli.
-For brevity, we will refer to \textit{mutual information} to as \textit{information} in the remainder of this thesis.
-% CITE MacKay
+H( \SET{X} )
+  &= \EE_{x \in \SET{X}} \left( \log_2 \frac{1}{P(x)} \right) \notag
+\\&= \sum_{x \in \SET{X}} P(x) \log_2 \frac{1}{P(x)}
+\\&= - \sum_{x \in \SET{X}} P(x) \log_2 P(r) \notag
+,\end{align}
+where $\SET{X}$ is the ensemble of possible states of the system in question.
 
-When working with experimental data, the probabilities $P(s)$, $P(r)$ and $P(r|s)$ must be estimated from the available data.
-This presents a major problem, because precise values for the probabilities can only be found exactly from their frequencies in the data if there is an infinite amount number of trials available, and real-world experiments contain only a limited number of trials.
-The estimated probabilities are subject to statistical error, leading to an associated systematic error (bias) and statistical variance in the estimates of the entropies and mutual information.
-The bias in particular is an issue, causing the mutual information to be upwardly biased, which can lead to incorrect conclusions if not corrected.
-Conceptually, this is because finite sampling can lead to spurious differences in the response distributions, making them seem more discriminable that they really are.
-We refer to the bias uncorrected mutual information as $I_{\text{uncorrected}}(\SET{S};\SET{R})$.
-
-Fortunately, several techniques exist to correct for the bias.
-Several of these bias correction methods focus on expanding out the measured information as a power series \citep{Miller1955,Treves1995} in terms of $\nicefrac{1}{N}$, where $N$ is the number of trials in the dataset, though technically the relationship with the power series only holds in the asymptotic sampling regime with a very large number of trials.
-The first term in the bias, proportional to $\nicefrac{1}{N}$, has a coefficient which depends only on the number of stimuli, $S$, and possible responses $\overline{R}$ .
-However, $\overline{R} \neq R$ because many responses which are theoretically possible by the construction of the response code may be in fact be impossible to generate.
-Furthermore, $\overline{R}$ cannot be found simply by looking at the number of unique responses in the dataset, since low probability responses may not have occurred in the finite number of trials sampled, leading to an underestimation of $\overline{R}$.
-Consequently, one approach to bias correction, \iac{PT} \citep{Panzeri1996}, uses a Bayesian procedure to estimate the true number of possible responses and then subtracts the leading term of the bias from the mutual information.
-A second method of correcting for the bias which makes use of the power series expansion is \iac{QE} method \citep{Strong1998}.
-Here, the uncorrected mutual information is assumed to be well approximated by
+When studying neural recordings using information theory, we will need to take note of the uncertainty in which stimulus is presented, $H(\SET{S})$, and the uncertainty in the response, $H(\SET{R})$.
+In particular, the amount of information about the stimulus contained in the response is their \textbf{mutual information}, $\I(\SET{S};\SET{R})$.
+This is the amount by which our uncertainty in the stimulus is reduced when we discover the value of the response to that stimulus, which is equivalent to the amount by which our uncertainty in the response decreases when we discover the identity of the stimulus
 \begin{equation}
-I_{\text{uncorrected}}(\SET{S};\SET{R}) = I_{\text{true}}(\SET{S};\SET{R}) + \frac{a}{N} + \frac{b}{N^2}
-,\end{equation}
-with the free parameters $a$ and $b$ found by computing the information content with fractions of the full available dataset (\ie{} using $\nicefrac{N}{2}$ and $\nicefrac{N}{2}$ trials).
+\I(\SET{S};\SET{R}) = H(\SET{S}) - H(\SET{S} | \SET{R}) = H(\SET{R}) - H(\SET{R} | \SET{S})
+.\end{equation}
+Here, we make use of the conditional entropy (also known as noise entropy), so named because it is the entropy of one variable when conditioned on the state of another.
+Analogously to \autoref{eq:shannon-information}, this is defined as
+\begin{align}
+H(\SET{X} | \SET{Y})
+  &= \EE_{x \in \SET{X}, \, y \in \SET{Y}} \left( \log_2 \frac{1}{P(x|y)} \right) \notag
+\\&= \sum_{x \in \SET{X}, \, y \in \SET{Y}} P(x,y) \log_2 \frac{1}{P(x|y)}
+\\&= \sum_{y \in \SET{Y}} P(y) \sum_{x \in \SET{X}} P(x|y) \log_2 \frac{1}{P(x|y)} \notag
+\\&= - \sum_{y \in \SET{Y}} P(y) \sum_{x \in \SET{X}} P(x|y) \log_2 P(x|y) \notag
+.\end{align}
+% The mutual information is zero if and only if responses are completely independent of stimuli.
+% For brevity, we will refer to {mutual information} to as \textbf{information} in the remainder of this thesis.
 
-Other bias correction methods which do not utilise the power series expansion include \iac{NSB}.
-This uses a Bayesian inference approach to entropy estimation with a specially chosen prior probability distribution to make the prior expected entropy distribution uniform \citep{Nemenman2004}.
+Computing the mutual information between stimulus and response requires us to estimate $P(s)$, $P(r)$, and either $P(s|r)$ or $P(r|s)$.
+The requirement to know $P(s)$ renders applying mutual information outside of a controlled environment all-but impossible.
+If the subject is free moving, a prior over the set of potential stimuli it could be exposed to is very challenging to define.
+However, within an experimental setting we can control the stimulus presentation such that there is only a finite set of unique stimuli, and the probability of each of them, $P(s)$, is defined by our experimental protocol.
+In practice, $P(r|s)$ is much easier to derive than $P(s|r)$, and so we estimate $P(r)$ and $P(r|s)$.
+As mentioned earlier, we must repeatedly present each stimulus so it is possible to estimate the response distribution $P(r|s)$ for each stimulus condition.
+
+However, estimating these probabilities from the data can cause problems with our estimated mutual information.
+Since we have only a finite number of samples, there will inevitably be inaccuracies in our probability estimates (the ``limited sampling'' problem).
+Should we repeat the experiment, the natural variation in the samples we collect will result in statistical variance in our measured mutual information.
+Moreover, the variation due to finite sampling may cause our response distributions to appear different for different stimuli, even when the underlying response generation process is the same for each stimulus.
+Such problems produce an over-estimation bias in the computed mutual information compared with the ground truth.
+For instance, if a particular response never occurs for given stimulus presentation, a na{\"i}ve frequentist estimate of its probability would be $0$.
+This would lead us to mistakenly conclude that it is impossible a certain stimulus was presented if we observe this response, even though we could have observed this combination had we taken more samples.
+
+Of even greater concern, the bias to the estimated mutual information can vary greatly depending on the choice of experiment or analysis framework.
+One cannot draw comparisons between na{\"i}vely estimated mutual information values under different experimental criteria because the changes in the bias can completely dwarf the changes in the ground truth information value.
+It is therefore necessary to estimate the bias on the na{\"i}ve mutual information value and make a correction to counteract it.
+
+A number of techniques exist to correct for the bias in the mutual information estimation.
+The simplest of these is to shuffle the data so that responses are paired with stimuli at random \citep{Optican1991}.
+
+% Here, insert Ish. Need to adapt text to fit it in
 
 A completely different method of bias correction which works for responses with dimension $L > 1$, is to compute an estimate of the information known as $I_{\text{sh}}$.
 This is found \citep{Montemurro2007} by computing two additional terms: $H_\text{ind}( \SET{R} | \SET{S} )$, the noise entropy estimate if the dimensions of $r$ are assumed to be independent from one another; and $H_\text{sh}( \SET{R} | \SET{S} )$, the noise entropy estimate when bins are shuffled along each dimension, $r_i$, of the response to generate pseudo-response arrays.
@@ -147,20 +157,35 @@ I_{\text{sh}}(\SET{S};\SET{R}) = H( \SET{R} ) - H_\text{ind}( \SET{R} | \SET{S} 
 ,\end{equation}
 which has a much smaller bias than $I(\SET{S};\SET{R})$.
 
-Both \iac{PT} and \ac{QE} bias correction methods give similar approximations to the true information, whilst \ac{NSB} outperforms them with a less biased estimate \citep{Panzeri2007}.
-However, \ac{NSB} is very computationally intensive \citep{Panzeri2007}, so we will not be making use of it in the presented body work.
-All these bias correction methods tend to make a trade off between variability and bias, introducing more terms and hence more variability to reduce the size of bias term.
+% End insert
 
-% rule of thumb number of trials per stimulus required for decent estimate in each case
+However, a more accurate \citep{Panzeri1996} method to correct for the bias is to decompose the measured mutual information as a power series in terms of $\nicefrac{1}{N}$, where $N$ is the number of trials recorded.
+The $\nicefrac{1}{N}$ coefficient in the expansion depends only on the number of stimuli and number of possible responses \citep{Miller1955,Treves1995}.
+This dominant term is a good estimate of the bias, and subtracting it from our uncorrected information value greatly improves its accuracy \citep{Treves1995}.
+However, this term is dependent on the on the total number of potential responses for each stimulus.
+Since some stimuli may not be able to elicit every response, this is smaller than the number of  theoretically possible responses.
+However as described above, some responses may be possible to produce but unobserved in the limited set of samples.
+Consequently, \citet{Panzeri1996} use Bayesian statistics to estimate the actual number of potential responses.
+The \ac{PT} method was observed to be accurate provided there are at least 4 times as many repetitions of each stimulus as there are possible responses.
 
+A second method of correcting the bias which uses a power series expansion is the \ac{QE} method of \citet{Strong1998}.
+Here, the bias on the mutual information is assumed to be well approximated by a second order $\nicefrac{1}{N}$ expression,
+\begin{equation}
+\I_{\text{uncorrected}}(\SET{S};\SET{R}) =
+\I_{\text{true}}(\SET{S};\SET{R}) + \frac{a}{N} + \frac{b}{N^2}
+,\end{equation}
+and the two free parameters, $a$ and $b$, are found by computing the information content with fractions of the full available dataset (\ie{} using $\nicefrac{N}{2}$ and $\nicefrac{N}{4}$ trials).
+Since the two are built on the same assumptions, \ac{QE} gives similar performance to \ac{PT}, but with because it is computationally instead of analytically derived it requires more computational processing.
 
-%------------------------------------------------------------------------------
-% \section{Applying Information Theory to Neuroscience data}
+% Consider discussing Best Universal Bound (BUB) method (Paninski, 2003)
 
-% Previous research has looked at the information in the onset transient in \ac{V1}.
-% There lower variability in the transient response, and this gives the most information about the stimuli.
-% Adding activity from later is not useful.
-% \citep{Muller2001}
+The \ac{NSB} entropy estimation method \citep{Nemenman2004} provides an alternative framework through which the bias can minimised.
+This method begins with a uniform prior and uses Bayesian inference to update the probability distribution given each sample in turn.
+The result has less residual bias than the \ac{PT} or \ac{QE} methods, but at higher computational cost \citep{Panzeri2007}.
+
+Each of these bias correction methods make a trade off between variability and bias.
+Introducing more terms in order to reduce the bias invariably increases variability, but this is a price worth paying since the uncorrected bias is so prominent in the results.
+Unless indicated otherwise, we will be using the \ac{PT} bias correction method when computing mutual information with a single dimensional response, and $I_{\text{sh}}$ with \ac{PT} when using multi-dimensional response vector.
 
 
 %------------------------------------------------------------------------------
