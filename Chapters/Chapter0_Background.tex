@@ -198,7 +198,23 @@ The estimated residual bias is also removed from our reported mutual information
 %------------------------------------------------------------------------------
 \section{Neural Correlations}
 
+Since neurons do not operate in isolation and the neural code is distributed across many neurons, it is often important to consider how the behaviour of multiple neurons relate to one-another.
+A simple way to do this is to measure the correlation between the outputs of pairs of neurons.
+
+
 \subsection{Signal Correlations}
+
+Some neurons behave similarly to each other in response to stimulation across a range of potential stimuli.
+These neurons have correlated responses with respect to the input signal.
+
+From an information theoretic perspective, neurons with high signal correlation have a high redundancy.
+Of course, a redundant neural code is useful as a method of error correction.
+Neural responses are to repeated stimuli have high-variance, indicating a large amount of noise in the system.
+Duplication methods of error correction are inefficient though \citep[Chapter ?????]{mackay2003information}, and neuroscientists do not typically interpret groups of neurons to be duplicated instantiations of the same function of the stimulus.
+
+To compute signal correlation, typically one first takes the average response for each neuron in response to many presentations of the same stimulus.
+This removes the effect of correlated noise, which we assume averages out to 0 when we take the mean.
+The signal correlation is then the Pearson correlation between the two neural responses, found by treating each unique stimulus as a sample of the underlying relationship between the two neurons.
 
 
 \subsection{Noise Correlations}
