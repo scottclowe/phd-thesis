@@ -146,27 +146,32 @@ It is therefore necessary to estimate the bias on the na{\"i}ve mutual informati
 
 A number of techniques exist to correct for the bias in the mutual information estimation.
 The simplest of these is to shuffle the data so that responses are paired with stimuli at random \citep{Optican1991}.
+Unfortunately, this will often be a poor estimate of the bias for single dimensional responses \citep{Panzeri1996}.
 
-% Here, insert Ish. Need to adapt text to fit it in
+However, for a multi-dimensional response (where each stimulus presentation produces a response vector), shuffling provides an invaluable bias-correction technique.
+Using the methodology of \citet{Montemurro2007}, we add an additional step to compute the noise entropy under the simplifying assumption that each dimension of $r$ is independent of the others.
+Exploiting this, we have $$P_\text{ind}([r_1,r_2,r_3,\cdots]|s) = P(r_1|s)\,P(r_2|s)\,P(r_3|s)\,\cdots$$ and can can compute $\HH_\text{ind}( \SET{R} | \SET{S} )$ directly from estimates of each $P(r_i|s)$ derived from the data.
+This has very little bias compared with $\HH( \SET{R} | \SET{S} )$ there are so many more samples --- the ratio of samples for unique response vectors to individual response elements rises exponentially with the dimension of the response vector.
+One can alternatively estimate this entropy from pseudo-response arrays by shuffling each element in the response vector conditioned on the stimulus, producing $\HH_\text{sh}( \SET{R} | \SET{S} )$.
+Since this shuffling destroys information contained in the dependencies between elements in the response vector, this is an estimate of the same entropy value as $\HH_\text{ind}( \SET{R} | \SET{S} )$.
+Except the bias on $\HH_\text{sh}( \SET{R} | \SET{S} )$ will be similar to the bias of $\HH( \SET{R} | \SET{S} )$ because each computation uses the same number of samples.
+Consequently, we can estimate the mutual information between $\SET{S}$ and $\SET{R}$ using
+\begin{align}
+\I_{\text{sh}}(\SET{S};\SET{R})
+   &= \HH( \SET{R} ) - \left( \HH( \SET{R} | \SET{S} ) - \left( \HH_\text{sh}( \SET{R} | \SET{S} ) - \HH_\text{ind}( \SET{R} | \SET{S} ) \right) \right) \notag
+\\ &= \HH( \SET{R} ) - \HH( \SET{R} | \SET{S} ) + \HH_\text{sh}( \SET{R} | \SET{S} ) - \HH_\text{ind}( \SET{R} | \SET{S} )
+,\end{align}
+which has a much smaller bias than $\I_{\text{uncorrected}}(\SET{S};\SET{R})$.
 
-A completely different method of bias correction which works for responses with dimension $L > 1$, is to compute an estimate of the information known as $\I_{\text{sh}}$.
-This is found \citep{Montemurro2007} by computing two additional terms: $\HH_\text{ind}( \SET{R} | \SET{S} )$, the noise entropy estimate if the dimensions of $r$ are assumed to be independent from one another; and $\HH_\text{sh}( \SET{R} | \SET{S} )$, the noise entropy estimate when bins are shuffled along each dimension, $r_i$, of the response to generate pseudo-response arrays.
-The advantage of this is $\HH_\text{ind}( \SET{R} | \SET{S} )$ and $\HH_\text{sh}( \SET{R} | \SET{S} )$ should be equal, but $\HH_\text{sh}( \SET{R} | \SET{S} )$ has a bias around the same magnitude as $\HH( \SET{R} | \SET{S} )$, so we can compute
-\begin{equation}
-\I_{\text{sh}}(\SET{S};\SET{R}) = \HH( \SET{R} ) - \HH_\text{ind}( \SET{R} | \SET{S} ) + \HH_\text{sh}( \SET{R} | \SET{S} ) - \HH( \SET{R} | \SET{S} )
-,\end{equation}
-which has a much smaller bias than $\I(\SET{S};\SET{R})$.
-
-% End insert
-
-However, a more accurate \citep{Panzeri1996} method to correct for the bias is to decompose the measured mutual information as a power series in terms of $\nicefrac{1}{N}$, where $N$ is the number of trials recorded.
+An alternative method to correct for the bias is to decompose the measured mutual information as a power series in terms of $\nicefrac{1}{N}$, where $N$ is the number of trials recorded.
 The $\nicefrac{1}{N}$ coefficient in the expansion depends only on the number of stimuli and number of possible responses \citep{Miller1955,Treves1995}.
 This dominant term is a good estimate of the bias, and subtracting it from our uncorrected information value greatly improves its accuracy \citep{Treves1995}.
+This works for a single-dimensional or multi-dimensional response, and is more accurate than shuffling for a single-dimensional response \citep{Panzeri1996}.
 However, this term is dependent on the on the total number of potential responses for each stimulus.
-Since some stimuli may not be able to elicit every response, this is smaller than the number of  theoretically possible responses.
+Since some stimuli may not be able to elicit every response, this is smaller than the number of theoretically possible responses.
 However as described above, some responses may be possible to produce but unobserved in the limited set of samples.
-Consequently, \citet{Panzeri1996} use Bayesian statistics to estimate the actual number of potential responses.
-The \ac{PT} method was observed to be accurate provided there are at least 4 times as many repetitions of each stimulus as there are possible responses.
+Consequently, \ac{PT} bias-correction method of \citet{Panzeri1996} uses Bayesian statistics to estimate the actual number of potential responses.
+This method was observed to be accurate provided there are at least 4 times as many repetitions of each stimulus as there are possible responses.
 
 A second method of correcting the bias which uses a power series expansion is the \ac{QE} method of \citet{Strong1998}.
 Here, the bias on the mutual information is assumed to be well approximated by a second order $\nicefrac{1}{N}$ expression,
@@ -186,6 +191,8 @@ The result has less residual bias than the \ac{PT} or \ac{QE} methods, but at hi
 Each of these bias correction methods make a trade off between variability and bias.
 Introducing more terms in order to reduce the bias invariably increases variability, but this is a price worth paying since the uncorrected bias is so prominent in the results.
 Unless indicated otherwise, we will be using the \ac{PT} bias correction method when computing mutual information with a single dimensional response, and $\I_{\text{sh}}$ with \ac{PT} when using multi-dimensional response vector.
+In addition to this, we will repeat the mutual information calculation with shuffled stimulus-response pairing multiple times (typically 20 different shuffled pairings) with bias correction and use the average of the bootstraps to estimate the residual bias uncorrected by \ac{PT}.
+The estimated residual bias is also removed from our reported mutual information between stimulus and response.
 
 
 %------------------------------------------------------------------------------
