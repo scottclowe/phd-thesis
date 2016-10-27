@@ -34,7 +34,9 @@ The noise correlation was investigated by considering how strongly correlated th
 
 To evaluate the strength of noise correlations, the Pearson $r$ correlation coefficient was used.
 For two random variables $X$ and $Y$, this is given by
-$$r(X,Y) = \frac{\operatorname{cov}(X,Y)}{\operatorname{var}(X) \, \operatorname{var}(Y)}$$
+\begin{equation}
+r(X,Y) = \frac{\operatorname{cov}(X,Y)}{\operatorname{var}(X) \, \operatorname{var}(Y)}
+\end{equation}
 and provides a version of the covariance between the $X$ and $Y$ which is normalised again their standard deviations.
 This means $-1 \le r \le 1$ indicates how well $X$ and $Y$ fit a straight line relationship of either positive or negative slope, regardless of the gradient of the line, which could be changed by rescaling either $X$ or $Y$.
 If $r=\pm1$, there is a perfect linear relationship between $X$ and $Y$, whereas $r=0$ when $X$ and $Y$ are completely independent.
@@ -52,14 +54,14 @@ There is a large amount of variance in the noise correlations for different pair
 
 \begin{figure}[htb]
     \centering
-    \subfloat[][\label{fig:noise_r_v1_all}]{
+    \subfloat[][\label{fig:noise_r_v1_all}\ac{V1}]{
 %         \includegraphics[width=0.47\linewidth]{%
 % ./rcoef_2013-04-09/rcoef_sess_meanpc_2013-04-09/png/rcoef_sess_meanpc_v1_both.png}
 %        \includegraphics[width=0.47\linewidth]{figs/decoding/rcoef_sess_meanpc_v1_both}
         \includegraphics[width=0.47\linewidth]{figs/decoding/rcoef_sess_meanpc_v1_both.pdf}
 }
     ~~
-    \subfloat[][\label{fig:noise_r_v4_all}]{
+    \subfloat[][\label{fig:noise_r_v4_all}\ac{V4}]{
 %         \includegraphics[width=0.47\linewidth]{%
 % ./rcoef_2013-04-09/rcoef_sess_meanpc_2013-04-09/png/rcoef_sess_meanpc_v4_both.png}
         \includegraphics[width=0.47\linewidth]{figs/decoding/rcoef_sess_meanpc_v4_both.pdf}
@@ -298,7 +300,9 @@ However, since there are 14 possible stimuli with varying difficulty, a more det
 In this ``multi-binomial'' model, the set of conditions (different stimuli) is given by $C$, and each predictor, $i\in\{b,d\}$, can either be in the ``lower'' or ``higher'' state ($s_l$ or $s_h$).
 For each $c\in C$, there is some probability $p_{il|c} := P(x_i=s_l|c)$ of predictor a being in the lower state.
 Consequently, the probability of the two predictors being in the same state is given by
-$$p_a = \sum_{c\in C} P(c) (p_{bl|c} \, p_{dl|c} + (1-p_{bl|c}) (1-p_{dl|c}),$$
+\begin{equation}
+p_a = \sum_{c\in C} P(c) (p_{bl|c} \, p_{dl|c} + (1-p_{bl|c}) (1-p_{dl|c})
+,\end{equation}
 where $P(c)$ is the probability of condition $c$ being presented to the animal on any given trial.
 
 We will assume that $c$ is a random variable, which is sampled from for each trial independent from prior trials.
