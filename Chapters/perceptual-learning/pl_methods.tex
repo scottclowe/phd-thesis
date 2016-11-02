@@ -6,6 +6,16 @@
 \subsection{Artifact elimination}
 \label{sec:ma}
 
+An artifact was identified which was triggered whenever the monitor refreshed.
+Unfortunately, the monitor-refresh artifact had a profile very similar to that of a neural spike.
+Consequently, it continued to contaminate the data further down the processing pipeline.
+
+The precise shape and magnitude of the artifact signal varied depending on channel and session, however for each individual channel the timing and shape of the artifact relative to the monitor refresh was highly reliable over the course of each session.
+Therefore, this artifact was removed from the data by averaging the raw recordings between each monitor refresh to find a stereotyped artifact profile, and subtracting this template from the recordings immediately following each monitor refresh.
+Since the artifact signal was sharply peaked and the monitor refresh was not phase-locked with the data sampling frequency, the stereotypical template was super-resolved by binning the samples into bins with 4 times the sampling frequency.
+For each monitor refresh, the template subtracted from the data samples was linearly interpolated against the super-resolved template depending on the phase of the data sampling rate.
+
+
 \subsection{Spike detection}
 \label{sec:ma}
 
