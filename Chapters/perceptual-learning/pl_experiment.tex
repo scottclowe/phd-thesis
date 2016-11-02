@@ -264,3 +264,13 @@ Consequently there was high variability in the number of trials per session, ran
 During training, the subject's performance on the task initially increased each day.
 After around 20 sessions, its performance stabilised at a plateau.
 Once the performance level was consistent for 5 consecutive sessions, this phase of the experiment was terminated.
+
+
+\subsection{Data acquisition}
+
+Raw data was acquired at a sampling frequency of \SI{32,556}{Hz} using a 24-bit analog-to-digital converter.
+The minimum and maximum input was 11 to 136,986 microvolts --- values below or above this range were recorded at the floor or ceiling value respectively.
+
+Raw data was subsequently bandpass filtered with a lower cutoff frequency of \SI{600}{Hz} and upper cutoff in the range \SIrange{2500}{4000}{Hz}.
+This frequency range extracted the high frequency components of the neural signal whilst excluding high frequency noise from the experimental equipment.
+The upper cutoff frequency was manually selected for each channel and session.
