@@ -375,15 +375,21 @@ which is the amount of information gained about the stimulus when we already kno
 If $X$ contains no more information about $S$ than is already contained in $Y$, then
 $\I\left(\left\{X,Y\right\};S\right) = \I\left(Y;S\right)$
 and we therefore have
-$$\operatorname{InfoGain}\left(Y\to\left\{X,Y\right\};S\right)=0 ,$$
+\begin{equation}
+\operatorname{InfoGain}\left(Y\to\left\{X,Y\right\};S\right)=0
+,\end{equation}
 which makes intuitive sense in line with the concept of information gain.
 However, if $\I\left(X;S\right)=0$, meaning $X$ contains no information about the stimulus, this would be divergent, so we instead choose by definition
-$$\operatorname{InfoGain}\left(Y\to\left\{X,Y\right\};S\right)=0$$
+\begin{equation}
+\operatorname{InfoGain}\left(Y\to\left\{X,Y\right\};S\right)=0
+\end{equation}
 for this case.
 If $X$ and $Y$ contain independent information about the stimulus,
 $\I\left(\left\{X,Y\right\};S\right) = \I\left(X;S\right) + \I\left(Y;S\right)$,
 then we find that
-$$\operatorname{InfoGain}\left(Y\to\left\{X,Y\right\};S\right) = 1 = 100\%.$$
+\begin{equation}
+\operatorname{InfoGain}\left(Y\to\left\{X,Y\right\};S\right) = 1 = 100\%
+.\end{equation}
 However, as stated above, observing
 $\operatorname{InfoGain} = 1$
 is necessary but insufficient to conclude that $X$ and $Y$ contain exclusively independent information about $S$, since the same result can be achieved provided their synergy and redundancy effects cancel each other out.
