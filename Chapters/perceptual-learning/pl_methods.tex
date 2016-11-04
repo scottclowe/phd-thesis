@@ -19,3 +19,34 @@ For each monitor refresh, the template subtracted from the data samples was line
 \subsection{Spontaneous Activity Normalisation}
 \label{sec:pl_san}
 
+The manual selection of spike detection thresholds described in \autoref{sec:pl_spike_extraction} resulted in a lack of consistency across sessions of the firing rates for individual channels.
+% Such inconsistencies made comparison across recording sessions more difficult.
+To resolve this problem, spiking activity was re-extracted with an automated threshold set such that the spontaneous firing rate was matched across sessions.
+
+For each channel, a target spontaneous firing rate was set by manually choosing a session from the middle of the experiment with an intermediate signal to noise ratio.
+Spikes from each channel had previously been sorted using computer-assisted manual clustering, and the target firing rate was set at the total multi-unit firing rate of all clusters.
+Unsorted spikes outside of all clusters were not included in the firing rate target.
+This choice should ensure the target firing rate is a sensible expectation of the true background firing rate for as many recording sessions as possible.
+
+Due to, amongst other differences, changes in the noise level between sessions, simply using the same voltage threshold for each session would not result extracting a consistent firing rate.
+To determine the appropriate spike detection threshold which would match the target spontaneous activity for each session, we searched using an iterative routine on the number of extracted spikes as a function of the threshold.
+On each iteration, the spontaneous firing rate was determined based on the number of spikes during the pre-trial fixation period (Step 1 in \autoref{sec:pl_task}), as extracted using our algorithm described in \autoref{sec:pl_spike_extraction}.
+
+The initial threshold was set using the following method.
+\begin{enumerate}
+\item Find the overall firing rate over all trials (including stimulus presentation as well as spontaneous activity) for the benchmark session being used to define the target spontaneous activity firing rate, $\tilde{f}_\text{target}$.
+\item Set $\SET{\hat{V}_40}$ to be the maximum voltage over every 40 consecutive samples (a duration of \SI{1.23}{\milli\second}) during the first hour of recording for the session to be matched.
+\item Find the threshold $T_0$ such that number of values in $\SET{\hat{V}_40}$ exceeding $T_0$ equals one hour at rate $\tilde{f}_\text{target}$.
+\end{enumerate}
+This routine allowed us to effectively allowed us to search over all possible thresholds very rapidly and find a suitable initialisation close to the final threshold for the majority of channels and sessions.
+
+If the initial threshold was too high, our second try was 3\% higher; if it was too low, our second try was 1\% lower\footnote{Since the computation involved in our spike extraction routine scales linearly with the number of spikes extracted, we err on the side of over-estimating the threshold since this costs notably less time.}.
+After this, we performed an iterative search for the target threshold using a weighted combination of linear interpolation and bisection (80\% linear interpolation, 20\% bisection).
+The search was halted once a threshold was found which yielded a spontaneous firing rate within $\pm1\%$ of the target.
+
+Our choice to set the spike detection threshold in this manner assumes that the spontaneous firing rate for each recording channel is stable over the course of a month of recordings.
+Such an assumption is imperfect, since it is possible for small movements in the chronic implant to change which neurons are closest to the electrode.
+Furthermore, it is possible that rewiring of the neural synapses either due to natural changes or triggered by the perceptual learning experiment will change the baseline firing rate of the recorded neurons.
+However, the results of our spike sorting suggest that most of the neurons close to the electrode contact remained close through the experiment.
+Additionally, it is not currently known whether perceptual learning triggers changes in spontaneous activity but we anticipate that homoeostasis will counteract any changes induced by it in order to stabilise the overall firing rate.
+Certainly any choice of spike extraction threshold is arbitrary, and this choice yields much greater consistency in our data, rendering sessions across the duration of the experiment more directly comparable.
