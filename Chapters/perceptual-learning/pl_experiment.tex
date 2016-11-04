@@ -277,3 +277,22 @@ The minimum and maximum input was 11 to 136,986 microvolts --- values below or a
 Raw data was subsequently bandpass filtered with a lower cutoff frequency of \SI{600}{Hz} and upper cutoff in the range \SIrange{2500}{4000}{Hz}.
 This frequency range extracted the high frequency components of the neural signal whilst excluding high frequency noise from the experimental equipment.
 The upper cutoff frequency was manually selected for each channel and session.
+
+
+\subsection{Initial spike extraction}
+\label{sec:pl_spike_extraction}
+
+Spikes were extracted from the filtered data using a voltage threshold.
+For each recording channel and session, a threshold was selected by hand at a voltage higher than the background noise, such that both high and low amplitude spikes will exceed the threshold.
+For each channel, the extracted spike trains contain spikes from multiple neurons (multi-unit) surrounding the electrode.
+All the spikes from high-amplitude neurons close to the electrode will be included, but lower-amplitude spikes from further away may peak with a voltage around the detection threshold.
+Consequently, only a subset of the spikes from more distant neurons will be detected.
+
+After defining a detection threshold, spikes were extracted using the following algorithm.
+\begin{enumerate}
+\item Find the first sample point to exceed the threshold.
+\item Find the peak of the spike by searching for next time the voltage decreases (searching forwards by at most 24 data points).
+\item Extract the 8 data points preceding and 23 data points succeeding the peak as the waveform of the spike, with duration \SI{0.98}{\milli\second}.
+\item Skip forward to the end of the extracted waveform (24 data points after the peak) before searching for the threshold to be exceeded again.
+\end{enumerate}
+This algorithm enforces a minimum inter-spike interval of \SI{0.74}{\milli\second}.
