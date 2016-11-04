@@ -150,7 +150,11 @@ Unfortunately, this will often be a poor estimate of the bias for single dimensi
 
 However, for a multi-dimensional response (where each stimulus presentation produces a response vector), shuffling provides an invaluable bias-correction technique.
 Using the methodology of \citet{Montemurro2007}, we add an additional step to compute the noise entropy under the simplifying assumption that each dimension of $r$ is independent of the others.
-Exploiting this, we have $$P_\text{ind}([r_1,r_2,r_3,\cdots]|s) = P(r_1|s)\,P(r_2|s)\,P(r_3|s)\,\cdots$$ and can can compute $\HH_\text{ind}( \SET{R} | \SET{S} )$ directly from estimates of each $P(r_i|s)$ derived from the data.
+Exploiting this, we have
+\begin{equation}
+P_\text{ind}([r_1,r_2,r_3,\cdots]|s) = P(r_1|s)\,P(r_2|s)\,P(r_3|s)\,\cdots
+\end{equation}
+and can can compute $\HH_\text{ind}( \SET{R} | \SET{S} )$ directly from estimates of each $P(r_i|s)$ derived from the data.
 This has very little bias compared with $\HH( \SET{R} | \SET{S} )$ there are so many more samples --- the ratio of samples for unique response vectors to individual response elements rises exponentially with the dimension of the response vector.
 One can alternatively estimate this entropy from pseudo-response arrays by shuffling each element in the response vector conditioned on the stimulus, producing $\HH_\text{sh}( \SET{R} | \SET{S} )$.
 Since this shuffling destroys information contained in the dependencies between elements in the response vector, this is an estimate of the same entropy value as $\HH_\text{ind}( \SET{R} | \SET{S} )$.
