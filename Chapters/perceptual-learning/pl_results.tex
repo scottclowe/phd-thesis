@@ -173,54 +173,54 @@
 % \end{figure}
 %
 %
-% %==============================================================================
-% \section{$d'$ Analysis}
-% %------------------------------------------------------------------------------
-%
-% In an attempt to clean up the data and only use the channels and sessions which provide the most relevant results
-%
-% Discriminating based on the information content in the channels would allow us to ``cherry-pick'' the best data and artificially inflate the results, so an independent metric of data quality was sought.
-% Since we are interested in the channels where the data is of reasonable quality and the neurons represented by the channel are responsive to the stimulus, $d'$ was used.
-%
-% $d'$ is ...
-%
-% %------------------------------------------------------------------------------
-% \subsection{Methods}
-%
-% % How is it computed?
-%
-% % $$
-% % \mu_{stim} = mean(a_{stim});
-% % \mu_{spon} = mean(a_{spon});
-% % 
-% % % Combine the standard deviations of the two sets of trials
-% % % Have to do a weighted average of the variances
-% % stdev_joint = sqrt(...
-% %     ( (n_stim-1)*var(act_stim) + (n_spon-1)*var(act_spon) ) ...
-% %     / (n_stim + n_spon - 2) ...
-% %     );
-%
+%==============================================================================
+\section{$d'$ Analysis}
+%------------------------------------------------------------------------------
+
+In an attempt to clean up the data and only use the channels and sessions which provide the most relevant results
+
+Discriminating based on the information content in the channels would allow us to ``cherry-pick'' the best data and artificially inflate the results, so an independent metric of data quality was sought.
+Since we are interested in the channels where the data is of reasonable quality and the neurons represented by the channel are responsive to the stimulus, $d'$ was used.
+
+$d'$ is ...
+
+%------------------------------------------------------------------------------
+\subsection{Methods}
+
+% How is it computed?
+
 % $$
-% d\,' = \frac{\mu_{stim} - \mu_{spon}}{\sigma_{joint}}
-% ,$$
-% where the joint standard deviation over both populations is given by 
-% $$
-% \sigma_{joint} = \sqrt
-%     \frac{ (n_{stim}-1) \, \sigma_{stim} + (n_{spon}-1) \, \sigma_{spon} }
-%     { n_{stim} + n_{spon} - 2}
-% $$
-% so that it is weighted by the number of datapoints, $n_{stim}$ and $n_{spon}$, for both the stimulus presentation and spontaneous activity 
+% \mu_{stim} = mean(a_{stim});
+% \mu_{spon} = mean(a_{spon});
 %
-% References
-% Compared the mean firing rate for spontaneous activity and the sample stimulus of 30\% contrast
-% Compared the mean firing rate for spontaneous activity and the highest contrast test stimulus
-%
-% %------------------------------------------------------------------------------
-% \subsection{Results}
-%
-% d' increases with learning
-%
-% Just using channels with a session-wise mean d' > X gives us cleaner results
+% % Combine the standard deviations of the two sets of trials
+% % Have to do a weighted average of the variances
+% stdev_joint = sqrt(...
+%     ( (n_stim-1)*var(act_stim) + (n_spon-1)*var(act_spon) ) ...
+%     / (n_stim + n_spon - 2) ...
+%     );
+
+$$
+d\,' = \frac{\mu_{stim} - \mu_{spon}}{\sigma_{joint}}
+,$$
+where the joint standard deviation over both populations is given by
+$$
+\sigma_{joint} = \sqrt
+    \frac{ (n_{stim}-1) \, \sigma_{stim} + (n_{spon}-1) \, \sigma_{spon} }
+    { n_{stim} + n_{spon} - 2}
+$$
+so that it is weighted by the number of datapoints, $n_{stim}$ and $n_{spon}$, for both the stimulus presentation and spontaneous activity
+
+References
+Compared the mean firing rate for spontaneous activity and the sample stimulus of 30\% contrast
+Compared the mean firing rate for spontaneous activity and the highest contrast test stimulus
+
+%------------------------------------------------------------------------------
+\subsection{Results}
+
+d' increases with learning
+
+Just using channels with a session-wise mean d' > X gives us cleaner results
 
 
 %==============================================================================
