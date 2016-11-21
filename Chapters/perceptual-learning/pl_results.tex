@@ -322,18 +322,36 @@ For instance, this would be achieved if the absolute activity in response to the
 
 %==============================================================================
 \FloatBarrier
-\section{Information Theory-based methods}
+\section{Information in individual channels}
 %------------------------------------------------------------------------------
+
+We now apply the principles of Shannon information, as described in \autoref{sec:bgit}, to the perceptual learning data.
+We are interested in how easy it is to determine which contrast the stimulus was presented with by observing the neural activity in response to the stimulus.
+Since the subject's performance increases with training, we expect to find the amount of information encoded in the neural activity to increase with training.
+
+To make its decision, the subject has access to all the neurons we have recorded and all the neurons in the brain from which we have not recorded.
+Consequently, it would for the best idea of how much information the brain has access to, we would evaluate how much information is contained in the vector of neuronal responses for every recording channel.
+However, this is problematic.
+As the number of data streams combined into the response vector increases, the number of possible unique response vectors increases exponentially.
+However, the number of trials recorded over is held fixed, and the number of possible response vectors must be constrained to prevent the estimated amount of information diverging to infinity (see \autoref{sec:bgit}).
+
+Therefore, in this section we consider the information about the contrast of the stimulus encoded in the firing rate detected from only a single channel at once.
+Because the spikes detected from each channel have been left unsorted and not resolved into clusters corresponding to individual neurons, this will be a multi-unit analysis, but only in the sense of neighbouring neurons being detected by the same electrode contact.
+
+
+%------------------------------------------------------------------------------
+\subsection{Methods}
+
+The mutual information between the spiking activity during test presentation and the identity of the test stimulus was computed using a spike-timing based code.
+This computation was done using the \verb|information| function from the freely available \textit{Information Breakdown Toolbox} \citep{Magri2009} for MATLAB.%
+\footnote{Available at \url{http://www.ibtb.org}}
+
 
 %------------------------------------------------------------------------------
 \subsection{Session-based analysis}
 
 The information was computed for each day of training (hereafter referred to as a session), for each of the channels from which recordings were available.
 To gauge the typical behaviour of a neuron, the mean was taken over all the channels.
-The mutual information between the spiking activity during test presentation and the identity of the test stimulus was computed
-using a spike-timing based code.
-This computation was done using the \verb|information| function from the freely available Information Break-down Toolbox \citep{Magri2009} for MATLAB.%
-\footnote{Available at \url{http://www.ibtb.org}}
 
 A moving window of $\SI{20}{ms}$ was taken and subdivided into 5 sequential bins, each of $\SI{4}{ms}$.
 The number of spikes within each of the 5 bins was totalled up to provide a code letter for the bin.
