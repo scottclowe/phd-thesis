@@ -174,53 +174,150 @@
 %
 %
 %==============================================================================
-\section{$d'$ Analysis}
+\section{Sensitivity analysis}
 %------------------------------------------------------------------------------
 
-In an attempt to clean up the data and only use the channels and sessions which provide the most relevant results
+One simple method of comparing how the encoding of stimuli changes over time is to use the amount the sensitivity index, $d'$.
+This gives a measure of how separable the signal and the noise are, by comparing the difference in their means with the overall standard deviation.
+% For a classifier, this is defined as the difference between the hit rate and the false alarm rate,
+% \begin{equation}
+% d' = P(A | A) - P(A | \bar{A})
+% ,\end{equation}
 
-Discriminating based on the information content in the channels would allow us to ``cherry-pick'' the best data and artificially inflate the results, so an independent metric of data quality was sought.
-Since we are interested in the channels where the data is of reasonable quality and the neurons represented by the channel are responsive to the stimulus, $d'$ was used.
+For Gaussian distributed data, the sensitivity index is defined as
+\begin{equation}
+d' = \frac{\mu_\text{stim} - \mu_\text{noise}}{\sigma_\text{joint}}
+,\end{equation}
+where the joint standard deviation is the over for the two distributions,
+\begin{equation}
+% \sigma_\text{joint} = \sqrt
+%     \frac{ (n_\text{stim}-1) \, \sigma_\text{stim}^2 + (n_\text{noise}-1) \, \sigma_\text{noise}^2 }
+%     { n_\text{stim} + n_\text{noise} - 2}
+\sigma_\text{joint} = \sqrt \frac{\sigma_\text{stim}^2 + \sigma_\text{noise}^2}{2}
+.\end{equation}
+For our analysis, the noise is the spiking activity during periods of spontaneous activity.
+With the sample stimulus and 14 test stimuli with differing contrast levels, we have 15 possible signals to choose from for each dataset.
+Since it has the most presentations and lies in the middle of the range of the contrasts, we will just consider $d'$ with respect to the response signal when presenting the sample stimulus.
 
-$d'$ is ...
+The number of spikes over a finite duration, which cannot be negative, is Poisson distributed instead of Gaussian distributed.
+However, the two distributions do converge for large $n$, and so we disregard this and use the Gaussian form of the definition of $d'$.
 
 %------------------------------------------------------------------------------
 \subsection{Methods}
 
-% How is it computed?
+To compute $d'$, we considered the signal and noise to be the number of spikes occurring during a \SI{150}{\milli\second} period of activity.
+For spontaneous (noise) activity, this was the \SI{150}{\milli\second} immediately preceding the sample stimulus onset.
+For signal activity, this was the \SI{150}{\milli\second} either \SI{30}{\milli\second} (\ac{V1}) or \SI{60}{\milli\second} (\ac{V4}).
+This delay was used to approximately account for the minimal possible response latency in \ac{V1} and \ac{V4}.
 
-% $$
-% \mu_{stim} = mean(a_{stim});
-% \mu_{spon} = mean(a_{spon});
-%
-% % Combine the standard deviations of the two sets of trials
-% % Have to do a weighted average of the variances
-% stdev_joint = sqrt(...
-%     ( (n_stim-1)*var(act_stim) + (n_spon-1)*var(act_spon) ) ...
-%     / (n_stim + n_spon - 2) ...
-%     );
+The violin plots showing the distribution over channels of $d'$ before and after training were created by taking a Gaussian kernel density with a bandwidth of 0.15.
+This bandwidth was determined using the rule of thumb bandwidth estimator,
+\begin{equation}
+w = \hat{\sigma} \left( \frac{4}{3 n} \right) ^ \frac{1}{5}
+,\end{equation}
+for each animal and area on the distribution before and after training, and using the minimum of these 8 values.
+This ensures sufficient detail about the distribution is captured for each distribution, and all are comparable with each other.
 
-$$
-d\,' = \frac{\mu_{stim} - \mu_{spon}}{\sigma_{joint}}
-,$$
-where the joint standard deviation over both populations is given by
-$$
-\sigma_{joint} = \sqrt
-    \frac{ (n_{stim}-1) \, \sigma_{stim} + (n_{spon}-1) \, \sigma_{spon} }
-    { n_{stim} + n_{spon} - 2}
-$$
-so that it is weighted by the number of datapoints, $n_{stim}$ and $n_{spon}$, for both the stimulus presentation and spontaneous activity
-
-References
-Compared the mean firing rate for spontaneous activity and the sample stimulus of 30\% contrast
-Compared the mean firing rate for spontaneous activity and the highest contrast test stimulus
+To investigate whether $d'$ changed significantly during the course of our experiments, we compared the average $d'$ during the first 3 and final 3 experimental sessions.
+A paired $t$-test (two-tailed) was used to study whether the $d'$ consistently increased or decreased for the channels.
 
 %------------------------------------------------------------------------------
 \subsection{Results}
 
-d' increases with learning
+\subsubsection{V1}
 
-Just using channels with a session-wise mean d' > X gives us cleaner results
+For \ac{V1}, we found the $d'$ decreased with training (see \autoref{fig:dprime_v1}).
+A similar result was observed for each subject.
+The average change in was $\Delta d' = -0.524267$ ($p < 3e-04$, paired $t$-test) for \ac{M1} and $\Delta d' = -0.463924$ ($p < 3e-10$, paired $t$-test) for \ac{M2}.
+ 
+\begin{figure}[htbp]
+    \centering
+    \hspace*{\fill}
+    \subfloat[\ac{M1} \ac{V1}\label{fig:dprime_v1_blanco}]{
+        \centering
+        \includegraphics[scale=.45]{%
+figs/dprime/dprime_sample_hm_hotcold_blanco_v1_1_rmon2.eps}
+    }
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[\ac{M2} \ac{V1}\label{fig:dprime_v1_jack}]{
+        \centering
+        \includegraphics[scale=.45]{%
+figs/dprime/dprime_sample_hm_hotcold_jack_v1_1_rmon2.eps}
+    }
+    \hspace*{\fill}
+    \caption{Change in $d'$ over training sessions for \ac{V1} recordings.
+\protect\subref{fig:dprime_v1_blanco}: $d'$ for \ac{M1}, shown for each recording channel, with channels ordered according to average $d'$ over all sessions.
+Above, traces of $d'$ for each channel (colours), and average over channels (black).
+Below, heatmap showing $d'$ for each channel.
+Right top, violin plots showing distribution over channels of the average $d'$ in the first 3 sessions (A) and last 3 sessions (B), with mean (solid black line) and median (dashed green line) over channels indicated.
+The violin plot shows a Gaussian kernel density using a bandwidth of $0.11$.
+\protect\subref{fig:dprime_v1_jack}: Same as \protect\subref{fig:dprime_v1_blanco}, but for \ac{M2}.
+}
+    \label{fig:dprime_v1}
+\end{figure}
+
+
+\subsubsection{V4}
+
+This is in contrast with our findings for \ac{V4}.
+For \ac{M1}, some channels marginally increased and others marginally decreased their $d'$ with training (\autoref{fig:dprime_v4_blanco}).
+Overall, there was a small decrease in average $d'$, with $\Delta d' = -0.094373$, which was not a statistically significant change ($p=0.25$).
+
+With \ac{M2}, many channels began training either indifferent to the stimulus, $d'=0$, or suppressed by it, $d'<0$ (\autoref{fig:dprime_v4_jack}).
+Starting from this lower position, there was a significant increase of $\Delta d' = +0.340810$ ($p<5e-07$).
+However the final $d'$ for almost all channels recorded for \ac{M2} was still lower than the average $d'$ for \ac{M1}.
+
+\begin{figure}[htbp]
+    \centering
+    \hspace*{\fill}
+    \subfloat[\ac{M1} \ac{V4}\label{fig:dprime_v4_blanco}]{
+        \centering
+        \includegraphics[scale=.45]{%
+figs/dprime/dprime_sample_hm_hotcold_blanco_v4_1_rmon2.eps}
+    }
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[\ac{M2} \ac{V4}\label{fig:dprime_v4_jack}]{
+        \centering
+        \includegraphics[scale=.45]{%
+figs/dprime/dprime_sample_hm_hotcold_jack_v4_1_rmon2.eps}
+    }
+    \hspace*{\fill}
+    \caption{Same as \autoref{fig:dprime_v1}, but for $d'$ during \ac{V4} recordings.
+\protect\subref{fig:dprime_v4_blanco}: \ac{M1}.
+\protect\subref{fig:dprime_v4_jack}: \ac{M2}.
+}
+    \label{fig:dprime_v4}
+\end{figure}
+
+
+\subsection{Discussion}
+
+By analysing the sensitivity index, $d'$, we can see whether channels become more or less responsive to our stimulus class over time.
+Since \ac{V1} is an early step in the visual processing hierarchy, its neurons respond strongly to simple stimuli such as the sinusoidal gratings we present.
+Consequently, neurons have large responses to our stimuli even from the first session of the experimental training.
+Over time, we found a decrease in sensitivity in \ac{V1} for both subjects.
+We suspect this decrease in sensitivity of the neural response in \ac{V1} to the sample stimulus is due to unpreventable deterioration in the recording quality of the implanted chronic electrodes over time.
+Overtime, the noise increases and the signal-to-noise ratio falls, which leads to a reduction in the distinguisability of the two activity distributions.
+
+On the other hand, \ac{V4} is higher up the visual hierarchy and in general responds to more a complex stimulus class.
+For \ac{M1}, many of the neurons we recorded from were responsive to the primitive Gabor stimulus from the beginning of training.
+But for \ac{M2}, this was not the case --- on the contrary, many neurons were suppress by the Gabor stimulus.
+With training, neurons recorded in \ac{M1} did not notably change their sensitivity to the sample stimulus, whereas $d'$ did increase for \ac{M2}.
+
+We make particular note of the fact that the $d'$ in \ac{V4} increased for \ac{M2} from mostly negative initially values.
+In principle, a decrease in activity in response to a stimulus can provide as much information about the presence of the stimulus as increase in activity.
+However, it is difficult for neurons to increase their spontaneous activity due to the constraining effects of homeostasis, and it would be energetically inefficient for them to do so.
+Therefore, since the firing rate of a neuron cannot fall below $0$ there is a smaller limit to the amount by which firing rates can differ if the information about the stimulus is conveyed by a reduction in activity compared to the background rate.
+To provided more sensitivity for the response to our experimental stimuli, it thus makes sense for neurons which are suppressed by the stimulus class to increase their responses such that they are enhanced by its presence.
+In practice, the de-suppression of the responses may arise not from the need of many individual neurons to encode the stimulus, but from a small number increasing the magnitude of their responses and then the connected neurons (which are positively correlated) increase their responses also.
+
+From these results, we hypothesise that the sensitivity of the response to the experimental stimuli increases for the local network retinotopic to the stimulus location if it is too low for the network overall.
+If the neurons are sufficiently sensitive to the stimulus to begin with (if $d'$ is high enough) then the sensitivity remains the same and does not increase with training.
+Of course, the recorded sensitivity may decrease due to the decline in the recording quality.
+
+With this measure, we can determine which channels contain neurons which change their relative responsiveness to the stimulus class, but we do not know how the distribution of responses change across the 14 different stimuli.
+It is certainly plausible for neurons which begin their training already responsive to the stimuli to change their distribution of activity with respect to the contrast of the stimulus to provide more pertinent information for the experimental task.
+For instance, this would be achieved if the absolute activity in response to the sample stimulus remains the same but the rate of change of activity with respect to the contrast of the stimulus increases.
 
 
 %==============================================================================
