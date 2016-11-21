@@ -361,78 +361,50 @@ This is performed across all the trials in a session with the $\SI{20}{ms}$ wind
 By assembling the trials according to their test contrast, the mutual information between the contrast and the spiking activity in this window can be computed.
 
 %------------------------------------------------------------------------------
-% 5bins of 4ms
-% figs/info/I_sessionwise_blanco_v1_chmean23_s343-359_oc1_5bins_of_4ms_dr_naive_pcolorhot_20120815T150057.png
-% figs/info/I_sessionwise_blanco_v4_chmean31_s307,308,311,313,314,317,318,320,321,329-341_oc1_5bins_of_4ms_dr_naive_pcolorhot_20120815T150100.png
-% figs/info/I_sessionwise_jack_v1_chmean25_s51-72_oc1_5bins_of_4ms_dr_naive_pcolorhot_20120815T150049.png
-% figs/info/I_sessionwise_jack_v4_chmean20_s24-49_oc1_5bins_of_4ms_dr_naive_pcolorhot_20120815T150053.png
-% 1 bin of 20ms
-% figs/info/I_sessionwise_blanco_v1_chmean23_s343-359_oc1_1bins_of_20ms_dr_naive_pcolorhot_20120815T190833.png
-% figs/info/I_sessionwise_blanco_v4_chmean31_s307,308,311,313,314,317,318,320,321,329-341_oc1_1bins_of_20ms_dr_naive_pcolorhot_20120815T190836.png
-% figs/info/I_sessionwise_jack_v1_chmean25_s51-72_oc1_1bins_of_20ms_dr_naive_pcolorhot_20120815T190825.png
-% figs/info/I_sessionwise_jack_v4_chmean20_s24-49_oc1_1bins_of_20ms_dr_naive_pcolorhot_20120815T190829.png
-% 
-% figs/info/I_sessionwise_blanco_v1_chmean23_s343-359_oc1_5bins_of_4ms_dr_naive_pcolorhot_20120815T202102.png
-% figs/info/I_sessionwise_blanco_v4_chmean31_s307,308,311,313,314,317,318,320,321,329-341_oc1_5bins_of_4ms_dr_naive_pcolorhot_20120815T202106.png
-% figs/info/I_sessionwise_jack_v1_chmean25_s51-72_oc1_5bins_of_4ms_dr_naive_pcolorhot_20120815T202053.png
-% figs/info/I_sessionwise_jack_v4_chmean20_s24-49_oc1_5bins_of_4ms_dr_naive_pcolorhot_20120815T202058.png
+\begin{figure}[htbp]%
+    \centering
+    \hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V1}.\label{fig:info_sess_v1_blanco}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/I_sessionwise_blanco_v1_chmean23_s343-359_oc0_1bins_of_20ms_dr_pt_imscn_clhot.eps}}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V4}.\label{fig:info_sess_v1_jack}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/I_sessionwise_jack_v1_chmean25_s51-72_oc0_1bins_of_20ms_dr_pt_imscn_clhot.eps}}
+    \hspace*{\fill}
+    \caption{Information about the test stimulus contained in the neural activity during test presentation, as a function of number of .
+The mutual information with the test stimulus is taken for a spike timing based code for a \SI{20}{ms} window of spiking activity, sampled with the start of the window offset ($y$-axis) from \SI{0}{ms} up to \SI{500}{ms} after test stimulus onset.
+The sampling is in intervals of \SI{5}{ms}, so any 4 adjacent squares within each session are highly correlated.
+The recording session number for the data is given along the $x$-axis, and the number of days the animal has been trained for increases from left to right.
+Average mutual information across all the channels is denoted by the pseudo-colour of each of the rectangular patches, centred around the $(x,y)$ co-ordinate to which the measurement relates.
+In each case the average is taken across all available channel data: \protect\subref{fig:info_sess_v1_blanco}~23 channels, \protect\subref{fig:info_sess_v4_blanco}~30 channels, \protect\subref{fig:info_sess_v1_jack}~25 channels, \protect\subref{fig:info_sess_v4_jack}~20 channels.
+The \ac{PT} bias correction method was used (see text).
+}
+    \label{fig:info_sess_v1}
+\end{figure}
 
 
-%%\begin{figure}
-%%\centering
-%%\subfloat[A big tikz picture.\label{fig:one}]{%
-%%  \makebox[\textwidth][l]{% %%% as above
-%%  \resizebox{.45\largefigure}{!}{%
-%%    \input{fig/tikzfile}}}}%
-%%\hfill%
-%%\subfloat[Another big tikz picture.\label{fig:two}]{%
-%%  \makebox[\textwidth][l]{% %%% as above
-%%  \resizebox{.45\largefigure}{!}{%
-%%    \input{fig/tikzfile}}}}%
-%%\caption{Two tikz pictures}
-%%\label{fig:label}
-%%\end{figure}
-%%
-%%\begin{figure}%
-%%\centering
-%%\subfloat[][]{...figure code...}%
-%%\qquad
-%%\subfloat[][]{...figure code...}%
-%%\caption{Here are the first two figures of a continued figure.}%
-%%\label{fig:cont}%
-%%\end{figure}
 
 \begin{figure}[htbp]%
     \centering
-    \subfloat[][\ac{M1} \ac{V1}.\label{fig:sessb1}]{%
-        \includegraphics[scale=.25]{%
-figs/info/I_sessionwise_blanco_v1_chmean23_s343-359_oc1_5bins_of_4ms_dr_naive_pcolorhot_20120815T202102.png}
-    }%
-    ~~
-    \subfloat[][\ac{M1} \ac{V4}.\label{fig:sessb4}]{%
-        \includegraphics[scale=.25]{%
-figs/info/I_sessionwise_blanco_v4_chmean31_s307,308,311,313,314,317,318,320,321,329-341_oc1_5bins_of_4ms_dr_naive_pcolorhot_20120815T202106.png}
-    }%
-    \\
-    \subfloat[][\ac{M2} \ac{V1}.\label{fig:sessj1}]{%
-        \includegraphics[scale=.25]{%
-figs/info/I_sessionwise_jack_v1_chmean25_s51-72_oc1_5bins_of_4ms_dr_naive_pcolorhot_20120815T202053.png}
-    }%
-    ~~
-    \subfloat[][\ac{M2} \ac{V4}.\label{fig:sessj4}]{%
-        \includegraphics[scale=.25]{%
-figs/info/I_sessionwise_jack_v4_chmean20_s24-49_oc1_5bins_of_4ms_dr_naive_pcolorhot_20120815T202058.png}
-    }%
+    \hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V1}.\label{fig:info_sess_v4_blanco}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/I_sessionwise_blanco_v4_chmean30_s307,308,311,313,314,317,318,320,321,329-341_oc0_1bins_of_20ms_dr_pt_imscn_clhot.eps}}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V4}.\label{fig:info_sess_v4_jack}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/I_sessionwise_jack_v4_chmean20_s24,25,27-38,40-49_oc0_1bins_of_20ms_dr_pt_imscn_clhot.eps}}
+    \hspace*{\fill}
     \caption{Mutual information between the test stimulus and the neural activity during test presentation.
 The mutual information with the test stimulus is taken for a spike timing based code for a \SI{20}{ms} window of spiking activity, sampled with the start of the window offset ($y$-axis) from \SI{0}{ms} up to \SI{500}{ms} after test stimulus onset (which is slightly more than \SI{20}{ms} before test stimulus offset).
 The sampling is in intervals of \SI{5}{ms}, so any 4 adjacent squares within each session are highly correlated.
 The recording session number for the data is given along the $x$-axis, and the number of days the animal has been trained for increases from left to right.
 Average mutual information across all the channels is denoted by the pseudo-colour of each of the rectangular patches, centred around the $(x,y)$ co-ordinate to which the measurement relates.
-In each case the average is taken across all available channel data: \protect\subref{fig:sessb1}~23 channels, \protect\subref{fig:sessb4}~30 channels, \protect\subref{fig:sessj1}~25 channels, \protect\subref{fig:sessj4}~20 channels.
-% The \ac{PT} bias correction method was used (see text).
-No bias correction method was used.
+In each case the average is taken across all available channel data: \protect\subref{fig:info_sess_v1_blanco}~23 channels, \protect\subref{fig:info_sess_v4_blanco}~30 channels, \protect\subref{fig:info_sess_v1_jack}~25 channels, \protect\subref{fig:info_sess_v4_jack}~20 channels.
+The \ac{PT} bias correction method was used (see text).
 }
-    \label{fig:sess}
+    \label{fig:info_sess_v4}
 \end{figure}
 
 
