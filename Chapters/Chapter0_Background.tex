@@ -102,8 +102,8 @@ We define this as the expected amount of information we will gain when we observ
 \begin{align}
 \HH( \SET{X} )
   &= \EE_{x \in \SET{X}} \left( \log_2 \frac{1}{P(x)} \right) \notag
-\\&= \sum_{x \in \SET{X}} P(x) \log_2 \frac{1}{P(x)}
-\\&= - \sum_{x \in \SET{X}} P(x) \log_2 P(r) \notag
+\\&= \sum_{x \in \SET{X}} P(x) \log_2 \frac{1}{P(x)} \notag
+\\&= - \sum_{x \in \SET{X}} P(x) \log_2 P(r)
 ,\end{align}
 where $\SET{X}$ is the ensemble of possible states of the system in question.
 
@@ -118,9 +118,9 @@ Analogously to \autoref{eq:shannon-information}, this is defined as
 \begin{align}
 \HH(\SET{X} | \SET{Y})
   &= \EE_{x \in \SET{X}, \, y \in \SET{Y}} \left( \log_2 \frac{1}{P(x|y)} \right) \notag
-\\&= \sum_{x \in \SET{X}, \, y \in \SET{Y}} P(x,y) \log_2 \frac{1}{P(x|y)}
+\\&= \sum_{x \in \SET{X}, \, y \in \SET{Y}} P(x,y) \log_2 \frac{1}{P(x|y)} \notag
 \\&= \sum_{y \in \SET{Y}} P(y) \sum_{x \in \SET{X}} P(x|y) \log_2 \frac{1}{P(x|y)} \notag
-\\&= - \sum_{y \in \SET{Y}} P(y) \sum_{x \in \SET{X}} P(x|y) \log_2 P(x|y) \notag
+\\&= - \sum_{y \in \SET{Y}} P(y) \sum_{x \in \SET{X}} P(x|y) \log_2 P(x|y)
 .\end{align}
 % The mutual information is zero if and only if responses are completely independent of stimuli.
 % For brevity, we will refer to {mutual information} to as \textbf{information} in the remainder of this thesis.
