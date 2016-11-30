@@ -111,6 +111,7 @@ When studying neural recordings using information theory, we will need to take n
 In particular, the amount of information about the stimulus contained in the response is their \textbf{mutual information}, $\I(\SET{S};\SET{R})$.
 This is the amount by which our uncertainty in the stimulus is reduced when we discover the value of the response to that stimulus, which is equivalent to the amount by which our uncertainty in the response decreases when we discover the identity of the stimulus
 \begin{equation}
+\label{eq:info}
 \I(\SET{S};\SET{R}) = \HH(\SET{S}) - \HH(\SET{S} | \SET{R}) = \HH(\SET{R}) - \HH(\SET{R} | \SET{S})
 .\end{equation}
 Here, we make use of the conditional entropy (also known as noise entropy), so named because it is the entropy of one variable when conditioned on the state of another.
