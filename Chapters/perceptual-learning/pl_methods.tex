@@ -8,13 +8,13 @@ Additional analysis methodology is given as part of each results section.
 The methods described in this section were performed jointly with Xing Chen.
 
 
-\subsection{Artifact elimination}
+\subsection{Elimination of monitor induced artifacts}
 \label{sec:pl_artifact_elimination}
 \label{sec:ma}
 
 An artifact was identified which was triggered whenever the monitor refreshed.
 Unfortunately, the monitor-refresh artifact had a profile very similar to that of a neural spike.
-Consequently, it continued to contaminate the data further down the processing pipeline.
+Consequently, it continued to contaminate the data further down the processing pipeline post-spike extraction.
 
 The precise shape and magnitude of the artifact signal varied depending on channel and session, however for each individual channel the timing and shape of the artifact relative to the monitor refresh was highly reliable over the course of each session.
 Therefore, this artifact was removed from the data by averaging the raw recordings between each monitor refresh to find a stereotyped artifact profile, and subtracting this template from the recordings immediately following each monitor refresh.
