@@ -22,6 +22,33 @@ Since the artifact signal was sharply peaked and the monitor refresh was not pha
 For each monitor refresh, the template subtracted from the data samples was linearly interpolated against the super-resolved template depending on the phase of the data sampling rate.
 
 
+\subsection{Elimination of movement induced artifacts}
+
+For a minority of trials (\SI{3.6}{\percent}, $2879$ out of $80071$) physical movements by the subject generated high-amplitude artifacts across multiple recording channels.
+Due to the high-amplitude and unpredictability of such events, it was not possible to remove artifacts cleanly from the rest of the signal.
+Instead, since these problems occurred on a small proportion of the total trials, we identified trials where this artifact was present and removed them from subsequent analysis.
+
+Since movement artifacts dominated recordings where they were present, and these artifacts were present in multiple channels simultaneously, we identified trials containing them by changes in the covariance between channels.
+For each trial, we computed the correlation coefficient,
+\begin{equation}
+\rho_{X,Y} = \frac{\operatorname{cov}(X,Y)}{\sigma_X \, \sigma_Y}
+,\end{equation}
+(where $\sigma_\cdot$ is the standard deviation of $\cdot$) between the signals $X$ and $Y$ from each pair of channels.
+Some sessions were entirely free from artifact contamination, and for these sessions the distribution of $\rho_{X,Y}$ across all trials and all pairs of channels was unimodal, with centre between $0.2$ and $0.4$.
+For sessions which included trials where the motion artifact was present, the distribution was bimodal with a second smaller group whose centre was between $0.4$ and $0.7$.
+For each session, a cut-off value was manually selected which partitioned the two clusters.
+All trials corresponding to a pairwise correlation coefficient above the threshold were excluded from further analysis.
+
+% Maybe for every correct trial we remove due to artifact, we should remove an incorrect trial with the same condition? This would preserve the balance and response rate. Otherwise response rate looks artifically lower
+
+
+\subsection{Removal of empty trials}
+
+During a minority of trials (\SI{0.81}{\percent}, $651$ out of $80071$) failures in the recording apparatus resulted in no spikes being recorded.
+We identified these trials as those which had no detected spikes for any of the ${\ge}20$ simultaneously recorded channels over the full \SI{2.5}{\second} duration of the trial.
+These ``empty'' trials were removed from subsequent analysis.
+
+
 \subsection{Spontaneous activity normalisation}
 \label{sec:pl_san}
 
