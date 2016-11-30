@@ -228,7 +228,7 @@ A paired $t$-test (two-tailed) was used to study whether the $d'$ consistently i
 
 For \ac{V1}, we found the $d'$ decreased with training (see \autoref{fig:dprime_v1}).
 A similar result was observed for each subject.
-The average change in was $\Delta d' = -0.524267$ ($p < 3e-04$, paired $t$-test) for \ac{M1} and $\Delta d' = -0.463924$ ($p < 3e-10$, paired $t$-test) for \ac{M2}.
+The average change in was $\Delta d' = -0.324$ ($p=0.02$, paired $t$-test) for \ac{M1} and $\Delta d' = -0.417$ ($p < 3 \times 10 ^{-10}$, paired $t$-test) for \ac{M2}.
  
 \begin{figure}[htbp]
     \centering
@@ -236,13 +236,13 @@ The average change in was $\Delta d' = -0.524267$ ($p < 3e-04$, paired $t$-test)
     \subfloat[\ac{M1} \ac{V1}\label{fig:dprime_v1_blanco}]{
         \centering
         \includegraphics[scale=.45]{%
-figs/dprime/dprime_sample_hm_hotcold_blanco_v1_1_rmon2.eps}
+figs/dprime/dprime_sample_hm_hotcold_blanco_v1_1_rmon2_rmvet2.eps}
     }
     \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
     \subfloat[\ac{M2} \ac{V1}\label{fig:dprime_v1_jack}]{
         \centering
         \includegraphics[scale=.45]{%
-figs/dprime/dprime_sample_hm_hotcold_jack_v1_1_rmon2.eps}
+figs/dprime/dprime_sample_hm_hotcold_jack_v1_1_rmon2_rmvet2.eps}
     }
     \hspace*{\fill}
     \caption{Change in $d'$ over training sessions for \ac{V1} recordings.
@@ -250,7 +250,7 @@ figs/dprime/dprime_sample_hm_hotcold_jack_v1_1_rmon2.eps}
 Above, traces of $d'$ for each channel (colours), and average over channels (black).
 Below, heatmap showing $d'$ for each channel.
 Right top, violin plots showing distribution over channels of the average $d'$ in the first 3 sessions (A) and last 3 sessions (B), with mean (solid black line) and median (dashed green line) over channels indicated.
-The violin plot shows a Gaussian kernel density using a bandwidth of $0.11$.
+The violin plot shows a Gaussian kernel density using a bandwidth determined automatically as described in \autoref{sec:info-methods}.
 \protect\subref{fig:dprime_v1_jack}: Same as \protect\subref{fig:dprime_v1_blanco}, but for \ac{M2}.
 }
     \label{fig:dprime_v1}
@@ -261,10 +261,10 @@ The violin plot shows a Gaussian kernel density using a bandwidth of $0.11$.
 
 This is in contrast with our findings for \ac{V4}.
 For \ac{M1}, some channels marginally increased and others marginally decreased their $d'$ with training (\autoref{fig:dprime_v4_blanco}).
-Overall, there was a small decrease in average $d'$, with $\Delta d' = -0.094373$, which was not a statistically significant change ($p=0.25$).
+Overall, there was a small increase in average $d'$, with $\Delta d' = +0.053$, which was not a statistically significant change ($p=0.46$).
 
 With \ac{M2}, many channels began training either indifferent to the stimulus, $d'=0$, or suppressed by it, $d'<0$ (\autoref{fig:dprime_v4_jack}).
-Starting from this lower position, there was a significant increase of $\Delta d' = +0.340810$ ($p<5e-07$).
+Starting from this lower position, there was a significant increase of $\Delta d' = +0.491$ ($p < 7 \times 10 ^{-8}$).
 However the final $d'$ for almost all channels recorded for \ac{M2} was still lower than the average $d'$ for \ac{M1}.
 
 \begin{figure}[htbp]
@@ -273,13 +273,13 @@ However the final $d'$ for almost all channels recorded for \ac{M2} was still lo
     \subfloat[\ac{M1} \ac{V4}\label{fig:dprime_v4_blanco}]{
         \centering
         \includegraphics[scale=.45]{%
-figs/dprime/dprime_sample_hm_hotcold_blanco_v4_1_rmon2.eps}
+figs/dprime/dprime_sample_hm_hotcold_blanco_v4_1_rmon2_rmvet2.eps}
     }
     \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
     \subfloat[\ac{M2} \ac{V4}\label{fig:dprime_v4_jack}]{
         \centering
         \includegraphics[scale=.45]{%
-figs/dprime/dprime_sample_hm_hotcold_jack_v4_1_rmon2.eps}
+figs/dprime/dprime_sample_hm_hotcold_jack_v4_1_rmon2_rmvet2.eps}
     }
     \hspace*{\fill}
     \caption{Same as \autoref{fig:dprime_v1}, but for $d'$ during \ac{V4} recordings.
@@ -291,6 +291,7 @@ figs/dprime/dprime_sample_hm_hotcold_jack_v4_1_rmon2.eps}
 
 
 \subsection{Discussion}
+\label{sec:pl_dprime_discuss}
 
 By analysing the sensitivity index, $d'$, we can see whether channels become more or less responsive to our stimulus class over time.
 Since \ac{V1} is an early step in the visual processing hierarchy, its neurons respond strongly to simple stimuli such as the sinusoidal gratings we present.
