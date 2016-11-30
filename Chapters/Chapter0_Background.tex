@@ -148,7 +148,8 @@ It is therefore necessary to estimate the bias on the na{\"i}ve mutual informati
 \label{sec:info-bias}
 A number of techniques exist to correct for the bias in the mutual information estimation.
 The simplest of these is to shuffle the data so that responses are paired with stimuli at random \citep{Optican1991}.
-Unfortunately, this will often be a poor estimate of the bias for single dimensional responses \citep{Panzeri1996}.
+Unfortunately, this will often be a poor estimate of the bias \citep{Panzeri1996}, because there may be responses which never occur with certain stimuli.
+Pairing stimuli and responses together at random inflates the set of unique responses to each stimulus above what is possible in practice, and as a consequence an estimate of the bias determined in this manner will be a pessimistic overestimate.
 
 However, for a multi-dimensional response (where each stimulus presentation produces a response vector), shuffling provides an invaluable bias-correction technique.
 Using the methodology of \citet{Montemurro2007}, we add an additional step to compute the noise entropy under the simplifying assumption that each dimension of $r$ is independent of the others.
@@ -177,7 +178,7 @@ However, this term is dependent on the on the total number of potential response
 Since some stimuli may not be able to elicit every response, this is smaller than the number of theoretically possible responses.
 However as described above, some responses may be possible to produce but unobserved in the limited set of samples.
 Consequently, \ac{PT} bias-correction method of \citet{Panzeri1996} uses Bayesian statistics to estimate the actual number of potential responses.
-This method was observed to be accurate provided there are at least 4 times as many repetitions of each stimulus as there are possible responses.
+This method was observed to be accurate provided there are at least 4 times as many repetitions of each stimulus as there are possible responses \citep{Panzeri2007}.
 
 A second method of correcting the bias which uses a power series expansion is the \ac{QE} method of \citet{Strong1998}.
 Here, the bias on the mutual information is assumed to be well approximated by a second order $\nicefrac{1}{N}$ expression,
