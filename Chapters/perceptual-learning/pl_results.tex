@@ -218,7 +218,7 @@ w = \hat{\sigma} \left( \frac{4}{3 n} \right) ^ \frac{1}{5}
 for each animal and area on the distribution before and after training, and using the minimum of these 8 values.
 This ensures sufficient detail about the distribution is captured for each distribution, and all are comparable with each other.
 
-To investigate whether $d'$ changed significantly during the course of our experiments, we compared the average $d'$ during the first 3 and final 3 experimental sessions.
+To investigate whether $d'$ changed significantly during the course of our experiments, we compared the average $d'$ during the first 3 and final 3 experimental sessions (\zonename{A} and \zonename{B}).
 A paired $t$-test (two-tailed) was used to study whether the $d'$ consistently increased or decreased for the channels.
 
 %------------------------------------------------------------------------------
@@ -249,7 +249,7 @@ figs/dprime/dprime_sample_hm_hotcold_jack_v1_1_rmon2_rmvet2.eps}
 \protect\subref{fig:dprime_v1_blanco}: $d'$ for \ac{M1}, shown for each recording channel, with channels ordered according to average $d'$ over all sessions.
 Above, traces of $d'$ for each channel (colours), and average over channels (black).
 Below, heatmap showing $d'$ for each channel.
-Right top, violin plots showing distribution over channels of the average $d'$ in the first 3 sessions (A) and last 3 sessions (B), with mean (solid black line) and median (dashed green line) over channels indicated.
+Right top, violin plots showing distribution over channels of the average $d'$ in the first three sessions (\zonename{A}) and last three sessions (\zonename{B}), with mean (solid black line) and median (dashed green line) over channels indicated.
 The violin plot shows a Gaussian kernel density using a bandwidth determined automatically as described in \autoref{sec:info-methods}.
 \protect\subref{fig:dprime_v1_jack}: Same as \protect\subref{fig:dprime_v1_blanco}, but for \ac{M2}.
 }
@@ -353,14 +353,14 @@ We state the rule-of-thumb Gaussian basis bandwidth estimator as
 h = \left( \frac{4}{3n} \right) ^ \frac{1}{5} \, \hat{\sigma}
 ,\label{eq:estimate-bw}\end{equation}
 where $n$ is the number of samples and $\hat{\sigma}$ is the estimated standard deviation over the distribution.
-We used \autoref{eq:estimate-bw} to find a suitable kernel basis bandwidth for the distribution over channels of information at the start ($A$) and end ($B$) of training.
+We used \autoref{eq:estimate-bw} to find a suitable kernel basis bandwidth for the distribution over channels of information at the start (\zonename{A}) and end (\zonename{B}) of training.
 For the plots, we selected the minimum of $\nicefrac{h_A}{2}$ and $\nicefrac{h_B}{2}$, to ensure sufficient detail was captured and the two distributions were comparable.
 
-To test the significance of changes in information over time, we used a paired Student's $t$-test to compare the difference in information values in $\SET{A}$ and $\SET{B}$ against the null-hypothesis of no change between points $A$ and $B$.
+To test the significance of changes in information over time, we used a paired Student's $t$-test to compare the difference in information values in $\SET{\zonename{A}}$ and $\SET{\zonename{B}}$ against the null-hypothesis of no change between points \zonename{A} and \zonename{B}.
 Although the distribution of information values is evidently non-Gaussian (it is bounded below at \SI{0}{bits}), the distribution in differences in information is close to Gaussian.
-We could instead have used the Mann--Whitney $U$ test to compare the two distributions $\SET{A}$ and $\SET{B}$.
+We could instead have used the Mann--Whitney $U$ test to compare the two distributions $\SET{\zonename{A}}$ and $\SET{\zonename{B}}$.
 This test does not assume the two distributions are Gaussian, but makes the additional assumption that all samples are independent.
-Since we record from the same set of channels for both $\SET{A}$ and $\SET{B}$, we are violating the independence assumption, and so the paired Student's $t$-test is a more appropriate choice.
+Since we record from the same set of channels for both $\SET{\zonename{A}}$ and $\SET{\zonename{B}}$, we are violating the independence assumption, and so the paired Student's $t$-test is a more appropriate choice.
 
 
 %------------------------------------------------------------------------------
@@ -402,8 +402,8 @@ figs/info2/I_sessionwise_jack_v4_chmean20_s24,25,27-38,40-49_oc0_G_1bins_of_527m
 % The sampling is in intervals of \SI{5}{ms}, so any 4 adjacent squares within each session are highly correlated.
 % The recording session number for the data is given along the $x$-axis, and the number of days the animal has been trained for increases from left to right.
 % Average mutual information across all the channels is denoted by the pseudo-colour of each of the rectangular patches, centred around the $(x,y)$ co-ordinate to which the measurement relates.
-Main panels: the average over channels (\protect\subref{fig:info_sess_1x527_v1_blanco}~23 channels, \protect\subref{fig:info_sess_1x527_v1_jack}~25 channels, \protect\subref{fig:info_sess_1x527_v4_blanco}~30 channels, \protect\subref{fig:info_sess_1x527_v4_jack}~20 channels) with standard error over channels indicated by the shaded region.
-Right hand panels: distribution over channels of the information contained in the first three sessions (A) versus last three sessions (B), with mean (solid black line) and median (dashed green line) over channels indicated.
+Main panels: the average over channels (\protect\subref{fig:info_sess_1x527_v1_blanco}~23 channels, \protect\subref{fig:info_sess_1x527_v1_jack}~$25$ channels, \protect\subref{fig:info_sess_1x527_v4_blanco}~30 channels, \protect\subref{fig:info_sess_1x527_v4_jack}~$20$ channels) with standard error over channels indicated by the shaded region.
+Right hand panels: distribution over channels of the information contained in the first three sessions (\zonename{A}) versus last three sessions (\zonename{B}), with mean (solid black line) and median (dashed green line) over channels indicated.
 The violin plot shows a Gaussian kernel density, using a bandwidth determined as described in \autoref{sec:info-methods}.
 The \ac{PT} bias correction method was used, without further correction to the residual bias.
 }
@@ -467,8 +467,8 @@ figs/info2/I_sessionwise_blanco_v4_chmean25_s307,308,311,313,314,317,318,320,321
 figs/info2/I_sessionwise_jack_v4_chmean18_s24,25,27-38,40-49_oc0_G_1bins_of_527ms_dr_pt_rmvet2_rmvms2_imscn_clhot.eps}}
     \hspace*{\fill}
     \caption{Information about the test stimulus contained in the firing rate during test presentation and its progression over training sessions.
-Main panels: the average over channels (\protect\subref{fig:info_sess_1x527_restrictchn_v1_blanco}~14 channels, \protect\subref{fig:info_sess_1x527_restrictchn_v1_jack}~20 channels, \protect\subref{fig:info_sess_1x527_restrictchn_v4_blanco}~25 channels, \protect\subref{fig:info_sess_1x527_restrictchn_v4_jack}~18 channels) with standard error over channels indicated by the shaded region.
-Right hand panels: distribution over channels of the information contained in the first three sessions (A) versus last three sessions (B), with mean (solid black line) and median (dashed green line) over channels indicated.
+Main panels: the average over channels (\protect\subref{fig:info_sess_1x527_restrictchn_v1_blanco}~$14$ channels, \protect\subref{fig:info_sess_1x527_restrictchn_v1_jack}~$20$ channels, \protect\subref{fig:info_sess_1x527_restrictchn_v4_blanco}~$25$ channels, \protect\subref{fig:info_sess_1x527_restrictchn_v4_jack}~$18$ channels) with standard error over channels indicated by the shaded region.
+Right hand panels: distribution over channels of the information contained in the first three sessions (\zonename{A}) versus last three sessions (\zonename{B}), with mean (solid black line) and median (dashed green line) over channels indicated.
 The violin plot shows a Gaussian kernel density, using a bandwidth determined as described in \autoref{sec:info-methods}.
 The \ac{PT} bias correction method was used, without further correction to the residual bias.
 }
@@ -550,8 +550,8 @@ figs/info2/I_sessionwise_blanco_v4_chmean25_s307,308,311,313,314,317,318,320,321
 figs/info2/I_sessionwise_jack_v4_chmean18_s24,25,27-38,40-49_oc0_Gbalanced_1bins_of_527ms_dr_pt_rmvet2_rmvms2_imscn_clhot.eps}}
     \hspace*{\fill}
     \caption{Information about the test stimulus contained in the firing rate during test presentation and its progression over training sessions, after correcting for the stimulus class balance in each session.
-Main panels: the average over channels (\protect\subref{fig:info_sess_1x527_balanced_v1_blanco}~14 channels, \protect\subref{fig:info_sess_1x527_balanced_v1_jack}~20 channels, \protect\subref{fig:info_sess_1x527_balanced_v4_blanco}~25 channels, \protect\subref{fig:info_sess_1x527_balanced_v4_jack}~18 channels) with standard error over channels indicated by the shaded region.
-Right hand panels: distribution over channels of the information contained in the first three sessions (A) versus last three sessions (B), with mean (solid black line) and median (dashed green line) over channels indicated.
+Main panels: the average over channels (\protect\subref{fig:info_sess_1x527_balanced_v1_blanco}~$14$ channels, \protect\subref{fig:info_sess_1x527_balanced_v1_jack}~$20$ channels, \protect\subref{fig:info_sess_1x527_balanced_v4_blanco}~$25$ channels, \protect\subref{fig:info_sess_1x527_balanced_v4_jack}~$18$ channels) with standard error over channels indicated by the shaded region.
+Right hand panels: distribution over channels of the information contained in the first three sessions (\zonename{A}) versus last three sessions (\zonename{B}), with mean (solid black line) and median (dashed green line) over channels indicated.
 The violin plot shows a Gaussian kernel density, using a bandwidth determined as described in \autoref{sec:info-methods}.
 The \ac{PT} bias correction method was used, without further correction to the residual bias.
 }
@@ -766,8 +766,8 @@ figs/info2/I_trialwise_blanco_v4_chmean25_s307,308,311,313,314,317,318,320,321,3
 figs/info2/I_trialwise_jack_v4_chmean18_s24,25,27-38,40-49_tp4_1bins_of_527ms_dr_pt_oc0_Gbalanced_test_tc10-5-25,27-29,31-33,35,40-10-60_nt1400_ts1400_rmvet2_rmvms2_imscn_clhot.eps}}
     \hspace*{\fill}
     \caption{Information about the test stimulus contained in the firing rate during test presentation and its progression over training sessions, estimated across blocks of $100$ consecutive trials of each stimulus class taken by merging consecutive sessions together to accumulate sufficiently many trials.
-Main panels: the average over channels (\protect\subref{fig:info_trial_1x527_balanced_v1_blanco}~14 channels, \protect\subref{fig:info_trial_1x527_balanced_v1_jack}~20 channels, \protect\subref{fig:info_trial_1x527_balanced_v4_blanco}~25 channels, \protect\subref{fig:info_trial_1x527_balanced_v4_jack}~18 channels) with standard error over channels indicated by the shaded region.
-Right hand panels: distribution over channels of the information contained in the first three blocks of $1400$ trials (A) versus last three blocks (B), with mean (solid black line) and median (dashed green line) over channels indicated.
+Main panels: the average over channels (\protect\subref{fig:info_trial_1x527_balanced_v1_blanco}~$14$ channels, \protect\subref{fig:info_trial_1x527_balanced_v1_jack}~$20$ channels, \protect\subref{fig:info_trial_1x527_balanced_v4_blanco}~$25$ channels, \protect\subref{fig:info_trial_1x527_balanced_v4_jack}~$18$ channels) with standard error over channels indicated by the shaded region.
+Right hand panels: distribution over channels of the information contained in the first three blocks of $1400$ trials (\zonename{A}) versus last three blocks (\zonename{B}), with mean (solid black line) and median (dashed green line) over channels indicated.
 The violin plot shows a Gaussian kernel density, using a bandwidth determined as described in \autoref{sec:info-methods}.
 The \ac{PT} bias correction method was used, without further correction to the residual bias.
 The stimulus class imbalance was address on a session-by-session basis by subsampling as described previously (\autoref{sec:pl_class_imbalance}) before merging sessions together.
