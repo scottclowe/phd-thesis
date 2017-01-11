@@ -636,9 +636,9 @@ Information was computed after using subsampling to address the stimulus class i
 
 There are several potential ways we can correct for the change in bias incurred by the changes in number of trials.
 \begin{itemize}
-\item Subsample all sessions down to the same number of trials.
-\item Use bootstrapping, shuffling response against stimuli at random, to estimate and subtract the residual bias.
-\item Group together stimuli above and below \SI{30}{\percent} contrast so we only two conditions each with $\approx7$ times more trials.
+\item Subsample all sessions down to the same number of trials (rarefy).
+\item Use bootstrapping, randomising the mapping between stimulus and response, to estimate the residual bias and subtract this from the reported information.
+\item Group together stimuli above and below \SI{30}{\percent} contrast so we only two conditions each with approximately $7$ times more trials.
 \item Group together trials across consecutive sessions so we have the same number of trials in each information computation step.
 \end{itemize}
 
