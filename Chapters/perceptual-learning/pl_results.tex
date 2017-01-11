@@ -787,13 +787,367 @@ For this reason, it is prudent not to proceed with such a methodology.
 
 
 %------------------------------------------------------------------------------
-\subsection{Task-pertinent information}
+\subsection{Task-pertinent and nonpertinent information}
 % \subsection{Comparing information about the stimulus with task-relevant information}
 \label{sec:task-info}
 
-Show for the animal's response
+So far, we have been computing the amount of information in the neural response (more specifically, the firing rate over the stimulus presentation period) about the identity of the presented stimulus.
+Computing the mutual information between these two tells us how much information we gain about which stimulus was presented when we are told how many spikes were detected with a given electrode contact.
+However, the object the subject is tasked with is more specific --- to identify whether the presented stimulus has a contrast higher or lower than the pedestal contrast.
+To achieve this goal, it is not necessary to distinguish exactly which stimulus was presented.
 
-Show for the neural response
+We can separate the information given by the neural response into two parts: task-pertinent and task-nonpertinent information.
+The task-pertinent information helps us tell whether the stimulus was in the half above or below the pedestal contrast of \SI{30}{\percent}.
+However we also gain information about exactly which stimuli within the upper and lower half of the set of contrasts is more likely to have been presented.
+Although this information helps us distinguish which stimulus was presented (and hence presumably helps the subject perceive the stimuli more accurately), it is not pertinent to the subject's task.
+
+For instance, any information which helps us discriminate between whether a \SI{29}{\percent} or \SI{31}{\percent} contrast stimulus was more likely to have been presented is pertinent to the task.
+Whereas if we gain information about the stimulus which updates the probability of it having a \SI{28}{\percent} versus a \SI{29}{\percent} contrast without changing the probability that it was one of \SI{28}{\percent} or \SI{29}{\percent} contrast, this is not pertinent to the task.
+
+
+\subsubsection{Methods}
+\label{sec:task-info-methods}
+
+First, we computed the total information contained in the neural response as before, using the total spikes recorded by a single channel over \SI{527}{\milli\second} of stimulus presentation as the response on each trial.
+The finite sampling bias on the estimated information was corrected for using the \ac{PT} method, and further residual bias removed using bootstrapping (see \autoref{sec:pl_bootstrapping}).
+Stimulus class imbalance was corrected for using subsampling, as described in \autoref{sec:pl_class_imbalance}.
+
+The amount of task-pertinent information contained in the response was estimated by shuffling the stimulus labels against the responses, whilst preserving which side of \SI{30}{\percent} contrast the stimulus label was on.
+This destroys any information about the stimulus beyond that pertinent to the task --- choosing whether the stimulus was above or below \SI{30}{\percent} contrast --- but maintains the number of class labels and samples per class.
+Consequently, the bias on the information will be similar to that when computing the total information, and the results will be more directly comparable\footnote{However, the bias will not be the same for the two information values because after shuffling the range of possible values for the response will have increased. Consequently, it is still necessary to do individual bias correction with \ac{PT} and bootstrapping on each of the information computations.}.
+We repeated this with $20$ permutations, each with their own set of $20$ bootstraps, and took the average across them.
+The amount of task-nonpertinent information was estimated by subtracting the task-pertinent information (found with shuffling) from the total information (found without shuffling).
+
+To compute the proportion of information encapsulated within the response which was pertinent to the task, we divided the estimated task-pertinent information by the total information (after correcting for the bias on each estimate).
+To prevent channels whose responses contain negligible information about the stimulus contaminating the results with anomalously large (or small) outliers after the division, we excluded any channels whose total information was less than $1.5$ times the standard deviation across the bootstrapped information values.
+Additionally, the proportional information reported for each channel was capped at $0$ and $1$ taking the average across channels.
+
+To quantify the change over time, we again compared the information averaged over the first three sessions (\zonename{A}) with the information over the last three sessions (\zonename{B}).
+For the relative information, only channels which had a significant amount of total information (exceeding $1.5$ times the standard deviation over bootstraps) for both \zonename{A} and \zonename{B} were included.
+This step was included to ensure \zonename{A} and \zonename{B} were directly comparable; a paired $t$-test was used to compare the information at \zonename{A} with \zonename{B}.
+
+Similarly, we considered the amount of information about the stimulus contained in the behavioural response of the animal, which was a saccade to one of two targets, indicating whether the subject believed the contrast to be higher or lower than \SI{30}{\percent} (two forced-choice).
+The same procedure was used to decomposed the the total information in this response into task-pertinent and nonpertinent components, and find the proportion of the information which was task-pertinent.
+
+Although it is only a binary response (a choice of one of two saccade targets), it is still possible for the behavioural response to encode both task-pertinent and task-nonpertinent information.
+For instance, let us assume that the subject completes the task at a rate higher than chance.
+Then, a behavioural response of ``\textit{test contrast is lower}'' tells us a contrast in the lower half was more likely to have been presented, providing task-pertinent information.
+Additionally, since contrasts further from the \SI{30}{\percent} threshold are easier for the subject, we can empirically observe that a response of ``\textit{test contrast is lower}'' is more likely to be elicited if the contrast was further below the threshold than if it was close to the threshold\footnote{This trivially follows using Bayes' rule}.
+This difference in relative likelihood supplies us with additional, task-nonpertinent, information about which stimulus was presented.
+
+
+\subsubsection{\acs{V1} Results}
+
+We separated the total information about the stimulus contained in the neural response into task-pertinent and task-nonpertinent components as described in \autoref{sec:task-info-methods}.
+For \ac{M1}, there was a non-significant decrease in the total information, task-pertinent information, and the task-nonpertinent information between \zonename{A} and \zonename{B} (paired Student's $t$-test; $p=0.20$, $p=0.38$, and $p=0.13$ respectively), as shown in \autoref{fig:info_taskpertinent_v1_ch_blanco}.
+Correspondingly, there was no significant change in the fraction of the total information which was task-pertinent either ($p=0.60$; see \autoref{fig:info_taskpertinent_rel_v1_ch_blanco}).
+
+For \ac{M2}, there was a small, non-significant, decrease in the task-nonpertinent information between \zonename{A} and \zonename{B} (\SI{-0.010\pm0.007}{bits}, $p=0.16$), but there was a significant increase in the task-pertinent information (\SI{+0.060\pm0.011}{bits}, $p=0.00002$; see \autoref{fig:info_taskpertinent_v1_ch_jack}).
+Together, these give a combined increase in the total information of \SI{+0.050\pm0.015}{bits} ($p=0.004$).
+Since the task-nonpertinent information is stable while the task-pertinent information increases with training, the proportion of encoded information which is task-pertinent increases by \SI{+7.0\pm1.3}{\percent} ($p=0.00004$), as shown in \autoref{fig:info_taskpertinent_rel_v1_ch_jack}.
+
+% blanco v1 1x527.00ms
+% dr pt
+% For Total Info (bits)
+% n=14  h=0.000000  p=0.205484=2.054842e-01   delta = -0.026854+/-0.020149 = -29.290339%+/-22.139211%
+% For Task-pertinent Info (bits)
+% n=14  h=0.000000  p=0.375025=3.750246e-01   delta = -0.010713+/-0.011662 = -25.593377%+/-27.886183%
+% For Task-nonpertinent Info (bits)
+% n=14  h=0.000000  p=0.133354=1.333535e-01   delta = -0.016142+/-0.010081 = -32.396084%+/-20.293906%
+% selected bw  :  bandwidth=0.011217
+%
+% For Task-pertinent Info (%)
+% n=4  h=0.000000  p=0.596176=5.961759e-01   delta = +4.414025+/-7.470531 = +10.618742%+/-533.852117%
+% For Task-nonpertinent Info (%)
+% n=4  h=0.000000  p=0.596176=5.961759e-01   delta = -4.414025+/-7.470531 = -7.554155%+/-533.702687%
+% selected bw  :  bandwidth=2.813857
+%
+%
+% jack v1 1x527.00ms
+% dr pt
+% For Total Info (bits)
+% n=20  h=1.000000  p=0.003762=3.761940e-03   delta = +0.049989+/-0.015146 = +11.458962%+/-4.411886%
+% For Task-pertinent Info (bits)
+% n=20  h=1.000000  p=0.000020=2.022440e-05   delta = +0.060332+/-0.010732 = +28.392210%+/-5.205318%
+% For Task-nonpertinent Info (bits)
+% n=20  h=0.000000  p=0.162219=1.622189e-01   delta = -0.010343+/-0.007113 = -4.622742%+/-3.554708%
+% selected bw  :  bandwidth=0.015976
+%
+% For Task-pertinent Info (%)
+% n=20  h=1.000000  p=0.000036=3.596357e-05   delta = +7.049025+/-1.315612 = +14.317851%+/-97.552405%
+% For Task-nonpertinent Info (%)
+% n=20  h=1.000000  p=0.000036=3.596357e-05   delta = -7.049025+/-1.315612 = -13.884894%+/-97.550225%
+% selected bw  :  bandwidth=1.236527
+
+\begin{figure}[htbp]%
+    \centering
+    \hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V1} Information.\label{fig:info_taskpertinent_v1_ch_blanco}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/task-pertinent/I_sessionwise_blanco_v1_chmean14_s343-359_oc0_Gclass-shuffled-balanced_1bins_of_527ms_dr_pt_btsp20_rmvet2_rmvms2_info_leg.eps}}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\ac{M2} \ac{V1} Information.\label{fig:info_taskpertinent_v1_ch_jack}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/task-pertinent/I_sessionwise_jack_v1_chmean20_s51-72_oc0_Gclass-shuffled-balanced_1bins_of_527ms_dr_pt_btsp20_rmvet2_rmvms2_info.eps}}
+    \hspace*{\fill}
+    \\
+    \hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V1} Relative information.\label{fig:info_taskpertinent_rel_v1_ch_blanco}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/task-pertinent/I_sessionwise_blanco_v1_chmean14_s343-359_oc0_Gclass-shuffled-balanced_1bins_of_527ms_dr_pt_btsp20_rmvet2_rmvms2_relative-info.eps}}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\ac{M2} \ac{V1} Relative information.\label{fig:info_taskpertinent_rel_v1_ch_jack}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/task-pertinent/I_sessionwise_jack_v1_chmean20_s51-72_oc0_Gclass-shuffled-balanced_1bins_of_527ms_dr_pt_btsp20_rmvet2_rmvms2_relative-info.eps}}
+    \hspace*{\fill}
+    \caption{Breakdown of task-pertinent and nonpertinent information contained in \ac{V1} recording channels.
+In \protect\subref{fig:info_taskpertinent_v1_ch_blanco} and \protect\subref{fig:info_taskpertinent_v1_ch_jack}, the total information about the stimulus (grey), task-pertinent information (green), and task-nonpertinent (red) contained in each of $14$ and $20$ channels respectively.
+In \protect\subref{fig:info_taskpertinent_rel_v1_ch_blanco} and \protect\subref{fig:info_taskpertinent_rel_v1_ch_jack}, the relative information about the stimulus which is task-pertinent (green) and task-nonpertinent (red) contained in channels with a significant amount of total information ($4$ and $20$ respectively).
+Main panels: across training sessions, the average information over channels, with standard error over channels indicated by the shaded region.
+Right hand panels: distribution over channels of the information (or relative information) in the first three sessions (\zonename{A}) versus last three sessions (\zonename{B}), with mean (solid black line) and median (dashed green line) over channels indicated.
+The violin plot shows a Gaussian kernel density, using a bandwidth determined as described in \autoref{sec:info-methods}.
+The \ac{PT} bias correction method was used, with the residual bias further reduced using bootstrapping (see \autoref{sec:pl_bootstrapping}).
+The stimulus class imbalance was corrected using subsampling, as described in \autoref{sec:pl_class_imbalance}.
+    \label{fig:info_taskpertinent_v1_ch}
+}
+\end{figure}
+
+
+Over the same period of training, we examined the decomposition of the information contained in the behavioural response of the experimental subject.
+Similar trends were found for \ac{M1} and \ac{M2}.
+There was a vast increase in the amount of task-pertinent information between \zonename{A} and \zonename{B} of \SI{+0.32}{bits} and \SI{+0.34}{bits} respectively, which more than tripled the amount of task-pertinent information given in the subject's response between the beginning and end of the experiment.
+The task-nonpertinent information in the response increased by a modest \SI{+0.06}{bits} and \SI{+0.03}{bits} respectively, which is a relative increase of \SI{71}{\percent} and \SI{32}{\percent} from \zonename{A} to \zonename{B}.
+Collectively, this meant the proportion of information which was task-pertinent increased from near \SI{60}{\percent} to near \SI{80}{\percent} for both subjects.
+
+% Behavioural info for blanco v1
+% For Total Info (bits)
+% n=1  h=NaN  p=NaN=NaN   delta = +0.381066+/-0.000000 = +172.797622%+/-0.000000%
+% For Task-pertinent Info (bits)
+% n=1  h=NaN  p=NaN=NaN   delta = +0.323136+/-0.000000 = +230.776949%+/-0.000000%
+% For Task-nonpertinent Info (bits)
+% n=1  h=NaN  p=NaN=NaN   delta = +0.057930+/-0.000000 = +71.956869%+/-0.000000%
+% For Task-pertinent Info (%)
+% n=1  h=NaN  p=NaN=NaN   delta = +13.494701+/-0.000000 = +21.253604%+/-0.000000%
+% For Task-nonpertinent Info (%)
+% n=1  h=NaN  p=NaN=NaN   delta = -13.494701+/-0.000000 = -36.965408%+/-0.000000%
+%
+% Behavioural info for jack v1
+% For Total Info (bits)
+% n=1  h=NaN  p=NaN=NaN   delta = +0.366698+/-0.000000 = +139.268115%+/-0.000000%
+% For Task-pertinent Info (bits)
+% n=1  h=NaN  p=NaN=NaN   delta = +0.335353+/-0.000000 = +201.184738%+/-0.000000%
+% For Task-nonpertinent Info (bits)
+% n=1  h=NaN  p=NaN=NaN   delta = +0.031345+/-0.000000 = +32.443197%+/-0.000000%
+% For Task-pertinent Info (%)
+% n=1  h=NaN  p=NaN=NaN   delta = +16.382229+/-0.000000 = +25.877507%+/-0.000000%
+% For Task-nonpertinent Info (%)
+% n=1  h=NaN  p=NaN=NaN   delta = -16.382229+/-0.000000 = -44.646533%+/-0.000000%
+
+\begin{figure}[htbp]%
+    \centering
+    \hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V1} Information.\label{fig:info_taskpertinent_v1_behav_blanco}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/task-pertinent/I_behav_blanco_v1_s343-359_Gclass-shuffled-balanced_dr_pt_btsp20_rmvet2_info.eps}}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\ac{M2} \ac{V1} Information.\label{fig:info_taskpertinent_v1_behav_jack}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/task-pertinent/I_behav_jack_v1_s51-72_Gclass-shuffled-balanced_dr_pt_btsp20_rmvet2_info.eps}}
+    \hspace*{\fill}
+    \\
+    \hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V1} Relative information.\label{fig:info_taskpertinent_rel_v1_behav_blanco}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/task-pertinent/I_behav_blanco_v1_s343-359_Gclass-shuffled-balanced_dr_pt_btsp20_rmvet2_relative-info.eps}}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\ac{M2} \ac{V1} Relative information.\label{fig:info_taskpertinent_rel_v1_behav_jack}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/task-pertinent/I_behav_jack_v1_s51-72_Gclass-shuffled-balanced_dr_pt_btsp20_rmvet2_relative-info.eps}}
+    \hspace*{\fill}
+    \caption{Breakdown of task-pertinent and nonpertinent information contained in behavioural responses during \ac{V1} recording.
+In \protect\subref{fig:info_taskpertinent_v1_behav_blanco} and \protect\subref{fig:info_taskpertinent_v1_behav_jack}, the total information about the stimulus (grey), task-pertinent information (green), and task-nonpertinent (red) contained the behavioural response on each trial.
+In \protect\subref{fig:info_taskpertinent_rel_v1_behav_blanco} and \protect\subref{fig:info_taskpertinent_rel_v1_behav_jack}, the relative information about the stimulus which is task-pertinent (green) and task-nonpertinent (red).
+The \ac{PT} bias correction method was used, with the residual bias further reduced using bootstrapping (see \autoref{sec:pl_bootstrapping}).
+The stimulus class imbalance was corrected using subsampling, as described in \autoref{sec:pl_class_imbalance}.
+    \label{fig:info_taskpertinent_v1_behav}
+}
+\end{figure}
+
+
+\subsubsection{\acs{V4} Results}
+
+For \ac{M1}, we found no significant change in the total, task-pertinent, or task-nonpertinent information about the stimulus encoded in \ac{V4} channels ($p=0.48$, $p=0.19$, and $p=0.94$ respectively; see \autoref{fig:info_taskpertinent_v4_ch_blanco}).
+There was a small, but non-significant, increase of \SI{+0.014\pm0.010}{bits} in the average task-pertinent information between \zonename{A} and \zonename{B}.
+Correspondingly, there was no significant change in the fraction of information which was task-pertinent either ($p=0.61$; see \autoref{fig:info_taskpertinent_rel_v4_ch_blanco}).
+
+On the other hand, for \ac{M2} there was a significant ($p=0.0005$) increase in task-pertinent information from \zonename{A} to \zonename{B}, increasing by \SI{+0.054\pm0.013}{bits}, which is approximately $5$ times its initial value.
+Meanwhile, the amount of task-nonpertinent information did not notably change (\SI{+0.008\pm0.008}{bits}, $p=0.32$).
+Together, these effects accumulatively produced an significant increase in total information of \SI{+0.062\pm0.018}{bits} ($p=0.003$).
+As a consequence of this, the proportion of information which is task-pertinent increased from under \SI{20}{\percent} to around \SI{50}{\percent}, with a swing from \zonename{A} to \zonename{B} of \SI{+33\pm3}{\percent} ($p=0.00005$).
+
+Most information is initially not pertinent to the task, which may relate to most channels initially being inhibited by sample stimulus, as described in \autoref{sec:pl_dprime_v4} (\autoref{fig:dprime_v4_jack}).
+The largest increase in task-pertinent information occurs on the 5th experimental session.
+This corresponds to a session where several channels changed from stimulus-inhibited (negative $d'$) to stimulus-excited (positive $d'$).
+
+% blanco v4 1x527.00ms
+% dr pt
+% For Total Info (bits)
+% n=25  h=0.000000  p=0.480089=4.800887e-01   delta = +0.014921+/-0.020800 = +12.563164%+/-17.729269%
+% For Task-pertinent Info (bits)
+% n=25  h=0.000000  p=0.192543=1.925430e-01   delta = +0.014002+/-0.010443 = +26.745305%+/-19.984138%
+% For Task-nonpertinent Info (bits)
+% n=25  h=0.000000  p=0.941701=9.417010e-01   delta = +0.000919+/-0.012434 = +1.383585%+/-18.794865%
+% selected bw  :  bandwidth=0.016494
+%
+% For Task-pertinent Info (%)
+% n=13  h=0.000000  p=0.613049=6.130492e-01   delta = -2.717323+/-5.233468 = -5.561730%+/-601.681813%
+% For Task-nonpertinent Info (%)
+% n=13  h=0.000000  p=0.613049=6.130492e-01   delta = +2.717323+/-5.233468 = +5.313240%+/-601.673483%
+% selected bw  :  bandwidth=3.203598
+%
+% jack v4 1x527.00ms
+% dr pt
+% For Total Info (bits)
+% n=18  h=1.000000  p=0.002821=2.821313e-03   delta = +0.062224+/-0.017844 = +108.817777%+/-31.227202%
+% For Task-pertinent Info (bits)
+% n=18  h=1.000000  p=0.000527=5.272562e-04   delta = +0.054160+/-0.012710 = +505.870407%+/-118.716410%
+% For Task-nonpertinent Info (bits)
+% n=18  h=0.000000  p=0.321069=3.210688e-01   delta = +0.008065+/-0.007890 = +17.352317%+/-17.000845%
+% selected bw  :  bandwidth=0.004437
+%
+% For Task-pertinent Info (%)
+% n=7  h=1.000000  p=0.000051=5.059743e-05   delta = +33.408297+/-3.262665 = +136.706215%+/-360.592804%
+% For Task-nonpertinent Info (%)
+% n=7  h=1.000000  p=0.000051=5.059743e-05   delta = -33.408297+/-3.262665 = -44.213106%+/-360.371435%
+% selected bw  :  bandwidth=2.699929
+
+\begin{figure}[htbp]%
+    \centering
+    \hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V4} Information.\label{fig:info_taskpertinent_v4_ch_blanco}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/task-pertinent/I_sessionwise_blanco_v4_chmean25_s307,308,311,313,314,317,318,320,321,329-341_oc0_Gclass-shuffled-balanced_1bins_of_527ms_dr_pt_btsp20_rmvet2_rmvms2_info_leg.eps}}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\ac{M2} \ac{V4} Information.\label{fig:info_taskpertinent_v4_ch_jack}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/task-pertinent/I_sessionwise_jack_v4_chmean18_s24,25,27-38,40-49_oc0_Gclass-shuffled-balanced_1bins_of_527ms_dr_pt_btsp20_rmvet2_rmvms2_info.eps}}
+    \hspace*{\fill}
+    \\
+    \hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V4} Relative information.\label{fig:info_taskpertinent_rel_v4_ch_blanco}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/task-pertinent/I_sessionwise_blanco_v4_chmean25_s307,308,311,313,314,317,318,320,321,329-341_oc0_Gclass-shuffled-balanced_1bins_of_527ms_dr_pt_btsp20_rmvet2_rmvms2_relative-info_leg.eps}}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\ac{M2} \ac{V4} Relative information.\label{fig:info_taskpertinent_rel_v4_ch_jack}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/task-pertinent/I_sessionwise_jack_v4_chmean18_s24,25,27-38,40-49_oc0_Gclass-shuffled-balanced_1bins_of_527ms_dr_pt_btsp20_rmvet2_rmvms2_relative-info.eps}}
+    \hspace*{\fill}
+    \caption{Breakdown of task-pertinent and nonpertinent information contained in \ac{V4} recording channels.
+In \protect\subref{fig:info_taskpertinent_v4_ch_blanco} and \protect\subref{fig:info_taskpertinent_v4_ch_jack}, the total information about the stimulus (grey), task-pertinent information (green), and task-nonpertinent (red) contained in each of $25$ and $18$ channels respectively.
+In \protect\subref{fig:info_taskpertinent_rel_v4_ch_blanco} and \protect\subref{fig:info_taskpertinent_rel_v4_ch_jack}, the relative information about the stimulus which is task-pertinent (green) and task-nonpertinent (red) contained in channels with a significant amount of total information ($13$ and $7$ respectively).
+Main panels: across training sessions, the average information over channels, with standard error over channels indicated by the shaded region.
+Right hand panels: distribution over channels of the information (or relative information) in the first three sessions (\zonename{A}) versus last three sessions (\zonename{B}), with mean (solid black line) and median (dashed green line) over channels indicated.
+The violin plot shows a Gaussian kernel density, using a bandwidth determined as described in \autoref{sec:info-methods}.
+The \ac{PT} bias correction method was used, with the residual bias further reduced using bootstrapping (see \autoref{sec:pl_bootstrapping}).
+The stimulus class imbalance was corrected using subsampling, as described in \autoref{sec:pl_class_imbalance}.
+    \label{fig:info_taskpertinent_v4_ch}
+}
+\end{figure}
+
+
+The behavioural information for \ac{V4} training sessions shows a similar trend to the behavioural information during \ac{V1} training sessions.
+Namely, there is a larger increase in task-pertinent information and a smaller increase in task-nonpertinent information.
+
+For \ac{M1}, the subject began training with a decent initial performance, and correspondingly a decent amount of task-pertinent information is given by the behavioural response, as shown in \autoref{fig:info_taskpertinent_v4_behav_blanco}.
+Indeed, for \ac{M1} around \SI{75}{\percent} of the information contained in the behavioural response is task-pertinent at the beginning of training, and this percentage does not notably change throughout training (see \autoref{fig:info_taskpertinent_rel_v4_behav_blanco}).
+The total information encoded in the neural response does increase with training, but the most of this arising from an increase in task-pertinent information (\SI{+0.128}{bits}) as opposed to nonpertinent information (\SI{+0.034}{bits}).
+
+Compared to \ac{M1}, subject \ac{M2} began training with very poor performance on the task.
+Correspondingly, the behavioural response initially provides less information about which stimulus was presented (see \autoref{fig:info_taskpertinent_v4_behav_jack}) --- and over \SI{80}{\percent} of that is not pertinent to the task (see \autoref{fig:info_taskpertinent_rel_v4_behav_jack}).
+The amount of task-pertinent information given by the behavioural response increases by \SI{0.238}{bits} from \zonename{A} to \zonename{B} (a 26-fold increase), whilst the task-nonpertinent information doubles, only increasing by \SI{0.057}{bits}.
+Consequently, there is a massive swing of \SI{+54}{\percent} in the fraction of information encoded in the behavioural response which is task-pertinent.
+
+% Behavioural info for blanco v4
+% For Total Info (bits)
+% n=1  h=NaN  p=NaN=NaN   delta = +0.162043+/-0.000000 = +44.813597%+/-0.000000%
+% For Task-pertinent Info (bits)
+% n=1  h=NaN  p=NaN=NaN   delta = +0.127796+/-0.000000 = +47.636289%+/-0.000000%
+% For Task-nonpertinent Info (bits)
+% n=1  h=NaN  p=NaN=NaN   delta = +0.034247+/-0.000000 = +36.698947%+/-0.000000%
+% For Task-pertinent Info (%)
+% n=1  h=NaN  p=NaN=NaN   delta = +1.446146+/-0.000000 = +1.949190%+/-0.000000%
+% For Task-nonpertinent Info (%)
+% n=1  h=NaN  p=NaN=NaN   delta = -1.446146+/-0.000000 = -5.603514%+/-0.000000%
+%
+% Behavioural info for jack v4
+% For Total Info (bits)
+% n=1  h=NaN  p=NaN=NaN   delta = +0.294209+/-0.000000 = +485.223076%+/-0.000000%
+% For Task-pertinent Info (bits)
+% n=1  h=NaN  p=NaN=NaN   delta = +0.237539+/-0.000000 = +2537.475948%+/-0.000000%
+% For Task-nonpertinent Info (bits)
+% n=1  h=NaN  p=NaN=NaN   delta = +0.056669+/-0.000000 = +110.525845%+/-0.000000%
+% For Task-pertinent Info (%)
+% n=1  h=NaN  p=NaN=NaN   delta = +54.141348+/-0.000000 = +350.678733%+/-0.000000%
+% For Task-nonpertinent Info (%)
+% n=1  h=NaN  p=NaN=NaN   delta = -54.141348+/-0.000000 = -64.026394%+/-0.000000%
+
+\begin{figure}[htbp]%
+    \centering
+    \hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V4} Information.\label{fig:info_taskpertinent_v4_behav_blanco}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/task-pertinent/I_behav_blanco_v4_s307,308,311,313,314,317,318,320,321,329-341_Gclass-shuffled-balanced_dr_pt_btsp20_rmvet2_info.eps}}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\ac{M2} \ac{V4} Information.\label{fig:info_taskpertinent_v4_behav_jack}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/task-pertinent/I_behav_jack_v4_s24,25,27-38,40-49_Gclass-shuffled-balanced_dr_pt_btsp20_rmvet2_info.eps}}
+    \hspace*{\fill}
+    \\
+    \hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V4} Relative information.\label{fig:info_taskpertinent_rel_v4_behav_blanco}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/task-pertinent/I_behav_blanco_v4_s307,308,311,313,314,317,318,320,321,329-341_Gclass-shuffled-balanced_dr_pt_btsp20_rmvet2_relative-info.eps}}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\ac{M2} \ac{V4} Relative information.\label{fig:info_taskpertinent_rel_v4_behav_jack}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/task-pertinent/I_behav_jack_v4_s24,25,27-38,40-49_Gclass-shuffled-balanced_dr_pt_btsp20_rmvet2_relative-info.eps}}
+    \hspace*{\fill}
+    \caption{Breakdown of task-pertinent and nonpertinent information contained in behavioural responses during \ac{V4} recording.
+In \protect\subref{fig:info_taskpertinent_v4_behav_blanco} and \protect\subref{fig:info_taskpertinent_v4_behav_jack}, the total information about the stimulus (grey), task-pertinent information (green), and task-nonpertinent (red) contained the behavioural response on each trial.
+In \protect\subref{fig:info_taskpertinent_rel_v4_behav_blanco} and \protect\subref{fig:info_taskpertinent_rel_v4_behav_jack}, the relative information about the stimulus which is task-pertinent (green) and task-nonpertinent (red).
+The \ac{PT} bias correction method was used, with the residual bias further reduced using bootstrapping (see \autoref{sec:pl_bootstrapping}).
+The stimulus class imbalance was corrected using subsampling, as described in \autoref{sec:pl_class_imbalance}.
+    \label{fig:info_taskpertinent_v4_behav}
+}
+\end{figure}
+
+
+\subsubsection{Discussion}
+
+We decomposed the information, encoded in the firing rate detected by \ac{V1} and \ac{V4} recording channels, into task-pertinent information and task-nonpertinent information.
+The task-pertinent information is that which would help an observer to classify whether the stimulus was in the upper or lower half of all stimulus contrasts.
+Task-nonpertinent information, which is also encoded in the firing rate, is that which would help an observer to narrow down which of the stimuli within the upper or lower half was more likely.
+Although the task-nonpertinent information is useful when trying to decode exactly which stimulus was presented, it is not useful for the behavioural task which the subject needs to perform.
+Consequently, there is an incentive for the subject's neocortex to increase the amount of task-pertinent information which is encoded so that the task can be completed more accurately, but no direct incentive to increase the amount of task-nonpertinent information.
+
+We applied the same procedure whilst considering the subject's behavioural response.
+Although the behavioural response is binary, differences in the success rate for each specific stimulus mean we gain task-nonpertinent information about the stimulus when observing the behavioural response.
+
+Across \ac{V1} and \ac{V4} firing rates for both subjects, there was never a significant change in the amount of task-nonpertinent information between the beginning (\zonename{A}) and end (\zonename{B}) of training.
+For \ac{M2}, the firing rate from both \ac{V1} and \ac{V4} channels showed a significant increase in the task-pertinent information between beginning and end of training.
+Consequently, the total information encoded also increased significantly, and the proportion of information which was task-pertinent increased significantly.
+For \ac{M1}, the firing rate from \ac{V1} and \ac{V4} channels did not show a significant increase in task-pertinent information.
+Similarly, there was no significant change in the total information, nor in the proportion of information which was task-pertinent.
+These results are consistent with the neocortex learning to optimise the reward signal given from the behavioural task --- the encoded information which is not pertinent to the task is held constant throughout training whilst the task-pertinent information increases with training.
+
+There was an increase in both task-pertinent and task-nonpertinent information contained in the behavioural response for both subjects during training with both \ac{V1} and \ac{V4} recordings.
+However, the increase in task-pertinent information was always larger than the increase in task-nonpertinent information.
+
+Arguably, changes in amount of task-pertinent information are more interesting to consider than the amount of task-nonpertinent information, since this directly relates to the performance of the subject.
+But even if this were not the case, there is no significant change in the task-nonpertinent information.
+Consequently, we from now on only compute the amount of information about the stimulus which is task-pertinent by collapsing the stimulus labels together into only two groups.
+As described in \autoref{sec:pl_bias_grouping}, this will reduce the amount of residual bias on the computed information.
+
 
 %------------------------------------------------------------------------------
 \subsection{Information versus firing rate integration window duration}
