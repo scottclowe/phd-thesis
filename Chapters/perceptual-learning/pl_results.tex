@@ -1314,114 +1314,103 @@ The precision in the tuning curve also falls, so the firing rate becomes less in
 \label{sec:dec-meth-lin}
 %------------------------------------------------------------------------------
 
-The input data to the decoding algorithm was chosen to be the total spike count during stimulus presentation from each trial.
-This total is taken only for channels known to offer a consistent firing rate across sessions after the spontaneous activity matching process.
-If there are 20 such channels in the dataset, taking the total number of spikes during stimulus presentation for each of the channels results in a 20-dimensional vector of population activity on each trial.
+So far, we have only considered the amount of information encoded in the spikes collected by a single electrode contact --- that is to say, the spikes from neurons surrounding a single electrode contact.
+However, when the subject's brain is deciding how to respond on to the stimulus on each trial, it potentially has available to it the spikes from every neuron in the brain simultaneously.
+Consequently, it is appropriate for us to consider how much information is encoded at the population level --- the firing measured from many neurons simultaneously.
 
-It should be noted that using all the spikes during the stimulus presentation period is likely to be sub-optimal, as not necessarily all of this period of time is carrying useful information about the stimuli.
-The amount of spikes before the onset response, for instance, is clearly not stimulus dependent as it precedes the neural response to the stimulus, so it will only be a source of noise and  not useful for the decoding.
-Furthermore, it is possible that the firing rate during the onset response might be more informative than the average firing rate across the whole presentation period.
-However, finding the optimal window from which to take the spikes is an exercise in of itself.
+% To consider the amount of information encoded across the population, let the variable $x_i$ denote the firing rate (measured over some finite duration) from neuron $i$.
+% If we were, hypothetically, to measure the firing from every neuron in the visual cortex we would have some very large array $\VEC{x} = [x_1, x_2 \ldots]$.
 
-The decoder used was a Fisher linear discriminant classifier.
-Given a training dataset of labelled data points in 20D, the classifier will find the optimal 19D hyperplane such that it separates the two classes of points optimally, under the assumption that the two clusters to be separated are multivariate normal distributions.
+Whilst we cannot simultaneously measure the firing rate of every neuron in the visual cortex, we can consider the firing rate simultaneously observed at all $20$ or so channels (for exact values for each dataset, see \autoref{tab:nchannels_restricted}).
+Computing the amount of information encoded in the vector of simultaneous responses across all the recording channels allows us to investigate how the encoded information scales as the number of neurons increases.
+Since the neurons are encoding firing rate in a similar manner in a neighbouring region of cortex, there is presumably a reasonable amount of redundancy between the neurons.
+However, even if the neurons are encoding visual stimulation using identical response functions, there would be differences between each when sampled simultaneously due to differences in the neural noise for each.
+
+We could compute the amount of information in the vector of simultaneously recorded responses from all our electrode channels from the differential entropy, \autoref{eq:info}, as before.
+However, the number of possible response vectors rises exponentially with its dimensionality, and, as discussed in \autoref{sec:info-bias}, the available bias correction techniques will not be able to match this.
+Consequently, directly computing the amount of information encoded in such a large response vector will not yield any meaningful results.
+
+Instead, we train a classification model on the high-dimensional responses.
+The performance of the model --- the proportion of samples which it correctly classifies --- provides a lower-bound on the amount of information present in the data \citep{Quiroga2009}.
+
+COULD PUT EXAMPLE CONFUSION MATRICES HERE?
+
+In line with our findings about \autoref{sec:task-info}, we will group together all the contrasts on one side of the \SI{30}{\percent} contrast task separation line.
+This means objective function for the classification model we will train on the data will match the objective function which the subject was tasked with during the experiments.
+
+
+\subsection{Methods}
+
+Our input to the model is the vector of multi-unit firing rates recorded from each electrode over the \SI{527}{\milli\second} of stimulus presentation.
+For this analysis, the procedure to correct the changes in class imbalance over training described in \autoref{sec:pl_class_imbalance} was not employed and the class balance over sessions remained unstable.
+
+
+\subsubsection{Linear discriminant classifier}
+
+To evaluate the amount of information contained in the data, we trained a Fisher linear discriminant classifier to distinguish between.
+Given a training dataset of labelled data-points in with $m$-dimensions for each training sample, the linear classifier will fit an $(m-1)$-dimensional hyperplane which separates the classes of the training samples optimally, under the assumption that the two clusters to be separated are multivariate normal distributions.
+
 The vector normal to the hyperplane is 
 \begin{equation}
-\vec{w} = \Sigma^{-1}\left(\vec{\mu_1}-\vec{\mu_0}\right)
+\VEC{w} = \Sigma^{-1}\left(\VEC{\mu_1}-\VEC{\mu_0}\right)
 \end{equation}
-where $\Sigma$ is the covariance matrix between the two populations, as determined from the available labelled data, and $\vec{\mu_0}$ and $\vec{\mu_1}$ are the computed means of the two distributions.
+where $\Sigma$ is the covariance matrix between the two populations, as determined from the labelled training data, and $\VEC{\mu_0}$ and $\VEC{\mu_1}$ are the means of the two distributions, for class $0$ and class $1$.
 
-Once a classifying hyperplane has been found, test data points can be classified by observing the side of the hyperplane on which they fall.
-For a new data point, $\vec{x}$,  if
+After training the model to define a separating hyperplane, test data-points can be classified by inspecting which side of the hyperplane they fall upon.
+For a new data point, $\VEC{x}$, we classify $\VEC{x}$ as group $1$ (higher than \SI{30}{\percent} contrast) if
 \begin{equation}
-\vec{w}\cdot\vec{x}>c
-\end{equation}
-then we classify $\vec{x}$ as group 1 (higher than \SI{30}{\percent} contrast), otherwise we classify it as 0 (lower).
-
-This was performed using the function \texttt{classify} with type `linear' in MATLAB.
-For training and testing of the decoder, leave-one-out classification was used across each session individually.
-This means that for a session of 500 trials, the decoder is trained on 499 trials with the spike counts for all the trials and the correct response (higher or lower than \SI{30}{\percent} contrast) and we then check whether the decoder identifies the remaining trial correctly.
-This is repeated for all the 500 trials, and then the performance is defined as the proportion of trials which are identified correctly.
-Training the decoder in this way means the decoding hyperplane used for classification is optimal for each individual session, but also different for each session.
-
-The impact of noise correlations on the decoder is considered by comparing the regular decoder performance with the performance of a decoder applied to data which has been shuffled across trials under the same stimulus conditions.
-After shuffling, specific neural response vectors no longer correspond to any particular trial, since the spike counts for each channel are taken from different trials.
-
-%------------------------------------------------------------------------------
-\subsection{Probabilistic Model}
-\label{sec:dec-meth-prob}
-
-As well as comparing the behavioural and decoding responses with the target responses to find a value for predictor performance, we can compare the behavioural and decoding responses with one another and find a value for their agreement, the proportion of trials on which the two responses are the same.
-
-We would like to evaluate whether the behavioural responses are dependent on the firing rates of the recorded population of neurons.
-This can be done by considering the behavioural and decoding response agreement, but in order to do this we need to construct a model of how much agreement we would expect to find if the two were completely independent, which will form our null hypothesis (NH) to compare against.
-
-Throughout this work, it is assumed that the behavioural and decoding responses are given by a Bernoulli distribution.
-In this model, there is a true probability, $p$, of the animal giving the correct answer to the task for each trial, which is sampled from on each of the trials.
-When this is sampled over $n$ trials, we expect to find $np$ trials have been responded correctly and $n(1-p)$ incorrectly.
-
-Hence the underlying true probability of a correct response can be approximated by taking the number of correct responses and dividing them by the total number of trials.
-Using one of several statistical methods, we can find an estimate for a percentage confidence interval (PCI).
-It is from this that error bars, indicated by the shaded regions surrounding line plots in \autoref{fig:dec_all_v1} and \autoref{fig:dec_all_v4}, are computed.
-These are presented as the standard error, equivalent to a \SI{31.8}{\percent}  confidence interval within which \SI{68.2}{\percent} of data points are expected to lie.
-(This has been done using the function \texttt{binofit} in MATLAB, which utilises the Clopper-Pearson method.
-Although this is not the best method, it should be sufficient for our purposes.)
-
-The behavioural performance is given by the estimated probability of the behavioural response being the same as the correct response, simply found by dividing the number of times the behavioural response matched the target response by the number of presentations.
-The target response is of course whether or not the test stimulus is actually higher or lower than the sample.
-Similarly, the decoding performance is the proportion of times the decoding response is the same as the target response; and the behavioural and decoding agreement is the proportion of times the behavioural and decoding responses are the same.
-
-Using the estimated probabilities of the behavioural and decoding responses being correct, we can find an expected agreement between the behavioural and decoding responses if they are completely independent of one another, which constitutes the null hypothesis model (NH).
-By comparing the observed agreement with the agreement we expect for independent variables, we can see whether or not behavioural responses are correlated with the decoded neural responses.
-
-The theory behind the estimation of the agreement for independent binomial processes is described as follows.
-Let us take two independent binomial variables, $X_1$ and $X_2$, which can either be in state $s_1$ with probabilities $p_1$ and $p_2$ respectively, or in state $s_2$ with probability $(1-p_1)$ and $(1-p_2)$.
-If $X_1$ and $X_2$ are completely independent, we expect to find them in the same state with probability $p_1 \, p_2 + (1-p_1) (1-p_2)$.
-Obviously, if $p_1$ and $p_2$ are both 0.5, there is a 0.5 chance of them being in the same state.
-If $p_1$ and $p_2$ are both either higher or lower than 0.5, there is a higher chance of $X_1$ and $X_2$ being in the same state, and conversely if one is above and one below 0.5, there is a lower chance of them being in the same state.
-This means that if the probabilities of the behavioural and decoding responses being correct rises during the perceptual learning process, we expect the proportion of trials on which they agree to rise as well, even if the two distributions are completely independent.
-
-The initial model for the expected agreement between behaviour and decoding used a simple model as described above, where $p_1$ and $p_2$ are taken to be the overall probability of a correct response across all the test stimuli for behaviour and decoding respectively.
-We will refer to this model as the single binomial model, as each predictor is modelled with a single binomial.
-However, since there are 14 possible stimuli with varying difficulty, a more detailed model can be conceived in which the probability of a correct response for each predictor depends on the stimulus presented.
-In this ``multi-binomial'' model, the set of conditions (different stimuli) is given by $C$, and each predictor, $i\in\{b,d\}$, can either be in the ``lower'' or ``higher'' state ($s_l$ or $s_h$).
-For each $c\in C$, there is some probability $p_{il|c} := P(x_i=s_l|c)$ of predictor a being in the lower state.
-Consequently, the probability of the two predictors being in the same state is given by
-\begin{equation}
-p_a = \sum_{c\in C} P(c) (p_{bl|c} \, p_{dl|c} + (1-p_{bl|c}) (1-p_{dl|c})
+\VEC{w}\cdot\VEC{x}>c
 ,\end{equation}
-where $P(c)$ is the probability of condition $c$ being presented to the animal on any given trial.
+otherwise we classify it as $0$ (lower than \SI{30}{\percent} contrast).
 
-We will assume that $c$ is a random variable, which is sampled from for each trial independent from prior trials.
-This is a simplification of the actual condition selection process, ``delayed repetition''.
-In this, the conditions for a set of trials are chosen in advance with $n$ appearances of each condition in a random order, after which any trial on which the animal responded incorrectly is repeated.
-This means the single random variable approximation $P(c)$ is not uniform across the conditions, as harder conditions are presented more frequently.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[scale=.45]{figs/decoding/lindiscrimex_v1_jack_72_3vs8.eps}
+    \caption{%
+    Example of a linear discriminant.
+    The classifier was trained on the firing rate for two channels (\ac{M2}, \ac{V1}, channels $3$ and $8$).
+    The data samples are shown as offset black and white triangles, where the size of triangles scales linearly with the number of samples with a given pair of firing rates.
+    The separating hyperplane fit by the model is shown in blue.
+    MENTION ACCURACY OF THE MODEL
+}
+    \label{fig:pl_lin_discrim_example}
+\end{figure}
 
-For a given group of trials (such as, for instance, a single session), $P(c)$ can be estimated by dividing the number of times each appears by the total number of trials in the group.
-Similarly, $p_{il|c}$ can be estimated by dividing the number of trials on which the predictor was in the lower state for a given condition by the number of trials where that condition was presented.
+The linear discriminant model was fit using MATLAB's \texttt{classify} function (type `linear').
+We also tested a quadratic model, and using Mahalanobis distances for the discrimination (not shown).
+However, neither of these models resulted in better performance than the linear model.
 
-It is not immediately clear whether the single- or multi-binomial models will yield similar or different results.
-Obviously, the multi-binomial model has more accurate detail and so should give a better result, but whether or not the single binomial should give a reasonable approximation is not obvious, though one would assume it would.
-Applying the two models to the data and comparing them, we found the single binomial significantly underestimates the agreement which would really be found if the two predictors were completely independent.
-Henceforth, only the more accurate multi-binomial model is considered.
+Restricting ourselves to a linear model of the data imposes the assumption that the contrast response tuning curves are monotonic for all neurons under observation.
+This is a gross reduction of the space of possible encoding schemes and will prevent many theoretically possible stimulus codes from giving any information about the stimuli.
+However, in practice our neurons nearly all have monotonically increasing response curve and this making such an imposition on the model does not appear to hinder its performance.
 
-The expected agreement under the assumption of two independent binomial processes gives us the null hypothesis model to compare against.
-If the results of the analysis deviate significantly from this model, we can conclude the behavioural and neural decoded responses are correlated.
-A $p<0.05$ significance boundary was found by sampling the NH model 100,000 times and noting the agreement for the fifth-percentile of samples.
-During this sampling, the number of trials for each test condition was fixed with the same values as used in the experiment.
-Since we are only interested in sessions where the behavioural and decoded responses agree more than they would if independent, a single-tailed test was used.
-(NB: in the figures below, the single-tailed lower bound is also included for symmetry, so only \SI{90}{\percent} of the samples lie within the shaded region).
 
-The multi-binomial model should not be confused with a multinomial distribution, which would map one random variable to $n$ possible responses.
-The model used here is instead a two-step process where there are a set of binomial distributions, which binomial is used is determined by one random variable (the output of which is the same for both behaviour and decoder), and the output of the selected binomial is given by a second random variable.
-In essence, the simple, single binomial model is similar to shuffling the responses across all trials regardless of condition, and the multi-binomial model we use is similar to shuffling the responses with the same condition presented.
+\subsubsection{Performance evaluation}
+
+To investigate the performance of the classifier on the data from a single session, we used leave-one-out cross-validation.
+Under leave-one-out cross-validation, a data-set with $n$ samples, the decoder is trained on $(n-1)$ trials with the spike counts for all the trials and the correct response (higher or lower than \SI{30}{\percent} contrast) and we then check whether the decoder identifies the remaining trial correctly.
+This is repeated for all the $n$ trials, and then the performance is defined as the proportion of trials which are identified correctly.
+
+As described in the machine learning literature, leave-one-out is a poor method of cross-validation in order to evaluate to compare models against one another.
+This is because the models trained in each leave-one-out fold of the data will have almost identical set of training data.
+Consequently each classifier will be almost identical (the learned hyperplane will be almost exactly the same for each test-step), and the evaluation will not indicate the variance of performance which would be expected across a diversity of sample sets.
+Such problems result in sub-optimal model selection criteria, however these need not concern us since our task is to most accurately estimated the performance of the model.
+For this, leave-one-out has low bias and variance \citep{Zhang2015}, which is most appropriate to us since we are interested in how the data changes over training.
+
+
+\subsubsection{Shuffling to destroy noise correlations}
+
+The impact of noise correlations on the decoder was considered by shuffling the firing rate across trials with the same stimulus conditions.
+After shuffling, specific neural response vectors no longer correspond to any particular trial, since the spike counts for each channel are taken from different trials.
+The effect is the same as resampling the response on each trial independently for every channel.
+Consequently, it destroys the noise correlations between channels whilst preserving stimulus correlations, since the response for a given trial still depends on which stimulus was presented but conditioned on which stimulus was presented, the firing rate for each channel is independent of all others.
+
 
 %------------------------------------------------------------------------------
-\subsection{Results}
+\subsubsection{Results}
 
 \autoref{fig:dec_singles} shows how well the decoder does based only on data from individual channels.
 The performance was measured as described in \autoref{sec:dec-meth-lin} for each session, and then averaged over all sessions.
-[perhaps a histogram would show how these are distributed better?]
 
 \autoref{fig:dec_nbest} indicates how the performance of the decoder improves as more channels are added.
 We can see that the decoder performance saturates after around 10 channels are included in the training data, but at a perforance which is still far from the ideal.
