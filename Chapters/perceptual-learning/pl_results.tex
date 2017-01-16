@@ -1446,6 +1446,10 @@ For each of the datasets, the performance decreases as the last 3 channels are a
 I speculate that this is because these channels only contain redundant information, and the increase in dimensionality decreases the quality of the classifier selected from the finite training data available.
 
 
+%------------------------------------------------------------------------------
+\subsubsection{Results}
+
+
 \begin{figure}[htbp]
     \centering
     \hspace*{\fill}
@@ -1496,13 +1500,12 @@ I speculate that this is because these channels only contain redundant informati
 \end{figure}
 
 
-
-For \ac{M2} \ac{V4}, the trend in increase for behavioural performance is well matched by the change in performance of the decoder (\autoref{fig:dec_j4_allp}, blue and red lines).
-In contrast to this, for \ac{M1} \ac{V4} we see the decoding performance is steady despite training, although it should be noted that the increase in behavioural performance was not so large for this animal.
-
 For \ac{M2} \ac{V1}, there is a small gradual increase in decoder performance throughout training, though the increase does not match the timescales and rate of the increase in behavioural performance which is a much sharper transition.
 Results for \ac{M2} \ac{V1} could be interpreted as indicating that no further improvements can be obtained from changes in \ac{V1}, and the behavioural performance is limited by the performance of the decoder.
 For \ac{M1} \ac{V1}, there is a decrease in decoder in performance despite the increase in behavioural performance (\autoref{fig:dec_b1_allp}, blue and red lines respectively).
+
+For \ac{M2} \ac{V4}, the trend in increase for behavioural performance is well matched by the change in performance of the decoder (\autoref{fig:dec_j4_allp}, blue and red lines).
+In contrast to this, for \ac{M1} \ac{V4} we see the decoding performance is steady despite training, although it should be noted that the increase in behavioural performance was not so large for this animal.
 
 
 Shuffling the trials to destroy any noise correlations provides an improvement in performance for the data from \ac{M2}, indicating that noise correlations are detrimental to the successful decoding of stimuli.
@@ -1511,6 +1514,85 @@ For \ac{M2} \ac{V1}, the benefit from shuffling seems to be reduced with trainin
 
 % \marginnote{It might well be better to plot, for each area, the performances for both animals on the same plot and the expected vs observed behavioural agreement for both animals on a seperate plot.}
 
+%------------------------------------------------------------------------------
+\subsubsection{Discussion}
+
+
+%------------------------------------------------------------------------------
+\subsection{Model and behavioural agreement}
+
+As well as comparing the behavioural and decoding responses with the target responses to find a value for predictor performance, we can compare the behavioural and decoding responses with one another and find a value for their agreement, the proportion of trials on which the two responses are the same.
+
+We would like to evaluate whether the behavioural responses are dependent on the firing rates of the recorded population of neurons.
+This can be done by considering the behavioural and decoding response agreement, but in order to do this we need to construct a model of how much agreement we would expect to find if the two were completely independent, which will form our \ac{NH} to compare against.
+
+
+%------------------------------------------------------------------------------
+\subsubsection{Method}
+\label{sec:dec-meth-prob}
+
+Throughout this work, it is assumed that the behavioural and decoding responses are given by a Bernoulli distribution.
+In this model, there is a true probability, $p$, of the animal giving the correct answer to the task for each trial, which is sampled from on each of the trials.
+When this is sampled over $n$ trials, we expect to find $np$ trials have been responded correctly and $n(1-p)$ incorrectly.
+
+Hence the underlying true probability of a correct response can be approximated by taking the number of correct responses and dividing them by the total number of trials.
+Using one of several statistical methods, we can find an estimate for a percentage confidence interval (PCI).
+It is from this that error bars, indicated by the shaded regions surrounding line plots in \autoref{fig:dec_all_v1} and \autoref{fig:dec_all_v4}, are computed.
+These are presented as the standard error, equivalent to a \SI{31.8}{\percent}  confidence interval within which \SI{68.2}{\percent} of data points are expected to lie.
+(This has been done using the function \texttt{binofit} in MATLAB, which utilises the Clopper-Pearson method.
+Although this is not the best method, it should be sufficient for our purposes.)
+
+The behavioural performance is given by the estimated probability of the behavioural response being the same as the correct response, simply found by dividing the number of times the behavioural response matched the target response by the number of presentations.
+The target response is of course whether or not the test stimulus is actually higher or lower than the sample.
+Similarly, the decoding performance is the proportion of times the decoding response is the same as the target response; and the behavioural and decoding agreement is the proportion of times the behavioural and decoding responses are the same.
+
+Using the estimated probabilities of the behavioural and decoding responses being correct, we can find an expected agreement between the behavioural and decoding responses if they are completely independent of one another, which constitutes the \ac{NH}.
+By comparing the observed agreement with the agreement we expect for independent variables, we can see whether or not behavioural responses are correlated with the decoded neural responses.
+
+The theory behind the estimation of the agreement for independent binomial processes is described as follows.
+Let us take two independent binomial variables, $X_1$ and $X_2$, which can either be in state $s_1$ with probabilities $p_1$ and $p_2$ respectively, or in state $s_2$ with probability $(1-p_1)$ and $(1-p_2)$.
+If $X_1$ and $X_2$ are completely independent, we expect to find them in the same state with probability $p_1 \, p_2 + (1-p_1) (1-p_2)$.
+Obviously, if $p_1$ and $p_2$ are both 0.5, there is a 0.5 chance of them being in the same state.
+If $p_1$ and $p_2$ are both either higher or lower than 0.5, there is a higher chance of $X_1$ and $X_2$ being in the same state, and conversely if one is above and one below 0.5, there is a lower chance of them being in the same state.
+This means that if the probabilities of the behavioural and decoding responses being correct rises during the perceptual learning process, we expect the proportion of trials on which they agree to rise as well, even if the two distributions are completely independent.
+
+The initial model for the expected agreement between behaviour and decoding used a simple model as described above, where $p_1$ and $p_2$ are taken to be the overall probability of a correct response across all the test stimuli for behaviour and decoding respectively.
+We will refer to this model as the single binomial model, as each predictor is modelled with a single binomial.
+However, since there are 14 possible stimuli with varying difficulty, a more detailed model can be conceived in which the probability of a correct response for each predictor depends on the stimulus presented.
+In this ``multi-binomial'' model, the set of conditions (different stimuli) is given by $C$, and each predictor, $i\in\{b,d\}$, can either be in the ``lower'' or ``higher'' state ($s_l$ or $s_h$).
+For each $c\in C$, there is some probability $p_{il|c} := P(x_i=s_l|c)$ of predictor a being in the lower state.
+Consequently, the probability of the two predictors being in the same state is given by
+\begin{equation}
+p_a = \sum_{c\in C} P(c) (p_{bl|c} \, p_{dl|c} + (1-p_{bl|c}) (1-p_{dl|c})
+,\end{equation}
+where $P(c)$ is the probability of condition $c$ being presented to the animal on any given trial.
+
+We will assume that $c$ is a random variable, which is sampled from for each trial independent from prior trials.
+This is a simplification of the actual condition selection process, ``delayed repetition''.
+In this, the conditions for a set of trials are chosen in advance with $n$ appearances of each condition in a random order, after which any trial on which the animal responded incorrectly is repeated.
+This means the single random variable approximation $P(c)$ is not uniform across the conditions, as harder conditions are presented more frequently.
+
+For a given group of trials (such as, for instance, a single session), $P(c)$ can be estimated by dividing the number of times each appears by the total number of trials in the group.
+Similarly, $p_{il|c}$ can be estimated by dividing the number of trials on which the predictor was in the lower state for a given condition by the number of trials where that condition was presented.
+
+It is not immediately clear whether the single- or multi-binomial models will yield similar or different results.
+Obviously, the multi-binomial model has more accurate detail and so should give a better result, but whether or not the single binomial should give a reasonable approximation is not obvious, though one would assume it would.
+Applying the two models to the data and comparing them, we found the single binomial significantly underestimates the agreement which would really be found if the two predictors were completely independent.
+Henceforth, only the more accurate multi-binomial model is considered.
+
+The expected agreement under the assumption of two independent binomial processes gives us the null hypothesis model to compare against.
+If the results of the analysis deviate significantly from this model, we can conclude the behavioural and neural decoded responses are correlated.
+A $p<0.05$ significance boundary was found by sampling the \ac{NH} model $100,000$ times and noting the agreement for the fifth-percentile of samples.
+During this sampling, the number of trials for each test condition was fixed with the same values as used in the experiment.
+Since we are only interested in sessions where the behavioural and decoded responses agree more than they would if independent, a single-tailed test was used.
+(NB: in the figures below, the single-tailed lower bound is also included for symmetry, so only \SI{90}{\percent} of the samples lie within the shaded region).
+
+The multi-binomial model should not be confused with a multinomial distribution, which would map one random variable to $n$ possible responses.
+The model used here is instead a two-step process where there are a set of binomial distributions, which binomial is used is determined by one random variable (the output of which is the same for both behaviour and decoder), and the output of the selected binomial is given by a second random variable.
+In essence, the simple, single binomial model is similar to shuffling the responses across all trials regardless of condition, and the multi-binomial model we use is similar to shuffling the responses with the same condition presented.
+
+
+\subsubsection{Results}
 
 \begin{figure}[htbp]
     \centering
@@ -1574,7 +1656,16 @@ The effect is stronger for \ac{M2}, but present for both animals.
 This indicates that the behavioural responses and the decoded responses based on the neural data were not notably correlated, but have become so with training.
 
 Because the shuffled decoded responses are more accurate (with respect to the target response), they are predicted under the null hypothesis to be in better agreement with the behavioural responses.
-However we observe these are in worse agreement than the unshuffled decoding, and do not deviate from the corresponding NH line.
+However we observe these are in worse agreement than the unshuffled decoding, and do not deviate from the corresponding \ac{NH} line.
+
+
+\section{Superfluous}
 
 A more detailed breakdown of these results with subsets of the 14 conditions is given in \autoref{fig:dec_detail_b1} and \autoref{fig:dec_detail_j4}.
 Comparing \autoref{fig:dec_b4_6easy_a} and \autoref{fig:dec_j4_6easy_a} with \autoref{fig:dec_b4_6hard_a} and \autoref{fig:dec_j4_6hard_a}, we can see that the decoding responses for the easier conditions fit the null hypothesis model, whilst the more challenging conditions do not and have a statistically significant agreement with the animal behaviour.
+
+
+\section{Discussion --- to be moved}
+
+Since the decoder was trained on all-but-one of the trials from a single session, there is no guaranteed similarity between the decoders across sessions --- each session may end up using a different hyperplane for classification.
+This corresponds to assuming that the higher-cortical areas are changing their decoding of the lower-cortical areas as time progresses.
