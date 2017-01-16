@@ -1309,7 +1309,7 @@ The precision in the tuning curve also falls, so the firing rate becomes less in
 
 
 %==============================================================================
-\section{Information at the population level}
+\section{Decoding information at the population level}
 \label{sec:dec-meth-lin}
 %------------------------------------------------------------------------------
 
@@ -1406,7 +1406,7 @@ Consequently, it destroys the noise correlations between channels whilst preserv
 
 
 %------------------------------------------------------------------------------
-\subsubsection{Results}
+\subsection{Results}
 
 \autoref{fig:dec_singles} shows how well the decoder does based only on data from individual channels.
 The performance was measured as described in \autoref{sec:dec-meth-lin} for each session, and then averaged over all sessions.
@@ -1446,7 +1446,7 @@ I speculate that this is because these channels only contain redundant informati
 
 
 %------------------------------------------------------------------------------
-\subsubsection{Results}
+\subsection{Results}
 
 
 \begin{figure}[htbp]
@@ -1514,11 +1514,11 @@ For \ac{M2} \ac{V1}, the benefit from shuffling seems to be reduced with trainin
 % \marginnote{It might well be better to plot, for each area, the performances for both animals on the same plot and the expected vs observed behavioural agreement for both animals on a seperate plot.}
 
 %------------------------------------------------------------------------------
-\subsubsection{Discussion}
+\subsection{Discussion}
 
 
 %------------------------------------------------------------------------------
-\subsection{Model and behavioural agreement}
+\section{Agreement between decoder and behavioural responses}
 
 As well as comparing the behavioural and decoding responses with the target responses to find a value for predictor performance, we can compare the behavioural and decoding responses with one another and find a value for their agreement, the proportion of trials on which the two responses are the same.
 
@@ -1527,7 +1527,7 @@ This can be done by considering the behavioural and decoding response agreement,
 
 
 %------------------------------------------------------------------------------
-\subsubsection{Method}
+\subsection{Method}
 \label{sec:dec-meth-prob}
 
 Throughout this work, it is assumed that the behavioural and decoding responses are given by a Bernoulli distribution.
@@ -1591,7 +1591,7 @@ The model used here is instead a two-step process where there are a set of binom
 In essence, the simple, single binomial model is similar to shuffling the responses across all trials regardless of condition, and the multi-binomial model we use is similar to shuffling the responses with the same condition presented.
 
 
-\subsubsection{Results}
+\subsection{Results}
 
 \begin{figure}[htbp]
     \centering
