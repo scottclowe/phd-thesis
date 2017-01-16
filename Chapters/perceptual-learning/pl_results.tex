@@ -417,7 +417,7 @@ We address this discrepancy next.
 
 
 %------------------------------------
-\subsubsection{Removing inconsistent channels}
+\subsection{Removing inconsistent channels}
 
 We noted that some channels were moving between sessions.
 In general, it is just as likely for electrode contacts to move into locations where they are more informative as to move such that they are less informative.
@@ -500,7 +500,7 @@ For the other datasets, there were no notable changes.
 
 
 %------------------------------------
-\subsubsection{Correcting for stimulus class imbalance}
+\subsection{Correcting for stimulus class imbalance}
 \label{sec:pl_class_imbalance}
 
 As mentioned in \autoref{sec:pl_task}, the stimulus presentation procedure was to include a fixed number of repetitions of each stimulus in a block of trials and present them in a random order.
@@ -588,7 +588,7 @@ For \ac{V4}, the outcomes stand unchanged even though the relative change in inf
 
 
 %------------------------------------
-\subsubsection{Defending against changes in session duration}
+\subsection{Defending against changes in session duration}
 
 A large amount of session-to-session variability in the measurements was observed in our results (\autoref{fig:info_sess_1x527}).
 Further investigation revealed that this variability was due to changes in the duration of each session --- some sessions contain $5$ times as many trials as others.
@@ -648,8 +648,8 @@ Instead, we focus on the three other more practical methods, whose outcomes are 
 
 
 %------------------------------------
- \subsubsection{Bootstrap correction}
- \label{sec:pl_bootstrapping}
+\subsection{Bootstrap correction}
+\label{sec:pl_bootstrapping}
 
 Shuffling the responses across stimuli destroys the information contained in the response about the stimulus.
 By performing such shuffling and computing the amount of information between the randomly paired labels, we can estimate the bias \citep{Optican1991}.
@@ -689,8 +689,8 @@ We find that using bootstrapping for the bias correction does indeed overestimat
 This effect is particularly dominant for the \ac{M1} \ac{V4} dataset (see \autoref{fig:I_vs_invN_btsp_v4_blanco}).
 
 %------------------------------------
- \subsubsection{Grouping stimuli together}
- \label{sec:pl_bias_grouping}
+\subsection{Grouping stimuli together}
+\label{sec:pl_bias_grouping}
 
 During the experiment, the subject is tasked with determining whether the stimulus contrast is higher or lower than the \SI{30}{\percent} sample stimulus presented at the start of each trial.
 As a consequence of this, the subject does not need to learn exactly what stimulus is on screen, only whether the stimulus is in the half above or below \SI{30}{\percent} contrast.
@@ -733,7 +733,7 @@ As anticipated, using only two stimulus classes to increase the number of trials
 This is witnessed in the reduced correlation between estimated information and $\nicefrac{1}{N}$ seen in \autoref{fig:I_vs_invN_target-group}.
 
 %------------------------------------
- \subsubsection{Trial-wise analysis}
+\subsection{Trial-wise analysis}
 
 We now consider what happens if we group together trials from multiple sessions into a single block and analyse them together.
 Doing so allows us overcome the difference in bias between sessions, since the same number of trials would be used in each block and this can be set large enough to ensure we are in the correct domain for bias correction perform adequately.
@@ -787,8 +787,7 @@ For this reason, it is prudent not to proceed with such a methodology.
 
 
 %------------------------------------------------------------------------------
-\subsection{Task-pertinent and nonpertinent information}
-% \subsection{Comparing information about the stimulus with task-relevant information}
+\section{Task-pertinent and nonpertinent information}
 \label{sec:task-info}
 
 So far, we have been computing the amount of information in the neural response (more specifically, the firing rate over the stimulus presentation period) about the identity of the presented stimulus.
@@ -805,7 +804,7 @@ For instance, any information which helps us discriminate between whether a \SI{
 Whereas if we gain information about the stimulus which updates the probability of it having a \SI{28}{\percent} versus a \SI{29}{\percent} contrast without changing the probability that it was one of \SI{28}{\percent} or \SI{29}{\percent} contrast, this is not pertinent to the task.
 
 
-\subsubsection{Methods}
+\subsection{Methods}
 \label{sec:task-info-methods}
 
 First, we computed the total information contained in the neural response as before, using the total spikes recorded by a single channel over \SI{527}{\milli\second} of stimulus presentation as the response on each trial.
@@ -836,7 +835,7 @@ Additionally, since contrasts further from the \SI{30}{\percent} threshold are e
 This difference in relative likelihood supplies us with additional, task-nonpertinent, information about which stimulus was presented.
 
 
-\subsubsection{\acs{V1} Results}
+\subsection{\acs{V1} Results}
 
 We separated the total information about the stimulus contained in the neural response into task-pertinent and task-nonpertinent components as described in \autoref{sec:task-info-methods}.
 For \ac{M1}, there was a non-significant decrease in the total information, task-pertinent information, and the task-nonpertinent information between \zonename{A} and \zonename{B} (paired Student's $t$-test; $p=0.20$, $p=0.38$, and $p=0.13$ respectively), as shown in \autoref{fig:info_taskpertinent_v1_ch_blanco}.
@@ -974,7 +973,7 @@ The stimulus class imbalance was corrected using subsampling, as described in \a
 \end{figure}
 
 
-\subsubsection{\acs{V4} Results}
+\subsection{\acs{V4} Results}
 
 For \ac{M1}, we found no significant change in the total, task-pertinent, or task-nonpertinent information about the stimulus encoded in \ac{V4} channels ($p=0.48$, $p=0.19$, and $p=0.94$ respectively; see \autoref{fig:info_taskpertinent_v4_ch_blanco}).
 There was a small, but non-significant, increase of \SI{+0.014\pm0.010}{bits} in the average task-pertinent information between \zonename{A} and \zonename{B}.
@@ -1122,7 +1121,7 @@ The stimulus class imbalance was corrected using subsampling, as described in \a
 \end{figure}
 
 
-\subsubsection{Discussion}
+\subsection{Discussion}
 
 We decomposed the information, encoded in the firing rate detected by \ac{V1} and \ac{V4} recording channels, into task-pertinent information and task-nonpertinent information.
 The task-pertinent information is that which would help an observer to classify whether the stimulus was in the upper or lower half of all stimulus contrasts.
@@ -1150,7 +1149,7 @@ As described in \autoref{sec:pl_bias_grouping}, this will reduce the amount of r
 
 
 %------------------------------------------------------------------------------
-\subsection{Information versus firing rate integration window duration}
+\section{Information versus firing rate integration window duration}
 
 So far, we have only been considering the amount of information about the stimulus encoded in the firing rate during the entire stimulation period.
 But is this entirely necessary?
@@ -1305,7 +1304,7 @@ The precision in the tuning curve also falls, so the firing rate becomes less in
 
 
 %------------------------------------------------------------------------------
-\subsection{Information in spike timing}
+\section{Information in spike timing}
 
 
 
