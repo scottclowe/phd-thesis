@@ -790,17 +790,17 @@ For this reason, it is prudent not to proceed with such a methodology.
 \section{Task-pertinent and nonpertinent information}
 \label{sec:task-info}
 
-So far, we have been computing the amount of information in the neural response (more specifically, the firing rate over the stimulus presentation period) about the identity of the presented stimulus.
-Computing the mutual information between these two tells us how much information we gain about which stimulus was presented when we are told how many spikes were detected with a given electrode contact.
-However, the object the subject is tasked with is more specific --- to identify whether the presented stimulus has a contrast higher or lower than the pedestal contrast.
+So far, we have been computing the amount of information in the neural response (the firing rate over the stimulus presentation period) about the identity of the presented stimulus.
+Computing the mutual information between these two tells us how much information we gain about which stimulus was presented when we are told how many spikes were detected on a given electrode contact.
+However, the object the subject is tasked with --- to identify whether the presented stimulus has a contrast higher or lower than the pedestal contrast --- is somewhat different.
 To achieve this goal, it is not necessary to distinguish exactly which stimulus was presented.
 
 We can separate the information given by the neural response into two parts: task-pertinent and task-nonpertinent information.
-The task-pertinent information helps us tell whether the stimulus was in the half above or below the pedestal contrast of \SI{30}{\percent}.
+The task-pertinent information helps one tell whether the stimulus was in the half above or below the pedestal contrast of \SI{30}{\percent}.
 However we also gain information about exactly which stimuli within the upper and lower half of the set of contrasts is more likely to have been presented.
-Although this information helps us distinguish which stimulus was presented (and hence presumably helps the subject perceive the stimuli more accurately), it is not pertinent to the subject's task.
+Although this information helps one distinguish which stimulus was presented (and hence presumably helps the subject perceive the stimuli more accurately), it is not pertinent to the subject's task.
 
-For instance, any information which helps us discriminate between whether a \SI{29}{\percent} or \SI{31}{\percent} contrast stimulus was more likely to have been presented is pertinent to the task.
+For instance, any information which helps one discriminate between whether a \SI{29}{\percent} or \SI{31}{\percent} contrast stimulus was more likely to have been presented is pertinent to the task.
 Whereas if we gain information about the stimulus which updates the probability of it having a \SI{28}{\percent} versus a \SI{29}{\percent} contrast without changing the probability that it was one of \SI{28}{\percent} or \SI{29}{\percent} contrast, this is not pertinent to the task.
 
 
