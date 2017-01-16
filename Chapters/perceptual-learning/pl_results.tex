@@ -1458,36 +1458,18 @@ I speculate that this is because these channels only contain redundant informati
 
 
 \begin{figure}[htbp]
-    \subfloat[][\label{fig:dec_b4_allp}]{
-        \centering
-	\includegraphics[width=0.47\linewidth]{figs/decoding/perf_v4_blanco.eps}
-    }
-    ~~
-    \subfloat[][\label{fig:dec_j4_allp}]{
-        \centering
-	\includegraphics[width=0.47\linewidth]{figs/decoding/perf_v4_jack.eps}
-    }
-    \caption{%
-    Decoding analysis for \ac{V4}.
-    Performance of behavioural and decoding predictors by session, averaged across all conditions.
-    Left panels: \ac{M1}. Right: \ac{M2}.
-	Along the x-axis, `Session' is the animal's unique session ID, which increments by one for every day of training.
-    On the y-axis, `proportion correct' is the proportion of trials for which the response is the same as the target.
-    This is presented for behavioural performance (black), decoder performance (blue), and decoder performance when trials are shuffled, destroying noise correlations (red; see text).
-}
-    \label{fig:dec_all_v4}
-\end{figure}
-
-\begin{figure}[htbp]
-    \subfloat[][\label{fig:dec_b1_allp}]{
+    \centering
+    \hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V1}.\label{fig:dec_b1_allp}]{
         \centering
 	\includegraphics[width=0.47\linewidth]{figs/decoding/perf_v1_blanco.eps}
     }
-    ~~
-    \subfloat[][\label{fig:dec_j1_allp}]{
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\ac{M2} \ac{V1}.\label{fig:dec_j1_allp}]{
         \centering
 	\includegraphics[width=0.47\linewidth]{figs/decoding/perf_v1_jack.eps}
     }
+    \hspace*{\fill}
     \caption{%
     Decoding analysis for \ac{V1}.
     Performance of behavioural and decoding predictors by session, averaged across all conditions.
@@ -1497,6 +1479,31 @@ I speculate that this is because these channels only contain redundant informati
     This is presented for behavioural performance (black), decoder performance (blue), and decoder performance when trials are shuffled, destroying noise correlations (red; see text).
 }
     \label{fig:dec_all_v1}
+\end{figure}
+
+
+\begin{figure}[htbp]
+    \centering
+    \hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V4}.\label{fig:dec_b4_allp}]{
+        \centering
+	\includegraphics[width=0.47\linewidth]{figs/decoding/perf_v4_blanco.eps}
+    }
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\ac{M2} \ac{V4}.\label{fig:dec_j4_allp}]{
+        \centering
+	\includegraphics[width=0.47\linewidth]{figs/decoding/perf_v4_jack.eps}
+    }
+    \hspace*{\fill}
+    \caption{%
+    Decoding analysis for \ac{V4}.
+    Performance of behavioural and decoding predictors by session, averaged across all conditions.
+    Left panels: \ac{M1}. Right: \ac{M2}.
+	Along the x-axis, `Session' is the animal's unique session ID, which increments by one for every day of training.
+    On the y-axis, `proportion correct' is the proportion of trials for which the response is the same as the target.
+    This is presented for behavioural performance (black), decoder performance (blue), and decoder performance when trials are shuffled, destroying noise correlations (red; see text).
+}
+    \label{fig:dec_all_v4}
 \end{figure}
 
 
