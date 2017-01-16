@@ -1152,6 +1152,157 @@ As described in \autoref{sec:pl_bias_grouping}, this will reduce the amount of r
 %------------------------------------------------------------------------------
 \subsection{Information versus firing rate integration window duration}
 
+So far, we have only been considering the amount of information about the stimulus encoded in the firing rate during the entire stimulation period.
+But is this entirely necessary?
+It is possible that the signal encoding which stimulus is on screen is only transiently emitted by visual neurons, in which case a shorter window will give just as much information about the stimulus.
+
+In this section, we investigate the relationship between the duration of the window over which the neural firing rate is extracted and the information it contains.
+
+
+\subsection{Methods}
+\label{sec:pl_windur_offset_methods}
+
+For each window length, we considered the firing rates within a window of that duration offset from the time of stimulus onset by a variety of amounts.
+The offsets considered were arranged linearly from the start to the end of the stimulus presentation period in intervals equal to one quarter of the window length.
+For each window and offset, we computed the amount of task-pertinent information (see \autoref{sec:task-info}) about the stimulus contained in its firing rate, with the bias corrected for using the \ac{PT} method.
+When performing this calculation, the stimulus class imbalance was corrected using subsampling, as described in \autoref{sec:pl_class_imbalance}.
+
+To report information as a function of window duration and offset, shown in \autoref{fig:info_offset_vs_winlen}, we first took the average over sessions.
+Next, we created a vector of time samples with high sampling frequency, and for each window duration averaged the amount of information over every offset window overlapping with that point.
+These steps were repeated for bootstrapped information values (see \autoref{sec:pl_bootstrapping}), and the average was subtracted from the information estimate.
+
+To report the change over sessions in information for each window length, we took the maximum information across all window offsets (\autoref{fig:info_winlen}).
+We then subtracted from this the maximum of the bootstraps relating to each offset.
+
+For \autoref{fig:info_offset}, we considered only windows with duration \SI{50}{\milli\second} and doubled the sampling frequency to an eight of the window duration (\SI{6.25}{\milli\second}).
+This allows us to investigate the change in information with training at a particular offset.
+
+\subsection{Results}
+
+As shown in \autoref{fig:info_offset_vs_winlen}, 
+
+Using the full 
+
+
+\begin{figure}[htbp]%
+    \centering
+    \hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V1}.\label{fig:info_offset_vs_winlen_v1_blanco}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/binlen/I_offsetVwinlen_blanco_v1_chmean14_s343-359_oc0_Gclass-group-balanced_1bins_4-fold-sampling_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\ac{M2} \ac{V1}.\label{fig:info_offset_vs_winlen_v1_jack}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/binlen/I_offsetVwinlen_jack_v1_chmean20_s51-72_oc0_Gclass-group-balanced_1bins_4-fold-sampling_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
+    \hspace*{\fill}
+    \\
+    \hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V4}.\label{fig:info_offset_vs_winlen_v4_blanco}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/binlen/I_offsetVwinlen_blanco_v4_chmean25_s307,308,311,313,314,317,318,320,321,329-341_oc0_Gclass-group-balanced_1bins_4-fold-sampling_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\ac{M2} \ac{V4}.\label{fig:info_offset_vs_winlen_v4_jack}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/binlen/I_offsetVwinlen_jack_v4_chmean18_s24,25,27-38,40-49_oc0_Gclass-group-balanced_1bins_4-fold-sampling_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
+    \hspace*{\fill}
+    \caption{Information encoded as firing rate over windows with varying duration.
+Main panels: heatmap showing information 
+Above: 
+Right: 
+Only task-pertinent information, as described in \autoref{sec:task-info} is included, as described in \autoref{sec:pl_bias_grouping}.
+    \label{fig:info_offset_vs_winlen}
+}
+\end{figure}
+
+
+\begin{figure}[htbp]%
+    \centering
+    \hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V1}.\label{fig:info_winlen_v1_blanco}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/binlen/I_binlength_blanco_v1_chmean14_s343-359_oc0_Gclass-group-balanced_1bins_4-fold-sampling_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\ac{M2} \ac{V1}.\label{fig:info_winlen_v1_jack}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/binlen/I_binlength_jack_v1_chmean20_s51-72_oc0_Gclass-group-balanced_1bins_4-fold-sampling_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
+    \hspace*{\fill}
+    \\
+    \hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V4}.\label{fig:info_winlen_v4_blanco}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/binlen/I_binlength_blanco_v4_chmean25_s307,308,311,313,314,317,318,320,321,329-341_oc0_Gclass-group-balanced_1bins_4-fold-sampling_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\ac{M2} \ac{V4}.\label{fig:info_winlen_v4_jack}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/binlen/I_binlength_jack_v4_chmean18_s24,25,27-38,40-49_oc0_Gclass-group-balanced_1bins_4-fold-sampling_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
+    \hspace*{\fill}
+    \caption{Information encoded as firing rate over windows with varying duration.
+Main panels: heatmap showing information 
+Above: 
+Right: 
+Only task-pertinent information, as described in \autoref{sec:task-info} is included, as described in \autoref{sec:pl_bias_grouping}.
+    \label{fig:info_winlen}
+}
+\end{figure}
+
+
+% blanco v1 1x50.00ms
+% dr pt
+% n=14  h=0.000000  p=0.274586=2.745863e-01   delta = -0.011056+/-0.009692 = -18.873570%+/-16.582458%
+% selected bw  :  bandwidth=0.012372
+%
+% jack v1 1x50.00ms
+% dr pt
+% n=20  h=1.000000  p=0.002145=2.145493e-03   delta = -0.020508+/-0.005779 = -6.822555%+/-2.679045%
+% selected bw  :  bandwidth=0.020317
+%
+% blanco v4 1x50.00ms
+% dr pt
+% n=25  h=0.000000  p=0.991573=9.915732e-01   delta = -0.000061+/-0.005702 = -0.135145%+/-12.683164%
+% selected bw  :  bandwidth=0.008539
+%
+% jack v4 1x50.00ms
+% dr pt
+% n=18  h=1.000000  p=0.000605=6.053690e-04   delta = +0.029886+/-0.007121 = +257.735324%+/-61.407804%
+% selected bw  :  bandwidth=0.001927
+
+\begin{figure}[htbp]%
+    \centering
+    \hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V1}.\label{fig:info_offset_v1_blanco}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/offsets/I_sessionwise_blanco_v1_chmean14_s343-359_oc0_Gclass-group-balanced_1bins_of_50ms_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\ac{M2} \ac{V1}.\label{fig:info_offset_v1_jack}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/offsets/I_sessionwise_jack_v1_chmean20_s51-72_oc0_Gclass-group-balanced_1bins_of_50ms_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
+    \hspace*{\fill}
+    \\
+    \hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V4}.\label{fig:info_offset_v4_blanco}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/offsets/I_sessionwise_blanco_v4_chmean25_s307,308,311,313,314,317,318,320,321,329-341_oc0_Gclass-group-balanced_1bins_of_50ms_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\ac{M2} \ac{V4}.\label{fig:info_offset_v4_jack}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/offsets/I_sessionwise_jack_v4_chmean18_s24,25,27-38,40-49_oc0_Gclass-group-balanced_1bins_of_50ms_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
+    \hspace*{\fill}
+    \caption{Information encoded as firing rate over windows with varying duration.
+Main panels: heatmap showing information 
+Above: 
+Right: 
+Only task-pertinent information, as described in \autoref{sec:task-info} is included, as described in \autoref{sec:pl_bias_grouping}.
+    \label{fig:info_offset}
+}
+\end{figure}
+
+
+\subsection{Discussion}
+
+The sharp peak in information at \SI{50}{\milli\second} latency from stimulus onset with \ac{V1} is due to the difference in response latency for different contrasts and difference in firing rate in the stimulus-onset modulated response.
+After this interval, the firing rate decreases stabilises at a lower level.
+The precision in the tuning curve also falls, so the firing rate becomes less informative.
+
 
 %------------------------------------------------------------------------------
 \subsection{Information in spike timing}
