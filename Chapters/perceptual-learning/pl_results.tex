@@ -27,7 +27,7 @@
 % We will see if these findings hold here as well.
 %
 %
-% \subsection{Methods}
+% \subsection{Methods for deriving noise correlations}
 % \label{sec:dec-meth-noise}
 %
 % The noise correlation was investigated by considering how strongly correlated the spike counts during test stimulus presentation.
@@ -46,7 +46,7 @@
 % $r$ was computed for each pair and each condition, and the mean was taken across all of these.
 %
 %
-% \subsection{Results}
+% \subsection{Results for noise correlation}
 %
 % For both \ac{V1} and \ac{V4}, the average noise correlation between pairs of channels seem to remain stable for \ac{M1} and decrease by a small margin for \ac{M2} (see \autoref{fig:noise_r_all}).
 % The increase in noise correlation for \ac{M1} \ac{V1} for the last two sessions (session numbers 358 and 359) is due to a decline in data quality and an increase in noise from artificial sources.
@@ -203,7 +203,7 @@ The number of spikes over a finite duration, which cannot be negative, is Poisso
 However, the two distributions do converge for large $n$, and so we disregard this and use the Gaussian form of the definition of $d'$.
 
 %------------------------------------------------------------------------------
-\subsection{Methods}
+\subsection{Methods for sensitivity analysis}
 
 To compute $d'$, we considered the signal and noise to be the number of spikes occurring during a \SI{150}{\milli\second} period of activity.
 For spontaneous (noise) activity, this was the \SI{150}{\milli\second} immediately preceding the sample stimulus onset.
@@ -222,7 +222,7 @@ To investigate whether $d'$ changed significantly during the course of our exper
 A paired $t$-test (two-tailed) was used to study whether the $d'$ consistently increased or decreased for the channels.
 
 %------------------------------------------------------------------------------
-\subsection{\acs{V1} Results}
+\subsection{Results for \acs{V1} sensitivity}
 
 For \ac{V1}, we found the $d'$ decreased with training (see \autoref{fig:dprime_v1}).
 A similar result was observed for each subject.
@@ -255,7 +255,7 @@ The violin plot shows a Gaussian kernel density using a bandwidth determined aut
 \end{figure}
 
 
-\subsection{\acs{V4} Results}
+\subsection{Results for \acs{V4} sensitivity}
 \label{sec:pl_dprime_v4}
 
 This is in contrast with our findings for \ac{V4}.
@@ -289,7 +289,7 @@ figs/dprime/dprime_sample_hm_hotcold_jack_v4_1_rmon2_rmvet2.eps}
 \end{figure}
 
 
-\subsection{Discussion}
+\subsection{Discussion of sensitivity}
 \label{sec:pl_dprime_discuss}
 
 By analysing the sensitivity index, $d'$, we can see whether channels become more or less responsive to our stimulus class over time.
@@ -340,7 +340,7 @@ Because the spikes detected from each channel have been left unsorted and not re
 
 
 %------------------------------------------------------------------------------
-\subsection{Methods}
+\subsection{Methods for computing information}
 \label{sec:info-methods}
 
 The mutual information between the spiking activity during the presentation of the test stimulus and the identity of that stimulus was computed using the \textit{Information Breakdown Toolbox} for MATLAB \citep{Magri2009}.
@@ -500,7 +500,7 @@ For the other datasets, there were no notable changes.
 
 
 %------------------------------------
-\subsection{Correcting for stimulus class imbalance}
+\subsection{Correcting stimulus class imbalance}
 \label{sec:pl_class_imbalance}
 
 As mentioned in \autoref{sec:pl_task}, the stimulus presentation procedure was to include a fixed number of repetitions of each stimulus in a block of trials and present them in a random order.
@@ -804,7 +804,7 @@ For instance, any information which helps one discriminate between whether a \SI
 Whereas if we gain information about the stimulus which updates the probability of it having a \SI{28}{\percent} versus a \SI{29}{\percent} contrast without changing the probability that it was one of \SI{28}{\percent} or \SI{29}{\percent} contrast, this is not pertinent to the task.
 
 
-\subsection{Methods}
+\subsection{Methods for decomposing task-pertinent information}
 \label{sec:task-info-methods}
 
 First, we computed the total information contained in the neural response as before, using the total spikes recorded by a single channel over \SI{527}{\milli\second} of stimulus presentation as the response on each trial.
@@ -835,7 +835,7 @@ Additionally, since contrasts further from the \SI{30}{\percent} threshold are e
 This difference in relative likelihood supplies us with additional, task-nonpertinent, information about which stimulus was presented.
 
 
-\subsection{\acs{V1} Results}
+\subsection{Results for \acs{V1} information pertinence}
 
 We separated the total information about the stimulus contained in the neural response into task-pertinent and task-nonpertinent components as described in \autoref{sec:task-info-methods}.
 For \ac{M1}, there was a non-significant decrease in the total information, task-pertinent information, and the task-nonpertinent information between \zonename{A} and \zonename{B} (paired Student's $t$-test; $p=0.20$, $p=0.38$, and $p=0.13$ respectively), as shown in \autoref{fig:info_taskpertinent_v1_ch_blanco}.
@@ -973,7 +973,7 @@ The stimulus class imbalance was corrected using subsampling, as described in \a
 \end{figure}
 
 
-\subsection{\acs{V4} Results}
+\subsection{Results for \acs{V4} information pertinence}
 
 For \ac{M1}, we found no significant change in the total, task-pertinent, or task-nonpertinent information about the stimulus encoded in \ac{V4} channels ($p=0.48$, $p=0.19$, and $p=0.94$ respectively; see \autoref{fig:info_taskpertinent_v4_ch_blanco}).
 There was a small, but non-significant, increase of \SI{+0.014\pm0.010}{bits} in the average task-pertinent information between \zonename{A} and \zonename{B}.
@@ -1121,7 +1121,7 @@ The stimulus class imbalance was corrected using subsampling, as described in \a
 \end{figure}
 
 
-\subsection{Discussion}
+\subsection{Discussion of task-pertinence}
 
 We decomposed the information, encoded in the firing rate detected by \ac{V1} and \ac{V4} recording channels, into task-pertinent information and task-nonpertinent information.
 The task-pertinent information is that which would help an observer to classify whether the stimulus was in the upper or lower half of all stimulus contrasts.
@@ -1338,7 +1338,7 @@ In line with our findings about \autoref{sec:task-info}, we will group together 
 This means objective function for the classification model we will train on the data will match the objective function which the subject was tasked with during the experiments.
 
 
-\subsection{Methods}
+\subsection{Methods for decoding population activity}
 
 Our input to the model is the vector of multi-unit firing rates recorded from each electrode over the \SI{527}{\milli\second} of stimulus presentation.
 For this analysis, the procedure to correct the changes in class imbalance over training described in \autoref{sec:pl_class_imbalance} was not employed and the class balance over sessions remained unstable.
@@ -1446,7 +1446,7 @@ I speculate that this is because these channels only contain redundant informati
 
 
 %------------------------------------------------------------------------------
-\subsection{Results}
+\subsection{Results of decoding population activity}
 
 
 \begin{figure}[htbp]
@@ -1514,7 +1514,7 @@ For \ac{M2} \ac{V1}, the benefit from shuffling seems to be reduced with trainin
 % \marginnote{It might well be better to plot, for each area, the performances for both animals on the same plot and the expected vs observed behavioural agreement for both animals on a seperate plot.}
 
 %------------------------------------------------------------------------------
-\subsection{Discussion}
+\subsection{Discussion of population activity decoding}
 
 
 %------------------------------------------------------------------------------
@@ -1527,7 +1527,7 @@ This can be done by considering the behavioural and decoding response agreement,
 
 
 %------------------------------------------------------------------------------
-\subsection{Method}
+\subsection{Methods for comparing decoding and behavioural responses}
 \label{sec:dec-meth-prob}
 
 Throughout this work, it is assumed that the behavioural and decoding responses are given by a Bernoulli distribution.
@@ -1591,7 +1591,7 @@ The model used here is instead a two-step process where there are a set of binom
 In essence, the simple, single binomial model is similar to shuffling the responses across all trials regardless of condition, and the multi-binomial model we use is similar to shuffling the responses with the same condition presented.
 
 
-\subsection{Results}
+\subsection{Results for response agreement}
 
 \begin{figure}[htbp]
     \centering
