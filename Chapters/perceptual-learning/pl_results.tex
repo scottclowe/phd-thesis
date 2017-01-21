@@ -1318,7 +1318,7 @@ However, when the subject's brain is deciding how to respond on to the stimulus 
 Consequently, it is appropriate for us to consider how much information is encoded at the population level --- the firing measured from many neurons simultaneously.
 
 % To consider the amount of information encoded across the population, let the variable $x_i$ denote the firing rate (measured over some finite duration) from neuron $i$.
-% If we were, hypothetically, to measure the firing from every neuron in the visual cortex we would have some very large array $\VEC{x} = [x_1, x_2 \ldots]$.
+% If we were, hypothetically, to measure the firing from every neuron in the visual cortex we would have some very large array $\vec{x} = [x_1, x_2 \ldots]$.
 
 Whilst we cannot simultaneously measure the firing rate of every neuron in the visual cortex, we can consider the firing rate simultaneously observed at all $20$ or so channels (for exact values for each dataset, see \autoref{tab:nchannels_restricted}).
 Computing the amount of information encoded in the vector of simultaneous responses across all the recording channels allows us to investigate how the encoded information scales as the number of neurons increases.
@@ -1351,14 +1351,14 @@ Given a training dataset of labelled data-points in with $m$-dimensions for each
 
 The vector normal to the hyperplane is 
 \begin{equation}
-\VEC{w} = \Sigma^{-1}\left(\VEC{\mu_1}-\VEC{\mu_0}\right)
+\vec{w} = \Sigma^{-1}\left(\vec{\mu_1}-\vec{\mu_0}\right)
 \end{equation}
-where $\Sigma$ is the covariance matrix between the two populations, as determined from the labelled training data, and $\VEC{\mu_0}$ and $\VEC{\mu_1}$ are the means of the two distributions, for class $0$ and class $1$.
+where $\Sigma$ is the covariance matrix between the two populations, as determined from the labelled training data, and $\vec{\mu_0}$ and $\vec{\mu_1}$ are the means of the two distributions, for class $0$ and class $1$.
 
 After training the model to define a separating hyperplane, test data-points can be classified by inspecting which side of the hyperplane they fall upon.
-For a new data point, $\VEC{x}$, we classify $\VEC{x}$ as group $1$ (higher than \SI{30}{\percent} contrast) if
+For a new data point, $\vec{x}$, we classify $\vec{x}$ as group $1$ (higher than \SI{30}{\percent} contrast) if
 \begin{equation}
-\VEC{w}\cdot\VEC{x}>c
+\vec{w}\cdot\vec{x}>c
 ,\end{equation}
 otherwise we classify it as $0$ (lower than \SI{30}{\percent} contrast).
 
