@@ -803,6 +803,12 @@ Although this information helps one distinguish which stimulus was presented (an
 For instance, any information which helps one discriminate between whether a \SI{29}{\percent} or \SI{31}{\percent} contrast stimulus was more likely to have been presented is pertinent to the task.
 Whereas if we gain information about the stimulus which updates the probability of it having a \SI{28}{\percent} versus a \SI{29}{\percent} contrast without changing the probability that it was one of \SI{28}{\percent} or \SI{29}{\percent} contrast, this is not pertinent to the task.
 
+Although it is only a binary response (a choice of one of two saccade targets), it is still possible for the behavioural response to encode both task-pertinent and task-nonpertinent information.
+For instance, let us assume that the subject performs the task at a rate higher than chance.
+Then, a behavioural response of ``\textit{test contrast is lower}'' tells us a contrast in the lower half was more likely to have been presented, providing task-pertinent information.
+Additionally, since contrasts further from the \SI{30}{\percent} threshold are easier for the subject, we can empirically observe that a response of ``\textit{test contrast is lower}'' is more likely to be elicited if the contrast was further below the threshold than if it was close to the threshold\footnote{This trivially follows using Bayes' rule}.
+This difference in relative likelihood supplies us with additional, task-nonpertinent, information about which stimulus was presented.
+
 
 \subsection{Methods for decomposing task-pertinent information}
 \label{sec:task-info-methods}
@@ -817,22 +823,21 @@ Consequently, the bias on the information will be similar to that when computing
 We repeated this with $20$ permutations, each with their own set of $20$ bootstraps, and took the average across them.
 The amount of task-nonpertinent information was estimated by subtracting the task-pertinent information (found with shuffling) from the total information (found without shuffling).
 
-To compute the proportion of information encapsulated within the response which was pertinent to the task, we divided the estimated task-pertinent information by the total information (after correcting for the bias on each estimate).
+To compute the proportion of information in the response which was pertinent to the task, we divided the estimated task-pertinent information by the total information (after correcting for the bias on each estimate).
 To prevent channels whose responses contain negligible information about the stimulus contaminating the results with anomalously large (or small) outliers after the division, we excluded any channels whose total information was less than $1.5$ times the standard deviation across the bootstrapped information values.
-Additionally, the proportional information reported for each channel was capped at $0$ and $1$ taking the average across channels.
+This threshold was determined empirically; $3$ standard deviations unnecessarily removed too many channels, whereas $1$ standard deviation retained channels with too little information whose task-pertinence proportion was unstable (at or beyond $0$ and $1$), which increased the overall variance.
+Approximately half the channels were removed with this step (\ac{M1} \ac{V1}: $14\to4$, \ac{M2} \ac{V1}: $20\to20$, \ac{M1} \ac{V4}: $25\to13$, \ac{M2} \ac{V4}: $18\to7$).
+Additionally, the proportional information reported for each channel was capped at $0$ and $1$ before taking the average across channels.
+Although it is impossible for the proportion of information which is task-pertinent to fall outside the range $[0, 1]$, our measurements of the information are fuzzy.
+In particular, this can arise from subtracting the average over bootstraps, since the bootstraps are stochastic samples and we subtract different bootstraps from the total and task-pertinent information.
+With the $1.5$ standard deviation threshold, we observed that only a single channel fell outside this cap.
 
 To quantify the change over time, we again compared the information averaged over the first three sessions (\zonename{A}) with the information over the last three sessions (\zonename{B}).
-For the relative information, only channels which had a significant amount of total information (exceeding $1.5$ times the standard deviation over bootstraps) for both \zonename{A} and \zonename{B} were included.
+For the relative information, only channels which had a significant amount of total information (exceeding $1.5$ times the standard deviation over bootstraps) for both the average over \zonename{A} and also over\zonename{B} were included.
 This step was included to ensure \zonename{A} and \zonename{B} were directly comparable; a paired $t$-test was used to compare the information at \zonename{A} with \zonename{B}.
 
 Similarly, we considered the amount of information about the stimulus contained in the behavioural response of the animal, which was a saccade to one of two targets, indicating whether the subject believed the contrast to be higher or lower than \SI{30}{\percent} (two forced-choice).
 The same procedure was used to decomposed the the total information in this response into task-pertinent and nonpertinent components, and find the proportion of the information which was task-pertinent.
-
-Although it is only a binary response (a choice of one of two saccade targets), it is still possible for the behavioural response to encode both task-pertinent and task-nonpertinent information.
-For instance, let us assume that the subject completes the task at a rate higher than chance.
-Then, a behavioural response of ``\textit{test contrast is lower}'' tells us a contrast in the lower half was more likely to have been presented, providing task-pertinent information.
-Additionally, since contrasts further from the \SI{30}{\percent} threshold are easier for the subject, we can empirically observe that a response of ``\textit{test contrast is lower}'' is more likely to be elicited if the contrast was further below the threshold than if it was close to the threshold\footnote{This trivially follows using Bayes' rule}.
-This difference in relative likelihood supplies us with additional, task-nonpertinent, information about which stimulus was presented.
 
 
 \subsection{Results for \acs{V1} information pertinence}
@@ -843,7 +848,7 @@ Correspondingly, there was no significant change in the fraction of the total in
 
 For \ac{M2}, there was a small, non-significant, decrease in the task-nonpertinent information between \zonename{A} and \zonename{B} (\SI{-0.010\pm0.007}{bits}, $p=0.16$), but there was a significant increase in the task-pertinent information (\SI{+0.060\pm0.011}{bits}, $p=0.00002$; see \autoref{fig:info_taskpertinent_v1_ch_jack}).
 Together, these give a combined increase in the total information of \SI{+0.050\pm0.015}{bits} ($p=0.004$).
-Since the task-nonpertinent information is stable while the task-pertinent information increases with training, the proportion of encoded information which is task-pertinent increases by \SI{+7.0\pm1.3}{\percent} ($p=0.00004$), as shown in \autoref{fig:info_taskpertinent_rel_v1_ch_jack}.
+Since the task-nonpertinent information was stable while the task-pertinent information increased with training, the proportion of encoded information which was task-pertinent increased by \SI{+7.0\pm1.3}{\percent} ($p=0.00004$), as shown in \autoref{fig:info_taskpertinent_rel_v1_ch_jack}.
 
 % blanco v1 1x527.00ms
 % dr pt
@@ -913,10 +918,10 @@ The stimulus class imbalance was corrected using subsampling, as described in \a
 
 
 Over the same period of training, we examined the decomposition of the information contained in the behavioural response of the experimental subject.
-Similar trends were found for \ac{M1} and \ac{M2}.
+Similar trends were found for \ac{M1} and \ac{M2}, as shown in \autoref{fig:info_taskpertinent_v1_behav}.
 There was a vast increase in the amount of task-pertinent information between \zonename{A} and \zonename{B} of \SI{+0.32}{bits} and \SI{+0.34}{bits} respectively, which more than tripled the amount of task-pertinent information given in the subject's response between the beginning and end of the experiment.
 The task-nonpertinent information in the response increased by a modest \SI{+0.06}{bits} and \SI{+0.03}{bits} respectively, which is a relative increase of \SI{71}{\percent} and \SI{32}{\percent} from \zonename{A} to \zonename{B}.
-Collectively, this meant the proportion of information which was task-pertinent increased from near \SI{60}{\percent} to near \SI{80}{\percent} for both subjects.
+Collectively, this meant the proportion of information which was task-pertinent increased from near \SI{60}{\percent} to near \SI{80}{\percent} for both subjects, as shown in \autoref{fig:info_taskpertinent_rel_v1_behav_blanco} and \subref{fig:info_taskpertinent_rel_v1_behav_jack}.
 
 % Behavioural info for blanco v1
 % For Total Info (bits)
