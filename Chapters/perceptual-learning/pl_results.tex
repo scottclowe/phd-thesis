@@ -177,7 +177,7 @@
 \section{Sensitivity analysis}
 %------------------------------------------------------------------------------
 
-One simple method of comparing how the encoding of stimuli changes over time is to use the amount the sensitivity index, $d'$.
+One simple method of comparing how the encoding of stimuli changes over time is to use the sensitivity index, $d'$.
 This gives a measure of how separable the signal and the noise are, by comparing the difference in their means with the overall standard deviation.
 % For a classifier, this is defined as the difference between the hit rate and the false alarm rate,
 % \begin{equation}
@@ -188,7 +188,7 @@ For Gaussian distributed data, the sensitivity index is defined as
 \begin{equation}
 d' = \frac{\mu_\text{stim} - \mu_\text{noise}}{\sigma_\text{joint}}
 ,\end{equation}
-where the joint standard deviation is the over for the two distributions,
+where the joint standard deviation is the root mean square of the two distributions,
 \begin{equation}
 % \sigma_\text{joint} = \sqrt
 %     \frac{ (n_\text{stim}-1) \, \sigma_\text{stim}^2 + (n_\text{noise}-1) \, \sigma_\text{noise}^2 }
@@ -199,18 +199,20 @@ For our analysis, the noise is the spiking activity during periods of spontaneou
 With the sample stimulus and 14 test stimuli with differing contrast levels, we have 15 possible signals to choose from for each dataset.
 Since it has the most presentations and lies in the middle of the range of the contrasts, we will just consider $d'$ with respect to the response signal when presenting the sample stimulus.
 
-The number of spikes over a finite duration, which cannot be negative, is Poisson distributed instead of Gaussian distributed.
+The number of spikes over a finite duration, which cannot be negative, is typically Poisson distributed instead of Gaussian distributed.
 However, the two distributions do converge for large $n$, and so we disregard this and use the Gaussian form of the definition of $d'$.
 
 %------------------------------------------------------------------------------
 \subsection{Methods for sensitivity analysis}
 
-To compute $d'$, we considered the signal and noise to be the number of spikes occurring during a \SI{150}{\milli\second} period of activity.
+UPDATE THIS FIGURE WITH LONGER DURATION. UNSURE IF ALREADY UPDATED.
+
+To compute $d'$, we used the number of spikes occurring during a \SI{150}{\milli\second} period of activity.
 For spontaneous (noise) activity, this was the \SI{150}{\milli\second} immediately preceding the sample stimulus onset.
 For signal activity, this was the \SI{150}{\milli\second} either \SI{30}{\milli\second} (\ac{V1}) or \SI{60}{\milli\second} (\ac{V4}).
 This delay was used to approximately account for the minimal possible response latency in \ac{V1} and \ac{V4}.
 
-The violin plots showing the distribution over channels of $d'$ before and after training were created by taking a Gaussian kernel density with a bandwidth of 0.15.
+The violin plots, for instance, the upper-right panel of \autoref{fig:dprime_v1_blanco}, showing the distribution over channels of $d'$ before and after training were created by taking a Gaussian kernel density with a bandwidth of 0.15.
 This bandwidth was determined using the rule of thumb bandwidth estimator,
 \begin{equation}
 w = \hat{\sigma} \left( \frac{4}{3 n} \right) ^ \frac{1}{5}
@@ -258,11 +260,11 @@ The violin plot shows a Gaussian kernel density using a bandwidth determined aut
 \subsection{Results for \acs{V4} sensitivity}
 \label{sec:pl_dprime_v4}
 
-This is in contrast with our findings for \ac{V4}.
+The results for \ac{V1} contrast with our findings for \ac{V4}.
 For \ac{M1}, some channels marginally increased and others marginally decreased their $d'$ with training (\autoref{fig:dprime_v4_blanco}).
 Overall, there was a small increase in average $d'$, with $\Delta d' = +0.053$, which was not a statistically significant change ($p=0.46$).
 
-With \ac{M2}, many channels began training either indifferent to the stimulus, $d'=0$, or suppressed by it, $d'<0$ (\autoref{fig:dprime_v4_jack}).
+With \ac{M2}, many channels began training either indifferent to the stimulus, $d'=0$, or were suppressed by it, $d'<0$ (\autoref{fig:dprime_v4_jack}).
 Starting from this lower position, there was a significant increase of $\Delta d' = +0.491$ ($p < 7 \times 10 ^{-8}$).
 However the final $d'$ for almost all channels recorded for \ac{M2} was still lower than the average $d'$ for \ac{M1}.
 
@@ -297,11 +299,11 @@ Since \ac{V1} is an early step in the visual processing hierarchy, its neurons r
 Consequently, neurons have large responses to our stimuli even from the first session of the experimental training.
 Over time, we found a decrease in sensitivity in \ac{V1} for both subjects.
 We suspect this decrease in sensitivity of the neural response in \ac{V1} to the sample stimulus is due to unpreventable deterioration in the recording quality of the implanted chronic electrodes over time.
-Overtime, the noise increases and the signal-to-noise ratio falls, which leads to a reduction in the distinguishability of the two activity distributions.
+Over time, the noise increases and the signal-to-noise ratio falls, which leads to a reduction in the distinguishability of the two activity distributions.
 
 On the other hand, \ac{V4} is higher up the visual hierarchy and in general responds to more a complex stimulus class.
 For \ac{M1}, many of the neurons we recorded from were responsive to the primitive Gabor stimulus from the beginning of training.
-But for \ac{M2}, this was not the case --- on the contrary, many neurons were suppress by the Gabor stimulus.
+But for \ac{M2}, this was not the case --- on the contrary, many neurons were suppressed by the Gabor stimulus.
 With training, neurons recorded in \ac{M1} did not notably change their sensitivity to the sample stimulus, whereas $d'$ did increase for \ac{M2}.
 
 We make particular note of the fact that the $d'$ in \ac{V4} increased for \ac{M2} from mostly negative initially values.
