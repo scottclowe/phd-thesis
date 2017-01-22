@@ -741,7 +741,7 @@ This is witnessed in the reduced correlation between estimated information and $
 
 We now consider what happens if we group together trials from multiple sessions into a single block and analyse them together.
 Doing so allows us overcome the difference in bias between sessions, since the same number of trials would be used in each block and this can be set large enough to ensure we are in the correct domain for bias correction perform adequately.
-There are typically no more than \SI{25} different firing rates for any single channel, so we grouped together \SI{100} trials of each stimulus condition.
+There are typically no more than \num{25} different firing rates for any single channel, so we grouped together \num{100} trials of each stimulus condition.
 
 Using this methodology, we focus on the subject's performance as a function of the number of trials which they have completed since the beginning of the experiment, irrespective of how many training sessions these trials are spread across.
 Therefore, such a technique makes sense if we consider learning to occur during sessions and not to occur between them.
@@ -770,9 +770,9 @@ figs/info2/bias/I_trialwise_blanco_v4_chmean25_s307,308,311,313,314,317,318,320,
         \includegraphics[scale=.45]{%
 figs/info2/bias/I_trialwise_jack_v4_chmean18_s24,25,27-38,40-49_tp4_1bins_of_527ms_dr_pt_oc0_Gbalanced_test_tc10-5-25,27-29,31-33,35,40-10-60_nt1400_ts1400_rmvet2_rmvms2_imscn_clhot.eps}}
     \hspace*{\fill}
-    \caption{Information about the test stimulus contained in the firing rate during test presentation and its progression over training sessions, estimated across blocks of \SI{100} consecutive trials of each stimulus class taken by merging consecutive sessions together to accumulate sufficiently many trials.
+    \caption{Information about the test stimulus contained in the firing rate during test presentation and its progression over training sessions, estimated across blocks of \num{100} consecutive trials of each stimulus class taken by merging consecutive sessions together to accumulate sufficiently many trials.
 Main panels: the average over channels (\protect\subref{fig:info_trial_1x527_balanced_v1_blanco}~$14$ channels, \protect\subref{fig:info_trial_1x527_balanced_v1_jack}~$20$ channels, \protect\subref{fig:info_trial_1x527_balanced_v4_blanco}~$25$ channels, \protect\subref{fig:info_trial_1x527_balanced_v4_jack}~$18$ channels) with standard error across channels indicated by the shaded region.
-Right hand panels: distribution over channels of the information contained in the first three blocks of \SI{1400} trials (\zonename{A}) versus last three blocks (\zonename{B}), with mean (solid black line) and median (dashed green line) over channels indicated.
+Right hand panels: distribution over channels of the information contained in the first three blocks of \num{1400} trials (\zonename{A}) versus last three blocks (\zonename{B}), with mean (solid black line) and median (dashed green line) over channels indicated.
 The violin plot shows a Gaussian kernel density, using a bandwidth determined as described in \autoref{sec:info-methods}.
 The \ac{PT} bias correction method was used, without further correction to the residual bias.
 The stimulus class imbalance was address on a session-by-session basis by subsampling as described previously (\autoref{sec:pl_class_imbalance}) before merging sessions together.
@@ -786,7 +786,7 @@ This means it is plausible that, when decoding the information, the extracted fi
 
 We find that grouping trials together in this way smooths out the problems with inter-session changes in residual bias on the information estimate.
 But because of both changes in neural connectivity and small movement in the electrode contacts between sessions, the neural code is not guaranteed to be the same between sessions.
-Indeed, we observed a peak in the estimated information corresponding to longer sessions where the trial sample size is smaller than or a similar size to the number of trials grouped together in each block (not shown\footnote{This phenomena occurred when the analysis was repeated with a smaller number of trials grouped together, and is not present in \autoref{fig:info_trial_1x527_balanced} due to the smoothing effect of using such large blocks of \SI{1400} trials.}).
+Indeed, we observed a peak in the estimated information corresponding to longer sessions where the trial sample size is smaller than or a similar size to the number of trials grouped together in each block (not shown\footnote{This phenomena occurred when the analysis was repeated with a smaller number of trials grouped together, and is not present in \autoref{fig:info_trial_1x527_balanced} due to the smoothing effect of using such large blocks of \num{1400} trials.}).
 For this reason, it is prudent not to proceed with such a methodology.
 
 
