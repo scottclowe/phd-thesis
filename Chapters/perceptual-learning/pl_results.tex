@@ -328,15 +328,19 @@ For instance, this would be achieved if the absolute activity in response to the
 We now apply the principles of Shannon information, as described in \autoref{sec:bgit}, to the perceptual learning data.
 We are interested in how easy it is to determine which contrast the stimulus was presented with by observing the neural activity in response to the stimulus.
 Since the subject's performance increases with training, we expect to find the amount of information encoded in the neural activity to increase with training.
+This much is trivial, since perception occurs within the neural activity of an individual.
+What will be interesting to uncover is \textit{where} the neural changes take place --- in \ac{V1}, in \ac{V4}, neither, or both?
 
 To make its decision, the subject has access to all the neurons we have recorded and all the neurons in the brain from which we have not recorded.
 Consequently, it would for the best idea of how much information the brain has access to, we would evaluate how much information is contained in the vector of neuronal responses for every recording channel.
 However, this is problematic.
 As the number of data streams combined into the response vector increases, the number of possible unique response vectors increases exponentially.
-However, the number of trials recorded over is held fixed, and the number of possible response vectors must be constrained to prevent the estimated amount of information diverging to infinity (see \autoref{sec:bgit}).
+However, the number of trials recorded is fixed, and the number of possible response vectors must be constrained to prevent the estimated amount of information diverging to infinity (see \autoref{sec:bgit}).
 
 Therefore, in this section we consider the information about the contrast of the stimulus encoded in the firing rate detected from only a single channel at once.
-Because the spikes detected from each channel have been left unsorted and not resolved into clusters corresponding to individual neurons, this will be a multi-unit analysis, but only in the sense of neighbouring neurons being detected by the same electrode contact.
+In doing so, we will ignore the possible redundancy or synergy in the information encoded by the response of multiple channels.
+Later, in \autoref{sec:dec-meth-lin}, we will consider the total information encoded in the population response.
+It should be noted that, since the spikes detected from each channel have been left unsorted and not resolved into clusters corresponding to individual neurons, this will be a multi-unit analysis, but only in the sense of neighbouring neurons being detected by the same electrode contact.
 
 
 %------------------------------------------------------------------------------
@@ -347,7 +351,7 @@ The mutual information between the spiking activity during the presentation of t
 Bias correction was performed using the \ac{PT} method (see \autoref{sec:bgit}) unless indicated otherwise.
 
 The distribution of information over channels is shown using violin plots indicating the Gaussian kernel density with an automatically selected bandwidth.
-We state the rule-of-thumb Gaussian basis bandwidth estimator as
+We use the rule-of-thumb Gaussian basis bandwidth estimator,
 \begin{equation}
 h = \left( \frac{4}{3n} \right) ^ \frac{1}{5} \, \hat{\sigma}
 ,\label{eq:estimate-bw}\end{equation}
@@ -401,7 +405,7 @@ figs/info2/initial/I_sessionwise_jack_v4_chmean20_s24,25,27-38,40-49_oc0_G_1bins
 % The sampling is in intervals of \SI{5}{ms}, so any 4 adjacent squares within each session are highly correlated.
 % The recording session number for the data is given along the $x$-axis, and the number of days the animal has been trained for increases from left to right.
 % Average mutual information across all the channels is denoted by the pseudo-colour of each of the rectangular patches, centred around the $(x,y)$ co-ordinate to which the measurement relates.
-Main panels: the average over channels (\protect\subref{fig:info_sess_1x527_v1_blanco}~23 channels, \protect\subref{fig:info_sess_1x527_v1_jack}~$25$ channels, \protect\subref{fig:info_sess_1x527_v4_blanco}~30 channels, \protect\subref{fig:info_sess_1x527_v4_jack}~$20$ channels) with standard error over channels indicated by the shaded region.
+Main panels: information, averaged over channels (\protect\subref{fig:info_sess_1x527_v1_blanco}~23 channels, \protect\subref{fig:info_sess_1x527_v1_jack}~$25$ channels, \protect\subref{fig:info_sess_1x527_v4_blanco}~30 channels, \protect\subref{fig:info_sess_1x527_v4_jack}~$20$ channels), with standard error across channels indicated by the shaded region.
 Right hand panels: distribution over channels of the information contained in the first three sessions (\zonename{A}) versus last three sessions (\zonename{B}), with mean (solid black line) and median (dashed green line) over channels indicated.
 The violin plot shows a Gaussian kernel density, using a bandwidth determined as described in \autoref{sec:info-methods}.
 The \ac{PT} bias correction method was used, without further correction to the residual bias.
@@ -410,7 +414,7 @@ The \ac{PT} bias correction method was used, without further correction to the r
 \end{figure}
 
 
-As described in \autoref{sec:pl_dprime_discuss}, the reduction of information witnessed for \ac{M1} \ac{V1} is most likely explained by the inescapable reduction of recording signal quality over time.
+As described in \autoref{sec:pl_dprime_discuss}, the non-significant reduction of information witnessed for \ac{M1} \ac{V1} is most likely explained by the unavoidable reduction of recording signal quality over time.
 However, one channel had a large increase in information content against the trend observed for other channels on this electrode array (see \autoref{fig:info_sess_1x527_v1_blanco}, right panel).
 This channel is one of a minority whose response profile changes completely between consecutive sessions, and so the sudden large increase in information is most likely due to a small movement in the electrode contact changing which neurons are measured in the data.
 We address this discrepancy next.
@@ -421,7 +425,7 @@ We address this discrepancy next.
 
 We noted that some channels were moving between sessions.
 In general, it is just as likely for electrode contacts to move into locations where they are more informative as to move such that they are less informative.
-However, to make the results more comparable across sessions, we chose to remove channels whose raster profile or overall firing rate in response to the \SI{30}{\percent} sample stimulus clearly changed from one session to the next.
+However, to make the results more comparable across sessions, we chose to remove channels whose raster profile or overall firing rate in response to the \SI{30}{\percent} sample stimulus changed clearly and suddenly from one session to the next.
 We manually selected a small number of channels on this basis, and removed them from the analysis.
 For each dataset, the number of channels included afterwards is indicated in \autoref{tab:nchannels_restricted}.
 
@@ -465,10 +469,9 @@ figs/info2/initial/I_sessionwise_blanco_v4_chmean25_s307,308,311,313,314,317,318
         \includegraphics[scale=.45]{%
 figs/info2/initial/I_sessionwise_jack_v4_chmean18_s24,25,27-38,40-49_oc0_G_1bins_of_527ms_dr_pt_rmvet2_rmvms2_imscn_clhot.eps}}
     \hspace*{\fill}
-    \caption{Information about the test stimulus contained in the firing rate during test presentation and its progression over training sessions.
-Main panels: the average over channels (\protect\subref{fig:info_sess_1x527_restrictchn_v1_blanco}~$14$ channels, \protect\subref{fig:info_sess_1x527_restrictchn_v1_jack}~$20$ channels, \protect\subref{fig:info_sess_1x527_restrictchn_v4_blanco}~$25$ channels, \protect\subref{fig:info_sess_1x527_restrictchn_v4_jack}~$18$ channels) with standard error over channels indicated by the shaded region.
+    \caption{Information, after removing inconsistent channels, about the test stimulus contained in the firing rate during test presentation and its progression over training sessions.
+Main panels: the average over channels (\protect\subref{fig:info_sess_1x527_restrictchn_v1_blanco}~$14$ channels, \protect\subref{fig:info_sess_1x527_restrictchn_v1_jack}~$20$ channels, \protect\subref{fig:info_sess_1x527_restrictchn_v4_blanco}~$25$ channels, \protect\subref{fig:info_sess_1x527_restrictchn_v4_jack}~$18$ channels) with standard error across channels indicated by the shaded region.
 Right hand panels: distribution over channels of the information contained in the first three sessions (\zonename{A}) versus last three sessions (\zonename{B}), with mean (solid black line) and median (dashed green line) over channels indicated.
-The violin plot shows a Gaussian kernel density, using a bandwidth determined as described in \autoref{sec:info-methods}.
 The \ac{PT} bias correction method was used, without further correction to the residual bias.
 }
     \label{fig:info_sess_1x527_restrictchn}
@@ -520,7 +523,7 @@ Changes in the distribution of classes between sessions can impact our analysis 
 Firstly, as described \autoref{eq:info} the amount of information between stimulus, $\SET{S}$, and response, $\SET{R}$, is dependent on the entropy of the stimulus, $\HH(\SET{S})$.
 As the distribution of stimulus classes moves closer to uniform, the stimulus entropy increases.
 Since our stimulus distribution becomes flatter with training, this may cause an the measured information to become inflated as training progresses.
-Secondly, the proportion trials which are in the easier categories increases over time.
+Secondly, the proportion of trials which are in the easier categories is higher for later sessions.
 These stimuli will have the most distinguishable responses, and their increasing prevalence in the dataset may also produce an artificial increase in information with training.
 
 We corrected the class imbalance on a session-by-session basis by subsampling the trials for more frequent stimulus classes down to the frequency of the least common stimulus class.
@@ -548,10 +551,8 @@ figs/info2/initial/I_sessionwise_blanco_v4_chmean25_s307,308,311,313,314,317,318
         \includegraphics[scale=.45]{%
 figs/info2/initial/I_sessionwise_jack_v4_chmean18_s24,25,27-38,40-49_oc0_Gbalanced_1bins_of_527ms_dr_pt_rmvet2_rmvms2_imscn_clhot.eps}}
     \hspace*{\fill}
-    \caption{Information about the test stimulus contained in the firing rate during test presentation and its progression over training sessions, after correcting for the stimulus class balance in each session.
-Main panels: the average over channels (\protect\subref{fig:info_sess_1x527_balanced_v1_blanco}~$14$ channels, \protect\subref{fig:info_sess_1x527_balanced_v1_jack}~$20$ channels, \protect\subref{fig:info_sess_1x527_balanced_v4_blanco}~$25$ channels, \protect\subref{fig:info_sess_1x527_balanced_v4_jack}~$18$ channels) with standard error over channels indicated by the shaded region.
-Right hand panels: distribution over channels of the information contained in the first three sessions (\zonename{A}) versus last three sessions (\zonename{B}), with mean (solid black line) and median (dashed green line) over channels indicated.
-The violin plot shows a Gaussian kernel density, using a bandwidth determined as described in \autoref{sec:info-methods}.
+    \caption{Information, after correcting for the stimulus class balance in each session, about the test stimulus contained in the firing rate during test presentation and its progression over training sessions.
+Sub-panels are arranged as per \autoref{fig:info_sess_1x527_restrictchn}, with the same number of channels included.
 The \ac{PT} bias correction method was used, without further correction to the residual bias.
 }
     \label{fig:info_sess_1x527_balanced}
@@ -578,11 +579,11 @@ The \ac{PT} bias correction method was used, without further correction to the r
 % h=1.000000  p=0.004131=4.130838e-03   delta = +0.060078+/-0.018145 = +61.470204%+/-18.627960%
 
 
-Overall, we find the amount of information increases when the class imbalance is for (compare the y-scales of \autoref{fig:info_sess_1x527_balanced} with those of \autoref{fig:info_sess_1x527_restrictchn}).
+Overall, we find the amount of information increases when the class imbalance is corrected for (compare the y-scales of \autoref{fig:info_sess_1x527_balanced} with those of \autoref{fig:info_sess_1x527_restrictchn}).
 This is because the stimulus entropy, $\HH(\SET{S})$, has increased when the stimulus distribution became uniform.
 
 As anticipated, correcting for changes in the class balance over time reduces the relative increase in information between the beginning and end of training.
-For \ac{V1}, the reduction in information with time seen in \ac{M1} is increased (\SI{-0.089\pm0.023}{bits} or \SI{-50\pm13}{\percent}, $p=0.0018$) and the increase in information for \ac{M2} is no longer statistically significant (\SI{+0.022\pm0.016}{bits} or \SI{+4.5\pm4.4}{\percent}, $p=0.18$).
+For \ac{V1}, the change in information over training seen in \ac{M1} is reduced more (\SI{-0.089\pm0.023}{bits} or \SI{-50\pm13}{\percent}, $p=0.0018$) and the increase in information for \ac{M2} is no longer statistically significant (\SI{+0.022\pm0.016}{bits} or \SI{+4.5\pm4.4}{\percent}, $p=0.18$).
 For \ac{V4}, the outcomes stand unchanged even though the relative change in information is reduced
 (\ac{M1}: \SI{+0.006\pm0.022}{bits} or \SI{+4\pm15}{\percent}, $p=0.78$; \ac{M2}: \SI{+0.060\pm0.018}{bits} or \SI{+61\pm19}{\percent}, $p=0.004$).
 
@@ -678,9 +679,9 @@ figs/info2/bias/ntrials_I_vs_invN_combindivpap_jack_v1_20chn_Gbalanced_1bins_of_
         \includegraphics[scale=.45]{%
 figs/info2/bias/ntrials_I_vs_invN_combindivpap_jack_v4_18chn_Gbalanced_1bins_of_527ms_btsp20.eps}}
     \hspace*{\fill}
-    \caption{Distribution of measured information as a function of $\nicefrac{1}{N}$, where $N$ is the number of trials in the session.
-Results are shown with bias correction either achieved solely from subtracting the information contained in response-shuffled copies of the data (grey circles), or by combining this with a better principled bias correction technique (\ac{PT}, red squares; \ac{QE}, blue diamonds).
-Information was computed after using subsampling to address the stimulus class imbalance (see \autoref{sec:pl_class_imbalance}), and this is reflected in the value of $N$.
+    \caption{
+    Distribution of measured information, with bootstrap bias correction, as a function of $\nicefrac{1}{N}$, where $N$ is the number of trials in the session.
+Results are shown with bias correction either achieved solely from subtracting the information contained in response-shuffled copies of the data (bootstraps; grey circles), or by combining this with a more principled bias correction technique (\ac{PT}, red squares; \ac{QE}, blue diamonds).
 }
     \label{fig:I_vs_invN_btsp}
 \end{figure}
@@ -695,6 +696,11 @@ This effect is particularly dominant for the \ac{M1} \ac{V4} dataset (see \autor
 During the experiment, the subject is tasked with determining whether the stimulus contrast is higher or lower than the \SI{30}{\percent} sample stimulus presented at the start of each trial.
 As a consequence of this, the subject does not need to learn exactly what stimulus is on screen, only whether the stimulus is in the half above or below \SI{30}{\percent} contrast.
 For instance, since the target output is the same for \SI{31}{\percent} and \SI{32}{\percent} contrast stimuli, there is no need for the subject to discriminate between them, but there is motivation for the subject to learn to discriminate between these and the \SI{29}{\percent} contrast stimulus.
+
+We refer to the subset of information which assists in decoding whether the stimulus was higher or lower than the \SI{30}{\percent} threshold as the task-pertinent information, and discuss this in \autoref{sec:task-info}.
+For now, we will only consider the impact on the residual information bias when we restrict ourselves to measuring only the task-pertinent information.
+In this calculation, we determine how much information the firing rate provides is with about which group the stimulus is in (higher or lower) instead of the information about precisely which of the $14$ stimuli was on screen.
+Grouping the stimuli together in this way should reduce the residual bias, since there are only two class labels, and $7$ times as many trials per class.
 
 
 \begin{figure}[htbp]
@@ -718,16 +724,12 @@ figs/info2/bias/ntrials_I_vs_invN_combindivpap_jack_v1_20chn_Gclass-group-balanc
         \includegraphics[scale=.45]{%
 figs/info2/bias/ntrials_I_vs_invN_combindivpap_jack_v4_18chn_Gclass-group-balanced_1bins_of_527ms.eps}}
     \hspace*{\fill}
-    \caption{Distribution of measured information as a function of $\nicefrac{1}{N}$, where $N$ is the number of trials in the session.
+    \caption{Distribution of task-pertinent information measured as a function of $\nicefrac{1}{N}$, where $N$ is the number of trials in the session.
 Results are shown both without correcting for the finite measurement bias (grey circles), using \ac{PT} bias correction (red squares), and using \ac{QE} bias correction (blue diamonds).
-Information was computed after using subsampling to address the stimulus class imbalance (see \autoref{sec:pl_class_imbalance}), and this is reflected in the value of $N$.
 }
     \label{fig:I_vs_invN_target-group}
 \end{figure}
 
-Grouping the stimuli together in this manner reduces the total amount of information which is measured (compare the $y$-axis scale bars of \autoref{fig:I_vs_invN_target-group} with \autoref{fig:I_vs_invN}).
-The fraction of information encoded in the neural response which is task-specific is investigated in more detail in \autoref{sec:task-info}.
-For now, we are only concerned with whether we can prevent differences in information estimation between sessions due to a shortage of trials per stimulus by grouping together the stimuli into two categories.
 
 As anticipated, using only two stimulus classes to increase the number of trials per stimulus class greatly reduces the residual bias after \ac{PT} bias correction.
 This is witnessed in the reduced correlation between estimated information and $\nicefrac{1}{N}$ seen in \autoref{fig:I_vs_invN_target-group}.
@@ -737,7 +739,7 @@ This is witnessed in the reduced correlation between estimated information and $
 
 We now consider what happens if we group together trials from multiple sessions into a single block and analyse them together.
 Doing so allows us overcome the difference in bias between sessions, since the same number of trials would be used in each block and this can be set large enough to ensure we are in the correct domain for bias correction perform adequately.
-There are typically no more than $25$ different firing rates for any single channel, so we grouped together $100$ trials of each stimulus condition.
+There are typically no more than \SI{25} different firing rates for any single channel, so we grouped together \SI{100} trials of each stimulus condition.
 
 Using this methodology, we focus on the subject's performance as a function of the number of trials which they have completed since the beginning of the experiment, irrespective of how many training sessions these trials are spread across.
 Therefore, such a technique makes sense if we consider learning to occur during sessions and not to occur between them.
@@ -766,9 +768,9 @@ figs/info2/bias/I_trialwise_blanco_v4_chmean25_s307,308,311,313,314,317,318,320,
         \includegraphics[scale=.45]{%
 figs/info2/bias/I_trialwise_jack_v4_chmean18_s24,25,27-38,40-49_tp4_1bins_of_527ms_dr_pt_oc0_Gbalanced_test_tc10-5-25,27-29,31-33,35,40-10-60_nt1400_ts1400_rmvet2_rmvms2_imscn_clhot.eps}}
     \hspace*{\fill}
-    \caption{Information about the test stimulus contained in the firing rate during test presentation and its progression over training sessions, estimated across blocks of $100$ consecutive trials of each stimulus class taken by merging consecutive sessions together to accumulate sufficiently many trials.
-Main panels: the average over channels (\protect\subref{fig:info_trial_1x527_balanced_v1_blanco}~$14$ channels, \protect\subref{fig:info_trial_1x527_balanced_v1_jack}~$20$ channels, \protect\subref{fig:info_trial_1x527_balanced_v4_blanco}~$25$ channels, \protect\subref{fig:info_trial_1x527_balanced_v4_jack}~$18$ channels) with standard error over channels indicated by the shaded region.
-Right hand panels: distribution over channels of the information contained in the first three blocks of $1400$ trials (\zonename{A}) versus last three blocks (\zonename{B}), with mean (solid black line) and median (dashed green line) over channels indicated.
+    \caption{Information about the test stimulus contained in the firing rate during test presentation and its progression over training sessions, estimated across blocks of \SI{100} consecutive trials of each stimulus class taken by merging consecutive sessions together to accumulate sufficiently many trials.
+Main panels: the average over channels (\protect\subref{fig:info_trial_1x527_balanced_v1_blanco}~$14$ channels, \protect\subref{fig:info_trial_1x527_balanced_v1_jack}~$20$ channels, \protect\subref{fig:info_trial_1x527_balanced_v4_blanco}~$25$ channels, \protect\subref{fig:info_trial_1x527_balanced_v4_jack}~$18$ channels) with standard error across channels indicated by the shaded region.
+Right hand panels: distribution over channels of the information contained in the first three blocks of \SI{1400} trials (\zonename{A}) versus last three blocks (\zonename{B}), with mean (solid black line) and median (dashed green line) over channels indicated.
 The violin plot shows a Gaussian kernel density, using a bandwidth determined as described in \autoref{sec:info-methods}.
 The \ac{PT} bias correction method was used, without further correction to the residual bias.
 The stimulus class imbalance was address on a session-by-session basis by subsampling as described previously (\autoref{sec:pl_class_imbalance}) before merging sessions together.
@@ -782,7 +784,7 @@ This means it is plausible that, when decoding the information, the extracted fi
 
 We find that grouping trials together in this way smooths out the problems with inter-session changes in residual bias on the information estimate.
 But because of both changes in neural connectivity and small movement in the electrode contacts between sessions, the neural code is not guaranteed to be the same between sessions.
-Indeed, we observed a peak in the estimated information corresponding to longer sessions where the trial sample size is smaller than or a similar size to the number of trials grouped together in each block.
+Indeed, we observed a peak in the estimated information corresponding to longer sessions where the trial sample size is smaller than or a similar size to the number of trials grouped together in each block (not shown\footnote{This phenomena occurred when the analysis was repeated with a smaller number of trials grouped together, and is not present in \autoref{fig:info_trial_1x527_balanced} due to the smoothing effect of using such large blocks of \SI{1400} trials.}).
 For this reason, it is prudent not to proceed with such a methodology.
 
 
@@ -907,7 +909,7 @@ figs/info2/task-pertinent/I_sessionwise_jack_v1_chmean20_s51-72_oc0_Gclass-shuff
     \caption{Breakdown of task-pertinent and nonpertinent information contained in \ac{V1} recording channels.
 In \protect\subref{fig:info_taskpertinent_v1_ch_blanco} and \protect\subref{fig:info_taskpertinent_v1_ch_jack}, the total information about the stimulus (grey), task-pertinent information (green), and task-nonpertinent (red) contained in each of $14$ and $20$ channels respectively.
 In \protect\subref{fig:info_taskpertinent_rel_v1_ch_blanco} and \protect\subref{fig:info_taskpertinent_rel_v1_ch_jack}, the relative information about the stimulus which is task-pertinent (green) and task-nonpertinent (red) contained in channels with a significant amount of total information ($4$ and $20$ respectively).
-Main panels: across training sessions, the average information over channels, with standard error over channels indicated by the shaded region.
+Main panels: across training sessions, the average information over channels, with standard error across channels indicated by the shaded region.
 Right hand panels: distribution over channels of the information (or relative information) in the first three sessions (\zonename{A}) versus last three sessions (\zonename{B}), with mean (solid black line) and median (dashed green line) over channels indicated.
 The violin plot shows a Gaussian kernel density, using a bandwidth determined as described in \autoref{sec:info-methods}.
 The \ac{PT} bias correction method was used, with the residual bias further reduced using bootstrapping (see \autoref{sec:pl_bootstrapping}).
@@ -1049,7 +1051,7 @@ figs/info2/task-pertinent/I_sessionwise_jack_v4_chmean18_s24,25,27-38,40-49_oc0_
     \caption{Breakdown of task-pertinent and nonpertinent information contained in \ac{V4} recording channels.
 In \protect\subref{fig:info_taskpertinent_v4_ch_blanco} and \protect\subref{fig:info_taskpertinent_v4_ch_jack}, the total information about the stimulus (grey), task-pertinent information (green), and task-nonpertinent (red) contained in each of $25$ and $18$ channels respectively.
 In \protect\subref{fig:info_taskpertinent_rel_v4_ch_blanco} and \protect\subref{fig:info_taskpertinent_rel_v4_ch_jack}, the relative information about the stimulus which is task-pertinent (green) and task-nonpertinent (red) contained in channels with a significant amount of total information ($13$ and $7$ respectively).
-Main panels: across training sessions, the average information over channels, with standard error over channels indicated by the shaded region.
+Main panels: across training sessions, the average information over channels, with standard error across channels indicated by the shaded region.
 Right hand panels: distribution over channels of the information (or relative information) in the first three sessions (\zonename{A}) versus last three sessions (\zonename{B}), with mean (solid black line) and median (dashed green line) over channels indicated.
 The violin plot shows a Gaussian kernel density, using a bandwidth determined as described in \autoref{sec:info-methods}.
 The \ac{PT} bias correction method was used, with the residual bias further reduced using bootstrapping (see \autoref{sec:pl_bootstrapping}).
