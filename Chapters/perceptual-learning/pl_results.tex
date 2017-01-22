@@ -1351,7 +1351,7 @@ This means objective function for the classification model we will train on the 
 \subsection{Methods for decoding population activity}
 
 Our input to the model is the vector of multi-unit firing rates recorded from each electrode over the \SI{527}{\milli\second} of stimulus presentation.
-For this analysis, the procedure to correct the changes in class imbalance over training described in \autoref{sec:pl_class_imbalance} was not employed and the class balance over sessions remained unstable.
+For this analysis, the procedure to correct the changes in class imbalance over training described in \autoref{sec:pl_class_imbalance} was not employed and the class balance over sessions was left unstable.
 
 
 \subsubsection{Linear discriminant classifier}
@@ -1391,7 +1391,8 @@ However, neither of these models resulted in better performance than the linear 
 
 Restricting ourselves to a linear model of the data imposes the assumption that the contrast response tuning curves are monotonic for all neurons under observation.
 This is a gross reduction of the space of possible encoding schemes and will prevent many theoretically possible stimulus codes from giving any information about the stimuli.
-However, in practice our neurons nearly all have monotonically increasing response curve and this making such an imposition on the model does not appear to hinder its performance.
+For instance if the firing rate is \SI{10}{Hz} for \SIrange{0}{20}{\percent} contrast, \SI{30}{Hz} for \SIrange{20}{30}{\percent} contrast, and \SI{20}{Hz} for \SI{>30}{\percent} contrast: this would give much task-pertinent information which is entirely lost when we are restricted to using a linear decoder.
+However, in practice our neurons nearly all have monotonically increasing response curves and thus making such an imposition on the model does not appear to hinder its performance, demonstrated by the similarity of performance for linear and quadratic decoder models.
 
 
 \subsubsection{Performance evaluation}
@@ -1424,7 +1425,7 @@ The performance was measured as described in \autoref{sec:dec-meth-lin} for each
 \autoref{fig:dec_nbest} indicates how the performance of the decoder improves as more channels are added.
 We can see that the decoder performance saturates after around 10 channels are included in the training data, but at a perforance which is still far from the ideal.
 After this, including additional channels yields only a slight increase in performance, suggesting nearly all the information contained in the remaining channels is redundant, as it has already been given in the first 10 channels.
-[would be better to look at how the decoding perfarmance is distributed across all possible sets of $n$ channels, rather than just the best set of $n$ channels] [this should be compared with shuffled data to see what the impact is and whether performance does not saturate when correlations are removed as per some previous papers [cite]]
+[would be better to look at how the decoding performance is distributed across all possible sets of $n$ channels, rather than just the best set of $n$ channels] [this should be compared with shuffled data to see what the impact is and whether performance does not saturate when correlations are removed as per some previous papers [cite]]
 
 NB: the order in which channels were added in \autoref{fig:dec_nbest} is not the same ordering as they are shown in \autoref{fig:dec_singles}.
 
