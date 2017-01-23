@@ -205,6 +205,7 @@ However, the two distributions do converge for large $n$, and so we disregard th
 
 %------------------------------------------------------------------------------
 \subsection{Methods for sensitivity analysis}
+\label{sec:violin_plot_method}
 
 To compute $d'$, we used the number of spikes occurring during a \SI{1050}{\milli\second} period of activity.
 The spontaneous (noise) activity was defined as the number of spikes detected during the \SI{525}{\milli\second} immediately preceding the sample stimulus onset.
@@ -213,6 +214,18 @@ From this, $d'$ was computed using \autoref{eq:dprime}.
 
 To investigate whether $d'$ changed significantly during the course of our experiments, we compared the average $d'$ during the first and final three experimental sessions (\zonename{A} and \zonename{B}).
 A paired $t$-test (two-tailed) was used to study whether the $d'$ consistently increased or decreased for the channels.
+
+The violin plots (see, for instance, the upper-right panel of \autoref{fig:dprime_v1_blanco}) show the Gaussian kernel density estimation of the distribution over channels of $d'$ before and after training (\zonename{A} and \zonename{B}).
+This bandwidth of the Gaussian kernel was determined using the rule of thumb bandwidth estimator,
+\begin{equation}
+h = \hat{\sigma} \left( \frac{4}{3 n} \right) ^ \frac{1}{5}
+,\label{eq:estimate-bw}\end{equation}
+where $n$ is the number of samples and $\hat{\sigma}$ is the estimated standard deviation for the population determined from these samples.
+We applied the bandwidth estimator to the set of $d'$ averaged over the first three sessions of training, $\SET{\zonename{A}}$, and averaged over final three sessions, $\SET{\zonename{A}}$, to find $h_\zonename{A}$ and $h_\zonename{B}$.
+In each plot, the same kernel bandwidth of
+$H = \min(h_\zonename{A}, h_\zonename{B}) / 2$
+is used when estimating the density at \zonename{A} and at \zonename{B}.
+This ensures sufficient detail about the distribution is preserved for each, and the two are comparable with each other.
 
 %------------------------------------------------------------------------------
 \subsection{Results for \acs{V1} sensitivity}
@@ -357,20 +370,17 @@ It should be noted that, since the spikes detected from each channel have been l
 The mutual information between the spiking activity during the presentation of the test stimulus and the identity of that stimulus was computed using the \textit{Information Breakdown Toolbox} for MATLAB \citep{Magri2009}.
 Bias correction was performed using the \ac{PT} method (see \autoref{sec:bgit}) unless indicated otherwise.
 
-The distribution of information over channels is shown using violin plots indicating the Gaussian kernel density with an automatically selected bandwidth.
-We use the rule-of-thumb Gaussian basis bandwidth estimator,
-\begin{equation}
-h = \left( \frac{4}{3n} \right) ^ \frac{1}{5} \, \hat{\sigma}
-,\label{eq:estimate-bw}\end{equation}
-where $n$ is the number of samples and $\hat{\sigma}$ is the estimated standard deviation over the distribution.
-We used \autoref{eq:estimate-bw} to find a suitable kernel basis bandwidth for the distribution over channels of information at the start (\zonename{A}) and end (\zonename{B}) of training.
-For the plots, we selected the minimum of $\nicefrac{h_A}{2}$ and $\nicefrac{h_B}{2}$, to ensure sufficient detail was captured and the two distributions were comparable.
-
 To test the significance of changes in information over time, we used a paired Student's $t$-test to compare the difference in information values in $\SET{\zonename{A}}$ and $\SET{\zonename{B}}$ against the null-hypothesis of no change between points \zonename{A} and \zonename{B}.
 Although the distribution of information values is evidently non-Gaussian (it is bounded below at \SI{0}{bits}), the distribution in differences in information is close to Gaussian.
 We could instead have used the Mann--Whitney $U$ test to compare the two distributions $\SET{\zonename{A}}$ and $\SET{\zonename{B}}$.
 This test does not assume the two distributions are Gaussian, but makes the additional assumption that all samples are independent.
 Since we record from the same set of channels for both $\SET{\zonename{A}}$ and $\SET{\zonename{B}}$, we are violating the independence assumption, and so the paired Student's $t$-test is a more appropriate choice.
+
+We show the Gaussian kernel estimation of the distribution of information over channels (violin plot inner upper-right of \autoref{fig:info_sess_1x527_v1_blanco}, for instance) at the start (\zonename{A}) and end (\zonename{B}) of training.
+These were found using the same method as described in \autoref{sec:violin_plot_method}.
+Again, the kernel bandwidth was selected as
+$H = \min(h_\zonename{A}, h_\zonename{B}) / 2$
+to ensure sufficient detail was captured and the two density estimates are comparable.
 
 
 %------------------------------------------------------------------------------
