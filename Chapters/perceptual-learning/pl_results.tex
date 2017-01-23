@@ -186,9 +186,10 @@ This gives a measure of how separable the signal and the noise are, by comparing
 
 For Gaussian distributed data, the sensitivity index is defined as
 \begin{equation}
+\label{eq:dprime}
 d' = \frac{\mu_\text{stim} - \mu_\text{noise}}{\sigma_\text{joint}}
 ,\end{equation}
-where the joint standard deviation is the root mean square of the two distributions,
+where the joint standard deviation is the root mean square of the standard deviation for two distributions,
 \begin{equation}
 % \sigma_\text{joint} = \sqrt
 %     \frac{ (n_\text{stim}-1) \, \sigma_\text{stim}^2 + (n_\text{noise}-1) \, \sigma_\text{noise}^2 }
@@ -205,20 +206,10 @@ However, the two distributions do converge for large $n$, and so we disregard th
 %------------------------------------------------------------------------------
 \subsection{Methods for sensitivity analysis}
 
-UPDATE THIS FIGURE WITH LONGER DURATION. UNSURE IF ALREADY UPDATED.
-
-To compute $d'$, we used the number of spikes occurring during a \SI{150}{\milli\second} period of activity.
-For spontaneous (noise) activity, this was the \SI{150}{\milli\second} immediately preceding the sample stimulus onset.
-For signal activity, this was the \SI{150}{\milli\second} either \SI{30}{\milli\second} (\ac{V1}) or \SI{60}{\milli\second} (\ac{V4}).
-This delay was used to approximately account for the minimal possible response latency in \ac{V1} and \ac{V4}.
-
-The violin plots, for instance, the upper-right panel of \autoref{fig:dprime_v1_blanco}, showing the distribution over channels of $d'$ before and after training were created by taking a Gaussian kernel density with a bandwidth of 0.15.
-This bandwidth was determined using the rule of thumb bandwidth estimator,
-\begin{equation}
-w = \hat{\sigma} \left( \frac{4}{3 n} \right) ^ \frac{1}{5}
-,\end{equation}
-for each animal and area on the distribution before and after training, and using the minimum of these 8 values.
-This ensures sufficient detail about the distribution is captured for each distribution, and all are comparable with each other.
+To compute $d'$, we used the number of spikes occurring during a \SI{1050}{\milli\second} period of activity.
+The spontaneous (noise) activity was defined as the number of spikes detected during the \SI{525}{\milli\second} immediately preceding the sample stimulus onset.
+The signal activity was the number of spikes during the \SI{525}{\milli\second} immediately following the sample stimulus onset.
+From this, $d'$ was computed using \autoref{eq:dprime}.
 
 To investigate whether $d'$ changed significantly during the course of our experiments, we compared the average $d'$ during the first and final three experimental sessions (\zonename{A} and \zonename{B}).
 A paired $t$-test (two-tailed) was used to study whether the $d'$ consistently increased or decreased for the channels.
@@ -226,9 +217,16 @@ A paired $t$-test (two-tailed) was used to study whether the $d'$ consistently i
 %------------------------------------------------------------------------------
 \subsection{Results for \acs{V1} sensitivity}
 
+% blanco v1
+% same bandwidth bw = 0.26027 used for all cols
+% h=1.000000 p=0.021169=2.116899e-02 delta=-0.322850
+% jack v1
+% same bandwidth bw = 0.21865 used for all cols
+% h=1.000000 p=0.000000=3.274440e-07 delta=-0.418598
+
 For \ac{V1}, we found the $d'$ decreased with training (see \autoref{fig:dprime_v1}).
 A similar result was observed for each subject.
-The average change in was $\Delta d' = -0.324$ ($p=0.02$, paired $t$-test) for \ac{M1} and $\Delta d' = -0.417$ ($p < 3 \times 10 ^{-10}$, paired $t$-test) for \ac{M2}.
+The average change in was $\Delta d' = -0.323$ ($p=0.02$, paired $t$-test) for \ac{M1} and $\Delta d' = -0.419$ ($p < 4 \times 10 ^{-7}$, paired $t$-test) for \ac{M2}.
  
 \begin{figure}[htbp]
     \centering
@@ -260,9 +258,16 @@ The violin plot shows a Gaussian kernel density using a bandwidth determined aut
 \subsection{Results for \acs{V4} sensitivity}
 \label{sec:pl_dprime_v4}
 
+% blanco v4
+% same bandwidth bw = 0.17898 used for all cols
+% h=0.000000 p=0.463346=4.633457e-01 delta=+0.052346
+% jack v4
+% same bandwidth bw = 0.064737 used for all cols
+% h=1.000000 p=0.000000=6.946514e-08 delta=+0.491173
+
 The results for \ac{V1} contrast with our findings for \ac{V4}.
 For \ac{M1}, some channels marginally increased and others marginally decreased their $d'$ with training (\autoref{fig:dprime_v4_blanco}).
-Overall, there was a small increase in average $d'$, with $\Delta d' = +0.053$, which was not a statistically significant change ($p=0.46$).
+Overall, there was a small increase in average $d'$, with $\Delta d' = +0.052$, which was not a statistically significant change ($p=0.46$).
 
 With \ac{M2}, many channels began training either indifferent to the stimulus, $d'=0$, or were suppressed by it, $d'<0$ (\autoref{fig:dprime_v4_jack}).
 Starting from this lower position, there was a significant increase of $\Delta d' = +0.491$ ($p < 7 \times 10 ^{-8}$).
