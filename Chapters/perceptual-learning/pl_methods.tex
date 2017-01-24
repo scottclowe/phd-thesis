@@ -1,5 +1,6 @@
 %------------------------------------------------------------------------------
 \section{Preprocessing Methods}
+\label{sec:pl_preprocessing}
 %------------------------------------------------------------------------------
 \FloatBarrier
 
@@ -23,6 +24,7 @@ For each monitor refresh, the template subtracted from the data samples was line
 
 
 \subsection{Elimination of movement induced artifacts}
+\label{sec:pl_movement_artifact}
 
 For a minority of trials (\SI{3.6}{\percent}, $2879$ out of $80071$) physical movements by the subject generated high-amplitude artifacts across multiple recording channels.
 Due to the high-amplitude and unpredictability of such events, it was not possible to remove artifacts cleanly from the rest of the signal.
@@ -43,6 +45,7 @@ All trials corresponding to a pairwise correlation coefficient above the thresho
 
 
 \subsection{Removal of empty trials}
+\label{sec:pl_empty_trials}
 
 During a minority of trials (\SI{0.81}{\percent}, $651$ out of $80071$) failures in the recording apparatus resulted in no spikes being recorded.
 We identified these trials as those which had no detected spikes for any of the ${\ge}20$ simultaneously recorded channels over the full \SI{2.5}{\second} duration of the trial.
