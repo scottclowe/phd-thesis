@@ -445,7 +445,7 @@ For each session, the \ac{RF} centre was located using the average of the revers
 \subsection{Identification of Cortical Laminae}
 
 To identify the depth of each contact, we measured the potential evoked in response to the onset of the movie clip, and in response to full-screen maximum-luminance \SI{100}{\milli\second} flash stimuli with a \SI{6}{\second} interval.
-From the measured potentials, we identified the boundary between the \ac{G} and \ac{IG} compartments as the source/sink reversal in the evoked \ac{CSD} (\citealp{Mitzdorf1979,Mitzdorf1985}; see Supplementary Materials).
+From the measured potentials, we identified the boundary between the \ac{G} and \ac{IG} compartments as the source-sink reversal in the evoked \ac{CSD} (\citealp{Mitzdorf1979,Mitzdorf1985}; see Supplementary Materials).
 We estimated the location of the boundary between the \ac{G} and \ac{SG} compartments by cross-referencing literature describing the average thickness of cortical laminae in Macaca mulatta, area 17 \citep{Lund1973,OKusky1982}.
 
 
@@ -480,13 +480,14 @@ We then took an average across sessions, weighted by the number of cortical reco
 \subsection{Information Redundancy}
 
 Information redundancy was computed with the same stimuli windows as used in the information calculations.
+However, for this calculation power was binned using only 3 bins, each containing a third of the power datapoints across all repetitions of the movie stimulus.
 Let $S$ denote the set of stimuli, and let $X$ and $Y$ each be the set of powers during each stimulus in one of the frequency bands at a particular depth.
-The information in each $I\left(X;S\right)$ and $I(Y;S)$ was computed in the same manner as above.
-The information in the joint distribution $I(\left\{X,Y\right\};S)$ was computed by considering each combination of the binned $X$ and $Y$ as a different response, yielding a total of 100 different responses for $\{X,Y\}$.
+The information in each $\I\left(X;S\right)$ and $\I(Y;S)$ was computed in the same manner as above.
+The information in the joint distribution $\I(\left\{X,Y\right\};S)$ was computed by considering each combination of the binned $X$ and $Y$ as a different response, yielding a total of 9 different responses for $\{X,Y\}$.
 
 The relative redundancy is then defined as
 \begin{equation*}
-\operatorname{Redundancy}=\frac{I\left(X;S\right)+I\left(Y;S\right)-I\left(\left\{X,Y\right\};S\right)}{I\left(\left\{X,Y\right\};S\right)}
+\operatorname{Redundancy}=\frac{\I\left(X;S\right)+\I\left(Y;S\right)-\I\left(\left\{X,Y\right\};S\right)}{\I\left(\left\{X,Y\right\};S\right)}
 \end{equation*}
 and was computed using the information breakdown toolbox \citep{Magri2009}.
 
@@ -513,9 +514,17 @@ For both the \SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz} \ac{CSD} powers, we c
 \subsection{Information lag between granular and infragranular compartments}
 
 The information about fine and coarse stimuli contained in \SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz} neural frequency bands was computed as a function of the lag between stimulus and response, in steps of \SI{1.73}{\milli\second}.
-For each cortical recording depth, we found response lag at which the information was at its maximum.
-For each session, the response peak-lag was averaged across the three electrode contacts in \ac{IG} and also averaged across the three electrodes in \ac{G}.
-A paired t-test was performed across all 6 sessions to test whether the \ac{G} information peaked with a shorter lag than the \ac{IG} information.
+For each cortical recording depth, we found determined the latency of the response as the lag which gave the maximum amount of information about the stimulus.
+This step was performed for each session individually.
+Since differences in latency from stimulation to \ac{V1} were larger between different sessions than between different depths for the same session, we found for each session and each frequency band the overall latency as the mean latency across all cortical depths.
+For each session, we then subtracted its overall latency from the distribution of latencies across the cortical depth to create zero-centred distributions across recording depths.
+From the zero-centred latency distributions we then computed the average relative latency and its standard error across sessions.
+To make the data easier to conceptualise, for Fig.~\ref{fig:lam_6}C the average overall latency across sessions was added back to each trace.
+
+To perform the statistical test, the relative latency was averaged across the five electrode contacts in \ac{IG} and also averaged across the three contacts in \ac{G}.
+A paired t-test was performed across all 6 sessions to test whether the maximum information in the \ac{G} compartment consistently occurred earlier than information in the \ac{IG} compartment.
+
+For Fig.~\ref{fig:lam_6}D, the difference in information latency between each pairs of electrode depths was tested for statistical significance using a paired t-test, with insignificant differences shown in white.
 
 
 \subsection{Cross-Frequency Phase-Amplitude Coupling}
