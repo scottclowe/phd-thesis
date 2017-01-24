@@ -190,7 +190,7 @@ For Gaussian distributed data, the sensitivity index is defined as
 \label{eq:dprime}
 d' = \frac{\mu_\text{stim} - \mu_\text{noise}}{\sigma_\text{joint}}
 ,\end{equation}
-where the joint standard deviation is the root mean square of the standard deviation for two distributions,
+where the joint standard deviation is the root mean square of the standard deviation for each of two distributions,
 \begin{equation}
 % \sigma_\text{joint} = \sqrt
 %     \frac{ (n_\text{stim}-1) \, \sigma_\text{stim}^2 + (n_\text{noise}-1) \, \sigma_\text{noise}^2 }
@@ -377,7 +377,7 @@ We could instead have used the Mann--Whitney $U$ test to compare the two distrib
 This test does not assume the two distributions are Gaussian, but makes the additional assumption that all samples are independent.
 Since we record from the same set of channels for both $\SET{\zonename{A}}$ and $\SET{\zonename{B}}$, we are violating the independence assumption, and so the paired Student's $t$-test is a more appropriate choice.
 
-We show the Gaussian kernel estimation of the distribution of information over channels (violin plot inner upper-right of \autoref{fig:info_sess_1x527_v1_blanco}, for instance) at the start (\zonename{A}) and end (\zonename{B}) of training.
+We show the Gaussian kernel estimation of the distribution of information over channels (a ``violin plot'', right-hand panel of \autoref{fig:info_sess_1x527_v1_blanco}, for instance) at the start (\zonename{A}) and end (\zonename{B}) of training.
 These were found using the same method as described in \autoref{sec:violin_plot_method}.
 Again, the kernel bandwidth was selected as
 $H = \min(h_\zonename{A}, h_\zonename{B}) / 2$
