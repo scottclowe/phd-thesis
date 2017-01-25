@@ -662,11 +662,84 @@ Moreover, the subset of trials which was selected was also maintained, to ensure
 A substantial amount of session-to-session variability in the measurements was observed in our results, depicted in the time-course plots of \autoref{fig:info_sess_1x527}.
 A large part of this variability was due to changes in the duration of each session --- some sessions contain \num{5} times as many trials as others.
 
+% blanco v4
+% Min # trials for single cond, single session: 17
+% Max # trials for single cond, single session: 191
+% Min # trials for all cond, single session: 291
+% Max # trials for all cond, single session: 1889
+% Min # trials for all cond, single rebalanced session: 238
+% Max # trials for all cond, single rebalanced session: 1540
+% blanco v1
+% Min # trials for single cond, single session: 11
+% Max # trials for single cond, single session: 147
+% Min # trials for all cond, single session: 254
+% Max # trials for all cond, single session: 1413
+% Min # trials for all cond, single rebalanced session: 154
+% Max # trials for all cond, single rebalanced session: 1120
+% jack v4
+% Min # trials for single cond, single session: 19
+% Max # trials for single cond, single session: 125
+% Min # trials for all cond, single session: 431
+% Max # trials for all cond, single session: 1239
+% Min # trials for all cond, single rebalanced session: 266
+% Max # trials for all cond, single rebalanced session: 770
+% jack v1
+% Min # trials for single cond, single session: 18
+% Max # trials for single cond, single session: 167
+% Min # trials for all cond, single session: 371
+% Max # trials for all cond, single session: 1440
+% Min # trials for all cond, single rebalanced session: 252
+% Max # trials for all cond, single rebalanced session: 1134
+
+% blanco v1, onlycorrect=0 restrict_channels=2
+% Min number of codes for single channel: 4
+% Max number of codes for single channel: 24
+% Min number of trials per code for single channel: 1.200000
+% Max number of trials per code for single channel: 17.000000
+% jack v1, onlycorrect=0 restrict_channels=2
+% Min number of codes for single channel: 5
+% Max number of codes for single channel: 30
+% Min number of trials per code for single channel: 1.200000
+% Max number of trials per code for single channel: 15.400000
+% blanco v4, onlycorrect=0 restrict_channels=2
+% Min number of codes for single channel: 3
+% Max number of codes for single channel: 34
+% Min number of trials per code for single channel: 1.285714
+% Max number of trials per code for single channel: 26.500000
+% jack v4, onlycorrect=0 restrict_channels=2
+% Min number of codes for single channel: 5
+% Max number of codes for single channel: 24
+% Min number of trials per code for single channel: 1.461538
+% Max number of trials per code for single channel: 13.888889
+
+% blanco v1, onlycorrect=0 restrict_channels=2 FLAG_MATCH_NT=1
+% Min number of codes for single channel: 4
+% Max number of codes for single channel: 23
+% Min number of trials per code for single channel: 1.100000
+% Max number of trials per code for single channel: 13.333333
+% jack v1, onlycorrect=0 restrict_channels=2 FLAG_MATCH_NT=1
+% Min number of codes for single channel: 5
+% Max number of codes for single channel: 30
+% Min number of trials per code for single channel: 1.200000
+% Max number of trials per code for single channel: 16.200000
+% blanco v4, onlycorrect=0 restrict_channels=2 FLAG_MATCH_NT=1
+% Min number of codes for single channel: 3
+% Max number of codes for single channel: 32
+% Min number of trials per code for single channel: 1.214286
+% Max number of trials per code for single channel: 18.333333
+% jack v4, onlycorrect=0 restrict_channels=2 FLAG_MATCH_NT=1
+% Min number of codes for single channel: 5
+% Max number of codes for single channel: 22
+% Min number of trials per code for single channel: 1.315789
+% Max number of trials per code for single channel: 8.833333
+
 Although we were utilising the \ac{PT} bias correction technique, this typically requires \num{4} trials per response for each stimulus condition to be completely effective \citep{Panzeri2007}.
-When analysing the amount of information contained in the overall firing rate, the cardinality of the set of spike counts per channel ranges from N to M.
-The number of trials per session (including all \num{14} stimulus conditions) ranges from N to M. (250 to 1250, approx)
-Consequently, the number of trials per stimulus ranges from N to M.
-After correcting for the stimulus class imbalance, the effective number of trials per session ranges from N to M.
+When analysing the amount of information contained in the overall firing rate, the cardinality of the set of spike counts per channel --- the number of possible numbers of spikes during the test stimulus presentation --- ranges from \num{3} to \num{50}.
+The number of trials in one session for an individual stimulus varies from \num{11} to \num{191}, with the total number of trials per session ranging from \num{254} to \num{1889}.
+Consequently, the number of trials per response to a single stimulus varies from \num{1.2} to \num{26.5}.
+After correcting for the stimulus class imbalance, the number of trials we are considering from each session falls, ranging from \num{154} to \num{1540}, exasperating the problem.
+With this, the number of trials per response ranges from \num{1.1} to \num{18.3}.
+Not only is there a \num{20} fold difference in the number of trials per response, but some sessions have stimuli with only a quarter of the number of repetitions we should be using for the bias correction to be effective \citep{Panzeri2007}.
 
 This shortage of trials per stimulus condition results means the \ac{PT} bias correction method underestimates the bias for the shorter sessions, leading to an overestimate in the reported information.
 This is illustrated in \autoref{fig:I_vs_invN}, where we compare with the estimated information with the reciprocal number of trials, $\nicefrac{1}{N}$, and find a linear correlation.
@@ -707,13 +780,13 @@ There are several potential ways we can correct for the change in bias incurred 
 \begin{itemize}
 \item Subsample all sessions down to the same number of trials (rarefy).
 \item Use bootstrapping, randomising the mapping between stimulus and response, to estimate the residual bias and subtract this from the reported information.
-\item Group together stimuli above and below \SI{30}{\percent} contrast so we only two conditions each with approximately $7$ times more trials.
+\item Group together stimuli above and below \SI{30}{\percent} contrast so we only have two stimulus classes, each with approximately \num{7} times more trials than before.
 \item Group together trials across consecutive sessions so we have the same number of trials in each information computation step.
 \end{itemize}
 
 The first method is clearly undesirable, since we would be throwing away most of our data and knowingly operating in the regime where the bias correction method breaks down for all sessions instead of only a few.
 In such a scenario, the bias on the estimated information would be larger than the actual information and our comparison across sessions would have little validity.
-Instead, we focus on the three other more practical methods, whose outcomes are described below.
+Instead, we focus on the three other --- more practical --- methods, whose outcomes are described below.
 
 
 %------------------------------------
