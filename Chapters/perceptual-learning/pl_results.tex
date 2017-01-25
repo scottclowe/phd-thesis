@@ -527,14 +527,23 @@ For the other datasets, there were no notable changes.
 As mentioned in \autoref{sec:pl_task}, the stimulus presentation procedure was to include a fixed number of repetitions of each stimulus in a block of trials and present them in a random order.
 At the end of each block, additional trials were presented for stimuli which the subject responded to incorrectly.
 Since stimuli with a contrast far from the pedestal contrast of \SI{30}{\percent} are much easier for the subject, trials which were repeated at the end of the block were not uniformly distributed across the stimuli.
-Overall, this means that harder stimuli close to \SI{30}{\percent} contrast are presented more often than the easier stimuli.
+Overall, this means that harder stimuli close to \SI{30}{\percent} contrast are presented more often than the easier stimuli, as depicted in \autoref{fig:class_balance}.
 
-When computing the amount of information about the stimulus contained in the animal's response, we do not need to have a uniform distribution across stimuli.
-However, the subject becomes better at the task with training, and the change in relative performance is not uniform across sessions.
-Performance on the easiest stimuli is high at the beginning of training and has little room for further improvements.
-The hardest stimuli are very challenging, and performance on these does not rise much above chance even after training.
-The increase in performance is highest for the stimuli of intermediate difficulty, and so since their first-try success rate improves they represent a smaller proportion of the total trials after training.
 
+% blanco v4
+% Outer stimuli: A->B 0.497413
+% Inner stimuli: A->B 0.094376
+% blanco v1
+% Outer stimuli: A->B 1.537775
+% Inner stimuli: A->B -0.292156
+% jack v4
+% Session 26 could not be found on disc for jack v4.
+% Session 39 could not be found on disc for jack v4.
+% Outer stimuli: A->B -2.775447
+% Inner stimuli: A->B 5.471745
+% jack v1
+% Outer stimuli: A->B 2.413654
+% Inner stimuli: A->B -2.481668
 
 \begin{figure}[htbp]%
     \centering
@@ -559,18 +568,27 @@ figs/class_balance/ntrialscond_prop_jack_v4_oc0_rmvet2_.eps}}
     \hspace*{\fill}
     \caption{Proportion of trials in each stimulus class.
 Main panels: the proportion (\%) of trials which belong to each stimulus class, with colours indicated to the right, as a function of experimental session.
-Above panels: the inner 6 (contrasts closest to \SI{30}{\percent}; grey) and outer 6 (contrasts furthest from \SI{30}{\percent}; purple).
+Above panels: the ``inner 6'' contrasts closest to \SI{30}{\percent} (grey) and ``outer 6'' contrasts furthest from \SI{30}{\percent} (purple).
 Right hand panels: proportion of trials presented during the first (\zonename{A}) and last (\zonename{B}) three sessions.
 }
     \label{fig:class_balance}
 \end{figure}
 
 
+To compute the amount of information about the stimulus contained in the animal's response, we do not need to have a uniform distribution across stimuli.
+However, the subject becomes better at the task with training, and the change in relative performance is necessarily not uniform across sessions.
+For \ac{M1}, the proportion of trials which belong to each stimulus class was very similar throughout the experiment, as shown in \autoref{fig:class_balance_v1_blanco} and \autoref{fig:class_balance_v4_blanco}.
+However for \ac{M2}, this was not the case.
+During training with the \ac{V1} stimulation protocol, there was a larger increase in performance for the harder contrast stimuli, which were consequently presented less frequently by the end of training --- the percentage of stimuli with a contrast in one of the hardest 6 categories (closest to \SI{30}{\percent} contrast) fell by \SI{2.5}{\percent} in absolute terms.
+This change in stimulus class distribution may seem small, but the size of this change is comparable to the amount of change in information we previously computed.
+When training \ac{M2} with the \ac{V4} stimuli, the overall performance was initially lower.
+Consequently, the largest increase in performance was that attained for the easier stimuli, and the percentage of trials featuring one of the 6 easiest stimuli (furthest from \SI{30}{\percent} contrast) fell by \SI{5.4}{\percent} in absolute terms.
+
 Changes in the distribution of classes between sessions can impact our analysis in two ways.
 Firstly, as described \autoref{eq:info} the amount of information between stimulus, $\SET{S}$, and response, $\SET{R}$, is dependent on the entropy of the stimulus, $\HH(\SET{S})$.
 As the distribution of stimulus classes moves closer to uniform, the stimulus entropy increases.
-Since our stimulus distribution becomes flatter with training, this may cause an the measured information to become inflated as training progresses.
-Secondly, the proportion of trials which are in the easier categories is higher for later sessions.
+Since our stimulus distribution generally tends to become flatter after training, this may cause an the measured information to become inflated as training progresses.
+Secondly, as seen for \ac{M2} \ac{V1}, the proportion of trials which are in the easier categories is higher for later sessions.
 These stimuli will have the most distinguishable responses, and their increasing prevalence in the dataset may also produce an artificial increase in information with training.
 
 We corrected the class imbalance on a session-by-session basis by subsampling the trials for more frequent stimulus classes down to the frequency of the least common stimulus class.
@@ -633,6 +651,9 @@ As anticipated, correcting for changes in the class balance over time reduces th
 For \ac{V1}, the change in information over training seen in \ac{M1} is reduced more (\SI{-0.089\pm0.023}{bits} or \SI{-50\pm13}{\percent}, $p=0.0018$) and the increase in information for \ac{M2} is no longer statistically significant (\SI{+0.022\pm0.016}{bits} or \SI{+4.5\pm4.4}{\percent}, $p=0.18$).
 For \ac{V4}, the outcomes stand unchanged even though the relative change in information is reduced
 (\ac{M1}: \SI{+0.006\pm0.022}{bits} or \SI{+4\pm15}{\percent}, $p=0.78$; \ac{M2}: \SI{+0.060\pm0.018}{bits} or \SI{+61\pm19}{\percent}, $p=0.004$).
+
+This post-hoc class rebalancing was applied this throughout the rest of this chapter.
+Moreover, the subset of trials which was selected was also maintained, to ensure comparability of results across sections.
 
 
 %------------------------------------
