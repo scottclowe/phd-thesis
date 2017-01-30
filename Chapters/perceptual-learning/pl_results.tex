@@ -963,14 +963,14 @@ Stimulus class imbalance was corrected for using subsampling, as described in \a
 The amount of task-pertinent information contained in the response was estimated by shuffling the stimulus labels against the responses, whilst preserving which side of \SI{30}{\percent} contrast the stimulus label was on.
 This destroys any information about the stimulus beyond that pertinent to the task --- choosing whether the stimulus was above or below \SI{30}{\percent} contrast --- but maintains the number of class labels and samples per class.
 Consequently, the bias on the information will be similar to that when computing the total information, and the results will be more directly comparable\footnote{However, the bias will not be the same for the two information values because after shuffling the range of possible values for the response will have increased. Consequently, it is still necessary to do individual bias correction with \ac{PT} and bootstrapping on each of the information computations.}.
-We repeated this with \num{20} permutations, each with their own set of \num{20} bootstraps, and took the average across them.
+We repeated this with \num{20} permutations, each with their own set of \num{20} bootstraps, and took the average over them.
 The amount of task-nonpertinent information was estimated by subtracting the task-pertinent information (found with shuffling) from the total information (found without shuffling).
 
 To compute the proportion of information in the response which was pertinent to the task, we divided the estimated task-pertinent information by the total information (after correcting for the bias on each estimate).
 To prevent channels whose responses contain negligible information about the stimulus contaminating the results with anomalously large (or small) outliers after the division, we excluded any channels whose total information was less than \num{1.5} times the standard deviation across the bootstrapped information values.
 This threshold was determined empirically; \num{3} standard deviations unnecessarily removed too many channels, whereas \num{1} standard deviation retained channels with too little information whose task-pertinence proportion was unstable (at or beyond $0$ and $1$), which increased the overall variance.
 Approximately half the channels were removed with this step (\ac{M1} \ac{V1}: $14\to4$, \ac{M2} \ac{V1}: $20\to20$, \ac{M1} \ac{V4}: $25\to13$, \ac{M2} \ac{V4}: $18\to7$).
-Additionally, the proportional information reported for each channel was capped at $0$ and $1$ before taking the average across channels.
+Additionally, the proportional information reported for each channel was capped at $0$ and $1$ before taking the average over channels.
 Although it is impossible for the proportion of information which is task-pertinent to fall outside the range $[0, 1]$, our measurements of the information are fuzzy.
 In particular, this can arise from subtracting the average over bootstraps, since the bootstraps are stochastic samples and we subtract different bootstraps from the total and task-pertinent information.
 With the \num{1.5} standard deviation threshold, we observed that only a single channel fell outside this cap.
