@@ -66,19 +66,20 @@ This choice should ensure the target firing rate is a sensible expectation of th
 
 Due to, amongst other differences, changes in the noise level between sessions, simply using the same voltage threshold for each session would not result extracting a consistent firing rate.
 To determine the appropriate spike detection threshold which would match the target spontaneous activity for each session, we searched using an iterative routine on the number of extracted spikes as a function of the threshold.
-On each iteration, the spontaneous firing rate was determined based on the number of spikes during the pre-trial fixation period (Step 1 in \autoref{sec:pl_task}), as extracted using our algorithm described in \autoref{sec:pl_spike_extraction}.
+On each iteration, the spontaneous firing rate was determined based on the number of spikes during the pre-trial fixation period (Step \num{1} in \autoref{sec:pl_task}), as extracted using our algorithm described in \autoref{sec:pl_spike_extraction}.
 
 The initial threshold was set using the following method.
 \begin{enumerate}
 \item Find the overall firing rate over all trials (including stimulus presentation as well as spontaneous activity) for the benchmark session being used to define the target spontaneous activity firing rate, $\tilde{f}_\text{target}$.
-\item Set $\SET{V}_{40}$ to be the maximum voltage over every 40 consecutive samples (a duration of \SI{1.23}{\milli\second}) during the first hour of recording for the session to be matched.
+\item Set $\SET{V}_{40}$ to be the maximum voltage over every \num{40} consecutive samples (a duration of \SI{1.23}{\milli\second}) during the first hour of recording for the session to be matched.
 \item Find the threshold $T_0$ such that number of values in $\SET{V}_{40}$ exceeding $T_0$ equals one hour at a rate of $\tilde{f}_\text{target}$.
 \end{enumerate}
 This routine allowed us to effectively allowed us to search over all possible thresholds very rapidly and find a suitable initialisation close to the final threshold for the majority of channels and sessions.
 
-If the initial threshold was too low, our second try was 3\% higher; if it was too high, our second try was 1\% lower\footnote{Since the computation involved in our spike extraction routine scales linearly with the number of spikes extracted, we err on the side of over-estimating the threshold since this costs notably less time.}.
-After this, we performed an iterative search for the target threshold using a weighted combination of linear interpolation and bisection (80\% linear interpolation, 20\% bisection).
-The search was halted once a threshold was found which yielded a spontaneous firing rate within $\pm1\%$ of the target.
+If the initial threshold was too low, our second try was \SI{3}{\percent} higher; if it was too high, our second try was \SI{1}{\percent} lower\footnote{Since the computation involved in our spike extraction routine scales linearly with the number of spikes extracted, we err on the side of over-estimating the threshold since this costs notably less time.}.
+After this, we performed an iterative search for the target threshold using a weighted combination of linear interpolation and bisection on each step (\SI{80}{\percent} linear interpolation, \SI{20}{\percent} bisection).
+The weightings for this hybrid root-finding algorithm were determined empirically and chosen to give reliably fast convergence.
+The search was halted once a threshold was found which yielded a spontaneous firing rate within \SI{\pm1}{\percent} of the target.
 
 Our choice to set the spike detection threshold in this manner assumes that the spontaneous firing rate for each recording channel is stable over the course of a month of recordings.
 Such an assumption is imperfect, since it is possible for small movements in the chronic implant to change which neurons are closest to the electrode.
