@@ -1708,6 +1708,229 @@ This result leads us to ask whether there is information about the stimulus enco
 \section{Information in spike timing}
 
 
+%------------------------------------------------------------------------------
+\section{Information sustained in post-stimulation activity}
+
+In \autoref{sec:pl_info_latency}, we noted that
+Following on from, we consider how much task-pertinent information about the stimulus is maintained in the neural activity after the stimulus is removed.
+
+The latency within the brain means the visual cortex will continue its sustained response to the stimulus for \SI{50}{\milli\second} after the stimulus is removed.
+Once the input to the visual cortex catches up with reality, there is a \textit{stimulus offset} response.
+Similar to the stimulus onset response seen in the rasters (\autoref{sec:pl_rasters}) and firing rate (\autoref{fig:fr_hm})
+This is produced by
+
+% Information about stimulus class <>30% in tp5
+%
+% blanco v1 1x200.00ms
+% dr pt
+% Loaded all the Channel data
+% Making channel-wise mean plots
+% A = [0.0233575934639817;0.0229659669060399;0.00290524259897068;-0.00390848405291057;-0.00122391351972209;-0.00194896722296958;0.0329264392487644;0.0189033228335365;0.00324026325312739;0.0113921428118645;-0.0133589339703114;-0.00414000141536333;0.0104402671955582;0.00493037492482272]
+% B = [0.0027256101665956;0.012402706710173;0.0107761287307439;0.003373112578624;0.0596416071504502;0.0148479109500865;0.0070493371354122;-0.000825921098703675;0.00440520287313014;-0.00012935019499829;0.00760680325748853;0.00877667235100428;0.00809987642163209;0.00499778442646282]
+% n=14  h=0.000000  p=0.659535=6.595353e-01   delta = +0.002662+/-0.005904 = +34.997848%+/-77.629481%
+% rule of thumb:  bandwidth=0.007838 bandwidth=0.008971 
+% same bandwidth bw = 0.0039188 used for all cols
+%
+% jack v1 1x200.00ms
+% dr pt
+% Loaded all the Channel data
+% Making channel-wise mean plots
+% A = [0.000622601684121227;-0.00377716142746305;0.000146928420993301;-0.00192772902316576;0.00258351831184827;-0.000456099680281245;0.00220643882266428;0.000699031175279237;0.000950796514649758;-0.00203297889097576;-0.000927812894491287;0.000615608520692172;0.00224166945145728;0.00374239704716356;0.00158921503228145;0.00321252301021788;-0.00183919492811508;-0.0010443699818787;-0.00311210523564171;-0.00139064398133498]
+% B = [0.0201502377246868;0.00107464750059979;0.00745904844650262;0.000481295567789686;0.000281414493905789;0.00416706242733134;0.00383202645037285;0.00236227171472044;0.0103358861715392;-5.57676606133817e-05;0.00267266157181786;0.00684839280423106;0.00726748930743422;4.82968534149013e-05;0.0101888994989491;0.00377186459833387;0.00235798270785171;-0.000647515272085941;0.00406271535856172;0.00437885111653911]
+% n=20  h=1.000000  p=0.000699=6.985186e-04   delta = +0.004447+/-0.001101 = +4229.705038%+/-1046.831355%
+% rule of thumb:  bandwidth=0.001197 bandwidth=0.002790 
+% same bandwidth bw = 0.0005985 used for all cols
+%
+% blanco v4 1x200.00ms
+% dr pt
+% Loaded all the Channel data
+% Making channel-wise mean plots
+% A = [0.00639307398696406;0.00273367831347081;0.00166924841323086;0.000536022337646103;-0.000519938318953731;0.00274823096670525;0.0114949538542239;-0.00146465535342946;-0.00234997259278723;-0.00742751758128479;0.0057163505920708;-0.00160738193718678;0.00676817126098566;0.00708714274375871;0.00902642917838984;0.00109904496508465;0.0110518289586536;-0.00163210157262226;0.00100031115810167;-0.00153798229549339;0.0127658130594333;0.00223778110305665;-0.000306711073705264;0.00326852594947238;-0.00140448473222365]
+% B = [0.00501179835724334;-0.0032764062052256;0.00976871724298058;0.000954174761784788;0.00419701489188305;-0.000656572979103187;0.00447235240459626;0.00367272864029234;0.00237276492150963;0.000414493976175878;-0.00240581272712645;0.00158993860269889;0.00461792466720409;0.00711000530629776;0.0287818238435108;0.00181668692786558;0.00287113526648885;0.000808888128438815;0.00427262926363139;0.00271384094735968;0.0253965936464429;0.000486915045735584;0.00301626408344893;0.00633170787967848;0.0285621433918874]
+% n=25  h=0.000000  p=0.087175=8.717515e-02   delta = +0.003022+/-0.001695 = +112.190842%+/-62.908718%
+% rule of thumb:  bandwidth=0.002716 bandwidth=0.004760 
+% same bandwidth bw = 0.001358 used for all cols
+%
+% jack v4 1x200.00ms
+% dr pt
+% Loaded all the Channel data
+% Making channel-wise mean plots
+% A = [-0.00384213631362481;-0.0041201081524218;0.0016421063781633;-0.000616230963948605;0.00294527262879324;0.00562348883293977;-0.00402219562418447;0.00228479582306612;-0.00291523114373236;-0.00160090879312798;0.00454363047259413;0.00166283542669536;-0.00416435952306651;0.00512797487815549;-0.00126252832053819;-0.0012049026285684;-0.00600778760071798;-0.00420233797384284]
+% B = [-0.00571205877080751;0.00824379690196132;-0.00244074329563682;0.0167310765450579;-0.00287962979283033;0.00277906686726981;0.00418897820736885;-0.00352205223968776;0.00174300152962058;-0.00107537059754607;0.00110315716667718;-0.00355328508081516;0.0136519671285957;0.00464203980117706;-0.00250658653920782;0.00954997272633986;0.00259440122196895;0.00360405486380255]
+% n=18  h=0.000000  p=0.106422=1.064222e-01   delta = +0.003182+/-0.001866 = -565.431367%+/-331.655086%
+% rule of thumb:  bandwidth=0.002104 bandwidth=0.003577 
+% same bandwidth bw = 0.0010521 used for all cols
+
+\begin{figure}[htbp]%
+    \centering
+    \hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V1}, information post-stimulus.\label{fig:info_tp5_v1_blanco}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/tp5/I_sessionwise_tp5_blanco_v1_chmean14_s343-359_oc0_Gclass-group-balanced_1bins_of_200ms_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\ac{M2} \ac{V1}, information post-stimulus.\label{fig:info_tp5_v1_jack}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/tp5/I_sessionwise_tp5_jack_v1_chmean20_s51-72_oc0_Gclass-group-balanced_1bins_of_200ms_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
+    \hspace*{\fill}
+    \\
+    \hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V1}, information pre-stimulus.\label{fig:info_tp3_v1_blanco}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/tp5/I_sessionwise_tp3_blanco_v1_chmean14_s343-359_oc0_Gclass-group-balanced_1bins_of_200ms_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\ac{M2} \ac{V1}, information pre-stimulus.\label{fig:info_tp3_v1_jack}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/tp5/I_sessionwise_tp3_jack_v1_chmean20_s51-72_oc0_Gclass-group-balanced_1bins_of_200ms_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
+    \hspace*{\fill}
+    \caption{Information about the stimulus encoded in \ac{V1} when the stimulus is not present.
+In \protect\subref{fig:info_tp5_v1_blanco} and \protect\subref{fig:info_tp5_v1_jack}, the amount of information about whether the contrast of the stimulus exceeded \SI{30}{\percent} encoded in the firing rate during the window \SIrange{220}{420}{\milli\second} after the stimulus was removed.
+In \protect\subref{fig:info_tp3_v1_blanco} and \protect\subref{fig:info_tp3_v1_jack}, the same but for the \SI{200}{\milli\second} before the stimulus was presented, shown here for comparison purposes.
+    \label{fig:info_tp5_v1}
+}
+\end{figure}
+
+
+\begin{figure}[htbp]%
+    \centering
+    \hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V4}, information post-stimulus.\label{fig:info_tp5_v4_blanco}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/tp5/I_sessionwise_tp5_blanco_v4_chmean25_s307,308,311,313,314,317,318,320,321,329-341_oc0_Gclass-group-balanced_1bins_of_200ms_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\ac{M2} \ac{V4}, information post-stimulus.\label{fig:info_tp5_v4_jack}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/tp5/I_sessionwise_tp5_jack_v4_chmean18_s24,25,27-38,40-49_oc0_Gclass-group-balanced_1bins_of_200ms_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
+    \hspace*{\fill}
+    \\
+    \hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V4}, information pre-stimulus.\label{fig:info_tp3_v4_blanco}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/tp5/I_sessionwise_tp3_blanco_v4_chmean25_s307,308,311,313,314,317,318,320,321,329-341_oc0_Gclass-group-balanced_1bins_of_200ms_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\ac{M2} \ac{V4}, information pre-stimulus.\label{fig:info_tp3_v4_jack}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/tp5/I_sessionwise_tp3_jack_v4_chmean18_s24,25,27-38,40-49_oc0_Gclass-group-balanced_1bins_of_200ms_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
+    \hspace*{\fill}
+    \caption{Information about the stimulus encoded in \ac{V4} when the stimulus is not present.
+In \protect\subref{fig:info_tp5_v4_blanco} and \protect\subref{fig:info_tp5_v4_jack}, the amount of information about whether the contrast of the stimulus exceeded \SI{30}{\percent} encoded in the firing rate during the window \SIrange{220}{420}{\milli\second} after the stimulus was removed.
+In \protect\subref{fig:info_tp3_v4_blanco} and \protect\subref{fig:info_tp3_v4_jack}, the same but for the \SI{200}{\milli\second} before the stimulus was presented, shown here for comparison purposes.
+    \label{fig:info_tp5_v4}
+}
+\end{figure}
+
+Three potential causes for this are readily apparent: bottom-up effects driven by the retina, lateral effects caused by recurrent connectivity, and top-down effects driven by feedback from higher cortical regions.
+
+Firstly, bottom-up effects driven by the retina.
+During the experimental trial, the subject must keep their gaze fixated on the central target whilst the sample and test stimuli appear and disappear (see \autoref{sec:pl_task} for details of the experimental set-up).
+Such unnatural fixation will mean the same rods and cones are exposed to the test stimulus whilst it is presented, and and this will partially deplete their supply of photopigment.
+This depletion of photopigment results in a negative afterimage, wherein the subject sees an internally generated inverse of the over-exposed stimulus at the same location of the visual field.
+Such negative afterimages can be induced in readily in humans, although for the effect to be clearly perceived the subject must fixate on the stimulus for some tens seconds, in order fully deplete the photopigment.
+Since our test stimulus is only presented for \SI{530}{\milli\second}, the amount of depleted photopigment will be much smaller, resulting a much less intense afterimage (potentially imperceivable).
+Consequently, 
+ 
+INCLUDE AFTERIMAGE EXAMPLE STIMULUS
+
+Secondly, lateral effects caused by recurrent connectivity.
+recurrent connectivity
+
+Thirdly, top-down effects driven by feedback from higher cortical regions.
+Having been trained extensively on this experimental task, the subject knows they must remember the \SI{425}{\milli\second} 
+
+To assist in distinguishing between these explanations, we investigated the difference in post-stimulation firing rate between stimuli with contrast above and below \SI{30}{\percent} contrast.
+
+
+\subsection{Difference in post-stimulation firing rate}
+
+For each test stimulus, we measured the average firing rate during the \SI{200}{\milli\second} window starting \SI{220}{\milli\second} after the stimulus presentation ended.
+We then averaged over the stimuli with contrast higher than \SI{30}{\percent}, averaged over stimuli with contrast lower than \SI{30}{\percent}, and compared the difference between the two.
+Then, we considered the firing rate difference for the start and the end of training, averaging over the first (\zonename{A}) and last (\zonename{B}) three sessions.
+
+% blanco v1
+% Test to see if A is significantly different from 0
+% n=14  h=1.000000  p=0.003165=3.164615e-03   delta = +1.161574+/-0.321677
+% Test to see if B is significantly different from 0
+% n=14  h=1.000000  p=0.000836=8.362285e-04   delta = +1.426079+/-0.330326
+% Test to see if B is significantly different from A
+% n=14  h=0.000000  p=0.365763=3.657627e-01   delta = +0.264505+/-0.282242 = +22.771281%+/-40.313343%
+% same bandwidth bw = 0.36235 used for all cols
+%
+% jack v1
+% Test to see if A is significantly different from 0
+% n=20  h=0.000000  p=0.479064=4.790641e-01   delta = -0.056362+/-0.078059
+% Test to see if B is significantly different from 0
+% n=20  h=1.000000  p=0.000002=2.311642e-06   delta = +0.984330+/-0.147971
+% Test to see if B is significantly different from A
+% n=20  h=1.000000  p=0.000002=2.185237e-06   delta = +1.040692+/-0.155797 = -1846.451525%+/-276.534008%
+% same bandwidth bw = 0.098981 used for all cols
+
+\begin{figure}[htbp]%
+    \centering
+    \hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V1}.\label{fig:frdelta_tp5_v1_blanco}]{%
+        \includegraphics[scale=.45]{%
+figs/frdelta/frdelta_tp5_220-420ms_blanco_v1.eps}}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\ac{M2} \ac{V1}.\label{fig:frdelta_tp5_v1_jack}]{%
+        \includegraphics[scale=.45]{%
+figs/frdelta/frdelta_tp5_220-420ms_jack_v1.eps}}
+    \hspace*{\fill}
+    \caption{For \ac{V1}, difference in post-stimulus firing rate between contrasts above and below \SI{30}{\percent}.
+    \label{fig:frdelta_tp5_v1}
+}
+\end{figure}
+
+
+Broadly speaking, both \ac{V1} and \ac{V4} brain regions have higher neural activity following presentation of a higher contrast, and the difference in activity between contrasts above and below \SI{30}{\percent} increases with training.
+However, these results, shown in \autoref{fig:frdelta_tp5_v1} and \autoref{fig:frdelta_tp5_v4}, were not significant for both animals.
+
+Considering \ac{V1}, \ac{M1} (see \autoref{fig:frdelta_tp5_v1_blanco}) has a significantly non-zero difference in firing rate both before (\zonename{A}; $p=0.003$) and after (\zonename{B}; $p=0.0008$) training, which rises from \SI{+1.16\pm0.32}{Hz} to \SI{+1.43\pm0.33}{Hz}.
+However the increase in firing rate difference between \zonename{A} and \zonename{B} of \SI{+0.26\pm0.28}{Hz} is not significant.
+Subject \ac{M2} (see \autoref{fig:frdelta_tp5_v1_jack}) has a lower initial difference in firing rate for the two groups of stimuli, which does not show significant tuning ($p=0.48$).
+From this lower starting point, there is a significant ($p < 3 \times 10^{-6}$) increase in difference in firing rate of \SI{+1.04\pm0.16}{Hz} during training.
+
+
+% blanco v4
+% Test to see if A is significantly different from 0
+% n=25  h=0.000000  p=0.488018=4.880179e-01   delta = +0.135203+/-0.191965
+% Test to see if B is significantly different from 0
+% n=25  h=0.000000  p=0.335276=3.352756e-01   delta = +0.210304+/-0.213878
+% Test to see if B is significantly different from A
+% n=25  h=0.000000  p=0.618336=6.183362e-01   delta = +0.075101+/-0.148787 = +55.546692%+/-111.709205%
+% same bandwidth bw = 0.26164 used for all cols
+%
+% jack v4
+% Test to see if A is significantly different from 0
+% n=18  h=0.000000  p=0.072094=7.209423e-02   delta = +0.182467+/-0.095144
+% Test to see if B is significantly different from 0
+% n=18  h=1.000000  p=0.010283=1.028336e-02   delta = +0.705477+/-0.244530
+% Test to see if B is significantly different from A
+% n=18  h=1.000000  p=0.032290=3.228994e-02   delta = +0.523010+/-0.224328 = +286.632665%+/-123.309243%
+% same bandwidth bw = 0.11655 used for all cols
+
+\begin{figure}[htbp]%
+    \centering
+    \hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V4}.\label{fig:frdelta_tp5_v4_blanco}]{%
+        \includegraphics[scale=.45]{%
+figs/frdelta/frdelta_tp5_220-420ms_blanco_v4.eps}}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\ac{M2} \ac{V4}.\label{fig:frdelta_tp5_v4_jack}]{%
+        \includegraphics[scale=.45]{%
+figs/frdelta/frdelta_tp5_220-420ms_jack_v4.eps}}
+    \hspace*{\fill}
+    \caption{For \ac{V4}, difference in post-stimulus firing rate between contrasts above and below \SI{30}{\percent}.
+    \label{fig:frdelta_tp5_v4}
+}
+\end{figure}
+
+For \ac{V4}, \ac{M1} (see \autoref{fig:frdelta_tp5_v4_blanco}) does not have significantly different post-stimulation firing rates for the two stimulus groups either before (\zonename{A}; $p=0.49$) or after (\zonename{B}; $p=0.34$) training.
+Correspondingly, the small change in firing rate difference of \SI{+0.08\pm0.15}{Hz} was not significant either.
+With \ac{M2} (see \autoref{fig:frdelta_tp5_v4_jack}), the difference in firing rate of \SI{+0.18\pm0.10}{Hz} was not initially significant (\zonename{A}; $p=0.072$) but was after training (\zonename{B}; $p=0.01$).
+The change between \zonename{A} and \zonename{B} in firing rate difference was \SI{+0.52\pm0.22}{Hz}, also significant ($p=0.032$).
+
+With these results... 
+IMPACT ON PREVIOUS ANALYSIS
+
 
 %==============================================================================
 \section{Decoding information at the population level}
