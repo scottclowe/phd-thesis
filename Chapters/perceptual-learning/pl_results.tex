@@ -1298,70 +1298,18 @@ As described in \autoref{sec:pl_bias_grouping}, this will reduce the amount of r
 
 
 %------------------------------------------------------------------------------
-\section{Information versus firing rate integration window duration}
+\section{Information latency}
+\label{sec:pl_info_latency}
 
 So far, we have only been considering the amount of information about the stimulus encoded in the firing rate during the entire stimulation period.
-But is this entirely necessary?
+But is it truly best to use the entire \SI{527}{\milli\second} period of stimulation?
+Due to environmental pressures such as predation, perception occurs in notably less than half a second.
 It is possible that the signal encoding which stimulus is on screen is only transiently emitted by visual neurons, in which case a shorter window will give just as much information about the stimulus.
+In this section, we investigate when the firing rate of the neurons is most informative about the stimulus.
 
-In this section, we investigate the relationship between the duration of the window over which the neural firing rate is extracted and the information it contains.
-
-
-\subsection{Methods}
-\label{sec:pl_windur_offset_methods}
-
-For each window length, we considered the firing rates within a window of that duration offset from the time of stimulus onset by a variety of amounts.
-The offsets considered were arranged linearly from the start to the end of the stimulus presentation period in intervals equal to one quarter of the window length.
-For each window and offset, we computed the amount of task-pertinent information (see \autoref{sec:task-info}) about the stimulus contained in its firing rate, with the bias corrected for using the \ac{PT} method.
-When performing this calculation, the stimulus class imbalance was corrected using subsampling, as described in \autoref{sec:pl_class_imbalance}.
-
-To report information as a function of window duration and offset, shown in \autoref{fig:info_offset_vs_winlen}, we first took the average over sessions.
-Next, we created a vector of time samples with high sampling frequency, and for each window duration averaged the amount of information over every offset window overlapping with that point.
-These steps were repeated for bootstrapped information values (see \autoref{sec:pl_bootstrapping}), and the average was subtracted from the information estimate.
-
-To report the change over sessions in information for each window length, we took the maximum information across all window offsets (\autoref{fig:info_winlen}).
-We then subtracted from this the maximum of the bootstraps relating to each offset.
-
-For \autoref{fig:info_offset}, we considered only windows with duration \SI{50}{\milli\second} and doubled the sampling frequency to an eight of the window duration (\SI{6.25}{\milli\second}).
-This allows us to investigate the change in information with training at a particular offset.
-
-\subsection{Results}
-
-As shown in \autoref{fig:info_offset_vs_winlen}, 
-
-Using the full 
-
-
-\begin{figure}[htbp]%
-    \centering
-    \hspace*{\fill}
-    \subfloat[][\ac{M1} \ac{V1}.\label{fig:info_offset_vs_winlen_v1_blanco}]{%
-        \includegraphics[scale=.45]{%
-figs/info2/binlen/I_offsetVwinlen_blanco_v1_chmean14_s343-359_oc0_Gclass-group-balanced_1bins_4-fold-sampling_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
-    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
-    \subfloat[][\ac{M2} \ac{V1}.\label{fig:info_offset_vs_winlen_v1_jack}]{%
-        \includegraphics[scale=.45]{%
-figs/info2/binlen/I_offsetVwinlen_jack_v1_chmean20_s51-72_oc0_Gclass-group-balanced_1bins_4-fold-sampling_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
-    \hspace*{\fill}
-    \\
-    \hspace*{\fill}
-    \subfloat[][\ac{M1} \ac{V4}.\label{fig:info_offset_vs_winlen_v4_blanco}]{%
-        \includegraphics[scale=.45]{%
-figs/info2/binlen/I_offsetVwinlen_blanco_v4_chmean25_s307,308,311,313,314,317,318,320,321,329-341_oc0_Gclass-group-balanced_1bins_4-fold-sampling_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
-    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
-    \subfloat[][\ac{M2} \ac{V4}.\label{fig:info_offset_vs_winlen_v4_jack}]{%
-        \includegraphics[scale=.45]{%
-figs/info2/binlen/I_offsetVwinlen_jack_v4_chmean18_s24,25,27-38,40-49_oc0_Gclass-group-balanced_1bins_4-fold-sampling_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
-    \hspace*{\fill}
-    \caption{Information encoded as firing rate over windows with varying duration.
-Main panels: heatmap showing information 
-Above: 
-Right: 
-Only task-pertinent information, as described in \autoref{sec:task-info} is included, as described in \autoref{sec:pl_bias_grouping}.
-    \label{fig:info_offset_vs_winlen}
-}
-\end{figure}
-
+We considered the firing rate of the neuron as measured within windows of varying lengths, logarithmically spaced from \SI{2.5}{\milli\second} to \SI{501}{\milli\second}.
+Since we are now using windows shorter than the stimulation period, we also varied the latency of the window with respect to the time of the stimulus onset.
+For each window duration, we varied the latency of the window from the very start to the very end of the stimulus presentation period, at linear intervals equal to either \SI{10}{\milli\second} or one quarter of the window duration (whichever was shorter).
 
 \begin{figure}[htbp]%
     \centering
@@ -1384,35 +1332,274 @@ figs/info2/binlen/I_binlength_blanco_v4_chmean25_s307,308,311,313,314,317,318,32
         \includegraphics[scale=.4]{%
 figs/info2/binlen/I_binlength_jack_v4_chmean18_s24,25,27-38,40-49_oc0_Gclass-group-balanced_1bins_4-fold-sampling_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
     \hspace*{\fill}
-    \caption{Information encoded as firing rate over windows with varying duration.
-Main panels: heatmap showing information 
-Above: 
-Right: 
-Only task-pertinent information, as described in \autoref{sec:task-info} is included, as described in \autoref{sec:pl_bias_grouping}.
+    \caption{Duration of the window over which firing rate is measured influences the measured information.
+For each recording channel and window duration, we took the maximum information over all latencies, then averaged the information over channels.
+Main panels: heatmap showing information against experimental session and window duration.
+For each information value, we took \num{20} bootstrapped information values by randomly pairing stimuli and responses.
+After taking the maximum over latencies, the mean of the bootstraps was subtracted from the reported information, and if the value did not exceed \num{3} standard deviations over the bootstrapped information values it was deemed insignificant (shown in white; median significance threshold indicated by a line across the colour bar).
+Above: maximum information over all window durations.
+The average over channels is shown (black line), along with the standard error over channels (grey shaded region).
+Right: for each window duration, the average information over the first (\zonename{A}; blue) and last (\zonename{B}; purple) three sessions.
+The average over channels is shown, along with the standard error over channels (shaded region).
+Above right: violin plots for \zonename{A} and \zonename{B} showing the Gaussian kernel density estimate over channels of the maximum information.
+Note that window durations were sampled logarithmically, but are shown here on a linear scale.
     \label{fig:info_winlen}
 }
 \end{figure}
 
+First, we consider the question of which window duration provides the most information about the stimulus.
+Since a longer window duration means a more accurate sample of the firing rate and therefore a higher signal-to-noise ratio, we would expect longer windows to provide more task-pertinent information about the stimulus.
+Taking the maximum information across all latencies, as shown in \autoref{fig:info_winlen}, we find that longer windows are not always more informative.
 
+For \ac{V1} (\autoref{fig:info_winlen_v1_blanco} and \autoref{fig:info_winlen_v1_jack}), shorter windows with a duration around \SI{50}{\milli\second} can capture the most informative firing rate.
+Measuring the firing rate with windows around \SI{250}{\milli\second} yields the least information, with an increase as windows become longer than this.
+For both subjects, there is no notable change between the start and end of training (\zonename{A} and \zonename{B}) in the amount of information encoded in windows shorter than \SI{250}{\milli\second}, but there does seem a change for longer windows.
+However, this change is different for the two subjects, with information measured for longer windows decreasing after training for \ac{M1} but increasing for \ac{M2}.
+
+For \ac{V4} (\autoref{fig:info_winlen_v4_blanco} and \autoref{fig:info_winlen_v4_jack}), using a longer window to measure the firing rate is always more informative.
+There seems to be an increase in information after training for all window durations for \ac{M2}, but only when the firing rate window is longer than \SI{350}{\milli\second} for \ac{M1}.
+
+Our results are parametrised in three dimensions --- experimental session, window duration, and window latency --- which is too many to portray at once in a single figure.
+The results in \autoref{fig:info_winlen} are a summary over two of these dimensions, collapsing the window latency dimension by taking the maximum.
+To understand the results better, we next collapse along the ``session'' dimension instead.
+
+\begin{figure}[htbp]%
+    \centering
+    \hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V1}.\label{fig:info_offset_vs_winlen_v1_blanco}]{%
+        \includegraphics[scale=.4]{%
+figs/info2/binlen/I_offsetVwinlen_blanco_v1_chmean14_s343-359_oc0_Gclass-group-balanced_1bins_4-fold-sampling_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\ac{M2} \ac{V1}.\label{fig:info_offset_vs_winlen_v1_jack}]{%
+        \includegraphics[scale=.4]{%
+figs/info2/binlen/I_offsetVwinlen_jack_v1_chmean20_s51-72_oc0_Gclass-group-balanced_1bins_4-fold-sampling_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
+    \hspace*{\fill}
+    \\
+    \hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V4}.\label{fig:info_offset_vs_winlen_v4_blanco}]{%
+        \includegraphics[scale=.4]{%
+figs/info2/binlen/I_offsetVwinlen_blanco_v4_chmean25_s307,308,311,313,314,317,318,320,321,329-341_oc0_Gclass-group-balanced_1bins_4-fold-sampling_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\ac{M2} \ac{V4}.\label{fig:info_offset_vs_winlen_v4_jack}]{%
+        \includegraphics[scale=.4]{%
+figs/info2/binlen/I_offsetVwinlen_jack_v4_chmean18_s24,25,27-38,40-49_oc0_Gclass-group-balanced_1bins_4-fold-sampling_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
+    \hspace*{\fill}
+    \caption{Information, encoded as firing rate, as a function of window latency.
+For a given latency and window duration, the information value reported is the average over all windows of this duration which include that latency (see text for more details).
+Results are averaged over experimental sessions
+(\protect\subref{fig:info_offset_vs_winlen_v1_blanco}: \num{17}, \protect\subref{fig:info_offset_vs_winlen_v1_jack}: \num{22}, \protect\subref{fig:info_offset_vs_winlen_v4_blanco}: \num{22}, \protect\subref{fig:info_offset_vs_winlen_v4_jack}: \num{24}).
+Values which are not significant (defined as \num{3} standard deviations of the bootstrapped information measurements) are shown in white, with a typical threshold for significance indicated by a black line across the colour bar.
+Note that the scale for the window durations is logarithmic, differing from \autoref{fig:info_winlen}.
+Above: maximum over all latencies, with standard error over channels indicated by the shaded region.
+This curve is different from those shown in \autoref{fig:info_winlen} due to the smoothing effect of averaging across coincident windows before taking the maximum value.
+    \label{fig:info_offset_vs_winlen}
+}
+\end{figure}
+
+As the set of window latencies considered is necessarily different for each window duration (one cannot examine the information encoded in a window with \SI{500}{\milli\second} duration and starting from a \SI{100}{\milli\second} latency when the stimulus is only presented for \SI{527}{\milli\second}), we cannot simply average the data over the experimental session dimension.
+Since we wish to understand \textit{when} the firing rate is most informative about the stimulus, we reparametrised the results over latencies with a very high sampling frequency and, for each window duration, took the average over all information measurements containing this latency.
+These steps were repeated for bootstrapped information values, and their average was subtracted from the information estimate.
+Information values less than \num{3} times the standard deviation of the bootstraps were considered non-significant (indicated in white in \autoref{fig:info_offset_vs_winlen}).
+
+These results, shown in \autoref{fig:info_offset_vs_winlen}, corroborate the findings discussed for \autoref{fig:info_winlen}.
+Namely, firing rates evaluated over longer durations always give more information about the stimulus for \ac{V4}, but not \ac{V1}.
+
+Examining the data as a function of latency, we can see \textit{when} it is possible to estimate the \ac{V1} firing rate using only a very short window and still gain a large amount of information about the stimulus.
+As shown in \autoref{fig:info_offset_vs_winlen_v1_blanco} and \autoref{fig:info_offset_vs_winlen_v1_jack}, short windows of \SI{40}{\milli\second} and below are only transitively informative, with a narrow peak with a \SI{50}{\milli\second} latency after the onset of the stimulus.
+This temporally localised period of high information content coincides with the elevated firing rate of the stimulus-onset response, as shown in the rastergrams of \autoref{sec:pl_rasters}, which also occurs with a latency around \SI{50}{\milli\second}.
+To directly compare the temporal profile of the information with the average firing rate, we plotted the average firing rate as a function of the latency and experimental session, shown in \autoref{fig:fr_hm}.
+This was evaluated using windows \SI{5}{\milli\second} in duration, and \autoref{fig:info_offset_5ms} shows the amount of information contained in the firing rate using the same windows.
+
+
+% blanco v1 firing rate in 5.000000ms
+% Loaded all the Channel data
+% Making channel-wise mean plots
+% A = [6.4448359989157;27.197626851327;8.72077716717186;13.5270809203447;18.6215263231393;16.8651683547319;13.0706256109482;7.60076024544716;17.387821697594;18.0585709357057;15.851302397792;11.5581540534102;16.8490886090507;11.8450224664646]
+% B = [5.50464320625613;23.8663745067919;7.24694080955942;9.17303627218242;13.8260142766784;13.6547947624798;7.84815147955567;6.67275218983001;17.5006879584678;15.5104686058197;13.8252270605212;8.36648197891085;15.1072427993681;9.90930585332864]
+% n=14  h=1.000000  p=0.000038=3.821903e-05   delta = -2.541874+/-0.417163 = -17.478647%+/-143.897806%
+% rule of thumb:  bandwidth=3.241169 bandwidth=3.072011 
+% same bandwidth bw = 1.536 used for all cols
+% YLIM4 = [3.33534484174905 29.3669252158341];
+%
+% jack v1 firing rate in 5.000000ms
+% Loaded all the Channel data
+% Making channel-wise mean plots
+% A = [30.2470727783913;19.9542881851842;22.2151270165358;17.5006666710744;44.5958823303899;10.7953633532896;17.9211007724774;22.9917466044108;29.172275487144;20.0808858573528;38.4062136281149;26.5237178709516;24.3896769181022;19.5652760674284;47.0380912826588;13.015029351722;35.116938885777;8.52633207876679;11.459182688683;16.6515331499917]
+% B = [25.4249198958617;18.7964720212918;20.2836418215785;14.7494004262055;41.1585314167964;9.14134347349127;14.0718796616547;18.5247656101126;21.0070638892891;15.3477288552027;33.7968606605223;19.0379905103392;22.005289296262;16.850209507992;33.0993628723547;11.5221454901191;28.3053666268001;7.33131213731874;8.95062051242176;14.2535333665457]
+% n=20  h=1.000000  p=0.000009=9.299247e-06   delta = -4.125398+/-0.689461 = -17.327548%+/-242.708496%
+% rule of thumb:  bandwidth=6.154781 bandwidth=5.064363 
+% same bandwidth bw = 2.5322 used for all cols
+% YLIM4 = [3.36063422278473 51.0087691971928];
+%
+% blanco v4 firing rate in 5.000000ms
+% Loaded all the Channel data
+% Making channel-wise mean plots
+% A = [10.3993685653046;6.80751890873317;16.3916336750766;10.3301360318962;11.5039132584305;3.09829598067698;17.8535600035679;3.96541196449593;17.9568783727466;26.0270488348371;6.20374148243586;11.1064609886831;18.6042597171676;9.46786103122279;5.03951403597137;11.9540356675923;10.2990722698896;20.9079411587333;15.1727667842679;8.49194904307498;15.9101069220623;10.137442916628;4.34805600535966;8.61807830288219;9.57070730675394]
+% B = [12.0780127357711;6.00270468718798;16.6605731476651;9.76250715339901;15.2573300034752;3.37968837123719;17.5516316583559;5.08455754218198;16.1032597732325;21.3782350384809;6.5763497049674;12.6533788721055;21.3377760971561;7.80353254521292;5.53731929204322;11.0296553789132;7.32422633822664;17.4663097370511;16.4795709555169;8.96045957915111;14.0298624193511;9.52694803411565;4.89224785423344;12.0414895876125;10.8338022115868]
+% n=25  h=0.000000  p=0.967699=9.676993e-01   delta = -0.016573+/-0.405029 = -0.142791%+/-114.829491%
+% rule of thumb:  bandwidth=3.128659 bandwidth=2.831439 
+% same bandwidth bw = 1.4157 used for all cols
+% YLIM4 = [0.805420695260959 28.3199241202532];
+%
+% jack v4 firing rate in 5.000000ms
+% Loaded all the Channel data
+% Making channel-wise mean plots
+% A = [15.7853333875428;14.5279737388939;15.3406302322838;5.26786404166171;6.92619135053219;8.9045824260411;13.3061065247381;9.87861735998043;9.03059401433904;7.2010698376154;4.81799097453712;10.919020207403;6.45289029159828;7.55620786960711;8.1394321824322;7.12702628492076;6.8615243860502;7.09915886224321]
+% B = [18.4579586274835;16.0468511534531;16.1882962668828;9.13315528169993;8.45936282995466;13.8233639607561;17.4574837404668;11.333427024326;10.4120160209273;9.05910723720686;5.74792109064066;15.7872248108008;8.44312383283422;8.05742343415539;10.0108128239953;11.7242517545944;8.08920397683781;8.2508461249824]
+% n=18  h=1.000000  p=0.000005=4.990527e-06   delta = +2.296645+/-0.350858 = +25.032737%+/-80.778703%
+% rule of thumb:  bandwidth=1.976821 bandwidth=2.219233 
+% same bandwidth bw = 0.98841 used for all cols
+% YLIM4 = [3.45399420924247 19.8219553927782];
+
+\begin{figure}[htbp]%
+    \centering
+    \hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V1}.\label{fig:fr_hm_v1_blanco}]{%
+        \includegraphics[scale=.4]{%
+figs/fr/fr_sessionwise_blanco_v1_chmean14_s343-359_oc0_Gbalanced_5ms_418off_rmvet2_rmvms2_imscn_clhot.eps}}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\ac{M2} \ac{V1}.\label{fig:fr_hm_v1_jack}]{%
+        \includegraphics[scale=.4]{%
+figs/fr/fr_sessionwise_jack_v1_chmean20_s51-72_oc0_Gbalanced_5ms_418off_rmvet2_rmvms2_imscn_clhot.eps}}
+    \hspace*{\fill}
+    \\
+    \hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V4}.\label{fig:fr_hm_v4_blanco}]{%
+        \includegraphics[scale=.4]{%
+figs/fr/fr_sessionwise_blanco_v4_chmean25_s307,308,311,313,314,317,318,320,321,329-341_oc0_Gbalanced_5ms_418off_rmvet2_rmvms2_imscn_clhot.eps}}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\ac{M2} \ac{V4}.\label{fig:fr_hm_v4_jack}]{%
+        \includegraphics[scale=.4]{%
+figs/fr/fr_sessionwise_jack_v4_chmean18_s24,25,27-38,40-49_oc0_Gbalanced_5ms_418off_rmvet2_rmvms2_imscn_clhot.eps}}
+    \hspace*{\fill}
+    \caption{Average firing rate over \SI{5}{\milli\second} windows.
+Windows were sampled at \SI{1.25}{\milli\second} intervals, shown with a latency corresponding to the middle of each window.
+Information values which did not exceed \num{3} standard deviations over the corresponding bootstraps were deemed insignificant (shown in white; median significance threshold indicated by a line across the colour bar).
+Above: overall firing rate during \SI{527}{\milli\second} of stimulus presentation, averaged over channels (black line), with standard error over channels shown (grey region).
+Right: average over the first (\zonename{A}; blue) and last (\zonename{B}; purple) three sessions, averaged over channels with standard error indicated (shaded region).
+Above right: distribution of over channels of overall firing rate for \zonename{A} and \zonename{B}.
+    \label{fig:fr_hm}
+}
+\end{figure}
+
+
+% blanco v1 1x5.00ms
+% dr pt
+% Loaded all the Channel data
+% Making channel-wise mean plots
+% n=14  h=0.000000  p=0.067282=6.728205e-02   delta = -0.011889+/-0.005955 = -23.637917%+/-11.879502%
+% same bandwidth bw = 0.010524 used for all cols
+%
+% jack v1 1x5.00ms
+% dr pt
+% Loaded all the Channel data
+% Making channel-wise mean plots
+% n=20  h=1.000000  p=0.000092=9.160860e-05   delta = -0.031460+/-0.006373 = -10.275927%+/-2.727501%
+% same bandwidth bw = 0.022348 used for all cols
+%
+% blanco v4 1x5.00ms
+% dr pt
+% Loaded all the Channel data
+% Making channel-wise mean plots
+% n=25  h=0.000000  p=0.382092=3.820921e-01   delta = -0.001742+/-0.001956 = -8.333161%+/-9.365480%
+% same bandwidth bw = 0.0045601 used for all cols
+%
+% jack v4 1x5.00ms
+% dr pt
+% Loaded all the Channel data
+% Making channel-wise mean plots
+% n=18  h=1.000000  p=0.022284=2.228433e-02   delta = +0.003227+/-0.001283 = +42.414208%+/-16.869162%
+% same bandwidth bw = 0.00080329 used for all cols
+
+\begin{figure}[htbp]%
+    \centering
+    \hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V1}.\label{fig:info_offset_5ms_v1_blanco}]{%
+        \includegraphics[scale=.4]{%
+figs/info2/offsets/I_sessionwise_blanco_v1_chmean14_s343-359_oc0_Gclass-group-balanced_1bins_of_5ms_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\ac{M2} \ac{V1}.\label{fig:info_offset_5ms_v1_jack}]{%
+        \includegraphics[scale=.4]{%
+figs/info2/offsets/I_sessionwise_jack_v1_chmean20_s51-72_oc0_Gclass-group-balanced_1bins_of_5ms_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
+    \hspace*{\fill}
+%     \\
+%     \hspace*{\fill}
+%     \subfloat[][\ac{M1} \ac{V4}.\label{fig:info_offset_5ms_v4_blanco}]{%
+%         \includegraphics[scale=.4]{%
+% figs/info2/offsets/I_sessionwise_blanco_v4_chmean25_s307,308,311,313,314,317,318,320,321,329-341_oc0_Gclass-group-balanced_1bins_of_5ms_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
+%     \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+%     \subfloat[][\ac{M2} \ac{V4}.\label{fig:info_offset_5ms_v4_jack}]{%
+%         \includegraphics[scale=.4]{%
+% figs/info2/offsets/I_sessionwise_jack_v4_chmean18_s24,25,27-38,40-49_oc0_Gclass-group-balanced_1bins_of_5ms_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
+%     \hspace*{\fill}
+    \caption{Information encoded as firing rate over windows with \SI{5}{\milli\second} duration.
+Main panels: heatmap showing information in each experimental session with latencies, in \SI{1.25}{\milli\second} intervals, ranging from the start to end of the stimulus presentation.
+The $y$-axis value corresponds to the centre of each window.
+Above: maximum over all latencies and average over channels (black line), with standard error over channels shown (grey region).
+Right: average over the first (\zonename{A}; blue) and last (\zonename{B}; purple) three sessions, averaged over channels, with standard error indicated (shaded region).
+Above-right: for \zonename{A} and \zonename{B}, the distribution over channels of the maximum information over all latencies.
+    \label{fig:info_offset_5ms}
+}
+\end{figure}
+
+
+For both subjects, the sharp peak in the information contained in \ac{V1} coincides precisely with the maxima of the average firing rate, with a latency of approximately \SI{50}{\milli\second}.
+The firing rate for \ac{V4} shows a large stimulus-onset response with \SI{100}{\milli\second} latency for \ac{M1} (see \autoref{fig:fr_hm_v4_blanco}), but this is not present for \ac{M2} (absent from \autoref{fig:fr_hm_v4_jack}).
+However, for \ac{M2} the overall firing rate increased significantly ($p < 5 \times 10^{-6}$) with training by \SI{2.30\pm0.35}{Hz}.
+These observations correspond to our sensitivity analysis (see \autoref{sec:pl_dprime}), where we observed almost all recording channels for \ac{M2} \ac{V4} were initially not tuned to the stimulus class.
+The firing rate showed no change over training for \ac{M2} ($p=0.97$).
+For \ac{V1}, the overall firing rate fell significantly during training for both subjects (\ac{M1}: \SI{-2.54\pm0.42}{Hz}, $p < 4 \times 10^{-5}$; \ac{M2} \SI{-4.13\pm0.69}{Hz}, $p < 1 \times 10^{-6}$).
+As mentioned previously, we believe this effect is caused by a decline in signal quality for the recording electrodes over time.
+
+Windows of only \SI{5}{\milli\second} were not informative enough to depict the distribution of information over latency for \ac{V4}.
+Instead, we present results using \SI{50}{\milli\second} windows, depicted in \autoref{fig:info_offset}.
+Here, we can again see a close correspondence between the average firing rate and encoded information against the time since the onset of the stimulus.
+
+% 50ms windows at 10ms offset intervals
+%
 % blanco v1 1x50.00ms
 % dr pt
-% n=14  h=0.000000  p=0.274586=2.745863e-01   delta = -0.011056+/-0.009692 = -18.873570%+/-16.582458%
-% selected bw  :  bandwidth=0.012372
+% Loaded all the Channel data
+% Making channel-wise mean plots
+% A = [0.0869070160007024;0.0454360671797336;0.0122868496162529;0.0462414601481486;0.127034921899161;0.0627648640805788;0.123929885118711;0.101347196143745;0.10051199533031;0.0165435682713903;0.0172025619346488;0.0210902677347443;0.0201012031369372;0.0211061662839325]
+% B = [0.0503639173352809;0.0394467204867789;0.0206854124751066;0.0341716218808717;0.0251309078185719;0.0381165141192398;0.0610695123686854;0.145147014926078;0.135315756859133;0.00884032269518068;0.0220806294888187;0.0160232735015603;0.0447503335906284;0.0205038552053085]
+% n=14  h=0.000000  p=0.342245=3.422454e-01   delta = -0.010061+/-0.010207 = -17.552339%+/-17.842325%
+% rule of thumb:  bandwidth=0.025643 bandwidth=0.025246 
+% same bandwidth bw = 0.012623 used for all cols
+% YLIM4 = [-0.00479034652790907 0.158777684149168];
 %
 % jack v1 1x50.00ms
 % dr pt
-% n=20  h=1.000000  p=0.002145=2.145493e-03   delta = -0.020508+/-0.005779 = -6.822555%+/-2.679045%
-% selected bw  :  bandwidth=0.020317
+% Loaded all the Channel data
+% Making channel-wise mean plots
+% A = [0.322273495541325;0.259836256743658;0.357236874823747;0.262738464437497;0.37032355287606;0.0989531964846166;0.324532810521044;0.401375126151464;0.352982554552941;0.199303642953066;0.410860755080856;0.416151727353204;0.325365149570532;0.362175919450819;0.345265518330353;0.192598218302092;0.269450258840796;0.195494716651627;0.263654934104346;0.254866832675228]
+% B = [0.272293302450746;0.236444999673465;0.342196094513434;0.248801620404574;0.338399835551023;0.0856140359755171;0.31858584616958;0.407925398112034;0.307973757243471;0.200378408774723;0.349171888471342;0.353887899667208;0.295344628192377;0.347473738447734;0.273238404518912;0.200274354903163;0.281974489686517;0.198130852763054;0.256533975675753;0.242428364787178]
+% n=20  h=1.000000  p=0.001182=1.182326e-03   delta = -0.021418+/-0.005622 = -7.156836%+/-2.661228%
+% rule of thumb:  bandwidth=0.047808 bandwidth=0.041749 
+% same bandwidth bw = 0.020874 used for all cols
+% YLIM4 = [0.0525602668377485 0.449205496490972];
 %
 % blanco v4 1x50.00ms
 % dr pt
-% n=25  h=0.000000  p=0.991573=9.915732e-01   delta = -0.000061+/-0.005702 = -0.135145%+/-12.683164%
-% selected bw  :  bandwidth=0.008539
+% Loaded all the Channel data
+% Making channel-wise mean plots
+% A = [0.0734931507360141;0.0760230600326185;0.0208320974189938;0.0938849514535735;0.0403276023013184;0.0341634343702698;0.0072236222075404;0.00457240491090197;0.103401612021503;0.0231871705640539;0.0361243529405365;0.0105028281287047;0.0247163581072756;0.0211371004895599;0.0208251361679866;0.0626887881172645;0.0172492079859475;0.102917347008037;0.0385325393188616;0.0385401563486425;0.0434633676689983;0.0231177758967915;0.00443363789098708;0.137174889038085;0.0660706313701278]
+% B = [0.0850302006224847;0.0260790225877802;0.0213294771444397;0.0515940236596652;0.103653969889904;0.0223973709156972;0.00902515985499454;0.0109967838298874;0.12505801392377;0.0168412453824922;0.0526333515711435;0.0201872046228789;0.0303458970503976;0.0117119426545876;0.0380313426817823;0.0582840277100112;0.031388438474312;0.0248674712862574;0.0442977607702742;0.0613845685858786;0.0761617164279482;0.030954628019024;0.00885341273471382;0.0928159243844079;0.0556890336384076]
+% n=25  h=0.000000  p=0.918110=9.181101e-01   delta = -0.000600+/-0.005771 = -1.333024%+/-12.849196%
+% rule of thumb:  bandwidth=0.019357 bandwidth=0.017281 
+% same bandwidth bw = 0.0086407 used for all cols
+% YLIM4 = [-0.00884048722372268 0.150449014152794];
 %
 % jack v4 1x50.00ms
 % dr pt
-% n=18  h=1.000000  p=0.000605=6.053690e-04   delta = +0.029886+/-0.007121 = +257.735324%+/-61.407804%
-% selected bw  :  bandwidth=0.001927
+% Loaded all the Channel data
+% Making channel-wise mean plots
+% A = [0.0110968907001249;0.0117254565932458;0.00672720623787957;0.00666062130791273;0.0188789835048239;0.0229611923582639;0.0176565210779671;0.00527226000158425;0.00516588609111442;0.00825514895878919;0.00613147106574422;0.0115561527620906;0.00644339646857685;0.00598483960701672;0.0118527005865035;0.0261116321699353;0.00672811631140849;0.0129973232450572]
+% B = [0.0233242543817568;0.0332762897269617;0.0058262519536095;0.0481314385076406;0.0553182325494078;0.13029082057762;0.0446546069220868;0.0185275471500716;0.00351053676091566;0.0248266232683851;0.014334431247611;0.0513029111888599;0.0189386910815137;0.0207580289591665;0.0198700519286291;0.131117855867539;0.0358456891739579;0.0478677416465801]
+% n=18  h=1.000000  p=0.000902=9.017282e-04   delta = +0.029195+/-0.007275 = +259.891757%+/-64.764879%
+% rule of thumb:  bandwidth=0.003657 bandwidth=0.020949 
+% same bandwidth bw = 0.0018284 used for all cols
+% YLIM4 = [-0.00925019514974664 0.143878587778201];
 
 \begin{figure}[htbp]%
     \centering
@@ -1435,77 +1622,87 @@ figs/info2/offsets/I_sessionwise_blanco_v4_chmean25_s307,308,311,313,314,317,318
         \includegraphics[scale=.4]{%
 figs/info2/offsets/I_sessionwise_jack_v4_chmean18_s24,25,27-38,40-49_oc0_Gclass-group-balanced_1bins_of_50ms_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
     \hspace*{\fill}
-    \caption{Information encoded as firing rate over \SI{50}{\milli\second} windows with varying duration.
-Main panels: heatmap showing information 
-Above: 
-Right: 
-Only task-pertinent information, as described in \autoref{sec:task-info} is included, as described in \autoref{sec:pl_bias_grouping}.
+    \caption{Information encoded in the firing rate measured over \SI{50}{\milli\second} windows.
+Plots are arranged as per \autoref{fig:info_offset_5ms}, but with \SI{50}{\milli\second} windows sampled at latencies with intervals of \SI{10}{\milli\second}.
     \label{fig:info_offset}
 }
 \end{figure}
 
+In \autoref{fig:info_offset_v1_jack}, we can see an increase in the amount of information encoded in the \ac{V1} firing rate towards the end of the stimulation presentation duration.
+This observation is mirrored in \autoref{fig:info_offset_vs_winlen_v1_jack}, and a similar result for \ac{V4} in \autoref{fig:info_offset_vs_winlen_v4_blanco}, where (looking from top to bottom of the heatmaps) we find windows of duration \SIrange{50}{150}{\milli\second} yield a double-peak in the information as a function of latency.
+The firing rate is most informative when sampled with low latency, but a second peak occurs for late latencies toward the end of the stimulus presentation.
+% This also suggests a reason why information encoded rises again with window duration --- a sufficiently long window will include both of these signals.
+However, \autoref{fig:info_offset_vs_winlen} only shows the average information over all sessions and we can not conclude from it whether the information changes with training.
 
 
 \begin{figure}[htbp]%
     \centering
     \hspace*{\fill}
-    \subfloat[][\ac{M1} \ac{V1}.\label{fig:info_offset_20ms_v1_blanco}]{%
+    \subfloat[][\ac{M1} \ac{V1}.\label{fig:info_offset_vs_winlen_dif_v1_blanco}]{%
         \includegraphics[scale=.4]{%
-figs/info2/offsets/I_sessionwise_blanco_v1_chmean14_s343-359_oc0_Gclass-group-balanced_1bins_of_20ms_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
+figs/info2/binlen/I_offsetVwinlenDif_blanco_v1_chmean14_s343-359_oc0_Gclass-group-balanced_1bins_4-fold-sampling_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
     \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
-    \subfloat[][\ac{M2} \ac{V1}.\label{fig:info_offset_20ms_v1_jack}]{%
+    \subfloat[][\ac{M2} \ac{V1}.\label{fig:info_offset_vs_winlen_dif_v1_jack}]{%
         \includegraphics[scale=.4]{%
-figs/info2/offsets/I_sessionwise_jack_v1_chmean20_s51-72_oc0_Gclass-group-balanced_1bins_of_20ms_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
+figs/info2/binlen/I_offsetVwinlenDif_jack_v1_chmean20_s51-72_oc0_Gclass-group-balanced_1bins_4-fold-sampling_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
     \hspace*{\fill}
     \\
     \hspace*{\fill}
-    \subfloat[][\ac{M1} \ac{V4}.\label{fig:info_offset_20ms_v4_blanco}]{%
+    \subfloat[][\ac{M1} \ac{V4}.\label{fig:info_offset_vs_winlen_dif_v4_blanco}]{%
         \includegraphics[scale=.4]{%
-figs/info2/offsets/I_sessionwise_blanco_v4_chmean25_s307,308,311,313,314,317,318,320,321,329-341_oc0_Gclass-group-balanced_1bins_of_20ms_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
+figs/info2/binlen/I_offsetVwinlenDif_blanco_v4_chmean25_s307,308,311,313,314,317,318,320,321,329-341_oc0_Gclass-group-balanced_1bins_4-fold-sampling_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
     \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
-    \subfloat[][\ac{M2} \ac{V4}.\label{fig:info_offset_20ms_v4_jack}]{%
+    \subfloat[][\ac{M2} \ac{V4}.\label{fig:info_offset_vs_winlen_dif_v4_jack}]{%
         \includegraphics[scale=.4]{%
-figs/info2/offsets/I_sessionwise_jack_v4_chmean18_s24,25,27-38,40-49_oc0_Gclass-group-balanced_1bins_of_20ms_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
+figs/info2/binlen/I_offsetVwinlenDif_jack_v4_chmean18_s24,25,27-38,40-49_oc0_Gclass-group-balanced_1bins_4-fold-sampling_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
     \hspace*{\fill}
-    \caption{Information encoded as firing rate over \SI{20}{\milli\second} windows with varying duration.
-    \label{fig:info_offset_20ms}
+    \caption{Change in information with training, as a function of window latency.
+Similar to \autoref{fig:info_offset_vs_winlen}, we here show the difference in the average during the final and first three sessions.
+For a given latency and window duration, the information value reported is the difference in the average over all windows of this duration which include that latency (see text for more details).
+Information values with no significant change between the start and end of training (determined by \num{3} times the standard deviation over the difference in bootstrapped information values) are shown in white, with a typical threshold for significance indicated by two black lines across the colour bar.
+    \label{fig:info_offset_vs_winlen_dif}
 }
 \end{figure}
 
+To investigate what properties of the response profile change with training, we repeated the methodology used for \autoref{fig:info_offset_vs_winlen}, but took the difference between the average over the first and last three sessions.
+The results are shown in \autoref{fig:info_offset_vs_winlen_dif}.
+We found there was a significant increase in information in the final \SI{150}{\milli\second} for both \ac{M2} \ac{V1} and \ac{M1} \ac{V4}, with magnitude \SI{0.06}{bits} and \SI{0.009}{bits} (see \autoref{fig:info_offset_vs_winlen_dif_v1_jack} and \autoref{fig:info_offset_vs_winlen_dif_v4_blanco}).
 
-\begin{figure}[htbp]%
-    \centering
-    \hspace*{\fill}
-    \subfloat[][\ac{M1} \ac{V1}.\label{fig:fr_offset_20ms_v1_blanco}]{%
-        \includegraphics[scale=.4]{%
-figs/fr/fr_sessionwise_blanco_v1_chmean14_s343-359_oc0_Gbalanced_20ms_rmvet2_rmvms2_imscn_clhot.eps}}
-    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
-    \subfloat[][\ac{M2} \ac{V1}.\label{fig:fr_offset_20ms_v1_jack}]{%
-        \includegraphics[scale=.4]{%
-figs/fr/fr_sessionwise_jack_v1_chmean20_s51-72_oc0_Gbalanced_20ms_rmvet2_rmvms2_imscn_clhot.eps}}
-    \hspace*{\fill}
-    \\
-    \hspace*{\fill}
-    \subfloat[][\ac{M1} \ac{V4}.\label{fig:fr_offset_20ms_v4_blanco}]{%
-        \includegraphics[scale=.4]{%
-figs/fr/fr_sessionwise_blanco_v4_chmean25_s307,308,311,313,314,317,318,320,321,329-341_oc0_Gbalanced_20ms_rmvet2_rmvms2_imscn_clhot.eps}}
-    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
-    \subfloat[][\ac{M2} \ac{V4}.\label{fig:fr_offset_20ms_v4_jack}]{%
-        \includegraphics[scale=.4]{%
-figs/fr/fr_sessionwise_jack_v4_chmean18_s24,25,27-38,40-49_oc0_Gbalanced_20ms_rmvet2_rmvms2_imscn_clhot.eps}}
-    \hspace*{\fill}
-    \caption{Average firing rate over \SI{20}{\milli\second} windows.
-    \label{fig:fr_offset_20ms}
-}
-\end{figure}
+For both subjects, we do not find an increase in the most informative part of the stimulus response profile for \ac{V1}.
+On the contrary, we find a significant reduction in the information encoded by the narrow, but sharp, peak in firing rate with \SI{50}{\milli\second} latency (of approximately \SI{0.01}{bits} and \SI{0.03}{bits}), which we had previously noted was the most informative part of the response to the stimulus.
+This corresponds to the reduction in firing rate between the start and end of training.
+
+For \ac{M2} \ac{V4}, there is an increase in information, primarily with a latency from \SIrange{150}{250}{\milli\second}.
+Again, this corresponds to the increase in firing rate seen for this set of recordings.
 
 
-\subsection{Discussion}
+\subsection{Discussion of information latency}
 
-The sharp peak in information at \SI{50}{\milli\second} latency from stimulus onset with \ac{V1} is due to the difference in response latency for different contrasts and difference in firing rate in the stimulus-onset modulated response.
-After this interval, the firing rate decreases stabilises at a lower level.
-The precision in the tuning curve also falls, so the firing rate becomes less informative.
+In this section, we have seen that almost all the information contained in the firing rate of \ac{V1} is provided in the first \SI{5}{\milli\second} at the start of a short burst of rapid firing in response to the onset of the stimulus.
+With such a short window, we will only be able to detect one or possibly two spikes, yet the change in probability of this single spike is able to convey \SI{0.4}{bits} of information about the stimulus on a single recording channel of \ac{M2}.
+Over the course of training, the stimulus-induced firing rate recorded in \ac{V1} fell for both subjects.
+We believe this reduction in observed firing rate is not due to the firing rate actually falling, but is due to the deterioration in signal quality in the electrode array.
+Since our spike detection threshold was set to have a consistent spontaneous firing rate (using the methodology and rationale described in \autoref{sec:pl_san}) an increase in noise can result in an increased detection threshold, subsequently reducing the stimulus modulated activity.
+The amount of information encoded in the peak response also falls for both subjects, which is well explained by the reduction in firing rate.
 
+We found that the amount of information encoded in the \ac{V1} firing rate fell as the duration of the window used to summate the neural activity increased above \SI{100}{\milli\second}.
+This ran counter to our expectations, since a longer window duration should intuitively integrate over more signal, resulting in an increase in information.
+This result indicates that the number of spikes elicited during the sharp burst of activity triggered by the onset of the stimulus is negatively correlated with the number of spikes elicited later in the stimulus presentation.
+Such a negative correlation would have to be dispersed over a long duration, otherwise we detect it as another high-information content signal.
+But if it were dispersed, the effects would be manifest as a reduction in information with longer windows including the onset response because the two signals would partially cancel out.
+Such a phenomenon could be triggered by the natural dynamics of the neurons, which become harder to excite after repeated firing due to a decrease in the resting membrane potential, increase in sodium and decrease of potassium within the cell, and depletion of available neurotransmitters.
+
+Despite this, there was an increase in the information encoded in \ac{V1} with longer windows for \ac{M1}, due to another signal containing information about the stimulus in the final \SI{200}{\milli\second} of stimulus presentation (\autoref{fig:info_offset_vs_winlen_dif_v1_jack}).
+This signal increased in information over training despite the firing rate at this latency after the onset of the stimulus remaining the same during training (\autoref{fig:fr_hm_v1_jack}).
+The same result --- an increase in late-presentation information without an increase in firing rate --- was found in \ac{V4} for \ac{M1} (\autoref{fig:info_offset_vs_winlen_dif_v4_blanco}).
+
+There are several possible explanations for this result.
+It could be that \ac{V1} and \ac{V4} become better at encoding the contrast of the stimuli so that the subject can extract the information to perform the task.
+However, this seems unlikely since the amount of information encoded remains small when compared to the information contained in the activity of the large burst of stimulus-onset activity.
+The subject would seem to do better if they were to remember the intensity of the initial response instead of interpreting the activity later in the stimulus presentation.
+Alternatively, the activity in \ac{V1} and \ac{V4} could become more informative due to top-down influences.
+If the subject is thinking about their planned response, information about the contrast of the stimulus may be leaking back to the visual cortex from higher cortical regions.
+This result leads us to ask whether there is information about the stimulus encoded in the activity after the stimulus is removed, since in this case there is no bottom-up stimulation and we are left only with the effects of internal activity.
 
 %------------------------------------------------------------------------------
 \section{Information in spike timing}
