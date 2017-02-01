@@ -1708,13 +1708,22 @@ This result leads us to ask whether there is information about the stimulus enco
 %------------------------------------------------------------------------------
 \section{Information sustained in post-stimulation activity}
 
-In \autoref{sec:pl_info_latency}, we noted that
-Following on from, we consider how much task-pertinent information about the stimulus is maintained in the neural activity after the stimulus is removed.
+In \autoref{sec:pl_info_latency}, we described an increase in information late in the stimulus presentation for both \ac{M2} \ac{V1} and \ac{M1} \ac{V4}, which could hypothetically be caused by information projected back to the visual cortex from higher cortical regions.
+Following on from this, we will next consider how much task-pertinent information about the stimulus is maintained in the neural activity after the stimulus is removed, to see whether how much information about the stimulus is present in the visual cortex without the influence of the visual stimulation.
 
-The latency within the brain means the visual cortex will continue its sustained response to the stimulus for \SI{50}{\milli\second} after the stimulus is removed.
-Once the input to the visual cortex catches up with reality, there is a \textit{stimulus offset} response.
-Similar to the stimulus onset response seen in the rasters (\autoref{sec:pl_rasters}) and firing rate (\autoref{fig:fr_hm})
-This is produced by
+
+\subsection{Post-stimulation information about the stimulus}
+
+We noted in \autoref{sec:pl_rasters} that there was a large increase in firing rate triggered by the onset of the stimulus, which is also shown in \autoref{fig:fr_hm}, with a latency of around \SI{50}{\milli\second}, corresponding to the latency of the signal from the cones of the retina to reach the visual cortex.
+A similar burst of activity is triggered by the removal (or offset) of the stimulus.
+The change in the visual stimulation over time is the inverse of the stimulus, which is just as powerful of a stimulant as the stimulus itself.
+The offset-response also has a latency, occurring in \ac{V1} \SI{50}{\milli\second} after the stimulus is removed.
+This offset-response will contain substantial information about the stimulus, driven by the change in visual stimulation.
+
+In this section, we want to remove as much visually driven activity as possible, which includes the offset-response with its \SI{50}{\milli\second} delay to \ac{V1}.
+Consequently, we ignored the first \SI{220}{\milli\second} of activity after the stimulus offset and restricted ourselves to studying the information encoded in subsequent \SI{200}{\milli\second}.
+These \SI{200}{\milli\second} were immediately followed by the removal of the fixation point and the appearance of the black and white targets with which the subject recorded their response with a saccade to the corresponding target.
+We computed the amount of task-pertinent information encoded in the firing rate, correcting for the change in class balance (see \autoref{sec:pl_class_imbalance}), using the \ac{PT} bias correction, with further correction by subtracting the mean of \num{20} bootstrapped information values (see \autoref{sec:pl_bootstrapping}).
 
 % Information about stimulus class <>30% in tp5
 %
@@ -1861,32 +1870,48 @@ In \protect\subref{fig:info_tp3_v4_blanco} and \protect\subref{fig:info_tp3_v4_j
 }
 \end{figure}
 
-Three potential causes for this are readily apparent: bottom-up effects driven by the retina, lateral effects caused by recurrent connectivity, and top-down effects driven by feedback from higher cortical regions.
 
-Firstly, bottom-up effects driven by the retina.
+For both \ac{V1} and \ac{V4}, we detected information about the stimulus encoded after it was removed with a small effect size, around a tenth of the amount of information present during the stimulus presentation (shown in Figures \ref{fig:info_tp5_v1_blanco}, \ref{fig:info_tp5_v1_jack}, \ref{fig:info_tp5_v4_blanco}, and \ref{fig:info_tp5_v4_jack}; amount of information can be compared with that present in \autoref{fig:info_offset_vs_winlen}).
+To illustrate the effect size in comparison with the noise when measuring information for a non-informative event, we also computed the amount of information about the stimulus encoded in the firing rate during the \SI{200}{\milli\second} \textit{before} the onset of the stimulus.
+Since stimuli were presented in a random order, it is not possible for the activity before the onset of the stimulus to contain any information about it, and we find that, with bias correction, the measured information is very close to \num{0} (see Figures \ref{fig:info_tp3_v1_blanco}, \ref{fig:info_tp3_v1_jack}, \ref{fig:info_tp3_v4_blanco}, and \ref{fig:info_tp3_v4_jack}).
+
+For \ac{V1}, \ac{M1} there was, across all channels, a significant amount of information about the stimulus encoded in the post-stimulation firing rate ($p=0.023$), but the increase in information between the first (\zonename{A}) and last (\zonename{B}) three sessions of \SI{0.0027\pm0.0059}{bits} was not significant ($p=0.66$).
+But with subject \ac{M2}, there was a significant increase of \SI{0.0044\pm0.0011}{bits} of information encoded post-stimulus ($p=0.00070$).
+For \ac{V4}, \ac{M1} again had, across channels, a significant amount of information encoded in the post-stimulus firing rate ($p=0.0032$) without a significant increase between the start and end of training (\SI{+0.0030\pm0.0017}{bits}, $p=0.087$)
+With subject \ac{M2}, the amount of information was not significant ($p=p=0.091$) and did not increase significantly either (\SI{+0.0032\pm0.0019}{bits}, $p=0.11$).
+
+
+As to \textit{how} information about the stimulus could be encoded after it is removed, three potential causes for this are readily apparent: bottom-up effects driven by the retina, residual effects within the visual cortex itself, and top-down effects driven by feedback from higher cortical regions.
+
+First, let us consider bottom-up effects driven by the retina.
 During the experimental trial, the subject must keep their gaze fixated on the central target whilst the sample and test stimuli appear and disappear (see \autoref{sec:pl_task} for details of the experimental set-up).
-Such unnatural fixation will mean the same rods and cones are exposed to the test stimulus whilst it is presented, and and this will partially deplete their supply of photopigment.
+Such unnatural fixation will mean the same rods and cones are exposed to the test stimulus whilst it is presented, and this will partially deplete their supply of photopigment.
 This depletion of photopigment results in a negative afterimage, wherein the subject sees an internally generated inverse of the over-exposed stimulus at the same location of the visual field.
 Such negative afterimages can be induced in readily in humans, although for the effect to be clearly perceived the subject must fixate on the stimulus for some tens seconds, in order fully deplete the photopigment.
-Since our test stimulus is only presented for \SI{530}{\milli\second}, the amount of depleted photopigment will be much smaller, resulting a much less intense afterimage (potentially imperceivable).
-Consequently, 
- 
-INCLUDE AFTERIMAGE EXAMPLE STIMULUS
+Since our test stimulus is only presented for \SI{530}{\milli\second}, the amount of depleted photopigment will be much smaller, resulting a much less intense afterimage (potentially imperceivable), but it is still possible that there is an effect of the conditioning of the retina during the stimulus presentation which manifests itself as a change in retinal activity (triggering a change in the visual cortex upstream) after it is removed.
 
-Secondly, lateral effects caused by recurrent connectivity.
-recurrent connectivity
+% INCLUDE AFTERIMAGE EXAMPLE STIMULUS
 
-Thirdly, top-down effects driven by feedback from higher cortical regions.
-Having been trained extensively on this experimental task, the subject knows they must remember the \SI{425}{\milli\second} 
+Secondly, there could be a residual effect residing in the visual cortex itself.
+Possible mechanisms include activity patterns sustained in recurrent activity, delayed responses to the stimulus due to slow, long-range lateral connections, and desensitisation through depletion of neurotransmitters causing a negative afterimage as discussed before in the context of the retina.
 
-To assist in distinguishing between these explanations, we investigated the difference in post-stimulation firing rate between stimuli with contrast above and below \SI{30}{\percent} contrast.
+Thirdly, there could be top-down effects driven by feedback from higher cortical regions.
+The experimental paradigm we are using requires the subject to remember the stimulus, or properties of it, for \SI{425}{\milli\second} before they can give their response.
+Consequently, the stimulus must remain in working memory in higher cortical regions involved with planning.
+Since there are as many backward cortical projections as forward connections, it is possible for the memory of the stimulus residing in the higher regions to excite neurons in the visual cortex even after it is no longer present.
 
 
 \subsection{Difference in post-stimulation firing rate}
 
+To assist in distinguishing between these explanations, we investigated the difference in post-stimulation firing rate between stimuli with contrast above and below \SI{30}{\percent} contrast.
+If the effects providing information about the stimulus after its removal are due to the suppression of activity in the visual cortex from depletion of neurotransmitters, this will mean higher contrast stimuli reduce the subsequent activity by more than lower contrast stimuli.
+Whereas if the the effect is caused by feedback, we would expect to find the memory of the stimulus recreates the activity induced by the stimulus, with more actively responded stimuli also inducing more activity after the stimulus is removed.
+
 For each test stimulus, we measured the average firing rate during the \SI{200}{\milli\second} window starting \SI{220}{\milli\second} after the stimulus presentation ended.
-We then averaged over the stimuli with contrast higher than \SI{30}{\percent}, averaged over stimuli with contrast lower than \SI{30}{\percent}, and compared the difference between the two.
-Then, we considered the firing rate difference for the start and the end of training, averaging over the first (\zonename{A}) and last (\zonename{B}) three sessions.
+The change in stimulus class balance during training was not addressed using subsampling, as described in \autoref{sec:pl_class_imbalance}.
+Instead, we took the average firing rate for each stimulus class, then took the average over the \num{7} stimulus classes below and above \SI{30}{\percent} contrast.
+Next we took the difference between these two averages (referred to as ``Difference in firing rate'' along the $y$-axis in \autoref{fig:frdelta_tp5_v1} and \autoref{fig:frdelta_tp5_v4}).
+Finally, we averaged the difference in firing rate over the first (\zonename{A}) and last (\zonename{B}) three sessions, taking a Student's $t$-test between the distribution over channels of each, and a paired Student's $t$-test between \zonename{A} and \zonename{B}.
 
 % blanco v1
 % Test to see if A is significantly different from 0
@@ -1971,13 +1996,11 @@ Correspondingly, the small change in firing rate difference of \SI{+0.08\pm0.15}
 With \ac{M2} (see \autoref{fig:frdelta_tp5_v4_jack}), the difference in firing rate of \SI{+0.18\pm0.10}{Hz} was not initially significant (\zonename{A}; $p=0.072$) but was after training (\zonename{B}; $p=0.01$).
 The change between \zonename{A} and \zonename{B} in firing rate difference was \SI{+0.52\pm0.22}{Hz}, also significant ($p=0.032$).
 
-With these results... 
-IMPACT ON PREVIOUS ANALYSIS
 
+\subsection{Post-stimulation information about behavioural response}
 
-\subsection{Information about behavioural response}
-
-We can also compute the amount of information the neural activity provides about the behavioural response of the animal.
+In a similar manner to how we compute the amount of information about the group of the stimulus (higher or lower than \SI{30}{\percent} contrast), we can also compute the amount of information the neural activity contains about the behavioural response the animal is about to provide.
+Taking the firing rate during the activity \SIrange{220}{420}{\milli\second} after the stimulus was removed, we computed the amount of information about the behavioural response provided by the subject.
 
 % Information about behavioural response in tp5
 %
@@ -2046,6 +2069,18 @@ We can also compute the amount of information the neural activity provides about
 % YLIM4 = [-0.00773229772713755 0.0295890282263315];
 
 
+The results, shown in Figures \ref{fig:respinfo_tp5_v1_blanco}, \ref{fig:respinfo_tp5_v1_jack}, \ref{fig:respinfo_tp5_v4_blanco}, and \ref{fig:respinfo_tp5_v4_jack}, indicate the amount of information encoded about the behavioural response is comparable to that of the stimulus group.
+This is inevitable: since the performance of the subjects is much higher than chance, exceeding \SI{85}{\percent} after training, the behavioural responses contain a lot of information about whether the contrast of the stimulus exceeds \SI{30}{\percent}.
+
+
+Before training, \ac{V1} post-stimulus activity did not contain a significant amount of information about the behavioural response for either subject (\ac{M1}: $p=0.84$; \ac{M2}: $p=0.72$).
+But after training, there was a significant information about the animal's behaviour for both subjects (\ac{M1}: $p=0.045$; \ac{M2}: $p < 0.0002$), even though the change in information with training was only significant for \ac{M2} (\ac{M1}: \SI{+0.0105\pm0.0050}{bits}, $p=0.055$; \ac{M2}: \SI{+0.0052\pm0.0011}{bits}, $p < 0.0002$).
+There was not significantly more or less information about the behavioural response than the stimulus group (\ac{M1}: \SI{-0.0003\pm0.0010}{bits}, $p=0.76$; \ac{M2} \SI{+0.0009\pm0.0005}{bits}, $p=0.062$).
+
+For \ac{V4}, \ac{M1} showed a significant amount of information about the behavioural response both before ($p=0.009$) and after ($p=0.002$) training, without a significant change between the two (\SI{+0.0037\pm0.0020}{bits}, $p=0.077$).
+Meanwhile \ac{M2} showed a significant amount only after training ($p=0.016$), without showing a significant difference after training compared to before (\SI{+0.0048\pm0.0026}{bits}, $p=0.077$).
+There was significantly more information about the behavioural response for \ac{M2}, but not for \ac{M1} (\ac{M1}: \SI{+0.0007\pm0.0006}{bits}, $p=0.26$; \ac{M2}: \SI{+0.0027\pm0.0011}{bits}, $p=0.024$).
+
 % Comparing information about stimulus with information about neural response, in zone B
 % blanco v1
 % n=14  h=0.000000  p=0.762055=7.620546e-01   delta = -0.000304+/-0.000982 = -2.958389%+/-9.575557%
@@ -2055,6 +2090,24 @@ We can also compute the amount of information the neural activity provides about
 % n=25  h=0.000000  p=0.260174=2.601742e-01   delta = +0.000735+/-0.000638 = +12.862512%+/-11.154875%
 % jack v4
 % n=18  h=1.000000  p=0.024190=2.419040e-02   delta = +0.002687+/-0.001086 = +102.577841%+/-41.459297%
+
+
+\subsection{Discussion of post-stimulus information}
+
+In this section, we investigated the amount of information about the stimulus and about the behavioural response of the subject encoded in the post-stimulus activity within \ac{V1} and \ac{V4}.
+We found that, after training, there was a significant amount of information about the behavioural response in both brain regions for both subjects.
+The amount of information about the stimulus group was also significant in \ac{V1} for both subjects, and in \ac{V4} for \ac{M1}.
+During training, there was an increase in information about both the stimulus and behavioural response in both \ac{V1} and \ac{V4} for both subjects, although the increase was only significant with \ac{M2} \ac{V1}.
+
+For \ac{M2} \ac{V4}, there was significantly more information about the behavioural response than the actual group of the stimulus, and a non-significant increase was also seen for \ac{M1} in both \ac{V1} and \ac{V4}.
+In addition to this, we found there was a higher post-stimulation firing rate following the presentation of higher contrast stimuli, which are associated with a higher firing rate during the stimulus presentation, though this phenomenon was not observed in \ac{V4} for \ac{M1}.
+
+This information present after the stimulus presentation has ended can be explained either as an artifact from the activity from the recent stimulation which persists in affecting the visual cortex from the bottom-up, or a feedback signal indicating the memory of the stimulus while the subject waits to give their response.
+It is hard to make strong conclusions about which scenario is most likely from our results in this section, since the magnitude of the information we are considering is small and its changes even smaller.
+Since the difference in post-stimulus activity following higher and lower contrast stimuli increased with training, the effect is unlikely to be caused by forward connections from the retina.
+As there is more information about the behavioural response than the group of the stimulus, it is tempting to conclude that the post-stimulus activity is modulated by feedback affects instead of conditioning to the preceding stimulus.
+However, the difference between the two was small, and may be confounded by the fact that the subject's perception of the stimulus is provided by the neural activity in the visual cortex during stimulus presentation.
+A change in the magnitude of this activity would simultaneously alter the probability of the behavioural response, and the conditioning within the visual cortex itself.
 
 
 %==============================================================================
