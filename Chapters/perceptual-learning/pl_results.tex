@@ -2064,15 +2064,27 @@ For a new data point, $\vec{x}$, we classify $\vec{x}$ as group $1$ (higher than
 ,\end{equation}
 otherwise we classify it as $0$ (lower than \SI{30}{\percent} contrast).
 
+% For blanco v1, session 359, ch 11 vs 31, training accuracy is 67.445152%
+% For jack v1, session 72, ch 12 vs 19, training accuracy is 83.840304%
+
 \begin{figure}[htbp]
     \centering
-    \includegraphics[scale=.45]{figs/decoding/lindiscrimex_v1_jack_72_3vs8.eps}
+    \hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V1}, session \num{359}.\label{fig:pl_lin_discrim_example_v1_blanco}]{%
+        \includegraphics[scale=.45]{figs/decoding/lindiscrimex_v1_blanco_359_2vs8.eps}}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\ac{M2} \ac{V1}, session \num{72}.\label{fig:pl_lin_discrim_example_v1_jack}]{%
+        \includegraphics[scale=.45]{figs/decoding/lindiscrimex_v1_jack_72_3vs8.eps}}
+    \hspace*{\fill}
     \caption{%
-    Example of a linear discriminant.
-    The classifier was trained on the firing rate for two channels (\ac{M2}, \ac{V1}, channels \num{3} and \num{8}).
-    The data samples are shown as offset black and white triangles, where the size of triangles scales linearly with the number of samples with a given pair of firing rates.
+    Example linear discriminant.
+    The data samples are shown as offset black and white triangles, whose size scales linearly with the number of samples with a given pair of firing rate responses elicited in the two channels.
     The separating hyperplane fit by the model is shown in blue.
-    MENTION ACCURACY OF THE MODEL
+    In each case, the model was trained on the data from only two recording channels.
+    In \protect\subref{fig:pl_lin_discrim_example_v1_blanco}, one channel is much more informative than the other and the separating line for the decision boundary correspondingly weights one channel more heavily.
+    This model achieved \SI{67.4}{\percent} training accuracy.
+    In \protect\subref{fig:pl_lin_discrim_example_v1_jack}, both channels are very informative and the decision boundary weights the two channels similarly.
+    This model achieved \SI{83.8}{\percent} training accuracy.
 }
     \label{fig:pl_lin_discrim_example}
 \end{figure}
