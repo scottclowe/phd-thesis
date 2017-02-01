@@ -4,7 +4,7 @@
 
 The experimental data analysed in this chapter was acquired by Xing Chen, under the supervision of Alexander Thiele at the Institute of Neuroscience, Newcastle University.
 The experimental protocol was designed by Xing Chen and Alexander Thiele.
-All procedures were carried out in accordance with the European Communities Council Directive RL 2010/63/EC, the US National Institutes of Health Guidelines for the Care and Use of Animals for Experimental Procedures, and the UK Animals Scientific Procedures Act. Two male macaque monkeys (5 and 14 years of age) were used in this study.
+All procedures were carried out in accordance with the European Communities Council Directive RL 2010/63/EC, the US National Institutes of Health Guidelines for the Care and Use of Animals for Experimental Procedures, and the UK Animals Scientific Procedures Act. Two male macaque monkeys (\num{5} and \num{14} years of age) were used in this study.
 
 
 \subsection{Head post implantation}
@@ -264,20 +264,20 @@ Spatial frequency is specified in \acf{cpd}.
 
 
 The number of trials per recording session was not fixed; the recording session was terminated when the subject was no longer interested in engaging with the experiment.
-Consequently there was high variability in the number of trials per session, ranging from 250 to 1250.
+Consequently there was high variability in the number of trials per session, ranging from \num{254} to \num{1889}.
 
 During training, the subject's performance on the task initially increased each day.
-After around 20 sessions, its performance stabilised at a plateau.
-Once the performance level was consistent for 5 consecutive sessions, this phase of the experiment was terminated.
+After around \num{20} sessions, its performance stabilised at a plateau.
+Once the performance level was consistent for \num{5} consecutive sessions, this phase of the experiment was terminated.
 
-The subject then progressed to a roving version of the experiment, in which the pedestal contrast could be either 20\%, 30\% or 40\% contrast.
+The subject then progressed to a roving version of the experiment, in which the pedestal contrast could be either \SI{20}{\percent}, \SI{30}{\percent} or \SI{40}{\percent} contrast.
 In the roving task, the subject asked to respond as to whether the test contrast exceeded the variable sample contrast.
-However, here we will only analyse the results of the non-roving version of the experiment with a static pedestal contrast of 30\%.
+However, here we will only analyse the results of the non-roving version of the experiment with a static pedestal contrast of \SI{30}{\percent}.
 
 
 \subsection{Data acquisition}
 
-Raw data was acquired at a sampling frequency of \SI{32556}{Hz} using a 24-bit analog-to-digital converter.
+Raw data was acquired at a sampling frequency of \SI{32556}{Hz} using a \SI{24}{bit} analog-to-digital converter.
 The minimum and maximum inputs were \SI{11}{\micro\volt} and \SI{136986}{\micro\volt} --- values outside this range were recorded at the floor or ceiling value respectively.
 To ensure data was collected from each channel with a good signal-to-noise ratio, digital referencing was performed prior to recording the raw data.
 
@@ -297,8 +297,8 @@ Consequently, only a subset of the spikes from more distant neurons will be dete
 After defining a detection threshold, spikes were extracted using the following algorithm.
 \begin{enumerate}
 \item Find the first sample point to exceed the threshold.
-\item Find the peak of the spike by searching for next time the voltage decreases (searching forwards by at most 24 data points, spanning \SI{0.74}{\milli\second}).
-\item Extract the 8 data points preceding and 23 data points succeeding the peak as the waveform of the spike, with duration \SI{0.98}{\milli\second}.
-\item Skip forward to the end of the extracted waveform (24 data points after the peak) before searching for the threshold to be exceeded again.
+\item Find the peak of the spike by searching for next time the voltage decreases (searching forwards by at most \num{24} data points, spanning \SI{0.74}{\milli\second}).
+\item Extract the \num{8} data points preceding and \num{23} data points succeeding the peak as the waveform of the spike, with duration \SI{0.98}{\milli\second}.
+\item Skip forward to the end of the extracted waveform (\num{24} data points after the peak) before searching for the threshold to be exceeded again.
 \end{enumerate}
 By its construction, this algorithm enforces a minimum inter-spike interval of \SI{0.74}{\milli\second}.
