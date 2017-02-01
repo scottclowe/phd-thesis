@@ -2121,43 +2121,43 @@ Consequently, it destroys the noise correlations between channels whilst preserv
 
 
 %------------------------------------------------------------------------------
-\subsection{Results}
-
-\autoref{fig:dec_singles} shows how well the decoder does based only on data from individual channels.
-The performance was measured as described in \autoref{sec:dec-meth-lin} for each session, and then averaged over all sessions.
-
-\autoref{fig:dec_nbest} indicates how the performance of the decoder improves as more channels are added.
-We can see that the decoder performance saturates after around 10 channels are included in the training data, but at a perforance which is still far from the ideal.
-After this, including additional channels yields only a slight increase in performance, suggesting nearly all the information contained in the remaining channels is redundant, as it has already been given in the first 10 channels.
-[would be better to look at how the decoding performance is distributed across all possible sets of $n$ channels, rather than just the best set of $n$ channels] [this should be compared with shuffled data to see what the impact is and whether performance does not saturate when correlations are removed as per some previous papers [cite]]
-
-NB: the order in which channels were added in \autoref{fig:dec_nbest} is not the same ordering as they are shown in \autoref{fig:dec_singles}.
-
-\begin{figure}[htbp]
-    \centering
-    \hspace*{\fill}
-    \subfloat[][\label{fig:dec_singles}]{
-        \centering
-        \includegraphics[width=0.47\linewidth]{%
-figs/decoding/2FC_singles.eps}
-    }
-    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
-    \subfloat[][\label{fig:dec_nbest}]{
-        \centering
-        \includegraphics[width=0.47\linewidth]{%
-figs/decoding/2FC_nbest_all.eps}
-    }
-    \hspace*{\fill}
-    \caption{
-\protect\subref{fig:dec_singles}: Distribution of decoder performance based on spike rate for individual channels, sorted by performance.
-\protect\subref{fig:dec_nbest}: Decoding performance versus number of channels included in spiking data.
-Channels were added one at a time, chosen so they maximise the decoder performance for that number of channels whilst keeping all the channels which had come before.
-}
-    \label{fig:dec_n}
-\end{figure}
-
-For each of the datasets, the performance decreases as the last \num{3} channels are added (\autoref{fig:dec_nbest}).
-I speculate that this is because these channels only contain redundant information, and the increase in dimensionality decreases the quality of the classifier selected from the finite training data available.
+% \subsection{Results}
+%
+% \autoref{fig:dec_singles} shows how well the decoder does based only on data from individual channels.
+% The performance was measured as described in \autoref{sec:dec-meth-lin} for each session, and then averaged over all sessions.
+%
+% \autoref{fig:dec_nbest} indicates how the performance of the decoder improves as more channels are added.
+% We can see that the decoder performance saturates after around 10 channels are included in the training data, but at a perforance which is still far from the ideal.
+% After this, including additional channels yields only a slight increase in performance, suggesting nearly all the information contained in the remaining channels is redundant, as it has already been given in the first 10 channels.
+% [would be better to look at how the decoding performance is distributed across all possible sets of $n$ channels, rather than just the best set of $n$ channels] [this should be compared with shuffled data to see what the impact is and whether performance does not saturate when correlations are removed as per some previous papers [cite]]
+%
+% NB: the order in which channels were added in \autoref{fig:dec_nbest} is not the same ordering as they are shown in \autoref{fig:dec_singles}.
+%
+% \begin{figure}[htbp]
+%     \centering
+%     \hspace*{\fill}
+%     \subfloat[][\label{fig:dec_singles}]{
+%         \centering
+%         \includegraphics[width=0.47\linewidth]{%
+% figs/decoding/2FC_singles.eps}
+%     }
+%     \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+%     \subfloat[][\label{fig:dec_nbest}]{
+%         \centering
+%         \includegraphics[width=0.47\linewidth]{%
+% figs/decoding/2FC_nbest_all.eps}
+%     }
+%     \hspace*{\fill}
+%     \caption{
+% \protect\subref{fig:dec_singles}: Distribution of decoder performance based on spike rate for individual channels, sorted by performance.
+% \protect\subref{fig:dec_nbest}: Decoding performance versus number of channels included in spiking data.
+% Channels were added one at a time, chosen so they maximise the decoder performance for that number of channels whilst keeping all the channels which had come before.
+% }
+%     \label{fig:dec_n}
+% \end{figure}
+%
+% For each of the datasets, the performance decreases as the last \num{3} channels are added (\autoref{fig:dec_nbest}).
+% I speculate that this is because these channels only contain redundant information, and the increase in dimensionality decreases the quality of the classifier selected from the finite training data available.
 
 
 %------------------------------------------------------------------------------
