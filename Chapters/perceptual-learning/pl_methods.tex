@@ -26,7 +26,7 @@ For each monitor refresh, the template subtracted from the data samples was line
 \subsection{Elimination of movement induced artifacts}
 \label{sec:pl_movement_artifact}
 
-For a minority of trials (\SI{3.6}{\percent}, $2879$ out of $80071$) physical movements by the subject generated high-amplitude artifacts across multiple recording channels.
+For a minority of trials (\SI{3.6}{\percent}, \num{2879} out of \num{80071}) physical movements by the subject generated high-amplitude artifacts across multiple recording channels.
 Due to the high-amplitude and unpredictability of such events, it was not possible to remove artifacts cleanly from the rest of the signal.
 Instead, since these problems occurred on a small proportion of the total trials, we identified trials where this artifact was present and removed them from subsequent analysis.
 
@@ -36,8 +36,8 @@ For each trial, we computed the correlation coefficient,
 \rho_{X,Y} = \frac{\operatorname{cov}(X,Y)}{\sigma_X \, \sigma_Y}
 ,\end{equation}
 (where $\sigma_\cdot$ is the standard deviation of $\cdot$) between the signals $X$ and $Y$ from each pair of channels.
-Some sessions were entirely free from artifact contamination, and for these sessions the distribution of $\rho_{X,Y}$ across all trials and all pairs of channels was unimodal, with centre between $0.2$ and $0.4$.
-For sessions which included trials where the motion artifact was present, the distribution was bimodal with a second smaller group whose centre was between $0.4$ and $0.7$.
+Some sessions were entirely free from artifact contamination, and for these sessions the distribution of $\rho_{X,Y}$ across all trials and all pairs of channels was unimodal, with centre between \num{0.2} and \num{0.4}.
+For sessions which included trials where the motion artifact was present, the distribution was bimodal with a second smaller group whose centre was between \num{0.4} and \num{0.7}.
 For each session, a cut-off value was manually selected which partitioned the two clusters.
 All trials corresponding to a pairwise correlation coefficient above the threshold were excluded from further analysis.
 
@@ -47,8 +47,8 @@ All trials corresponding to a pairwise correlation coefficient above the thresho
 \subsection{Removal of empty trials}
 \label{sec:pl_empty_trials}
 
-During a minority of trials (\SI{0.81}{\percent}, $651$ out of $80071$) failures in the recording apparatus resulted in no spikes being recorded.
-We identified these trials as those which had no detected spikes for any of the ${\ge}20$ simultaneously recorded channels over the full \SI{2.5}{\second} duration of the trial.
+During a minority of trials (\SI{0.81}{\percent}, \num{651} out of \num{80071}) failures in the recording apparatus resulted in no spikes being recorded.
+We identified these trials as those which had no detected spikes for any of the ${\ge}20$ simultaneously recorded channels\footnote{See \autoref{tab:nchannels} for the exact number of recording channels in each multi-electrode array.} over the full \SI{2.5}{\second} duration of the trial.
 These ``empty'' trials were removed from subsequent analysis.
 
 
