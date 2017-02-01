@@ -950,7 +950,7 @@ Whereas if we gain information about the stimulus which updates the probability 
 Although it is only a binary response (a choice of one of two saccade targets), it is still possible for the behavioural response to encode both task-pertinent and task-nonpertinent information.
 For instance, let us assume that the subject performs the task at a rate higher than chance.
 Then, a behavioural response of ``\textit{test contrast is lower}'' tells us a contrast in the lower half was more likely to have been presented, providing task-pertinent information.
-Additionally, since contrasts further from the \SI{30}{\percent} threshold are easier for the subject, we can empirically observe that a response of ``\textit{test contrast is lower}'' is more likely to be elicited if the contrast was further below the threshold than if it was close to the threshold\footnote{This trivially follows using Bayes' rule}.
+Additionally, since contrasts further from the \SI{30}{\percent} threshold are easier for the subject, we can empirically observe that a response of ``\textit{test contrast is lower}'' is more likely to be elicited if the contrast was further below the threshold than if it was close to the threshold.\footnote{This trivially follows using Bayes' rule.}
 This difference in relative likelihood supplies us with additional, task-nonpertinent, information about which stimulus was presented.
 
 
@@ -963,7 +963,7 @@ Stimulus class imbalance was corrected for using subsampling, as described in \a
 
 The amount of task-pertinent information contained in the response was estimated by shuffling the stimulus labels against the responses, whilst preserving which side of \SI{30}{\percent} contrast the stimulus label was on.
 This destroys any information about the stimulus beyond that pertinent to the task --- choosing whether the stimulus was above or below \SI{30}{\percent} contrast --- but maintains the number of class labels and samples per class.
-Consequently, the bias on the information will be similar to that when computing the total information, and the results will be more directly comparable\footnote{However, the bias will not be the same for the two information values because after shuffling the range of possible values for the response will have increased. Consequently, it is still necessary to do individual bias correction with \ac{PT} and bootstrapping on each of the information computations.}.
+Consequently, the bias on the information will be similar to that when computing the total information, and the results will be more directly comparable.\footnote{However, the bias will not be the same for the two information values because after shuffling the range of possible values for the response will have increased. Consequently, it is still necessary to do individual bias correction with \ac{PT} and bootstrapping on each of the information computations.}
 We repeated this with \num{20} permutations, each with their own set of \num{20} bootstraps, and took the average over them.
 The amount of task-nonpertinent information was estimated by subtracting the task-pertinent information (found with shuffling) from the total information (found without shuffling).
 
