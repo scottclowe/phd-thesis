@@ -2339,25 +2339,30 @@ A change in the magnitude of this activity would simultaneously alter the probab
 
 So far, we have only considered the amount of information encoded in the spikes collected by a single electrode contact --- that is to say, the spikes from neurons surrounding a single electrode contact.
 However, when the subject's brain is deciding how to respond on to the stimulus on each trial, it potentially has available to it the spikes from every neuron in the brain simultaneously.
-Consequently, it is appropriate for us to consider how much information is encoded at the population level --- the firing measured from many neurons simultaneously.
+Consequently, it is more pertinent for us to consider how much information is encoded at the population level --- the firing measured from many neurons simultaneously.
 
 % To consider the amount of information encoded across the population, let the variable $x_i$ denote the firing rate (measured over some finite duration) from neuron $i$.
 % If we were, hypothetically, to measure the firing from every neuron in the visual cortex we would have some very large array $\vec{x} = [x_1, x_2 \ldots]$.
 
 Whilst we cannot simultaneously measure the firing rate of every neuron in the visual cortex, we can consider the firing rates simultaneously observed at all \num{20} or so channels (for exact values for each dataset, see \autoref{tab:nchannels_restricted}).
 Computing the amount of information encoded in the vector of simultaneous responses across all the recording channels allows us to investigate how the encoded information scales as the number of neurons increases.
-Since the neurons are encoding firing rate in a similar manner in a neighbouring region of cortex, there is presumably a reasonable amount of redundancy between the neurons.
+Since the neurons in a neighbouring region of cortex will encode the stimulus in a similar manner, there will be a reasonable amount of redundancy between the neurons.
 Consequently, the total amount of information will rise sub-linearly with respect to the number of channels included in the response vector.
 However, even if the neurons are encoding visual stimulation using identical response functions, there is still a benefit to knowing the response across multiple channels since each will have an independent sampling of a certain amount of randomly neural noise.
+
+The noise on the sampling of the neurons will not be completely independent, since their inputs are correlated and they are connected to each other either directly or indirectly via other neurons in the network.
+As discussed in \autoref{sec:bg-noisecorr}, having correlated noise for a population of neurons is generally thought to hinder the amount of information encoded in the population.
+This is certainly the case for a homogeneous population, since the correlated noise will cause neurons with the same tuning response to the stimulus to have the same, or similar, bias for any given sample.
+In this case, we could do better by having decorrelated noise, so that the noise from each neuron cancels out when we average the response over the population.
+However, for a heterogeneous population, it is possible for noise correlations increase the amount of information encoded at the population level, if the noise correlations are in direction which helps disambiguate between potential responses \citep{Averbeck2006,Moreno-Bote2014}.
 
 We could compute the amount of information in the vector of simultaneously recorded responses from all our electrode channels from the differential entropy, \autoref{eq:info}, as before.
 However, the number of possible response vectors rises exponentially with its dimensionality, and, as discussed in \autoref{sec:info-bias}, the available bias correction techniques will not be able to match this.
 Consequently, directly computing the amount of information encoded in such a large response vector will not yield any meaningful results.
-
-Instead, we train a classification model on the high-dimensional responses.
+Instead, we trained a classification model on the high-dimensional responses.
 The performance of the model --- the proportion of samples which it correctly classifies --- provides a lower-bound on the amount of information present in the data \citep{Quiroga2009}.
 
-COULD PUT EXAMPLE CONFUSION MATRICES HERE?
+% COULD PUT EXAMPLE CONFUSION MATRICES HERE?
 
 In line with our findings about \autoref{sec:task-info}, we will group together all the contrasts on one side of the \SI{30}{\percent} contrast task separation line.
 This means objective function for the classification model we will train on the data will match the objective function which the subject was tasked with during the experiments.
@@ -2366,7 +2371,6 @@ This means objective function for the classification model we will train on the 
 \subsection{Methods for decoding population activity}
 
 Our input to the model is the vector of multi-unit firing rates recorded from each electrode over the \SI{527}{\milli\second} of stimulus presentation.
-For this analysis, the procedure to correct the changes in class imbalance over training described in \autoref{sec:pl_class_imbalance} was not employed and the class balance over sessions was left unstable.
 
 
 \subsubsection{Linear discriminant classifier}
@@ -2378,14 +2382,14 @@ The vector normal to the hyperplane is
 \begin{equation}
 \vec{w} = \Sigma^{-1}\left(\vec{\mu_1}-\vec{\mu_0}\right)
 \end{equation}
-where $\Sigma$ is the covariance matrix between the two populations, as determined from the labelled training data, and $\vec{\mu_0}$ and $\vec{\mu_1}$ are the means of the two distributions, for class $0$ and class $1$.
+where $\Sigma$ is the covariance matrix between the two populations, as determined from the labelled training data, and $\vec{\mu_0}$ and $\vec{\mu_1}$ are the means of the two distributions, for class $0$ (for our data, contrast \SI{<30}{\percent}) and class $1$ (contrast \SI{>30}{\percent}).
 
 After training the model to define a separating hyperplane, test data-points can be classified by inspecting which side of the hyperplane they fall upon.
-For a new data point, $\vec{x}$, we classify $\vec{x}$ as group $1$ (higher than \SI{30}{\percent} contrast) if
+For a new data point, $\vec{x}$, we classify $\vec{x}$ as group $1$ if
 \begin{equation}
 \vec{w}\cdot\vec{x}>c
 ,\end{equation}
-otherwise we classify it as $0$ (lower than \SI{30}{\percent} contrast).
+otherwise we classify it as the group labelled $0$.
 
 % For blanco v1, session 359, ch 11 vs 31, training accuracy is 67.445152%
 % For jack v1, session 72, ch 12 vs 19, training accuracy is 83.840304%
@@ -2412,6 +2416,7 @@ otherwise we classify it as $0$ (lower than \SI{30}{\percent} contrast).
     \label{fig:pl_lin_discrim_example}
 \end{figure}
 
+
 The linear discriminant model was fit using MATLAB's \texttt{classify} function (type `linear').
 We also tested a quadratic model, and using Mahalanobis distances for the discrimination (not shown).
 However, neither of these models resulted in better performance than the linear model.
@@ -2428,20 +2433,25 @@ To investigate the performance of the classifier on the data from a single sessi
 Under leave-one-out cross-validation, a data-set with $n$ samples, the decoder is trained on $(n-1)$ trials with the spike counts for all the trials and the correct response (higher or lower than \SI{30}{\percent} contrast) and we then check whether the decoder identifies the remaining trial correctly.
 This is repeated for all the $n$ trials, and then the performance is defined as the proportion of trials which are identified correctly.
 
-As described in the machine learning literature, leave-one-out is a poor method of cross-validation in order to evaluate to compare models against one another.
+In the machine learning literature, leave-one-out is regarded as a poor method of cross-validation in order to evaluate to compare models against one another.
 This is because the models trained in each leave-one-out fold of the data will have almost identical set of training data.
 Consequently each classifier will be almost identical (the learned hyperplane will be almost exactly the same for each test-step), and the evaluation will not indicate the variance of performance which would be expected across a diversity of sample sets.
 Such problems result in sub-optimal model selection criteria, however these need not concern us since our task is to most accurately estimated the performance of the model.
 For this, leave-one-out has low bias and variance \citep{Zhang2015}, which is most appropriate to us since we are interested in how the data changes over training.
 
+However, we also needed to address the change in class balance over training, as described in \autoref{sec:pl_class_imbalance}.
+Instead of using the same balanced subsample we randomly selected and used across previous sections, we randomly subsampled the data on every fold of the leave-one-out validation.\footnote{We also tried training the model using leave-one-out validation without subsampling and our findings were not notably different.}
+To ensure the measured performance was robust against changes in the class balance, we determined the accuracy for each of the \num{14} stimulus classes and then reported the performance as the average of these \num{14} accuracies.
+
 
 \subsubsection{Shuffling to destroy noise correlations}
+\label{sec:pl_dec_shuffle}
 
-The impact of noise correlations on the decoder was considered by shuffling the firing rate across trials with the same stimulus conditions.
-After shuffling, specific neural response vectors no longer correspond to any particular trial, since the spike counts for each channel are taken from different trials.
-The effect is the same as resampling the response on each trial independently for every channel.
-Consequently, it destroys the noise correlations between channels whilst preserving stimulus correlations, since the response for a given trial still depends on which stimulus was presented but conditioned on which stimulus was presented, the firing rate for each channel is independent of all others.
-
+We wanted to investigate whether correlations in the noise between the neurons which we recorded helped or hindered the total information across the population.
+In order to do this, we first measured the performance of the decoder with the original data recorded simultaneously from each channel, and then measured the performance again using a copy of the data where the responses from each channel were shuffled between trials.
+Our shuffling was conditioned on the contrast of the test stimulus, so that responses from each channel still corresponded to the same stimulus (and the stimulus correlations were preserved), but any correlations in the noise of the recorded neurons were destroyed.
+We repeated the analysis of decoder performance for \num{20} different shuffles of the data and report the overall average accuracy.
+Finally, we compared the average accuracy of the decoders trained on shuffled responses with the decoder trained on the original responses using a paired Student's $t$-test across experimental sessions.
 
 %------------------------------------------------------------------------------
 % \subsection{Results}
@@ -2487,6 +2497,22 @@ Consequently, it destroys the noise correlations between channels whilst preserv
 \subsection{Results of decoding population activity}
 
 
+For \ac{V1}, there is a decline in the performance of the \ac{M1} decoder over time and a small increase in the performance for \ac{M2}, shown in \autoref{fig:dec_all_v1}.
+Our results from the population-level decoder correspond to our findings about the information encoded in \SI{527}{\milli\second} activity, taken for individual channels and then averaged across them, depicted in \autoref{fig:info_sess_1x527_final}.
+
+% blanco v1
+% Behavioural accuracy from 69.4% 70.9% 73.4% (71.20%) to 88.1% 87.2% 87.1% (87.50%)
+% Decoder accuracy     from 75.0% 73.6% 73.4% (73.97%) to 72.0% 67.7% 77.0% (72.21%)
+% Shuff decoder accur  from 78.8% 76.8% 75.6% (77.07%) to 70.5% 70.3% 79.7% (73.49%)
+% Shuff decoder diff   from 3.8% 3.2% 2.3% (3.1%) to -1.5% 2.6% 2.7% (1.3%)
+% n=17  h=1.000000  p=0.000612=6.120856e-04   delta = +1.941965+/-0.457008 = +2.708694%+/-72.363911%
+% jack v1
+% Behavioural accuracy from 66.6% 72.9% 79.2% (72.92%) to 88.5% 88.7% 89.8% (89.00%)
+% Decoder accuracy     from 82.5% 83.1% 81.8% (82.48%) to 86.5% 87.7% 87.9% (87.37%)
+% Shuff decoder accur  from 88.7% 88.3% 88.1% (88.36%) to 91.7% 91.4% 93.5% (92.18%)
+% Shuff decoder diff   from 6.2% 5.1% 6.3% (5.9%) to 5.2% 3.7% 5.6% (4.8%)
+% n=22  h=1.000000  p=0.000000=3.703396e-17   delta = +5.488296+/-0.218307 = +6.433440%+/-44.531150%
+
 \begin{figure}[htbp]
     \centering
     \hspace*{\fill}
@@ -2501,16 +2527,40 @@ Consequently, it destroys the noise correlations between channels whilst preserv
     }
     \hspace*{\fill}
     \caption{%
-    Decoding analysis for \ac{V1}.
-    Performance of behavioural and decoding predictors by session, averaged across all conditions.
-    Left panels: \ac{M1}. Right: \ac{M2}.
-	Along the x-axis, `Session' is the animal's unique session ID, which increments by one for every day of training.
-    On the y-axis, `proportion correct' is the proportion of trials for which the response is the same as the target.
-    This is presented for behavioural performance (black), decoder performance (blue), and decoder performance when trials are shuffled, destroying noise correlations (red; see text).
+    Classifying the stimulus using \ac{V1} population activity.
+    We report the accuracy of the linear decoder classifying the group of each stimulus (greater or less than \SI{30}{\percent} contrast) after training on the population activity (blue; \protect\subref{fig:dec_b1_allp}~\ac{M1}, \num{14} channels; \protect\subref{fig:dec_j1_allp}~\ac{M2}, \num{20} channels).
+    Performance was evaluated as the average accuracy across each of the \num{14} stimulus classes
+    We also report the accuracy of the linear decoder when trained on a copy of the data with responses recorded from each channel matched at random such that noise correlations are removed (red; see \autoref{sec:pl_dec_shuffle}).
+    For comparison, the behavioural performance of the subject is also shown for each recording session (black).
 }
     \label{fig:dec_all_v1}
 \end{figure}
 
+The change in performance of the decoder over time does not correspond to the change in subject's performance in either case.
+For \ac{M2} (see \autoref{fig:dec_j1_allp}), the subject's behavioural performance increases rapidly initially for the first few sessions and after that it increases steadily until reaching a plateau after around \num{12} recording sessions, rising from \SI{67}{\percent} accuracy at the beginning to \SI{89}{\percent} accuracy after training.
+In comparison, the decoder performance rises from an initial \SI{83}{\percent} accuracy only to \SI{88}{\percent}.
+The behavioural performance increases similarly for \ac{M1} (rising from \SI{69}{\percent} to \SI{87}{\percent}, shown in \autoref{fig:dec_b1_allp}), whilst the performance of the decoder declines slightly over time (falling from \SI{74}{\percent} to \SI{72}{\percent}).
+As stated previously, we expect this decline in performance is due to a decline in signal quality over time and is not due to a reduction of information encoded within the cortex.
+
+Destroying the noise correlations between the responses from each channel increased the performance of the decoder significantly for both subjects (\ac{M1}: $p=0.0006$; \ac{M2}: $p < 4 \times 10^{-17}$).
+However the effect of shuffling the responses was larger for \ac{M2} than \ac{M1} --- an improvement in performance of \SI{5.4\pm0.2}{\percent} compared with \SI{+1.9\pm0.5}{\percent}.
+Additionally, the effect of removing noise correlations on \ac{M1} declined as experimental training progressed, falling from \SI{3.1}{\percent} to \SI{1.3}{\percent} (average of first and last three sessions respectively).
+This corroborates our notion that the decline in information and hence performance for the decoder is due to a gradual degradation of signal quality in the apparatus.
+As the extrinsic, observational noise increases it will dominate over the intrinsic noise within the cortex, and if the noise from the apparatus is generated independently for each recording channel then decorrelating the noise on the signals we observe will become decreasingly useful.
+For \ac{M2}, the performance advantage for a decoder trained without noise correlations also fell, but only not as much --- from \SI{5.9}{\percent} to \SI{4.8}{\percent} (average of first and last three sessions).
+
+% blanco v4
+% Behavioural accuracy from 80.1% 75.7% 79.6% (78.49%) to 84.9% 85.3% 84.4% (84.88%)
+% Decoder accuracy     from 78.9% 78.5% 79.4% (78.95%) to 78.7% 80.4% 81.1% (80.09%)
+% Shuff decoder accur  from 79.5% 78.5% 80.0% (79.33%) to 81.4% 82.9% 79.6% (81.33%)
+% Shuff decoder diff   from 0.6% -0.1% 0.5% (0.4%) to 2.7% 2.5% -1.5% (1.2%)
+% n=22  h=1.000000  p=0.000433=4.326213e-04   delta = +1.434306+/-0.343950 = +1.805622%+/-46.846957%
+% jack v4
+% Behavioural accuracy from 56.9% 56.0% 56.8% (56.56%) to 75.4% 80.1% 79.2% (78.23%)
+% Decoder accuracy     from 58.9% 56.5% 63.7% (59.71%) to 71.2% 78.0% 75.0% (74.70%)
+% Shuff decoder accur  from 61.2% 55.8% 67.8% (61.58%) to 74.9% 83.0% 79.2% (79.03%)
+% Shuff decoder diff   from 2.3% -0.8% 4.1% (1.9%) to 3.8% 5.0% 4.2% (4.3%)
+% n=24  h=1.000000  p=0.000000=3.786770e-08   delta = +3.224602+/-0.400164 = +4.543608%+/-117.623395%
 
 \begin{figure}[htbp]
     \centering
@@ -2526,34 +2576,44 @@ Consequently, it destroys the noise correlations between channels whilst preserv
     }
     \hspace*{\fill}
     \caption{%
-    Decoding analysis for \ac{V4}.
-    Performance of behavioural and decoding predictors by session, averaged across all conditions.
-    Left panels: \ac{M1}. Right: \ac{M2}.
-	Along the x-axis, `Session' is the animal's unique session ID, which increments by one for every day of training.
-    On the y-axis, `proportion correct' is the proportion of trials for which the response is the same as the target.
-    This is presented for behavioural performance (black), decoder performance (blue), and decoder performance when trials are shuffled, destroying noise correlations (red; see text).
+    Classifying the stimulus group from \ac{V4} population activity.
+    We report the accuracy of the linear decoder classifying the group of each stimulus (greater or less than \SI{30}{\percent} contrast) after training on the population activity (blue; \protect\subref{fig:dec_b4_allp}~\ac{M1}, \num{25} channels; \protect\subref{fig:dec_j4_allp}~\ac{M2}, \num{18} channels).
+    Performance was evaluated as the average accuracy across each of the \num{14} stimulus classes
+    We also report the accuracy of the linear decoder when trained on a copy of the data with responses recorded from each channel matched at random such that noise correlations are removed (red; see \autoref{sec:pl_dec_shuffle}).
+    For comparison, the behavioural performance of the subject is also shown for each recording session (black).
 }
     \label{fig:dec_all_v4}
 \end{figure}
 
+For both subjects, the decoder trained on the \ac{V4} population activity yielded a surprisingly similar level of accuracy as the subject's behavioural responses across all experimental sessions (shown in \autoref{fig:dec_j4_allp}, blue and black lines).
+However, for \ac{M1} the decoder performance increased less than the subject's performance --- a negligible increase from \SI{79}{\percent} to \SI{81}{\percent} whilst the subject's responses improved from \SI{79}{\percent} to \SI{85}{\percent} accuracy.
+For \ac{M2} the trends with learning were well matched, with the decoder's accuracy increasing from \SI{59}{\percent} to \SI{75} whilst the subject's behavioural accuracy increased from \SI{57}{\percent} to \SI{79}{\percent}.
 
-For \ac{M2} \ac{V1}, there is a small gradual increase in decoder performance throughout training, though the increase does not match the timescales and rate of the increase in behavioural performance which is a much sharper transition.
-Results for \ac{M2} \ac{V1} could be interpreted as indicating that no further improvements can be obtained from changes in \ac{V1}, and the behavioural performance is limited by the performance of the decoder.
-For \ac{M1} \ac{V1}, there is a decrease in decoder in performance despite the increase in behavioural performance (\autoref{fig:dec_b1_allp}, blue and red lines respectively).
+Again, destroying the noise correlations between channels by shuffling the responses across trials improved the accuracy attained with the decoder.
+For both subjects the effect was statistically significant ($p=0.0004$ and $p < 4 \times 10^{-8}$, respectively), with a larger difference of \SI{+3.2\pm0.4}{\percent} accuracy for \ac{M2} than for \ac{M1} (\SI{+1.4\pm0.3}{\percent}).
+Over time, the advantage for the decoder trained on data with the noise correlations removed increased for both subjects, increasing marginally from \SI{0.4}{\percent} to \SI{1.2}{\percent} for \ac{M1} and more notably for \ac{M2} from \SI{1.9}{\percent} to \SI{4.3}{\percent}.
 
-For \ac{M2} \ac{V4}, the trend in increase for behavioural performance is well matched by the change in performance of the decoder (\autoref{fig:dec_j4_allp}, blue and red lines).
-In contrast to this, for \ac{M1} \ac{V4} we see the decoding performance is steady despite training, although it should be noted that the increase in behavioural performance was not so large for this animal.
-
-
-Shuffling the trials to destroy any noise correlations provides an improvement in performance for the data from \ac{M2}, indicating that noise correlations are detrimental to the successful decoding of stimuli.
-However, there is no significant difference in decoder performance before and after shuffling for \ac{M1} datasets, which suggests noise correlations have no impact on decoding the contrast of stimuli using firing rate data from a population of neurons.
-For \ac{M2} \ac{V1}, the benefit from shuffling seems to be reduced with training; the shuffled decoding performance is reasonably steady throughout training whilst the decoder with noise correlations included increases in performance, closing the gap.
-
-% \marginnote{It might well be better to plot, for each area, the performances for both animals on the same plot and the expected vs observed behavioural agreement for both animals on a seperate plot.}
 
 %------------------------------------------------------------------------------
-\subsection{Discussion of population activity decoding}
+\subsection{Discussion on decoding population activity}
 
+By training a linear discriminator to classify the stimuli, we investigated the task-pertinent information about the stimulus encoded in the population-level activity.
+% We trained the model when also using the firing rate from the full \SI{527}{\milli\second} stimulus presentation period
+Our results here corroborated our findings about the amount of information encoded on average in each channel, described in \autoref{sec:pl_initial_final}.
+
+With \ac{V4}, our decoder gives a surprisingly similar performance to the subject's behavioural response.
+If the subject is deciding how to respond based solely on the activity in its \ac{V4}, means the information contained in the neurons of \ac{V4} are highly redundant since the information encoded at the population level must saturate when fewer than \num{30} neurons are considered.
+We will test how closely the classifications of the decoder match the behavioural responses given by the subject next, in \autoref{sec:pl_agreement}.
+
+With \ac{V1} \ac{M2}, the performance of the decoder starts high and does not make much improvement over time, whilst the performance of the subject improves to match the accuracy of the decoder.
+This means that the information needed to complete the task accurately was present in the primary visual cortex from the start, but the subject needed to rewire higher cortical regions in order to access this information when making its decision about the stimulus.
+
+The performance of the decoder always \textit{increased} when we removed noise correlations between channels by shuffling the data across trials.
+This suggests that noise correlations hinder the ability of the brain to perceive the contrast of the stimulus correctly, and the subject's performance would potentially improve if the visual cortex learnt to decouple the noise for its neurons.
+However, there was no particular decline in the difference between the decoder trained on the original data and the decoder trained on shuffled data.
+The decline in difference with and without noise correlations in \ac{V1} for \ac{M1} is most likely due to a decline in recording signal quality since the accuracy of the model falls over time.
+For \ac{M2}, the marginal decrease in difference is most likely due to saturation of the model performance --- the decoder trained on data with noise correlations removed attains \SI{94}{\percent} accuracy by the final session, which leaves little room for improvement.
+The dataset which shows the largest improvement in decoder accuracy is \ac{M2} \ac{V4}, which also has an \textit{increase} in the gap between decoders trained without and with noise correlations, so a reduction in noise correlation over time is certainly not the cause for the improved behavioural performance.
 
 
 %==============================================================================
