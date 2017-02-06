@@ -59,7 +59,6 @@ A--B: High resolution \ac{NMR} scans of two animals used to measure cortical thi
 C: Stimulus triggered average \ac{CSD} responses, post-alignment.
 For sessions \sesname{H05391}, \sesname{H05nm7}, \sesname{H05nm9} and \sesname{E07nm1}, the average response to onset of the movie stimulus is shown, whereas for sessions \sesname{F10nm1} and \sesname{J10nm1} the response to a full-field flash is shown.
 D: Corresponding spike densities for the responses in panel C (\SI{1}{\milli\second} window duration).
-[Accompanies Figure 1.]
 }
 \label{fig:lam_s1}
 %
@@ -71,7 +70,7 @@ D: Corresponding spike densities for the responses in panel C (\SI{1}{\milli\sec
 %
 \caption{%
 \textit{Distribution of information about the movie across both cortical depth and frequency for individual sessions}
-A--F: Same as Fig.~2D, but shown for each recording session individually.
+A--F: Same as \autoref{fig:lam_2}D, but shown for each recording session individually.
 Distribution of information about movie stimulus contained in power.
 Plot shows the mean information over 6 sessions.
 Each datapoint was tested for statistical significance using bootstrapping; for each depth and frequency band in each session a significance threshold was set at 3 standard deviations of the bootstrap distribution.
@@ -79,7 +78,6 @@ The median threshold for significance across all frequencies and depths is indic
 Non-significant values are shown in white.
 Above each, mean information within \ac{SG}, \ac{G} and \ac{IG} compartments.
 Right of each, cortical distribution of information in the power of two frequency bands; \SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz}.
-[Accompanies Figure 2.]
 }
 \label{fig:lam_s2}
 %
@@ -104,7 +102,6 @@ F: As E, but showing noise correlation.
 In A--D, datapoints which were not significantly different from the bootstrap mean (threshold at 3 standard deviations of bootstrapped correlation values) are shown in white.
 The maximum upper and minimum lower thresholds employed for significance are shown on the colour bars.
 Trivially correlated diagonal elements were removed (shown in black).
-[Accompanies Figure 3].
 }
 \label{fig:lam_s3}
 %
@@ -125,7 +122,6 @@ Trivially correlated diagonal elements were removed (shown in black).
 %The number of bins for the power band was fixed at 7.
 %For "Coarse" the change in luminance is the \ac{RF} average, and for "Fine" it is the \ac{1}{px} scale change in luminance, minus the average.
 %Frequency bands are the same as in A.
-%[Accompanies Figure 5].
 %}
 %\label{fig:lam_s5}
 %%
@@ -145,7 +141,6 @@ Each datapoint was tested for statistical significance using bootstrapping, and 
 B: Difference between pairs of depths for latency of maximum information.
 Left, difference in peak-latency of information in \SIrange{4}{16}{Hz} power about \SI{<0.3}{\cpd} spatial components, between each electrode contact in \ac{G} and each in \ac{IG} compartments, for each recording session.
 Right, difference in peak-latency of information in \SIrange{60}{170}{Hz} power about \SI{>1}{\cpd} spatial components, between each electrode contact in \ac{SG} and each in \ac{IG} compartments.
-[Accompanies Figure 6].
 }
 \label{fig:lam_s6}
 %
@@ -158,7 +153,7 @@ Right, difference in peak-latency of information in \SIrange{60}{170}{Hz} power 
 
 \subsection{Aligning electrode penetrations}
 
-For each recording session, the electrode was implanted in \iac{V1} at the recording site indicated in Supplemental Fig.~1A--B.
+For each recording session, the electrode was implanted in \iac{V1} at the recording site indicated in Supplemental \autoref{fig:lam_s1}A--B.
 The methodology for the insertion of the electrode is described in the Experimental Methods of the main text.
 
 For each penetration, we endeavoured to align the electrode such that the most shallow electrode contact was at the boundary between cortical matter and the dura (near \ac{L1}).
@@ -169,7 +164,7 @@ To identify the depth of each contact, we measured the potential evoked in respo
 From the measured potentials, we identified the boundary between the \ac{G} and \ac{IG} compartments as the source-sink reversal in the evoked \ac{CSD} \citep{Mitzdorf1979,Mitzdorf1985}.
 For this measurement, the \ac{CSD} was computed from the \ac{LFP} as described in Experimental Methods, but without spatially smoothing the signal with a Hamming filter.
 
-The data from each electrode was re-aligned such that the source-sink reversal for each recording session was at a depth of \SI{0}{\milli\metre} (Supplemental Fig.~\ref{fig:lam_s1}C).
+The data from each electrode was re-aligned such that the source-sink reversal for each recording session was at a depth of \SI{0}{\milli\metre} (\autoref{fig:lam_s1}C).
 We estimated the location of the boundary between the \ac{G} and \ac{SG} compartments by cross-referencing literature describing the average thickness of cortical laminae in Macaca mulatta, area 17 \citep{Lund1973,OKusky1982}.
 
 The validity of this choice of alignment of electrode penetrations was then tested by considering the average response in spiking activity to the onset of the stimulus, and by measuring the cortical thickness at the recording site using \ac{NMR}.
@@ -179,11 +174,11 @@ The validity of this choice of alignment of electrode penetrations was then test
 Spikes were detected by high-pass filtering the raw signal above \SI{500}{Hz} with a zero-phase eighth-order Butterworth filter, and classifying any points more than 3.5 standard deviations above the mean signal during pre- and post-stimulus periods as a spike, with a minimum inter-spike-interval of \SI{1}{\milli\second}.
 
 The majority of thalamic afferents in \ac{V1} stimulate \ac{L4} (albeit indirectly, see \citealp{Hansen2012}), with the first cortical response manifesting at layer 4C$\alpha$ \citep{Callaway1998}, resulting in an initial current sink and first burst of spiking activity located here.
-Consequently, we confirmed the depth alignment of the electrodes by verifying that the initial current sink (Supplemental Fig.~\ref{fig:lam_s1}C) and spiking activity (Supplemental Fig.~\ref{fig:lam_s1}D) in response to stimulation both resided within the \ac{G} compartment.
+Consequently, we confirmed the depth alignment of the electrodes by verifying that the initial current sink (\autoref{fig:lam_s1}C) and spiking activity (\autoref{fig:lam_s1}D) in response to stimulation both resided within the \ac{G} compartment.
 
 \subsubsection{Nuclear magnetic resonance data collection}
 
-For two of the four monkeys involved in the study, we made use of high-resolution \ac{NMR} anatomical scans (collected for a different experiment) to measure the cortical thickness at the recording site used (Supplemental Fig.~\ref{fig:lam_s1}A--B).
+For two of the four monkeys involved in the study, we made use of high-resolution \ac{NMR} anatomical scans (collected for a different experiment) to measure the cortical thickness at the recording site used (Supplemental \autoref{fig:lam_s1}A--B).
 
 To estimate the cortical thickness at the recording site of the laminar electrodes, high-resolution \ac{NMR} anatomical scans were acquired at the vertical using a \SI{7}{T} scanner with a \SI{60}{\centi\metre} diameter bore (Bruker BioSpin GmbH, Ettlingen, Germany).
 A custom-made chair was used to position the monkey in the magnet.
@@ -199,18 +194,18 @@ We believe this discrepancy is due to the inflammation of the cortex in response
 \subsection{Distribution of information across depth and frequency, per recording session}
 
 The information about the stimulus contained in the power of the cortical oscillations was computed using the methodology described in the main text.
-We present, in Fig.~\ref{fig:lam_s2}, the distribution of information in the power of \ac{CSD} oscillations as a function of depth and frequency for each experimental recording session.
-The average over all sessions is shown in Fig.~2D.
+We present, in \autoref{fig:lam_s2}, the distribution of information in the power of \ac{CSD} oscillations as a function of depth and frequency for each experimental recording session.
+The average over all sessions is shown in \autoref{fig:lam_2}.
 The distribution of information is broadly the same for across all sessions --- highest in granular \SIrange{4}{16}{Hz} and supragranular \SIrange{60}{170}{Hz}, little information about the stimulus encoded in the intermediary \SIrange{20}{50}{Hz} range --- indicating our findings are reliable.
 
 
 \subsection{Noise and signal correlations}
 
-To accompany the information redundancy between frequencies and depths (Fig.~3), we also computed the noise and signal correlation between the power of oscillations (Supplemental Fig.~\ref{fig:lam_s3}).
+To accompany the information redundancy between frequencies and depths (\autoref{fig:lam_s3}), we also computed the noise and signal correlation between the power of oscillations (\autoref{fig:lam_s3}).
 
-Both the signal and noise correlation show the same pattern across frequencies (Supplemental Fig.~\ref{fig:lam_s3}A and D) as the information redundancy (Fig.~3A), and similarly for the distribution across depth (Supplemental Fig.~\ref{fig:lam_s3}B and E; Fig.~3B).
+Both the signal and noise correlation show the same pattern across frequencies (\autoref{fig:lam_s3}A and D) as the information redundancy (\autoref{fig:lam_3}A), and similarly for the distribution across depth (\autoref{fig:lam_s3}B and E; \autoref{fig:lam_3}B).
 However, the relationship is less clear for the signal and noise correlation than we observed for information redundancy.
-For instance, since all signals are positively correlated in Supplemental Fig.~\ref{fig:lam_s3}A (and D), the difference in correlation either side of the \SI{40}{Hz} line is less clear, though still evident.
+For instance, since all signals are positively correlated in \autoref{fig:lam_s3}A (and D), the difference in correlation either side of the \SI{40}{Hz} line is less clear, though still evident.
 
 Noise and signal correlation were both computed by binning the cortical response into bins of duration \SI{50}{\milli\second} following every frame change in the movie.
 
@@ -221,4 +216,4 @@ Noise correlation was computed by taking the set of responses in two different b
 This was repeated for each frame, and the average over all frames was computed.
 
 In each case, the analysis process was repeated with a shuffled pairing of responses in order to perform bootstrap statistics.
-Correlation coefficients which were less than three standard deviations of the bootstraps from the bootstrap mean are shown as white in Supplemental Fig.~\ref{fig:lam_s3}.
+Correlation coefficients which were less than three standard deviations of the bootstraps from the bootstrap mean are shown as white in \autoref{fig:lam_s3}.
