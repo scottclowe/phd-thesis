@@ -38,6 +38,203 @@ Recent work has shown stimulation in \ac{V1} induces gamma activity in \ac{V4} (
 
 
 % =============================================================================
+\section{Experimental Methods}
+% =============================================================================
+
+\subsection{Ethics Statement}
+
+Data was collected from \ac{V1} in four healthy rhesus monkeys (Macaca mulatta; four males \SIrange{8}{11}{kg}; \SIrange{10}{12}{years}).
+All the experimental procedures were approved by the local authorities (Regierungspr\"asidium, Baden-W\"urttemberg, T\"ubingen, Germany; Project Number KY4/09) and were in full compliance with the guidelines of the European Community (EUVD 86/609/EEC) and were in concordance with the recommendation of the Weatherall report for the care and use of non-human primates \citep{Weatherall2006}.
+The animals were group-housed in an enriched environment, under daily veterinarian care.
+Weight, food and water intake were carefully monitored on a daily basis.
+
+
+\subsection{Anesthesia for Neurophysiology Experiments}
+
+The anesthesia protocol for all the experimental procedures have been described previously \citep{Logothetis1999,Logothetis2001}.
+Briefly, glycopyrrolate (\SI{0.01}{mg.{kg}^{-1}}) and ketamine (\SI{15}{mg.{kg}^{-1}}), were used previous to general anesthesia.
+Induction with fentanyl (\SI{3}{mg.{kg}^{-1}}), thiopental (\SI{5}{mg.{kg}^{-1}}) and succinylcholine chloride (\SI{3}{mg.{kg}^{-1}}), animals were intubated and ventilated using a Servo Ventilator 900C (Siemens, Germany) maintaining an end-tidal \ce{CO2} of \SIrange{33}{35}{mm.Hg} and oxygen saturation above \SI{95}{\percent}.
+
+The anesthesia was maintained with remifentanil (\SIrange{0.5}{2}{\micro\gram.kg^{-1}.\min}) and mivacurium chloride (\SIrange{2}{6}{mg.kg^{-1}.h}) which ensured no eye movement during electrophygiological recordings.
+The anesthetics dosage were established by measuring stress hormones and were selected to ensure unaffected physiological response at normal catecholamine concentrations \citep{Logothetis1999}.
+In addition, it has been shown that using remifentanil has no significant effect on the neurovascular and neural activity of brain areas that do not belong to the pain matrix \citep{Goense2008,Zappe2008}.
+In particular, visual cortex does not bind remifentanil.
+We monitored the physiological state of the monkey continuously and kept within normal limits.
+Body temperature was tightly maintained at \SIrange{38}{39}{\celsius}.
+Throughout the experiment lactate Ringer's (Jonosteril, Fresenius Kabi, Germany) with \SI{2.5}{\percent} glucose was continuously infused at a rate of \SI{10}{ml.kg^{-1}.h^{-1}} in order to maintain an adequate acid-base balance and intravascular volume and blood pressure were maintained by the administration of hydroxyethyl starch as needed (Volulyte, Fresenius Kabi, Germany).
+
+We used anesthetized animals because the preparation allows longer data acquisition times and to associate particular neural events to specific stimulus features without the strong effects of animal cognitive state, including effects of attention and arousal that would introduce additional complication in the interpretation of signals.
+
+
+\subsection{Visual Stimulation}
+
+A few drops of \SI{1}{\percent} cyclopentolate hydrochloride were used in each eye to achieve mydriasis.
+Animals were wearing hard contact lenses (W\"ohlk-Contact-Linsen, Sch\"onkirchen, Germany) to focus the eyes on the stimulus plane.
+The visual stimulation in all experimental sessions was presented in the eye with stronger ocular preference of recording sites.
+The stimulus was presented using either an in-house custom-built projector (SVGA fibre-optic system with a resolution of \num{800x600} pixels, a frame rate of \SI{30}{Hz}), or a CRT monitor (Iiyama MA203DT Vision Master Pro 513, frame rate \SI{118}{Hz}) placed at eye level, \SI{50}{\centi\metre} in front of the eye.
+We found the same results with both display devices, except that monitor refresh with the \SI{30}{Hz} stimulus induced cortical oscillations at \SI{30}{Hz}.
+Since this is the result of using an artificial stimulus with a low refresh rate (a well-known issue at this stimulus frequency), we removed this from the data (see Artefact Removal) and pooled the results across all sessions.
+The visual stimulus consisted of high contrast (\SI{100}{\percent}), gamma corrected, fast-moving, colourful movie clips (no soundtrack) from commercially available movies.
+Stimulus timings were controlled by a computer running a real-time OS (QNX, Ottawa, Canada).
+Stimulus-on periods of \SI{120}{\second} (5 sessions; 1 session: \SI{40}{\second}) were interleaved with stimulus-off periods (isoluminant grey screen) of \SI{30}{\second}.
+
+
+\subsection{Neurophysiology Data Collection and Analysis}
+
+The electrophysiological recordings were performed by doing a small skull trepanation, after which the dura was visualized with a microscope (Zeiss Opmi MDU/S5, Germany) and carefully dissected.
+The electrodes were slowly advanced into the visual areas under visual and auditory guidance using manual micromanipulator (Narashige Group, Japan).
+Electrodes consisted of laminar probes (NeuroNexus Technologies, Ann Arbor, USA).
+These electrodes contained 16 contacts on a single shank \SI{3}{\milli\metre} long and \SI{150}{\micro\metre} thick.
+The electrode sites were spaced at \SI{150}{\micro\metre} apart, with a recording area of \SI{413}{\micro\metre^2} each.
+We used a flattened \ce{Ag} wire, which was positioned under the skin, as reference electrode \citep{Murayama2010}.
+The recording access was filed with a mixture of \SI{0.6}{\percent} agar dissolved in \ce{NaCl} \SI{0.9}{\percent}, pH 7.4 solution which guaranteed good electrical connection between the ground contact and the animal \citep{Oeltermann2007760}.
+The impedance of the contact points was always measured during the experiments and ranged from \SIrange{480}{800}{\kilo\ohm}.
+The signals were amplified and filtered into a broadband of \SIrange{1}{8000}{Hz} (Alpha-Omega Engineering, Nazareth, Israel) and then digitized at \SI{20.833}{\kilo\Hz} with 16 bit resolution (PCI-6052E; National Instruments, Austin, TX).
+
+
+\subsection{Luminosity Function}
+
+In order to best approximate the luminosity perceived by macaques, we relied on analogies with the human visual system.
+Research with humans suggest the luminosity function is linearly related to the long (L) and medium (M) cone activation, and independent of the short (S) cone activation \citep{Stockman2008}.
+Furthermore, the weighting of L and M activations towards perceived luminance is believed to be similar to the L:M ratio in the individual \citep{Stockman2008}.
+Old world monkeys such as macaques have an L:M ratio which is approximately 1:1 \citep{Dobkins2000}, so we assumed a luminosity function equally weighed between the L and M cone activations, $Y=L+M$.
+The \SI{10}{\degree} cone fundamentals of \cite{Stockman2000} were used since the cone fundamentals of old world monkeys are known to be very similar to humans \citep{Dobkins2000}.
+By taking the product of the emission spectra for pure red, green and blue with the luminosity function, integrating over wavelength and normalising, we obtained the following equations for relative luminance in terms of pixel intensity for the two devices used in the experiment.
+
+\begin{align*}
+    Y_{\text{projector}} &= 0.2171 \cdot R + 0.6531 \cdot G + 0.1298 \cdot B\\
+    Y_{\text{CRT}}       &= 0.1487 \cdot R + 0.6822 \cdot G + 0.1691 \cdot B
+\end{align*}
+
+
+\subsection{Artefact Removal}
+
+An artefact removal procedure was performed to reduce the effects of line noise (one session) and monitor refresh (the three sessions with \SI{30}{Hz} stimulus).
+Artefact frequencies were identified by large, localised peaks in the power spectral density, which was computed with the periodogram method (see Supplementary Table 1).
+In each case, the average artefact waveform was found and subtracted from the recorded signal.
+To correct for phase shifts of the artefact, the averaging and subsequent subtraction were performed in blocks of 50 artefact periods with a phase chosen to maximise the cross-covariance of the signal with the artefact waveform.
+
+
+\subsection{Current Source Density}
+
+The \ac{CSD} was computed using the inverse \ac{CSD} method \citep{Pettersen2006}.
+To compute this, we used a $\delta$-source model of local field generation with a diameter of \SI{500}{\micro\metre}, chosen to correspond to the effective size of columnar activity \citep{Horton2005,Lund2003}.
+Since this method requires an even spacing between voltage measurements, gaps caused by faulty recording contacts in the electrode were filled in with a local average \citep{Wojcik2010}.
+A homogeneous cortical conductivity of \SI{0.4}{\siemens\per\metre} was assumed \citep{Logothetis2007}.
+The agar solution placed on top of the recording access point had an \ce{NaCl} concentration of \SI{9}{\mg\per\mL}, and the conductivity of this was estimated to be \SI{2.2}{\siemens\per\metre} \citep{Kandadai2012}.
+The \ac{CSD} was spatially smoothed with a three-point Hamming filter.
+
+
+\subsection{Multiunit Activity}
+
+Fig.~\ref{fig:lam_1}: \ac{MUA} was calculated by band-passing the voltage recording between 900 and \SI{3000}{Hz} with a zero-phase sixth-order Butterworth filter, taking the absolute value, applying a \SI{300}{Hz} low pass third-order Butterworth filter, and then downsampling.
+This yields a smoothed spike rate, analogous to a population firing rate.
+
+Fig.~\ref{fig:lam_3}: \ac{MUA} was calculated by downsampling by a factor of 3, band-passing the voltage recording between \SIrange{900}{3000}{Hz} with a zero-phase sixth-order Butterworth filter, taking the absolute value, downsampling by a further factor of 12.
+
+
+\subsection{Receptive Field Locations}
+
+The spatial \acp{RF} were found by reverse correlating the \ac{MUA} and the pixel-by-pixel Z-scored frame-by-frame difference in luminance with a fixed lag of \SI{66.7}{\milli\second}.
+The rate of change in luminance was used because it is known to correlate well with thalamic drive.
+For each session, the \ac{RF} centre was located using the average of the reverse correlation across all cortical channels.
+
+
+\subsection{Identification of Cortical Laminae}
+
+To identify the depth of each contact, we measured the potential evoked in response to the onset of the movie clip, and in response to full-screen maximum-luminance \SI{100}{\milli\second} flash stimuli with a \SI{6}{\second} interval.
+From the measured potentials, we identified the boundary between the \ac{G} and \ac{IG} compartments as the source-sink reversal in the evoked \ac{CSD} (\citealp{Mitzdorf1979,Mitzdorf1985}; see Supplementary Materials).
+We estimated the location of the boundary between the \ac{G} and \ac{SG} compartments by cross-referencing literature describing the average thickness of cortical laminae in Macaca mulatta, area 17 \citep{Lund1973,OKusky1982}.
+
+
+\subsection{Power as a function of depth and frequency}
+
+To compute power and information as a function of temporal frequency, the cortical data (\ac{LFP} and \ac{CSD}) were filtered in a series of bands each with a fractional bandwidth of \SI{50}{\percent}, because cortical power falls off rapidly with frequency in a \nicefrac{1}{f} relationship.
+Each successive band begins and ends with frequencies 1.291 times higher than the last, so that each band has \SI{0}{\percent} overlap with bands further away than its immediate neighbours and a \SI{44}{\percent} and \SI{56}{\percent} overlap with its preceding and succeeding bands respectively.
+The data was filtered with a zero-phase sixth-order Butterworth filter, after which the instantaneous power was estimated by taking the squared absolute value of the Hilbert transform.
+The power in each band was integrated over a series of \SI{50}{\milli\second} windows, centred at the time of each frame change in the movie (once every \SI{33}{\milli\second}, leading to a \SI{50}{\percent} overlap of neighbouring windows).
+The power in the \SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz} bands was computed similarly.
+Fig.~\ref{fig:lam_3}A--B are plotted with power values averaged over all windows and trials, then expressed in decibels relative to the average power \SIrange{1.5}{248}{Hz} (estimated by summing the power in alternate bands).
+Throughout Figures \ref{fig:lam_3} and S\ref{fig:lam_3}, datapoints are shown at the band centres.
+
+
+\subsection{Information as a function of depth and frequency}
+
+Power in each band was computed as above, then for each frequency band and depth we took a 10-bin histogram of the power across all the \SI{50}{\milli\second} windows for all repetitions.
+The bin edges were chosen such that \SI{10}{\percent} of the distribution fell into each bin, and the identity of which bin the window was allocated into was taken to be its ``stimulus''.
+We found the mutual information between the response and which frame was on screen at that time --- the ``stimulus'' --- by computing the Shannon information using the information breakdown toolbox \citep{Magri2009}.
+Bias due to undersampling was corrected for using the \ac{PT} method \citep{Treves1995}.
+Each information calculation was also bootstrapped 20 times with a randomly shuffled mapping of stimulus to response (also bias-corrected).
+To ensure the amount of information was statistically significant, we checked each information estimate exceeded the bootstrap mean by more than 3 standard deviations of the bootstrap values.
+The bootstrap mean was then subtracted from the estimated information, to counter any residual bias.
+
+
+\subsection{Cortical Distribution of Power}
+
+For each session, the distribution of power across the cortical depth (Fig.~\ref{fig:lam_2}A--B right-hand insets) was determined by normalising the power at each depth by the summed power across all cortical depths for that band.
+We then took an average across sessions, weighted by the number of cortical recording sites in each session to prevent faulty (omitted) electrode contact sites from distorting the result.
+
+
+\subsection{Information Redundancy}
+
+Information redundancy was computed with the same stimuli windows as used in the information calculations.
+However, for this calculation power was binned using only 3 bins, each containing a third of the power datapoints across all repetitions of the movie stimulus.
+Let $S$ denote the set of stimuli, and let $X$ and $Y$ each be the set of powers during each stimulus in one of the frequency bands at a particular depth.
+The information in each $\I\left(X;S\right)$ and $\I(Y;S)$ was computed in the same manner as above.
+The information in the joint distribution $\I(\left\{X,Y\right\};S)$ was computed by considering each combination of the binned $X$ and $Y$ as a different response, yielding a total of 9 different responses for $\{X,Y\}$.
+
+The relative redundancy is then defined as
+\begin{equation*}
+\operatorname{Redundancy}=\frac{\I\left(X;S\right)+\I\left(Y;S\right)-\I\left(\left\{X,Y\right\};S\right)}{\I\left(\left\{X,Y\right\};S\right)}
+\end{equation*}
+and was computed using the information breakdown toolbox \citep{Magri2009}.
+
+
+\subsection{Information about Spatial Components}
+
+The method to find the change in luminance in each spatial frequency band is illustrated in Fig.~\ref{fig:lam_4}.
+First, we took the 2D fast-Fourier transform of a \SI{224}{px} square from the movie.
+A fourth-order Butterworth filter with a width of one octave was applied using a mask in the Fourier domain, and the result was projected back to the spatial domain.
+We then took the pixel-wise difference between each spatially filtered pair of consecutive frames.
+To provide a measure of the amount of change in luminance at this spatial resolution, we took the absolute amount of change in each pixel and summed this within a \SI{2}{\degree} diameter circular window centred at the receptive field location.
+
+Applying this to the entire movie provided a temporal sequence of luminance changes in each spatial range.
+Similar to before, we took a 10-bin histogram and took the identity the bin in which each luminance change fell to be the ``stimulus''.
+The mutual information between this stimulus and the neural response --- the power within \SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz} frequency bands --- was computed with a \SI{67}{\milli\second} lag between stimulus and response.
+
+
+\subsection{Information about Fine and Coarse Luminance Changes}
+
+Coarse and fine luminance changes in the stimulus were isolated in the same manner as the spatial components above, but using a low-pass (\SI{<0.3}{\cpd}) and high-pass (\SI{>1}{\cpd}) fourth-order Butterworth filter respectively.
+For both the \SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz} \ac{CSD} powers, we computed the correlation and mutual information with the coarse and fine luminance changes, and averaged across sessions.
+
+
+\subsection{Information lag between granular and infragranular compartments}
+
+The information about fine and coarse stimuli contained in \SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz} neural frequency bands was computed as a function of the lag between stimulus and response, in steps of \SI{1.73}{\milli\second}.
+For each cortical recording depth, we found determined the latency of the response as the lag which gave the maximum amount of information about the stimulus.
+This step was performed for each session individually.
+Since differences in latency from stimulation to \ac{V1} were larger between different sessions than between different depths for the same session, we found for each session and each frequency band the overall latency as the mean latency across all cortical depths.
+For each session, we then subtracted its overall latency from the distribution of latencies across the cortical depth to create zero-centred distributions across recording depths.
+From the zero-centred latency distributions we then computed the average relative latency and its standard error across sessions.
+To make the data easier to conceptualise, for Fig.~\ref{fig:lam_6}C the average overall latency across sessions was added back to each trace.
+
+To perform the statistical test, the relative latency was averaged across the five electrode contacts in \ac{IG} and also averaged across the three contacts in \ac{G}.
+A paired t-test was performed across all 6 sessions to test whether the maximum information in the \ac{G} compartment consistently occurred earlier than information in the \ac{IG} compartment.
+
+For Fig.~\ref{fig:lam_6}D, the difference in information latency between each pairs of electrode depths was tested for statistical significance using a paired t-test, with insignificant differences shown in white.
+
+
+\subsection{Cross-Frequency Phase-Amplitude Coupling}
+
+Strength of cross-frequency coupling was measured using the Modulation Index \citep{Tort2010}.
+\ac{CSD} data was filtered for two bands, \SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz}, using a zero-phase sixth-order Butterworth filter, and the instantaneous phase of \SIrange{4}{16}{Hz} and envelope amplitude of \SIrange{60}{170}{Hz} were each estimated using a Hilbert transform.
+We took a histogram of the \SIrange{4}{16}{Hz} phase datapoints with 16 bins each of width $\nicefrac{\pi}{8}$ radians, and took the average of the \SIrange{60}{170}{Hz} amplitudes simultaneous with the phase datapoints in each bin.
+This provides a distribution of amplitude at one depth as a function of phase at another.
+The Modulation Index is then the normalised Kullback-Leibler divergence of this distribution from a uniform distribution.
+
+
+% =============================================================================
 \section{Results}
 % =============================================================================
 
@@ -337,200 +534,3 @@ In agreement with previous work \citep{Spaak2012}, we found there was cross-freq
 Anatomically, we believe this is related to the pyramidal cell bodies in \ac{L5A}, which have apical dendritic tufts in \ac{L1} \citep{Hill2013,Zhu2004}.
 This cross-frequency coupling could be one mechanism through which the \ac{L1} gamma wave containing high levels of information about the stimulus is converted into an alpha oscillation for feedback into the hierarchically lower cortical region.
 Neurons in \ac{L5} are known to be related to long-range cortical output \citep{Hill2013}.
-
-
-% =============================================================================
-\section{Experimental Methods}
-% =============================================================================
-
-\subsection{Ethics Statement}
-
-Data was collected from \ac{V1} in four healthy rhesus monkeys (Macaca mulatta; four males \SIrange{8}{11}{kg}; \SIrange{10}{12}{years}).
-All the experimental procedures were approved by the local authorities (Regierungspr\"asidium, Baden-W\"urttemberg, T\"ubingen, Germany; Project Number KY4/09) and were in full compliance with the guidelines of the European Community (EUVD 86/609/EEC) and were in concordance with the recommendation of the Weatherall report for the care and use of non-human primates \citep{Weatherall2006}.
-The animals were group-housed in an enriched environment, under daily veterinarian care.
-Weight, food and water intake were carefully monitored on a daily basis.
-
-
-\subsection{Anesthesia for Neurophysiology Experiments}
-
-The anesthesia protocol for all the experimental procedures have been described previously \citep{Logothetis1999,Logothetis2001}.
-Briefly, glycopyrrolate (\SI{0.01}{mg.{kg}^{-1}}) and ketamine (\SI{15}{mg.{kg}^{-1}}), were used previous to general anesthesia.
-Induction with fentanyl (\SI{3}{mg.{kg}^{-1}}), thiopental (\SI{5}{mg.{kg}^{-1}}) and succinylcholine chloride (\SI{3}{mg.{kg}^{-1}}), animals were intubated and ventilated using a Servo Ventilator 900C (Siemens, Germany) maintaining an end-tidal \ce{CO2} of \SIrange{33}{35}{mm.Hg} and oxygen saturation above \SI{95}{\percent}.
-
-The anesthesia was maintained with remifentanil (\SIrange{0.5}{2}{\micro\gram.kg^{-1}.\min}) and mivacurium chloride (\SIrange{2}{6}{mg.kg^{-1}.h}) which ensured no eye movement during electrophygiological recordings.
-The anesthetics dosage were established by measuring stress hormones and were selected to ensure unaffected physiological response at normal catecholamine concentrations \citep{Logothetis1999}.
-In addition, it has been shown that using remifentanil has no significant effect on the neurovascular and neural activity of brain areas that do not belong to the pain matrix \citep{Goense2008,Zappe2008}.
-In particular, visual cortex does not bind remifentanil.
-We monitored the physiological state of the monkey continuously and kept within normal limits.
-Body temperature was tightly maintained at \SIrange{38}{39}{\celsius}.
-Throughout the experiment lactate Ringer's (Jonosteril, Fresenius Kabi, Germany) with \SI{2.5}{\percent} glucose was continuously infused at a rate of \SI{10}{ml.kg^{-1}.h^{-1}} in order to maintain an adequate acid-base balance and intravascular volume and blood pressure were maintained by the administration of hydroxyethyl starch as needed (Volulyte, Fresenius Kabi, Germany).
-
-We used anesthetized animals because the preparation allows longer data acquisition times and to associate particular neural events to specific stimulus features without the strong effects of animal cognitive state, including effects of attention and arousal that would introduce additional complication in the interpretation of signals.
-
-
-\subsection{Visual Stimulation}
-
-A few drops of \SI{1}{\percent} cyclopentolate hydrochloride were used in each eye to achieve mydriasis.
-Animals were wearing hard contact lenses (W\"ohlk-Contact-Linsen, Sch\"onkirchen, Germany) to focus the eyes on the stimulus plane.
-The visual stimulation in all experimental sessions was presented in the eye with stronger ocular preference of recording sites.
-The stimulus was presented using either an in-house custom-built projector (SVGA fibre-optic system with a resolution of \num{800x600} pixels, a frame rate of \SI{30}{Hz}), or a CRT monitor (Iiyama MA203DT Vision Master Pro 513, frame rate \SI{118}{Hz}) placed at eye level, \SI{50}{\centi\metre} in front of the eye.
-We found the same results with both display devices, except that monitor refresh with the \SI{30}{Hz} stimulus induced cortical oscillations at \SI{30}{Hz}.
-Since this is the result of using an artificial stimulus with a low refresh rate (a well-known issue at this stimulus frequency), we removed this from the data (see Artefact Removal) and pooled the results across all sessions.
-The visual stimulus consisted of high contrast (\SI{100}{\percent}), gamma corrected, fast-moving, colourful movie clips (no soundtrack) from commercially available movies.
-Stimulus timings were controlled by a computer running a real-time OS (QNX, Ottawa, Canada).
-Stimulus-on periods of \SI{120}{\second} (5 sessions; 1 session: \SI{40}{\second}) were interleaved with stimulus-off periods (isoluminant grey screen) of \SI{30}{\second}.
-
-
-\subsection{Neurophysiology Data Collection and Analysis}
-
-The electrophysiological recordings were performed by doing a small skull trepanation, after which the dura was visualized with a microscope (Zeiss Opmi MDU/S5, Germany) and carefully dissected.
-The electrodes were slowly advanced into the visual areas under visual and auditory guidance using manual micromanipulator (Narashige Group, Japan).
-Electrodes consisted of laminar probes (NeuroNexus Technologies, Ann Arbor, USA).
-These electrodes contained 16 contacts on a single shank \SI{3}{\milli\metre} long and \SI{150}{\micro\metre} thick.
-The electrode sites were spaced at \SI{150}{\micro\metre} apart, with a recording area of \SI{413}{\micro\metre^2} each.
-We used a flattened \ce{Ag} wire, which was positioned under the skin, as reference electrode \citep{Murayama2010}.
-The recording access was filed with a mixture of \SI{0.6}{\percent} agar dissolved in \ce{NaCl} \SI{0.9}{\percent}, pH 7.4 solution which guaranteed good electrical connection between the ground contact and the animal \citep{Oeltermann2007760}.
-The impedance of the contact points was always measured during the experiments and ranged from \SIrange{480}{800}{\kilo\ohm}.
-The signals were amplified and filtered into a broadband of \SIrange{1}{8000}{Hz} (Alpha-Omega Engineering, Nazareth, Israel) and then digitized at \SI{20.833}{\kilo\Hz} with 16 bit resolution (PCI-6052E; National Instruments, Austin, TX).
-
-
-\subsection{Luminosity Function}
-
-In order to best approximate the luminosity perceived by macaques, we relied on analogies with the human visual system.
-Research with humans suggest the luminosity function is linearly related to the long (L) and medium (M) cone activation, and independent of the short (S) cone activation \citep{Stockman2008}.
-Furthermore, the weighting of L and M activations towards perceived luminance is believed to be similar to the L:M ratio in the individual \citep{Stockman2008}.
-Old world monkeys such as macaques have an L:M ratio which is approximately 1:1 \citep{Dobkins2000}, so we assumed a luminosity function equally weighed between the L and M cone activations, $Y=L+M$.
-The \SI{10}{\degree} cone fundamentals of \cite{Stockman2000} were used since the cone fundamentals of old world monkeys are known to be very similar to humans \citep{Dobkins2000}.
-By taking the product of the emission spectra for pure red, green and blue with the luminosity function, integrating over wavelength and normalising, we obtained the following equations for relative luminance in terms of pixel intensity for the two devices used in the experiment.
-
-\begin{align*}
-    Y_{\text{projector}} &= 0.2171 \cdot R + 0.6531 \cdot G + 0.1298 \cdot B\\
-    Y_{\text{CRT}}       &= 0.1487 \cdot R + 0.6822 \cdot G + 0.1691 \cdot B
-\end{align*}
-
-
-\subsection{Artefact Removal}
-
-An artefact removal procedure was performed to reduce the effects of line noise (one session) and monitor refresh (the three sessions with \SI{30}{Hz} stimulus).
-Artefact frequencies were identified by large, localised peaks in the power spectral density, which was computed with the periodogram method (see Supplementary Table 1).
-In each case, the average artefact waveform was found and subtracted from the recorded signal.
-To correct for phase shifts of the artefact, the averaging and subsequent subtraction were performed in blocks of 50 artefact periods with a phase chosen to maximise the cross-covariance of the signal with the artefact waveform.
-
-
-\subsection{Current Source Density}
-
-The \ac{CSD} was computed using the inverse \ac{CSD} method \citep{Pettersen2006}.
-To compute this, we used a $\delta$-source model of local field generation with a diameter of \SI{500}{\micro\metre}, chosen to correspond to the effective size of columnar activity \citep{Horton2005,Lund2003}.
-Since this method requires an even spacing between voltage measurements, gaps caused by faulty recording contacts in the electrode were filled in with a local average \citep{Wojcik2010}.
-A homogeneous cortical conductivity of \SI{0.4}{\siemens\per\metre} was assumed \citep{Logothetis2007}.
-The agar solution placed on top of the recording access point had an \ce{NaCl} concentration of \SI{9}{\mg\per\mL}, and the conductivity of this was estimated to be \SI{2.2}{\siemens\per\metre} \citep{Kandadai2012}.
-The \ac{CSD} was spatially smoothed with a three-point Hamming filter.
-
-
-\subsection{Multiunit Activity}
-
-Fig.~\ref{fig:lam_1}: \ac{MUA} was calculated by band-passing the voltage recording between 900 and \SI{3000}{Hz} with a zero-phase sixth-order Butterworth filter, taking the absolute value, applying a \SI{300}{Hz} low pass third-order Butterworth filter, and then downsampling.
-This yields a smoothed spike rate, analogous to a population firing rate.
-
-Fig.~\ref{fig:lam_3}: \ac{MUA} was calculated by downsampling by a factor of 3, band-passing the voltage recording between \SIrange{900}{3000}{Hz} with a zero-phase sixth-order Butterworth filter, taking the absolute value, downsampling by a further factor of 12.
-
-
-\subsection{Receptive Field Locations}
-
-The spatial \acp{RF} were found by reverse correlating the \ac{MUA} and the pixel-by-pixel Z-scored frame-by-frame difference in luminance with a fixed lag of \SI{66.7}{\milli\second}.
-The rate of change in luminance was used because it is known to correlate well with thalamic drive.
-For each session, the \ac{RF} centre was located using the average of the reverse correlation across all cortical channels.
-
-
-\subsection{Identification of Cortical Laminae}
-
-To identify the depth of each contact, we measured the potential evoked in response to the onset of the movie clip, and in response to full-screen maximum-luminance \SI{100}{\milli\second} flash stimuli with a \SI{6}{\second} interval.
-From the measured potentials, we identified the boundary between the \ac{G} and \ac{IG} compartments as the source-sink reversal in the evoked \ac{CSD} (\citealp{Mitzdorf1979,Mitzdorf1985}; see Supplementary Materials).
-We estimated the location of the boundary between the \ac{G} and \ac{SG} compartments by cross-referencing literature describing the average thickness of cortical laminae in Macaca mulatta, area 17 \citep{Lund1973,OKusky1982}.
-
-
-\subsection{Power as a function of depth and frequency}
-
-To compute power and information as a function of temporal frequency, the cortical data (\ac{LFP} and \ac{CSD}) were filtered in a series of bands each with a fractional bandwidth of \SI{50}{\percent}, because cortical power falls off rapidly with frequency in a \nicefrac{1}{f} relationship.
-Each successive band begins and ends with frequencies 1.291 times higher than the last, so that each band has \SI{0}{\percent} overlap with bands further away than its immediate neighbours and a \SI{44}{\percent} and \SI{56}{\percent} overlap with its preceding and succeeding bands respectively.
-The data was filtered with a zero-phase sixth-order Butterworth filter, after which the instantaneous power was estimated by taking the squared absolute value of the Hilbert transform.
-The power in each band was integrated over a series of \SI{50}{\milli\second} windows, centred at the time of each frame change in the movie (once every \SI{33}{\milli\second}, leading to a \SI{50}{\percent} overlap of neighbouring windows).
-The power in the \SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz} bands was computed similarly.
-Fig.~\ref{fig:lam_3}A--B are plotted with power values averaged over all windows and trials, then expressed in decibels relative to the average power \SIrange{1.5}{248}{Hz} (estimated by summing the power in alternate bands).
-Throughout Figures \ref{fig:lam_3} and S\ref{fig:lam_3}, datapoints are shown at the band centres.
-
-
-\subsection{Information as a function of depth and frequency}
-
-Power in each band was computed as above, then for each frequency band and depth we took a 10-bin histogram of the power across all the \SI{50}{\milli\second} windows for all repetitions.
-The bin edges were chosen such that \SI{10}{\percent} of the distribution fell into each bin, and the identity of which bin the window was allocated into was taken to be its ``stimulus''.
-We found the mutual information between the response and which frame was on screen at that time --- the ``stimulus'' --- by computing the Shannon information using the information breakdown toolbox \citep{Magri2009}.
-Bias due to undersampling was corrected for using the \ac{PT} method \citep{Treves1995}.
-Each information calculation was also bootstrapped 20 times with a randomly shuffled mapping of stimulus to response (also bias-corrected).
-To ensure the amount of information was statistically significant, we checked each information estimate exceeded the bootstrap mean by more than 3 standard deviations of the bootstrap values.
-The bootstrap mean was then subtracted from the estimated information, to counter any residual bias.
-
-
-\subsection{Cortical Distribution of Power}
-
-For each session, the distribution of power across the cortical depth (Fig.~\ref{fig:lam_2}A--B right-hand insets) was determined by normalising the power at each depth by the summed power across all cortical depths for that band.
-We then took an average across sessions, weighted by the number of cortical recording sites in each session to prevent faulty (omitted) electrode contact sites from distorting the result.
-
-
-\subsection{Information Redundancy}
-
-Information redundancy was computed with the same stimuli windows as used in the information calculations.
-However, for this calculation power was binned using only 3 bins, each containing a third of the power datapoints across all repetitions of the movie stimulus.
-Let $S$ denote the set of stimuli, and let $X$ and $Y$ each be the set of powers during each stimulus in one of the frequency bands at a particular depth.
-The information in each $\I\left(X;S\right)$ and $\I(Y;S)$ was computed in the same manner as above.
-The information in the joint distribution $\I(\left\{X,Y\right\};S)$ was computed by considering each combination of the binned $X$ and $Y$ as a different response, yielding a total of 9 different responses for $\{X,Y\}$.
-
-The relative redundancy is then defined as
-\begin{equation*}
-\operatorname{Redundancy}=\frac{\I\left(X;S\right)+\I\left(Y;S\right)-\I\left(\left\{X,Y\right\};S\right)}{\I\left(\left\{X,Y\right\};S\right)}
-\end{equation*}
-and was computed using the information breakdown toolbox \citep{Magri2009}.
-
-
-\subsection{Information about Spatial Components}
-
-The method to find the change in luminance in each spatial frequency band is illustrated in Fig.~\ref{fig:lam_4}.
-First, we took the 2D fast-Fourier transform of a \SI{224}{px} square from the movie.
-A fourth-order Butterworth filter with a width of one octave was applied using a mask in the Fourier domain, and the result was projected back to the spatial domain.
-We then took the pixel-wise difference between each spatially filtered pair of consecutive frames.
-To provide a measure of the amount of change in luminance at this spatial resolution, we took the absolute amount of change in each pixel and summed this within a \SI{2}{\degree} diameter circular window centred at the receptive field location.
-
-Applying this to the entire movie provided a temporal sequence of luminance changes in each spatial range.
-Similar to before, we took a 10-bin histogram and took the identity the bin in which each luminance change fell to be the ``stimulus''.
-The mutual information between this stimulus and the neural response --- the power within \SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz} frequency bands --- was computed with a \SI{67}{\milli\second} lag between stimulus and response.
-
-
-\subsection{Information about Fine and Coarse Luminance Changes}
-
-Coarse and fine luminance changes in the stimulus were isolated in the same manner as the spatial components above, but using a low-pass (\SI{<0.3}{\cpd}) and high-pass (\SI{>1}{\cpd}) fourth-order Butterworth filter respectively.
-For both the \SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz} \ac{CSD} powers, we computed the correlation and mutual information with the coarse and fine luminance changes, and averaged across sessions.
-
-
-\subsection{Information lag between granular and infragranular compartments}
-
-The information about fine and coarse stimuli contained in \SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz} neural frequency bands was computed as a function of the lag between stimulus and response, in steps of \SI{1.73}{\milli\second}.
-For each cortical recording depth, we found determined the latency of the response as the lag which gave the maximum amount of information about the stimulus.
-This step was performed for each session individually.
-Since differences in latency from stimulation to \ac{V1} were larger between different sessions than between different depths for the same session, we found for each session and each frequency band the overall latency as the mean latency across all cortical depths.
-For each session, we then subtracted its overall latency from the distribution of latencies across the cortical depth to create zero-centred distributions across recording depths.
-From the zero-centred latency distributions we then computed the average relative latency and its standard error across sessions.
-To make the data easier to conceptualise, for Fig.~\ref{fig:lam_6}C the average overall latency across sessions was added back to each trace.
-
-To perform the statistical test, the relative latency was averaged across the five electrode contacts in \ac{IG} and also averaged across the three contacts in \ac{G}.
-A paired t-test was performed across all 6 sessions to test whether the maximum information in the \ac{G} compartment consistently occurred earlier than information in the \ac{IG} compartment.
-
-For Fig.~\ref{fig:lam_6}D, the difference in information latency between each pairs of electrode depths was tested for statistical significance using a paired t-test, with insignificant differences shown in white.
-
-
-\subsection{Cross-Frequency Phase-Amplitude Coupling}
-
-Strength of cross-frequency coupling was measured using the Modulation Index \citep{Tort2010}.
-\ac{CSD} data was filtered for two bands, \SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz}, using a zero-phase sixth-order Butterworth filter, and the instantaneous phase of \SIrange{4}{16}{Hz} and envelope amplitude of \SIrange{60}{170}{Hz} were each estimated using a Hilbert transform.
-We took a histogram of the \SIrange{4}{16}{Hz} phase datapoints with 16 bins each of width $\nicefrac{\pi}{8}$ radians, and took the average of the \SIrange{60}{170}{Hz} amplitudes simultaneous with the phase datapoints in each bin.
-This provides a distribution of amplitude at one depth as a function of phase at another.
-The Modulation Index is then the normalised Kullback-Leibler divergence of this distribution from a uniform distribution.
