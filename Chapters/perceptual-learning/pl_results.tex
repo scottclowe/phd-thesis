@@ -434,6 +434,12 @@ The \ac{PT} bias correction method was used, without further correction to the r
 \end{figure}
 
 
+For some channels, the measured information was a \textit{negative} value.
+Consequently, the violin plots in \autoref{fig:info_sess_1x527} showing the distribution of information values across channels extend below \num{0}.
+This is not because these channels contain a negative amount of information about the stimulus --- in fact it is mathematically impossible for there to be less than \num{0} mutual information between two random variables (see \autoref{eq:info} and its discussion).
+Instead, this observation negative value is due to the inherent uncertainty of our measurement of mutual information, which we corrected against the finite-sampling upward bias using the \ac{PT} method.
+If we were to measure two completely independent events and perfectly correct for the bias due to finite sampling, our measurements of the information would be distributed around \num{0}.
+
 As described in \autoref{sec:pl_dprime_discuss}, the non-significant reduction of information witnessed for \ac{M1} \ac{V1} is most likely explained by the unavoidable reduction of recording signal quality over time.
 However, one channel had a large increase in information content against the trend observed for other channels on this electrode array (see \autoref{fig:info_sess_1x527_v1_blanco}, right panel).
 This channel is one of a minority whose response profile changes completely between consecutive sessions, and so the sudden large increase in information is most likely due to a small movement in the electrode contact changing which neurons are measured in the data.
