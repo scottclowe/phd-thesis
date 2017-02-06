@@ -754,6 +754,25 @@ This shortage of trials per stimulus condition results means the \ac{PT} bias co
 This is illustrated in \autoref{fig:I_vs_invN}, where we compare with the estimated information with the reciprocal number of trials, $\nicefrac{1}{N}$, and find a linear correlation.
 This is in keeping with the literature, since $\I_{\text{measured}}$ is known to be proportional to $\nicefrac{1}{N}$ if no bias correction is performed \citep{Treves1995}.
 
+Without correcting for the bias due to finite sampling, the correlation between $\nicefrac{1}{N}$ and $\I_{\text{measured}}$ is large and significant.
+For \ac{V1}, the Pearson's correlation coefficient between them was $R=0.99$ and $0.98$ for \ac{M1} and \ac{M2} respectively, which was a significant correlation ($p < 2 \times 10^{-13}$ and $p < 8 \times 10^{-16}$).
+For \ac{V4}, $R=0.98$ and $R=0.92$ with p-values $p < 2 \times 10^{-14}$ and $p < 2 \times 10^{-10}$.
+But even if we correct for the bias with \ac{PT} or \ac{QE}, the correlation remains large ($R>0.4$) and significant ($p<0.04$) for all datasets except \ac{M2} \ac{V1} with \ac{PT}, where $R=+0.27$ and $p=0.23$.
+The correlation is strongest for \ac{M1} \ac{V1}, with $R>0.89$ and $p < 1 \times 10^{-6}$ with either \ac{PT} or \ac{QE} bias correction.
+
+% NvsI labels=balanced, with 0 bootstraps
+% blanco v1  Uncorrected      R=+0.9885  p=0.0000=1.024875e-13
+% blanco v1  PT               R=+0.8975  p=0.0000=1.033385e-06
+% blanco v1  QE               R=+0.9102  p=0.0000=3.978039e-07
+% blanco v4  Uncorrected      R=+0.9760  p=0.0000=1.053752e-14
+% blanco v4  PT               R=+0.7297  p=0.0001=1.161034e-04
+% blanco v4  QE               R=+0.5219  p=0.0127=1.273388e-02
+% jack   v1  Uncorrected      R=+0.9816  p=0.0000=7.413434e-16
+% jack   v1  PT               R=+0.2669  p=0.2299=2.299408e-01
+% jack   v1  QE               R=+0.4432  p=0.0389=3.885677e-02
+% jack   v4  Uncorrected      R=+0.9210  p=0.0000=1.773235e-10
+% jack   v4  PT               R=+0.6295  p=0.0010=9.804887e-04
+% jack   v4  QE               R=+0.5349  p=0.0071=7.081659e-03
 
 \begin{figure}[htbp]
     \centering
@@ -799,93 +818,7 @@ Instead, we focus on the three other --- more practical --- methods, whose outco
 
 
 %------------------------------------
-\subsection{Bootstrap correction}
-\label{sec:pl_bootstrapping}
-
-Shuffling the responses across stimuli destroys the information contained in the response about the stimulus.
-By performing such shuffling and computing the amount of information between the randomly paired labels, we can estimate the bias \citep{Optican1991}.
-Using this in conjunction with a bias correction technique such as \ac{PT} both when performing the original and bootstrapped information calculation allows us to estimate the residual bias after on the corrected value.
-As described in \autoref{sec:info-bias} and by \citet{Panzeri1996}, this will typically lead to an overestimate of the bias.
-However, since our residual bias will be significantly reduced beforehand due to the \ac{PT} technique, the overestimation is on a much smaller residual bias and impacts the results less.
-
-\begin{figure}[htbp]
-    \centering
-    \hspace*{\fill}
-    \subfloat[][\ac{M1} \ac{V1}.\label{fig:I_vs_invN_btsp_v1_blanco}]{%
-        \includegraphics[scale=.45]{%
-figs/info2/bias/ntrials_I_vs_invN_combindivpap_leg_blanco_v1_14chn_Gbalanced_1bins_of_527ms_btsp20.eps}}
-    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
-    \subfloat[][\ac{M2} \ac{V1}.\label{fig:I_vs_invN_btsp_v1_jack}]{%
-        \includegraphics[scale=.45]{%
-figs/info2/bias/ntrials_I_vs_invN_combindivpap_blanco_v4_25chn_Gbalanced_1bins_of_527ms_btsp20.eps}}
-    \hspace*{\fill}
-    \\
-    \hspace*{\fill}
-    \subfloat[][\ac{M1} \ac{V4}.\label{fig:I_vs_invN_btsp_v4_blanco}]{%
-        \includegraphics[scale=.45]{%
-figs/info2/bias/ntrials_I_vs_invN_combindivpap_jack_v1_20chn_Gbalanced_1bins_of_527ms_btsp20.eps}}
-    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
-    \subfloat[][\ac{M2} \ac{V4}.\label{fig:I_vs_invN_btsp_v4_jack}]{%
-        \includegraphics[scale=.45]{%
-figs/info2/bias/ntrials_I_vs_invN_combindivpap_jack_v4_18chn_Gbalanced_1bins_of_527ms_btsp20.eps}}
-    \hspace*{\fill}
-    \caption{
-    Distribution of measured information, with bootstrap bias correction, as a function of $\nicefrac{1}{N}$, where $N$ is the number of trials in the session.
-Results are shown with bias correction either achieved solely from subtracting the information contained in response-shuffled copies of the data (bootstraps; grey circles), or by combining this with a more principled bias correction technique (\ac{PT}, red squares; \ac{QE}, blue diamonds).
-}
-    \label{fig:I_vs_invN_btsp}
-\end{figure}
-
-We find that using bootstrapping for the bias correction does indeed overestimate the bias, resulting in a negative correlation between information and $\nicefrac{1}{N}$.
-This effect is particularly dominant for the \ac{M1} \ac{V4} dataset (see \autoref{fig:I_vs_invN_btsp_v4_blanco}).
-
-%------------------------------------
-\subsection{Grouping stimuli together}
-\label{sec:pl_bias_grouping}
-
-During the experiment, the subject is tasked with determining whether the stimulus contrast is higher or lower than the \SI{30}{\percent} sample stimulus presented at the start of each trial.
-As a consequence of this, the subject does not need to learn exactly what stimulus is on screen, only whether the stimulus is in the half above or below \SI{30}{\percent} contrast.
-For instance, since the target output is the same for \SI{31}{\percent} and \SI{32}{\percent} contrast stimuli, there is no need for the subject to discriminate between them, but there is motivation for the subject to learn to discriminate between these and the \SI{29}{\percent} contrast stimulus.
-
-We refer to the subset of information which assists in decoding whether the stimulus was higher or lower than the \SI{30}{\percent} threshold as the task-pertinent information, and discuss this in \autoref{sec:task-info}.
-For now, we will only consider the impact on the residual information bias when we restrict ourselves to measuring only the task-pertinent information.
-In this calculation, we determine how much information the firing rate provides is with about which group the stimulus is in (higher or lower) instead of the information about precisely which of the \num{14} stimuli was on screen.
-Grouping the stimuli together in this way should reduce the residual bias, since there are only two class labels, and \num{7} times as many trials per class.
-
-
-\begin{figure}[htbp]
-    \centering
-    \hspace*{\fill}
-    \subfloat[][\ac{M1} \ac{V1}.\label{fig:I_vs_invN_target-group_v1_blanco}]{%
-        \includegraphics[scale=.45]{%
-figs/info2/bias/ntrials_I_vs_invN_combindivpap_leg_blanco_v1_14chn_Gclass-group-balanced_1bins_of_527ms.eps}}
-    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
-    \subfloat[][\ac{M2} \ac{V1}.\label{fig:I_vs_invN_target-group_v1_jack}]{%
-        \includegraphics[scale=.45]{%
-figs/info2/bias/ntrials_I_vs_invN_combindivpap_blanco_v4_25chn_Gclass-group-balanced_1bins_of_527ms.eps}}
-    \hspace*{\fill}
-    \\
-    \hspace*{\fill}
-    \subfloat[][\ac{M1} \ac{V4}.\label{fig:I_vs_invN_target-group_v4_blanco}]{%
-        \includegraphics[scale=.45]{%
-figs/info2/bias/ntrials_I_vs_invN_combindivpap_jack_v1_20chn_Gclass-group-balanced_1bins_of_527ms.eps}}
-    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
-    \subfloat[][\ac{M2} \ac{V4}.\label{fig:I_vs_invN_target-group_v4_jack}]{%
-        \includegraphics[scale=.45]{%
-figs/info2/bias/ntrials_I_vs_invN_combindivpap_jack_v4_18chn_Gclass-group-balanced_1bins_of_527ms.eps}}
-    \hspace*{\fill}
-    \caption{Distribution of task-pertinent information measured as a function of $\nicefrac{1}{N}$, where $N$ is the number of trials in the session.
-Results are shown both without correcting for the finite measurement bias (grey circles), using \ac{PT} bias correction (red squares), and using \ac{QE} bias correction (blue diamonds).
-}
-    \label{fig:I_vs_invN_target-group}
-\end{figure}
-
-
-As anticipated, using only two stimulus classes to increase the number of trials per stimulus class greatly reduces the residual bias after \ac{PT} bias correction.
-This is witnessed in the reduced correlation between estimated information and $\nicefrac{1}{N}$ seen in \autoref{fig:I_vs_invN_target-group}.
-
-%------------------------------------
-\subsection{Trial-wise analysis}
+\subsubsection{Trial-wise analysis}
 
 We now consider what happens if we group together trials from multiple sessions into a single block and analyse them together.
 Doing so allows us overcome the difference in bias between sessions, since the same number of trials would be used in each block and this can be set large enough to ensure we are in the correct domain for bias correction perform adequately.
@@ -936,6 +869,287 @@ We find that grouping trials together in this way smooths out the problems with 
 But because of both changes in neural connectivity and small movement in the electrode contacts between sessions, the neural code is not guaranteed to be the same between sessions.
 Indeed, we observed a peak in the estimated information corresponding to longer sessions where the trial sample size is smaller than or a similar size to the number of trials grouped together in each block (not shown\footnote{This phenomena occurred when the analysis was repeated with a smaller number of trials grouped together, and is not present in \autoref{fig:info_trial_1x527_balanced} due to the smoothing effect of using such large blocks of \num{1400} trials.}).
 For this reason, it is prudent not to proceed with such a methodology.
+
+
+%------------------------------------
+\subsubsection{Bootstrap correction}
+\label{sec:pl_bootstrapping}
+
+Shuffling the responses across stimuli destroys the information contained in the response about the stimulus.
+By performing such shuffling and computing the amount of information between the randomly paired labels, we can estimate the bias \citep{Optican1991}.
+Using this in conjunction with a bias correction technique such as \ac{PT} both when performing the original and bootstrapped information calculation allows us to estimate the residual bias after on the corrected value.
+As described in \autoref{sec:info-bias} and by \citet{Panzeri1996}, this will typically lead to an overestimate of the bias.
+However, since our residual bias will be significantly reduced beforehand due to the \ac{PT} technique, the overestimation is on a much smaller residual bias and impacts the results less.
+
+% NvsI labels=balanced, with 20 bootstraps
+% blanco v1  Bootstrap only   R=-0.3902  p=0.1215=1.215061e-01
+% blanco v1  PT+bootstrap     R=+0.2973  p=0.2466=2.465723e-01
+% blanco v1  QE+bootstrap     R=+0.1933  p=0.4573=4.572829e-01
+% blanco v4  Bootstrap only   R=-0.8344  p=0.0000=1.386421e-06
+% blanco v4  PT+bootstrap     R=-0.5180  p=0.0135=1.354094e-02
+% blanco v4  QE+bootstrap     R=-0.4462  p=0.0374=3.740192e-02
+% jack   v1  Bootstrap only   R=-0.9191  p=0.0000=1.538829e-09
+% jack   v1  PT+bootstrap     R=-0.7222  p=0.0001=1.473099e-04
+% jack   v1  QE+bootstrap     R=-0.8153  p=0.0000=3.786844e-06
+% jack   v4  Bootstrap only   R=+0.1556  p=0.4679=4.679280e-01
+% jack   v4  PT+bootstrap     R=+0.3521  p=0.0915=9.150274e-02
+% jack   v4  QE+bootstrap     R=+0.2892  p=0.1705=1.705225e-01
+
+\begin{figure}[htbp]
+    \centering
+    \hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V1}.\label{fig:I_vs_invN_btsp_v1_blanco}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/bias/ntrials_I_vs_invN_combindivpap_leg_blanco_v1_14chn_Gbalanced_1bins_of_527ms_btsp20.eps}}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\ac{M2} \ac{V1}.\label{fig:I_vs_invN_btsp_v1_jack}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/bias/ntrials_I_vs_invN_combindivpap_blanco_v4_25chn_Gbalanced_1bins_of_527ms_btsp20.eps}}
+    \hspace*{\fill}
+    \\
+    \hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V4}.\label{fig:I_vs_invN_btsp_v4_blanco}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/bias/ntrials_I_vs_invN_combindivpap_jack_v1_20chn_Gbalanced_1bins_of_527ms_btsp20.eps}}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\ac{M2} \ac{V4}.\label{fig:I_vs_invN_btsp_v4_jack}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/bias/ntrials_I_vs_invN_combindivpap_jack_v4_18chn_Gbalanced_1bins_of_527ms_btsp20.eps}}
+    \hspace*{\fill}
+    \caption{
+    Distribution of measured information, with bootstrap bias correction, as a function of $\nicefrac{1}{N}$, where $N$ is the number of trials in the session.
+Results are shown with bias correction either achieved solely from subtracting the information contained in response-shuffled copies of the data (bootstraps; grey circles), or by combining this with a more principled bias correction technique (\ac{PT}, red squares; \ac{QE}, blue diamonds).
+}
+    \label{fig:I_vs_invN_btsp}
+\end{figure}
+
+We find that using bootstrapping for the bias correction does indeed overestimate the bias, resulting in a negative correlation between information and $\nicefrac{1}{N}$.
+This effect is particularly problematic for the \ac{V1} dataset of \ac{M2}, where the correlation was $R<-0.72$ ($p < 2 \times 10^{-4}$, see \autoref{fig:I_vs_invN_btsp_v4_blanco}), and the \ac{V4} \ac{M1} dataset, where the correlation was $R<-0.44$ ($p<0.038$; see \autoref{fig:I_vs_invN_btsp_v4_blanco}) even with bias correction with \ac{PT} or \ac{QE} in addition to using bootstrapping.
+
+
+%------------------------------------
+\subsubsection{Grouping stimuli together}
+\label{sec:pl_bias_grouping}
+
+During the experiment, the subject is tasked with determining whether the stimulus contrast is higher or lower than the \SI{30}{\percent} sample stimulus presented at the start of each trial.
+As a consequence of this, the subject does not need to learn exactly what stimulus is on screen, only whether the stimulus is in the half above or below \SI{30}{\percent} contrast.
+For instance, since the target output is the same for \SI{31}{\percent} and \SI{32}{\percent} contrast stimuli, there is no need for the subject to discriminate between them, but there is motivation for the subject to learn to discriminate between these and the \SI{29}{\percent} contrast stimulus.
+
+We refer to the subset of information which assists in decoding whether the stimulus was higher or lower than the \SI{30}{\percent} threshold as the task-pertinent information, and discuss this in \autoref{sec:task-info}.
+For now, we will only consider the impact on the residual information bias when we restrict ourselves to measuring only the task-pertinent information.
+In this calculation, we determine how much information the firing rate conveys with about which group the stimulus is in (either higher or lower than \SI{30}{\percent}) instead of the information about precisely which of the \num{14} stimuli was on screen.
+Grouping the stimuli together in this way should reduce the residual bias, since there are only two class labels, and \num{7} times as many trials per class.
+
+% NvsI labels=class-group-balanced, with 0 bootstraps
+% blanco v1  Uncorrected      R=+0.8772  p=0.0000=3.781467e-06
+% blanco v1  PT               R=+0.4219  p=0.0916=9.160507e-02
+% blanco v1  QE               R=+0.3199  p=0.2107=2.107306e-01
+% blanco v4  Uncorrected      R=+0.7099  p=0.0002=2.147909e-04
+% blanco v4  PT               R=-0.2121  p=0.3432=3.432192e-01
+% blanco v4  QE               R=-0.1467  p=0.5147=5.146635e-01
+% jack   v1  Uncorrected      R=-0.0987  p=0.6622=6.622243e-01
+% jack   v1  PT               R=-0.5068  p=0.0161=1.608558e-02
+% jack   v1  QE               R=-0.4722  p=0.0265=2.650028e-02
+% jack   v4  Uncorrected      R=+0.5166  p=0.0098=9.753770e-03
+% jack   v4  PT               R=+0.3385  p=0.1056=1.056310e-01
+% jack   v4  QE               R=+0.3779  p=0.0687=6.868195e-02
+
+\begin{figure}[htbp]
+    \centering
+    \hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V1}.\label{fig:I_vs_invN_target-group_v1_blanco}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/bias/ntrials_I_vs_invN_combindivpap_leg_blanco_v1_14chn_Gclass-group-balanced_1bins_of_527ms.eps}}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\ac{M2} \ac{V1}.\label{fig:I_vs_invN_target-group_v1_jack}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/bias/ntrials_I_vs_invN_combindivpap_blanco_v4_25chn_Gclass-group-balanced_1bins_of_527ms.eps}}
+    \hspace*{\fill}
+    \\
+    \hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V4}.\label{fig:I_vs_invN_target-group_v4_blanco}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/bias/ntrials_I_vs_invN_combindivpap_jack_v1_20chn_Gclass-group-balanced_1bins_of_527ms.eps}}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\ac{M2} \ac{V4}.\label{fig:I_vs_invN_target-group_v4_jack}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/bias/ntrials_I_vs_invN_combindivpap_jack_v4_18chn_Gclass-group-balanced_1bins_of_527ms.eps}}
+    \hspace*{\fill}
+    \caption{Distribution of task-pertinent information measured as a function of $\nicefrac{1}{N}$, where $N$ is the number of trials in the session.
+Results are shown both without correcting for the finite measurement bias (grey circles), using \ac{PT} bias correction (red squares), and using \ac{QE} bias correction (blue diamonds).
+}
+    \label{fig:I_vs_invN_target-group}
+\end{figure}
+
+% jack   v1  PT               R=-0.5068  p=0.0161=1.608558e-02
+% jack   v1  QE               R=-0.4722  p=0.0265=2.650028e-02
+
+As anticipated, using only two stimulus classes to increase the number of trials per stimulus class greatly reduces the residual bias after \ac{PT} bias correction.
+This is witnessed in the reduced correlation between estimated information and $\nicefrac{1}{N}$ seen in \autoref{fig:I_vs_invN_target-group}.
+Here we find all correlations a negative correlation between $\nicefrac{1}{N}$ and $\I_\text{measured}$ are reduced and no longer significant, with the exception of \ac{M2} \ac{V1}, where $R<-0.47$ for both \ac{PT} and \ac{QE} ($p < 0.027$).
+
+
+% NvsI labels=class-group-balanced, with 20 bootstraps
+% blanco v1  Bootstrap only   R=+0.1094  p=0.6761=6.760702e-01
+% blanco v1  PT+bootstrap     R=+0.2521  p=0.3289=3.289116e-01
+% blanco v1  QE+bootstrap     R=+0.3561  p=0.1606=1.605954e-01
+% blanco v4  Bootstrap only   R=-0.5102  p=0.0153=1.527968e-02
+% blanco v4  PT+bootstrap     R=-0.3781  p=0.0828=8.275556e-02
+% blanco v4  QE+bootstrap     R=-0.3782  p=0.0827=8.269350e-02
+% jack   v1  Bootstrap only   R=-0.6472  p=0.0011=1.129821e-03
+% jack   v1  PT+bootstrap     R=-0.5479  p=0.0083=8.294715e-03
+% jack   v1  QE+bootstrap     R=-0.5987  p=0.0032=3.240925e-03
+% jack   v4  Bootstrap only   R=+0.2816  p=0.1825=1.824586e-01
+% jack   v4  PT+bootstrap     R=+0.3061  p=0.1457=1.456950e-01
+% jack   v4  QE+bootstrap     R=+0.3352  p=0.1094=1.093618e-01
+
+\begin{figure}[htbp]
+    \centering
+    \hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V1}.\label{fig:I_vs_invN_target-group_btsp_v1_blanco}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/bias/ntrials_I_vs_invN_combindivpap_leg_blanco_v1_14chn_Gclass-group-balanced_1bins_of_527ms_btsp20.eps}}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\ac{M2} \ac{V1}.\label{fig:I_vs_invN_target-group_btsp_v1_jack}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/bias/ntrials_I_vs_invN_combindivpap_blanco_v4_25chn_Gclass-group-balanced_1bins_of_527ms_btsp20.eps}}
+    \hspace*{\fill}
+    \\
+    \hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V4}.\label{fig:I_vs_invN_target-group_btsp_v4_blanco}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/bias/ntrials_I_vs_invN_combindivpap_jack_v1_20chn_Gclass-group-balanced_1bins_of_527ms_btsp20.eps}}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\ac{M2} \ac{V4}.\label{fig:I_vs_invN_target-group_btsp_v4_jack}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/bias/ntrials_I_vs_invN_combindivpap_jack_v4_18chn_Gclass-group-balanced_1bins_of_527ms_btsp20.eps}}
+    \hspace*{\fill}
+    \caption{Distribution of task-pertinent information measured with bootstrap correction as a function of $\nicefrac{1}{N}$, where $N$ is the number of trials in the session.
+Results are shown both without correcting for the finite measurement bias (grey circles), using \ac{PT} bias correction (red squares), and using \ac{QE} bias correction (blue diamonds).
+}
+    \label{fig:I_vs_invN_target-group_btsp}
+\end{figure}
+
+% blanco v1  sess_num vs num_trials R=+0.2160  p=0.4049=4.049432e-01
+% blanco v4  sess_num vs num_trials R=+0.1177  p=0.6020=6.020201e-01
+% jack   v1  sess_num vs num_trials R=+0.4183  p=0.0527=5.271421e-02
+% jack   v4  sess_num vs num_trials R=-0.1010  p=0.6388=6.387740e-01
+
+We can also consider applying the bootstrap correction from \autoref{sec:pl_bootstrapping} in addition to reducing the number of stimulus labels to the two groups, shown in \autoref{fig:I_vs_invN_target-group_btsp}.
+Using all three bias reduction techniques (including either \ac{PT} or \ac{QE}), the correlation for \ac{M2} \ac{V1} was still significant ($p < 0.008$), with $R<-0.54$.
+We believe this correlation, which only causes a small change in magnitude of the measured information, is because subject \ac{M2} had a tendency to train for longer as the sessions progressed, but only with the stimulus in the retinotopic location for \ac{V1}.
+For this dataset, there was a correlation between the number of sessions elapsed and the number of trials in the session of $R=+0.42$, which was noteworthy but did not exceed our criteria for significance ($p=0.053$).
+None of the other datasets had a comparable level of correlation between the number of the session and how many trials were collected ($|R|<0.22$ with $p > 0.4$).
+
+Using bootstrapping to correct for residual bias, the correlations between $\nicefrac{1}{N}$ and $\I_\text{measured}$ are slightly smaller for \ac{PT} than \ac{QE}, though the values are very similar and no claim justifiably be made about which technique gives superior bias correction.
+Since the \ac{PT} method is faster to compute, we chose to use this for the rest of our analysis.
+
+
+%------------------------------------------------------------------------------
+\subsection{Final results}
+\label{sec:pl_initial_final}
+
+After removing channels with sudden changes in firing rate between consecutive sessions, correcting for the change in stimulus class balance by subsampling, restricting our analysis to only consider task-pertinent information about the grouping of the stimulus (whether it exceeds \SI{30}{\percent} contrast), and using both the \ac{PT} method and bootstrapping to correct for the finite sampling bias on the measured information, we can present our results concerning the amount of information contained in the firing rate collected during stimulus presentation from one channel at a time.
+These results are shown in \autoref{fig:info_sess_1x527_final}.
+
+% blanco v1 1x527.00ms
+% dr pt
+% Loaded all the Channel data
+% Making channel-wise mean plots
+% A = [0.0263513164741615;0.0492889293157723;0.0075803143388116;0.0508811816684652;0.181817477043575;0.0728036089830557;0.129834989773168;0.0661952513062295;0.0621892062745833;-0.00867177560800424;-0.00881375156631541;-0.000908324100121279;0.0200203334844756;0.00418077875488221]
+% B = [0.00344224728918875;0.0336040302684011;0.0233970080545657;0.0113474056683913;0.0295709625247833;0.04559457388278;0.0559826504777502;0.106617803353748;0.107535179757936;-0.00204472151589122;-0.00210168368898357;-0.00199088866176536;0.0353139645451868;0.00222400068322364]
+% ttest A vs Gaussian distributed around 0
+% n=14  h=1.000000  p=0.007382=7.381796e-03   mean = +0.046625+/-0.014708
+% ttest B vs Gaussian distributed around 0
+% n=14  h=1.000000  p=0.006384=6.384010e-03   mean = +0.032035+/-0.009871
+% paired ttest (B-A) vs Gaussian distributed around 0
+% n=14  h=0.000000  p=0.298243=2.982432e-01   delta = -0.014590+/-0.013465 = -31.291788%+/-28.915818%
+% rule of thumb:  bandwidth=0.033135 bandwidth=0.022238
+% same bandwidth bw = 0.011119 used for all cols
+% YLIM4 = [-0.0278768744273044 0.200880599904564];
+%
+% jack v1 1x527.00ms
+% dr pt
+% Loaded all the Channel data
+% Making channel-wise mean plots
+% A = [0.234261876394671;0.244258770875817;0.253119355560483;0.252321488621297;0.263152107090386;0.0776136546137419;0.234176820567147;0.270455344041832;0.204247530979219;0.186820197640031;0.330754313457156;0.284278786257535;0.207208154880328;0.237082380942939;0.142624822526156;0.117505612586168;0.24076879605944;0.171910341429034;0.190791427465506;0.23839791717482]
+% B = [0.267382526237437;0.314850628620244;0.372019102689498;0.320479276784213;0.346050692478794;0.0855907194301428;0.303656705456826;0.358222369097515;0.274134236266089;0.234856045872157;0.376928924925895;0.305946701986191;0.346550003749037;0.276845317550644;0.0628678657966066;0.189602067052242;0.311071685108738;0.25370066699549;0.204869541660158;0.248930255870547]
+% ttest A vs Gaussian distributed around 0
+% n=20  h=1.000000  p=0.000000=9.437089e-13   mean = +0.219087+/-0.013222
+% ttest B vs Gaussian distributed around 0
+% n=20  h=1.000000  p=0.000000=1.371835e-11   mean = +0.272728+/-0.019155
+% paired ttest (B-A) vs Gaussian distributed around 0
+% n=20  h=1.000000  p=0.000056=5.575874e-05   delta = +0.053640+/-0.010397 = +24.483499%+/-4.926184%
+% rule of thumb:  bandwidth=0.033531 bandwidth=0.048577
+% same bandwidth bw = 0.016766 used for all cols
+% YLIM4 = [0.0314617598836777 0.408335030838824];
+%
+% blanco v4 1x527.00ms
+% dr pt
+% Loaded all the Channel data
+% Making channel-wise mean plots
+% A = [0.124379420736147;0.0680105400549035;0.0113903175984155;0.0842354305154156;0.112078755529876;0.0244515660835699;0.0120463387884198;-0.00311321051266301;0.199107396467802;0.00425727214051637;0.0918216678863861;0.00825279555130151;0.00100051631684192;0.0303046125040112;0.0102896954470163;0.0360698242657946;-0.00271069522065233;0.200258687708227;0.0520111002082111;0.0394563766285597;0.00742444680336003;0.00559675757124126;-0.00107963951971073;0.164378997862584;0.126326267998808]
+% B = [0.128855275471535;0.0370267606692066;0.0191039799255678;0.0340572675788458;0.208430337904543;0.0158328441692709;0.00523091741002646;0.0101154545271706;0.210442309599915;0.00392932810073314;0.187264326212089;0.0470884685003672;0.0105670494241102;0.000147758068998901;0.00959884041155736;0.00602912566322126;0.0550594838807562;0.031876079284514;0.0679872007975889;0.109195758078887;0.0672766310669681;0.0610152398117247;0.00137323657222497;0.200373327450308;0.152106035032291]
+% ttest A vs Gaussian distributed around 0
+% n=25  h=1.000000  p=0.000207=2.067409e-04   mean = +0.056250+/-0.012875
+% ttest B vs Gaussian distributed around 0
+% n=25  h=1.000000  p=0.000097=9.679818e-05   mean = +0.067199+/-0.014398
+% paired ttest (B-A) vs Gaussian distributed around 0
+% n=25  h=0.000000  p=0.314715=3.147148e-01   delta = +0.010950+/-0.010663 = +19.465865%+/-18.999943%
+% rule of thumb:  bandwidth=0.035096 bandwidth=0.039248
+% same bandwidth bw = 0.017548 used for all cols
+% YLIM4 = [-0.0244687625239208 0.231797861611172];
+%
+% jack v4 1x527.00ms
+% dr pt
+% Loaded all the Channel data
+% Making channel-wise mean plots
+% A = [0.0332347928500231;0.00692838691906155;0.00710946491673007;0.000136315350772127;0.0397484351682831;0.0527835600228851;0.0272081086523695;0.00305198735316775;0.00231284078159238;-0.00665026320837837;0.000964565694984376;0.0299409819635785;0.00255415087931287;-0.00132249571631523;0.00765476893492079;0.0290948543829351;-0.00280585886621814;0.00518731172187263]
+% B = [0.0768076699705184;0.0593229144042642;0.00272109129353949;0.073760620063407;0.0948807545387933;0.215886138191114;0.116355246903916;0.0183276009114406;-0.00600566043816498;0.0124365699247398;0.0215646353035782;0.12519236507893;0.00548453901750598;0.00842432501039692;0.0443612292422077;0.200776668564082;0.0306734768138243;0.0664969828867837]
+% ttest A vs Gaussian distributed around 0
+% n=18  h=1.000000  p=0.004918=4.917723e-03   mean = +0.013174+/-0.004078
+% ttest B vs Gaussian distributed around 0
+% n=18  h=1.000000  p=0.000591=5.914894e-04   mean = +0.064859+/-0.015414
+% paired ttest (B-A) vs Gaussian distributed around 0
+% n=18  h=1.000000  p=0.000557=5.567694e-04   delta = +0.051685+/-0.012202 = +392.328164%+/-92.620292%
+% rule of thumb:  bandwidth=0.009992 bandwidth=0.037763
+% same bandwidth bw = 0.004996 used for all cols
+% YLIM4 = [-0.0289039033483276 0.238139778331063];
+
+\begin{figure}[htbp]%
+    \centering
+    \hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V1}.\label{fig:info_sess_1x527_final_v1_blanco}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/bias/I_sessionwise_blanco_v1_chmean14_s343-359_oc0_Gclass-group-balanced_1bins_of_527ms_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\ac{M2} \ac{V1}.\label{fig:info_sess_1x527_final_v1_jack}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/bias/I_sessionwise_jack_v1_chmean20_s51-72_oc0_Gclass-group-balanced_1bins_of_527ms_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
+    \hspace*{\fill}
+    \\
+    \hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V4}.\label{fig:info_sess_1x527_final_v4_blanco}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/bias/I_sessionwise_blanco_v4_chmean25_s307,308,311,313,314,317,318,320,321,329-341_oc0_Gclass-group-balanced_1bins_of_527ms_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\ac{M2} \ac{V4}.\label{fig:info_sess_1x527_final_v4_jack}]{%
+        \includegraphics[scale=.45]{%
+figs/info2/bias/I_sessionwise_jack_v4_chmean18_s24,25,27-38,40-49_oc0_Gclass-group-balanced_1bins_of_527ms_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
+    \hspace*{\fill}
+    \caption{Task-pertinent information about the stimulus contained in the firing rate during \SI{527}{\milli\second} of stimulus presentation.
+Only task-pertinent information (whether the stimulus was higher or lower than \SI{30}{\percent} contrast) was included.
+The finite sampling bias was corrected for by using both the \ac{PT} method and by subtracting the average of \num{20} bootstrapped information measurements obtained by randomly pairing responses and stimulus labels.
+Main panels: the average over channels (\protect\subref{fig:fig:info_sess_1x527_final_v1_blanco}~\num{14} channels, \protect\subref{fig:fig:info_sess_1x527_final_v1_jack}~\num{20} channels, \protect\subref{fig:fig:info_sess_1x527_final_v4_blanco}~\num{25} channels, \protect\subref{fig:fig:info_sess_1x527_final_v4_jack}~\num{18} channels) with standard error across channels indicated by the shaded region.
+Right hand panels: distribution over channels of the information contained in the first three sessions (\zonename{A}) versus last three sessions (\zonename{B}), with mean (solid black line) and median (dashed green line) over channels indicated.
+The stimulus class imbalance was corrected using subsampling, as described in \autoref{sec:pl_class_imbalance}.
+}
+    \label{fig:info_sess_1x527_final}
+\end{figure}
+
+We found there was no significant change during training (comparing the first with the last three experimental sessions) in the information conveyed by the recording channels of \ac{V1} for \ac{M1} ($p=0.30$).
+However there was for \ac{M2} ($p < 6 \times 10^{-5}$), with an increase of \SI{+0.054\pm0.010}{bits} from \zonename{A} to \zonename{B}.
+For brain region \ac{V4}, there was also no significant change during training for \ac{M1} ($p=0.31$), but there was an increase of \SI{+0.052\pm0.012}{bits} for \ac{M2} ($p=0.00056$).
 
 
 %------------------------------------------------------------------------------
