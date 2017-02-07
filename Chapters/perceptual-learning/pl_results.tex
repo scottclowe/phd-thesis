@@ -2618,79 +2618,89 @@ The dataset which shows the largest improvement in decoder accuracy is \ac{M2} \
 
 %==============================================================================
 \section{Agreement between decoder and behavioural responses}
+\label{sec:pl_agreement}
 
-As well as comparing the behavioural and decoding responses with the target responses to find a value for predictor performance, we can compare the behavioural and decoding responses with one another and find a value for their agreement, the proportion of trials on which the two responses are the same.
+Previously, we speculated about the possibility of the subject's responses on each trial being governed by the activity in \ac{V4}.
+Should this hypothesis be correct, the classifications made by a decoder trained on the activity within \ac{V4} should, right or wrong, be the same as the responses given by the subject.
+We tested this by evaluating the response coincidence, or agreement, between the classifications made by the decoder and by the subject when behaviourally performing the discrimination task.
 
-We would like to evaluate whether the behavioural responses are dependent on the firing rates of the recorded population of neurons.
-This can be done by considering the behavioural and decoding response agreement, but in order to do this we need to construct a model of how much agreement we would expect to find if the two were completely independent, which will form our \ac{NH} to compare against.
+The response coincidence, $\xi$, was defined as the proportion of trials on which the two responses matched.
+However, to avoid changes in the response coincidence over time due to changes in the class balance, we measured the response coincidence for each stimulus class individually and then averaged over all the classes to find the overall response coincidence rate.
+If we express the behavioural response to a trial $t$ as $y_t$, and the decoder response $x_t$, then the response coincidence is given by
+\begin{equation}
+\label{eq:agreement}
+\xi = \frac{1}{|\SET{C}|} \sum_{c \in \SET{C}} \left( \frac{1}{|\SET{T_c}|} \sum_{t \in \SET{T_c}} \delta(x_t - y_t) \right)
+,\end{equation}
+where $\SET{C}$ is the set of all stimulus classes, and $\SET{T_c}$ is the set of trials where stimulus $c$ was presented.
+This methodology is similar to how the response accuracy was reported in the previous section.
 
 
 %------------------------------------------------------------------------------
 \subsection{Methods for comparing decoding and behavioural responses}
 \label{sec:dec-meth-prob}
 
-Throughout this work, it is assumed that the behavioural and decoding responses are given by a Bernoulli distribution.
-In this model, there is a true probability, $p$, of the animal giving the correct answer to the task for each trial, which is sampled from on each of the trials.
-When this is sampled over $n$ trials, we expect to find $np$ trials have been responded correctly and $n(1-p)$ incorrectly.
+In order to evaluate whether the response coincidence was significant, we must first construct a \acf{NH} model.
+This is important because the expected response coincidence rate is highly dependent on the accuracy of the two classifiers under consideration.
+For instance, if the behaviour and decoder are both \SI{50}{\percent} accurate, we na\"ively expect them to agree with each other \SI{50}{\percent} of the time.
+But if both are \SI{100}{\percent} accurate, by construction they must agree with each other \SI{100}{\percent} of the time as well.
+If we take an intermediate accuracy, the expected rate of agreement between the two classifiers will also be intermediate.
+For instance, if both are \SI{75}{\percent} accurate, they will both agree on the correct classification $0.75 \times 0.75 = 0.5625$ of the time and agree on the incorrect classification $0.25 \times 0.25 = 0.0625$, yielding a total expected agreement rate of \SI{62.5}{\percent}.
 
-Hence the underlying true probability of a correct response can be approximated by taking the number of correct responses and dividing them by the total number of trials.
-Using one of several statistical methods, we can find an estimate for a percentage confidence interval (PCI).
-It is from this that error bars, indicated by the shaded regions surrounding line plots in \autoref{fig:dec_all_v1} and \autoref{fig:dec_all_v4}, are computed.
-These are presented as the standard error, equivalent to a \SI{31.8}{\percent}  confidence interval within which \SI{68.2}{\percent} of data points are expected to lie.
-(This has been done using the function \texttt{binofit} in MATLAB, which utilises the Clopper-Pearson method.
-Although this is not the best method, it should be sufficient for our purposes.)
+In order to construct our \ac{NH} model, we assumed that the classifications made by the subject's behaviour and our decoder are sampled from a Bernoulli distribution, each with a fixed probability of being correct.
+(This assumption was implicitly made in the statements of the previous paragraph.)
+More specifically, we will use \num{14} Bernoulli distributions, one for each stimulus class, since we know the accuracy for either decoder or behaviour varies depending on the stimulus class.
 
-The behavioural performance is given by the estimated probability of the behavioural response being the same as the correct response, simply found by dividing the number of times the behavioural response matched the target response by the number of presentations.
-The target response is of course whether or not the test stimulus is actually higher or lower than the sample.
-Similarly, the decoding performance is the proportion of times the decoding response is the same as the target response; and the behavioural and decoding agreement is the proportion of times the behavioural and decoding responses are the same.
-
-Using the estimated probabilities of the behavioural and decoding responses being correct, we can find an expected agreement between the behavioural and decoding responses if they are completely independent of one another, which constitutes the \ac{NH}.
-By comparing the observed agreement with the agreement we expect for independent variables, we can see whether or not behavioural responses are correlated with the decoded neural responses.
-
-The theory behind the estimation of the agreement for independent binomial processes is described as follows.
-Let us take two independent binomial variables, $X_1$ and $X_2$, which can either be in state $s_1$ with probabilities $p_1$ and $p_2$ respectively, or in state $s_2$ with probability $(1-p_1)$ and $(1-p_2)$.
-If $X_1$ and $X_2$ are completely independent, we expect to find them in the same state with probability $p_1 \, p_2 + (1-p_1) (1-p_2)$.
-Obviously, if $p_1$ and $p_2$ are both 0.5, there is a 0.5 chance of them being in the same state.
-If $p_1$ and $p_2$ are both either higher or lower than 0.5, there is a higher chance of $X_1$ and $X_2$ being in the same state, and conversely if one is above and one below 0.5, there is a lower chance of them being in the same state.
-This means that if the probabilities of the behavioural and decoding responses being correct rises during the perceptual learning process, we expect the proportion of trials on which they agree to rise as well, even if the two distributions are completely independent.
-
-The initial model for the expected agreement between behaviour and decoding used a simple model as described above, where $p_1$ and $p_2$ are taken to be the overall probability of a correct response across all the test stimuli for behaviour and decoding respectively.
-We will refer to this model as the single binomial model, as each predictor is modelled with a single binomial.
-However, since there are 14 possible stimuli with varying difficulty, a more detailed model can be conceived in which the probability of a correct response for each predictor depends on the stimulus presented.
-In this ``multi-binomial'' model, the set of conditions (different stimuli) is given by $C$, and each predictor, $i\in\{b,d\}$, can either be in the ``lower'' or ``higher'' state ($s_l$ or $s_h$).
-For each $c\in C$, there is some probability $p_{il|c} := P(x_i=s_l|c)$ of predictor a being in the lower state.
-Consequently, the probability of the two predictors being in the same state is given by
+Let the probability that the behavioural response is correct when a stimulus from class $c$ is presented by $p_c$, and the probability that the decoder trained on the population activity is correct by $q_c$.
+It then follows that the expected agreement rate under this \acf{NH} is given by
 \begin{equation}
-p_a = \sum_{c\in C} P(c) (p_{bl|c} \, p_{dl|c} + (1-p_{bl|c}) (1-p_{dl|c})
+\label{eq:agreement_NH}
+\xi_\text{NH} = \frac{1}{|\SET{C}|} \sum_{c \in \SET{C}} \left( p_c \, q_c + (1 - p_c) \, (1 - q_c) \right)
 ,\end{equation}
-where $P(c)$ is the probability of condition $c$ being presented to the animal on any given trial.
+where $\SET{C}$ is the set of all stimulus classes, and $|\SET{C}|$ is the number of stimulus classes.
+We determined $p_c$ and $q_c$ empirically by measuring the accuracy of the subject's behavioural and decoder responses for each condition.
+The expected agreement $\xi_\text{NH}$ was then determined from these values using \autoref{eq:agreement_NH}.
 
-We will assume that $c$ is a random variable, which is sampled from for each trial independent from prior trials.
-This is a simplification of the actual condition selection process, ``delayed repetition''.
-In this, the conditions for a set of trials are chosen in advance with $n$ appearances of each condition in a random order, after which any trial on which the animal responded incorrectly is repeated.
-This means the single random variable approximation $P(c)$ is not uniform across the conditions, as harder conditions are presented more frequently.
+In order to test for significance whether the observed agreement deviated significantly from the \ac{NH}, we used bootstrapping.
+For each bootstrap, we generated a synthetic classification from both the behaviour and decoder for every trial of the experiment.
+The response for an individual trial was generated by randomly sampling two Bernoulli distributions with probabilities $p_c$ and $q_c$ respectively.
+Having generated synthetic responses for every trial, the bootstrapped agreement was found using \autoref{eq:agreement}.
+We repeated this for \num{100000} bootstraps, and extracted the 5th percentile of the bootstraps as the one-sided $p < 0.05$ confidence interval.
 
-For a given group of trials (such as, for instance, a single session), $P(c)$ can be estimated by dividing the number of times each appears by the total number of trials in the group.
-Similarly, $p_{il|c}$ can be estimated by dividing the number of trials on which the predictor was in the lower state for a given condition by the number of trials where that condition was presented.
-
-It is not immediately clear whether the single- or multi-binomial models will yield similar or different results.
-Obviously, the multi-binomial model has more accurate detail and so should give a better result, but whether or not the single binomial should give a reasonable approximation is not obvious, though one would assume it would.
-Applying the two models to the data and comparing them, we found the single binomial significantly underestimates the agreement which would really be found if the two predictors were completely independent.
-Henceforth, only the more accurate multi-binomial model is considered.
-
-The expected agreement under the assumption of two independent binomial processes gives us the null hypothesis model to compare against.
-If the results of the analysis deviate significantly from this model, we can conclude the behavioural and neural decoded responses are correlated.
-A $p<0.05$ significance boundary was found by sampling the \ac{NH} model \num{100000} times and noting the agreement for the fifth-percentile of samples.
-During this sampling, the number of trials for each test condition was fixed with the same values as used in the experiment.
-Since we are only interested in sessions where the behavioural and decoded responses agree more than they would if independent, a single-tailed test was used.
-(NB: in the figures below, the single-tailed lower bound is also included for symmetry, so only \SI{90}{\percent} of the samples lie within the shaded region).
-
-The multi-binomial model should not be confused with a multinomial distribution, which would map one random variable to $n$ possible responses.
-The model used here is instead a two-step process where there are a set of binomial distributions, which binomial is used is determined by one random variable (the output of which is the same for both behaviour and decoder), and the output of the selected binomial is given by a second random variable.
-In essence, the simple, single binomial model is similar to shuffling the responses across all trials regardless of condition, and the multi-binomial model we use is similar to shuffling the responses with the same condition presented.
+To evaluate whether the level of agreement was significant at the beginning and the end of the experiment, we took the average response agreement over the first and last three sessions respectively. 
+Correspondingly, to find the confidence interval under the \ac{NH}, we averaged the bootstraps also (one bootstrap from each of the sessions at once), then we identified the significance threshold as the 5th percentile over the distribution of \num{100000} bootstrapped average agreement rates.
 
 
-\subsection{Results for response agreement}
+\subsection{Results for response agreement rate}
+
+
+With regards to the behavioural and decoding response agreement, we find there is no consistent significant deviation from the null hypothesis for \ac{V1} data.
+There are a couple of sessions where unshuffled agreement is above the boundary for significance for each of the animals, but this is not a consistent effect.
+The agreement between shuffled decoding and behaviour does not deviate from the corresponding null hypothesis.
+This shows that the shuffled is higher than the unshuffled decoding agreement only because the shuffled decoder is more accurate at matching the target response.
+
+For \ac{V4}, we see that the agreement does not deviate significantly from the null hypothesis for earlier sessions, but after a cut off point all later sessions do (\ac{M1}: all sessions before 321 are not, after 329 are significant; \ac{M2}: Before 28 are not, after 28 are significant).
+The effect is stronger for \ac{M2}, but present for both animals.
+This indicates that the behavioural responses and the decoded responses based on the neural data were not notably correlated, but have become so with training.
+
+Because the shuffled decoded responses are more accurate (with respect to the target response), they are classified under the null hypothesis to be in better agreement with the behavioural responses.
+However we observe these are in worse agreement than the unshuffled decoding, and do not deviate from the corresponding \ac{NH} line.
+
+% blanco v1
+% Behaviour/Decoder agreement from 64.9% 65.7% 64.7% (65.1%) to 69.3% 64.6% 74.4% (69.4%)
+% Expected agreement          from 63.8% 62.7% 63.7% (63.4%) to 69.9% 66.4% 73.0% (69.8%)
+% NH for expected agreement   from 61.5% 66.0% 57.9% (61.8%) to 69.0% 71.2% 74.8% (71.7%)
+% Agreement vs expected diff  from 1.2% 3.0% 0.9% (1.7%) to -0.6% -1.8% 1.4% (-0.3%)
+% n=17  h=1.000000  p=0.023671=2.367118e-02   delta = +0.866846+/-0.346729 = +1.284861%+/-68.545093%
+% Test 0 for agreement in A 65.11% vs 95.00% NH of 65.62%
+% Test 0 for agreement in B 69.44% vs 95.00% NH of 71.21%
+% jack v1
+% Behaviour/Decoder agreement from 63.5% 68.4% 73.8% (68.5%) to 84.7% 84.5% 83.4% (84.2%)
+% Expected agreement          from 63.5% 68.4% 73.9% (68.6%) to 82.5% 83.2% 83.0% (82.9%)
+% NH for expected agreement   from 60.9% 66.0% 66.2% (64.4%) to 84.5% 81.4% 84.7% (83.5%)
+% Agreement vs expected diff  from 0.0% -0.0% -0.2% (-0.1%) to 2.2% 1.3% 0.3% (1.3%)
+% n=22  h=1.000000  p=0.000028=2.766509e-05   delta = +0.896309+/-0.168188 = +1.130669%+/-108.520777%
+% Test 0 for agreement in A 68.54% vs 95.00% NH of 70.03%
+% Test 1 for agreement in B 84.20% vs 95.00% NH of 83.81%
 
 \begin{figure}[htbp]
     \centering
@@ -2706,17 +2716,29 @@ In essence, the simple, single binomial model is similar to shuffling the respon
     }
     \hspace*{\fill}
     \caption{%
-    Decoding analysis for \ac{V1}.
-    Trial-to-trial agreement between behavioural and decoding predictors.
-    Left panels: \ac{M1}. Right: \ac{M2}.
-	Along the x-axis, `Session' is the animal's unique session ID, which increments by one for every day of training.
-    On the y-axis is the proportion of trials for which the response is the same as the behavioural response.
-    The agreement between behaviour and decoding (unshuffled only) is presented alongside the null hypothesis of completely independent binomial distributions.
-    The dashed line indicates the \SI{95}{\percent} confidence interval of the null hypothesis.
+    Response coincidence rate for \ac{V1}.
+    The response coincidence rate, $\xi$, is the average probability that the classifications given by the model trained on the population activity will match those given by the subject's behavioural response.
+    The dashed line indicates the \SI{95}{\percent} \acf{CI} of the \acf{NH} constructed for each session (see \autoref{sec:dec-meth-prob} for details).
 }
     \label{fig:decag_all_v1}
 \end{figure}
 
+% blanco v4
+% Behaviour/Decoder agreement from 73.5% 68.4% 73.1% (71.7%) to 78.9% 77.0% 77.8% (77.9%)
+% Expected agreement          from 72.7% 68.8% 71.5% (71.0%) to 75.4% 76.2% 75.7% (75.8%)
+% NH for expected agreement   from 71.2% 74.2% 65.4% (70.3%) to 77.9% 73.1% 78.3% (76.4%)
+% Agreement vs expected diff  from 0.8% -0.4% 1.6% (0.7%) to 3.4% 0.8% 2.1% (2.1%)
+% n=22  h=1.000000  p=0.000001=1.029691e-06   delta = +1.907054+/-0.280921 = +2.583520%+/-40.980324%
+% Test 0 for agreement in A 71.67% vs 95.00% NH of 72.38%
+% Test 1 for agreement in B 77.88% vs 95.00% NH of 76.92%
+% jack v4
+% Behaviour/Decoder agreement from 57.8% 56.9% 58.1% (57.6%) to 69.1% 78.2% 76.8% (74.7%)
+% Expected agreement          from 54.5% 54.6% 55.2% (54.7%) to 64.4% 71.6% 70.8% (69.0%)
+% NH for expected agreement   from 51.7% 57.3% 52.0% (53.7%) to 73.7% 68.7% 72.9% (71.8%)
+% Agreement vs expected diff  from 3.3% 2.4% 3.0% (2.9%) to 4.7% 6.5% 6.0% (5.7%)
+% n=24  h=1.000000  p=0.000000=1.537291e-13   delta = +5.331259+/-0.348748 = +8.290577%+/-106.980638%
+% Test 1 for agreement in A 57.61% vs 95.00% NH of 56.28%
+% Test 1 for agreement in B 74.69% vs 95.00% NH of 70.21%
 
 \begin{figure}[htbp]
     \centering
@@ -2732,38 +2754,12 @@ In essence, the simple, single binomial model is similar to shuffling the respon
     }
     \hspace*{\fill}
     \caption{%
-    Decoding analysis for \ac{V4}.
-    Trial-to-trial agreement between behavioural and decoding predictors.
-    Left panels: \ac{M1}. Right: \ac{M2}.
-	Along the x-axis, `Session' is the animal's unique session ID, which increments by one for every day of training.
-    On the y-axis is the proportion of trials for which the response is the same as the behavioural response.
-    The agreement between behaviour and decoding (unshuffled only) is presented alongside the null hypothesis of completely independent binomial distributions.
-    The dashed line indicates the \SI{95}{\percent} confidence interval of the null hypothesis.
+    Response coincidence rate for \ac{V4}.
+    The response coincidence rate, $\xi$, is the average probability that the classifications given by the model trained on the population activity will match those given by the subject's behavioural response.
+    The dashed line indicates the \SI{95}{\percent} \acf{CI} of the \acf{NH} constructed for each session (see \autoref{sec:dec-meth-prob} for details).
 }
     \label{fig:decag_all_v4}
 \end{figure}
 
 
-With regards to the behavioural and decoding response agreement, we find there is no consistent significant deviation from the null hypothesis for \ac{V1} data.
-There are a couple of sessions where unshuffled agreement is above the boundary for significance for each of the animals, but this is not a consistent effect.
-The agreement between shuffled decoding and behaviour does not deviate from the corresponding null hypothesis.
-This shows that the shuffled is higher than the unshuffled decoding agreement only because the shuffled decoder is more accurate at matching the target response.
-
-For \ac{V4}, we see that the agreement does not deviate significantly from the null hypothesis for earlier sessions, but after a cut off point all later sessions do (\ac{M1}: all sessions before 321 are not, after 329 are significant; \ac{M2}: Before 28 are not, after 28 are significant).
-The effect is stronger for \ac{M2}, but present for both animals.
-This indicates that the behavioural responses and the decoded responses based on the neural data were not notably correlated, but have become so with training.
-
-Because the shuffled decoded responses are more accurate (with respect to the target response), they are predicted under the null hypothesis to be in better agreement with the behavioural responses.
-However we observe these are in worse agreement than the unshuffled decoding, and do not deviate from the corresponding \ac{NH} line.
-
-
-\section{Superfluous}
-
-A more detailed breakdown of these results with subsets of the 14 conditions is given in \autoref{fig:dec_detail_b1} and \autoref{fig:dec_detail_j4}.
-Comparing \autoref{fig:dec_b4_6easy_a} and \autoref{fig:dec_j4_6easy_a} with \autoref{fig:dec_b4_6hard_a} and \autoref{fig:dec_j4_6hard_a}, we can see that the decoding responses for the easier conditions fit the null hypothesis model, whilst the more challenging conditions do not and have a statistically significant agreement with the animal behaviour.
-
-
-\section{Discussion --- to be moved}
-
-Since the decoder was trained on all-but-one of the trials from a single session, there is no guaranteed similarity between the decoders across sessions --- each session may end up using a different hyperplane for classification.
-This corresponds to assuming that the higher-cortical areas are changing their decoding of the lower-cortical areas as time progresses.
+\subsection{Discussion of response agreement rate}
