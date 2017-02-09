@@ -76,7 +76,7 @@ We found the same results with both display devices, except that monitor refresh
 Since this is the result of using an artificial stimulus with a low refresh rate (a well-known issue at this stimulus frequency), we removed this from the data (see Artefact Removal) and pooled the results across all sessions.
 The visual stimulus consisted of high contrast (\SI{100}{\percent}), gamma corrected, fast-moving, colourful movie clips (no soundtrack) from commercially available movies.
 Stimulus timings were controlled by a computer running a real-time OS (QNX, Ottawa, Canada).
-Stimulus-on periods of \SI{120}{\second} (5 sessions; 1 session: \SI{40}{\second}) were interleaved with stimulus-off periods (isoluminant grey screen) of \SI{30}{\second}.
+Stimulus-on periods of \SI{120}{\second} (\num{5} sessions; \num{1} session: \SI{40}{\second}) were interleaved with stimulus-off periods (isoluminant grey screen) of \SI{30}{\second}.
 
 
 \subsection{Neurophysiology Data Collection and Analysis}
@@ -84,12 +84,12 @@ Stimulus-on periods of \SI{120}{\second} (5 sessions; 1 session: \SI{40}{\second
 The electrophysiological recordings were performed by doing a small skull trepanation, after which the dura was visualized with a microscope (Zeiss Opmi MDU/S5, Germany) and carefully dissected.
 The electrodes were slowly advanced into the visual areas under visual and auditory guidance using manual micromanipulator (Narashige Group, Japan).
 Electrodes consisted of laminar probes (NeuroNexus Technologies, Ann Arbor, USA).
-These electrodes contained 16 contacts on a single shank \SI{3}{\milli\metre} long and \SI{150}{\micro\metre} thick.
+These electrodes contained \num{16} contacts on a single shank \SI{3}{\milli\metre} long and \SI{150}{\micro\metre} thick.
 The electrode sites were spaced at \SI{150}{\micro\metre} apart, with a recording area of \SI{413}{\micro\metre^2} each.
 We used a flattened \ce{Ag} wire, which was positioned under the skin, as reference electrode \citep{Murayama2010}.
 The recording access was filed with a mixture of \SI{0.6}{\percent} agar dissolved in \ce{NaCl} \SI{0.9}{\percent}, pH 7.4 solution which guaranteed good electrical connection between the ground contact and the animal \citep{Oeltermann2007760}.
 The impedance of the contact points was always measured during the experiments and ranged from \SIrange{480}{800}{\kilo\ohm}.
-The signals were amplified and filtered into a broadband of \SIrange{1}{8000}{Hz} (Alpha-Omega Engineering, Nazareth, Israel) and then digitized at \SI{20.833}{\kilo\Hz} with 16 bit resolution (PCI-6052E; National Instruments, Austin, TX).
+The signals were amplified and filtered into a broadband of \SIrange{1}{8000}{Hz} (Alpha-Omega Engineering, Nazareth, Israel) and then digitized at \SI{20.833}{\kilo\Hz} with \SI{16}{bit} resolution (PCI-6052E; National Instruments, Austin, TX).
 
 
 \subsection{Luminosity Function}
@@ -127,7 +127,7 @@ The \ac{CSD} was spatially smoothed with a three-point Hamming filter.
 
 \subsection{Multiunit Activity}
 
-\autoref{fig:lam_1}: \ac{MUA} was calculated by band-passing the voltage recording between 900 and \SI{3000}{Hz} with a zero-phase sixth-order Butterworth filter, taking the absolute value, applying a \SI{300}{Hz} low pass third-order Butterworth filter, and then downsampling.
+\autoref{fig:lam_1}: \ac{MUA} was calculated by band-passing the voltage recording between \SIrange{900}{3000}{Hz} with a zero-phase sixth-order Butterworth filter, taking the absolute value, applying a \SI{300}{Hz} low pass third-order Butterworth filter, and then downsampling.
 This yields a smoothed spike rate, analogous to a population firing rate.
 
 \autoref{fig:lam_3}: \ac{MUA} was calculated by downsampling by a factor of 3, band-passing the voltage recording between \SIrange{900}{3000}{Hz} with a zero-phase sixth-order Butterworth filter, taking the absolute value, downsampling by a further factor of 12.
@@ -160,12 +160,12 @@ Throughout \autoref{fig:lam_3} and \autoref{fig:lam_s3}, datapoints are shown at
 
 \subsection{Information as a function of depth and frequency}
 
-Power in each band was computed as above, then for each frequency band and depth we took a 10-bin histogram of the power across all the \SI{50}{\milli\second} windows for all repetitions.
+Power in each band was computed as above, then for each frequency band and depth we took a \num{10}-bin histogram of the power across all the \SI{50}{\milli\second} windows for all repetitions.
 The bin edges were chosen such that \SI{10}{\percent} of the distribution fell into each bin, and the identity of which bin the window was allocated into was taken to be its ``stimulus''.
 We found the mutual information between the response and which frame was on screen at that time --- the ``stimulus'' --- by computing the Shannon information using the information breakdown toolbox \citep{Magri2009}.
 Bias due to undersampling was corrected for using the \ac{PT} method \citep{Treves1995}.
-Each information calculation was also bootstrapped 20 times with a randomly shuffled mapping of stimulus to response (also bias-corrected).
-To ensure the amount of information was statistically significant, we checked each information estimate exceeded the bootstrap mean by more than 3 standard deviations of the bootstrap values.
+Each information calculation was also bootstrapped \num{20} times with a randomly shuffled mapping of stimulus to response (also bias-corrected).
+To ensure the amount of information was statistically significant, we checked each information estimate exceeded the bootstrap mean by more than \num{3} standard deviations of the bootstrap values.
 The bootstrap mean was then subtracted from the estimated information, to counter any residual bias.
 
 
@@ -178,10 +178,10 @@ We then took an average across sessions, weighted by the number of cortical reco
 \subsection{Information Redundancy}
 
 Information redundancy was computed with the same stimuli windows as used in the information calculations.
-However, for this calculation power was binned using only 3 bins, each containing a third of the power datapoints across all repetitions of the movie stimulus.
+However, for this calculation power was binned using only \num{3} bins, each containing a third of the power datapoints across all repetitions of the movie stimulus.
 Let $S$ denote the set of stimuli, and let $X$ and $Y$ each be the set of powers during each stimulus in one of the frequency bands at a particular depth.
 The information in each $\I\left(X;S\right)$ and $\I(Y;S)$ was computed in the same manner as above.
-The information in the joint distribution $\I(\left\{X,Y\right\};S)$ was computed by considering each combination of the binned $X$ and $Y$ as a different response, yielding a total of 9 different responses for $\{X,Y\}$.
+The information in the joint distribution $\I(\left\{X,Y\right\};S)$ was computed by considering each combination of the binned $X$ and $Y$ as a different response, yielding a total of \num{9} different responses for $\{X,Y\}$.
 
 The relative redundancy is then defined as
 \begin{equation*}
@@ -193,13 +193,13 @@ and was computed using the information breakdown toolbox \citep{Magri2009}.
 \subsection{Information about Spatial Components}
 
 The method to find the change in luminance in each spatial frequency band is illustrated in \autoref{fig:lam_4}.
-First, we took the 2D fast-Fourier transform of a \SI{224}{px} square from the movie.
+First, we took the two-dimensional fast-Fourier transform of a \SI{224}{px} square from the movie.
 A fourth-order Butterworth filter with a width of one octave was applied using a mask in the Fourier domain, and the result was projected back to the spatial domain.
 We then took the pixel-wise difference between each spatially filtered pair of consecutive frames.
 To provide a measure of the amount of change in luminance at this spatial resolution, we took the absolute amount of change in each pixel and summed this within a \SI{2}{\degree} diameter circular window centred at the receptive field location.
 
 Applying this to the entire movie provided a temporal sequence of luminance changes in each spatial range.
-Similar to before, we took a 10-bin histogram and took the identity the bin in which each luminance change fell to be the ``stimulus''.
+Similar to before, we took a \num{10}-bin histogram and took the identity the bin in which each luminance change fell to be the ``stimulus''.
 The mutual information between this stimulus and the neural response --- the power within \SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz} frequency bands --- was computed with a \SI{67}{\milli\second} lag between stimulus and response.
 
 
@@ -220,16 +220,16 @@ From the zero-centred latency distributions we then computed the average relativ
 To make the data easier to conceptualise, for \autoref{fig:lam_6}C the average overall latency across sessions was added back to each trace.
 
 To perform the statistical test, the relative latency was averaged across the five electrode contacts in \ac{IG} and also averaged across the three contacts in \ac{G}.
-A paired t-test was performed across all 6 sessions to test whether the maximum information in the \ac{G} compartment consistently occurred earlier than information in the \ac{IG} compartment.
+A paired $t$-test was performed across all \num{6} sessions to test whether the maximum information in the \ac{G} compartment consistently occurred earlier than information in the \ac{IG} compartment.
 
-For \autoref{fig:lam_6}D, the difference in information latency between each pairs of electrode depths was tested for statistical significance using a paired t-test, with insignificant differences shown in white.
+For \autoref{fig:lam_6}D, the difference in information latency between each pairs of electrode depths was tested for statistical significance using a paired $t$-test, with insignificant differences shown in white.
 
 
 \subsection{Cross-Frequency Phase-Amplitude Coupling}
 
 Strength of cross-frequency coupling was measured using the Modulation Index \citep{Tort2010}.
 \ac{CSD} data was filtered for two bands, \SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz}, using a zero-phase sixth-order Butterworth filter, and the instantaneous phase of \SIrange{4}{16}{Hz} and envelope amplitude of \SIrange{60}{170}{Hz} were each estimated using a Hilbert transform.
-We took a histogram of the \SIrange{4}{16}{Hz} phase datapoints with 16 bins each of width $\nicefrac{\pi}{8}$ radians, and took the average of the \SIrange{60}{170}{Hz} amplitudes simultaneous with the phase datapoints in each bin.
+We took a histogram of the \SIrange{4}{16}{Hz} phase datapoints with \num{16} bins each of width $\nicefrac{\pi}{8}$ radians, and took the average of the \SIrange{60}{170}{Hz} amplitudes simultaneous with the phase datapoints in each bin.
 This provides a distribution of amplitude at one depth as a function of phase at another.
 The Modulation Index is then the normalised Kullback-Leibler divergence of this distribution from a uniform distribution.
 
@@ -239,9 +239,9 @@ The Modulation Index is then the normalised Kullback-Leibler divergence of this 
 % =============================================================================
 
 To understand how oscillatory activity at different layers of \acf{V1} encodes naturalistic visual information, we recorded neural activity in cortical area \acs{V1} with a multi-contact laminar electrode array in four monkeys (Macaca mulatta), anaesthetized with opiates.
-The animals were presented with a clip from a Hollywood movie which lasted \SI{30}{\second} or \SI{120}{\second} and was repeated 40--150 times, depending on session (see Experimental Methods).
+The animals were presented with a clip from a Hollywood movie which lasted \SI{30}{\second} or \SI{120}{\second} and was repeated \numrange{40}{150} times, depending on session (see Experimental Methods).
 
-Each electrode housed 16 equally spaced (\SI{150}{\micro\metre}) contacts spanning a total depth of \SI{2250}{\micro\metre}, and was inserted perpendicular to the cortical surface (\autoref{fig:lam_1}A).
+Each electrode housed \num{16} equally spaced (\SI{150}{\micro\metre}) contacts spanning a total depth of \SI{2250}{\micro\metre}, and was inserted perpendicular to the cortical surface (\autoref{fig:lam_1}A).
 We recorded broadband \acp{LFP} from each electrode contact, and used the \acp{LFP} to compute at each electrode location the \ac{CSD}, a measure of the local flow of charge at any given point \citep{Einevoll2013}.
 To align the depth of the electrodes across recording sessions, we identified the border between Layer 4 and 5 as the inversion of the \ac{CSD} from sink to source in response to the onset of visual stimulation (see \citealp{Schroeder1991}, and \autoref{fig:lam_s1}).
 We then divided the cortical depth into \acf{G}, \acf{SG}, and \acf{IG} compartments (see Experimental Methods for details).
@@ -283,12 +283,12 @@ Activity in the \SIrange{28}{44}{Hz} range was more variable across trials for a
 \caption{%
 \textit{Distribution of visual stimulus information across both cortical depth and frequency.}
 A: Distribution of \ac{LFP} power during stimulus presentation.
-Plot shows the geometric mean power over 6 sessions.
+Plot shows the geometric mean power over \num{6} sessions.
 Above, mean power within \ac{SG}, \ac{G} and \ac{IG} compartments.
 Right, laminar distribution of \ac{LFP} power in \SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz} frequency bands.
 B: Same as A, but distribution of \ac{CSD} power instead of \ac{LFP} power.
 C: Distribution of information about the stimulus contained in \ac{LFP} power.
-Plot shows the mean information over 6 sessions.
+Plot shows the mean information over \num{6} sessions.
 Above, mean information within \ac{SG}, \ac{G} and \ac{IG} compartments.
 Right, cortical distribution of information in the power in \SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz} frequency bands.
 D: Same as C, but for information in \ac{CSD} power instead of \ac{LFP} power.
@@ -315,20 +315,20 @@ However, these results raise the question whether the two frequency ranges encod
 To answer this we computed the redundancy between pairs of frequency bands of the information about the stimulus which they encode (see Experimental Methods).
 Computing information redundancy allows us to quantify how similar the information about the stimulus is for a given pair of frequency bands and depths --- high redundancy shows the information about the stimulus is mostly the same in the two bands, low redundancy means the two bands contain independent information about the stimulus (see Experimental Methods for a formal definition).
 We found there are two frequency domains within which information is redundant: \SIrange{4}{40}{Hz} and \SI{>40}{Hz} (\autoref{fig:lam_3}A).
-Furthermore, the information contained in neural frequencies \SI{<40}{Hz} is different to the information contained in frequencies SI{>40}{Hz}, since these measured to be independent (redundancy \SI{<=0}{\percent}).
+Furthermore, the information contained in neural frequencies \SI{<40}{Hz} is different to the information contained in frequencies \SI{>40}{Hz}, since these measured to be independent (redundancy \SI{<=0}{\percent}).
 Additionally, we note that the same \SI{<40}{Hz} and \SI{>40}{Hz} division is observed for the signal correlation (\autoref{fig:lam_s3}), and our results corroborate earlier findings \citep{Belitski2008}.
-These results thus show that the two bands (\SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz}) contain the most information and independently encode information about the stimulus. [Can anything be said about the total info in say 4-16Hz band?]
+These results thus show that the two bands (\SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz}) contain the most information and independently encode information about the stimulus.
 
 \begin{figure}[htbp]
 \centering \includegraphics[width=\columnwidth]{paperfigs/fig3}
 %
 \caption{%
 \textit{Information redundancy across frequency bands and laminae in the CSD signal.}
-A: Median redundancy between pairs of frequencies over the 12 recording sites, averaged over 6 sessions.
-B: Redundancy between pairs of recording sites of the information in three frequency bands. Mean of 6 sessions.
+A: Median redundancy between pairs of frequencies over the \num{12} recording sites, averaged over \num{6} sessions.
+B: Redundancy between pairs of recording sites of the information in three frequency bands. Mean of \num{6} sessions.
 C: Average of cross-channel redundancy shown in B.
-In A and B, datapoints which were not significantly different from 0 (threshold at 3 standard deviations of bootstrapped information values) are shown in white.
-In C, error bars indicate 3 standard deviations of the bootstrapped values after averaging.
+In A and B, datapoints which were not significantly different from $0$ (threshold at \num{3} standard deviations of bootstrapped information values) are shown in white.
+In C, error bars indicate \num{3} standard deviations of the bootstrapped values after averaging.
 Trivially redundant diagonal elements were removed.
 Note, that while there is substantial redundancy within bands and between the \SIrange{60}{170}{Hz} and \SIrange{900}{3000}{Hz} bands, there is little redundancy between the \SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz} band, indicating independent coding.
 }%
@@ -387,10 +387,10 @@ The stimulus magnitude at each spatial frequency band was obtained by taking the
 \caption{%
 \textit{Information about different spatial components across laminae and frequency bands.}
 A: Information about spatial components of the stimulus contained in low frequency \ac{CSD} power (\SIrange{4}{16}{Hz}, average of information within \ac{G} compartment; green) and high frequency \ac{CSD} power (\SIrange{60}{170}{Hz}, average of information within \ac{SG} compartment; purple).
-Shaded area: standard error across 6 sessions.
-B: Information about visual spatial components contained in a range of \ac{CSD} frequencies, median over 12 recording sites.
+Shaded area: standard error across \num{6} sessions.
+B: Information about visual spatial components contained in a range of \ac{CSD} frequencies, median over \num{12} recording sites.
 C,D: Information in low (\SIrange{4}{16}{Hz}) and high (\SIrange{60}{170}{Hz}) \ac{CSD} frequency bands across cortical laminae.
-Plots A-D are mean of 6 sessions.}%
+Plots A-D are mean of \num{6} sessions.}%
 \label{fig:lam_5}
 %
 \end{figure}
@@ -428,7 +428,7 @@ C: Lag between stimulus and response yielding maximal information (green: \SIran
 \end{figure}
 
 
-\subsection{Layer 1 6--170\,Hz amplitude is coupled to L5 4--16\,Hz phase}
+\subsection{Layer 1 60--\SI{170}{Hz} amplitude is coupled to L5 4--\SI{16}{Hz} phase}
 
 Above, in section ``Information redundancy across depth'', we showed that high and low \ac{CSD} frequencies contain independent information to each other (\autoref{fig:lam_3}).
 We found the power in the two bands to be independent, but it remains possible that there is a relationship between the phase of the low-frequency band and the power of the high-frequency band.
@@ -445,7 +445,7 @@ The same relationship was discovered to hold both for spontaneous activity and s
 \caption{%
 \textit{Cross-frequency phase-amplitude coupling}
 Phase-amplitude modulation index between low frequency (\SIrange{4}{16}{Hz}) phase and high frequency (\SIrange{60}{170}{Hz}) amplitude (A: movie driven activity; B: spontaneous activity).
-Mean of 5 sessions.
+Mean of \num{5} sessions.
 C and D: Amplitude as a function of binned phase for an example session (\sesname{H05391}), for \ac{IG}$\rightarrow$\ac{IG} coupling (left) and \ac{IG}$\rightarrow$\ac{SG} coupling (right).}%
 \label{fig:lam_8}
 %
