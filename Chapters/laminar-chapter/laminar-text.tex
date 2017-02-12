@@ -171,7 +171,7 @@ The bootstrap mean was then subtracted from the estimated information, to counte
 
 \subsection{Cortical Distribution of Power}
 
-For each session, the distribution of power across the cortical depth (\autoref{fig:lam_2}A--B right-hand insets) was determined by normalising the power at each depth by the summed power across all cortical depths for that band.
+For each session, the distribution of power across the cortical depth (Figures \ref{fig:lam_power_lfp} and \ref{fig:lam_power_csd}, right-hand insets) was determined by normalising the power at each depth by the summed power across all cortical depths for that band.
 We then took an average across sessions, weighted by the number of cortical recording sites in each session to prevent faulty (omitted) electrode contact sites from distorting the result.
 
 
@@ -318,8 +318,9 @@ Each datapoint in \protect\subref{fig:lam_info_lfp} and \protect\subref{fig:lam_
 }
 \end{figure}
 
+
 We quantified these observations by computing how much information the spectral power of the \ac{LFP} and \ac{CSD} contain about the identity of which movie frame is currently on screen (see Experimental Methods).
-Despite the fact that the power is distributed evenly across depth and decays smoothly as frequency increases (\autoref{fig:lam_2}A--B), we found that information in the spectral power was localised around particular depths and frequencies (\autoref{fig:lam_2}C--D).
+Despite the fact that the power is distributed evenly across depth and decays smoothly as frequency increases (Figures \ref{fig:lam_power_lfp} and \ref{fig:lam_power_csd}), we found that information in the spectral power was localised around particular depths and frequencies (Figures \ref{fig:lam_info_lfp} and \ref{fig:lam_info_csd}).
 
 For both \ac{LFP} and \ac{CSD}, information about the movie is highest in the \SIrange{4}{16}{Hz} range at the top of the granular (\ac{G}) compartment (layer 4A/B), and the \SIrange{60}{250}{Hz} range near the top of the \ac{SG} compartment (layer 2).
 Additionally, there are secondary local maxima in \ac{IG} for both the \SIrange{4}{16}{Hz} and \SIrange{60}{150}{Hz} ranges.
@@ -374,7 +375,7 @@ The overall redundancy between these bands, averaged over all cortical depths em
 
 [Note occasional shift  to present tense]
 Comparing the \SIrange{4}{16}{Hz} band with either higher frequency bands, we found the lower frequency range contains information which is not expressed in the higher frequencies at any cortical depth.
-It consequently follows that the two localised regions of high information content from \autoref{fig:lam_2}D (granular \SIrange{4}{16}{Hz} and supragranular \SI{>60}{Hz}) are not redundant to each other and contain complementary information about the stimulus.
+It consequently follows that the two localised regions of high information content from \autoref{fig:lam_info_csd} (granular \SIrange{4}{16}{Hz} and supragranular \SI{>60}{Hz}) are not redundant to each other and contain complementary information about the stimulus.
 %Importantly, this argues against a situation where \ac{SG} contains the same information as \ac{G}/\ac{IG} activity transcoded from low-frequency to high-gamma oscillations; at least some of the information is unique to each.
 
 This, of course, begs the question which orthogonal properties of the stimulus could be encoded into these two complementary spectral bands.
@@ -420,7 +421,7 @@ Importantly, there was no continuous transition between these two; instead we ob
 Neural oscillations at intermediate frequencies do not encode intermediate spatial components of the stimulus --- they do not encode any spatial aspect of the stimulus.
 
 These observations held true across the entire cortical depth (\autoref{fig:lam_5}C--D), with the two frequency bands (\SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz}) containing information about opposing spatial frequencies.
-The distribution of information across the cortical depth corresponds to that found in \autoref{fig:lam_2}D.
+The distribution of information across the cortical depth corresponds to that found in \autoref{fig:lam_info_csd}.
 
 Since information theoretic measures capture any possible relationship between stimulus and response, we cannot use it to determine the nature of how changes in luminance lead to changes .in cortical power.
 To resolve this question, we investigated the correlation between the \ac{CSD} power and both coarse (\SI{<0.3}{\cpd}, low-pass spatial filter) and fine (\SI{>1}{\cpd}, high-pass spatial filter) spatial components of the movie stimulus, illustrative example traces of which are shown above \autoref{fig:lam_6}A.
@@ -476,7 +477,7 @@ C and D: Amplitude as a function of binned phase for an example session (\sesnam
 \section{Discussion}
 % =============================================================================
 
-In summary, we find while \ac{LFP} power is smooth and its depth profile is close to flat (\autoref{fig:lam_2}A--B) the information that the \ac{LFP} encodes reveals much more structure.
+In summary, we find while \ac{LFP} power is smooth and its depth profile is close to flat (Figures \ref{fig:lam_power_lfp} and \ref{fig:lam_power_csd}) the information that the \ac{LFP} encodes reveals much more structure.
 We found there are two cortical regions at which oscillations in these frequency ranges are much more informative.
 Namely \SIrange{4}{16}{Hz} at upper granular and mid-infragranular, and \SIrange{60}{170}{Hz} at upper supragranular and mid{}-infragranular regions.Previous work \citep{Belitski2008} has shown that in the macaque primary visual cortex information is coded in two frequency bands (\SI{<40}{Hz} and \SI{>40}{Hz}) containing independent information about natural visual scenes.
 Our analysis extended across the cortical depth, and we found there are two cortical regions at which oscillations in these frequency ranges are much more informative (\SIrange{4}{16}{Hz} at upper-\ac{G} and mid-\ac{IG}; \SIrange{60}{170}{Hz} at upper-\ac{SG} and mid-\ac{IG} regions).
