@@ -210,12 +210,18 @@ The estimated residual bias is also removed from our reported mutual information
 
 %------------------------------------------------------------------------------
 \section{Neural Correlations}
+\label{sec:bg-corr}
 
 Since neurons do not operate in isolation and the neural code is distributed across many neurons, it is often important to consider how the behaviour of multiple neurons relate to one-another.
 A simple way to do this is to measure the correlation between the outputs of pairs of neurons.
 
+Although this is a much less nuanced technique than using Shannon information to study the relationship between the neurons, measuring the correlation provides us with a much easier to use metric.
+In particular, the amount of data needed to measure the mutual information between stimulus and response increases exponentially in the dimensionality of the response.
+This means it is impossible to compute the amount of information conveyed by in the response of more than a handful of neurons.
+
 
 \subsection{Signal Correlations}
+\label{sec:bg-sigcorr}
 
 Some neurons behave similarly to each other in response to stimulation across a range of potential stimuli.
 These neurons have correlated responses with respect to the input signal.
@@ -223,7 +229,7 @@ These neurons have correlated responses with respect to the input signal.
 From an information theoretic perspective, neurons with high signal correlation have high redundancy.
 Of course, a redundant neural code is useful as a method of error correction.
 Neural responses to repeated stimuli have high-variance, indicating a large amount of noise in the system.
-Duplication methods of error correction are inefficient though \citep[Chapter ?????]{mackay2003information}, and neuroscientists do not typically interpret groups of neurons to be duplicated instantiations of the same function of the stimulus.
+Repetition is an inefficient method of error correction though \citep[Chapter~1]{mackay2003information}, and neuroscientists do not typically interpret groups of neurons to be duplicated instantiations of the same function of the stimulus.
 
 To compute signal correlation, typically one first takes the average response for each neuron in response to many presentations of the same stimulus.
 This removes the effect of correlated noise, which we assume averages out to $0$ when we take the mean.
