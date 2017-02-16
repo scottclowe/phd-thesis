@@ -170,10 +170,40 @@ For instance, this would be achieved if the absolute activity in response to the
 %==============================================================================
 \section{Neural correlations}
 
-For background, consult \autoref{sec:bg-corr}.
+To provide a simple measure of the similarity in the neural responses given by the recording channels, we computed the correlation in the response.
+As described in \autoref{sec:bg-corr}, we can compute the both the signal correlation and the noise correlation.
+
+To measure the signal correlation, we first averaged the response (over all repetitions) elicited by each stimulus for each recording channel.
+Then, for each pair of channels we took the correlation in the average responses to each stimulus.
+Channels which respond to the set of stimuli in a similar manner will have a high signal correlation, irrespective of how the response curve is shaped.
+
+To measure the noise correlation, we measured the correlation in responses from a pair of channels obtained over all presentations of single stimulus.
+This was repeated for each stimulus class, and then averaged over the stimuli.
+Channels whose responses vary in a similar manner for a simultaneously recorded trial will have a high noise correlation.
+
+In both cases, we measured the correlation between the responses from the two channels using the Pearson correlation coefficient.
+If we let the responses observed from our two recording channels be denoted by the random variables $X$ and $Y$, the Pearson correlation coefficient is given by
+\begin{equation}
+\label{eq:pearson}
+r(X,Y) = \frac{\operatorname{cov}(X,Y)}{\operatorname{var}(X) \, \operatorname{var}(Y)}
+.\end{equation}
+This provides a measure of the covariance between $X$ and $Y$ which is normalised again their standard deviations, meaning that $-1 \le r \le 1$ and $r$ is robust against linear rescaling of either $X$ or $Y$ (or both).
+If $r=\pm1$, there is a perfect linear relationship between $X$ and $Y$, whereas $r=0$ when $X$ and $Y$ are completely independent of one another.
+
+To investigate whether the signal and noise correlations rose or fell during the experiments, we compared the average correlation over the first and last three sessions (\zonename{A} and \zonename{B}).
+We used a paired $t$-test to measure whether the correlations changed significantly over all pairs of channels.
+
 
 %------------------------------------------------------------------------------
-\subsection{Signal correlations}
+\subsection{Results for neural correlations}
+
+% \subsubsection(Signal correlation}
+
+For both brain regions, the signal correlation between pairs channels is shown in \autoref{fig:pl_sigcor}.
+For \ac{V1}, the signal correlations significantly increased for both \ac{M1} and \ac{M2} ($p < 1 \times 10^{-12}$ and $p < 3 \times 10^{-25}$, respectively).
+With \ac{M1}, the signal correlations rose on average by \num{0.107\pm0.014}.
+The signal correlation was very high for \ac{M2} from the start of the experiment, and consequently the increase was only a tenth of the magnitude (\num{0.010\pm0.0009}).
+For \ac{V4}, the signal correlations decreased for \ac{M1} ($p=0.00054$), but there was no significant change for \ac{M2} ($p=0.73$).
 
 % blanco v1  signal correlation
 % ttest A vs Gaussian distributed around 0
@@ -219,93 +249,42 @@ For background, consult \autoref{sec:bg-corr}.
 % same bandwidth bw = 0.032969 used for all cols
 % YLIM4 = [-0.23931881602164 1.09905730731623];
 
-
 \begin{figure}[htbp]%
     \centering
     \hspace*{\fill}
-    \subfloat[][\ac{M1} \ac{V1}.\label{fig:sigcor_v1_blanco}]{%
+    \subfloat[][\ac{M1} \ac{V1}.\label{fig:pl_sigcor_v1_blanco}]{%
         \includegraphics[scale=.45]{%
 figs/correlations/signal_correlation_sessionwise_blanco_v1_23chn_s343-359.eps}}
     \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
-    \subfloat[][\ac{M2} \ac{V1}.\label{fig:sigcor_v1_jack}]{%
+    \subfloat[][\ac{M2} \ac{V1}.\label{fig:pl_sigcor_v1_jack}]{%
         \includegraphics[scale=.45]{%
 figs/correlations/signal_correlation_sessionwise_jack_v1_25chn_s51-72.eps}}
     \hspace*{\fill}
     \\
     \hspace*{\fill}
-    \subfloat[][\ac{M1} \ac{V4}.\label{fig:sigcor_v4_blanco}]{%
+    \subfloat[][\ac{M1} \ac{V4}.\label{fig:pl_sigcor_v4_blanco}]{%
         \includegraphics[scale=.45]{%
 figs/correlations/signal_correlation_sessionwise_blanco_v4_30chn_s307,308,311,313,314,317,318,320,321,329-341.eps}}
     \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
-    \subfloat[][\ac{M2} \ac{V4}.\label{fig:sigcor_v4_jack}]{%
+    \subfloat[][\ac{M2} \ac{V4}.\label{fig:pl_sigcor_v4_jack}]{%
         \includegraphics[scale=.45]{%
 figs/correlations/signal_correlation_sessionwise_jack_v4_20chn_s24,25,27-38,40-49.eps}}
     \hspace*{\fill}
     \caption{\textit{Signal correlation between pairs of recording channels.}
-The correlation in the average firing rate in response to each stimulus condition was computed for each pair of channels (\protect\subref{fig:sigcor_v1_blanco}~\num{253} pairs of channels, \protect\subref{fig:sigcor_v1_jack}~\num{435} pairs, \protect\subref{fig:sigcor_v4_blanco}~\num{300} pairs, \protect\subref{fig:sigcor_v4_jack}~\num{190} pairs).
+The correlation in the average firing rate in response to each stimulus condition was computed for each pair of channels (\protect\subref{fig:pl_sigcor_v1_blanco}~\num{253} pairs of channels, \protect\subref{fig:pl_sigcor_v1_jack}~\num{300} pairs, \protect\subref{fig:pl_sigcor_v4_blanco}~\num{435} pairs, \protect\subref{fig:pl_sigcor_v4_jack}~\num{190} pairs).
 Main panels: average across all pairs of channels, with standard deviation indicated by the shaded region.
 Right hand panels: the Gaussian kernel density for the distribution over channel pairs of the average signal correlation during the first (\zonename{A}) and last three sessions (\zonename{B}), with mean (solid black line) and median (dashed green line) indicated.
 The bandwidth for the Gaussian kernel density estimate was determined as described in \autoref{sec:info-methods}.
 }
-    \label{fig:sigcor}
+    \label{fig:pl_sigcor}
 \end{figure}
 
 
-%------------------------------------------------------------------------------
-\subsection{Noise correlations}
+% \subsubsection(Noise correlation}
 
-
-The  \autoref{sec:bg-noisecorr} for an overview of noise correlations.
-
-For the vast majority of neurons
-For contrast-selectivity, the vast majority of neurons do in fact encode stimuli monotonically --- a higher contrast will illicit a stronger neural response.
-With this in mind, the most beneficial pair-wise neural correlations will nearly always be more negative correlations.
-This is the direction which more perpendicular to the stimulus encoding direction within the 2-D plane of responses.
-
-
-%% older content
-
-The firing rate of neurons in the sensory system will vary trial-to-trial, even if the stimulus presented is the same.
-The manner in which these responses fluctuate together is known as the noise correlation between neurons.
-If there are positive noise correlations, the changes in neural activity across a population will increase and decrease together.
-Long-standing theoretical work has indicated such correlations will hamper the ability of upstream neurons to accurately decode the stimulus% [cite]
-, which is in keeping with experimental results demonstrating attention reduces noise correlations \citep{Cohen2009}.
-This fits with intuition --- if stimulus A is encoded with one firing rate across a population and stimulus B with a slightly higher rate, a systematic increase or decrease in the population firing rates can easily cause A and B to be confused with one another.
-
-However, recent theoretical results indicate that for a more realistic non-homogeneous population of neurons, neural correlations do not limit the population-wide information as the number of neurons increases \citep{Oram1998,Averbeck2006,Ecker2011}.
-
-Other studies have indicated that noise correlations are beneficial to population encoding, provided that the structure of the correlations means the correlations are orthogonal to the direction in which stimuli are encoded.
-% cite pouget, latham, franke2016
-
-A recent paper by \citet{Gu2011} on neurons recoded from the macaque dorsal \ac{MSTd} before and after training in a head direction discrimination task, found that although pairwise noise correlations between neurons are reduced with training, this does not yield an increase in performance in a decoder.
-We will see if these findings hold here as well.
-
-
-\subsection{Methods for deriving noise correlations}
-\label{sec:dec-meth-noise}
-
-The noise correlation was investigated by considering how strongly correlated the spike counts during test stimulus presentation.
-% (this could have been done using the data from the sample presentation, which would probably have been a better idea).
-
-To evaluate the strength of noise correlations, the Pearson $r$ correlation coefficient was used.
-For two random variables $X$ and $Y$, this is given by
-\begin{equation}
-r(X,Y) = \frac{\operatorname{cov}(X,Y)}{\operatorname{var}(X) \, \operatorname{var}(Y)}
-\end{equation}
-and provides a version of the covariance between the $X$ and $Y$ which is normalised again their standard deviations.
-This means $-1 \le r \le 1$ indicates how well $X$ and $Y$ fit a straight line relationship of either positive or negative slope, regardless of the gradient of the line, which could be changed by rescaling either $X$ or $Y$.
-If $r=\pm1$, there is a perfect linear relationship between $X$ and $Y$, whereas $r=0$ when $X$ and $Y$ are completely independent.
-
-For each individual session, the Pearson $r$ correlation coefficient was computed between the spike counts during test stimulus presentation between pairs of channels, across all the trials in the session.
-$r$ was computed for each pair and each condition, and the mean was taken across all of these.
-
-
-\subsection{Results for noise correlation}
-
-For both \ac{V1} and \ac{V4}, the average noise correlation between pairs of channels seem to remain stable for \ac{M1} and decrease by a small margin for \ac{M2} (see \autoref{fig:noise_r_all}).
-The increase in noise correlation for \ac{M1} \ac{V1} for the last two sessions (session numbers 358 and 359) is due to a decline in data quality and an increase in noise from artificial sources.
-There is a large amount of variance in the noise correlations for different pairs, so the decline in mean correlation for \ac{M2} does not seem very large considering the amount of variance.
-
+The noise correlation between pairs of channels is shown in \autoref{fig:pl_sigcor}.
+For \ac{V1}, the noise correlations increased for \ac{M1} ($p < 4 \times 10^{-6}$) but decreased for \ac{M2} ($p < 4 \times 10^{-34}$).
+For \ac{V4}, noise correlations increased for both subjects ($p < 3 \times 10^{-22}$ and $p=0.0020$ respectively).
 
 % blanco v1  noise correlation
 % ttest A vs Gaussian distributed around 0
@@ -354,154 +333,45 @@ There is a large amount of variance in the noise correlations for different pair
 \begin{figure}[htbp]%
     \centering
     \hspace*{\fill}
-    \subfloat[][\ac{M1} \ac{V1}.\label{fig:noisecor_v1_blanco}]{%
+    \subfloat[][\ac{M1} \ac{V1}.\label{fig:pl_noisecor_v1_blanco}]{%
         \includegraphics[scale=.45]{%
 figs/correlations/noise_correlation_sessionwise_blanco_v1_23chn_s343-359.eps}}
     \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
-    \subfloat[][\ac{M2} \ac{V1}.\label{fig:noisecor_v1_jack}]{%
+    \subfloat[][\ac{M2} \ac{V1}.\label{fig:pl_noisecor_v1_jack}]{%
         \includegraphics[scale=.45]{%
 figs/correlations/noise_correlation_sessionwise_jack_v1_25chn_s51-72.eps}}
     \hspace*{\fill}
     \\
     \hspace*{\fill}
-    \subfloat[][\ac{M1} \ac{V4}.\label{fig:noisecor_v4_blanco}]{%
+    \subfloat[][\ac{M1} \ac{V4}.\label{fig:pl_noisecor_v4_blanco}]{%
         \includegraphics[scale=.45]{%
 figs/correlations/noise_correlation_sessionwise_blanco_v4_30chn_s307,308,311,313,314,317,318,320,321,329-341.eps}}
     \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
-    \subfloat[][\ac{M2} \ac{V4}.\label{fig:noisecor_v4_jack}]{%
+    \subfloat[][\ac{M2} \ac{V4}.\label{fig:pl_noisecor_v4_jack}]{%
         \includegraphics[scale=.45]{%
 figs/correlations/noise_correlation_sessionwise_jack_v4_20chn_s24,25,27-38,40-49.eps}}
     \hspace*{\fill}
     \caption{\textit{Noise correlation between pairs of recording channels.}
-The correlation in the average firing rate in response to each stimulus condition was computed for each pair of channels (\protect\subref{fig:noisecor_v1_blanco}~\num{253} pairs of channels, \protect\subref{fig:noisecor_v1_jack}~\num{435} pairs, \protect\subref{fig:noisecor_v4_blanco}~\num{300} pairs, \protect\subref{fig:noisecor_v4_jack}~\num{190} pairs).
+The correlation in the average firing rate in response to each stimulus condition was computed for each pair of channels (\protect\subref{fig:pl_noisecor_v1_blanco}~\num{253} pairs of channels, \protect\subref{fig:pl_noisecor_v1_jack}~\num{300} pairs, \protect\subref{fig:pl_noisecor_v4_blanco}~\num{435} pairs, \protect\subref{fig:pl_noisecor_v4_jack}~\num{190} pairs).
 Main panels: average across all pairs of channels, with standard deviation indicated by the shaded region.
 Right hand panels: the Gaussian kernel density for the distribution over channel pairs of the average noise correlation during the first (\zonename{A}) and last three sessions (\zonename{B}), with mean (solid black line) and median (dashed green line) indicated.
 The bandwidth for the Gaussian kernel density estimate was determined as described in \autoref{sec:info-methods}.
 }
-    \label{fig:noisecor}
+    \label{fig:pl_noisecor}
 \end{figure}
 
 
-% \begin{figure}[htb]
-%     \centering
-%     \subfloat[][\label{fig:noise_r_v1_all}\ac{V1}]{
-% %         \includegraphics[width=0.47\linewidth]{%
-% % ./rcoef_2013-04-09/rcoef_sess_meanpc_2013-04-09/png/rcoef_sess_meanpc_v1_both.png}
-% %        \includegraphics[width=0.47\linewidth]{figs/decoding/rcoef_sess_meanpc_v1_both}
-%         \includegraphics[width=0.47\linewidth]{figs/decoding/rcoef_sess_meanpc_v1_both.pdf}
-% }
-%     ~~
-%     \subfloat[][\label{fig:noise_r_v4_all}\ac{V4}]{
-% %         \includegraphics[width=0.47\linewidth]{%
-% % ./rcoef_2013-04-09/rcoef_sess_meanpc_2013-04-09/png/rcoef_sess_meanpc_v4_both.png}
-%         \includegraphics[width=0.47\linewidth]{figs/decoding/rcoef_sess_meanpc_v4_both.pdf}
-% }
-%     \caption{Change in noise correlations with learning.
-% \protect\subref{fig:noise_r_v1_all}:~\ac{V1}.
-% \protect\subref{fig:noise_r_v4_all}:~\ac{V4}.
-% Blue:~\ac{M1}.
-% Red:~\ac{M2}.
-% On the x-axis, the number of sessions since the animal began training in the part of the visual field retinotopic to the recording site is shown.
-% Line: pearson r coefficient, averaged across the possible pairings between channels for each of the 14 trial conditions.
-% Shaded region indicates one standard deviation from mean.
-% }
-%     \label{fig:noise_r_all}
-% \end{figure}
-% % \marginnote{In \autoref{fig:noise_r_all} and \autoref{fig:noise_r_hist}, the text is too small due to saving the figure with transparencies in PNG format; if I could get the SVG to load correctly, the text would be sized correctly.}
-
-\autoref{fig:noise_r_hist} is intended to reproduce \citet[Figure 2C]{Gu2011}, with the distribution of $r$ shown across pairs for one pre-training and one post-training session.
-These sessions were chosen from a restricted set of sessions which did not have problems with artificially high correlations from the motion artifact, and selected from this set such that they were as close to the start and end of the training period as possible.
-However, this selection was made before the set of trials was redacted as mentioned in \autoref{sec:dec-meth-noise}, so the sessions selected could possibly be made further apart.
-
-The data presented in \autoref{fig:noise_r_hist} shows that the distribution of noise correlation pairs does not move significantly for \ac{M1} \ac{V1}, which is contrasted by a clear decrease for \ac{M2} \ac{V1}.
-It should be noted though that the distribution for \ac{M2} \ac{V1} begins higher than \ac{M1} and decreases to a similar value as \ac{M1} \ac{V1}.
-For \ac{V4}, there is an increase in mean noise correlation for \ac{M1} and a decrease for \ac{M2}, though as \ac{M2} begins higher than \ac{M1} the two do tend toward to one another.
-
-Cherry-picking is a significant problem here, as there is sizable day-to-day variation in the noise correlation across the pairs.
-Choosing a session where there is more noise correlation than neighbouring sessions at the beginning of training and less at the end of training will give the impression that there is a more significant decrease in noise correlations.
-More effort should be made to counter inadvertently cherry-picking in the session selection, as \autoref{fig:noise_r_j1_pmc} indicates this may be one reason for such a sizable decrease in noise correlation for \ac{M2} \ac{V1}.
-
-% \begin{figure}[htbp]
-%     \subfloat[][\label{fig:noise_r_b1_hist}]{
-%         \centering
-% %         \includegraphics[width=0.47\linewidth]{%
-% % ./rcoef_2013-03-25/rcoef_sess_histallover_2013-03-25/png/rcoef_sess_histallover_v1_blanco.png}
-%         \includegraphics[width=0.47\linewidth]{figs/decoding/rcoef_sess_histallover_v1_blanco.pdf}
-%     }
-%     ~~
-%     \subfloat[][\label{fig:noise_r_j1_hist}]{
-%         \centering
-% %         \includegraphics[width=0.47\linewidth]{%
-% % ./rcoef_2013-03-25/rcoef_sess_histallover_2013-03-25/png/rcoef_sess_histallover_v1_jack.png}
-%         \includegraphics[width=0.47\linewidth]{figs/decoding/rcoef_sess_histallover_v1_jack.pdf}
-%     }
-%     \\
-%     \subfloat[][\label{fig:noise_r_b4_hist}]{
-%         \centering
-% %         \includegraphics[width=0.47\linewidth]{%
-% % ./rcoef_2013-03-25/rcoef_sess_histallover_2013-03-25/png/rcoef_sess_histallover_v4_blanco.png}
-%         \includegraphics[width=0.47\linewidth]{figs/decoding/rcoef_sess_histallover_v4_blanco.pdf}
-%     }
-%     ~~
-%     \subfloat[][\label{fig:noise_r_j4_hist}]{
-%         \centering
-% %         \includegraphics[width=0.47\linewidth]{%
-% % ./rcoef_2013-03-25/rcoef_sess_histallover_2013-03-25/png/rcoef_sess_histallover_v4_jack.png}
-%         \includegraphics[width=0.47\linewidth]{figs/decoding/rcoef_sess_histallover_v4_jack.pdf}
-%     }
-%     \caption{Distribution of the noise correlations for the pairings across all conditions.
-% Two sessions, one at the beginning of training (black) and one at the end of training (red) are shown for comparitive purposes.
-% \protect\subref{fig:noise_r_b1_hist}: \ac{M1} \ac{V1}; sessions 343 and 354.
-% \protect\subref{fig:noise_r_j1_hist}: \ac{M2} \ac{V1}; sessions 51 and 71.
-% \protect\subref{fig:noise_r_b4_hist}: \ac{M1} \ac{V4}; sessions 307 and 338.
-% \protect\subref{fig:noise_r_j4_hist}: \ac{M2} \ac{V4}; sessions 27 and 46.
-% }
-%     \label{fig:noise_r_hist}
-% \end{figure}
-
-
-A pairs of channels which have higher noise correlations in one session are likely to have higher noise correlation in other sessions.
-However, this effect is not present for \ac{M1} \ac{V1}, \autoref{fig:noise_r_b1_pmc}, and could suggest there is less session-to-session consistency for this dataset.
-
-This figure provides an easy way of visually inspecting whether noise correlations are conserved, but does not allow us to quantify this.
-
-% \begin{figure}[htbp]
-%     \subfloat[][\label{fig:noise_r_b1_pmc}]{
-%         \centering
-%         \includegraphics[width=0.47\linewidth]{%
-% figs/decoding/rcoef_sess_pairsmeanc_v1_blanco.eps}
-%     }
-%     ~~
-%     \subfloat[][\label{fig:noise_r_j1_pmc}]{
-%         \centering
-%         \includegraphics[width=0.47\linewidth]{%
-% figs/decoding/rcoef_sess_pairsmeanc_v1_jack.eps}
-%     }
-%     \\
-%     \subfloat[][\label{fig:noise_r_b4_pmc}]{
-%         \centering
-%         \includegraphics[width=0.47\linewidth]{%
-% figs/decoding/rcoef_sess_pairsmeanc_v4_blanco.eps}
-%     }
-%     ~~
-%     \subfloat[][\label{fig:noise_r_j4_pmc}]{
-%         \centering
-%         \includegraphics[width=0.47\linewidth]{%
-% figs/decoding/rcoef_sess_pairsmeanc_v4_jack.eps}
-%     }
-%     \caption{Noise correlations for each pair, meaned across the 14 conditions.
-% \protect\subref{fig:noise_r_b1_pmc}: \ac{M1} \ac{V1}.
-% \protect\subref{fig:noise_r_j1_pmc}: \ac{M2} \ac{V1}.
-% \protect\subref{fig:noise_r_b4_pmc}: \ac{M1} \ac{V4}.
-% \protect\subref{fig:noise_r_j4_pmc}: \ac{M2} \ac{V4}.
-% Colour is assigned by sorting the pairs into ascending order for one of the sessions near the middle of the training period.
-% The degree of session-to-session correlation of the noise correlation can hence be inferred by visual inspection.
-% }
-%     \label{fig:noise_r_pmc}
-% \end{figure}
-
-
 \subsection{Discussion of neural correlations}
+
+Signal correlation provides a measure of the heterogeneity of the responses.
+For \ac{M2} \ac{V1}, all recording channels responded to the stimuli strongly and with a similar stimulus-response tuning curve, and so the signal correlation was very high.
+Other data sets had a more diverse set of neurons, and hence a lower signal correlation.
+
+As described in \autoref{sec:pl_response_curves}, the majority of neurons have a contrast-response curve which increases monotonically.
+Under such an encoding regime, the amount of information encoded by a pair of neurons will be higher if their responses are anti-correlated.
+(See \autoref{sec:bg-noisecorr} for discussion of this).
+Consequently, we might expect noise correlations to decrease with training, since this provides one potential mechanism for the performance of the network to improve.
+However, we instead found that noise correlations increased with training for \ac{M1} in both \ac{V1} and \ac{V4}, and only decreased significantly for \ac{M2} \ac{V1}.
 
 
 %==============================================================================
