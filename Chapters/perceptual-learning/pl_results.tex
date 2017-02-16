@@ -2616,6 +2616,7 @@ Our results from the population-level decoder correspond to our findings about t
 The change in performance of the decoder over time does not correspond to the change in subject's performance in either case.
 For \ac{M2} (see \autoref{fig:dec_j1_allp}), the subject's behavioural performance increases rapidly initially for the first few sessions and after that it increases steadily until reaching a plateau after around \num{12} recording sessions, rising from \SI{67}{\percent} accuracy at the beginning to \SI{89}{\percent} accuracy after training.
 In comparison, the decoder performance rises from an initial \SI{83}{\percent} accuracy only to \SI{88}{\percent}.
+When expressed in terms of information, the increase is larger, from \SI{0.33}{bits} to \SI{0.46}{bits}.
 The behavioural performance increases similarly for \ac{M1} (rising from \SI{69}{\percent} to \SI{87}{\percent}, shown in \autoref{fig:dec_b1_allp}), whilst the performance of the decoder declines slightly over time (falling from \SI{74}{\percent} to \SI{72}{\percent}).
 As stated previously, we expect this decline in performance is due to a decline in signal quality over time and is not due to a reduction of information encoded within the cortex.
 
@@ -2623,8 +2624,10 @@ Destroying the noise correlations between the responses from each channel increa
 However the effect of shuffling the responses was larger for \ac{M2} (an improvement in performance of \SI{5.4\pm0.2}{\percent}) than \ac{M1} (\SI{+1.9\pm0.5}{\percent}).
 Additionally, the effect of removing noise correlations on \ac{M1} declined as experimental training progressed, falling from \SI{3.1}{\percent} to \SI{1.3}{\percent} (average of first and last three sessions respectively).
 This corroborates our notion that the decline in information and hence performance for the decoder is due to a gradual degradation of signal quality in the apparatus.
-As the extrinsic, observational noise increases it will dominate over the intrinsic noise within the cortex, and if the noise from the apparatus is generated independently for each recording channel then decorrelating the noise on the signals we observe will become decreasingly useful.
+% As the extrinsic, observational noise increases it will dominate over the intrinsic noise within the cortex, and if the noise from the apparatus is generated independently for each recording channel then decorrelating the noise on the signals we observe will become decreasingly useful.
 For \ac{M2}, the performance advantage for a decoder trained without noise correlations also fell, but only not as much, decreasing from \SI{5.9}{\percent} to \SI{4.8}{\percent} (average of first and last three sessions).
+However, this marginal decrease seems to be due to saturation of the model performance.
+The decoder trained on data with noise correlations removed attains \SI{94}{\percent} accuracy by the final session, which leaves little room for improvement, and the difference in the amount of information encoded by the two decoders is stable at \SI{0.15}{bits} through training.
 
 % PERCENTAGE
 %
