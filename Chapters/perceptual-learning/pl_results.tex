@@ -2898,6 +2898,11 @@ However for \ac{M2}, shown in \autoref{fig:decag_j1_allp} and \autoref{fig:decag
 \end{figure}
 
 
+For \ac{V4}, there was an increase in agreement between the behaviour and decoder responses during training for both subjects.
+With \ac{M1}, the conditional information between the two was not initially significant at \SI{0.0045}{bits} above the expected level, but increased to \SI{0.0190}{bits} which was significant.
+For \ac{M2}, the conditional information was significant throughout training and also increased from \SI{0.0072}{bits} to \SI{0.0477}{bits}.
+
+
 % PERCENTAGE
 %
 % blanco v4
@@ -2992,3 +2997,11 @@ However for \ac{M2}, shown in \autoref{fig:decag_j1_allp} and \autoref{fig:decag
 
 
 \subsection{Discussion of response agreement rate}
+
+For all our data except \ac{V1} in \ac{M1}, there was an increase in the amount of information about the behavioural responses contained in the responses of the decoder of \autoref{sec:dec-meth-lin} trained on the firing rate from all simultaneously recorded channels.
+Furthermore, this increase was not explained by an increase in performance of the two classifiers.
+We controlled for this by conditioning our information calculation on the target response and by comparing with the distribution of samples under a \ac{NH} model of conditional independence.
+
+The increase in response coincidence rate over the course of training could be explained by the higher cortical regions in the subject's brain getting better at interpreting the information encoded in the visual cortex, and hence becoming more reliant on the signals which we recorded to construct our linear classifier.
+Alternatively, feedback from the higher cortical regions could increase, causing information about the subject's response to propagate into the visual cortical regions after the decision has been made (but before it is given).
+The increase in agreement was larger for \ac{V4} than \ac{V1}.
