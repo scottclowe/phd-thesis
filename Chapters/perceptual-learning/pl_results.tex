@@ -2545,18 +2545,37 @@ Finally, we compared the average accuracy of the decoders trained on shuffled re
 For \ac{V1}, there is a decline in the performance of the \ac{M1} decoder over time and a small increase in the performance for \ac{M2}, shown in \autoref{fig:dec_all_v1}.
 Our results from the population-level decoder correspond to our findings about the information encoded in \SI{527}{\milli\second} activity, taken for individual channels and then averaged across them, depicted in \autoref{fig:info_sess_1x527_final}.
 
+% PERCENTAGE
+%
 % blanco v1
 % Behavioural accuracy from 69.4% 70.9% 73.4% (71.20%) to 88.1% 87.2% 87.1% (87.50%)
 % Decoder accuracy     from 75.0% 73.6% 73.4% (73.97%) to 72.0% 67.7% 77.0% (72.21%)
 % Shuff decoder accur  from 78.8% 76.8% 75.6% (77.07%) to 70.5% 70.3% 79.7% (73.49%)
 % Shuff decoder diff   from 3.8% 3.2% 2.3% (3.1%) to -1.5% 2.6% 2.7% (1.3%)
 % n=17  h=1.000000  p=0.000612=6.120856e-04   delta = +1.941965+/-0.457008 = +2.708694%+/-72.363911%
+%
 % jack v1
 % Behavioural accuracy from 66.6% 72.9% 79.2% (72.92%) to 88.5% 88.7% 89.8% (89.00%)
 % Decoder accuracy     from 82.5% 83.1% 81.8% (82.48%) to 86.5% 87.7% 87.9% (87.37%)
 % Shuff decoder accur  from 88.7% 88.3% 88.1% (88.36%) to 91.7% 91.4% 93.5% (92.18%)
 % Shuff decoder diff   from 6.2% 5.1% 6.3% (5.9%) to 5.2% 3.7% 5.6% (4.8%)
 % n=22  h=1.000000  p=0.000000=3.703396e-17   delta = +5.488296+/-0.218307 = +6.433440%+/-44.531150%
+
+% INFORMATION
+%
+% blanco v1
+% Behavioural accuracy from 0.110bits 0.133bits 0.164bits (0.1358bits) to 0.474bits 0.451bits 0.445bits (0.4567bits)
+% Decoder accuracy     from 0.195bits 0.165bits 0.163bits (0.1742bits) to 0.144bits 0.091bits 0.227bits (0.1544bits)
+% Shuff decoder accur  from 0.264bits 0.220bits 0.199bits (0.2278bits) to 0.126bits 0.123bits 0.284bits (0.1774bits)
+% Shuff decoder diff   from 0.070bits 0.055bits 0.036bits (0.0535bits) to -0.018bits 0.031bits 0.056bits (0.0230bits)
+% n=17  h=1.000000  p=0.000308=3.075496e-04   delta = +0.030706+/-0.006703 bits = +21.284896%+/-4.749643%
+%
+% jack v1
+% Behavioural accuracy from 0.081bits 0.170bits 0.261bits (0.1707bits) to 0.485bits 0.490bits 0.525bits (0.5000bits)
+% Decoder accuracy     from 0.337bits 0.347bits 0.317bits (0.3336bits) to 0.432bits 0.466bits 0.473bits (0.4569bits)
+% Shuff decoder accur  from 0.492bits 0.480bits 0.476bits (0.4826bits) to 0.591bits 0.582bits 0.664bits (0.6125bits)
+% Shuff decoder diff   from 0.155bits 0.133bits 0.159bits (0.1490bits) to 0.160bits 0.116bits 0.191bits (0.1556bits)
+% n=22  h=1.000000  p=0.000000=8.568485e-18   delta = +0.160952+/-0.005959 bits = +39.859827%+/-1.858461%
 
 \begin{figure}[htbp]
     \centering
@@ -2594,18 +2613,37 @@ This corroborates our notion that the decline in information and hence performan
 As the extrinsic, observational noise increases it will dominate over the intrinsic noise within the cortex, and if the noise from the apparatus is generated independently for each recording channel then decorrelating the noise on the signals we observe will become decreasingly useful.
 For \ac{M2}, the performance advantage for a decoder trained without noise correlations also fell, but only not as much, decreasing from \SI{5.9}{\percent} to \SI{4.8}{\percent} (average of first and last three sessions).
 
+% PERCENTAGE
+%
 % blanco v4
 % Behavioural accuracy from 80.1% 75.7% 79.6% (78.49%) to 84.9% 85.3% 84.4% (84.88%)
 % Decoder accuracy     from 78.9% 78.5% 79.4% (78.95%) to 78.7% 80.4% 81.1% (80.09%)
 % Shuff decoder accur  from 79.5% 78.5% 80.0% (79.33%) to 81.4% 82.9% 79.6% (81.33%)
 % Shuff decoder diff   from 0.6% -0.1% 0.5% (0.4%) to 2.7% 2.5% -1.5% (1.2%)
 % n=22  h=1.000000  p=0.000433=4.326213e-04   delta = +1.434306+/-0.343950 = +1.805622%+/-46.846957%
+%
 % jack v4
 % Behavioural accuracy from 56.9% 56.0% 56.8% (56.56%) to 75.4% 80.1% 79.2% (78.23%)
 % Decoder accuracy     from 58.9% 56.5% 63.7% (59.71%) to 71.2% 78.0% 75.0% (74.70%)
 % Shuff decoder accur  from 61.2% 55.8% 67.8% (61.58%) to 74.9% 83.0% 79.2% (79.03%)
 % Shuff decoder diff   from 2.3% -0.8% 4.1% (1.9%) to 3.8% 5.0% 4.2% (4.3%)
 % n=24  h=1.000000  p=0.000000=3.786770e-08   delta = +3.224602+/-0.400164 = +4.543608%+/-117.623395%
+
+% INFORMATION
+%
+% blanco v4
+% Behavioural accuracy from 0.281bits 0.199bits 0.274bits (0.2512bits) to 0.387bits 0.399bits 0.376bits (0.3874bits)
+% Decoder accuracy     from 0.260bits 0.255bits 0.271bits (0.2618bits) to 0.260bits 0.297bits 0.308bits (0.2883bits)
+% Shuff decoder accur  from 0.275bits 0.255bits 0.285bits (0.2717bits) to 0.321bits 0.353bits 0.277bits (0.3170bits)
+% Shuff decoder diff   from 0.016bits -0.000bits 0.014bits (0.0100bits) to 0.060bits 0.056bits -0.031bits (0.0286bits)
+% n=22  h=1.000000  p=0.000180=1.798737e-04   delta = +0.032967+/-0.007266 bits = +12.035857%+/-2.807251%
+%
+% jack v4
+% Behavioural accuracy from 0.013bits 0.010bits 0.013bits (0.0117bits) to 0.195bits 0.279bits 0.261bits (0.2452bits)
+% Decoder accuracy     from 0.022bits 0.012bits 0.055bits (0.0299bits) to 0.133bits 0.244bits 0.191bits (0.1892bits)
+% Shuff decoder accur  from 0.037bits 0.009bits 0.096bits (0.0473bits) to 0.190bits 0.357bits 0.269bits (0.2722bits)
+% Shuff decoder diff   from 0.014bits -0.003bits 0.041bits (0.0174bits) to 0.057bits 0.114bits 0.079bits (0.0830bits)
+% n=24  h=1.000000  p=0.000000=1.163857e-07   delta = +0.055772+/-0.007396 bits = +38.742552%+/-5.306497%
 
 \begin{figure}[htbp]
     \centering
@@ -2730,6 +2768,8 @@ This indicates that the behavioural responses and the decoded responses based on
 Because the shuffled decoded responses are more accurate (with respect to the target response), they are classified under the null hypothesis to be in better agreement with the behavioural responses.
 However we observe these are in worse agreement than the unshuffled decoding, and do not deviate from the corresponding \ac{NH} line.
 
+% PERCENTAGE
+%
 % blanco v1
 % Behaviour/Decoder agreement from 64.9% 65.7% 64.7% (65.1%) to 69.3% 64.6% 74.4% (69.4%)
 % Expected agreement          from 63.8% 62.7% 63.7% (63.4%) to 69.9% 66.4% 73.0% (69.8%)
@@ -2738,6 +2778,7 @@ However we observe these are in worse agreement than the unshuffled decoding, an
 % n=17  h=1.000000  p=0.023671=2.367118e-02   delta = +0.866846+/-0.346729 = +1.284861%+/-68.545093%
 % Test 0 for agreement in A 65.11% vs 95.00% NH of 65.62%
 % Test 0 for agreement in B 69.44% vs 95.00% NH of 71.21%
+%
 % jack v1
 % Behaviour/Decoder agreement from 63.5% 68.4% 73.8% (68.5%) to 84.7% 84.5% 83.4% (84.2%)
 % Expected agreement          from 63.5% 68.4% 73.9% (68.6%) to 82.5% 83.2% 83.0% (82.9%)
@@ -2746,6 +2787,46 @@ However we observe these are in worse agreement than the unshuffled decoding, an
 % n=22  h=1.000000  p=0.000028=2.766509e-05   delta = +0.896309+/-0.168188 = +1.130669%+/-108.520777%
 % Test 0 for agreement in A 68.54% vs 95.00% NH of 70.03%
 % Test 1 for agreement in B 84.20% vs 95.00% NH of 83.81%
+
+% INFORMATION
+%
+% blanco v1
+% Behaviour/Decoder agreement from 0.065bits 0.080bits 0.066bits (0.0703bits) to 0.112bits 0.060bits 0.183bits (0.1185bits)
+% Expected agreement          from 0.055bits 0.053bits 0.058bits (0.0551bits) to 0.120bits 0.077bits 0.162bits (0.1196bits)
+% NH for expected agreement   from 0.035bits 0.079bits 0.016bits (0.0432bits) to 0.110bits 0.132bits 0.195bits (0.1456bits)
+% Agreement vs expected diff  from 0.010bits 0.028bits 0.008bits (0.0152bits) to -0.008bits -0.017bits 0.021bits (-0.0011bits)
+% n=17  h=1.000000  p=0.022739=2.273929e-02   delta = +0.009620+/-0.003817 = +10.360743%+/-4.178021%
+% Test 0 for agreement in A 0.070bits vs 95.0% NH of 0.076bits
+% Test 0 for agreement in A 0.119bits vs 95.0% NH of 0.138bits
+%
+% jack v1
+% Behaviour/Decoder agreement from 0.058bits 0.119bits 0.170bits (0.1154bits) to 0.385bits 0.379bits 0.355bits (0.3728bits)
+% Expected agreement          from 0.058bits 0.119bits 0.173bits (0.1166bits) to 0.334bits 0.347bits 0.348bits (0.3428bits)
+% NH for expected agreement   from 0.035bits 0.087bits 0.089bits (0.0701bits) to 0.385bits 0.304bits 0.394bits (0.3608bits)
+% Agreement vs expected diff  from 0.000bits -0.001bits -0.003bits (-0.0012bits) to 0.051bits 0.031bits 0.007bits (0.0300bits)
+% n=22  h=1.000000  p=0.000038=3.824840e-05   delta = +0.019429+/-0.003743 = +6.980632%+/-2.176605%
+% Test 0 for agreement in A 0.115bits vs 95.0% NH of 0.135bits
+% Test 1 for agreement in A 0.373bits vs 95.0% NH of 0.364bits
+
+% CONDITIONAL INFORMATION
+%
+% blanco v1
+% Behaviour/Decoder agreement from 0.011bits 0.016bits 0.006bits (0.0109bits) to 0.004bits -0.001bits 0.019bits (0.0075bits)
+% Expected agreement          from 0.006bits 0.003bits 0.004bits (0.0044bits) to 0.008bits 0.006bits 0.008bits (0.0076bits)
+% NH for expected agreement   from 0.000bits 0.017bits -0.005bits (0.0040bits) to 0.018bits 0.002bits 0.018bits (0.0126bits)
+% Agreement vs expected diff  from 0.004bits 0.013bits 0.002bits (0.0065bits) to -0.004bits -0.007bits 0.010bits (-0.0001bits)
+% n=17  h=1.000000  p=0.033587=3.358707e-02   delta = +0.004083+/-0.001756 = +57.755586%+/-24.846771%
+% Test 0 for agreement in A 0.011bits vs 95.0% NH of 0.015bits
+% Test 0 for agreement in A 0.008bits vs 95.0% NH of 0.014bits
+%
+% jack v1
+% Behaviour/Decoder agreement from 0.005bits 0.010bits 0.019bits (0.0112bits) to 0.048bits 0.035bits 0.015bits (0.0326bits)
+% Expected agreement          from 0.005bits 0.011bits 0.020bits (0.0122bits) to 0.023bits 0.021bits 0.012bits (0.0189bits)
+% NH for expected agreement   from -0.001bits 0.017bits 0.002bits (0.0060bits) to 0.035bits 0.003bits 0.027bits (0.0216bits)
+% Agreement vs expected diff  from -0.001bits -0.001bits -0.001bits (-0.0009bits) to 0.025bits 0.014bits 0.002bits (0.0137bits)
+% n=22  h=1.000000  p=0.000159=1.588718e-04   delta = +0.008618+/-0.001878 = +46.859666%+/-10.211049%
+% Test 0 for agreement in A 0.011bits vs 95.0% NH of 0.020bits
+% Test 1 for agreement in A 0.033bits vs 95.0% NH of 0.026bits
 
 \begin{figure}[htbp]
     \centering
@@ -2768,6 +2849,9 @@ However we observe these are in worse agreement than the unshuffled decoding, an
     \label{fig:decag_all_v1}
 \end{figure}
 
+
+% PERCENTAGE
+%
 % blanco v4
 % Behaviour/Decoder agreement from 73.5% 68.4% 73.1% (71.7%) to 78.9% 77.0% 77.8% (77.9%)
 % Expected agreement          from 72.7% 68.8% 71.5% (71.0%) to 75.4% 76.2% 75.7% (75.8%)
@@ -2776,6 +2860,7 @@ However we observe these are in worse agreement than the unshuffled decoding, an
 % n=22  h=1.000000  p=0.000001=1.029691e-06   delta = +1.907054+/-0.280921 = +2.583520%+/-40.980324%
 % Test 0 for agreement in A 71.67% vs 95.00% NH of 72.38%
 % Test 1 for agreement in B 77.88% vs 95.00% NH of 76.92%
+%
 % jack v4
 % Behaviour/Decoder agreement from 57.8% 56.9% 58.1% (57.6%) to 69.1% 78.2% 76.8% (74.7%)
 % Expected agreement          from 54.5% 54.6% 55.2% (54.7%) to 64.4% 71.6% 70.8% (69.0%)
@@ -2784,6 +2869,46 @@ However we observe these are in worse agreement than the unshuffled decoding, an
 % n=24  h=1.000000  p=0.000000=1.537291e-13   delta = +5.331259+/-0.348748 = +8.290577%+/-106.980638%
 % Test 1 for agreement in A 57.61% vs 95.00% NH of 56.28%
 % Test 1 for agreement in B 74.69% vs 95.00% NH of 70.21%
+
+% INFORMATION
+%
+% blanco v4
+% Behaviour/Decoder agreement from 0.165bits 0.106bits 0.174bits (0.1482bits) to 0.256bits 0.224bits 0.247bits (0.2422bits)
+% Expected agreement          from 0.154bits 0.111bits 0.150bits (0.1381bits) to 0.195bits 0.210bits 0.210bits (0.2046bits)
+% NH for expected agreement   from 0.129bits 0.180bits 0.068bits (0.1258bits) to 0.245bits 0.160bits 0.264bits (0.2232bits)
+% Agreement vs expected diff  from 0.011bits -0.005bits 0.024bits (0.0101bits) to 0.061bits 0.014bits 0.037bits (0.0376bits)
+% n=22  h=1.000000  p=0.000001=9.716119e-07   delta = +0.031480+/-0.004619 = +17.878470%+/-2.692137%
+% Test 0 for agreement in A 0.148bits vs 95.0% NH of 0.157bits
+% Test 1 for agreement in A 0.242bits vs 95.0% NH of 0.225bits
+%
+% jack v4
+% Behaviour/Decoder agreement from 0.017bits 0.015bits 0.019bits (0.0171bits) to 0.108bits 0.243bits 0.221bits (0.1908bits)
+% Expected agreement          from 0.005bits 0.006bits 0.007bits (0.0063bits) to 0.061bits 0.139bits 0.129bits (0.1098bits)
+% NH for expected agreement   from -0.000bits 0.017bits 0.000bits (0.0056bits) to 0.174bits 0.099bits 0.164bits (0.1457bits)
+% Agreement vs expected diff  from 0.012bits 0.008bits 0.012bits (0.0107bits) to 0.047bits 0.104bits 0.092bits (0.0809bits)
+% n=24  h=1.000000  p=0.000000=2.026008e-09   delta = +0.060664+/-0.006391 = +87.388447%+/-9.242726%
+% Test 1 for agreement in A 0.017bits vs 95.0% NH of 0.012bits
+% Test 1 for agreement in A 0.191bits vs 95.0% NH of 0.125bits
+
+% CONDITIONAL INFORMATION
+%
+% blanco v4
+% Behaviour/Decoder agreement from 0.023bits 0.006bits 0.025bits (0.0181bits) to 0.052bits 0.022bits 0.034bits (0.0360bits)
+% Expected agreement          from 0.017bits 0.010bits 0.014bits (0.0136bits) to 0.019bits 0.016bits 0.016bits (0.0170bits)
+% NH for expected agreement   from 0.009bits 0.028bits -0.002bits (0.0115bits) to 0.030bits 0.002bits 0.039bits (0.0236bits)
+% Agreement vs expected diff  from 0.006bits -0.003bits 0.011bits (0.0045bits) to 0.033bits 0.006bits 0.018bits (0.0190bits)
+% n=22  h=1.000000  p=0.000005=4.622595e-06   delta = +0.015945+/-0.002610 = +103.142297%+/-16.884265%
+% Test 0 for agreement in A 0.018bits vs 95.0% NH of 0.022bits
+% Test 1 for agreement in A 0.036bits vs 95.0% NH of 0.025bits
+%
+% jack v4
+% Behaviour/Decoder agreement from 0.012bits 0.019bits 0.012bits (0.0142bits) to 0.030bits 0.075bits 0.080bits (0.0616bits)
+% Expected agreement          from 0.005bits 0.010bits 0.006bits (0.0071bits) to 0.006bits 0.014bits 0.022bits (0.0139bits)
+% NH for expected agreement   from -0.001bits 0.017bits 0.002bits (0.0060bits) to 0.029bits 0.009bits 0.039bits (0.0257bits)
+% Agreement vs expected diff  from 0.007bits 0.009bits 0.006bits (0.0072bits) to 0.024bits 0.060bits 0.058bits (0.0477bits)
+% n=24  h=1.000000  p=0.000000=7.945480e-10   delta = +0.039892+/-0.003997 = +305.858005%+/-30.648611%
+% Test 1 for agreement in A 0.014bits vs 95.0% NH of 0.013bits
+% Test 1 for agreement in A 0.062bits vs 95.0% NH of 0.021bits
 
 \begin{figure}[htbp]
     \centering
