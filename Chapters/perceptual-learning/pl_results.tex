@@ -2590,12 +2590,25 @@ Our results from the population-level decoder correspond to our findings about t
 	\includegraphics[scale=0.45]{figs/decoding/perf_percentage_v1_jack.eps}
     }
     \hspace*{\fill}
+    \\
+    \hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V1}.\label{fig:dec_b1_info}]{
+        \centering
+	\includegraphics[scale=0.45]{figs/decoding/perf_information_v1_blanco.eps}
+    }
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\ac{M2} \ac{V1}.\label{fig:dec_j1_info}]{
+        \centering
+	\includegraphics[scale=0.45]{figs/decoding/perf_information_v1_jack.eps}
+    }
+    \hspace*{\fill}
     \caption{%
     \textit{Classifying the stimulus using \ac{V1} population activity.}
     We report the accuracy of the linear decoder classifying the group of each stimulus (greater or less than \SI{30}{\percent} contrast) after training on the population activity (blue; \protect\subref{fig:dec_b1_allp}~\ac{M1}, \num{14} channels; \protect\subref{fig:dec_j1_allp}~\ac{M2}, \num{20} channels).
-    Performance was evaluated as the average accuracy across each of the \num{14} stimulus classes
+    In \protect\subref{fig:dec_b1_allp} and \protect\subref{fig:dec_j1_allp}, performance was evaluated as the average accuracy across each of the \num{14} stimulus classes.
     We also report the accuracy of the linear decoder when trained on a copy of the data with responses recorded from each channel matched at random such that noise correlations are removed (red; see \autoref{sec:pl_dec_shuffle}).
     For comparison, the behavioural performance of the subject is also shown for each recording session (black).
+    In \protect\subref{fig:dec_b1_info} and \protect\subref{fig:dec_j1_info}, we show the information about the stimulus group (higher or lower than \SI{30}{\percent} contrast) contained in the responses from the behaviour and decoders.
 }
     \label{fig:dec_all_v1}
 \end{figure}
@@ -2656,6 +2669,18 @@ For \ac{M2}, the performance advantage for a decoder trained without noise corre
     \subfloat[][\ac{M2} \ac{V4}.\label{fig:dec_j4_allp}]{
         \centering
 	\includegraphics[scale=0.45]{figs/decoding/perf_percentage_v4_jack.eps}
+    }
+    \hspace*{\fill}
+    \\
+    \hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V4}.\label{fig:dec_b4_info}]{
+        \centering
+	\includegraphics[scale=0.45]{figs/decoding/perf_information_v4_blanco.eps}
+    }
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\ac{M2} \ac{V4}.\label{fig:dec_j4_info}]{
+        \centering
+	\includegraphics[scale=0.45]{figs/decoding/perf_information_v4_jack.eps}
     }
     \hspace*{\fill}
     \caption{%
