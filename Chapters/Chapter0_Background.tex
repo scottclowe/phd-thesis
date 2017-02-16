@@ -31,7 +31,7 @@ Alternatively, the stimulus space can be discretized into a finite subset of sti
 Once the samples are discretized and presented repeatedly, we can use Shannon information to compute the amount of information about the stimulus identity contained in the neuronal response.
 If the stimulus set is intrinsically discrete, Fisher information can not be used and an information theoretic analysis can only be performed using Shannon information.
 
-For such an experimental set-up, let us assume that on each trial the stimulus $s$ is selected at random with probability $P(s)$ from a set of discrete stimuli $\SET{S}$, containing $S$ unique stimuli.
+For such an experimental set-up, let us assume that on each trial the stimulus $s$ is selected at random with probability $p(s)$ from a set of discrete stimuli $\SET{S}$, containing $S$ unique stimuli.
 The neuronal response could be one (or more than one) of several data types, such as a spike train from one or more neurons, the \ac{LFP}, \ac{CSD}, \ac{BOLD} signal, a calcium indicator, \ac{EEG}, or others \citep{Magri2009,Quiroga2009}.
 The principles of information theory can be applied whichever neural signal is taken to be the response.
 In \autoref{ch:pl}, we will work with information encoded in \ac{MUA} and spike trains, whilst in Chapters~\ref{ch:lam}, \ref{ch:xlam} and \ref{ch:plam} we will be considering the \ac{MUA}, \ac{LFP} and \ac{CSD}.
@@ -92,18 +92,18 @@ Intuitively, the amount of information gained on receipt of the message is relat
 Rigorously, we define the \textbf{Shannon information} content of an outcome or result $x$ to be
 \begin{equation}
 \label{eq:shannon-information}
-\operatorname{h}( x ) = \log_2 \frac{1}{P(x)}
+\operatorname{h}( x ) = \log_2 \frac{1}{p(x)}
 .\end{equation}
 This corresponds to how ``surprised'' we would be to observe the result $x$ being produced by the system in question.
-Note that $h(x)=0$ if $P(x)=1$ (if an event is certain, we are never surprised and gain no information observing it), and $h(x) \to \infty$ as $P(x) \to 0^+$ (we gain more information --- we are increasingly surprised --- when a diminishingly unlikely event occurs).
+Note that $h(x)=0$ if $p(x)=1$ (if an event is certain, we are never surprised and gain no information observing it), and $h(x) \to \infty$ as $p(x) \to 0^+$ (we gain more information --- we are increasingly surprised --- when a diminishingly unlikely event occurs).
 
 The \textbf{entropy} of a system is a measure of amount of uncertainty we have about its state.
 We define this as the expected amount of information we will gain when we observe it,
 \begin{align}
 \HH( \SET{X} )
-  &= \EE_{x \in \SET{X}} \left( \log_2 \frac{1}{P(x)} \right) \notag
-\\&= \sum_{x \in \SET{X}} P(x) \log_2 \frac{1}{P(x)} \notag
-\\&= - \sum_{x \in \SET{X}} P(x) \log_2 P(r)
+  &= \EE_{x \in \SET{X}} \left( \log_2 \frac{1}{p(x)} \right) \notag
+\\&= \sum_{x \in \SET{X}} p(x) \log_2 \frac{1}{p(x)} \notag
+\\&= - \sum_{x \in \SET{X}} p(x) \log_2 p(x)
 ,\end{align}
 where $\SET{X}$ is the ensemble of possible states of the system in question.
 
@@ -118,20 +118,20 @@ Here, we make use of the conditional entropy (also known as noise entropy), so n
 Analogously to \autoref{eq:shannon-information}, this is defined as
 \begin{align}
 \HH(\SET{X} | \SET{Y})
-  &= \EE_{x \in \SET{X}, \, y \in \SET{Y}} \left( \log_2 \frac{1}{P(x|y)} \right) \notag
-\\&= \sum_{x \in \SET{X}, \, y \in \SET{Y}} P(x,y) \log_2 \frac{1}{P(x|y)} \notag
-\\&= \sum_{y \in \SET{Y}} P(y) \sum_{x \in \SET{X}} P(x|y) \log_2 \frac{1}{P(x|y)} \notag
-\\&= - \sum_{y \in \SET{Y}} P(y) \sum_{x \in \SET{X}} P(x|y) \log_2 P(x|y)
+  &= \EE_{x \in \SET{X}, \, y \in \SET{Y}} \left( \log_2 \frac{1}{p(x|y)} \right) \notag
+\\&= \sum_{x \in \SET{X}, \, y \in \SET{Y}} p(x,y) \log_2 \frac{1}{p(x|y)} \notag
+\\&= \sum_{y \in \SET{Y}} p(y) \sum_{x \in \SET{X}} p(x|y) \log_2 \frac{1}{p(x|y)} \notag
+\\&= - \sum_{y \in \SET{Y}} p(y) \sum_{x \in \SET{X}} p(x|y) \log_2 p(x|y)
 .\end{align}
 % The mutual information is zero if and only if responses are completely independent of stimuli.
 % For brevity, we will refer to {mutual information} to as \textbf{information} in the remainder of this thesis.
 
-Computing the mutual information between stimulus and response requires us to estimate $P(s)$, $P(r)$, and either $P(s|r)$ or $P(r|s)$.
-The requirement to know $P(s)$ renders applying mutual information outside of a controlled environment all-but impossible.
+Computing the mutual information between stimulus and response requires us to estimate $p(s)$, $p(r)$, and either $p(s|r)$ or $p(r|s)$.
+The requirement to know $p(s)$ renders applying mutual information outside of a controlled environment all-but impossible.
 If the subject is free moving, a prior over the set of potential stimuli it could be exposed to is very challenging to define.
-However, within an experimental setting we can control the stimulus presentation such that there is only a finite set of unique stimuli, and the probability of each of them, $P(s)$, is defined by our experimental protocol.
-In practice, $P(r|s)$ is much easier to derive than $P(s|r)$, and so we estimate $P(r)$ and $P(r|s)$.
-As mentioned earlier, we must repeatedly present each stimulus so it is possible to estimate the response distribution $P(r|s)$ for each stimulus condition.
+However, within an experimental setting we can control the stimulus presentation such that there is only a finite set of unique stimuli, and the probability of each of them, $p(s)$, is defined by our experimental protocol.
+In practice, $p(r|s)$ is much easier to derive than $p(s|r)$, and so we estimate $p(r)$ and $p(r|s)$.
+As mentioned earlier, we must repeatedly present each stimulus so it is possible to estimate the response distribution $p(r|s)$ for each stimulus condition.
 
 However, estimating these probabilities from the data can cause problems with our estimated mutual information.
 Since we have only a finite number of samples, there will inevitably be inaccuracies in our probability estimates (the ``limited sampling'' problem).
@@ -158,9 +158,9 @@ However, for a multi-dimensional response (where each stimulus presentation prod
 Using the methodology of \citet{Montemurro2007}, we add an additional step to compute the noise entropy under the simplifying assumption that each dimension of $r$ is independent of the others.
 Exploiting this, we have
 \begin{equation}
-P_\text{ind}([r_1,r_2,r_3,\cdots]|s) = P(r_1|s)\,P(r_2|s)\,P(r_3|s)\,\cdots
+P_\text{ind}([r_1,r_2,r_3,\cdots]|s) = p(r_1|s)\,p(r_2|s)\,p(r_3|s)\,\cdots
 \end{equation}
-and can can compute $\HH_\text{ind}( \SET{R} | \SET{S} )$ directly from estimates of each $P(r_i|s)$ derived from the data.
+and can can compute $\HH_\text{ind}( \SET{R} | \SET{S} )$ directly from estimates of each $p(r_i|s)$ derived from the data.
 This has very little bias compared with $\HH( \SET{R} | \SET{S} )$ there are so many more samples --- the ratio of samples for unique response vectors to individual response elements rises exponentially with the dimension of the response vector.
 One can alternatively estimate this entropy from pseudo-response arrays by shuffling each element in the response vector conditioned on the stimulus, producing $\HH_\text{sh}( \SET{R} | \SET{S} )$.
 Since this shuffling destroys information contained in the dependencies between elements in the response vector, this is an estimate of the same entropy value as $\HH_\text{ind}( \SET{R} | \SET{S} )$.
