@@ -2779,20 +2779,29 @@ To evaluate whether the level of agreement was significant at the beginning and 
 Correspondingly, to find the confidence interval under the \ac{NH}, we averaged the bootstraps also (one bootstrap from each of the sessions at once), then we identified the significance threshold as the 5th percentile over the distribution of \num{100000} bootstrapped average agreement rates.
 
 
+\subsubsection{Conditional information}
+
+Measuring the response coincidence rate alone is problematic, because the rate at which the decoder and behavioural responses agree which each other trivially increases as their individual accuracies increase.
+In \autoref{sec:dec-meth-prob}, we described how to test whether the response coincidence rate is significantly more than expected under a null-hypothesis of assuming independent responses conditioned on the class of the stimulus.
+An alternative solution to this is to measure the mutual information between the behaviour and decoder responses conditioned on the class of the stimulus.
+
+Conditional mutual information is the expected mutual information between two variables conditioned on a third,
+\begin{align}
+\I(\SET{X};\SET{Y}|\SET{Z})
+  &= \E_{z} \left( I(X;Y|Z) \right) \notag
+\\&= \EE_{x, y, z} \left( \log_2 \frac{p(x,y|z)}{p(x|z)p(y|z)} \right) \notag
+\\&= \sum_{z \in \SET{Z}} p(z) \sum_{x \in \SET{X}, \, y \in \SET{Y}} p(x,y|z) \, \log_2 \frac{p(x,y|z)}{p(x|z)p(y|z)}
+\label{eq:conditional-info}
+.\end{align}
+We computed the amount of information about the behavioural response encoded in the decoder classifications, conditioned on the correct response to the stimulus using \autoref{eq:conditional-info}.
+The methodology was the same as described in \autoref{sec:pl_decode_info}, but we measured amount of information about the behavioural response contained in the decoder responses for each of the two stimulus groups and then combined the two values with equal weighting.
+
+
 \subsection{Results for response agreement rate}
 
-
-With regards to the behavioural and decoding response agreement, we find there is no consistent significant deviation from the null hypothesis for \ac{V1} data.
-There are a couple of sessions where unshuffled agreement is above the boundary for significance for each of the animals, but this is not a consistent effect.
-The agreement between shuffled decoding and behaviour does not deviate from the corresponding null hypothesis.
-This shows that the shuffled is higher than the unshuffled decoding agreement only because the shuffled decoder is more accurate at matching the target response.
-
-For \ac{V4}, we see that the agreement does not deviate significantly from the null hypothesis for earlier sessions, but after a cut off point all later sessions do (\ac{M1}: all sessions before 321 are not, after 329 are significant; \ac{M2}: Before 28 are not, after 28 are significant).
-The effect is stronger for \ac{M2}, but present for both animals.
-This indicates that the behavioural responses and the decoded responses based on the neural data were not notably correlated, but have become so with training.
-
-Because the shuffled decoded responses are more accurate (with respect to the target response), they are classified under the null hypothesis to be in better agreement with the behavioural responses.
-However we observe these are in worse agreement than the unshuffled decoding, and do not deviate from the corresponding \ac{NH} line.
+The response coincidence rate and conditional information were not statistically significant at the start or the end of training for \ac{M1} \ac{V1} (\autoref{fig:decag_b1_allp} and \autoref{fig:decag_b1_condinfo}).
+The conditional information fell from \SI{0.0065}{bits} above baseline to equal the baseline \ac{NH} after training.
+However for \ac{M2}, shown in \autoref{fig:decag_j1_allp} and \autoref{fig:decag_j1_condinfo}, the information about the behaviour conditioned on the stimulus was not initially different from the \ac{NH} and rose to \SI{0.0137}{bits}, which was significantly different from the \ac{NH}.
 
 % PERCENTAGE
 %
