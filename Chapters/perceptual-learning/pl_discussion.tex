@@ -1,102 +1,37 @@
 %------------------------------------------------------------------------------
-\section{Discussions}
+\section{Discussion and Conclusions}
 
-We now discuss the findings of the analysis described in the previous chapter, and suggest ways in which this work may proceed in the future.
+In this chapter, we used information theoretic techniques to evaluate how the neural activity in \ac{V1} and \ac{V4} changed during repeated training on a visual domain-specific classification task.
+Over the course of the training regime, the subject's ability to discriminate whether the Gabor and sinusoidal grating presented had higher or lower contrast than a \SI{30}{\percent} contrast sample stimulus improved.
+We were interested in studying the neural correlates of this phenomenon, referred to as perceptual learning.
+The experimental process was performed for two macaques (\ac{M1} and \ac{M2}), and we analysed the amount of information encoded in the spike trains elicited in response to the test stimulus, whose contrast was selected within a range of \SIrange{5}{90}{\percent}.
 
-%------------------------------------------------------------------------------
-\subsection{Validity of results}
+We decomposed the information about the stimulus contained in the neural activity into task-pertinent information, which helps an observer distinguish whether the presented stimulus had a contrast higher or lower than \SI{30}{\percent}, and task-nonpertinent information which only distinguish which of the \num{7} stimuli in each of the two categories was more likely.
+We found the amount of information which was not pertinent to the experimental task remained the same throughout training, whereas the amount of information which was pertinent to the task increased (although this increase was statistically significant for \ac{M2} but not \ac{M1}).
+These observations are compatible with the hypothesis that the cortex is rewiring itself with training in a way which is directed towards optimising the target objective provided by the experimental protocol.
+It also suggests that the neurons in the visual cortex are restricted to encoded information in a certain manner, such that they can not increase the task-pertinent information at the expense of the information encoded about the stimulus which is not relevant to the behavioural task.
+% One possible explanation for this is a sharpening of the contrast tuning curves for the cortical neurons, but that the tuning curves are constrained so they cannot mimic the step-function
 
-From \autoref{fig:b1-trialwise}--\ref{fig:j4-trialwise}, we can conclude several things about the reliability of our other results.
-Firstly, it seems the data for \ac{M2} is more trustworthy than that of \ac{M1}.
-Secondly, from the information measured in the spontaneous activity, it seems the results for the spike timing code cannot be trusted, certainly not any changes which seem to occur with learning.
-Thirdly, this latter point may call into jeopardy the reliability of the results for the spike count code, since these problems seem to be inherent to the raw data, though the information in the spike count code is more robust due to its fewer possible response vectors.
+Within \ac{V1}, the most informative neural activity was the transient response to the onset of the stimulus, an observation supported by previous literature \citep{Muller2001}.
+This is the first cortical response to the stimulus after it is presented, occurring with a latency of approximately \SI{50}{\milli\second}, in which the firing rate increases sharply, but briefly.
+More information can be obtained by observing the neural activity during a short slice of only \SI{10}{\milli\second} than the overall firing rate for the entire \SI{530}{\milli\second} stimulus presentation period, provided the timing of the \SI{10}{\milli\second} window is chosen appropriately.
+Furthermore, the most informative part of the stimulus onset response is the beginning.
+This is most likely because higher contrast stimuli elicit spikes sooner within the retina, and as a consequence the cortical response for higher contrast stimuli has lower latency.
+However, the amount of information encoded in the stimulus-onset response did not increase with training.
+In fact, for both subjects, it \textit{declined} with training.
+This is most likely explained by a decline in quality of the recording electrodes --- in \autoref{sec:pl_dprime} we demonstrated the sensitivity of the electrodes in \ac{V1} declined over time.
 
-%------------------------------------------------------------------------------
-\subsection{Information in individual neurons}
+That said, the overall firing rate for the whole stimulus presentation increased in information content with training for \ac{M2}.
+This was due to an increase in information in the late stages of stimulus presentation --- the final \SI{200}{\milli\second}.
+Since the neural activity after the stimulus was removed contained more information about the behavioural response than the target label of the stimulus, and when the decoder trained on data from later sessions showed a significant correlation with the behavioural responses, we believe this information is indicative of latent representation of the stimulus feedback sustained after the removal of the stimulus through feedback from higher cortical regions.
 
-The analysis has demonstrated there is far more information given by the onset transient response, which is in keeping with previous findings \citep{Muller2001}.
+tp5
 
-The finding that information increases more rapidly with learning in \ac{V4} than \ac{V1} is in line with our hypothesis made earlier.
+Decoding
 
-The result that the peak in information in \ac{V4} neurons moves to being sooner after stimulus onset (\autoref{fig:j4-1x20tp4}) is an entirely novel finding.
-Although the values for the information here are very low --- only \SI{0.02}{bits} --- this is the average over many channels, only a couple of which exhibit the increase with time.
-The more responsive channels have information peaking at around \SI{0.65}{bits}, but the non-responsive channels pull this average down.
-I have also done some work to identify which channels should be excluded on the basis of their $d'$, but this is not presented here.
-
-
-% %------------------------------------------------------------------------------
-% \subsection{Future Work}
-%
-% Further work will need to be done on this analysis to try and fix the inconsistencies in data between days so they can be studied together more easily.
-% Also, work will need to be done to establish if any of the results presented here are genuinely statistically significant.
-%
-% Here we describe some follow-up work which could be performed, either by myself or the perceptual learning lab group.
-%
-% %------------------------------------------------------------------------------
-% \subsubsection{Elimination of artifacts from continuous data}
-%
-% \autoref{fig:mahist-j1s56} shows that the current method of correcting for the monitor artifact is flawed.
-% If the monitor artifact were an artifact similar to previously known artifacts, such as the ``reward artifact'' generated by the water dispenser, a large potential is induced in the electrode, which can be registered as a spike since it exceeds the threshold.
-% However, this sort of behaviour would not cause a reduction in the number of spikes preceding the artifact incident, as seen here and in many of the sessions for other channels too.
-%
-% To create the preceding reduction in spikes over a period of around \SI{0.2}{ms}, the measured potential must be reduced, suppressing the spikes which are being elicited so they are not passing threshold and being detected.
-% A positive electric potential following this could increase the proportion of spikes meeting threshold, and resulting in the problematic sharp peak in the number of spikes.
-% Lending credence to this theory is the way the spikes detected as the monitor artifact have the same waveform as the usual spike, but have an amplitude towards the lower end of what would be expected.
-%
-% If this is the effect we are witnessing, this can be fixed in a manner similar to the way the monitor artifacts were removed in this paper.
-% Instead of considering the spiking data, we will need to look at the continuous data.
-% We can take the modulo of the times with respect to the monitor refresh rate again, and bin the data points together with a bin width the reciprocal of the sampling frequency, but instead of taking the number of data points in each bin (which will be the same since there is always a continuous voltage value even if there isn't a spike), we take the mean of the voltages.
-% The amount of modification made on each trial to the voltages should then appear as a fluctuation in the mean voltage recorded and can consequently be subtracted from the original data.
-%
-% %------------------------------------------------------------------------------
-% \subsubsection{Normalisation of firing rates}
-%
-% Combining trials from different sessions in one analysis has problems because the recording quality varies from day to day.
-% Can possibly be normalised by adjusting the spike detection threshold so that there is always the same spontaneous activity exceeding the threshold
-% This is justifiable because even if neuronal firing rates change greatly due to perceptual learning, homeostasis should keep the spontaneous activity rates relatively consistent.
-%
-% This will hopefully make the measured information content of the spontaneous activity be consistent throughout training.
-% If this is the case, the result will be much more trustworthy results.
-% This will be especially important in improving the potential of the results for \ac{M1}, and for the spike-timing code, potentially yielding some more interesting results.
-%
-% %------------------------------------------------------------------------------
-% \subsubsection{Comparison with psychometrics}
-%
-% An interesting comparison would be to see how the information correlates with the behaviour of the monkey.
-% In particular, it is suspected that there might be a correlation between the magnitude of the maximum information available to the animal in \ac{V4} and the performance of the monkey in the task.
-% Also, there is reason to suspect there might be a correlation between the latency of the information in \ac{V4} and the response time of the monkey, and I tentatively hypothesise this will be the case.
-%
-% %------------------------------------------------------------------------------
-% \subsubsection{Statistical analysis of significance of results}
-%
-% It will be very important to clarify the statistical significance, if any, of the results tentatively presented here.
-% The statistical significance of mutual information can be estimated by using bootstrapping, which is where the stimuli and response vectors are shuffled and paired together at random \citep{Ince2011}.
-% Because some combinations will happen to provide more discriminability than others, the distributed of the mutual information fits a Gaussian distribution with a certain mean and standard deviation.
-% By taking the distribution of information with bootstrapping, the mean and variance can be computed, and the actual value of the information from the data can be compared with this to see if its distance above the mean is statistically significant.
-%
-% Using this method, we can also pick out a value of information which is statistically significant and see how long after test presentation it takes for the information about the test stimulus to become significant.
-% This will provide a metric for information latency.
-%
-% %------------------------------------------------------------------------------
-% \subsubsection{Further directions}
-%
-% There are several different routes down which the project could be more broadly extended.
-%
-% \begin{itemize}
-% \item Analysis of information about the test contrast contained in the \ac{MUA} and \ac{LFP} signals contained in the raw recordings from which the spiking data was extracted.
-% \item Analysis of roving task.
-%       This could be done by considering the activity during test presentation identifying the trial condition as being dependent on both test and sample contrasts.
-%       To see how important the sample stimulus is to the brain activity during the test presentation, we would subtract from this an estimate of the information where condition is changed by keeping the test contrasts the same, but shuffling the sample contrasts.
-% \item Information rate in bits per spike \citep{Rolls2011}.
-% \item Population wide information, using a decoding approach.
-%       There are too many channels to use a direct information theoretic approach \citep{Quiroga2009}.
-%       If we were to use information theory directly, even with binary bins for every channel, there are $2^{20}$ possible responses and we would need in excess of 2 million trials per condition to have a reasonable estimate of the information content.
-%       The dataset is not large enough for this, and even if it were we would have missed the changes due to perceptual learning as they only occur in the first 20,000 trials.
-% \item Examining correlations between neurons.
-% \item Investigate whether firing rate for different contrasts becomes more discriminable due to the means becoming more distant or due to the variability in rate for each contrast being reduced.
-% \end{itemize}
-
-% 
+We found that noise correlations falling with training did not mean the noise correlations hindered the decoder any less.
+Similar results were found by \citet{Gu2011}...
+% A recent paper by \citet{Gu2011} on neurons recoded from the macaque dorsal \ac{MSTd} before and after training in a head direction discrimination task, found that although pairwise noise correlations between neurons are reduced with training, this does not yield an increase in performance in a decoder.
 
 %------------------------------------------------------------------------------
 \subsection{Decoding}
@@ -116,13 +51,8 @@ For both animals, from the data from \ac{V4} we find there is a statistically si
 This implies that the monkey becomes dependent on the activity of the population of neurons for which the recordings are representative.
 That the agreement is better without shuffling could be taken to mean the neural correlations are important in the determination of the animal's response, however shuffling does by its very nature destroy the correspondence between the trials given to the decoder and those experienced by the animal.
 
-%------------------------------------------------------------------------------
-\subsection{Summary}
-%------------------------------------------------------------------------------
 
-The project has expanded on existing literature and demonstrated that the millisecond-level timing of spikes from individual neurons, both in \ac{V1} and \ac{V4}, is not important for contrast discrimination tasks, but the firing rate is important.
-It has also been demonstrated that little information regarding the discrimination between similar contrasts can be gained from the spiking activity of individual neurons, even during/after perceptual learning has occurred.
-In \ac{V1}, there is no discernible change in contrast information in individual neurons at all, but in \ac{V4} there is an increase with perceptual learning in the magnitude of the peak information after stimulus onset, and the peak occurs sooner after stimulus onset as well.
+\subsubsection{Moved}
 
-However, the analysis indicates the quality of the results is good for one monkey (\ac{M2}), but not so good for the other (\ac{M1}).
-The discrepancy between the two datasets needs further investigation, and the conclusions made here need to be validated against other studies.
+Since the decoder was trained on all-but-one of the trials from a single session, there is no guaranteed similarity between the decoders across sessions --- each session may end up using a different hyperplane for classification.
+This corresponds to assuming that the higher-cortical areas are changing their decoding of the lower-cortical areas as time progresses.
