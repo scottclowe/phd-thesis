@@ -2476,6 +2476,19 @@ Instead of using the same balanced subsample we randomly selected and used acros
 To ensure the measured performance was robust against changes in the class balance, we determined the accuracy for each of the \num{14} stimulus classes and then reported the performance as the average of these \num{14} accuracies.
 
 
+\subsubsection{Information estimate}
+\label{sec:pl_decode_info}
+
+We also computed the amount of information about the target response encoded in the decoded response.
+As with the overall model performance measurement, the class balance was corrected \textit{post hoc} by weighting each stimulus class equally while deriving the probability of the response to each stimulus group.
+That is to say, the probability of each response given the stimulus was in the lower (or higher) group was set to be equal to the average over all stimuli conditions within the group.
+The mutual information between the response and the true label of the group was then derived using \autoref{eq:info}.
+Since we only have \num{2} stimulus and \num{2} response conditions, we corrected for the finite-sampling bias of the estimated information using Equation 7 of \citet{Panzeri1996}.
+% \begin{equation}
+% \I_\text{bias} = \frac{1}{2 N \ln 2}
+% \end{equation}
+
+
 \subsubsection{Shuffling to destroy noise correlations}
 \label{sec:pl_dec_shuffle}
 
