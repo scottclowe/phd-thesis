@@ -348,6 +348,22 @@ Coarse and fine luminance changes in the stimulus were isolated in the same mann
 For both the \SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz} \ac{CSD} powers, we computed the correlation and mutual information with the coarse and fine luminance changes, and averaged across sessions.
 
 
+\subsection{Information about Spatio-Temporal Components}
+
+This was performed in the same manner as performed to identify spatial components of the movie stimulus, but with an additional step where we filtered the signal over the temporal domain.
+We extracted specific temporal components of the signal by applying a fourth-order Butterworth filter in the Fourier domain.
+We chose to apply the temporal filter after differentiating the signal over time, but investigations demonstrated the ordering of these steps in the analysis did not impact our results.
+The procedure was thus as follows.
+\begin{enumerate}
+\item Apply spatial filter.
+\item Measure rate of change over time.
+\item Apply temporal filter.
+\item Take absolute value.
+\item Integrate over receptive field location.
+\item Compute information with \SI{67}{\milli\second} lag between stimulus and response.
+\end{enumerate}
+
+
 \subsection{Information lag between granular and infragranular compartments}
 
 The information about fine and coarse stimuli contained in \SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz} neural frequency bands was computed as a function of the lag between stimulus and response, in steps of \SI{1.73}{\milli\second}.
