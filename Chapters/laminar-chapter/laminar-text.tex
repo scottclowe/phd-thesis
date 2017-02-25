@@ -713,6 +713,43 @@ C: Lag between stimulus and response yielding maximal information (green: \SIran
 \end{figure}
 
 
+\subsection{Information about spatio-temporal components of visual stimulus}
+
+\begin{figure}[htbp]
+\centering \includegraphics[scale=.5]{figs/tmf/tmf-v-tmf-sggig-avg-tmfres1-2Band-2Crs.eps}
+
+\caption{%
+\textit{Information about different temporal components of the stimulus.}
+The amount of information about the rate of change of luminance encoded in \SIrange{4}{16}{Hz} (left two columns) and \SIrange{60}{170}{Hz} (right two columns) frequency bands of the neural \ac{CSD} activity, subject to either a low or high spatial filter and a temporal filter.
+We applied temporal filters (6th-order Butterworth filter) with lower cutoff $f_\text{low}$ from \num{0}{Hz} to \num{14}{Hz} ($y$-axes) and upper cutoff $f_\text{up}$ from $f_\text{low}$ to \num{15}{Hz} ($x$-axes).
+(In the case $f_\text{low} = 0$, a lowpass filter was used instead of a bandpass.)
+The lower triangle of each panel, where $f_\text{up} < f_\text{low}$, is omitted.
+Each row of panels corresponds to a different cortical depth, averaging over \ac{SG}, \ac{G} and \ac{IG} compartments, respectively.
+Throughout all panels, the mean over \num{6} sessions is indicated.
+Statistical significance thresholds were computed for each datapoint individually, and a typical significance threshold is shown as a black line across the colour bar.
+}
+\label{fig:lam_tmf}
+%
+\end{figure}
+
+\begin{figure}[htbp]
+\centering \includegraphics[scale=.5]{figs/tmf/tmf-v-spares-sggig-avg-spatmf2-2Band.eps}
+%
+\caption{%
+\textit{Information about different spatiotemporal components.}
+The luminance of the movie was filtered in the spatial domain with a bandpass filters each with width one octave, and in the temporal domain with bandpass filters each with width \SI{6}{Hz}.
+Datapoints are shown against the middle of the band on both $x$ and $y$.
+In the left column of panels, we show the amount of information about the rate of change of filtered luminance encoded in the \SIrange{4}{16}{Hz} frequency range of the \ac{CSD}.
+For the right column, we show information in \SIrange{60}{170}{Hz}.
+Each row of panels corresponds to a different cortical depth, averaging over \ac{SG}, \ac{G} and \ac{IG} compartments, respectively.
+Throughout all panels, the mean over \num{6} sessions is indicated.
+Statistical significance thresholds were computed for each datapoint individually, and a typical significance threshold is shown as a black line across the colour bar.
+}%
+\label{fig:lam_spatmf}
+%
+\end{figure}
+
+
 \subsection{Layer 1 60--\SI{170}{Hz} amplitude is coupled to L5 4--\SI{16}{Hz} phase}
 
 Above, in section ``Information redundancy across depth'', we showed that high and low \ac{CSD} frequencies contain independent information to each other (\autoref{fig:lam_3}).
