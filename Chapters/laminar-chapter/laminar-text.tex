@@ -191,7 +191,7 @@ This yields a smoothed spike rate, analogous to a population firing rate.
 Spikes were detected by high-pass filtering the raw signal above \SI{500}{Hz} with a zero-phase eighth-order Butterworth filter, and classifying any points more than 3.5 standard deviations above the mean signal during pre- and post-stimulus periods as a spike, with a minimum inter-spike-interval of \SI{1}{\milli\second}.
 
 The majority of thalamic afferents in \ac{V1} stimulate \ac{L4} (albeit indirectly, see \citealp{Hansen2012}), with the first cortical response manifesting at layer 4C$\alpha$ \citep{Callaway1998}, resulting in an initial current sink and first burst of spiking activity located here.
-Consequently, we confirmed the depth alignment of the electrodes by verifying that the initial current sink (\autoref{fig:lam_s1}C) and spiking activity (\autoref{fig:lam_s1}D) in response to stimulation both resided within the \ac{G} compartment.
+Consequently, we confirmed the depth alignment of the electrodes by verifying that the initial current sink (\autoref{fig:lam_align_csd}) and spiking activity (\autoref{fig:lam_align_mua}) in response to stimulation both resided within the \ac{G} compartment.
 
 
 \subsection{Receptive Field Locations}
@@ -363,27 +363,30 @@ The Modulation Index is then the normalised Kullback-Leibler divergence of this 
 To understand how oscillatory activity at different layers of \acf{V1} encodes naturalistic visual information, we recorded neural activity in cortical area \acs{V1} with a multi-contact laminar electrode array in four monkeys (Macaca mulatta), anaesthetized with opiates.
 The animals were presented with a clip from a Hollywood movie which lasted \SI{30}{\second} or \SI{120}{\second} and was repeated \numrange{40}{150} times, depending on session (see Experimental Methods).
 
-Each electrode housed \num{16} equally spaced (\SI{150}{\micro\metre}) contacts spanning a total depth of \SI{2250}{\micro\metre}, and was inserted perpendicular to the cortical surface (\autoref{fig:lam_1}A).
+Each electrode housed \num{16} equally spaced (\SI{150}{\micro\metre}) contacts spanning a total depth of \SI{2250}{\micro\metre}, and was inserted perpendicular to the cortical surface (\autoref{fig:lam_1a}).
 We recorded broadband \acp{LFP} from each electrode contact, and used the \acp{LFP} to compute at each electrode location the \ac{CSD}, a measure of the local flow of charge at any given point \citep{Einevoll2013}.
 To align the depth of the electrodes across recording sessions, we identified the border between Layer 4 and 5 as the inversion of the \ac{CSD} from sink to source in response to the onset of visual stimulation (see \citealp{Schroeder1991}, and \autoref{fig:lam_s1}).
 We then divided the cortical depth into \acf{G}, \acf{SG}, and \acf{IG} compartments (see Experimental Methods for details).
 
 In order to identify the spatial area of the movie stimulus that modulated the neural activity that we recorded, we estimated the spatial \ac{RF} of the \ac{MUA} recorded in each electrode contact site by reverse-correlating the rate of change of luminance of each pixel in the movie with the \ac{MUA}.
-The spatial-\ac{RF} locations that we identified (see \autoref{fig:lam_1}B for an example session) did not vary with depth, confirming the perpendicularity of the electrode penetration and that all electrode contacts were recording from the same cortical column.
+The spatial-\ac{RF} locations that we identified (see \autoref{fig:lam_1b} for an example session) did not vary with depth, confirming the perpendicularity of the electrode penetration and that all electrode contacts were recording from the same cortical column.
 
 
 \begin{figure}[htbp]
+\subfloat{\label{fig:lam_1a}}
+\subfloat{\label{fig:lam_1b}}
+\subfloat{\label{fig:lam_1c}}
 \centering \includegraphics[width=\columnwidth]{paperfigs/fig1}
 %
 \caption{%
 \textit{Overview of data collection and example data.}
-A: Illustration of experimental recording setup, showing approximate locations of electrode contacts in relation to a Nissl stained section of macaque \ac{V1} cortex.
+\protect\subref{fig:lam_1a}: Illustration of experimental recording setup, showing approximate locations of electrode contacts in relation to a Nissl stained section of macaque \ac{V1} cortex.
 Boundaries between cortical laminae are indicated with arrowheads.
 (Stain reproduced from \citet{Tyler1998}.)
 (Note: Electrode width is not to scale.)
-B: Receptive field locations were consistent across the cortical depth.
+\protect\subref{fig:lam_1b}: Receptive field locations were consistent across the cortical depth.
 Location of receptive field for each cortical recording site was identified by reverse correlating the \ac{MUA} with the luminance changes of each pixel in the movie (session \sesname{E07nm1}).
-C: Example \ac{CSD} traces from simultaneous recordings at three cortical depths for eight repetitions of a movie fragment (session \sesname{H05nm7}).
+\protect\subref{fig:lam_1c}: Example \ac{CSD} traces from simultaneous recordings at three cortical depths for eight repetitions of a movie fragment (session \sesname{H05nm7}).
 The data are split into three temporal frequency bands (\SIrange{4}{16}{Hz}, \SIrange{28}{44}{Hz} and \SIrange{60}{170}{Hz}, see Methods).
 }%
 \label{fig:lam_1}
@@ -394,7 +397,7 @@ The data are split into three temporal frequency bands (\SIrange{4}{16}{Hz}, \SI
 \subsection{Distribution of information across depth and frequency}
 
 We considered how neural activity in different frequency bands changed in response to the movie.
-To visually convey how information is encoded into different frequency bands (\autoref{fig:lam_1}C), we filtered the \ac{CSD} at three cortical depths in three spectral bands (\SIrange{4}{16}{Hz}, \SIrange{28}{44}{Hz} and \SIrange{60}{170}{Hz}), during eight presentations of a portion of the movie clip.
+To visually convey how information is encoded into different frequency bands (\autoref{fig:lam_1c}), we filtered the \ac{CSD} at three cortical depths in three spectral bands (\SIrange{4}{16}{Hz}, \SIrange{28}{44}{Hz} and \SIrange{60}{170}{Hz}), during eight presentations of a portion of the movie clip.
 
 Within this small sample of the overall dataset, one can observe that large, low-frequency deflections in the activity are consistent across trials within \ac{G} and \ac{IG} depths, and the envelope-amplitude of activity in the \SIrange{60}{170}{Hz} band is also consistent across trials, most clearly for the \ac{SG} compartment.
 Activity in the \SIrange{28}{44}{Hz} range was more variable across trials for any cortical depth, and did not seem to be stimulus modulated.
@@ -739,7 +742,7 @@ This is curious as it indicates that, for any given frequency band, oscillations
 This seems wasteful.
 [important point]
 
-We observed qualitatively that information-carrying events in \ac{L4} were large, temporary deflections with a long duration (low frequency), whereas \acs{L5/6} contained sustained oscillations (see \autoref{fig:lam_1}A for examples).
+We observed qualitatively that information-carrying events in \ac{L4} were large, temporary deflections with a long duration (low frequency), whereas \acs{L5/6} contained sustained oscillations (see \autoref{fig:lam_1a} for examples).
 The deflections in \ac{L4} were usually coincident with scene cuts or rapid changes in the stimulus.
 This could be interpreted as an error signal, since sudden, large changes in the stimulus would result in any predictive model of the stimulus making large errors.
 However, a more simple interpretation is these deflections correspond to changes in the afferent input to \ac{V1} from \ac{LGN}.
