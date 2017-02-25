@@ -203,7 +203,7 @@ For each session, the \ac{RF} centre was located using the average of the revers
 
 \subsubsection{Nuclear magnetic resonance data collection}
 
-For two of the four monkeys involved in the study, we made use of high-resolution \ac{NMR} anatomical scans (collected for a different experiment) to measure the cortical thickness at the recording site used (Supplemental \autoref{fig:lam_s1}A--B).
+For two of the four monkeys involved in the study, we made use of high-resolution \ac{NMR} anatomical scans (collected for a different experiment) to measure the cortical thickness at the recording site used (\autoref{fig:lam_nmr_e07} and \autoref{fig:lam_nmr_h05}).
 
 To estimate the cortical thickness at the recording site of the laminar electrodes, high-resolution \ac{NMR} anatomical scans were acquired at the vertical using a \SI{7}{T} scanner with a \SI{60}{\centi\metre} diameter bore (Bruker BioSpin GmbH, Ettlingen, Germany).
 A custom-made chair was used to position the monkey in the magnet.
@@ -222,25 +222,41 @@ To identify the depth of each contact, we measured the potential evoked in respo
 From the measured potentials, we identified the boundary between the \ac{G} and \ac{IG} compartments as the source-sink reversal in the evoked \ac{CSD} (\citealp{Mitzdorf1979,Mitzdorf1985}; see Supplementary Materials).
 We estimated the location of the boundary between the \ac{G} and \ac{SG} compartments by cross-referencing literature describing the average thickness of cortical laminae in Macaca mulatta, area 17 \citep{Lund1973,OKusky1982}.
 
+
 \subsection{Aligning electrode penetrations}
 
-
 \begin{figure}
-\centering \includegraphics[width=\columnwidth]{paperfigs/figS1}
+    \hspace*{\fill}
+    \subfloat[][\acs{NMR} scan of \sesname{E07}'s cortex.\label{fig:lam_nmr_e07}]{%
+        \includegraphics[scale=.5]{%
+figs/recordings/fig1S2-amended-E07.eps}}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\acs{NMR} scan of \sesname{H05}'s cortex.\label{fig:lam_nmr_h05}]{%
+        \includegraphics[scale=.5]{%
+figs/recordings/fig1S2-amended-H05.eps}}
+    \hspace*{\fill}
+    \\
+    \subfloat[][Alignment of \acs{CSD} across sessions.\label{fig:lam_align_csd}]{%
+        \includegraphics[scale=.35]{%
+figs/recordings/sigtrlavg-allsestb-6ses-photodiode-mixed-Cln-none-none-mean-iCSD-b0=none-0.eps}}
+    \\
+    \subfloat[][Alignment of \acs{MUA} across sessions.\label{fig:lam_align_mua}]{%
+        \includegraphics[scale=.35]{%
+figs/recordings/sigtrlavg-allsestb-6ses-photodiode-mixed-Spkt-none-none-mean-0.eps}}
 %
 \caption{%
 \textit{Electrode alignment.}
-A--B: High resolution \ac{NMR} scans of two animals used to measure cortical thickness.
-C: Stimulus triggered average \ac{CSD} responses, post-alignment.
+\protect\subref{fig:lam_nmr_e07} and \protect\subref{fig:lam_nmr_h05}: High resolution \ac{NMR} scans of two animals used to measure cortical thickness.
+\protect\subref{fig:lam_align_csd}: Stimulus triggered average \ac{CSD} responses, post-alignment.
 For sessions \sesname{H05391}, \sesname{H05nm7}, \sesname{H05nm9} and \sesname{E07nm1}, the average response to onset of the movie stimulus is shown, whereas for sessions \sesname{F10nm1} and \sesname{J10nm1} the response to a full-field flash is shown.
-D: Corresponding spike densities for the responses in panel C (\SI{1}{\milli\second} window duration).
+\protect\subref{fig:lam_align_mua}: Corresponding spike densities for the responses in panel \protect\subref{fig:lam_align_csd} (\SI{1}{\milli\second} window duration).
 }
 \label{fig:lam_s1}
 %
 \end{figure}
 
 
-For each recording session, the electrode was implanted in \iac{V1} at the recording site indicated in \autoref{fig:lam_s1}A--B.
+For each recording session, the electrode was implanted in \iac{V1} at the recording site indicated in \autoref{fig:lam_nmr_e07} and \autoref{fig:lam_nmr_h05}.
 The methodology for the insertion of the electrode is described in the Experimental Methods of the main text.
 
 For each penetration, we endeavoured to align the electrode such that the most shallow electrode contact was at the boundary between cortical matter and the dura (near \ac{L1}).
@@ -251,7 +267,7 @@ To identify the depth of each contact, we measured the potential evoked in respo
 From the measured potentials, we identified the boundary between the \ac{G} and \ac{IG} compartments as the source-sink reversal in the evoked \ac{CSD} \citep{Mitzdorf1979,Mitzdorf1985}.
 For this measurement, the \ac{CSD} was computed from the \ac{LFP} as described in Experimental Methods, but without spatially smoothing the signal with a Hamming filter.
 
-The data from each electrode was re-aligned such that the source-sink reversal for each recording session was at a depth of \SI{0}{\milli\metre} (\autoref{fig:lam_s1}C).
+The data from each electrode was re-aligned such that the source-sink reversal for each recording session was at a depth of \SI{0}{\milli\metre} (\autoref{fig:lam_align_csd}).
 We estimated the location of the boundary between the \ac{G} and \ac{SG} compartments by cross-referencing literature describing the average thickness of cortical laminae in Macaca mulatta, area 17 \citep{Lund1973,OKusky1982}.
 
 The validity of this choice of alignment of electrode penetrations was then tested by considering the average response in spiking activity to the onset of the stimulus, and by measuring the cortical thickness at the recording site using \ac{NMR}.
