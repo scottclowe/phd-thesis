@@ -643,25 +643,48 @@ The stimulus magnitude at each spatial frequency band was obtained by taking the
 %
 \end{figure}
 
+
 \begin{figure}[htbp]
-\centering \includegraphics[width=\columnwidth]{paperfigs/fig5}
+    \centering
+    \hspace*{\fill}
+    \subfloat[][Information about spatial components.\label{fig:lam_spares_lines}]{%
+        \includegraphics[scale=.5]{%
+figs/spares/spares-none-linebound-logx-doLabels-region_2.eps}}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][Information about spatial components in different neural frequency bands.\label{fig:lam_spares_csdfrq}]{%
+        \includegraphics[scale=.5]{%
+figs/spares/fig8v2-power-bands-spares-none-logx-avg-doLabels.eps}}
+    \hspace*{\fill}
+    \\
+    \hspace*{\fill}
+    \subfloat[][Information about spatial components in \SIrange{4}{16}{Hz} \acs{CSD} across cortical depth.\label{fig:lam_spares_alpha}]{%
+        \includegraphics[scale=.5]{%
+figs/spares/spares-none-logx-avg-doLabels_4-16Hz_power.eps}}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][Information about spatial components in \SIrange{60}{170}{Hz} \acs{CSD} across cortical depth.\label{fig:lam_spares_gamma}]{%
+        \includegraphics[scale=.5]{%
+figs/spares/spares-none-logx-avg-doLabels_60-170Hz_power.eps}}
+    \hspace*{\fill}
 %
 \caption{%
 \textit{Information about different spatial components across laminae and frequency bands.}
-A: Information about spatial components of the stimulus contained in low frequency \ac{CSD} power (\SIrange{4}{16}{Hz}, average of information within \ac{G} compartment; green) and high frequency \ac{CSD} power (\SIrange{60}{170}{Hz}, average of information within \ac{SG} compartment; purple).
+\protect\subref{fig:lam_spares_lines}: Information about spatial components of the stimulus contained in low frequency \ac{CSD} power (\SIrange{4}{16}{Hz}, average of information within \ac{G} compartment; green) and high frequency \ac{CSD} power (\SIrange{60}{170}{Hz}, average of information within \ac{SG} compartment; purple).
 Shaded area: standard error across \num{6} sessions.
-B: Information about visual spatial components contained in a range of \ac{CSD} frequencies, median over \num{12} recording sites.
-C,D: Information in low (\SIrange{4}{16}{Hz}) and high (\SIrange{60}{170}{Hz}) \ac{CSD} frequency bands across cortical laminae.
-Plots A-D are mean of \num{6} sessions.}%
-\label{fig:lam_5}
+\protect\subref{fig:lam_spares_csdfrq}: Information about visual spatial components contained in a range of \ac{CSD} frequencies, median over \num{12} recording sites.
+\protect\subref{fig:lam_spares_alpha} and \protect\subref{fig:lam_spares_gamma}: Information in low (\SIrange{4}{16}{Hz}) and high (\SIrange{60}{170}{Hz}) \ac{CSD} frequency bands across cortical laminae.
+In each plot, the mean over \num{6} sessions is indicated.
+}%
+\label{fig:lam_spares}
 %
 \end{figure}
-The results are summarised in \autoref{fig:lam_5}A, which shows the information encoded in these two frequency bands, averaged across the whole cortical depth.
-We found the low frequency \ac{CSD} bands (\SI{<40}{Hz}) contained more information about low spatial frequencies (\SIrange{0.1}{0.6}{\cpd}), whereas the higher spectral frequencies (\SI{>40}{Hz}) contained more information about high spatial frequencies (\SIrange{0.6}{5.0}{\cpd}) (\autoref{fig:lam_5}B).
+
+
+The results are summarised in \autoref{fig:lam_spares_lines}, which shows the information encoded in these two frequency bands, averaged across the whole cortical depth.
+We found the low frequency \ac{CSD} bands (\SI{<40}{Hz}) contained more information about low spatial frequencies (\SIrange{0.1}{0.6}{\cpd}), whereas the higher spectral frequencies (\SI{>40}{Hz}) contained more information about high spatial frequencies (\SIrange{0.6}{5.0}{\cpd}) (\autoref{fig:lam_spares_csdfrq}).
 Importantly, there was no continuous transition between these two; instead we observe an abrupt change at \SI{40}{Hz}, with lower and higher neural oscillation frequencies tuned to stimulus features with different spatial frequencies.
 Neural oscillations at intermediate frequencies do not encode intermediate spatial components of the stimulus --- they do not encode any spatial aspect of the stimulus.
 
-These observations held true across the entire cortical depth (\autoref{fig:lam_5}C--D), with the two frequency bands (\SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz}) containing information about opposing spatial frequencies.
+These observations held true across the entire cortical depth (\autoref{fig:lam_spares_alpha} and \autoref{fig:lam_spares_gamma}), with the two frequency bands (\SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz}) containing information about opposing spatial frequencies.
 The distribution of information across the cortical depth corresponds to that found in \autoref{fig:lam_info_csd}.
 
 Since information theoretic measures capture any possible relationship between stimulus and response, we cannot use it to determine the nature of how changes in luminance lead to changes .in cortical power.
