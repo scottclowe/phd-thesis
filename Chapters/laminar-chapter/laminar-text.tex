@@ -335,6 +335,7 @@ First, we took the two-dimensional fast-Fourier transform of a \SI{224}{px} squa
 A fourth-order Butterworth filter with a width of one octave was applied using a mask in the Fourier domain, and the result was projected back to the spatial domain.
 We then took the pixel-wise difference between each spatially filtered pair of consecutive frames.
 To provide a measure of the amount of change in luminance at this spatial resolution, we took the absolute amount of change in each pixel and summed this within a \SI{2}{\degree} diameter circular window centred at the receptive field location.
+This process is illustrated in \autoref{fig:lam_4}.
 
 Applying this to the entire movie provided a temporal sequence of luminance changes in each spatial range.
 Similar to before, we took a \num{10}-bin histogram and took the identity the bin in which each luminance change fell to be the ``stimulus''.
