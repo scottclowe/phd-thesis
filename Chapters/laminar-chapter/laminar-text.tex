@@ -879,6 +879,56 @@ Example \ac{CSD} traces are shown for two electrode contacts (\autoref{fig:lam_6
 By visual inspection, one can observe that peaks and troughs in the luminance signals are coincident with peaks and troughs \ac{CSD} power of the appropriate frequency range.
 
 
+\subsection{Information latency}
+
+% Max for   4.00 -   16.00Hz,  0.000-0.300cpd is 0.0460 at 0.09850 sec
+% Max for   4.00 -   16.00Hz,    1.000-Infcpd is 0.0083 at 0.07085 sec
+% Max for  60.00 -  170.00Hz,  0.000-0.300cpd is 0.0121 at 0.09850 sec
+% Max for  60.00 -  170.00Hz,    1.000-Infcpd is 0.0713 at 0.11578 sec
+% Max for 900.00 - 3000.00Hz,  0.000-0.300cpd is 0.0411 at 0.04838 sec
+% Max for 900.00 - 3000.00Hz,    1.000-Infcpd is 0.0960 at 0.08467 sec
+
+
+% Lag between information in  G and IG for low2 power  0.000-0.300cpd is +0.0134+/-0.0044 seconds, p=0.0282
+% Lag between information in  G and SG for low2 power  0.000-0.300cpd is +0.0089+/-0.0024 seconds, p=0.0141
+% Lag between information in SG and IG for low2 power  0.000-0.300cpd is +0.0045+/-0.0050 seconds, p=0.4042
+%
+% Lag between information in  G and IG for low2 power    1.000-Infcpd is +0.0347+/-0.0319 seconds, p=0.3260
+% Lag between information in  G and SG for low2 power    1.000-Infcpd is +0.0247+/-0.0080 seconds, p=0.0272
+% Lag between information in SG and IG for low2 power    1.000-Infcpd is +0.0100+/-0.0313 seconds, p=0.7613
+%
+% Lag between information in  G and IG for hgh4 power  0.000-0.300cpd is -0.0114+/-0.0156 seconds, p=0.4978
+% Lag between information in  G and SG for hgh4 power  0.000-0.300cpd is +0.0063+/-0.0052 seconds, p=0.2789
+% Lag between information in SG and IG for hgh4 power  0.000-0.300cpd is -0.0177+/-0.0183 seconds, p=0.3775
+%
+% Lag between information in  G and IG for hgh4 power    1.000-Infcpd is -0.0092+/-0.0095 seconds, p=0.3779
+% Lag between information in  G and SG for hgh4 power    1.000-Infcpd is +0.0011+/-0.0067 seconds, p=0.8781
+% Lag between information in SG and IG for hgh4 power    1.000-Infcpd is -0.0103+/-0.0067 seconds, p=0.1837
+%
+% Lag between information in  G and IG for  mua power  0.000-0.300cpd is -0.0048+/-0.0105 seconds, p=0.6685
+% Lag between information in  G and SG for  mua power  0.000-0.300cpd is -0.0056+/-0.0124 seconds, p=0.6697
+% Lag between information in SG and IG for  mua power  0.000-0.300cpd is +0.0009+/-0.0057 seconds, p=0.8857
+%
+% Lag between information in  G and IG for  mua power    1.000-Infcpd is +0.0009+/-0.0027 seconds, p=0.7646
+% Lag between information in  G and SG for  mua power    1.000-Infcpd is -0.0048+/-0.0033 seconds, p=0.2024
+% Lag between information in SG and IG for  mua power    1.000-Infcpd is +0.0057+/-0.0030 seconds, p=0.1193
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[scale=.5]{figs/lag/latencydifference-avg_nonsig1.eps}
+%
+\caption{%
+\textit{Difference in peak information latency between recording depths.}
+We present the difference in latency between pairs of recording channels, from Channel 1 to Channel 2; if $\Delta$ is positive, Channel 1 precedes Channel 2.
+Left: difference in the latency of peak information between channels, for information about coarse luminance changes (\SI{<0.3}{cpd}) encoded in the power of \SIrange{4}{16}{Hz} oscillations.
+Right: information in the \SIrange{60}{170}{Hz} power range about about finer scaled, \SI{>1.0}{cpd}, luminance changes.
+Both plots show the average over \num{6} sessions, with non-significant differences in latency (Student's $t$-test) shown in white.
+}
+\label{fig:lam_latencydiff}
+\end{figure}
+
+
 \subsection{Information about spatio-temporal components of visual stimulus}
 
 Next, we considered the information about different temporal components of the movie.
