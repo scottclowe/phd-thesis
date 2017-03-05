@@ -473,15 +473,6 @@ A paired $t$-test was performed across all \num{6} sessions to test whether the 
 For \autoref{fig:lam_6}D, the difference in information latency between each pairs of electrode depths was tested for statistical significance using a paired $t$-test, with insignificant differences shown in white.
 
 
-\subsection{Cross-frequency phase-amplitude coupling}
-
-Strength of cross-frequency coupling was measured using the Modulation Index \citep{Tort2010}.
-\ac{CSD} data was filtered for two bands, \SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz}, using a zero-phase sixth-order Butterworth filter, and the instantaneous phase of \SIrange{4}{16}{Hz} and envelope amplitude of \SIrange{60}{170}{Hz} were each estimated using a Hilbert transform.
-We took a histogram of the \SIrange{4}{16}{Hz} phase datapoints with \num{16} bins each of width $\nicefrac{\pi}{8}$ radians, and took the average of the \SIrange{60}{170}{Hz} amplitudes simultaneous with the phase datapoints in each bin.
-This provides a distribution of amplitude at one depth as a function of phase at another.
-The Modulation Index is then the normalised Kullback-Leibler divergence of this distribution from a uniform distribution.
-
-
 % =============================================================================
 \section{Results}
 % =============================================================================
@@ -943,30 +934,6 @@ Throughout all panels, the mean over \num{6} sessions is indicated.
 Statistical significance thresholds were computed for each datapoint individually, and a typical significance threshold is shown as a black line across the colour bar.
 }%
 \label{fig:lam_spatmf}
-%
-\end{figure}
-
-
-\subsection{Layer 1 \SIrange{60}{170}{Hz} amplitude is coupled to L5 \SIrange{4}{16}{Hz} phase}
-
-Above, in section ``Information redundancy across depth'', we showed that high and low \ac{CSD} frequencies contain independent information to each other (\autoref{fig:lam_cxfrq_info}).
-We found the power in the two bands to be independent, but it remains possible that there is a relationship between the phase of the low-frequency band and the power of the high-frequency band.
-To investigate this possibility, we examined the cross-frequency coupling between the low-frequency phase and high-frequency oscillation amplitude.
-
-Our observations showed that there is a spatially localised coupling between the \SIrange{4}{16}{Hz} phase of both lower-\ac{G} and mid-\ac{IG} with the amplitude of \SIrange{60}{170}{Hz} oscillations in upper-\ac{SG} (\autoref{fig:lam_8}).
-Additionally, in both \ac{G} and \ac{IG} there is a coupling between the local \SIrange{4}{16}{Hz} phase and the local \SIrange{60}{170}{Hz} amplitude.
-
-The same relationship was discovered to hold both for spontaneous activity and stimulus-driven recordings, and our findings are in agreement with previous work \citep{Spaak2012}.
-
-\begin{figure}[htbp]
-\centering \includegraphics[width=\columnwidth]{paperfigs/fig8}
-%
-\caption{%
-\textit{Cross-frequency phase-amplitude coupling}
-Phase-amplitude modulation index between low frequency (\SIrange{4}{16}{Hz}) phase and high frequency (\SIrange{60}{170}{Hz}) amplitude (A: movie driven activity; B: spontaneous activity).
-Mean of \num{5} sessions.
-C and D: Amplitude as a function of binned phase for an example session (\sesname{H05391}), for \ac{IG}$\rightarrow$\ac{IG} coupling (left) and \ac{IG}$\rightarrow$\ac{SG} coupling (right).}%
-\label{fig:lam_8}
 %
 \end{figure}
 
