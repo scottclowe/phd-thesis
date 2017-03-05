@@ -439,6 +439,23 @@ Coarse and fine luminance changes in the stimulus were extracted using the metho
 For both the \SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz} \ac{CSD} powers, we computed the correlation with and information about the coarse and fine luminance changes.
 
 
+\subsection{Information latency between granular and infragranular compartments}
+
+The information about fine and coarse stimuli contained in \SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz} neural frequency bands was computed as a function of the lag between stimulus and response, in steps of \SI{1.73}{\milli\second}.
+For each cortical recording depth, we found determined the latency of the response as the lag which gave the maximum amount of information about the stimulus.
+This step was performed for each session individually.
+% Since differences in latency from stimulation to \ac{V1} were larger between different sessions than between different depths for the same session, we found for each session and each frequency band the overall latency as the mean latency across all cortical depths.
+% For each session, we then subtracted its overall latency from the distribution of latencies across the cortical depth to create zero-centred distributions across recording depths.
+% From the zero-centred latency distributions we then computed the average relative latency and its standard error across sessions.
+% To make the data easier to conceptualise, for \autoref{fig:lam_6}C the average overall latency across sessions was added back to each trace.
+%
+Then, for each pair of electrode recording depths, we took the difference in their peak latencies ($\Delta$ Latency), and performed a $t$-test over the \num{6} sessions to test for statistical significance.
+In \autoref{fig:lam_latencydiff}, the insignificant ($p>0.05$) latency differences are shown in white.
+%
+% To perform the statistical test, the relative latency was averaged across the five electrode contacts in \ac{IG} and also averaged across the three contacts in \ac{G}.
+% A paired $t$-test was performed across all \num{6} sessions to test whether the maximum information in the \ac{G} compartment consistently occurred earlier than information in the \ac{IG} compartment.
+
+
 \subsection{Information about spatio-temporal stimulus components}
 \label{sec:lam_tmf_method}
 
@@ -455,22 +472,6 @@ The full procedure was thus as follows.
 \item Integrate over receptive field location.
 \item Compute information with \SI{67}{\milli\second} lag between stimulus and response.
 \end{enumerate}
-
-
-\subsection{Information lag between granular and infragranular compartments}
-
-The information about fine and coarse stimuli contained in \SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz} neural frequency bands was computed as a function of the lag between stimulus and response, in steps of \SI{1.73}{\milli\second}.
-For each cortical recording depth, we found determined the latency of the response as the lag which gave the maximum amount of information about the stimulus.
-This step was performed for each session individually.
-Since differences in latency from stimulation to \ac{V1} were larger between different sessions than between different depths for the same session, we found for each session and each frequency band the overall latency as the mean latency across all cortical depths.
-For each session, we then subtracted its overall latency from the distribution of latencies across the cortical depth to create zero-centred distributions across recording depths.
-From the zero-centred latency distributions we then computed the average relative latency and its standard error across sessions.
-To make the data easier to conceptualise, for \autoref{fig:lam_6}C the average overall latency across sessions was added back to each trace.
-
-To perform the statistical test, the relative latency was averaged across the five electrode contacts in \ac{IG} and also averaged across the three contacts in \ac{G}.
-A paired $t$-test was performed across all \num{6} sessions to test whether the maximum information in the \ac{G} compartment consistently occurred earlier than information in the \ac{IG} compartment.
-
-For \autoref{fig:lam_6}D, the difference in information latency between each pairs of electrode depths was tested for statistical significance using a paired $t$-test, with insignificant differences shown in white.
 
 
 % =============================================================================
