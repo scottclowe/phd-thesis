@@ -3,10 +3,41 @@
 \section{Introduction}
 % =============================================================================
 
+In \autoref{ch:lam}, we considered the information in the power of the \ac{CSD} within different frequency ranges.
+In this chapter, we will investigate the information encoded in the phase of the \ac{CSD}, and its relationship with the power.
+
 
 % =============================================================================
 \section{Methods}
 % =============================================================================
+
+
+\subsection{Phase across depth and frequencies}
+\label{sec:lam_phase_method}
+
+The phase was computed in a similar manner to the power in \autoref{sec:lam_power_method}.
+We filtered both the \ac{LFP} and \ac{CSD} using a series of bands each with a fractional bandwidth of \SI{50}{\percent}, spaced logarithmically at multiples \num{1.291}.
+This spacing ensures each band has \SI{0}{\percent} overlap with bands further away than its immediate neighbours and a \SI{44}{\percent} and \SI{56}{\percent} overlap with its preceding and succeeding bands respectively.
+The filter chosen was a zero-phase sixth-order Butterworth filter, after which the instantaneous phase was estimated by taking the angle of the Hilbert transform.
+The phase the \SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz} bands was extracted in the same manner.
+
+
+\subsection{Information contained in cortical oscillation phase}
+\label{sec:lam_phase_method}
+
+Similar to \autoref{sec:lam_info_method}
+
+
+\subsection{Phase-phase correlation}
+
+We used directional (or circular) statistics
+Circular statistics were computed using the CircStat toolbox \citep{Berens2009}.
+
+
+\subsection{Phase-power correlation}
+
+Circular statistics were computed using the CircStat toolbox \citep{Berens2009}.
+
 
 \subsection{Cross-frequency phase-amplitude coupling}
 
@@ -24,16 +55,18 @@ The Modulation Index is then the normalised Kullback-Leibler divergence of this 
 
 %-------------------------------------------------------------------------------
 \FloatBarrier
-\subsection{Stimulus information contained in phase}
+\subsection{Information contained in phase of cortical oscillations}
+
+Again, although it contains less information than the \ac{LFP}, the \ac{CSD} gives better spatial localisation.
 
 \begin{figure}[htbp]
     \centering
     \hspace*{\fill}
-    \subfloat[\ac{LFP}\label{fig:lam_phase_info_lfp}]{
-        \includegraphics[scale=.45]{phaseinfo/fig3set-info-Csd-phase-straightnanmean-compzonescb-legend.eps}}
-    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
-    \subfloat[\ac{CSD}\label{fig:lam_phase_info_csd}]{
+    \subfloat[\ac{LFP} phase information.\label{fig:lam_phase_info_lfp}]{
         \includegraphics[scale=.45]{phaseinfo/fig3set-info-Cln-phase-straightnanmean-compzonescb-legend.eps}}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[\ac{CSD} phase information.\label{fig:lam_phase_info_csd}]{
+        \includegraphics[scale=.45]{phaseinfo/fig3set-info-Csd-phase-straightnanmean-compzonescb-legend.eps}}
     \hspace*{\fill}
     \caption{
 Information about the stimulus contained in the phase of the extracellular neural signal, as a function of frequency. Mean of 6 sessions.
@@ -120,63 +153,126 @@ Information about the stimulus contained in the phase of the extracellular neura
 % \end{figure}
 
 
-
 %-------------------------------------------------------------------------------
-\FloatBarrier
-\subsection{Redundancy}
+\subsection{Phase-phase redundancy}
 %-------------------------------------------------------------------------------
 
-\subsubsection{Cross channel}
+We find that different frequency bands contain independent, or even synergistic, information about the stimulus.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[scale=.5]{redundancy-cxschn/bndflt4-1-pcred-none-avg-lag=0s_paper.eps}
-\caption{Redundancy of bands across channels.
+\hspace*{\fill}
+\subfloat[Redundancy.\label{fig:lam_phase_cxfrq_info_red}]{
+    \includegraphics[scale=.5]{%
+redundancy-cxsfrq/cxsfrq-pcred_phase-phase_avg-log.eps}}
+\hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+\subfloat[Info gain.\label{fig:lam_phase_cxfrq_info_gain}]{
+    \includegraphics[scale=.5]{%
+redundancy-cxsfrq/cxsfrq-pcgain-i2d2_phase-phase_avg-log.eps}}
+\hspace*{\fill}
+    \caption{
+Redundancy between frequencies.
 }
-\label{fig:lam_phase_cxchn_redundancy}
+\label{fig:lam_phase_cxfrq_info}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \hspace*{\fill}
+    \subfloat[Signal correlation\label{fig:lam_signal_corr_phase}]{
+        \includegraphics[scale=.5]{noisesigcorr/cxsfrq-signal-phase-phase-avg-log.eps}
+}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[Noise correlation\label{fig:lam_noise_corr_phase}]{
+        \includegraphics[scale=.5]{noisesigcorr/cxsfrq-noise-phase-phase-avg-log.eps}
+}
+    \hspace*{\fill}
+    \caption{Phase correlation
+\protect\subref{fig:lam_signal_corr_phase}:~Signal correlation.
+\protect\subref{fig:lam_noise_corr_phase}:~Noise correlation.
+}
+\label{fig:lam_noisesignal_corr_phase}
 \end{figure}
 
 
-% \begin{figure}[htbp]
-%     \centering
-%     \includegraphics[scale=.5]{redundancy-cxschn/bndflt4-1-pcgain-i2d2-none-avg-lag=0s_paper.eps}
-%     \caption{Information gain between bands across channels.
-% }
-% \label{fig:lam_phase_cxchn_info_gain}
-% \end{figure}
+%-------------------------------------------------------------------------------
+\FloatBarrier
+\subsection{Cross-channel, cross-depth redundancy}
+%-------------------------------------------------------------------------------
 
-% %-------------------------------------------------------------------------------
-% \subsubsection{Cross frequency}
-%
-% \begin{figure}[htbp]
-%     \centering
-%     \includegraphics[scale=.5]{redundancy-cxsfrq/cxsfrq-pcred_phase-phase_avg-log}
-%     \caption{
-% Redundancy between frequencies.
+\begin{figure}[htbp]
+\centering
+\subfloat[Redundancy\label{fig:lam_signal_red_depth}]{
+    \includegraphics[scale=.5]{redundancy-cxschn/bndflt4-1-pcred-none-avg-lag=0s_paper.eps}
+}
+\\
+\subfloat[Signal correlation\label{fig:lam_signal_corr_depth}]{
+    \includegraphics[scale=.5]{noisesigcorr/bndflt4-1-signal-avg_paper.eps}
+}
+\\
+\subfloat[Noise correlation\label{fig:lam_noise_corr_depth}]{
+    \includegraphics[scale=.5]{noisesigcorr/bndflt4-1-noise-avg_paper.eps}
+}
+\caption{
+\textit{Redundancy of \SI{4}{16}{Hz} \ac{CSD} phase with \SI{4}{16}{Hz} power, \SI{60}{170}{Hz} power and \ac{MUA}.}
+\protect\subref{fig:lam_signal_red_depth}:~Redundancy.
+\protect\subref{fig:lam_signal_corr_depth}:~Signal correlation.
+\protect\subref{fig:lam_noise_corr_depth}:~Noise correlation.
+}
+\label{fig:lam_noisesignal_corr_depth}
+\end{figure}
+
+
+%-------------------------------------------------------------------------------
+\subsection{Information about scene cuts}
+%-------------------------------------------------------------------------------
+
+Method similar to \autoref{sec:lam_scnchg_method}.
+
+\begin{figure}[htbp]
+\centering
+% \hspace*{\fill}
+% \subfloat[][As a function the duration after the scene cut horizon threshold.\label{fig:lam_phs_scnchg_dur}]{%
+%     \includegraphics[scale=.5]{%
+% scnchg/depth_v_scenecut-info_scnchg-dist_duration_avg_4-16Hz_phase.eps}}
+% \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+% \subfloat[][Across a range of cortical frequencies.\label{fig:lam_phs_scnchg_frq}]{%
+    \includegraphics[scale=.5]{%
+scnchg/frq-phase_v_depth_scenecut-info_scnchg-dist_0.200s_avg.eps}
 % }
-% \label{fig:lam_phase_cxfrq_info_red}
-% \end{figure}
+% \hspace*{\fill}
 %
-% \begin{figure}[htbp]
-%     \centering
-%     \includegraphics[scale=.5]{redundancy-cxsfrq/cxsfrq-pcgain-i2d2_phase-phase_avg-log}
-%     \caption{
-% Information gain between frequencies.
-% }
-% \label{fig:lam_phase_cxfrq_info_gain}
-% \end{figure}
+\caption{%
+\textit{Information about the presence of scene cuts.}
+We computed the information about scene cuts as described in \autoref{sec:lam_scnchg_method}, and for each session expressed this as a proportion of the total information present before averaging across recording sessions.
+% \protect\subref{fig:lam_phs_scnchg_dur}: Information across the cortical depth for \SIrange{4}{16}{Hz} phase, averaged over \num{6} sessions.
+Information values which were not significantly different from the bootstrap distribution are shown in white, with the median threshold for significance indicated by a black line across the colour bar.
+Above, the average percentage of information explained by scene cuts over all cortical recording sites is shown, with the standard error across sessions indicated by the shaded region.
+
+Information about scene cuts contained in a range of \ac{CSD} frequencies, in which we only considered the time since the last scene cut for the \SI{0.2}{\second} immediately following each.
+}%
+\label{fig:lam_phs_scnchg}
 %
+\end{figure}
+
+The fraction of information contained in the \ac{CSD} which is explained by scene transitions in the movie is smaller for the phase (\autoref{fig:lam_phs_scnchg}) than the power (\autoref{fig:lam_scnchg}).
+However, this is because the phase encodes more information about the stimulus than the power does.
+Observing the phase of the oscillation provides us with more information about the timing of scene cuts than observing the power of the oscillation.
+
+%-------------------------------------------------------------------------------
+
+
 % %-------------------------------------------------------------------------------
 % \subsubsection{Cross frequency phase vs power}
 %
 % \begin{figure}[htbp]
 %     \centering
 %     \subfloat[\label{fig:lam_cxfrq_powerphase_info_red_hm}]{
-%         \includegraphics[scale=.5]{redundancy-cxsfrq/cxsfrq-pcred_phase-power_avg-log}
+%         \includegraphics[scale=.5]{redundancy-cxsfrq/cxsfrq-pcred_phase-power_avg-log.eps}
 % }
 %     \\
 %     \subfloat[\label{fig:lam_cxfrq_powerphase_info_red_bar}]{
-%         \includegraphics[scale=.5]{redundancy-cxsfrq/cxsfrq-pcred_power-phase_avg-log}
+%         \includegraphics[scale=.5]{redundancy-cxsfrq/cxsfrq-pcred_power-phase_avg-log.eps}
 % }
 %     \caption{
 % Redundancy between frequencies.
@@ -189,11 +285,11 @@ Information about the stimulus contained in the phase of the extracellular neura
 % \begin{figure}[htbp]
 %     \centering
 %     \subfloat[\label{fig:lam_cxfrq_powerphase_info_gain_hm}]{
-%         \includegraphics[scale=.5]{redundancy-cxsfrq/cxsfrq-pcgain-i2d2_phase-power_avg-log}
+%         \includegraphics[scale=.5]{redundancy-cxsfrq/cxsfrq-pcgain-i2d2_phase-power_avg-log.eps}
 % }
 %     \\
 %     \subfloat[\label{fig:lam_cxfrq_powerphase_info_gain_bar}]{
-%         \includegraphics[scale=.5]{redundancy-cxsfrq/cxsfrq-pcgain-i2d2_power-phase_avg-log}
+%         \includegraphics[scale=.5]{redundancy-cxsfrq/cxsfrq-pcgain-i2d2_power-phase_avg-log.eps}
 % }
 %     \caption{
 % Information gain between frequencies.
@@ -201,90 +297,48 @@ Information about the stimulus contained in the phase of the extracellular neura
 % \label{fig:lam_cxfrq_powerphase_info_gain}
 % \end{figure}
 %
-%-------------------------------------------------------------------------------
-\FloatBarrier
-\subsection{Signal and Noise Correlation}
+% \begin{figure}[htbp]
+%     \centering
+%     \hspace*{\fill}
+%     \subfloat[Signal correlation\label{fig:lam_signal_corr_phase_power}]{
+%         \includegraphics[scale=.45]{noisesigcorr/cxsfrq-signal-phase-power-avg-log.eps}
+% }
+%     \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+%     \subfloat[Noise correlation\label{fig:lam_noise_corr_phase_power}]{
+%         %\includegraphics[scale=.45]{noisesigcorr/cxsfrq-noise-phase-power-avg-log.eps}
+%         <code running>
+% }
+%     \hspace*{\fill}
+%     \caption{Phase correlation with power
+% \protect\subref{fig:lam_signal_corr_phase_power}:~Signal correlation.
+% \protect\subref{fig:lam_noise_corr_phase_power}:~Noise correlation.
+% }
+% \label{fig:lam_noisesignal_corr_phase_power}
+% \end{figure}
 
-\begin{figure}[htbp]
-    \centering
-    \subfloat[Signal correlation\label{fig:lam_signal_corr_depth}]{
-        \includegraphics[scale=.5]{noisesigcorr/bndflt4-1-signal-avg_paper.eps}
-}
-    \\
-    \subfloat[Noise correlation\label{fig:lam_noise_corr_depth}]{
-        \includegraphics[scale=.5]{noisesigcorr/bndflt4-1-noise-avg_paper.eps}
-}
-    \caption{
-\protect\subref{fig:lam_signal_corr_depth}:~Signal correlation.
-\protect\subref{fig:lam_noise_corr_depth}:~Noise correlation.
-}
-\label{fig:lam_noisesignal_corr_depth}
-\end{figure}
-
-
-\begin{figure}[htbp]
-    \centering
-    \hspace*{\fill}
-    \subfloat[Signal correlation\label{fig:lam_signal_corr_phase}]{
-        \includegraphics[scale=.45]{noisesigcorr/cxsfrq-signal-phase-phase-avg-log.eps}
-}
-    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
-    \subfloat[Noise correlation\label{fig:lam_noise_corr_phase}]{
-        \includegraphics[scale=.45]{noisesigcorr/cxsfrq-noise-phase-phase-avg-log.eps}
-}
-    \hspace*{\fill}
-    \caption{Phase correlation
-\protect\subref{fig:lam_signal_corr_phase}:~Signal correlation.
-\protect\subref{fig:lam_noise_corr_phase}:~Noise correlation.
-}
-\label{fig:lam_noisesignal_corr_phase}
-\end{figure}
-
-\begin{figure}[htbp]
-    \centering
-    \hspace*{\fill}
-    \subfloat[Signal correlation\label{fig:lam_signal_corr_phase_power}]{
-        \includegraphics[scale=.45]{noisesigcorr/cxsfrq-signal-phase-power-avg-log.eps}
-}
-    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
-    \subfloat[Noise correlation\label{fig:lam_noise_corr_phase_power}]{
-        %\includegraphics[scale=.45]{noisesigcorr/cxsfrq-noise-phase-power-avg-log.eps}
-        <code running>
-}
-    \hspace*{\fill}
-    \caption{Phase correlation with power
-\protect\subref{fig:lam_signal_corr_phase_power}:~Signal correlation.
-\protect\subref{fig:lam_noise_corr_phase_power}:~Noise correlation.
-}
-\label{fig:lam_noisesignal_corr_phase_power}
-\end{figure}
-
-Circular statistics were computed using the CircStat toolbox \citep{Berens2009}.
 
 %-------------------------------------------------------------------------------
 \FloatBarrier
-\subsection{Phase correlation, \SIrange{4}{16}{Hz}}
+\subsection{Phase synchrony, \SIrange{4}{16}{Hz}}
+%-------------------------------------------------------------------------------
 
-Circular statistics were computed using the CircStat toolbox \citep{Berens2009}.
-
-\begin{figure}[htbp]
-    \centering
-    \hspace*{\fill}
-    \subfloat[Movie driven\label{fig:lam_phasestats_alpha_line_csd_movie}]{
-        \includegraphics[scale=.45]{phasestats/movie1_Csd_phs4-16_dPhsTracebnd_5mean.png}
-}
-    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
-    \subfloat[Spontaneous\label{fig:lam_phasestats_alpha_line_csd_spont}]{
-        \includegraphics[scale=.45]{phasestats/spont_Csd_phs4-16_dPhsTracebnd_5mean.png}
-}
-    \hspace*{\fill}
-    \caption{Phase correlation, \SIrange{4}{16}{Hz}.
-\protect\subref{fig:lam_phasestats_alpha_line_csd_movie}:~Movie driven.
-\protect\subref{fig:lam_phasestats_alpha_line_csd_spont}:~Spontaneous.
-}
-\label{fig:lam_phasestats_alpha_line_csd}
-\end{figure}
-
+% \begin{figure}[htbp]
+%     \centering
+%     \hspace*{\fill}
+%     \subfloat[Movie driven\label{fig:lam_phasestats_alpha_line_csd_movie}]{
+%         \includegraphics[scale=.45]{phasestats/movie1_Csd_phs4-16_dPhsTracebnd_5mean.png}
+% }
+%     \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+%     \subfloat[Spontaneous\label{fig:lam_phasestats_alpha_line_csd_spont}]{
+%         \includegraphics[scale=.45]{phasestats/spont_Csd_phs4-16_dPhsTracebnd_5mean.png}
+% }
+%     \hspace*{\fill}
+%     \caption{Phase correlation, \SIrange{4}{16}{Hz}.
+% \protect\subref{fig:lam_phasestats_alpha_line_csd_movie}:~Movie driven.
+% \protect\subref{fig:lam_phasestats_alpha_line_csd_spont}:~Spontaneous.
+% }
+% \label{fig:lam_phasestats_alpha_line_csd}
+% \end{figure}
 
 % \begin{figure}[htbp]
 %     \centering
@@ -342,30 +396,29 @@ Circular statistics were computed using the CircStat toolbox \citep{Berens2009}.
 \label{fig:lam_phasestats_alpha_summary_csd}
 \end{figure}
 
+
 %-------------------------------------------------------------------------------
 \FloatBarrier
-\subsection{Phase correlation, \SIrange{60}{170}{Hz}}
+\subsection{Phase synchrony, \SIrange{60}{170}{Hz}}
+%-------------------------------------------------------------------------------
 
-Circular statistics were computed using the CircStat toolbox \citep{Berens2009}.
-
-\begin{figure}[htbp]
-    \centering
-    \hspace*{\fill}
-    \subfloat[Movie driven\label{fig:lam_phasestats_gamma_line_csd_movie}]{
-        \includegraphics[scale=.45]{phasestats/movie1_Csd_phs60-170_dPhsTracebnd_5mean.png}
-}
-    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
-    \subfloat[Spontaneous\label{fig:lam_phasestats_gamma_line_csd_spont}]{
-        \includegraphics[scale=.45]{phasestats/spont_Csd_phs60-170_dPhsTracebnd_5mean.png}
-}
-    \hspace*{\fill}
-    \caption{Phase correlation, \SIrange{60}{170}{Hz}.
-\protect\subref{fig:lam_phasestats_gamma_line_csd_movie}:~Movie driven.
-\protect\subref{fig:lam_phasestats_gamma_line_csd_spont}:~Spontaneous.
-}
-\label{fig:lam_phasestats_gamma_line_csd}
-\end{figure}
-
+% \begin{figure}[htbp]
+%     \centering
+%     \hspace*{\fill}
+%     \subfloat[Movie driven\label{fig:lam_phasestats_gamma_line_csd_movie}]{
+%         \includegraphics[scale=.45]{phasestats/movie1_Csd_phs60-170_dPhsTracebnd_5mean.png}
+% }
+%     \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+%     \subfloat[Spontaneous\label{fig:lam_phasestats_gamma_line_csd_spont}]{
+%         \includegraphics[scale=.45]{phasestats/spont_Csd_phs60-170_dPhsTracebnd_5mean.png}
+% }
+%     \hspace*{\fill}
+%     \caption{Phase correlation, \SIrange{60}{170}{Hz}.
+% \protect\subref{fig:lam_phasestats_gamma_line_csd_movie}:~Movie driven.
+% \protect\subref{fig:lam_phasestats_gamma_line_csd_spont}:~Spontaneous.
+% }
+% \label{fig:lam_phasestats_gamma_line_csd}
+% \end{figure}
 
 % \begin{figure}[htbp]
 %     \centering
@@ -424,7 +477,10 @@ Circular statistics were computed using the CircStat toolbox \citep{Berens2009}.
 \end{figure}
 
 
+%-------------------------------------------------------------------------------
+\FloatBarrier
 \subsection{Layer 1 \SIrange{60}{170}{Hz} amplitude is coupled to L5 \SIrange{4}{16}{Hz} phase}
+%-------------------------------------------------------------------------------
 
 Above, in section ``Information redundancy across depth'', we showed that high and low \ac{CSD} frequencies contain independent information to each other (\autoref{fig:lam_cxfrq_info}).
 We found the power in the two bands to be independent, but it remains possible that there is a relationship between the phase of the low-frequency band and the power of the high-frequency band.
