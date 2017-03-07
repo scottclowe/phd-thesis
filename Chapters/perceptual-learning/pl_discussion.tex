@@ -25,9 +25,22 @@ That said, the overall firing rate for the whole stimulus presentation increased
 This was due to an increase in information in the late stages of stimulus presentation --- the final \SI{200}{\milli\second}.
 Since the neural activity after the stimulus was removed contained more information about the behavioural response than the target label of the stimulus, and when the decoder trained on data from later sessions showed a significant correlation with the behavioural responses, we believe this information is indicative of latent representation of the stimulus feedback sustained after the removal of the stimulus through feedback from higher cortical regions.
 
-tp5
+As evidenced by our results with the linear decoder, \ac{V4} activity during the stimulus presentation is indicative of the behavioural response of the subject.
+We trained the linear decoder to classify the group of the stimulus, giving us a reflection of the information about the stimulus contained in the cortical activity.
+We did not train the decoder to predict the behavioural choices made by the subject, and yet its responses coincided with the subject's behaviour more often than expected by chance.
+This phenomenon of elevated response agreement occurred after training but not before.
+
+There was information about the both stimulus group and the behavioural response given by the subject in the sustained activity within the visual cortex after the stimulus was removed.
+This increased with training for both subjects and both brain regions.
+
+Using a decoder to classify the stimuli based on the population activity, we found that before training the subject there was more information about the stimulus in the small population of \ac{V1} neurons we recorded than in the behavioural responses of the subject.
+As training progressed, the information encoded in the \ac{V1} neurons of \ac{M2} rose, but not as quickly as the behavioural performance rose.
+In contrast, the \ac{V4} population co
+This 
 
 Decoding
+
+Cite work on **choice correlations**.
 
 We found that noise correlations falling with training did not mean the noise correlations hindered the decoder any less.
 Similar results were found by \citet{Gu2011}...
