@@ -1,0 +1,82 @@
+%% Creator: Inkscape inkscape 0.91, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'Cone-response.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{440bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.62909091)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{Cone-response.pdf}}%
+    \put(0.240656,0.08384327){\makebox(0,0)[lb]{\smash{400}}}%
+    \put(0.21695673,0.05537909){\makebox(0,0)[lb]{\smash{\textit{Violet}}}}%
+    \put(0.36369491,0.05537909){\makebox(0,0)[lb]{\smash{\textit{Blue}}}}%
+    \put(0.49833545,0.05537909){\makebox(0,0)[lb]{\smash{\textit{Cyan}}}}%
+    \put(0.62113273,0.05537909){\makebox(0,0)[lb]{\smash{\textit{Green}}}}%
+    \put(0.72929327,0.05537909){\makebox(0,0)[lb]{\smash{\textit{Yellow}}}}%
+    \put(0.87026455,0.05537909){\makebox(0,0)[lb]{\smash{\textit{Red}}}}%
+    \put(0.065048,0.12240509){\makebox(0,0)[lb]{\smash{0}}}%
+    \put(0.05232073,0.32179691){\makebox(0,0)[lb]{\smash{50}}}%
+    \put(0.03959345,0.52118964){\makebox(0,0)[lb]{\smash{100}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{Cone-response.pdf}}%
+    \put(0.32308055,0.565056){\makebox(0,0)[lb]{\smash{420}}}%
+    \put(0.57791909,0.198996){\color[rgb]{0,0,0.72156863}\makebox(0,0)[lb]{\smash{S}}}%
+    \put(0.76762073,0.198996){\makebox(0,0)[lb]{\smash{R}}}%
+    \put(0.84519709,0.198996){\color[rgb]{0,0.64313725,0}\makebox(0,0)[lb]{\smash{M}}}%
+    \put(0.90853345,0.198996){\color[rgb]{0.72156863,0,0}\makebox(0,0)[lb]{\smash{L}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{Cone-response.pdf}}%
+    \put(0.66247345,0.565056){\makebox(0,0)[lb]{\smash{534}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{Cone-response.pdf}}%
+    \put(0.573988,0.565056){\makebox(0,0)[lb]{\smash{498}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{Cone-response.pdf}}%
+    \put(0.72550782,0.565056){\makebox(0,0)[lb]{\smash{564}}}%
+    \put(0.57398964,0.08384327){\makebox(0,0)[lb]{\smash{500}}}%
+    \put(0.445744,0.017176){\makebox(0,0)[lb]{\smash{Wavelength (nm)}}}%
+    \put(0.03444964,0.176464){\rotatebox{90.0000025}{\makebox(0,0)[lb]{\smash{Normalized absorbance}}}}%
+    \put(0.79823145,0.08384327){\makebox(0,0)[lb]{\smash{600}}}%
+    \put(0.95701891,0.08384327){\makebox(0,0)[lb]{\smash{700}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{Cone-response.pdf}}%
+  \end{picture}%
+\endgroup%
