@@ -1,81 +1,528 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="550" height="346" viewBox="0 0 550 346"
-	 style="overflow:visible;enable-background:new 0 0 550 346;">
-<g id="Layer_2">
-	<line style="fill:none;stroke:#000000;" x1="57.5" y1="8.7" x2="57.5" y2="272.7"/>
-	<line style="fill:none;stroke:#000000;" x1="57.5" y1="272.7" x2="536.5" y2="272.7"/>
-	<line style="fill:none;stroke:#000000;stroke-width:0.75;" x1="66.5" y1="272.7" x2="66.5" y2="280.7"/>
-	<line style="fill:none;stroke:#000000;stroke-width:0.75;" x1="118.9" y1="272.7" x2="118.9" y2="280.7"/>
-	<line style="fill:none;stroke:#000000;stroke-width:0.75;" x1="186.9" y1="272.7" x2="186.9" y2="280.7"/>
-	<line style="fill:none;stroke:#000000;stroke-width:0.75;" x1="226.2" y1="272.7" x2="226.2" y2="280.7"/>
-	<line style="fill:none;stroke:#000000;stroke-width:0.75;" x1="244.9" y1="272.7" x2="244.9" y2="280.7"/>
-	<line style="fill:none;stroke:#000000;stroke-width:0.75;" x1="279.5" y1="272.7" x2="279.5" y2="280.7"/>
-	<line style="fill:none;stroke:#000000;stroke-width:0.75;" x1="312.2" y1="272.7" x2="312.2" y2="280.7"/>
-	<line style="fill:none;stroke:#000000;stroke-width:0.75;" x1="354.2" y1="272.7" x2="354.2" y2="280.7"/>
-	<line style="fill:none;stroke:#000000;stroke-width:0.75;" x1="381.5" y1="272.7" x2="381.5" y2="280.7"/>
-	<line style="fill:none;stroke:#000000;stroke-width:0.75;" x1="405.5" y1="272.7" x2="405.5" y2="280.7"/>
-	<line style="fill:none;stroke:#000000;stroke-width:0.75;" x1="459.5" y1="272.7" x2="459.5" y2="280.7"/>
-	<line style="fill:none;stroke:#000000;stroke-width:0.75;" x1="536.9" y1="273.1" x2="536.9" y2="283.9"/>
-	<line style="fill:none;stroke:#000000;stroke-width:0.75;" x1="528.9" y1="272.7" x2="528.9" y2="280.7"/>
-	<line style="fill:none;stroke:#000000;stroke-width:0.75;" x1="520.2" y1="272.7" x2="520.2" y2="280.7"/>
-	<line style="fill:none;stroke:#000000;stroke-width:0.75;" x1="503.5" y1="272.7" x2="503.5" y2="280.7"/>
-	<line style="fill:none;stroke:#000000;stroke-width:0.75;" x1="427.5" y1="272.7" x2="427.5" y2="280.7"/>
-	<line style="fill:none;stroke:#000000;stroke-width:0.75;" x1="262.9" y1="272.7" x2="262.9" y2="280.7"/>
-	<line style="fill:none;stroke:#000000;stroke-width:0.75;" x1="296.2" y1="272.7" x2="296.2" y2="280.7"/>
-	<line style="fill:none;stroke:#000000;stroke-width:0.75;" x1="340.9" y1="272.7" x2="340.9" y2="280.7"/>
-	<line style="fill:none;stroke:#000000;stroke-width:0.75;" x1="368.2" y1="272.7" x2="368.2" y2="280.7"/>
-	<line style="fill:none;stroke:#000000;stroke-width:0.75;" x1="392.9" y1="272.7" x2="392.9" y2="280.7"/>
-	<line style="fill:none;stroke:#000000;stroke-width:0.75;" x1="449.5" y1="273.1" x2="449.5" y2="283.9"/>
-	<line style="fill:none;stroke:#000000;stroke-width:0.75;" x1="495.5" y1="272.7" x2="495.5" y2="280.7"/>
-	<line style="fill:none;stroke:#000000;stroke-width:0.75;" x1="478.9" y1="272.7" x2="478.9" y2="280.7"/>
-	<line style="fill:none;stroke:#000000;stroke-width:0.75;" x1="512.9" y1="272.7" x2="512.9" y2="280.7"/>
-	<line style="fill:none;stroke:#000000;stroke-width:0.75;" x1="468.9" y1="272.7" x2="468.9" y2="280.7"/>
-	<line style="fill:none;stroke:#000000;stroke-width:0.75;" x1="416.9" y1="272.7" x2="416.9" y2="280.7"/>
-	<line style="fill:none;stroke:#000000;stroke-width:0.75;" x1="438.2" y1="272.7" x2="438.2" y2="280.7"/>
-	<line style="fill:none;stroke:#000000;stroke-width:0.75;" x1="486.9" y1="272.7" x2="486.9" y2="280.7"/>
-	<line style="fill:none;stroke:#000000;stroke-width:0.75;" x1="326.2" y1="273.1" x2="326.2" y2="283.9"/>
-	<line style="fill:none;stroke:#000000;stroke-width:0.75;" x1="165.5" y1="272.7" x2="165.5" y2="280.7"/>
-	<line style="fill:none;stroke:#000000;stroke-width:0.75;" x1="206.9" y1="272.7" x2="206.9" y2="280.7"/>
-	<line style="fill:none;stroke:#000000;stroke-width:0.75;" x1="94.9" y1="272.7" x2="94.9" y2="280.7"/>
-	<line style="fill:none;stroke:#000000;stroke-width:0.75;" x1="142.9" y1="273.1" x2="142.9" y2="283.9"/>
-	<line style="fill:none;stroke:#000000;stroke-width:0.75;" x1="57.5" y1="272.7" x2="46.8" y2="272.7"/>
-	<line style="fill:none;stroke:#000000;stroke-width:0.75;" x1="57.5" y1="163" x2="46.8" y2="163"/>
-	<line style="fill:none;stroke:#000000;stroke-width:0.75;" x1="57.5" y1="53.3" x2="46.8" y2="53.3"/>
-	<text transform="matrix(1 0 0 1 132.3608 299.8862)" style="font-family:'Nimbus Roman No9 L',Times,serif; font-size:14;">400</text>
-	<text transform="matrix(1 0 0 1 119.3262 315.5415)"><tspan x="0" y="0" style="font-family:'Nimbus Roman No9 L',Times,serif; font-style:italic; font-size:14;">Violet</tspan></text>
-	<text transform="matrix(1 0 0 1 200.0322 315.5415)" style="font-family:'Nimbus Roman No9 L',Times,serif; font-style:italic; font-size:14;">Blue</text>
-	<text transform="matrix(1 0 0 1 274.0845 315.5415)" style="font-family:'Nimbus Roman No9 L',Times,serif; font-style:italic; font-size:14;">Cyan</text>
-	<text transform="matrix(1 0 0 1 341.623 315.5415)"><tspan x="0" y="0" style="font-family:'Nimbus Roman No9 L',Times,serif; font-style:italic; font-size:14;">Green</tspan></text>
-	<text transform="matrix(1 0 0 1 401.1113 315.5415)"><tspan x="0" y="0" style="font-family:'Nimbus Roman No9 L',Times,serif; font-style:italic; font-size:14;">Yellow</tspan></text>
-	<text transform="matrix(1 0 0 1 478.6455 315.5415)" style="font-family:'Nimbus Roman No9 L',Times,serif; font-style:italic; font-size:14;">Red</text>
-	<text transform="matrix(1 0 0 1 35.7764 278.6772)" style="font-family:'Nimbus Roman No9 L',Times,serif; font-size:14;">0</text>
-	<text transform="matrix(1 0 0 1 28.7764 169.0117)" style="font-family:'Nimbus Roman No9 L',Times,serif; font-size:14;">50</text>
-	<text transform="matrix(1 0 0 1 21.7764 59.3457)" style="font-family:'Nimbus Roman No9 L',Times,serif; font-size:14;">100</text>
-	<line style="fill:none;stroke:#000000;stroke-width:0.75;" x1="188.2" y1="38.1" x2="188.2" y2="47.9"/>
-	<text transform="matrix(1 0 0 1 177.6943 35.2192)" style="font-family:'Nimbus Roman No9 L',Times,serif; font-size:14;">420</text>
-	<text transform="matrix(1 0 0 1 317.8555 236.5522)" style="fill:#0000B8; font-family:'Nimbus Roman No9 L',Times,serif; font-size:18;">S</text>
-	<text transform="matrix(1 0 0 1 422.1914 236.5522)" style="font-family:'Nimbus Roman No9 L',Times,serif; font-size:18;">R</text>
-	<text transform="matrix(1 0 0 1 464.8584 236.5522)" style="fill:#00A400; font-family:'Nimbus Roman No9 L',Times,serif; font-size:18;">M</text>
-	<text transform="matrix(1 0 0 1 499.6934 236.5522)" style="fill:#B80000; font-family:'Nimbus Roman No9 L',Times,serif; font-size:18;">L</text>
-	<line style="fill:none;stroke:#000000;stroke-width:0.75;" x1="374.9" y1="38.1" x2="374.9" y2="47.9"/>
-	<text transform="matrix(1 0 0 1 364.3604 35.2192)" style="font-family:'Nimbus Roman No9 L',Times,serif; font-size:14;">534</text>
-	<line style="fill:none;stroke:#000000;stroke-width:0.75;" x1="326.2" y1="38.1" x2="326.2" y2="47.9"/>
-	<text transform="matrix(1 0 0 1 315.6934 35.2192)" style="font-family:'Nimbus Roman No9 L',Times,serif; font-size:14;">498</text>
-	<line style="fill:none;stroke:#000000;stroke-width:0.75;" x1="409.5" y1="38.1" x2="409.5" y2="47.9"/>
-	<text transform="matrix(1 0 0 1 399.0293 35.2192)" style="font-family:'Nimbus Roman No9 L',Times,serif; font-size:14;">564</text>
-	<text transform="matrix(1 0 0 1 315.6943 299.8862)" style="font-family:'Nimbus Roman No9 L',Times,serif; font-size:14;">500</text>
-	<text transform="matrix(1 0 0 1 245.1592 336.5532)"><tspan x="0" y="0" style="font-family:'Nimbus Roman No9 L',Times,serif; font-size:17;">Wavelength (nm)</tspan></text>
-	<text transform="matrix(-4.371139e-08 -1 1 -4.371139e-08 18.9473 248.9448)" style="font-family:'Nimbus Roman No9 L',Times,serif; font-size:17;">Normalized absorbance</text>
-	<text transform="matrix(1 0 0 1 439.0273 299.8862)" style="font-family:'Nimbus Roman No9 L',Times,serif; font-size:14;">600</text>
-	<text transform="matrix(1 0 0 1 526.3604 299.8862)" style="font-family:'Nimbus Roman No9 L',Times,serif; font-size:14;">700</text>
-	<path style="fill:none;stroke:#0000B8;stroke-width:2;" d="M68,143.2c37.7-25.4,42.3-37.2,69.5-59.5c22-18,26.9-30.3,50.7-30.3c12.7,0,34.2,19.7,41.9,32.1
-		c12.5,20.2,18.2,45.7,29,68.7s15.5,32,25,45.5c9.8,14,13.7,20.4,26.8,32.7s40.4,27.6,57.7,36.2"/>
-	<path style="fill:none;stroke:#000000;stroke-width:2;stroke-dasharray:5.54 3;" d="M144,201.7c18-2.5,45.8-3.2,65-19c31-25.5,58.2-77.1,73.5-97.5c12-16,36.2-31.8,43.7-31.8
-		c9,0,18.8,10.3,28.8,30.8s21.5,47,29,69s13.5,43.5,23,60.5c11.8,21.1,24,41,42.5,50"/>
-	<path style="fill:none;stroke:#00A400;stroke-width:2;" d="M142.5,194.7c16,0.5,48,3.5,61,3.5c22,0,39-2.5,62.5-21.5c27.3-22.1,46.5-51.5,59-71.5s31.3-51.8,49.8-51.8
-		S398,76.7,402,84.7s18,49,22,62s17.5,45,21,53c6,13.5,18,47,49.5,65.5"/>
-	<path style="fill:none;stroke:#B80000;stroke-width:2;" d="M144,191.7c22,3.5,46.5,12,58.5,14.5s25.5,5,38,5c19,0,36.2-7.7,64.5-36c30.5-30.5,45.5-59,53-70.5
-		s31.5-51.3,51.5-51.3c12,0,23,19.8,25.5,25.8s8,13.5,12.5,28s14,39.5,22,65s25,61.5,29,69.5s14.5,17,19.5,21.5"/>
-	<rect style="fill:none;" width="550" height="346"/>
-</g>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg2"
+   style="overflow:visible"
+   viewBox="0 0 564 352"
+   height="352"
+   width="564"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="Cone-response.svg">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1506"
+     inkscape:window-height="904"
+     id="namedview82"
+     showgrid="false"
+     inkscape:zoom="1.0531915"
+     inkscape:cx="265.84121"
+     inkscape:cy="313.94409"
+     inkscape:window-x="75"
+     inkscape:window-y="34"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="Layer_2" />
+  <metadata
+     id="metadata159">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs157" />
+  <g
+     transform="translate(0,6)"
+     id="Layer_2">
+    <line
+       id="line5"
+       y2="262.70001"
+       x2="69.5"
+       y1="-1.3000002"
+       x1="69.5"
+       style="fill:none;stroke:#000000" />
+    <line
+       id="line7"
+       y2="262.70001"
+       x2="548.5"
+       y1="262.70001"
+       x1="69.5"
+       style="fill:none;stroke:#000000" />
+    <line
+       id="line9"
+       y2="270.70001"
+       x2="78.5"
+       y1="262.70001"
+       x1="78.5"
+       style="fill:none;stroke:#000000;stroke-width:0.75" />
+    <line
+       id="line11"
+       y2="270.70001"
+       x2="130.89999"
+       y1="262.70001"
+       x1="130.89999"
+       style="fill:none;stroke:#000000;stroke-width:0.75" />
+    <line
+       id="line13"
+       y2="270.70001"
+       x2="198.89999"
+       y1="262.70001"
+       x1="198.89999"
+       style="fill:none;stroke:#000000;stroke-width:0.75" />
+    <line
+       id="line15"
+       y2="270.70001"
+       x2="238.2"
+       y1="262.70001"
+       x1="238.2"
+       style="fill:none;stroke:#000000;stroke-width:0.75" />
+    <line
+       id="line17"
+       y2="270.70001"
+       x2="256.89999"
+       y1="262.70001"
+       x1="256.89999"
+       style="fill:none;stroke:#000000;stroke-width:0.75" />
+    <line
+       id="line19"
+       y2="270.70001"
+       x2="291.5"
+       y1="262.70001"
+       x1="291.5"
+       style="fill:none;stroke:#000000;stroke-width:0.75" />
+    <line
+       id="line21"
+       y2="270.70001"
+       x2="324.20001"
+       y1="262.70001"
+       x1="324.20001"
+       style="fill:none;stroke:#000000;stroke-width:0.75" />
+    <line
+       id="line23"
+       y2="270.70001"
+       x2="366.20001"
+       y1="262.70001"
+       x1="366.20001"
+       style="fill:none;stroke:#000000;stroke-width:0.75" />
+    <line
+       id="line25"
+       y2="270.70001"
+       x2="393.5"
+       y1="262.70001"
+       x1="393.5"
+       style="fill:none;stroke:#000000;stroke-width:0.75" />
+    <line
+       id="line27"
+       y2="270.70001"
+       x2="417.5"
+       y1="262.70001"
+       x1="417.5"
+       style="fill:none;stroke:#000000;stroke-width:0.75" />
+    <line
+       id="line29"
+       y2="270.70001"
+       x2="471.5"
+       y1="262.70001"
+       x1="471.5"
+       style="fill:none;stroke:#000000;stroke-width:0.75" />
+    <line
+       id="line31"
+       y2="273.89999"
+       x2="548.90002"
+       y1="263.10001"
+       x1="548.90002"
+       style="fill:none;stroke:#000000;stroke-width:0.75" />
+    <line
+       id="line33"
+       y2="270.70001"
+       x2="540.90002"
+       y1="262.70001"
+       x1="540.90002"
+       style="fill:none;stroke:#000000;stroke-width:0.75" />
+    <line
+       id="line35"
+       y2="270.70001"
+       x2="532.20001"
+       y1="262.70001"
+       x1="532.20001"
+       style="fill:none;stroke:#000000;stroke-width:0.75" />
+    <line
+       id="line37"
+       y2="270.70001"
+       x2="515.5"
+       y1="262.70001"
+       x1="515.5"
+       style="fill:none;stroke:#000000;stroke-width:0.75" />
+    <line
+       id="line39"
+       y2="270.70001"
+       x2="439.5"
+       y1="262.70001"
+       x1="439.5"
+       style="fill:none;stroke:#000000;stroke-width:0.75" />
+    <line
+       id="line41"
+       y2="270.70001"
+       x2="274.89999"
+       y1="262.70001"
+       x1="274.89999"
+       style="fill:none;stroke:#000000;stroke-width:0.75" />
+    <line
+       id="line43"
+       y2="270.70001"
+       x2="308.20001"
+       y1="262.70001"
+       x1="308.20001"
+       style="fill:none;stroke:#000000;stroke-width:0.75" />
+    <line
+       id="line45"
+       y2="270.70001"
+       x2="352.89999"
+       y1="262.70001"
+       x1="352.89999"
+       style="fill:none;stroke:#000000;stroke-width:0.75" />
+    <line
+       id="line47"
+       y2="270.70001"
+       x2="380.20001"
+       y1="262.70001"
+       x1="380.20001"
+       style="fill:none;stroke:#000000;stroke-width:0.75" />
+    <line
+       id="line49"
+       y2="270.70001"
+       x2="404.89999"
+       y1="262.70001"
+       x1="404.89999"
+       style="fill:none;stroke:#000000;stroke-width:0.75" />
+    <line
+       id="line51"
+       y2="273.89999"
+       x2="461.5"
+       y1="263.10001"
+       x1="461.5"
+       style="fill:none;stroke:#000000;stroke-width:0.75" />
+    <line
+       id="line53"
+       y2="270.70001"
+       x2="507.5"
+       y1="262.70001"
+       x1="507.5"
+       style="fill:none;stroke:#000000;stroke-width:0.75" />
+    <line
+       id="line55"
+       y2="270.70001"
+       x2="490.89999"
+       y1="262.70001"
+       x1="490.89999"
+       style="fill:none;stroke:#000000;stroke-width:0.75" />
+    <line
+       id="line57"
+       y2="270.70001"
+       x2="524.90002"
+       y1="262.70001"
+       x1="524.90002"
+       style="fill:none;stroke:#000000;stroke-width:0.75" />
+    <line
+       id="line59"
+       y2="270.70001"
+       x2="480.89999"
+       y1="262.70001"
+       x1="480.89999"
+       style="fill:none;stroke:#000000;stroke-width:0.75" />
+    <line
+       id="line61"
+       y2="270.70001"
+       x2="428.89999"
+       y1="262.70001"
+       x1="428.89999"
+       style="fill:none;stroke:#000000;stroke-width:0.75" />
+    <line
+       id="line63"
+       y2="270.70001"
+       x2="450.20001"
+       y1="262.70001"
+       x1="450.20001"
+       style="fill:none;stroke:#000000;stroke-width:0.75" />
+    <line
+       id="line65"
+       y2="270.70001"
+       x2="498.89999"
+       y1="262.70001"
+       x1="498.89999"
+       style="fill:none;stroke:#000000;stroke-width:0.75" />
+    <line
+       id="line67"
+       y2="273.89999"
+       x2="338.20001"
+       y1="263.10001"
+       x1="338.20001"
+       style="fill:none;stroke:#000000;stroke-width:0.75" />
+    <line
+       id="line69"
+       y2="270.70001"
+       x2="177.5"
+       y1="262.70001"
+       x1="177.5"
+       style="fill:none;stroke:#000000;stroke-width:0.75" />
+    <line
+       id="line71"
+       y2="270.70001"
+       x2="218.89999"
+       y1="262.70001"
+       x1="218.89999"
+       style="fill:none;stroke:#000000;stroke-width:0.75" />
+    <line
+       id="line73"
+       y2="270.70001"
+       x2="106.9"
+       y1="262.70001"
+       x1="106.9"
+       style="fill:none;stroke:#000000;stroke-width:0.75" />
+    <line
+       id="line75"
+       y2="273.89999"
+       x2="154.89999"
+       y1="263.10001"
+       x1="154.89999"
+       style="fill:none;stroke:#000000;stroke-width:0.75" />
+    <line
+       id="line77"
+       y2="262.70001"
+       x2="58.800003"
+       y1="262.70001"
+       x1="69.5"
+       style="fill:none;stroke:#000000;stroke-width:0.75" />
+    <line
+       id="line79"
+       y2="153"
+       x2="58.800003"
+       y1="153"
+       x1="69.5"
+       style="fill:none;stroke:#000000;stroke-width:0.75" />
+    <line
+       id="line81"
+       y2="43.299999"
+       x2="58.800003"
+       y1="43.299999"
+       x1="69.5"
+       style="fill:none;stroke:#000000;stroke-width:0.75" />
+    <text
+       y="291.8862"
+       x="140.36079"
+       id="text83"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:cmr10;-inkscape-font-specification:cmr10">400</text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:cmmi10;-inkscape-font-specification:cmmi10"
+       y="311.5415"
+       x="119.3262"
+       id="text85">
+      <tspan
+         id="tspan87"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:cmmi10;-inkscape-font-specification:cmmi10"
+         y="311.5415"
+         x="119.3262">Violet</tspan>
+    </text>
+    <text
+       y="311.5415"
+       x="200.0322"
+       id="text89"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:cmmi10;-inkscape-font-specification:cmmi10">Blue</text>
+    <text
+       y="311.5415"
+       x="274.0845"
+       id="text91"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:cmmi10;-inkscape-font-specification:cmmi10">Cyan</text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:cmmi10;-inkscape-font-specification:cmmi10"
+       y="311.5415"
+       x="341.62299"
+       id="text93">
+      <tspan
+         id="tspan95"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:cmmi10;-inkscape-font-specification:cmmi10"
+         y="311.5415"
+         x="341.62299">Green</tspan>
+    </text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:cmmi10;-inkscape-font-specification:cmmi10"
+       y="311.5415"
+       x="401.1113"
+       id="text97">
+      <tspan
+         id="tspan99"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:cmmi10;-inkscape-font-specification:cmmi10"
+         y="311.5415"
+         x="401.1113">Yellow</tspan>
+    </text>
+    <text
+       y="311.5415"
+       x="478.64551"
+       id="text101"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:cmmi10;-inkscape-font-specification:cmmi10">Red</text>
+    <text
+       y="268.67719"
+       x="45.776402"
+       id="text103"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:cmr10;-inkscape-font-specification:cmr10">0</text>
+    <text
+       y="159.0117"
+       x="35.776402"
+       id="text105"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:cmr10;-inkscape-font-specification:cmr10">50</text>
+    <text
+       y="49.345699"
+       x="25.776402"
+       id="text107"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:cmr10;-inkscape-font-specification:cmr10">100</text>
+    <line
+       id="line109"
+       y2="37.900002"
+       x2="200.2"
+       y1="28.099998"
+       x1="200.2"
+       style="fill:none;stroke:#000000;stroke-width:0.75" />
+    <text
+       y="25.2192"
+       x="185.69431"
+       id="text111"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:cmr10;-inkscape-font-specification:cmr10">420</text>
+    <text
+       y="222.5522"
+       x="327.8555"
+       id="text113"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:cmr10;-inkscape-font-specification:cmr10;fill:#0000b8">S</text>
+    <text
+       y="222.5522"
+       x="432.19141"
+       id="text115"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:cmr10;-inkscape-font-specification:cmr10">R</text>
+    <text
+       y="222.5522"
+       x="474.8584"
+       id="text117"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:cmr10;-inkscape-font-specification:cmr10;fill:#00a400">M</text>
+    <text
+       y="222.5522"
+       x="509.69342"
+       id="text119"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:cmr10;-inkscape-font-specification:cmr10;fill:#b80000">L</text>
+    <line
+       id="line121"
+       y2="37.900002"
+       x2="386.89999"
+       y1="28.099998"
+       x1="386.89999"
+       style="fill:none;stroke:#000000;stroke-width:0.75" />
+    <text
+       y="25.2192"
+       x="372.36041"
+       id="text123"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:cmr10;-inkscape-font-specification:cmr10">534</text>
+    <line
+       id="line125"
+       y2="37.900002"
+       x2="338.20001"
+       y1="28.099998"
+       x1="338.20001"
+       style="fill:none;stroke:#000000;stroke-width:0.75" />
+    <text
+       y="25.2192"
+       x="323.69339"
+       id="text127"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:cmr10;-inkscape-font-specification:cmr10">498</text>
+    <line
+       id="line129"
+       y2="37.900002"
+       x2="421.5"
+       y1="28.099998"
+       x1="421.5"
+       style="fill:none;stroke:#000000;stroke-width:0.75" />
+    <text
+       y="25.2192"
+       x="407.0293"
+       id="text131"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:cmr10;-inkscape-font-specification:cmr10">564</text>
+    <text
+       y="291.8862"
+       x="323.69431"
+       id="text133"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:cmr10;-inkscape-font-specification:cmr10">500</text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22px;font-family:cmr10;-inkscape-font-specification:cmr10"
+       y="340.55319"
+       x="257.15921"
+       id="text135">
+      <tspan
+         id="tspan137"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22px;font-family:cmr10;-inkscape-font-specification:cmr10"
+         y="340.55319"
+         x="257.15921">Wavelength (nm)</tspan>
+    </text>
+    <text
+       y="16.94729"
+       x="-240.94479"
+       id="text139"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22px;font-family:cmr10;-inkscape-font-specification:cmr10"
+       transform="matrix(-4.371139e-8,-1,1,-4.371139e-8,0,0)">
+      <tspan
+         id="tspan4227"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22px;font-family:cmr10;-inkscape-font-specification:cmr10">Normalized absorbance</tspan>
+    </text>
+    <text
+       y="291.8862"
+       x="447.02731"
+       id="text141"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:cmr10;-inkscape-font-specification:cmr10">600</text>
+    <text
+       y="291.8862"
+       x="534.36041"
+       id="text143"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:cmr10;-inkscape-font-specification:cmr10">700</text>
+    <path
+       id="path145"
+       d="m 80,133.2 c 37.7,-25.4 42.3,-37.2 69.5,-59.5 22,-18 26.9,-30.3 50.7,-30.3 12.7,0 34.2,19.7 41.9,32.1 12.5,20.2 18.2,45.7 29,68.7 10.8,23 15.5,32 25,45.5 9.8,14 13.7,20.4 26.8,32.7 13.1,12.3 40.4,27.6 57.7,36.2"
+       style="fill:none;stroke:#0000b8;stroke-width:2"
+       inkscape:connector-curvature="0" />
+    <path
+       id="path147"
+       d="m 156,191.7 c 18,-2.5 45.8,-3.2 65,-19 31,-25.5 58.2,-77.1 73.5,-97.5 12,-16 36.2,-31.8 43.7,-31.8 9,0 18.8,10.3 28.8,30.8 10,20.5 21.5,47 29,69 7.5,22 13.5,43.5 23,60.5 11.8,21.1 24,41 42.5,50"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-dasharray:5.54, 3"
+       inkscape:connector-curvature="0" />
+    <path
+       id="path149"
+       d="m 154.5,184.7 c 16,0.5 48,3.5 61,3.5 22,0 39,-2.5 62.5,-21.5 27.3,-22.1 46.5,-51.5 59,-71.5 12.5,-20 31.3,-51.8 49.8,-51.8 18.5,0 23.2,23.3 27.2,31.3 4,8 18,49 22,62 4,13 17.5,45 21,53 6,13.5 18,47 49.5,65.5"
+       style="fill:none;stroke:#00a400;stroke-width:2"
+       inkscape:connector-curvature="0" />
+    <path
+       id="path151"
+       d="m 156,181.7 c 22,3.5 46.5,12 58.5,14.5 12,2.5 25.5,5 38,5 19,0 36.2,-7.7 64.5,-36 30.5,-30.5 45.5,-59 53,-70.5 7.5,-11.5 31.5,-51.3 51.5,-51.3 12,0 23,19.8 25.5,25.8 2.5,6 8,13.5 12.5,28 4.5,14.5 14,39.5 22,65 8,25.5 25,61.5 29,69.5 4,8 14.5,17 19.5,21.5"
+       style="fill:none;stroke:#b80000;stroke-width:2"
+       inkscape:connector-curvature="0" />
+    <rect
+       y="-6"
+       x="0"
+       id="rect153"
+       height="346"
+       width="550"
+       style="fill:none" />
+  </g>
 </svg>
