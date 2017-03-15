@@ -18,6 +18,9 @@ By using an information theoretic technique, we can overcome the limitations of 
 % CITE no free lunch theorem
 In this section, I will first outline the analytic procedure through which information theoretic analysis is applied to neuroscientific data, some of the problems which arise, and how to try to overcome them.
 
+
+\subsection{Neuroscientific context}
+
 In the context of trying to experimentally investigate properties of the sensory cortex of the brain, one typically uses an experimental set-up with a finite collection of discrete experimental stimuli.
 These stimuli are then repeatedly presented to the sensory organ in an appropriate fashion, and the responses during each presentation are recorded.
 
@@ -80,7 +83,10 @@ If there is no significant difference between the amount of information about th
 In general, we will choose some framework through which the raw data is reduced to a manageable finite ensemble of possible states, $\SET{R}$.
 Having constrained both our encoding of the stimulus and the response to a finite set of states, we can investigate the relationship between them using Shannon information \citep{Shannon1948}.
 
-Within this theory, information is quantified in a manner analogous to how ``surprised'' a receiver would be if they were to reveal the contents of a message sent by the transmitter.
+
+\subsection{Theoretical background to information theory}
+
+Within the understanding of Shannon information, information is quantified in a manner analogous to how ``surprised'' a receiver would be if they were to reveal the contents of a message sent by the transmitter.
 Unless there is only one possible message, there is uncertainty over what will be sent, potentially with some messages more likely than others.
 If an \textit{a priori} likely message is received, this confirms the expectations so the receiver, so they are less ``surprised''.
 If an unlikely message is received, the receiver is more ``surprised''.
@@ -125,6 +131,9 @@ Analogously to \autoref{eq:shannon-information}, this is defined as
 .\end{align}
 % The mutual information is zero if and only if responses are completely independent of stimuli.
 % For brevity, we will refer to {mutual information} to as \textbf{information} in the remainder of this thesis.
+
+
+\subsection{Applying information theory in practice}
 
 Computing the mutual information between stimulus and response requires us to estimate $p(s)$, $p(r)$, and either $p(s|r)$ or $p(r|s)$.
 The requirement to know $p(s)$ renders applying mutual information outside of a controlled environment all-but impossible.
