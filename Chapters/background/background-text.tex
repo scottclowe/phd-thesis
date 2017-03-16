@@ -31,7 +31,7 @@ Alternatively, the stimulus space can be discretized into a finite subset of sti
 Once the samples are discretized and presented repeatedly, we can use Shannon information to compute the amount of information about the stimulus identity contained in the neuronal response.
 If the stimulus set is intrinsically discrete, Fisher information can not be used and an information theoretic analysis can only be performed using Shannon information.
 
-For such an experimental set-up, let us assume that on each trial the stimulus $s$ is selected at random with probability $p(s)$ from a set of discrete stimuli $\SET{S}$, containing $S$ unique stimuli.
+For such an experimental set-up, let us assume that on each trial the stimulus $s$ is selected at random with probability $p(s)$ from a set of discrete stimuli $\SET{S}$, containing $|S|$ unique stimuli.
 The neuronal response could be one (or more than one) of several data types, such as a spike train from one or more neurons, the \ac{LFP}, \ac{CSD}, \ac{BOLD} signal, a calcium indicator, \ac{EEG}, or others \citep{Magri2009,Quiroga2009}.
 The principles of information theory can be applied whichever neural signal is taken to be the response.
 In \autoref{ch:pl}, we will work with information encoded in \ac{MUA} and spike trains, whilst in Chapters~\ref{ch:lam} and \ref{ch:plam} we will be considering the \ac{LFP} and \ac{CSD}.
@@ -121,8 +121,9 @@ In general, for two random variables $X$ and $Y$, we can express their mutual in
 \\&= \HH(\SET{X}) - \HH(\SET{X} | \SET{Y}) \notag
 \\&= \HH(\SET{Y}) - \HH(\SET{Y} | \SET{X}) \label{eq:info}
 .\end{align}
-Here, we make use of the conditional entropy (also known as noise entropy), so named because it is the entropy of one variable when conditioned on the state of another.
-Analogously to \autoref{eq:shannon-information}, this is defined as
+Here, we make use of the conditional entropy, $\HH(\SET{X} | \SET{Y})$, so named because it is the entropy of one variable when conditioned on the state of another.
+This is also referred to as the noise entropy, particularly when we consider the entropy of the response conditioned on the stimulus, $\HH(\SET{R}|\SET{S})$.
+Analogously to \autoref{eq:shannon-information}, conditional entropy is defined as
 \begin{align}
 \HH(\SET{X} | \SET{Y})
   &= \EE_{x \in \SET{X}, \, y \in \SET{Y}} \left[ \log_2 \frac{1}{p(x|y)} \right] \notag
@@ -184,7 +185,7 @@ However, for a multi-dimensional response (where each stimulus presentation prod
 Using the methodology of \citet{Montemurro2007}, we add an additional step to compute the noise entropy under the simplifying assumption that each dimension of $r$ is independent of the others.
 Exploiting this, we have
 \begin{equation}
-P_\text{ind}([r_1,r_2,r_3,\cdots]|s) = p(r_1|s)\,p(r_2|s)\,p(r_3|s)\,\cdots
+p_\text{ind}([r_1,r_2,r_3,\cdots]|s) = p(r_1|s) \, p(r_2|s) \, p(r_3|s) \, \cdots
 \end{equation}
 and can can compute $\HH_\text{ind}( \SET{R} | \SET{S} )$ directly from estimates of each $p(r_i|s)$ derived from the data.
 This has very little bias compared with $\HH( \SET{R} | \SET{S} )$ there are so many more samples --- the ratio of samples for unique response vectors to individual response elements rises exponentially with the dimension of the response vector.
