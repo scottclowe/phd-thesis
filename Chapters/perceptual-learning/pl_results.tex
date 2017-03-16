@@ -83,7 +83,7 @@ figs/dprime/dprime_sample_hm_hotcold_blanco_v1_1_rmon2_rmvet2.eps}
 figs/dprime/dprime_sample_hm_hotcold_jack_v1_1_rmon2_rmvet2.eps}
     }
     \hspace*{\fill}
-    \caption{\textit{Change in sensitivity index, $d'$, over training sessions for \ac{V1} recordings.}
+    \caption{\captionemph{Change in sensitivity index, $d'$, over training sessions for \ac{V1} recordings.}
 \protect\subref{fig:dprime_v1_blanco}: $d'$ for \ac{M1}, shown for each recording channel, with channels ordered according to average $d'$ over all sessions.
 Above, traces of $d'$ for each channel (colours), and average over channels (black).
 Below, heatmap showing $d'$ for each channel.
@@ -129,7 +129,7 @@ figs/dprime/dprime_sample_hm_hotcold_jack_v4_1_rmon2_rmvet2.eps}
     }
     \hspace*{\fill}
     \caption{
-\textit{Change in sensitivity index, $d'$, over training sessions for \ac{V4} recordings.}
+\captionemph{Change in sensitivity index, $d'$, over training sessions for \ac{V4} recordings.}
 Same as \autoref{fig:dprime_v1}, but for $d'$ during \ac{V4} recordings.
 }
     \label{fig:dprime_v4}
@@ -270,7 +270,7 @@ figs/correlations/signal_correlation_sessionwise_blanco_v4_30chn_s307,308,311,31
         \includegraphics[scale=.45]{%
 figs/correlations/signal_correlation_sessionwise_jack_v4_20chn_s24,25,27-38,40-49.eps}}
     \hspace*{\fill}
-    \caption{\textit{Signal correlation between pairs of recording channels.}
+    \caption{\captionemph{Signal correlation between pairs of recording channels.}
 The correlation in the average firing rate in response to each stimulus condition was computed for each pair of channels (\protect\subref{fig:pl_sigcor_v1_blanco}~\num{253} pairs of channels, \protect\subref{fig:pl_sigcor_v1_jack}~\num{300} pairs, \protect\subref{fig:pl_sigcor_v4_blanco}~\num{435} pairs, \protect\subref{fig:pl_sigcor_v4_jack}~\num{190} pairs).
 Main panels: average across all pairs of channels, with standard deviation indicated by the shaded region.
 Right hand panels: the Gaussian kernel density for the distribution over channel pairs of the average signal correlation during the first (\zonename{A}) and last three sessions (\zonename{B}), with mean (solid black line) and median (dashed green line) indicated.
@@ -351,7 +351,7 @@ figs/correlations/noise_correlation_sessionwise_blanco_v4_30chn_s307,308,311,313
         \includegraphics[scale=.45]{%
 figs/correlations/noise_correlation_sessionwise_jack_v4_20chn_s24,25,27-38,40-49.eps}}
     \hspace*{\fill}
-    \caption{\textit{Noise correlation between pairs of recording channels.}
+    \caption{\captionemph{Noise correlation between pairs of recording channels.}
 The correlation in the average firing rate in response to each stimulus condition was computed for each pair of channels (\protect\subref{fig:pl_noisecor_v1_blanco}~\num{253} pairs of channels, \protect\subref{fig:pl_noisecor_v1_jack}~\num{300} pairs, \protect\subref{fig:pl_noisecor_v4_blanco}~\num{435} pairs, \protect\subref{fig:pl_noisecor_v4_jack}~\num{190} pairs).
 Main panels: average across all pairs of channels, with standard deviation indicated by the shaded region.
 Right hand panels: the Gaussian kernel density for the distribution over channel pairs of the average noise correlation during the first (\zonename{A}) and last three sessions (\zonename{B}), with mean (solid black line) and median (dashed green line) indicated.
@@ -382,7 +382,7 @@ We now apply the principles of Shannon information, as described in \autoref{sec
 We are interested in how easy it is to determine which contrast the stimulus was presented with by observing the neural activity in response to the stimulus.
 Since the subject's performance increases with training, we expect to find the amount of information encoded in the neural activity to increase with training.
 This much is trivial, since perception occurs within the neural activity of an individual.
-What will be interesting to uncover is \textit{where} the neural changes take place --- in \ac{V1}, in \ac{V4}, neither, or both?
+What will be interesting to uncover is \textemph{where} the neural changes take place --- in \ac{V1}, in \ac{V4}, neither, or both?
 
 To make its decision, the subject has access to all the neurons we have recorded and all the neurons in the brain from which we have not recorded.
 For the best idea of how much information the brain has access to, we would evaluate how much information is contained in the vector of neuronal responses for every recording channel.
@@ -451,7 +451,7 @@ figs/info2/initial/I_sessionwise_blanco_v4_chmean30_s307,308,311,313,314,317,318
         \includegraphics[scale=.45]{%
 figs/info2/initial/I_sessionwise_jack_v4_chmean20_s24,25,27-38,40-49_oc0_G_1bins_of_527ms_dr_pt_rmvet2_rmvms2_imscn_clhot.eps}}
     \hspace*{\fill}
-    \caption{\textit{Information about the test stimulus contained in the firing rate during test presentation and its progression over training sessions.}
+    \caption{\captionemph{Information about the test stimulus contained in the firing rate during test presentation and its progression over training sessions.}
 % The mutual information with the test stimulus is taken for a spike timing based code for a \SI{20}{ms} window of spiking activity, sampled with the start of the window offset ($y$-axis) from \SI{0}{ms} up to \SI{500}{ms} after test stimulus onset.
 % The sampling is in intervals of \SI{5}{ms}, so any 4 adjacent squares within each session are highly correlated.
 % The recording session number for the data is given along the $x$-axis, and the number of days the animal has been trained for increases from left to right.
@@ -465,7 +465,7 @@ The \ac{PT} bias correction method was used, without further correction to the r
 \end{figure}
 
 
-For some channels, the measured information was a \textit{negative} value.
+For some channels, the measured information was a \textemph{negative} value.
 Consequently, the violin plots in \autoref{fig:info_sess_1x527} showing the distribution of information values across channels extend below \num{0}.
 This is not because these channels contain a negative amount of information about the stimulus --- in fact it is mathematically impossible for there to be less than \num{0} mutual information between two random variables (see \autoref{eq:info} and its discussion).
 Instead, this observation negative value is due to the inherent uncertainty of our measurement of mutual information, which we corrected against the finite-sampling upward bias using the \ac{PT} method.
@@ -501,7 +501,7 @@ V4      & M1        & 30                & 25 \\
 \end{tabular}
 \end{center}
 \caption{
-\textit{Number of channels before and after restriction on the basis of consistent or smoothly changing firing rates across sessions.}
+\captionemph{Number of channels before and after restriction on the basis of consistent or smoothly changing firing rates across sessions.}
 }
 \label{tab:nchannels_restricted}
 \end{table}
@@ -528,7 +528,7 @@ figs/info2/initial/I_sessionwise_blanco_v4_chmean25_s307,308,311,313,314,317,318
         \includegraphics[scale=.45]{%
 figs/info2/initial/I_sessionwise_jack_v4_chmean18_s24,25,27-38,40-49_oc0_G_1bins_of_527ms_dr_pt_rmvet2_rmvms2_imscn_clhot.eps}}
     \hspace*{\fill}
-    \caption{\textit{Information, after removing inconsistent channels, about the test stimulus contained in the firing rate during test presentation and its progression over training sessions.}
+    \caption{\captionemph{Information, after removing inconsistent channels, about the test stimulus contained in the firing rate during test presentation and its progression over training sessions.}
 Main panels: the average over channels (\protect\subref{fig:info_sess_1x527_restrictchn_v1_blanco}~\num{14} channels, \protect\subref{fig:info_sess_1x527_restrictchn_v1_jack}~\num{20} channels, \protect\subref{fig:info_sess_1x527_restrictchn_v4_blanco}~\num{25} channels, \protect\subref{fig:info_sess_1x527_restrictchn_v4_jack}~\num{18} channels) with standard error across channels indicated by the shaded region.
 Right hand panels: distribution over channels of the information contained in the first three sessions (\zonename{A}) versus last three sessions (\zonename{B}), with mean (solid black line) and median (dashed green line) over channels indicated.
 The \ac{PT} bias correction method was used, without further correction to the residual bias.
@@ -607,7 +607,7 @@ figs/class_balance/ntrialscond_prop_blanco_v4_oc0_rmvet2_.eps}}
         \includegraphics[scale=.45]{%
 figs/class_balance/ntrialscond_prop_jack_v4_oc0_rmvet2_.eps}}
     \hspace*{\fill}
-    \caption{\textit{Proportion of trials in each stimulus class.}
+    \caption{\captionemph{Proportion of trials in each stimulus class.}
 Main panels: the proportion (\%) of trials which belong to each stimulus class, with colours indicated to the right, as a function of experimental session.
 Above panels: the ``inner \num{6}'' contrasts closest to \SI{30}{\percent} (grey) and ``outer \num{6}'' contrasts furthest from \SI{30}{\percent} (purple).
 See \autoref{tab:pl_stim} for the \num{6} contrasts in each group by brain region.
@@ -658,7 +658,7 @@ figs/info2/initial/I_sessionwise_blanco_v4_chmean25_s307,308,311,313,314,317,318
         \includegraphics[scale=.45]{%
 figs/info2/initial/I_sessionwise_jack_v4_chmean18_s24,25,27-38,40-49_oc0_Gbalanced_1bins_of_527ms_dr_pt_rmvet2_rmvms2_imscn_clhot.eps}}
     \hspace*{\fill}
-    \caption{\textit{Information, after correcting for the stimulus class balance in each session, about the test stimulus contained in the firing rate during test presentation and its progression over training sessions.}
+    \caption{\captionemph{Information, after correcting for the stimulus class balance in each session, about the test stimulus contained in the firing rate during test presentation and its progression over training sessions.}
 Sub-panels are arranged as per \autoref{fig:info_sess_1x527_restrictchn}, with the same number of channels included.
 The \ac{PT} bias correction method was used, without further correction to the residual bias.
 }
@@ -828,7 +828,7 @@ figs/info2/bias/ntrials_I_vs_invN_combindivpap_jack_v1_20chn_Gbalanced_1bins_of_
         \includegraphics[scale=.45]{%
 figs/info2/bias/ntrials_I_vs_invN_combindivpap_jack_v4_18chn_Gbalanced_1bins_of_527ms.eps}}
     \hspace*{\fill}
-    \caption{\textit{Distribution of measured information as a function of $\nicefrac{1}{N}$, where $N$ is the number of trials in the session.}
+    \caption{\captionemph{Distribution of measured information as a function of $\nicefrac{1}{N}$, where $N$ is the number of trials in the session.}
 Results are shown both without correcting for the finite measurement bias (grey circles), using \ac{PT} bias correction (red squares), and using \ac{QE} bias correction (blue diamonds).
 Information was computed after using subsampling to address the stimulus class imbalance (see \autoref{sec:pl_class_imbalance}), and this is reflected in the value of $N$.
 }
@@ -884,7 +884,7 @@ figs/info2/bias/I_trialwise_blanco_v4_chmean25_s307,308,311,313,314,317,318,320,
         \includegraphics[scale=.45]{%
 figs/info2/bias/I_trialwise_jack_v4_chmean18_s24,25,27-38,40-49_tp4_1bins_of_527ms_dr_pt_oc0_Gbalanced_test_tc10-5-25,27-29,31-33,35,40-10-60_nt1400_ts350_rmvet2_rmvms2_imscn_clhot.eps}}
     \hspace*{\fill}
-    \caption{\textit{Information about the test stimulus contained in the firing rate during test presentation and its progression over training sessions, estimated across blocks of \num{100} consecutive trials of each stimulus class taken by merging consecutive sessions together to accumulate sufficiently many trials.}
+    \caption{\captionemph{Information about the test stimulus contained in the firing rate during test presentation and its progression over training sessions, estimated across blocks of \num{100} consecutive trials of each stimulus class taken by merging consecutive sessions together to accumulate sufficiently many trials.}
 Main panels: the average over channels (\protect\subref{fig:info_trial_1x527_balanced_v1_blanco}~\num{14} channels, \protect\subref{fig:info_trial_1x527_balanced_v1_jack}~\num{20} channels, \protect\subref{fig:info_trial_1x527_balanced_v4_blanco}~\num{25} channels, \protect\subref{fig:info_trial_1x527_balanced_v4_jack}~\num{18} channels) with standard error across channels indicated by the shaded region.
 Right hand panels: distribution over channels of the information contained in the first three blocks of \num{1400} trials (\zonename{A}) versus last three blocks (\zonename{B}), with mean (solid black line) and median (dashed green line) over channels indicated.
 The violin plot shows a Gaussian kernel density, using a bandwidth determined as described in \autoref{sec:info-methods}.
@@ -949,7 +949,7 @@ figs/info2/bias/ntrials_I_vs_invN_combindivpap_jack_v1_20chn_Gbalanced_1bins_of_
         \includegraphics[scale=.45]{%
 figs/info2/bias/ntrials_I_vs_invN_combindivpap_jack_v4_18chn_Gbalanced_1bins_of_527ms_btsp20.eps}}
     \hspace*{\fill}
-    \caption{\textit{Distribution of measured information, with bootstrap bias correction, as a function of $\nicefrac{1}{N}$, where $N$ is the number of trials in the session.}
+    \caption{\captionemph{Distribution of measured information, with bootstrap bias correction, as a function of $\nicefrac{1}{N}$, where $N$ is the number of trials in the session.}
 Results are shown with bias correction either achieved solely from subtracting the information contained in response-shuffled copies of the data (bootstraps; grey circles), or by combining this with a more principled bias correction technique (\ac{PT}, red squares; \ac{QE}, blue diamonds).
 }
     \label{fig:I_vs_invN_btsp}
@@ -1007,7 +1007,7 @@ figs/info2/bias/ntrials_I_vs_invN_combindivpap_jack_v1_20chn_Gclass-group-balanc
         \includegraphics[scale=.45]{%
 figs/info2/bias/ntrials_I_vs_invN_combindivpap_jack_v4_18chn_Gclass-group-balanced_1bins_of_527ms.eps}}
     \hspace*{\fill}
-    \caption{\textit{Distribution of task-pertinent information measured as a function of $\nicefrac{1}{N}$, where $N$ is the number of trials in the session.}
+    \caption{\captionemph{Distribution of task-pertinent information measured as a function of $\nicefrac{1}{N}$, where $N$ is the number of trials in the session.}
 Results are shown both without correcting for the finite measurement bias (grey circles), using \ac{PT} bias correction (red squares), and using \ac{QE} bias correction (blue diamonds).
 }
     \label{fig:I_vs_invN_target-group}
@@ -1056,7 +1056,7 @@ figs/info2/bias/ntrials_I_vs_invN_combindivpap_jack_v1_20chn_Gclass-group-balanc
         \includegraphics[scale=.45]{%
 figs/info2/bias/ntrials_I_vs_invN_combindivpap_jack_v4_18chn_Gclass-group-balanced_1bins_of_527ms_btsp20.eps}}
     \hspace*{\fill}
-    \caption{\textit{Distribution of task-pertinent information measured with bootstrap correction as a function of $\nicefrac{1}{N}$, where $N$ is the number of trials in the session.}
+    \caption{\captionemph{Distribution of task-pertinent information measured with bootstrap correction as a function of $\nicefrac{1}{N}$, where $N$ is the number of trials in the session.}
 Results are shown both without correcting for the finite measurement bias (grey circles), using \ac{PT} bias correction (red squares), and using \ac{QE} bias correction (blue diamonds).
 }
     \label{fig:I_vs_invN_target-group_btsp}
@@ -1169,7 +1169,7 @@ figs/info2/bias/I_sessionwise_blanco_v4_chmean25_s307,308,311,313,314,317,318,32
         \includegraphics[scale=.45]{%
 figs/info2/bias/I_sessionwise_jack_v4_chmean18_s24,25,27-38,40-49_oc0_Gclass-group-balanced_1bins_of_527ms_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
     \hspace*{\fill}
-    \caption{\textit{Task-pertinent information about the stimulus contained in the firing rate during \SI{527}{\milli\second} of stimulus presentation.}
+    \caption{\captionemph{Task-pertinent information about the stimulus contained in the firing rate during \SI{527}{\milli\second} of stimulus presentation.}
 Only task-pertinent information (whether the stimulus was higher or lower than \SI{30}{\percent} contrast) was included.
 The finite sampling bias was corrected for by using both the \ac{PT} method and by subtracting the average of \num{20} bootstrapped information measurements obtained by randomly pairing responses and stimulus labels.
 Main panels: the average over channels (\protect\subref{fig:info_sess_1x527_final_v1_blanco}~\num{14} channels, \protect\subref{fig:info_sess_1x527_final_v1_jack}~\num{20} channels, \protect\subref{fig:info_sess_1x527_final_v4_blanco}~\num{25} channels, \protect\subref{fig:info_sess_1x527_final_v4_jack}~\num{18} channels) with standard error across channels indicated by the shaded region.
@@ -1203,8 +1203,8 @@ Whereas if we gain information about the stimulus which updates the probability 
 
 Although it is only a binary response (a choice of one of two saccade targets), it is still possible for the behavioural response to encode both task-pertinent and task-nonpertinent information.
 For instance, let us assume that the subject performs the task at a rate higher than chance.
-Then, a behavioural response of ``\textit{test contrast is lower}'' tells us a contrast in the lower half was more likely to have been presented, providing task-pertinent information.
-Additionally, since contrasts further from the \SI{30}{\percent} threshold are easier for the subject, we can empirically observe that a response of ``\textit{test contrast is lower}'' is more likely to be elicited if the contrast was further below the threshold than if it was close to the threshold.\footnote{This trivially follows using Bayes' rule.}
+Then, a behavioural response of ``\textemph{test contrast is lower}'' tells us a contrast in the lower half was more likely to have been presented, providing task-pertinent information.
+Additionally, since contrasts further from the \SI{30}{\percent} threshold are easier for the subject, we can empirically observe that a response of ``\textemph{test contrast is lower}'' is more likely to be elicited if the contrast was further below the threshold than if it was close to the threshold.\footnote{This trivially follows using Bayes' rule.}
 This difference in relative likelihood supplies us with additional, task-nonpertinent, information about which stimulus was presented.
 
 
@@ -1302,7 +1302,7 @@ figs/info2/task-pertinent/I_sessionwise_blanco_v1_chmean14_s343-359_oc0_Gclass-s
         \includegraphics[scale=.45]{%
 figs/info2/task-pertinent/I_sessionwise_jack_v1_chmean20_s51-72_oc0_Gclass-shuffled-balanced_1bins_of_527ms_dr_pt_btsp20_rmvet2_rmvms2_relative-info.eps}}
     \hspace*{\fill}
-    \caption{\textit{Breakdown of task-pertinent and nonpertinent information contained in \ac{V1} recording channels.}
+    \caption{\captionemph{Breakdown of task-pertinent and nonpertinent information contained in \ac{V1} recording channels.}
 In \protect\subref{fig:info_taskpertinent_v1_ch_blanco} and \protect\subref{fig:info_taskpertinent_v1_ch_jack}, the total information about the stimulus (grey), task-pertinent information (green), and task-nonpertinent (red) contained in each of \num{14} and \num{20} channels respectively.
 In \protect\subref{fig:info_taskpertinent_rel_v1_ch_blanco} and \protect\subref{fig:info_taskpertinent_rel_v1_ch_jack}, the relative information about the stimulus which is task-pertinent (green) and task-nonpertinent (red) contained in channels with a significant amount of total information (\num{4} and \num{20} respectively).
 Main panels: across training sessions, the average information over channels, with standard error across channels indicated by the shaded region.
@@ -1366,7 +1366,7 @@ figs/info2/task-pertinent/I_behav_blanco_v1_s343-359_Gclass-shuffled-balanced_dr
         \includegraphics[scale=.45]{%
 figs/info2/task-pertinent/I_behav_jack_v1_s51-72_Gclass-shuffled-balanced_dr_pt_btsp20_rmvet2_relative-info.eps}}
     \hspace*{\fill}
-    \caption{\textit{Breakdown of task-pertinent and nonpertinent information contained in behavioural responses during \ac{V1} recording.}
+    \caption{\captionemph{Breakdown of task-pertinent and nonpertinent information contained in behavioural responses during \ac{V1} recording.}
 In \protect\subref{fig:info_taskpertinent_v1_behav_blanco} and \protect\subref{fig:info_taskpertinent_v1_behav_jack}, the total information about the stimulus (grey), task-pertinent information (green), and task-nonpertinent (red) contained the behavioural response on each trial.
 In \protect\subref{fig:info_taskpertinent_rel_v1_behav_blanco} and \protect\subref{fig:info_taskpertinent_rel_v1_behav_jack}, the relative information about the stimulus which is task-pertinent (green) and task-nonpertinent (red).
 The \ac{PT} bias correction method was used, with the residual bias further reduced using bootstrapping (see \autoref{sec:pl_bootstrapping}).
@@ -1444,7 +1444,7 @@ figs/info2/task-pertinent/I_sessionwise_blanco_v4_chmean25_s307,308,311,313,314,
         \includegraphics[scale=.45]{%
 figs/info2/task-pertinent/I_sessionwise_jack_v4_chmean18_s24,25,27-38,40-49_oc0_Gclass-shuffled-balanced_1bins_of_527ms_dr_pt_btsp20_rmvet2_rmvms2_relative-info.eps}}
     \hspace*{\fill}
-    \caption{\textit{Breakdown of task-pertinent and nonpertinent information contained in \ac{V4} recording channels.}
+    \caption{\captionemph{Breakdown of task-pertinent and nonpertinent information contained in \ac{V4} recording channels.}
 In \protect\subref{fig:info_taskpertinent_v4_ch_blanco} and \protect\subref{fig:info_taskpertinent_v4_ch_jack}, the total information about the stimulus (grey), task-pertinent information (green), and task-nonpertinent (red) contained in each of \num{25} and \num{18} channels respectively.
 In \protect\subref{fig:info_taskpertinent_rel_v4_ch_blanco} and \protect\subref{fig:info_taskpertinent_rel_v4_ch_jack}, the relative information about the stimulus which is task-pertinent (green) and task-nonpertinent (red) contained in channels with a significant amount of total information (\num{13} and \num{7} respectively).
 Main panels: across training sessions, the average information over channels, with standard error across channels indicated by the shaded region.
@@ -1514,7 +1514,7 @@ figs/info2/task-pertinent/I_behav_blanco_v4_s307,308,311,313,314,317,318,320,321
         \includegraphics[scale=.45]{%
 figs/info2/task-pertinent/I_behav_jack_v4_s24,25,27-38,40-49_Gclass-shuffled-balanced_dr_pt_btsp20_rmvet2_relative-info.eps}}
     \hspace*{\fill}
-    \caption{\textit{Breakdown of task-pertinent and nonpertinent information contained in behavioural responses during \ac{V4} recording.}
+    \caption{\captionemph{Breakdown of task-pertinent and nonpertinent information contained in behavioural responses during \ac{V4} recording.}
 In \protect\subref{fig:info_taskpertinent_v4_behav_blanco} and \protect\subref{fig:info_taskpertinent_v4_behav_jack}, the total information about the stimulus (grey), task-pertinent information (green), and task-nonpertinent (red) contained the behavioural response on each trial.
 In \protect\subref{fig:info_taskpertinent_rel_v4_behav_blanco} and \protect\subref{fig:info_taskpertinent_rel_v4_behav_jack}, the relative information about the stimulus which is task-pertinent (green) and task-nonpertinent (red).
 The \ac{PT} bias correction method was used, with the residual bias further reduced using bootstrapping (see \autoref{sec:pl_bootstrapping}).
@@ -1589,7 +1589,7 @@ figs/info2/binlen/I_binlength_blanco_v4_chmean25_s307,308,311,313,314,317,318,32
         \includegraphics[scale=.4]{%
 figs/info2/binlen/I_binlength_jack_v4_chmean18_s24,25,27-38,40-49_oc0_Gclass-group-balanced_1bins_4-fold-sampling_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
     \hspace*{\fill}
-    \caption{\textit{Duration of the window over which firing rate is measured influences the measured information.}
+    \caption{\captionemph{Duration of the window over which firing rate is measured influences the measured information.}
 For each recording channel and window duration, we took the maximum information over all latencies, then averaged the information over channels.
 Main panels: heatmap showing information against experimental session and window duration.
 For each information value, we took \num{20} bootstrapped information values by randomly pairing stimuli and responses.
@@ -1641,7 +1641,7 @@ figs/info2/binlen/I_offsetVwinlen_blanco_v4_chmean25_s307,308,311,313,314,317,31
         \includegraphics[scale=.4]{%
 figs/info2/binlen/I_offsetVwinlen_jack_v4_chmean18_s24,25,27-38,40-49_oc0_Gclass-group-balanced_1bins_4-fold-sampling_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
     \hspace*{\fill}
-    \caption{\textit{Information, encoded as firing rate, as a function of window latency.}
+    \caption{\captionemph{Information, encoded as firing rate, as a function of window latency.}
 For a given latency and window duration, the information value reported is the average over all windows of this duration which include that latency (see text for more details).
 Results are averaged over experimental sessions
 (\protect\subref{fig:info_offset_vs_winlen_v1_blanco}: \num{17}, \protect\subref{fig:info_offset_vs_winlen_v1_jack}: \num{22}, \protect\subref{fig:info_offset_vs_winlen_v4_blanco}: \num{22}, \protect\subref{fig:info_offset_vs_winlen_v4_jack}: \num{24}).
@@ -1654,14 +1654,14 @@ This curve is different from those shown in \autoref{fig:info_winlen} due to the
 \end{figure}
 
 As the set of window latencies considered is necessarily different for each window duration (one cannot examine the information encoded in a window with \SI{500}{\milli\second} duration and starting from a \SI{100}{\milli\second} latency when the stimulus is only presented for \SI{527}{\milli\second}), we cannot simply average the data over the experimental session dimension.
-Since we wish to understand \textit{when} the firing rate is most informative about the stimulus, we reparametrised the results over latencies with a very high sampling frequency and, for each window duration, took the average over all information measurements containing this latency.
+Since we wish to understand \textemph{when} the firing rate is most informative about the stimulus, we reparametrised the results over latencies with a very high sampling frequency and, for each window duration, took the average over all information measurements containing this latency.
 These steps were repeated for bootstrapped information values, and their average was subtracted from the information estimate.
 Information values less than \num{3} times the standard deviation of the bootstraps were considered non-significant (indicated in white in \autoref{fig:info_offset_vs_winlen}).
 
 These results, shown in \autoref{fig:info_offset_vs_winlen}, corroborate the findings discussed for \autoref{fig:info_winlen}.
 Namely, firing rates evaluated over longer durations always give more information about the stimulus for \ac{V4}, but not \ac{V1}.
 
-Examining the data as a function of latency, we can see \textit{when} it is possible to estimate the \ac{V1} firing rate using only a very short window and still gain a large amount of information about the stimulus.
+Examining the data as a function of latency, we can see \textemph{when} it is possible to estimate the \ac{V1} firing rate using only a very short window and still gain a large amount of information about the stimulus.
 As shown in \autoref{fig:info_offset_vs_winlen_v1_blanco} and \autoref{fig:info_offset_vs_winlen_v1_jack}, short windows of \SI{40}{\milli\second} and below are only transitively informative, with a narrow peak with a \SI{50}{\milli\second} latency after the onset of the stimulus.
 This temporally localised period of high information content coincides with the elevated firing rate of the stimulus-onset response, as shown in the rastergrams of \autoref{sec:pl_rasters}, which also occurs with a latency around \SI{50}{\milli\second}.
 To directly compare the temporal profile of the information with the average firing rate, we plotted the average firing rate as a function of the latency and experimental session, shown in \autoref{fig:fr_hm}.
@@ -1729,7 +1729,7 @@ figs/fr/fr_sessionwise_blanco_v4_chmean25_s307,308,311,313,314,317,318,320,321,3
         \includegraphics[scale=.4]{%
 figs/fr/fr_sessionwise_jack_v4_chmean18_s24,25,27-38,40-49_oc0_Gbalanced_5ms_418off_rmvet2_rmvms2_imscn_clhot.eps}}
     \hspace*{\fill}
-    \caption{\textit{Average firing rate over \SI{5}{\milli\second} windows.}
+    \caption{\captionemph{Average firing rate over \SI{5}{\milli\second} windows.}
 Windows were sampled at \SI{1.25}{\milli\second} intervals, shown with a latency corresponding to the middle of each window.
 Information values which did not exceed \num{3} standard deviations over the corresponding bootstraps were deemed insignificant (shown in white; median significance threshold indicated by a line across the colour bar).
 Above: overall firing rate during \SI{527}{\milli\second} of stimulus presentation, averaged over channels (black line), with standard error over channels shown (grey region).
@@ -1789,7 +1789,7 @@ figs/info2/offsets/I_sessionwise_jack_v1_chmean20_s51-72_oc0_Gclass-group-balanc
 %         \includegraphics[scale=.4]{%
 % figs/info2/offsets/I_sessionwise_jack_v4_chmean18_s24,25,27-38,40-49_oc0_Gclass-group-balanced_1bins_of_5ms_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
 %     \hspace*{\fill}
-    \caption{\textit{Information encoded as firing rate over windows with \SI{5}{\milli\second} duration.}
+    \caption{\captionemph{Information encoded as firing rate over windows with \SI{5}{\milli\second} duration.}
 Main panels: heatmap showing information in each experimental session with latencies, in \SI{1.25}{\milli\second} intervals, ranging from the start to end of the stimulus presentation.
 The $y$-axis value corresponds to the centre of each window.
 Above: maximum over all latencies and average over channels (black line), with standard error over channels shown (grey region).
@@ -1879,7 +1879,7 @@ figs/info2/offsets/I_sessionwise_blanco_v4_chmean25_s307,308,311,313,314,317,318
         \includegraphics[scale=.4]{%
 figs/info2/offsets/I_sessionwise_jack_v4_chmean18_s24,25,27-38,40-49_oc0_Gclass-group-balanced_1bins_of_50ms_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
     \hspace*{\fill}
-    \caption{\textit{Information encoded in the firing rate measured over \SI{50}{\milli\second} windows.}
+    \caption{\captionemph{Information encoded in the firing rate measured over \SI{50}{\milli\second} windows.}
 Plots are arranged as per \autoref{fig:info_offset_5ms}, but with \SI{50}{\milli\second} windows sampled at latencies with intervals of \SI{10}{\milli\second}.
     \label{fig:info_offset}
 }
@@ -1913,7 +1913,7 @@ figs/info2/binlen/I_offsetVwinlenDif_blanco_v4_chmean25_s307,308,311,313,314,317
         \includegraphics[scale=.4]{%
 figs/info2/binlen/I_offsetVwinlenDif_jack_v4_chmean18_s24,25,27-38,40-49_oc0_Gclass-group-balanced_1bins_4-fold-sampling_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
     \hspace*{\fill}
-    \caption{\textit{Change in information with training, as a function of window latency.}
+    \caption{\captionemph{Change in information with training, as a function of window latency.}
 Similar to \autoref{fig:info_offset_vs_winlen}, we here show the difference in the average during the final and first three sessions.
 For a given latency and window duration, the information value reported is the difference in the average over all windows of this duration which include that latency (see text for more details).
 Information values with no significant change between the start and end of training (determined by \num{3} times the standard deviation over the difference in bootstrapped information values) are shown in white, with a typical threshold for significance indicated by two black lines across the colour bar.
@@ -2079,7 +2079,7 @@ figs/info2/tp5/I_sessionwise_tp3_blanco_v1_chmean14_s343-359_oc0_Gclass-group-ba
         \includegraphics[scale=.45]{%
 figs/info2/tp5/I_sessionwise_tp3_jack_v1_chmean20_s51-72_oc0_Gclass-group-balanced_1bins_of_200ms_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
     \hspace*{\fill}
-    \caption{\textit{Information about the stimulus encoded in \ac{V1} when the stimulus is not present.}
+    \caption{\captionemph{Information about the stimulus encoded in \ac{V1} when the stimulus is not present.}
 In \protect\subref{fig:info_tp5_v1_blanco} and \protect\subref{fig:info_tp5_v1_jack}, the amount of information about whether the contrast of the stimulus exceeded \SI{30}{\percent} encoded in the firing rate during the window \SIrange{220}{420}{\milli\second} after the stimulus was removed.
 In \protect\subref{fig:respinfo_tp5_v1_blanco} and \protect\subref{fig:respinfo_tp5_v1_jack}, the amount of information about the behavioural response given by the subject encoded in the firing rate during the window \SIrange{220}{420}{\milli\second} after the stimulus was removed.
 In \protect\subref{fig:info_tp3_v1_blanco} and \protect\subref{fig:info_tp3_v1_jack}, the information about the stimulus encoded in the \SI{200}{\milli\second} before the stimulus was presented, shown here for comparison purposes only.
@@ -2119,7 +2119,7 @@ figs/info2/tp5/I_sessionwise_tp3_blanco_v4_chmean25_s307,308,311,313,314,317,318
         \includegraphics[scale=.45]{%
 figs/info2/tp5/I_sessionwise_tp3_jack_v4_chmean18_s24,25,27-38,40-49_oc0_Gclass-group-balanced_1bins_of_200ms_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
     \hspace*{\fill}
-    \caption{\textit{Information about the stimulus encoded in \ac{V4} when the stimulus is not present.}
+    \caption{\captionemph{Information about the stimulus encoded in \ac{V4} when the stimulus is not present.}
 In \protect\subref{fig:info_tp5_v4_blanco} and \protect\subref{fig:info_tp5_v4_jack}, the amount of information about whether the contrast of the stimulus exceeded \SI{30}{\percent} encoded in the firing rate during the window \SIrange{220}{420}{\milli\second} after the stimulus was removed.
 In \protect\subref{fig:respinfo_tp5_v4_blanco} and \protect\subref{fig:respinfo_tp5_v4_jack}, the amount of information about the behavioural response given by the subject encoded in the firing rate during the window \SIrange{220}{420}{\milli\second} after the stimulus was removed.
 In \protect\subref{fig:info_tp3_v4_blanco} and \protect\subref{fig:info_tp3_v4_jack}, the information about the stimulus encoded in the \SI{200}{\milli\second} before the stimulus was presented, shown here for comparison purposes only.
@@ -2129,7 +2129,7 @@ In \protect\subref{fig:info_tp3_v4_blanco} and \protect\subref{fig:info_tp3_v4_j
 
 
 For both \ac{V1} and \ac{V4}, we detected information about the stimulus encoded after it was removed with a small effect size, around a tenth of the amount of information present during the stimulus presentation (shown in Figures \ref{fig:info_tp5_v1_blanco}, \ref{fig:info_tp5_v1_jack}, \ref{fig:info_tp5_v4_blanco}, and \ref{fig:info_tp5_v4_jack}; amount of information can be compared with that present in \autoref{fig:info_offset_vs_winlen}).
-To illustrate the effect size in comparison with the noise when measuring information for a non-informative event, we also computed the amount of information about the stimulus encoded in the firing rate during the \SI{200}{\milli\second} \textit{before} the onset of the stimulus.
+To illustrate the effect size in comparison with the noise when measuring information for a non-informative event, we also computed the amount of information about the stimulus encoded in the firing rate during the \SI{200}{\milli\second} \textemph{before} the onset of the stimulus.
 Since stimuli were presented in a random order, it is not possible for the activity before the onset of the stimulus to contain any information about it, and we find that, with bias correction, the measured information is very close to \num{0} (see Figures \ref{fig:info_tp3_v1_blanco}, \ref{fig:info_tp3_v1_jack}, \ref{fig:info_tp3_v4_blanco}, and \ref{fig:info_tp3_v4_jack}).
 
 For \ac{V1}, \ac{M1} there was, across all channels, a significant amount of information about the stimulus encoded in the post-stimulation firing rate ($p=0.023$), but the increase in information between the first (\zonename{A}) and last (\zonename{B}) three sessions of \SI{0.0027\pm0.0059}{bits} was not significant ($p=0.66$).
@@ -2138,7 +2138,7 @@ For \ac{V4}, \ac{M1} again had, across channels, a significant amount of informa
 With subject \ac{M2}, the amount of information was not significant ($p=p=0.091$) and did not increase significantly either (\SI{+0.0032\pm0.0019}{bits}, $p=0.11$).
 
 
-As to \textit{how} information about the stimulus could be encoded after it is removed, three potential causes for this are readily apparent: bottom-up effects driven by the retina, residual effects within the visual cortex itself, and top-down effects driven by feedback from higher cortical regions.
+As to \textemph{how} information about the stimulus could be encoded after it is removed, three potential causes for this are readily apparent: bottom-up effects driven by the retina, residual effects within the visual cortex itself, and top-down effects driven by feedback from higher cortical regions.
 
 First, let us consider bottom-up effects driven by the retina.
 During the experimental trial, the subject must keep their gaze fixated on the central target whilst the sample and test stimuli appear and disappear (see \autoref{sec:pl_task} for details of the experimental set-up).
@@ -2199,7 +2199,7 @@ figs/frdelta/frdelta_tp5_220-420ms_blanco_v1.eps}}
         \includegraphics[scale=.45]{%
 figs/frdelta/frdelta_tp5_220-420ms_jack_v1.eps}}
     \hspace*{\fill}
-    \caption{\textit{For \ac{V1}, difference in post-stimulus firing rate between contrasts above and below \SI{30}{\percent}.}
+    \caption{\captionemph{For \ac{V1}, difference in post-stimulus firing rate between contrasts above and below \SI{30}{\percent}.}
     \label{fig:frdelta_tp5_v1}
 }
 \end{figure}
@@ -2243,7 +2243,7 @@ figs/frdelta/frdelta_tp5_220-420ms_blanco_v4.eps}}
         \includegraphics[scale=.45]{%
 figs/frdelta/frdelta_tp5_220-420ms_jack_v4.eps}}
     \hspace*{\fill}
-    \caption{\textit{For \ac{V4}, difference in post-stimulus firing rate between contrasts above and below \SI{30}{\percent}.}
+    \caption{\captionemph{For \ac{V4}, difference in post-stimulus firing rate between contrasts above and below \SI{30}{\percent}.}
     \label{fig:frdelta_tp5_v4}
 }
 \end{figure}
@@ -2438,8 +2438,8 @@ otherwise we classify it as the group labelled $0$.
     \subfloat[][\ac{M2} \ac{V1}, session \num{72}.\label{fig:pl_lin_discrim_example_v1_jack}]{%
         \includegraphics[scale=.45]{figs/decoding/lindiscrimex_v1_jack_72_3vs8.eps}}
     \hspace*{\fill}
-    \caption{%
-    \textit{Example linear discriminator.}
+    \caption{
+    \captionemph{Example linear discriminator.}
     The data samples are shown as offset black and white triangles, whose size scales linearly with the number of samples with a given pair of firing rate responses elicited in the two channels.
     The separating hyperplane fit by the model is shown in blue.
     In each case, the model was trained on the data from only two recording channels.
@@ -2605,8 +2605,8 @@ Our results from the population-level decoder correspond to our findings about t
 	\includegraphics[scale=0.45]{figs/decoding/perf_information_v1_jack.eps}
     }
     \hspace*{\fill}
-    \caption{%
-    \textit{Classifying the stimulus using \ac{V1} population activity.}
+    \caption{
+    \captionemph{Classifying the stimulus using \ac{V1} population activity.}
     We report the accuracy of the linear decoder classifying the group of each stimulus (greater or less than \SI{30}{\percent} contrast) after training on the population activity (blue; \protect\subref{fig:dec_b1_allp}~\ac{M1}, \num{14} channels; \protect\subref{fig:dec_j1_allp}~\ac{M2}, \num{20} channels).
     In \protect\subref{fig:dec_b1_allp} and \protect\subref{fig:dec_j1_allp}, performance was evaluated as the average accuracy across each of the \num{14} stimulus classes.
     We also report the accuracy of the linear decoder when trained on a copy of the data with responses recorded from each channel matched at random such that noise correlations are removed (red; see \autoref{sec:pl_dec_shuffle}).
@@ -2690,7 +2690,7 @@ The decoder trained on data with noise correlations removed attains \SI{94}{\per
     }
     \hspace*{\fill}
     \caption{%
-    \textit{Classifying the stimulus group from \ac{V4} population activity.}
+    \captionemph{Classifying the stimulus group from \ac{V4} population activity.}
     We report the accuracy of the linear decoder classifying the group of each stimulus (greater or less than \SI{30}{\percent} contrast) after training on the population activity (blue; \protect\subref{fig:dec_b4_allp}~\ac{M1}, \num{25} channels; \protect\subref{fig:dec_j4_allp}~\ac{M2}, \num{18} channels).
     For details, see caption \autoref{fig:dec_all_v1}.
 }
@@ -2720,12 +2720,12 @@ We will test how closely the classifications of the decoder match the behavioura
 With \ac{V1} \ac{M2}, the performance of the decoder starts high and does not make much improvement over time, whilst the performance of the subject improves to match the accuracy of the decoder.
 This means that the information needed to complete the task accurately was present in the primary visual cortex from the start, but the subject needed to rewire higher cortical regions in order to access this information when making its decision about the stimulus.
 
-The performance of the decoder always \textit{increased} when we removed noise correlations between channels by shuffling the data across trials.
+The performance of the decoder always \textemph{increased} when we removed noise correlations between channels by shuffling the data across trials.
 This suggests that noise correlations hinder the ability of the brain to perceive the contrast of the stimulus correctly, and the subject's performance would potentially improve if the visual cortex learnt to decouple the noise for its neurons.
 However, there was no particular decline in the difference between the decoder trained on the original data and the decoder trained on shuffled data.
 The decline in difference with and without noise correlations in \ac{V1} for \ac{M1} is most likely due to a decline in recording signal quality since the accuracy of the model falls over time.
 For \ac{M2}, the marginal decrease in difference is most likely due to saturation of the model performance --- the decoder trained on data with noise correlations removed attains \SI{94}{\percent} accuracy by the final session, which leaves little room for improvement.
-The dataset which shows the largest improvement in decoder accuracy is \ac{M2} \ac{V4}, which also has an \textit{increase} in the gap between decoders trained without and with noise correlations, so a reduction in noise correlation over time is certainly not the cause for the improved behavioural performance.
+The dataset which shows the largest improvement in decoder accuracy is \ac{M2} \ac{V4}, which also has an \textemph{increase} in the gap between decoders trained without and with noise correlations, so a reduction in noise correlation over time is certainly not the cause for the improved behavioural performance.
 
 
 %==============================================================================
@@ -2891,8 +2891,8 @@ However for \ac{M2}, shown in \autoref{fig:decag_j1_allp} and \autoref{fig:decag
 	\includegraphics[scale=0.45]{figs/decoding/agree_conditional-information_v1_jack.eps}
     }
     \hspace*{\fill}
-    \caption{%
-    \textit{Response coincidence rate for \ac{V1}.}
+    \caption{
+    \captionemph{Response coincidence rate for \ac{V1}.}
     In \protect\subref{fig:decag_b1_allp} and \protect\subref{fig:decag_j1_allp}, the response coincidence rate, $\xi$, is the average probability that the classifications given by the model trained on the population activity will match those given by the subject's behavioural response.
     The shaded region indicates the \SI{95}{\percent} \acf{CI} of the \acf{NH} constructed for each session (see \autoref{sec:dec-meth-prob} for details).
     In \protect\subref{fig:decag_b1_condinfo} and \protect\subref{fig:decag_j1_condinfo}, the amount of information about the behavioural response given by the decoder, conditioned on the correct experimental response to the stimulus.
@@ -2991,8 +2991,8 @@ For \ac{M2}, the conditional information was significant throughout training and
 	\includegraphics[scale=0.45]{figs/decoding/agree_conditional-information_v4_jack.eps}
     }
     \hspace*{\fill}
-    \caption{%
-    \textit{Response coincidence rate for \ac{V4}.}
+    \caption{
+    \captionemph{Response coincidence rate for \ac{V4}.}
     Same as \autoref{fig:decag_all_v1}, but for \ac{V4}.
 }
     \label{fig:decag_all_v4}

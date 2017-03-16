@@ -40,7 +40,7 @@ With regards to the analysis of sensory recordings (with which this thesis will 
 When applying information theory to neuronal data, we treat the brain as a communication channel, transmitting information about sensory input.
 We are hence interested in how much information the response in the brain contains about which stimulus was presented to it.
 
-However, it should be noted that we frame the problem in the context of a \textit{communication channel} simply because this is the framework around which Shannon information is formulated \citep{mackay2003information}.
+However, it should be noted that we frame the problem in the context of a \termemph{communication channel} simply because this is the framework around which Shannon information is formulated \citep{mackay2003information}.
 Within information theory, systems are modelled with information passing between a transmitter and receiver through a communication channel.
 The message passing between them in modified as it passes through the channel, and the receiver must attempt to decipher which message was originally sent.
 
@@ -92,7 +92,7 @@ If an \textit{a priori} likely message is received, this confirms the expectatio
 If an unlikely message is received, the receiver is more ``surprised''.
 Intuitively, the amount of information gained on receipt of the message is related to how much the uncertainty in the message was reduced upon its arrival.
 
-Rigorously, we define the \textbf{Shannon information} content of an outcome or result $x$ to be
+Rigorously, we define the \termemph{Shannon information} content of an outcome or result $x$ to be
 \begin{equation}
 \label{eq:shannon-information}
 \operatorname{h}( x ) = \log_2 \frac{1}{p(x)}
@@ -100,7 +100,7 @@ Rigorously, we define the \textbf{Shannon information} content of an outcome or 
 This corresponds to how ``surprised'' we would be to observe the result $x$ being produced by the system in question.
 Note that $h(x)=0$ if $p(x)=1$ (if an event is certain, we are never surprised and gain no information observing it), and $h(x) \to \infty$ as $p(x) \to 0^+$ (we gain more information --- we are increasingly surprised --- when a diminishingly unlikely event occurs).
 
-The \textbf{entropy} of a system is a measure of amount of uncertainty we have about its state.
+The \termemph{entropy} of a system is a measure of amount of uncertainty we have about its state.
 We define this as the expected amount of information we will gain when we observe it,
 \begin{align}
 \HH( \SET{X} )
@@ -111,8 +111,9 @@ We define this as the expected amount of information we will gain when we observ
 where $\SET{X}$ is the ensemble of possible states of the system in question.
 
 When studying neural recordings using information theory, we will need to take note of the uncertainty in which stimulus is presented, $\HH(\SET{S})$, and the uncertainty in the response, $\HH(\SET{R})$.
-In particular, the amount of information about the stimulus contained in the response is their \textbf{mutual information}, $\I(\SET{S};\SET{R})$.
-This is the amount by which our uncertainty in the stimulus is reduced when we discover the value of the response to that stimulus, which is equivalent to the amount by which our uncertainty in the response decreases when we discover the identity of the stimulus
+In particular, the amount of information about the stimulus contained in the response is their \termemph{mutual information}, $\I(\SET{S};\SET{R})$.
+The mutual information is the amount by which our uncertainty in the stimulus is reduced when we discover the identity of the response to that stimulus, which is equivalent to the amount by which our uncertainty in the response decreases when we discover the identity of the stimulus.
+In general, for two random variables $X$ and $Y$, we can express their mutual information as
 \begin{align}
 \I(\SET{X};\SET{Y})
   &= \EE_{x \in \SET{X}, \, y \in \SET{Y}} \left[ \log_2 \frac{p(x,y)}{p(x)p(y)} \right] \notag
@@ -130,14 +131,14 @@ Analogously to \autoref{eq:shannon-information}, this is defined as
 \\&= - \sum_{y \in \SET{Y}} p(y) \sum_{x \in \SET{X}} p(x|y) \log_2 p(x|y)
 .\end{align}
 % The mutual information is zero if and only if responses are completely independent of stimuli.
-% For brevity, we will refer to {mutual information} to as \textbf{information} in the remainder of this thesis.
-The Venn diagram relating the entropies of $\SET{X}$ and $\SET{Y}$, to their joint entropy, conditional entropies, and mutual information shown in \autoref{fig:bg_info_venn} may assist the reader in conceptualising the relationship between these terms.
+% For brevity, we will refer to {mutual information} to as \termemph{information} in the remainder of this thesis.
+The Venn diagram shown in \autoref{fig:bg_info_venn} illustrates the relationship between the entropies of $\SET{X}$ and $\SET{Y}$, their joint entropy, conditional entropies, and mutual information, which may assist the reader in conceptualising the relationship between these terms.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[scale=.5]{Entropy-mutual-information-relative-entropy-relation-diagram.pdf}
 \caption{
-\textit{Venn diagram of mutual information between $\SET{X}$ and $\SET{Y}$.}
+\captionemph{Venn diagram of mutual information between $\SET{X}$ and $\SET{Y}$.}
 The two black circles represent the entropies of $\SET{X}$ and $\SET{Y}$, $\HH(\SET{X})$ and $\HH(\SET{Y})$, and their total area (outlined in green) is the total joint uncertainty, $\HH(\SET{X}, \SET{Y})$.
 In the scenario depicted, $\HH(\SET{X})$ and $\HH(\SET{Y})$ are partially but incompletely redundant.
 Consequently, the uncertainty of $X$ is reduced (but not expected to be zero) when $Y$ is known: the conditional entropy $\HH(\SET{X}|\SET{Y})$ (red region) is smaller than $\HH(\SET{X})$, but is not empty.
