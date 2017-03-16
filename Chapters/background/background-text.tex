@@ -31,7 +31,8 @@ Alternatively, the stimulus space can be discretized into a finite subset of sti
 Once the samples are discretized and presented repeatedly, we can use Shannon information to compute the amount of information about the stimulus identity contained in the neuronal response.
 If the stimulus set is intrinsically discrete, Fisher information can not be used and an information theoretic analysis can only be performed using Shannon information.
 
-For such an experimental set-up, let us assume that on each trial the stimulus $s$ is selected at random with probability $p(s)$ from a set of discrete stimuli $\SET{S}$, containing $|S|$ unique stimuli.
+For such an experimental set-up, let us assume that on each trial some stimulus $s$ is selected at random, with probability $p(s)$, from a set of discrete stimuli $\SET{S}$.
+The random variable $S$ denotes this selection of a stimulus, with some arbitrary probability distribution across the elements of $\SET{S}$.
 The neuronal response could be one (or more than one) of several data types, such as a spike train from one or more neurons, the \ac{LFP}, \ac{CSD}, \ac{BOLD} signal, a calcium indicator, \ac{EEG}, or others \citep{Magri2009,Quiroga2009}.
 The principles of information theory can be applied whichever neural signal is taken to be the response.
 In \autoref{ch:pl}, we will work with information encoded in \ac{MUA} and spike trains, whilst in Chapters~\ref{ch:lam} and \ref{ch:plam} we will be considering the \ac{LFP} and \ac{CSD}.
@@ -95,7 +96,7 @@ Intuitively, the amount of information gained on receipt of the message is relat
 Rigorously, we define the \termemph{Shannon information} content of an outcome or result $x$ to be
 \begin{equation}
 \label{eq:shannon-information}
-\operatorname{h}( x ) = \log_2 \frac{1}{p(x)}
+\operatorname{h}(x) = \log_2 \frac{1}{p(x)}
 .\end{equation}
 This corresponds to how ``surprised'' we would be to observe the result $x$ being produced by the system in question.
 Note that $h(x)=0$ if $p(x)=1$ (if an event is certain, we are never surprised and gain no information observing it), and $h(x) \to \infty$ as $p(x) \to 0^+$ (we gain more information --- we are increasingly surprised --- when a diminishingly unlikely event occurs).
@@ -103,48 +104,48 @@ Note that $h(x)=0$ if $p(x)=1$ (if an event is certain, we are never surprised a
 The \termemph{entropy} of a system is a measure of amount of uncertainty we have about its state.
 We define this as the expected amount of information we will gain when we observe it,
 \begin{align}
-\HH( \SET{X} )
-  &= \EE_{x \in \SET{X}} \left[ \log_2 \frac{1}{p(x)} \right] \notag
+\HH( X )
+  &= \EE_X \left[ \log_2 \frac{1}{p(x)} \right] \notag
 \\&= \sum_{x \in \SET{X}} p(x) \log_2 \frac{1}{p(x)} \notag
 \\&= - \sum_{x \in \SET{X}} p(x) \log_2 p(x)
 ,\end{align}
-where $\SET{X}$ is the ensemble of possible states of the system in question.
+where $X$ is the ensemble of possible states of the system in question.
 
-When studying neural recordings using information theory, we will need to take note of the uncertainty in which stimulus is presented, $\HH(\SET{S})$, and the uncertainty in the response, $\HH(\SET{R})$.
-In particular, the amount of information about the stimulus contained in the response is their \termemph{mutual information}, $\I(\SET{S};\SET{R})$.
+When studying neural recordings using information theory, we will need to take note of the uncertainty in which stimulus is presented, $\HH(S)$, and the uncertainty in the response, $\HH(R)$.
+In particular, the amount of information about the stimulus contained in the response is their \termemph{mutual information}, $\I(S;R)$.
 The mutual information is the amount by which our uncertainty in the stimulus is reduced when we discover the identity of the response to that stimulus, which is equivalent to the amount by which our uncertainty in the response decreases when we discover the identity of the stimulus.
-In general, for two random variables $X$ and $Y$, we can express their mutual information as
+In general, we can express the mutual information between two random variables, $X$ and $Y$, as
 \begin{align}
-\I(\SET{X};\SET{Y})
-  &= \EE_{x \in \SET{X}, \, y \in \SET{Y}} \left[ \log_2 \frac{p(x,y)}{p(x)p(y)} \right] \notag
+\I(X;Y)
+  &= \EE_{X, Y} \left[ \log_2 \frac{p(x,y)}{p(x)p(y)} \right] \notag
 \\&= \sum_{x \in \SET{X}, \, y \in \SET{Y}} p(x,y) \, \log_2 \frac{p(x,y)}{p(x)p(y)} \notag
-\\&= \HH(\SET{X}) - \HH(\SET{X} | \SET{Y}) \notag
-\\&= \HH(\SET{Y}) - \HH(\SET{Y} | \SET{X}) \label{eq:info}
+\\&= \HH(X) - \HH(X | Y) \notag
+\\&= \HH(Y) - \HH(Y | X) \label{eq:info}
 .\end{align}
-Here, we make use of the conditional entropy, $\HH(\SET{X} | \SET{Y})$, so named because it is the entropy of one variable when conditioned on the state of another.
-This is also referred to as the noise entropy, particularly when we consider the entropy of the response conditioned on the stimulus, $\HH(\SET{R}|\SET{S})$.
+Here, we make use of the conditional entropy, $\HH(X | Y)$, so named because it is the entropy of one variable when conditioned on the state of another.
+This is also referred to as the noise entropy, particularly when we consider the entropy of the response conditioned on the stimulus, $\HH(R|S)$.
 Analogously to \autoref{eq:shannon-information}, conditional entropy is defined as
 \begin{align}
-\HH(\SET{X} | \SET{Y})
-  &= \EE_{x \in \SET{X}, \, y \in \SET{Y}} \left[ \log_2 \frac{1}{p(x|y)} \right] \notag
+\HH(X | Y)
+  &= \EE_{X, Y} \left[ \log_2 \frac{1}{p(x|y)} \right] \notag
 \\&= \sum_{x \in \SET{X}, \, y \in \SET{Y}} p(x,y) \log_2 \frac{1}{p(x|y)} \notag
 \\&= \sum_{y \in \SET{Y}} p(y) \sum_{x \in \SET{X}} p(x|y) \log_2 \frac{1}{p(x|y)} \notag
 \\&= - \sum_{y \in \SET{Y}} p(y) \sum_{x \in \SET{X}} p(x|y) \log_2 p(x|y)
 .\end{align}
 % The mutual information is zero if and only if responses are completely independent of stimuli.
 % For brevity, we will refer to {mutual information} to as \termemph{information} in the remainder of this thesis.
-The Venn diagram shown in \autoref{fig:bg_info_venn} illustrates the relationship between the entropies of $\SET{X}$ and $\SET{Y}$, their joint entropy, conditional entropies, and mutual information, which may assist the reader in conceptualising the relationship between these terms.
+The Venn diagram shown in \autoref{fig:bg_info_venn} illustrates the relationship between the entropies of $X$ and $Y$, their joint entropy, conditional entropies, and mutual information, which may assist the reader in conceptualising the relationship between these terms.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[scale=.5]{Entropy-mutual-information-relative-entropy-relation-diagram.pdf}
 \caption{
-\captionemph{Venn diagram of mutual information between $\SET{X}$ and $\SET{Y}$.}
-The two black circles represent the entropies of $\SET{X}$ and $\SET{Y}$, $\HH(\SET{X})$ and $\HH(\SET{Y})$, and their total area (outlined in green) is the total joint uncertainty, $\HH(\SET{X}, \SET{Y})$.
-In the scenario depicted, $\HH(\SET{X})$ and $\HH(\SET{Y})$ are partially but incompletely redundant.
-Consequently, the uncertainty of $X$ is reduced (but not expected to be zero) when $Y$ is known: the conditional entropy $\HH(\SET{X}|\SET{Y})$ (red region) is smaller than $\HH(\SET{X})$, but is not empty.
-The amount by which our expected uncertainty in $X$ is reduced, $\HH(\SET{X}) - \HH(\SET{X}|\SET{Y})$, is equivalent to the mutual information between $\SET{X}$ and $\SET{Y}$, denoted $\I(\SET{X};\SET{Y})$ and represented by the purple region.
-We can reason similarly about the other conditional entropy, $\HH(\SET{Y}|\SET{X})$ (blue region).
+\captionemph{Venn diagram of mutual information between $X$ and $Y$.}
+The two black circles represent the entropies of $X$ and $Y$, $\HH(X)$ and $\HH(Y)$, and their total area (outlined in green) is the total joint uncertainty, $\HH(X, Y)$.
+In the scenario depicted, $\HH(X)$ and $\HH(Y)$ are partially but incompletely redundant.
+Consequently, the uncertainty of $X$ is reduced (but not expected to be zero) when $Y$ is known: the conditional entropy $\HH(X|Y)$ (red region) is smaller than $\HH(X)$, but is not empty.
+The amount by which our expected uncertainty in $X$ is reduced, $\HH(X) - \HH(X|Y)$, is equivalent to the mutual information between $X$ and $Y$, denoted $\I(X;Y)$ and represented by the purple region.
+We can reason similarly about the other conditional entropy, $\HH(Y|X)$ (blue region).
 % Reproduced (with modifications) from \href{https://commons.wikimedia.org/wiki/File:Entropy-mutual-information-relative-entropy-relation-diagram.svg}{Wikimedia Commons} (public domain).
 }
 \label{fig:bg_info_venn}
@@ -153,7 +154,7 @@ We can reason similarly about the other conditional entropy, $\HH(\SET{Y}|\SET{X
 
 \subsection{Applying information theory in practice}
 
-Computing the mutual information between stimulus and response requires us to estimate $p(s)$, $p(r)$, and either $p(s|r)$ or $p(r|s)$.
+Computing the mutual information between stimulus and response requires us to estimate $p(s)$, $p(r)$, and either $p(s|r)$ or $p(r|s)$ for every possible stimulus, $s$, and response, $r$.
 The requirement to know $p(s)$ renders applying mutual information outside of a controlled environment all-but impossible.
 If the subject is free moving, a prior over the set of potential stimuli it could be exposed to is very challenging to define.
 However, within an experimental setting we can control the stimulus presentation such that there is only a finite set of unique stimuli, and the probability of each of them, $p(s)$, is defined by our experimental protocol.
@@ -187,18 +188,18 @@ Exploiting this, we have
 \begin{equation}
 p_\text{ind}([r_1,r_2,r_3,\cdots]|s) = p(r_1|s) \, p(r_2|s) \, p(r_3|s) \, \cdots
 \end{equation}
-and can can compute $\HH_\text{ind}( \SET{R} | \SET{S} )$ directly from estimates of each $p(r_i|s)$ derived from the data.
-This has very little bias compared with $\HH( \SET{R} | \SET{S} )$ there are so many more samples --- the ratio of samples for unique response vectors to individual response elements rises exponentially with the dimension of the response vector.
-One can alternatively estimate this entropy from pseudo-response arrays by shuffling each element in the response vector conditioned on the stimulus, producing $\HH_\text{sh}( \SET{R} | \SET{S} )$.
-Since this shuffling destroys information contained in the dependencies between elements in the response vector, this is an estimate of the same entropy value as $\HH_\text{ind}( \SET{R} | \SET{S} )$.
-Except the bias on $\HH_\text{sh}( \SET{R} | \SET{S} )$ will be similar to the bias of $\HH( \SET{R} | \SET{S} )$ because each computation uses the same number of samples.
-Consequently, we can estimate the mutual information between $\SET{S}$ and $\SET{R}$ using
+and can can compute $\HH_\text{ind}( R | S )$ directly from estimates of each $p(r_i|s)$ derived from the data.
+This has very little bias compared with $\HH( R | S )$ there are so many more samples --- the ratio of samples for unique response vectors to individual response elements rises exponentially with the dimension of the response vector.
+One can alternatively estimate this entropy from pseudo-response arrays by shuffling each element in the response vector conditioned on the stimulus, producing $\HH_\text{sh}( R | S )$.
+Since this shuffling destroys information contained in the dependencies between elements in the response vector, this is an estimate of the same entropy value as $\HH_\text{ind}( R | S )$.
+Except the bias on $\HH_\text{sh}( R | S )$ will be similar to the bias of $\HH( R | S )$ because each computation uses the same number of samples.
+Consequently, we can estimate the mutual information between $S$ and $R$ using
 \begin{align}
-\I_{\text{sh}}(\SET{S};\SET{R})
-   &= \HH( \SET{R} ) - \left( \HH( \SET{R} | \SET{S} ) - \left( \HH_\text{sh}( \SET{R} | \SET{S} ) - \HH_\text{ind}( \SET{R} | \SET{S} ) \right) \right) \notag
-\\ &= \HH( \SET{R} ) - \HH( \SET{R} | \SET{S} ) + \HH_\text{sh}( \SET{R} | \SET{S} ) - \HH_\text{ind}( \SET{R} | \SET{S} )
+\I_{\text{sh}}(S;R)
+   &= \HH( R ) - \left( \HH( R | S ) - \left( \HH_\text{sh}( R | S ) - \HH_\text{ind}( R | S ) \right) \right) \notag
+\\ &= \HH( R ) - \HH( R | S ) + \HH_\text{sh}( R | S ) - \HH_\text{ind}( R | S )
 ,\end{align}
-which has a much smaller bias than $\I_{\text{uncorrected}}(\SET{S};\SET{R})$.
+which has a much smaller bias than $\I_{\text{uncorrected}}(S;R)$.
 
 An alternative method to correct for the bias is to decompose the measured mutual information as a power series in terms of $\nicefrac{1}{N}$, where $N$ is the number of trials recorded.
 The $\nicefrac{1}{N}$ coefficient in the expansion depends only on the number of stimuli and number of possible responses \citep{Miller1955,Treves1995}.
@@ -213,8 +214,8 @@ This method was observed to be accurate provided there are at least 4 times as m
 A second method of correcting the bias which uses a power series expansion is the \ac{QE} method of \citet{Strong1998}.
 Here, the bias on the mutual information is assumed to be well approximated by a second order $\nicefrac{1}{N}$ expression,
 \begin{equation}
-\I_{\text{uncorrected}}(\SET{S};\SET{R}) =
-\I_{\text{true}}(\SET{S};\SET{R}) + \frac{a}{N} + \frac{b}{N^2}
+\I_{\text{uncorrected}}(S;R) =
+\I_{\text{true}}(S;R) + \frac{a}{N} + \frac{b}{N^2}
 ,\end{equation}
 and the two free parameters, $a$ and $b$, are found by computing the information content with fractions of the full available dataset (\ie{} using $\nicefrac{N}{2}$ and $\nicefrac{N}{4}$ trials).
 Since the two are built on the same assumptions, \ac{QE} gives similar performance to \ac{PT}, but with because it is computationally instead of analytically derived it requires more computational processing.

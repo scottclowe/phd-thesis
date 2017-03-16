@@ -28,8 +28,8 @@
      showgrid="false"
      showguides="false"
      inkscape:zoom="1.8027314"
-     inkscape:cx="309.69809"
-     inkscape:cy="155.47171"
+     inkscape:cx="314.45678"
+     inkscape:cy="177.66026"
      inkscape:window-x="65"
      inkscape:window-y="24"
      inkscape:window-maximized="1"
@@ -130,7 +130,7 @@
          y="55.979416"
          x="82.322586"
          id="tspan4180">H(<tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:21.48155022px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Bold'"
+   style="font-style:italic;font-variant:normal;font-weight:500;font-stretch:normal;font-size:21.48155022px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium Italic'"
    id="tspan4165">X</tspan>)</tspan></text>
   </g>
   <text
@@ -145,7 +145,7 @@
        x="612.38489"
        id="tspan4180-5">H(<tspan
    id="tspan4286"
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:27.5px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Bold';text-align:center;text-anchor:middle">Y</tspan>)</tspan></text>
+   style="font-style:italic;font-variant:normal;font-weight:500;font-stretch:normal;font-size:27.5px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium Italic';text-align:center;text-anchor:middle">Y</tspan>)</tspan></text>
   <text
      id="text4178-3"
      y="179.41772"
@@ -157,11 +157,9 @@
        y="179.41772"
        x="152.34448"
        id="tspan4180-56">H(<tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:27.5px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Bold'"
-   id="tspan4167">X</tspan><tspan
-   id="tspan4222"
-   style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:27.5px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium';text-align:center;text-anchor:middle">|</tspan><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:27.5px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Bold'"
+   style="font-style:italic;font-variant:normal;font-weight:500;font-stretch:normal;font-size:27.5px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium Italic'"
+   id="tspan4167">X</tspan>|<tspan
+   style="font-style:italic;font-variant:normal;font-weight:500;font-stretch:normal;font-size:27.5px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium Italic'"
    id="tspan4169">Y</tspan>)</tspan></text>
   <text
      id="text4178-3-2"
@@ -175,11 +173,9 @@
        x="485.30933"
        id="tspan4180-56-7">H(<tspan
    id="tspan4292"
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:27.5px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Bold';text-align:center;text-anchor:middle">Y</tspan><tspan
-   id="tspan4222-0"
-   style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:27.5px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium';text-align:center;text-anchor:middle">|<tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:27.5px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Bold'"
-   id="tspan4179">X</tspan></tspan>)</tspan></text>
+   style="font-style:italic;font-variant:normal;font-weight:500;font-stretch:normal;font-size:27.5px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium Italic';text-align:center;text-anchor:middle">Y</tspan>|<tspan
+   style="font-style:italic;font-variant:normal;font-weight:500;font-stretch:normal;font-size:27.5px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium Italic'"
+   id="tspan4179">X</tspan>)</tspan></text>
   <text
      id="text4178-3-9"
      y="179.41772"
@@ -192,8 +188,8 @@
        x="324.65723"
        id="tspan4180-56-3">I(<tspan
    id="tspan4298"
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:27.5px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Bold';text-align:center;text-anchor:middle">X</tspan>;<tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:27.5px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Bold'"
+   style="font-style:italic;font-variant:normal;font-weight:500;font-stretch:normal;font-size:27.5px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium Italic';text-align:center;text-anchor:middle">X</tspan>;<tspan
+   style="font-style:italic;font-variant:normal;font-weight:500;font-stretch:normal;font-size:27.5px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium Italic'"
    id="tspan4175">Y</tspan>)</tspan></text>
   <text
      id="text4178-3-9-1"
@@ -207,8 +203,8 @@
        x="322.65723"
        id="tspan4180-56-3-8">H(<tspan
    id="tspan4298-7"
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:27.5px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Bold';text-align:center;text-anchor:middle;fill:#007f00;fill-opacity:1">X</tspan>,<tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:27.5px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Bold';fill:#007f00;fill-opacity:1"
+   style="font-style:italic;font-variant:normal;font-weight:500;font-stretch:normal;font-size:27.5px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium Italic';text-align:center;text-anchor:middle;fill:#007f00;fill-opacity:1">X</tspan>,<tspan
+   style="font-style:italic;font-variant:normal;font-weight:500;font-stretch:normal;font-size:27.5px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium Italic';fill:#007f00;fill-opacity:1"
    id="tspan4177">Y</tspan>)</tspan></text>
   <path
      inkscape:connector-curvature="0"
