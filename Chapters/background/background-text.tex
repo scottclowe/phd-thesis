@@ -1,5 +1,148 @@
 %!TEX root = ../../ClassicThesis.tex
 
+
+In this chapter, we present background information which the reader is required to know in order to understand the research material which follows.
+We will introduce and discuss the fundamental properties of the mammalian visual system, information theory, and neuronal correlations.
+
+
+%------------------------------------------------------------------------------
+\section{Mammalian visual system}
+
+\citet[Chapter~2]{nsbook} % neuron
+\citet[Chapter~11]{nsbook} % eye
+\citet[Chapter~23]{nsbook} % learning
+
+
+Sensitivity to the visual spectrum is an important survival trait for almost all land animals.
+Whether predator or prey, the ability to see allows an individual organism to receive and perceive information about their environment over large distances.
+
+In humans and other mammals, the visual system
+
+\autoref{fig:bg_visual_pathway}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[scale=.9]{Human_visual_pathway.pdf}
+\caption{%
+\captionemph{Human visual pathway.}
+Visual information enters the eye, is encoded in the retina and progresses to the visual cortex, via the \ac{LGN}.
+Reproduced (with modifications) from \href{https://commons.wikimedia.org/wiki/File:Human_visual_pathway.svg}{Wikimedia Commons} under the \href{https://creativecommons.org/licenses/by-sa/4.0/deed.en}{CC BY-SA 4.0} license.
+}
+\label{fig:bg_visual_pathway}
+\end{figure}
+
+
+\subsection{The central nervous system}
+
+The central nervous system consists of the brain, spinal cord, and retina.
+Within each, there are specialised biological cells called neurons, whose properties allow them to encode information about the external world gleamed through the body's sensory organs, manipulate this information and perform computations with it in order to control the behaviour of the body.%
+\footnote{
+Neurons are common across all species of animals, though the architecture of their nervous systems vary greatly.
+Plants are also able to infer properties of their environment and respond accordingly using chemical and electrical signals, despite their lack of neurons.
+}
+The peripheral nervous system and the retina together provide a stream of data about the environment within which the subject resides, known as the \termemph{senses} (sight, sound, touch, smell, taste, temperature, pressure, \textit{etc.}).
+The computations performed by the central nervous system allow it to extract features from this stream of sensory information, store properties of it for later computational use, and decide behavioural actions to perform   computations using it in order to decide how best to interact with its environment and which actions to perform within it.\citep{TEDWolpert}
+
+Information transmission between neurons is principally mediated by changes in the voltage, or potential difference, between the inside and the outside of the neuron.
+The change in voltage within one neuron propagates along its cell to affect other neurons which make direct conductive connections with it.
+However, the majority of connections between neurons are indirect, with a synaptic junction between the output of one neuron and the input to the next.
+
+For these neurons, the
+as a series of action potentials, or ``spikes'', wherein the difference in voltage potential between the  rises rapidly and briefly.
+One of the ways it 
+By storing data about the history of the sensory which facilitate the choice of actions.
+, and extract . 
+Using spiking activity 
+
+
+\subsection{The eye}
+
+The story of visual perception begins with the eye.
+As such a useful sensory organ, eyes have evolved multiple times.
+We are concerned with the mammalian visual system, and as such describe the properties of the eye common as it is in humans and other mammals.
+
+
+
+\subsubsection{Rods and cones}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[scale=.625]{Cone-response.pdf}
+\caption{
+\captionemph{Spectral absorption curves for pigments found in cone and rod cells.}
+The normalised response curves for \aclp{R} (\acsu{R}) and \acf{L}, \acf{M}, and \acf{S} cones typical of humans with normal colour vision.
+Note the $x$-axis scales linearly with frequency, and hence is non-linear with respect to wavelength.
+Beneath, the common names of the visible colours are indicated at their respective frequencies.
+Reproduced (with modifications) from \href{https://commons.wikimedia.org/wiki/File:Cone-response.svg}{Wikimedia Commons} under the \href{https://creativecommons.org/licenses/by-sa/3.0/deed.en}{CC BY-SA 3.0} license, showing data appearing in \citet{Bowmaker1980}.
+}
+\label{fig:bg_cone_responses}
+\end{figure}
+
+For any visual system, the most fundamental component is a set of cells which are sensitive to electromagnetic radiation.
+In mammals (and the rest of the class), the light-sensitive cells, or photoreceptors, come in two types: rods and cones.%
+\footnote{Other photosensitive cells are present in mammals, but these are only used for subconcious modulation of circadian rhythms.}
+Both rods and cones are sub-classes of neuron which contain photosensitive pigment.
+When photons of light collide with the photopigment, the electrons in the pigment are elevated to higher orbital levels and the voltage across the photoreceptor changes.
+However, the energy in the photon is indivisible and so the amount of energy which it contains must closely match the difference in energy levels between the electron orbitals for the photopigment.
+Consequently each photopigment is only sensitive to a particular range of wavelengths of light.%
+\footnote{The amount of energy within a photon is related to its wavelength according to the Planck--Einstein relation,
+$E = h f$, where $E$ denotes the energy of a photon, $f$, the frequency associated with it, and $h$ is the Planck constant.% h = 6.626...\times 10^{−34}
+}
+Even when a photon does contain a suitable amount of energy, there is no guarantee that it will interact with an electron and it may pass straight through the photopigment.
+
+Rod photoreceptors, which are broadly sensitive to the range of wavelengths $x-to-yHz$.
+The voltage of the neuron changes readily when the photopigment is excited, so these cells are very sensitive to individual photons.
+This makes them ideal for seeing in low lighting conditions.
+However, in well-lit scenes, rods quickly become saturated, at which point they offer no information about the external world other than the fact that it is ``quite bright right now''.
+
+Cone photoreceptors come in different types.
+In humans, there are three types%
+\footnote{With the exception of colour-blind individuals, who may have only two types of cones, and tetrachromats \citep{Nagy1981,Jordan1993,Jameson2001} who have four.}
+of cones:
+\acl{L}, \acl{M}, and \acl{S} (\acsu{L}, \acsu{M}, and \acsu{S}).
+These can be approximately considered sensitive to red, green, and blue light respectively.
+However, it should be noted that there is a broad range of wavelengths which each is sensitive to, and this range is very similar for the \ac{L} and \ac{M} cells.
+Most of the rest of the mammalian class has only two cones, \ac{M} and \ac{S}, including cats, dogs, and some monkeys.
+Other monkeys also have 3 cone types, but not necessarily with the same balance between the cone types as is apparent in humans \citep{Stockman2008}.
+The membrane potential of the cone cells is not as sensitive as that of rods, and multiple photons need to interact with the neuron to get the same change in voltage.
+This means cones are only useful in well-lit environments, where many photons can interact with the neuron in rapid succession.
+
+
+\subsubsection{Bipolar and \aclp{RGC}}
+
+Rods and cones are connected to bipolar cells, are also located in the retina of the eye.
+
+These feed into \acp{RGC}, which detect centre-surround differences in colour, 
+
+Research in animal models has shown there are a wide variety of .
+Within the mouse, there are at least xxx different xxx cells, detecting directed motion etc.
+It is not currently clear how many of these distinct subclasses of neurons are present in humans.
+They seem to be more common in mice than humans because higher order mammals have the cortical capacity to perform such functions in higher brain regions.
+
+This in turn changes the voltage of neurons connected to the photoreceptor.
+
+
+\subsection{The brain}
+
+Glial cells provide support for the neurons
+
+Information about the 
+
+Half the monkey cortex is dedicated to visual processing
+
+Cortex allows generic information processing
+
+
+\subsection{The \acl{LGN}}
+
+
+
+
+\subsection{Visual cortex}
+
+The cortex
+
+
 %------------------------------------------------------------------------------
 \section{Information Theory, and its applications within Neuroscience}
 \label{sec:bgit}
