@@ -297,6 +297,40 @@ If the two neurons are independent of one another, knowing the activity of both 
 But if the activity between the pair of neurons is positively correlated, the information conveyed from the pair of neurons is reduced --- when one gives an overestimate of the contrast from a by-chance elevated activity level, so does the other.
 In contrast, negative correlations would enhance our decoding accuracy, for an overestimate from one neuron would more frequently be mitigated by an underestimate from the other.
 
+\begin{figure}
+\centering
+\hspace*{\fill}
+\subfloat[][Tuning curves for two model neurons.\label{fig:FrankeA}]{%
+    \includegraphics[scale=1.5]{%
+10.1016-j.neuron.2015.12.037Figure6a1.eps}}
+\hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+\subfloat[][Pairwise responses traverse a manifold in $2d$ space.\label{fig:FrankeB}]{%
+    \includegraphics[scale=1.5]{%
+10.1016-j.neuron.2015.12.037Figure6a2.eps}}
+\hspace*{\fill}
+\\
+\subfloat[][.\label{fig:FrankeC}]{%
+    \includegraphics[scale=1.5]{%
+10.1016-j.neuron.2015.12.037Figure6b.eps}}
+%
+\caption{%
+\captionemph{Impact of different structures of noise correlation upon population coding.}
+Reproduced from \citet{Franke2016}.
+\protect\subref{fig:FrankeA}: Two model direction-selective neurons respond to different stimuli (dashed lines) according to tuning curves (solid grey curves), $f_1(\theta)$ and $f_2(\theta)$, with two direction preferences that differ by \SI{90}{\degree}.
+\protect\subref{fig:FrankeB}: The two tuning curves are represented as a solid grey line parametrized by the stimulus direction, $\theta$.
+In the space of the two-neuron output, this grey line forms an informative subspace: the location of the pair response along the grey line yields information about the stimulus presented.
+More precisely, for each stimulus, $\theta$, the tangent vector, $(f'_1(\theta),f'_2(\theta))$, defines the informative direction (arrows in colours corresponding to the stimulus values in the left panel).
+\protect\subref{fig:FrankeC}: For each stimulus presented, noise correlation distorts the cloud of two-neuron responses about the mean over trials; depending upon the geometry of this distortion with respect to the informative direction, it can either benefit or harm the coding accuracy.
+Positive correlation in the pair ($c>0$) favours the reliability of coding with respect to the independent case ($c=0$), while negative correlation ($c<0$) is detrimental.
+Specifically, when $c>0$, the responses for nearby stimulus directions overlap less, and, hence, coding is more reliable.
+(Conversely, if the two tuning curves have similar preference, $c<0$ is favourable whereas $c>0$ is detrimental.)
+More precisely, coding is favoured if the eigenvector of the covariance matrix parallel to the tangent vector, $(f'_1(\theta),f'_2(\theta))$, comes with a small eigenvalue; correlation then relegates the noise in the orthogonal, uninformative direction.
+Ellipses are contours of equal probability, drawn at \num{2.5} standard deviations.
+}
+\label{fig:Franke}
+%
+\end{figure}
+
 For a long period of time, neuroinformatians had argued that positive noise correlations are always detrimental to the encoding of stimuli.
 However, more recent theoretical work has found that, when considering a non-homogeneous population of neurons --- a population where the tuning curve is not the same for each neuron --- positive noise correlations can in fact be beneficial to the encoding of information about the stimulus.
 
