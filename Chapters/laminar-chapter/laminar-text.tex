@@ -348,14 +348,14 @@ $\operatorname{InfoGain}$ is an asymmetric measure, unlike $\operatorname{Redund
 If $X$ contains no more information about $S$ than is already contained in $Y$, then
 $\I\left(\left\{X,Y\right\};S\right) = \I\left(Y;S\right)$
 and we therefore have
-\begin{equation}
+$
 \operatorname{InfoGain}\left(Y\to\left\{X,Y\right\};S\right)=0
-,\end{equation}
+$,
 which makes intuitive sense in line with the concept of information gain.
 However, if $\I\left(X;S\right)=0$, meaning $X$ contains no information about the stimulus, this would be divergent, so we instead choose to define
-\begin{equation}
+$
 \operatorname{InfoGain}\left(Y\to\left\{X,Y\right\};S\right)=0
-\end{equation}
+$
 for this case.
 If $X$ and $Y$ contain independent information about the stimulus,
 $\I\left(\left\{X,Y\right\};S\right) = \I\left(X;S\right) + \I\left(Y;S\right)$,
@@ -367,9 +367,9 @@ is necessary but insufficient to conclude that $X$ and $Y$ contain exclusively i
 Should $X$ and $Y$ contain more synergistic than redundant information about $S$, we will observe a relative information gain exceeding $1 = 100\%$.
 }
 that
-\begin{equation}
+$
 \operatorname{InfoGain}\left(Y\to\left\{X,Y\right\};S\right) = 1 = 100\%
-.\end{equation}
+$.
 
 
 \subsection{Signal and noise correlations}
