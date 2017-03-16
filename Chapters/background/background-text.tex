@@ -104,7 +104,7 @@ The \textbf{entropy} of a system is a measure of amount of uncertainty we have a
 We define this as the expected amount of information we will gain when we observe it,
 \begin{align}
 \HH( \SET{X} )
-  &= \EE_{x \in \SET{X}} \left( \log_2 \frac{1}{p(x)} \right) \notag
+  &= \EE_{x \in \SET{X}} \left[ \log_2 \frac{1}{p(x)} \right] \notag
 \\&= \sum_{x \in \SET{X}} p(x) \log_2 \frac{1}{p(x)} \notag
 \\&= - \sum_{x \in \SET{X}} p(x) \log_2 p(x)
 ,\end{align}
@@ -115,7 +115,7 @@ In particular, the amount of information about the stimulus contained in the res
 This is the amount by which our uncertainty in the stimulus is reduced when we discover the value of the response to that stimulus, which is equivalent to the amount by which our uncertainty in the response decreases when we discover the identity of the stimulus
 \begin{align}
 \I(\SET{X};\SET{Y})
-  &= \EE_{x \in \SET{X}, \, y \in \SET{Y}} \left( \log_2 \frac{p(x,y)}{p(x)p(y)} \right) \notag
+  &= \EE_{x \in \SET{X}, \, y \in \SET{Y}} \left[ \log_2 \frac{p(x,y)}{p(x)p(y)} \right] \notag
 \\&= \sum_{x \in \SET{X}, \, y \in \SET{Y}} p(x,y) \, \log_2 \frac{p(x,y)}{p(x)p(y)} \notag
 \\&= \HH(\SET{S}) - \HH(\SET{S} | \SET{R}) \notag
 \\&= \HH(\SET{R}) - \HH(\SET{R} | \SET{S}) \label{eq:info}
