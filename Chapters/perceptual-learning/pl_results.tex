@@ -619,7 +619,7 @@ When training \ac{M2} with the \ac{V4} stimuli, the overall performance was init
 Consequently, the largest increase in performance was that attained for the easier stimuli, and the percentage of trials featuring one of the 6 easiest stimuli (furthest from \SI{30}{\percent} contrast) fell by \SI{5.4}{\percent} in absolute terms.
 
 Changes in the distribution of classes between sessions can impact our analysis in two ways.
-Firstly, as described \autoref{eq:info} the amount of information between stimulus, $\SET{S}$, and response, $\SET{R}$, is dependent on the entropy of the stimulus, $\HH(\SET{S})$.
+Firstly, as described \autoref{eq:info} the amount of information between stimulus, $\S$, and response, $\R$, is dependent on the entropy of the stimulus, $\HH(S)$.
 As the distribution of stimulus classes moves closer to uniform, the stimulus entropy increases.
 Since our stimulus distribution generally tends to become flatter after training, this may cause an the measured information to become inflated as training progresses.
 Secondly, as seen for \ac{M2} \ac{V1}, the proportion of trials which are in the easier categories is higher for later sessions.
@@ -679,7 +679,7 @@ The \ac{PT} bias correction method was used, without further correction to the r
 
 
 Overall, we find the amount of information increases when the class imbalance is corrected for (compare the y-scales of \autoref{fig:info_sess_1x527_balanced} with those of \autoref{fig:info_sess_1x527_restrictchn}).
-This is because the stimulus entropy, $\HH(\SET{S})$, has increased when the stimulus distribution became uniform.
+This is because the stimulus entropy, $\HH(S)$, has increased when the stimulus distribution became uniform.
 
 As anticipated, correcting for changes in the class balance over time reduces the relative increase in information between the beginning and end of training.
 For \ac{V1}, the change in information over training seen in \ac{M1} is reduced more (\SI{-0.089\pm0.023}{bits} or \SI{-50\pm13}{\percent}, $p=0.0018$) and the increase in information for \ac{M2} is no longer statistically significant (\SI{+0.022\pm0.016}{bits} or \SI{+4.5\pm4.4}{\percent}, $p=0.18$).
@@ -2782,7 +2782,7 @@ An alternative solution to this is to measure the mutual information between the
 
 Conditional mutual information is the expected mutual information between two variables conditioned on a third,
 \begin{align}
-\I(\SET{X};\SET{Y}|\SET{Z})
+\I(X;Y|Z)
   &= \E_{Z} \left[ I(X;Y|Z) \right] \notag
 \\&= \EE_{X, Y, Z} \left[ \log_2 \frac{p(x,y|z)}{p(x|z)p(y|z)} \right] \notag
 \\&= \sum_{z \in \SET{Z}} p(z) \sum_{x \in \SET{X}, \, y \in \SET{Y}} p(x,y|z) \, \log_2 \frac{p(x,y|z)}{p(x|z)p(y|z)}
