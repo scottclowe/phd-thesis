@@ -34,7 +34,7 @@ If the stimulus set is intrinsically discrete, Fisher information can not be use
 For such an experimental set-up, let us assume that on each trial the stimulus $s$ is selected at random with probability $p(s)$ from a set of discrete stimuli $\SET{S}$, containing $S$ unique stimuli.
 The neuronal response could be one (or more than one) of several data types, such as a spike train from one or more neurons, the \ac{LFP}, \ac{CSD}, \ac{BOLD} signal, a calcium indicator, \ac{EEG}, or others \citep{Magri2009,Quiroga2009}.
 The principles of information theory can be applied whichever neural signal is taken to be the response.
-In \autoref{ch:pl}, we will work with information encoded in \ac{MUA} and spike trains, whilst in Chapters~\ref{ch:lam} and \ref{ch:plam} we will be considering the \ac{MUA}, \ac{LFP} and \ac{CSD}.
+In \autoref{ch:pl}, we will work with information encoded in \ac{MUA} and spike trains, whilst in Chapters~\ref{ch:lam} and \ref{ch:plam} we will be considering the \ac{LFP} and \ac{CSD}.
 
 With regards to the analysis of sensory recordings (with which this thesis will be concerned), the different conditions used on the trial are typically different stimuli, and the extracellular recordings provide us with the neuron's response to the stimuli.
 When applying information theory to neuronal data, we treat the brain as a communication channel, transmitting information about sensory input.
@@ -124,13 +124,29 @@ Here, we make use of the conditional entropy (also known as noise entropy), so n
 Analogously to \autoref{eq:shannon-information}, this is defined as
 \begin{align}
 \HH(\SET{X} | \SET{Y})
-  &= \EE_{x \in \SET{X}, \, y \in \SET{Y}} \left( \log_2 \frac{1}{p(x|y)} \right) \notag
+  &= \EE_{x \in \SET{X}, \, y \in \SET{Y}} \left[ \log_2 \frac{1}{p(x|y)} \right] \notag
 \\&= \sum_{x \in \SET{X}, \, y \in \SET{Y}} p(x,y) \log_2 \frac{1}{p(x|y)} \notag
 \\&= \sum_{y \in \SET{Y}} p(y) \sum_{x \in \SET{X}} p(x|y) \log_2 \frac{1}{p(x|y)} \notag
 \\&= - \sum_{y \in \SET{Y}} p(y) \sum_{x \in \SET{X}} p(x|y) \log_2 p(x|y)
 .\end{align}
 % The mutual information is zero if and only if responses are completely independent of stimuli.
 % For brevity, we will refer to {mutual information} to as \textbf{information} in the remainder of this thesis.
+The Venn diagram relating the entropies of $\SET{X}$ and $\SET{Y}$, to their joint entropy, conditional entropies, and mutual information shown in \autoref{fig:bg_info_venn} may assist the reader in conceptualising the relationship between these terms.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[scale=.5]{Entropy-mutual-information-relative-entropy-relation-diagram.pdf}
+\caption{
+\textit{Venn diagram of mutual information between $\SET{X}$ and $\SET{Y}$.}
+The two black circles represent the entropies of $\SET{X}$ and $\SET{Y}$, $\HH(\SET{X})$ and $\HH(\SET{Y})$, and their total area (outlined in green) is the total joint uncertainty, $\HH(\SET{X}, \SET{Y})$.
+In the scenario depicted, $\HH(\SET{X})$ and $\HH(\SET{Y})$ are partially but incompletely redundant.
+Consequently, the uncertainty of $X$ is reduced (but not expected to be zero) when $Y$ is known: the conditional entropy $\HH(\SET{X}|\SET{Y})$ (red region) is smaller than $\HH(\SET{X})$, but is not empty.
+The amount by which our expected uncertainty in $X$ is reduced, $\HH(\SET{X}) - \HH(\SET{X}|\SET{Y})$, is equivalent to the mutual information between $\SET{X}$ and $\SET{Y}$, denoted $\I(\SET{X};\SET{Y})$ and represented by the purple region.
+We can reason similarly about the other conditional entropy, $\HH(\SET{Y}|\SET{X})$ (blue region).
+% Reproduced (with modifications) from \href{https://commons.wikimedia.org/wiki/File:Entropy-mutual-information-relative-entropy-relation-diagram.svg}{Wikimedia Commons} (public domain).
+}
+\label{fig:bg_info_venn}
+\end{figure}
 
 
 \subsection{Applying information theory in practice}
