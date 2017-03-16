@@ -117,8 +117,8 @@ This is the amount by which our uncertainty in the stimulus is reduced when we d
 \I(\SET{X};\SET{Y})
   &= \EE_{x \in \SET{X}, \, y \in \SET{Y}} \left[ \log_2 \frac{p(x,y)}{p(x)p(y)} \right] \notag
 \\&= \sum_{x \in \SET{X}, \, y \in \SET{Y}} p(x,y) \, \log_2 \frac{p(x,y)}{p(x)p(y)} \notag
-\\&= \HH(\SET{S}) - \HH(\SET{S} | \SET{R}) \notag
-\\&= \HH(\SET{R}) - \HH(\SET{R} | \SET{S}) \label{eq:info}
+\\&= \HH(\SET{X}) - \HH(\SET{X} | \SET{Y}) \notag
+\\&= \HH(\SET{Y}) - \HH(\SET{Y} | \SET{X}) \label{eq:info}
 .\end{align}
 Here, we make use of the conditional entropy (also known as noise entropy), so named because it is the entropy of one variable when conditioned on the state of another.
 Analogously to \autoref{eq:shannon-information}, this is defined as
