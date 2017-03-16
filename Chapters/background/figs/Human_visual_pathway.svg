@@ -193,9 +193,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="166.90109"
-     inkscape:cy="204.86032"
+     inkscape:zoom="1.979899"
+     inkscape:cx="230.37519"
+     inkscape:cy="183.35987"
      inkscape:document-units="px"
      inkscape:current-layer="layer3"
      showgrid="false"
@@ -438,16 +438,21 @@
      transform="translate(-184.9149,62.268809)">
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;line-height:125%;font-family:cmr10;-inkscape-font-specification:cmr10;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
-       x="574.28088"
-       y="266.58978"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;line-height:125%;font-family:cmr10;-inkscape-font-specification:cmr10;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+       x="509.32758"
+       y="256.58978"
        id="text4179"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         x="574.28088"
-         y="266.58978"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;line-height:125%;font-family:cmr10;-inkscape-font-specification:cmr10;letter-spacing:0px"
-         id="tspan4214">Primary visual cortex</tspan></text>
+         x="509.32758"
+         y="256.58978"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;line-height:125%;font-family:cmr10;-inkscape-font-specification:cmr10;text-align:start;letter-spacing:0px;text-anchor:start"
+         id="tspan4214">Primary visual</tspan><tspan
+         sodipodi:role="line"
+         x="509.32758"
+         y="273.77728"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;line-height:125%;font-family:cmr10;-inkscape-font-specification:cmr10;text-align:start;letter-spacing:0px;text-anchor:start"
+         id="tspan4280">cortex (V1)</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;line-height:125%;font-family:cmr10;-inkscape-font-specification:cmr10;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
