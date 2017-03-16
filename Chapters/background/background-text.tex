@@ -234,10 +234,18 @@ The estimated residual bias is also removed from our reported mutual information
 
 
 %------------------------------------------------------------------------------
-\section{Neural Correlations}
+\section{Neural correlations}
 \label{sec:bg-corr}
 
-Since neurons do not operate in isolation and the neural code is distributed across many neurons, it is often important to consider how the behaviour of multiple neurons relate to one-another.
+When an individual is repeatedly presented with the same stimulus, a representation of the stimulus is formed within the brain of the individual.
+One might expect that, should we eliminate variations in the environment such that an external stimulus is precisely the same --- an identical audio track is played without any background stimulus or a visual image is presented with the eyes held in place, for instance --- the activity within the associated sensory cortex would be identical on each repetition of the stimulus presentation.
+However this is not the case.
+Firstly, some stimuli, such as optical illusions and multistable perceptual phenomena induce unstable high-level representations in the brain \citep{Lumer1998,Sterzer2009,Watanabe2014}.
+This aside, for more classical typical stimuli (with only a single perceptual interpretation) the high-level representations of stimuli are stable, but the activity of each individual neuron is not.
+On each successive presentation of a stimulus, the number of spikes elicited in response to the stimulus and the time at each occurs may vary.
+Precisely how a stable internal representation is of a stimulus is constructed from the collection of unstable responses from individual neurons remains an open question actively researched within the theoretical neuroscience community.
+
+Since neurons function in harmony and not in isolation, and the neural code is distributed across the population of many neurons, it is often important to consider how the behaviour of multiple neurons relate to one-another.
 A simple way to do this is to measure the correlation between the outputs of pairs of neurons.
 
 Although this is a much less nuanced technique than using Shannon information to study the relationship between the neurons, measuring the correlation provides us with a much easier to use metric.
@@ -245,37 +253,42 @@ In particular, the amount of data needed to measure the mutual information betwe
 This means it is impossible to compute the amount of information conveyed by in the response of more than a handful of neurons.
 
 
-\subsection{Signal Correlations}
+\subsection{Signal correlations}
 \label{sec:bg-sigcorr}
 
-Some neurons behave similarly to each other in response to stimulation across a range of potential stimuli.
-These neurons have correlated responses with respect to the input signal.
+All other things being held constant, the response to a stimulus from an individual neuron will come from a fixed distribution.
+Studying the average firing rate evoked in a single neuron in response to a collection of stimuli allows us to investigate the response profile of the neuron.
+When the collection of stimuli vary parametrically, the distribution of responses for a given neuron with respect to this parameter is known as its \termemph{tuning curve}.
 
-From an information theoretic perspective, neurons with high signal correlation have high redundancy.
-Of course, a redundant neural code is useful as a method of error correction.
-Neural responses to repeated stimuli have high-variance, indicating a large amount of noise in the system.
-Repetition is an inefficient method of error correction though \citep[Chapter~1]{mackay2003information}, and neuroscientists do not typically interpret groups of neurons to be duplicated instantiations of the same function of the stimulus.
+We can evaluate how similar the response profiles are for two neurons by computing their signal correlation.
+To do so, we first find the average response from each neuron for a set of stimuli, $S$.
+% Neural responses to repeated stimuli have high-variance, indicating a large amount of noise in the system.
+Next, we calculate the Pearson correlation coefficient between the two sets of responses.
+% By averaging the responses, we are sure to remove the effect of any correlations in the noise on the
+In doing so, we treat each unique stimulus in $S$ as an independent sample of the relationship between the two neurons.
+Some neurons behave similarly to each other in response to stimulation across a range of potential stimuli, and these pairs of neurons have correlated responses with respect to the input stimuli.
 
-To compute signal correlation, typically one first takes the average response for each neuron in response to many presentations of the same stimulus.
-This removes the effect of correlated noise, which we assume averages out to $0$ when we take the mean.
-The signal correlation is then the Pearson correlation between the two neural responses, found by treating each unique stimulus as a sample of the underlying relationship between the two neurons.
+From an information theoretic perspective, neurons with high signal correlation will have high redundancy.
+Of course, a redundant neural code is potentially useful as a method of error correction \citep[Chapter~1]{mackay2003information}, providing robustness against neuron death.
+Having multiple neurons encoding the same information can improve accuracy by considering the population activity (the total or average of each neuron) instead of the individuals, and this may also permit a faster response time within the brain.
+However, the prospective gain in performance when considering the responses from a set of neurons (redundant or not) depends on their noise correlations, and the relationship between the signal and noise correlation for the pair.
+% Repetition is an inefficient method of error correction though \citep[Chapter~1]{mackay2003information}, and neuroscientists do not typically interpret groups of neurons to be duplicated instantiations of the same function of the stimulus.
 
 
-\subsection{Noise Correlations}
+\subsection{Noise correlations}
 \label{sec:bg-noisecorr}
 
-When an individual is repeatedly presented with the same stimulus, a representation of the stimulus is formed within the brain of the individual.
-One might expect that, should we eliminate variations in the environment such that an identical audio track is played without any background stimulus or a visual image is presented with the eyes held in place, the activity within the associated sensory cortex would be identical on each repetition of the stimulus presentation.
+Previously we noted that the response from a single neuron to a fixed stimulus is not fixed but effectively sampled from some stochastic distribution.
+This internally-generated fluctuation in the neuronal response is referred to as noise.%
+When we consider a pair of neurons, the responses from each may vary independently over their two distributions; alternatively their responses may co-vary.
+If the simultaneously measured responses from the pair of neurons are both higher than average on the same trials, and lower than average on the same trials, their noise is positively correlated.
+Should the simultaneously responses from one neuron be consistently higher than average when the other is lower than average, we say their noise is negatively correlated.
 
-Whilst the information encoded across the whole population of neurons may indeed be the same, the activity of each individual neuron varies with each presentation of the stimulus.
-Both the number of spikes evoked (or firing rate) and the timing of these spikes varies for each neuron. 
+Some noise correlations are inevitable, since there are more neurons in \ac{V1} than in the \ac{LGN} \citep{Kanitscheider2015}.
 
 One can imagine the activity of each neuron fluctuating around a mean (though not with a Gaussian distribution).
 Each neuron has a certain expected value for its activity in response to any stimulus which could be presented.
 For classes of stimuli for which the neurons are tuned, such as gratings of different orientations or different contrasts, we can plot a tuning curve mapping the parameter space describing the stimuli to a particular response activity, specific to each neuron.
-
-Noise correlations are observed when the responses to fixed stimuli co-vary for two neurons.
-That is to say, positive noise correlations are found when two neurons tend to have higher-than-expected activity on the same trials as one another (and lower-than-expected on the same trials too).
 
 Intuitively, one can see that such noise correlations between pairs of neurons can inhibit the accuracy with which the stimulus is encoded in their activities.
 Suppose that two neurons both respond monotonically more to stimuli of higher contrast.
