@@ -392,13 +392,13 @@ After averaging over sessions, correlation coefficients which were less than thr
 \label{sec:lam_scnchg_method}
 
 To compute the amount of information encoded in the cortical activity about scene changes in the stimulus, we used the same procedure as described in \autoref{sec:lam_info_method}.
-However, instead of computing the amount of information encoded about the unique identity of each frame in the movie stimulus, we labelled our stimuli as the number of frames since the last scene cut in the movie --- except for frames occurring more than $T_\textit{sc}$ seconds after a scene cut which were instead all labelled as \num{-1}.
-The parameter $T_\textit{sc}$ was varied over the range $[0, 0.5]$.
+However, instead of computing the amount of information encoded about the unique identity of each frame in the movie stimulus, we labelled our stimuli as the number of frames since the last scene cut in the movie --- except for frames occurring more than $T_\text{sc}$ seconds after a scene cut which were instead all labelled as \num{-1}.
+The parameter $T_\text{sc}$ was varied over the range $[0, 0.5]$.
 This stimulus relabelling scheme meant that all frames following a scene cut were identified as the same stimulus condition, and frames not involved in a scene cut were labelled as another stimulus.
 
 For this to provide a different quantification of information than labelling each individual frame with a unique ID, it is important that the number of collisions provided by the label mapping is sufficiently large.
 Of the \num{96} scenes in the presented movie stimulus, only \num{5} had a duration shorter than \SI{0.5}{\second}, and all of these were at least \SI{0.4}{\second} long.
-Consequently, when we chose $T_\textit{sc} <= 0.4$, this encoding of the stimulus preserves information about the occurrence of a scene cut but all the information about which scene begins or its contents is removed.
+Consequently, when we chose $T_\text{sc} <= 0.4$, this encoding of the stimulus preserves information about the occurrence of a scene cut but all the information about which scene begins or its contents is removed.
 
 For this part of the analysis, we did not integrate the power over \SI{50}{\milli\second} but instead used the instantaneous power as the cortical response.
 We expressed the information about scene changes as a percentage of the total information present in the instantaneous \ac{CSD} power.
