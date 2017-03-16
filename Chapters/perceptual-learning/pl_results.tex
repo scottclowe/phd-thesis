@@ -55,7 +55,8 @@ is used when estimating the density at \zonename{A} and at \zonename{B}.
 This ensures sufficient detail about the distribution is preserved for each, and the two are comparable with each other.
 
 %------------------------------------------------------------------------------
-\subsection{Results for \acs{V1} sensitivity}
+\subsection{Results for sensitivity analysis}
+\label{sec:pl_dprime_v4}
 
 % blanco v1
 % same bandwidth bw = 0.26027 used for all cols
@@ -64,7 +65,14 @@ This ensures sufficient detail about the distribution is preserved for each, and
 % same bandwidth bw = 0.21865 used for all cols
 % h=1.000000 p=0.000000=3.274440e-07 delta=-0.418598
 
-For \ac{V1}, we found the $d'$ decreased with training (see \autoref{fig:dprime_v1}).
+% blanco v4
+% same bandwidth bw = 0.17898 used for all cols
+% h=0.000000 p=0.463346=4.633457e-01 delta=+0.052346
+% jack v4
+% same bandwidth bw = 0.064737 used for all cols
+% h=1.000000 p=0.000000=6.946514e-08 delta=+0.491173
+
+For \ac{V1}, we found $d'$ decreased with training (see \autoref{fig:dprime_v1}).
 A similar result was observed for each subject.
 The average change in was $\Delta d' = -0.323$ ($p=0.02$, paired $t$-test) for \ac{M1} and $\Delta d' = -0.419$ ($p < 4 \times 10 ^{-7}$, paired $t$-test) for \ac{M2}.
  
@@ -83,38 +91,7 @@ figs/dprime/dprime_sample_hm_hotcold_blanco_v1_1_rmon2_rmvet2.eps}
 figs/dprime/dprime_sample_hm_hotcold_jack_v1_1_rmon2_rmvet2.eps}
     }
     \hspace*{\fill}
-    \caption{\captionemph{Change in sensitivity index, $d'$, over training sessions for \ac{V1} recordings.}
-\protect\subref{fig:dprime_v1_blanco}: $d'$ for \ac{M1}, shown for each recording channel, with channels ordered according to average $d'$ over all sessions.
-Above, traces of $d'$ for each channel (colours), and average over channels (black).
-Below, heatmap showing $d'$ for each channel.
-Right top, violin plots showing distribution over channels of the average $d'$ in the first three sessions (\zonename{A}) and last three sessions (\zonename{B}), with mean (solid black line) and median (dashed green line) over channels indicated.
-The violin plot shows a Gaussian kernel density using a bandwidth determined automatically as described in \autoref{sec:info-methods}.
-\protect\subref{fig:dprime_v1_jack}: Same as \protect\subref{fig:dprime_v1_blanco}, but for \ac{M2}.
-}
-    \label{fig:dprime_v1}
-\end{figure}
-
-
-\subsection{Results for \acs{V4} sensitivity}
-\label{sec:pl_dprime_v4}
-
-% blanco v4
-% same bandwidth bw = 0.17898 used for all cols
-% h=0.000000 p=0.463346=4.633457e-01 delta=+0.052346
-% jack v4
-% same bandwidth bw = 0.064737 used for all cols
-% h=1.000000 p=0.000000=6.946514e-08 delta=+0.491173
-
-The results for \ac{V1} contrast with our findings for \ac{V4}.
-For \ac{M1}, some channels marginally increased and others marginally decreased their $d'$ with training (\autoref{fig:dprime_v4_blanco}).
-Overall, there was a small increase in average $d'$, with $\Delta d' = +0.052$, which was not a statistically significant change ($p=0.46$).
-
-With \ac{M2}, many channels began training either indifferent to the stimulus, $d'=0$, or were suppressed by it, $d'<0$ (\autoref{fig:dprime_v4_jack}).
-Starting from this lower position, there was a significant increase of $\Delta d' = +0.491$ ($p < 7 \times 10 ^{-8}$).
-However the final $d'$ for almost all channels recorded for \ac{M2} was still lower than the average $d'$ for \ac{M1}.
-
-\begin{figure}[htbp]
-    \centering
+    \\
     \hspace*{\fill}
     \subfloat[\ac{M1} \ac{V4}\label{fig:dprime_v4_blanco}]{
         \centering
@@ -128,12 +105,27 @@ figs/dprime/dprime_sample_hm_hotcold_blanco_v4_1_rmon2_rmvet2.eps}
 figs/dprime/dprime_sample_hm_hotcold_jack_v4_1_rmon2_rmvet2.eps}
     }
     \hspace*{\fill}
-    \caption{
-\captionemph{Change in sensitivity index, $d'$, over training sessions for \ac{V4} recordings.}
-Same as \autoref{fig:dprime_v1}, but for $d'$ during \ac{V4} recordings.
+    \caption{\captionemph{Change in sensitivity index, $d'$, over training sessions.}
+\protect\subref{fig:dprime_v1_blanco}: $d'$ for \ac{M1} \ac{V1}, shown for each recording channel, with channels ordered according to average $d'$ over all sessions.
+Above, traces of $d'$ for each channel (colours), and average over channels (black).
+Below, heatmap showing $d'$ for each channel.
+Right top, violin plots showing distribution over channels of the average $d'$ in the first three sessions (\zonename{A}) and last three sessions (\zonename{B}), with mean (solid black line) and median (dashed green line) over channels indicated.
+The violin plot shows a Gaussian kernel density using a bandwidth determined automatically as described in \autoref{sec:info-methods}.
+\protect\subref{fig:dprime_v1_jack}: Same as \protect\subref{fig:dprime_v1_blanco}, but for \ac{M2}.
+\protect\subref{fig:dprime_v4_blanco} and \protect\subref{fig:dprime_v4_jack}: Same as \protect\subref{fig:dprime_v1_blanco} and \protect\subref{fig:dprime_v1_jack}, but for \ac{V4}.
 }
-    \label{fig:dprime_v4}
+\label{fig:dprime}
+\label{fig:dprime_v1}
+\label{fig:dprime_v4}
 \end{figure}
+
+The results for \ac{V1} contrast with our findings for \ac{V4}.
+For \ac{M1}, some channels marginally increased and others marginally decreased their $d'$ with training (\autoref{fig:dprime_v4_blanco}).
+Overall, there was a small increase in average $d'$, with $\Delta d' = +0.052$, which was not a statistically significant change ($p=0.46$).
+
+With \ac{M2}, many channels began training either indifferent to the stimulus, $d'=0$, or were suppressed by it, $d'<0$ (\autoref{fig:dprime_v4_jack}).
+Starting from this lower position, there was a significant increase of $\Delta d' = +0.491$ ($p < 7 \times 10 ^{-8}$).
+However the final $d'$ for almost all channels recorded for \ac{M2} was still lower than the average $d'$ for \ac{M1}.
 
 
 \subsection{Discussion of sensitivity}
