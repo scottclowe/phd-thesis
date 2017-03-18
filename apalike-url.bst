@@ -626,8 +626,8 @@ FUNCTION {start.new.block}
 % DOI Content
 
 FUNCTION {begin.end.doi.env}
-{ "\begin{APACrefDOI} "
-  " \end{APACrefDOI} "
+{ "\begin{APACrefDOI}"
+  "\end{APACrefDOI}"
 }
 
 FUNCTION {format.doi}
@@ -654,10 +654,12 @@ FUNCTION {fin.entry}
     { "]" * }
     'skip$
   if$
+  add.period$
   doi empty$
     'skip$
     { output.new.block
       format.doi
+      add.period$
     }
   if$
   output.end.block
