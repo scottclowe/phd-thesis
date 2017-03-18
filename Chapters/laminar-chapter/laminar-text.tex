@@ -440,6 +440,7 @@ For both the \SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz} \ac{CSD} powers, we c
 
 
 \subsection{Information latency between granular and infragranular compartments}
+\label{sec:lam_latency_method}
 
 The information about fine and coarse stimuli contained in \SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz} neural frequency bands was computed as a function of the lag between stimulus and response, in steps of \SI{1.73}{\milli\second}.
 For each cortical recording depth, we found determined the latency of the response as the lag which gave the maximum amount of information about the stimulus.
@@ -881,13 +882,22 @@ By visual inspection, one can observe that peaks and troughs in the luminance si
 
 \subsection{Information latency}
 
+We also investigated the latency at which information about the movie was expressed across the cortical depth.
+To do so, we measured the amount of information about fine and coarse changes in luminance encoded in the \ac{CSD} power, whilst varying assumed lag between stimulus and response.
+The latency between stimulus and response was defined as the lag which optimised their mutual information (see \autoref{sec:lam_latency_method} for details).
+
+Then, for each session, we compared the latency pairwise between different depths \autoref{fig:lam_latencydiff}.
+We checked whether the difference in latency was consistent across sessions.
+We found there was no consistent pattern to the latency between the power of \SIrange{60}{170}{Hz} oscillations with respect to changes in luminance in the \SI{>1.0}{cpd} range.
+However, there was a reliable difference in latency for the information in the \SIrange{4}{16}{Hz} power (with respect to coarse changes in luminance, \SI{<0.3}{cpd}).
+The channels within the \ac{G} compartment consistently had the shortest response latency, with a lead of \SI{10}{\milli\second} over \ac{SG} and upper \ac{IG} (\ac{L5}).
+
 % Max for   4.00 -   16.00Hz,  0.000-0.300cpd is 0.0460 at 0.09850 sec
 % Max for   4.00 -   16.00Hz,    1.000-Infcpd is 0.0083 at 0.07085 sec
 % Max for  60.00 -  170.00Hz,  0.000-0.300cpd is 0.0121 at 0.09850 sec
 % Max for  60.00 -  170.00Hz,    1.000-Infcpd is 0.0713 at 0.11578 sec
 % Max for 900.00 - 3000.00Hz,  0.000-0.300cpd is 0.0411 at 0.04838 sec
 % Max for 900.00 - 3000.00Hz,    1.000-Infcpd is 0.0960 at 0.08467 sec
-
 
 % Lag between information in  G and IG for low2 power  0.000-0.300cpd is +0.0134+/-0.0044 seconds, p=0.0282
 % Lag between information in  G and SG for low2 power  0.000-0.300cpd is +0.0089+/-0.0024 seconds, p=0.0141
@@ -912,7 +922,6 @@ By visual inspection, one can observe that peaks and troughs in the luminance si
 % Lag between information in  G and IG for  mua power    1.000-Infcpd is +0.0009+/-0.0027 seconds, p=0.7646
 % Lag between information in  G and SG for  mua power    1.000-Infcpd is -0.0048+/-0.0033 seconds, p=0.2024
 % Lag between information in SG and IG for  mua power    1.000-Infcpd is +0.0057+/-0.0030 seconds, p=0.1193
-
 
 \begin{figure}[htbp]
 \centering
