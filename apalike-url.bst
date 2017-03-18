@@ -212,7 +212,8 @@ FUNCTION {output.year.check}
 
 FUNCTION {output.bibitem}
 { outside.brackets 'bracket.state := % urlbst
-   newline$
+  newline$
+  "\backrefparscanfalse" write$ newline$    % for backrefs following URLs
   "\bibitem[" write$
   label write$
   "]{" write$
@@ -663,7 +664,8 @@ FUNCTION {fin.entry}
     }
   if$
   output.end.block
-  "\PrintBackRefs{\CurrentBib}" write$ newline$
+  % "\PrintBackRefs{\CurrentBib}" write$ newline$  % doesn't work with _ in URL
+  "\backrefprint\backrefparscantrue" write$ newline$  % for backref with URLs
   test
     { "\vspace{\baselineskip}" write$ newline$ }
     'skip$
@@ -1428,7 +1430,25 @@ FUNCTION {begin.bib}
     'skip$
     { preamble$ write$ newline$ }
   if$
-  "\begin{thebibliography}{}" write$ newline$		% no labels in apalike
+  % no labels in apalike
+  "\begin{thebibliography}{}"
+  write$ newline$
+
+  % Provide commands in case they aren't available
+  "\providecommand{\url}[1]{\texttt{#1}}"
+  write$ newline$
+  "\expandafter\ifx\csname urlstyle\endcsname\relax"
+  write$ newline$
+  "  \providecommand{\doi}[1]{doi: #1}\else"
+  write$ newline$
+  "  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi"
+  write$ newline$
+  "  \providecommand\backrefparscanfalse{}"
+  write$ newline$
+  "  \providecommand\backrefparscantrue{}"
+  write$ newline$
+  "  \providecommand\backrefprint{}"
+  write$ newline$
 }
 
 EXECUTE {begin.bib}
