@@ -575,6 +575,7 @@ FUNCTION {format.date}
     }
   if$
 }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % urlbst...
 % Functions for making hypertext links.
 % In all cases, the stack has (link-text href-url)
@@ -705,6 +706,7 @@ FUNCTION {webpage}
   fin.entry
 }
 % ...urlbst to here
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 FUNCTION {article}
