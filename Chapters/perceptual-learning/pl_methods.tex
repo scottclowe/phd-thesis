@@ -64,7 +64,7 @@ Spikes from each channel had previously been sorted using computer-assisted manu
 Unsorted spikes outside of all clusters were not included in the firing rate target.
 This choice should ensure the target firing rate is a sensible expectation of the true background firing rate for as many recording sessions as possible.
 
-Due to, amongst other differences, changes in the noise level between sessions, simply using the same voltage threshold for each session would not result extracting a consistent firing rate.
+Due to, amongst other differences, changes in the noise level between sessions, simply using the same voltage threshold for each session would not result in extracting a consistent firing rate.
 To determine the appropriate spike detection threshold which would match the target spontaneous activity for each session, we searched using an iterative routine on the number of extracted spikes as a function of the threshold.
 On each iteration, the spontaneous firing rate was determined based on the number of spikes during the pre-trial fixation period (Step \num{1} in \autoref{sec:pl_task}), as extracted using our algorithm described in \autoref{sec:pl_spike_extraction}.
 
@@ -74,7 +74,7 @@ The initial threshold was set using the following method.
 \item Set $\SET{V}_{40}$ to be the maximum voltage over every \num{40} consecutive samples (a duration of \SI{1.23}{\milli\second}) during the first hour of recording for the session to be matched.
 \item Find the threshold $T_0$ such that number of values in $\SET{V}_{40}$ exceeding $T_0$ equals one hour at a rate of $\tilde{f}_\text{target}$.
 \end{enumerate}
-This routine allowed us to effectively allowed us to search over all possible thresholds very rapidly and find a suitable initialisation close to the final threshold for the majority of channels and sessions.
+This routine effectively allowed us to search over all possible thresholds very rapidly and find a suitable initialisation close to the final threshold for the majority of channels and sessions.
 
 If the initial threshold was too low, our second try was \SI{3}{\percent} higher; if it was too high, our second try was \SI{1}{\percent} lower\footnote{Since the computation involved in our spike extraction routine scales linearly with the number of spikes extracted, we err on the side of over-estimating the threshold since this costs notably less time.}.
 After this, we performed an iterative search for the target threshold using a weighted combination of linear interpolation and bisection on each step (\SI{80}{\percent} linear interpolation, \SI{20}{\percent} bisection).
