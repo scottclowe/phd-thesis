@@ -725,7 +725,7 @@ FUNCTION {article}
   if$
   new.block
   note output
-  output.web.refs  % urlbst
+  % output.web.refs  % urlbst
   fin.entry
 }
 
@@ -760,7 +760,7 @@ FUNCTION {book}
   format.edition output
   new.block
   note output
-  output.web.refs  % urlbst
+  % output.web.refs  % urlbst
   fin.entry
 }
 
@@ -776,7 +776,7 @@ FUNCTION {booklet}
   address output
   new.block
   note output
-  output.web.refs  % urlbst
+  % output.web.refs  % urlbst
   fin.entry
 }
 
@@ -813,7 +813,7 @@ FUNCTION {inbook}
   format.edition output
   new.block
   note output
-  output.web.refs  % urlbst
+  % output.web.refs  % urlbst
   fin.entry
 }
 
@@ -841,7 +841,7 @@ FUNCTION {incollection}
   if$
   new.block
   note output
-  output.web.refs  % urlbst
+  % output.web.refs  % urlbst
   fin.entry
 }
 
@@ -869,7 +869,7 @@ FUNCTION {inproceedings}
   if$
   new.block
   note output
-  output.web.refs  % urlbst
+  % output.web.refs  % urlbst
   fin.entry
 }
 
@@ -888,7 +888,7 @@ FUNCTION {manual}
   format.edition output
   new.block
   note output
-  output.web.refs  % urlbst
+  % output.web.refs  % urlbst
   fin.entry
 }
 
@@ -905,7 +905,7 @@ FUNCTION {mastersthesis}
   address output
   new.block
   note output
-  output.web.refs  % urlbst
+  % output.web.refs  % urlbst
   fin.entry
 }
 
@@ -937,7 +937,7 @@ FUNCTION {phdthesis}
   address output
   new.block
   note output
-  output.web.refs  % urlbst
+  % output.web.refs  % urlbst
   fin.entry
 }
 
@@ -956,7 +956,7 @@ FUNCTION {proceedings}
   publisher output				% here
   new.block
   note output
-  output.web.refs  % urlbst
+  % output.web.refs  % urlbst
   fin.entry
 }
 
@@ -973,7 +973,7 @@ FUNCTION {techreport}
   address output
   new.block
   note output
-  output.web.refs  % urlbst
+  % output.web.refs  % urlbst
   fin.entry
 }
 
