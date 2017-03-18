@@ -290,8 +290,16 @@
 % ********************************************************************
 % Using PDFLaTeX
 % ********************************************************************
-\PassOptionsToPackage{pdftex,hyperfootnotes=false,pdfpagelabels}{hyperref}
+\PassOptionsToPackage{pdftex,hyperfootnotes=false,pdfpagelabels,backref=page}{hyperref}
 	\usepackage{hyperref}  % backref linktocpage pagebackref
+% Configure backref=page output suitably
+\renewcommand*{\backref}[1]{}
+\renewcommand*{\backrefalt}[4]{%
+    \ifcase #1 (Not cited.)%
+    \or        (Cited on page~#2.)%
+    \else      (Cited on pages~#2.)%
+    \fi}
+
 \pdfcompresslevel=9
 \pdfadjustspacing=1 
 \PassOptionsToPackage{pdftex}{graphicx}
