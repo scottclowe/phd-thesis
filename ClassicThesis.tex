@@ -60,6 +60,11 @@
 % Lets you include PDFs in the document
 \usepackage{pdfpages}
 %
+% Provides DOI command, which safely links to the DOI
+\usepackage{doi}
+% Need to remove this, or we get doi:doi: in the output
+\renewcommand{\doitext}{}
+%
 \newcommand{\sesname}[1]{\textsf{#1}}
 \newcommand{\invivo}{\textit{in vivo}}
 \newcommand{\zonename}[1]{\ensuremath{#1}}
