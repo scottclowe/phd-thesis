@@ -43,6 +43,10 @@
 %			apalike now sorts by author, then year, then title;
 %			THIS `apalike' VERSION DOES NOT WORK WITH BIBTEX 0.98i.
 
+MACRO {arXiv}     {"http://arxiv.org/abs"}
+MACRO {cogprints} {"http://cogprints.org"}
+MACRO {pubmed}    {"http://www.ncbi.nlm.nih.gov/pubmed"}
+
 ENTRY
   { address
     author
@@ -67,7 +71,10 @@ ENTRY
     type
     volume
     year
-    eprint % urlbst
+    archive
+    archivePrefix
+    eprint
+    primaryClass
     url % urlbst
     lastchecked % urlbst
   }
@@ -581,6 +588,41 @@ FUNCTION {format.date}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% utphys.bst...
+
+FUNCTION {format.archive}
+{
+  archivePrefix empty$
+      { "" }
+      { archivePrefix ":" *}
+  if$            
+}
+
+FUNCTION {format.primaryClass}
+{
+  primaryClass empty$
+      { "" }
+      { " [" primaryClass * "]" *}
+  if$            
+}
+
+FUNCTION {format.eprint}
+{ eprint empty$
+     { ""}
+     { archive empty$
+          {"\href{http://arxiv.org/abs/" eprint * "}" * 
+             "{{\ttfamily " * format.archive * eprint *
+              format.primaryClass * "}}" *}
+          {"\href{" archive *  "/" * eprint * "}" * 
+             "{{\ttfamily " * format.archive * eprint *
+              format.primaryClass * "}}" *}
+       if$
+     }
+     if$
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % apacite...
 % Helper functions
 
@@ -719,12 +761,12 @@ FUNCTION {format.url}
   if$
 }
 
-FUNCTION {format.eprint}
-{ eprint empty$
-    { "" }
-    { eprintprefix eprint * eprinturl eprint * make.href }
-  if$
-}
+%FUNCTION {format.eprint}
+%{ eprint empty$
+%    { "" }
+%    { eprintprefix eprint * eprinturl eprint * make.href }
+%  if$
+%}
 
 % Output a URL.  We can't use the more normal idiom (something like
 % `format.url output'), because the `inbrackets' within
@@ -745,10 +787,10 @@ FUNCTION {output.web.refs}
 {
   new.block
   output.url
-  addeprints eprint empty$ not and
-    { format.eprint output.nonnull }
-    'skip$
-  if$
+%  addeprints eprint empty$ not and
+%    { format.eprint output.nonnull }
+%    'skip$
+%  if$
 %  addeprints
 %    { eprint empty$
 %        'skip$
@@ -799,6 +841,8 @@ FUNCTION {webpage}
     { format.lastchecked output }
   if$
   new.block
+  format.eprint output
+  new.block
   format.url "url" output.check
   new.block
   note output
@@ -824,6 +868,8 @@ FUNCTION {article}
       format.pages output
     }
   if$
+  new.block
+  format.eprint output
   new.block
   note output
   % output.web.refs  % urlbst
@@ -860,6 +906,8 @@ FUNCTION {book}
   if$
   format.edition output
   new.block
+  format.eprint output
+  new.block
   note output
   % output.web.refs  % urlbst
   fin.entry
@@ -875,6 +923,8 @@ FUNCTION {booklet}
   new.block
   howpublished output
   address output
+  new.block
+  format.eprint output
   new.block
   note output
   % output.web.refs  % urlbst
@@ -913,6 +963,8 @@ FUNCTION {inbook}
   if$
   format.edition output
   new.block
+  format.eprint output
+  new.block
   note output
   % output.web.refs  % urlbst
   fin.entry
@@ -940,6 +992,8 @@ FUNCTION {incollection}
       format.chapter.pages output
     }
   if$
+  new.block
+  format.eprint output
   new.block
   note output
   % output.web.refs  % urlbst
@@ -969,6 +1023,8 @@ FUNCTION {inproceedings}
     }
   if$
   new.block
+  format.eprint output
+  new.block
   note output
   % output.web.refs  % urlbst
   fin.entry
@@ -988,6 +1044,8 @@ FUNCTION {manual}
   address output
   format.edition output
   new.block
+  format.eprint output
+  new.block
   note output
   % output.web.refs  % urlbst
   fin.entry
@@ -1005,6 +1063,8 @@ FUNCTION {mastersthesis}
   school "school" output.check
   address output
   new.block
+  format.eprint output
+  new.block
   note output
   % output.web.refs  % urlbst
   fin.entry
@@ -1019,6 +1079,8 @@ FUNCTION {misc}
   format.title output
   new.block
   howpublished output
+  new.block
+  format.eprint output
   new.block
   note output
   output.web.refs  % urlbst
@@ -1036,6 +1098,8 @@ FUNCTION {phdthesis}
   "PhD thesis" format.thesis.type output.nonnull
   school "school" output.check
   address output
+  new.block
+  format.eprint output
   new.block
   note output
   % output.web.refs  % urlbst
@@ -1056,6 +1120,8 @@ FUNCTION {proceedings}
   organization output				% a nonempty organization
   publisher output				% here
   new.block
+  format.eprint output
+  new.block
   note output
   % output.web.refs  % urlbst
   fin.entry
@@ -1073,6 +1139,8 @@ FUNCTION {techreport}
   institution "institution" output.check
   address output
   new.block
+  format.eprint output
+  new.block
   note output
   % output.web.refs  % urlbst
   fin.entry
@@ -1085,6 +1153,8 @@ FUNCTION {unpublished}
   output.year.check					% apalike
   new.block
   format.title "title" output.check
+  new.block
+  format.eprint output
   new.block
   note "note" output.check
   output.web.refs  % urlbst
