@@ -15,10 +15,7 @@ We will introduce and discuss the fundamental properties of the mammalian visual
 
 Sensitivity to the visual spectrum is an important survival trait for almost all land animals.
 Whether predator or prey, the ability to see allows an individual organism to receive and perceive information about their environment over large distances.
-
-In humans and other mammals, the visual system
-
-\autoref{fig:bg_visual_pathway}
+Such a trait has obvious survival implications, and therefore confers an evolutionary advantage.
 
 \begin{figure}[htbp]
 \centering
@@ -31,6 +28,11 @@ Reproduced (with modifications) from \href{https://commons.wikimedia.org/wiki/Fi
 \label{fig:bg_visual_pathway}
 \end{figure}
 
+In humans and other mammals, the visual system is composed of several processing stages, illustrated in \autoref{fig:bg_visual_pathway}.
+Light enters the eye (potentially focused into a clear image by the lens), and is encoded as electrical signals in the retina at the back of the eye.
+This information is transmitted to the brain through the optic nerve, where it reaches the \ac{LGN}.
+From here, the visual information is propagated to the \acf{V1}, which feeds its outputs to the rest of the visual (and non-visual) cortical regions.
+
 
 \subsection{The central nervous system}
 
@@ -38,32 +40,43 @@ The central nervous system consists of the brain, spinal cord, and retina.
 Within each, there are specialised biological cells called neurons, whose properties allow them to encode information about the external world gleamed through the body's sensory organs, manipulate this information and perform computations with it in order to control the behaviour of the body.%
 \footnote{
 Neurons are common across all species of animals, though the architecture of their nervous systems vary greatly.
-Plants are also able to infer properties of their environment and respond accordingly using chemical and electrical signals, despite their lack of neurons.
+Plants are also able to infer properties of their environment and respond accordingly using chemical and electrical signals, despite their lack of neurons \citep{Brenner2006,Barlow2008}.
 }
 The peripheral nervous system and the retina together provide a stream of data about the environment within which the subject resides, known as the \termemph{senses} (sight, sound, touch, smell, taste, temperature, pressure, \textit{etc.}).
-The computations performed by the central nervous system allow it to extract features from this stream of sensory information, store properties of it for later computational use, and decide behavioural actions to perform   computations using it in order to decide how best to interact with its environment and which actions to perform within it.\citep{TEDWolpert}
+The computations performed by the central nervous system allow it to extract features from this stream of sensory information, store properties of it for later computational use, and decide which behavioural actions to perform in order to influence the environment of its body \citep{TEDWolpert}.
 
-Information transmission between neurons is principally mediated by changes in the voltage, or potential difference, between the inside and the outside of the neuron.
-The change in voltage within one neuron propagates along its cell to affect other neurons which make direct conductive connections with it.
-However, the majority of connections between neurons are indirect, with a synaptic junction between the output of one neuron and the input to the next.
-
-For these neurons, the
-as a series of action potentials, or ``spikes'', wherein the difference in voltage potential between the  rises rapidly and briefly.
-One of the ways it 
-By storing data about the history of the sensory which facilitate the choice of actions.
-, and extract . 
-Using spiking activity 
+Information transmission between neurons is principally mediated by changes in the voltage, or potential difference, between the inside and the outside of the neuron \citep[Chapter~2]{nsbook}.
+The change in voltage within one neuron propagates along its cell body, and can affect other neurons which make direct conductive connections with it.
+However, the majority of connections between neurons are indirect, involving a synaptic junction between the output of one neuron and the input to the next.
+In this situation, the voltage of one neuron (the ``sending'' neuron) --- which is negative at rest, around \SI{-70}{\milli\volt} --- must become sufficiently hyperpolarised to trigger a change in the state of the neuron such the distribution of ion channels open changes.
+Then there is a spike and it travels down the axon.
+At the terminus of the axon, neurotransmitters are released which cross the synapse to induce a change in voltage in the recipient neuron.
 
 
 \subsection{The eye}
 
 The story of visual perception begins with the eye.
-As such a useful sensory organ, eyes have evolved multiple times.
-We are concerned with the mammalian visual system, and as such describe the properties of the eye common as it is in humans and other mammals.
-
+In this section, since we are concerned with the mammalian visual system, we describe the properties of the eye common as it is among humans and other mammals.
+%
+% Light, after entering the eye, lands upon the retina, where neurons detect and encode.
 
 
 \subsubsection{Rods and cones}
+
+For any visual system, the most fundamental component is a set of cells which are sensitive to electromagnetic radiation.
+In mammals the light-sensitive cells, or photoreceptors, come in two types: rods and cones.%
+\footnote{
+There are also intrinsically photosensitive \aclp{RGC}, however these cells are not directly involved in forming an image of the visual stimulus.
+Instead, they mediate the circadian rhythm, and influence pupil dilation \citep{Berson2002,Ecker2010,Wong2005}.}
+Rods and cones are subtypes of neuron which are surrounded by photosensitive pigment.
+When photons of light collide with the photopigment protein, it changes state and shape, causing a cascade of biochemical changes resulting in the closing of ion channels in the cell membrane of the neuron.
+Since the the energy in the photon%
+\footnote{The amount of energy within a photon is related to its wavelength according to the Planck--Einstein relation,
+$E = h f$, where $E$ denotes the energy of a photon, $f$, the frequency associated with it, and $h$ is the Planck constant.% h = 6.626...\times 10^{−34}
+}
+(which is indivisibly quantised)
+must closely match the difference in energy levels of the photopigment, each photopigment is only sensitive to a particular range of wavelengths of light.
+The spectral absorption curves for photopigments used in the rods and cones of humans are shown in \autoref{fig:bg_cone_responses}.
 
 \begin{figure}[htbp]
 \centering
@@ -78,34 +91,20 @@ Reproduced (with modifications) from \href{https://commons.wikimedia.org/wiki/Fi
 \label{fig:bg_cone_responses}
 \end{figure}
 
-For any visual system, the most fundamental component is a set of cells which are sensitive to electromagnetic radiation.
-In mammals (and the rest of the class), the light-sensitive cells, or photoreceptors, come in two types: rods and cones.%
-\footnote{Other photosensitive cells are present in mammals, but these are only used for subconcious modulation of circadian rhythms.}
-Both rods and cones are sub-classes of neuron which contain photosensitive pigment.
-When photons of light collide with the photopigment, the electrons in the pigment are elevated to higher orbital levels and the voltage across the photoreceptor changes.
-However, the energy in the photon is indivisible and so the amount of energy which it contains must closely match the difference in energy levels between the electron orbitals for the photopigment.
-Consequently each photopigment is only sensitive to a particular range of wavelengths of light.%
-\footnote{The amount of energy within a photon is related to its wavelength according to the Planck--Einstein relation,
-$E = h f$, where $E$ denotes the energy of a photon, $f$, the frequency associated with it, and $h$ is the Planck constant.% h = 6.626...\times 10^{−34}
-}
-Even when a photon does contain a suitable amount of energy, there is no guarantee that it will interact with an electron and it may pass straight through the photopigment.
-
-Rod photoreceptors, which are broadly sensitive to the range of wavelengths $x-to-yHz$.
-The voltage of the neuron changes readily when the photopigment is excited, so these cells are very sensitive to individual photons.
-This makes them ideal for seeing in low lighting conditions.
+Rod photoreceptor cells are very sensitive to light, making them ideal for seeing in dark and low-lighting conditions.
+% These cells have a large surface area over which the photopigment is exposed to light, and their photopigment is very sensitive, producing a high gain on the detected signal.
 However, in well-lit scenes, rods quickly become saturated, at which point they offer no information about the external world other than the fact that it is ``quite bright right now''.
 
-Cone photoreceptors come in different types.
+Cone photoreceptors come in several different types, using different photopigments to detect different ranges of the electromagnetic spectrum.
 In humans, there are three types%
-\footnote{With the exception of colour-blind individuals, who may have only two types of cones, and tetrachromats \citep{Nagy1981,Jordan1993,Jameson2001} who have four.}
+\footnote{With the exception of colour-blind individuals, who sometimes have only two or fewer types of cones, and tetrachromats \citep{Nagy1981,Jordan1993,Jameson2001} who have four.}
 of cones:
 \acl{L}, \acl{M}, and \acl{S} (\acsu{L}, \acsu{M}, and \acsu{S}).
-These can be approximately considered sensitive to red, green, and blue light respectively.
-However, it should be noted that there is a broad range of wavelengths which each is sensitive to, and this range is very similar for the \ac{L} and \ac{M} cells.
-Most of the rest of the mammalian class has only two cones, \ac{M} and \ac{S}, including cats, dogs, and some monkeys.
-Other monkeys also have 3 cone types, but not necessarily with the same balance between the cone types as is apparent in humans \citep{Stockman2008}.
-The membrane potential of the cone cells is not as sensitive as that of rods, and multiple photons need to interact with the neuron to get the same change in voltage.
-This means cones are only useful in well-lit environments, where many photons can interact with the neuron in rapid succession.
+These can be approximately considered sensitive to red, green, and blue light respectively --- however, it should be noted that there is a broad range of wavelengths which each is sensitive to (see \autoref{fig:bg_cone_responses}), and this range is very similar for the \ac{L} and \ac{M} cells.
+Possessing three cones makes humans (along with other apes and Old World monkeys) the exception instead of the norm within the mammal class --- most mammals, including cats, dogs, and the New World monkeys, are dichromatic with only two types of cones (\ac{M} and \ac{S}).
+
+Possessing cones with different spectral sensitivities enables \textemph{colour vision}.
+For a given frequency of light, we can consider the response evoked in each cone type.
 
 
 \subsubsection{Bipolar and \aclp{RGC}}
@@ -121,6 +120,19 @@ They seem to be more common in mice than humans because higher order mammals hav
 
 This in turn changes the voltage of neurons connected to the photoreceptor.
 
+There are on and off bipolar cells
+
+RGCs come in at least 17 types \citep{Nassi2009}
+
+There are three dominant types
+
+Bistratified \acp{RGC} feed Koniocellular \ac{LGN} (K-pathway), then L2/3 \ac{V1} blob cells
+
+Midget \acp{RGC} feed Parvocellular \ac{LGN} (P-pathway), then L$4C\beta$
+
+Parasol \acp{RGC} feed Magnocellular \ac{LGN} (M-pathway), then L$4C\alpha$
+
+
 
 \subsection{The brain}
 
@@ -133,14 +145,26 @@ Half the monkey cortex is dedicated to visual processing
 Cortex allows generic information processing
 
 
+
 \subsection{The \acl{LGN}}
 
+within the thalamus
+
+thought to be a central hub for 
 
 
+\subsection{Primary visual cortex}
 
-\subsection{Visual cortex}
+The primary visual cortex is sensitive to orientated bars edges at different
 
-The cortex
+Classically, this was understood as simple and complex cells, however the full processing is more complicated \cite{Harris2013}
+
+Topological maps form across the cortex, which appears to be a self-organising mapping \cite{Miikkulainen2005,Stevens2013,Wilson2015}.
+
+
+\subsection{Rest of cortex}
+
+Infero-temporal gyrus contains face cells and concept cells \cite{Quiroga2012}
 
 
 %------------------------------------------------------------------------------
@@ -158,7 +182,6 @@ At any moment in time, the brain has access to the activity of many neurons simu
 
 If we instead use information theory to study the neuronal activity, we can consider how much information there is across a system containing multiple neurons during an isolated period of time, for instance a single trial.
 By using an information theoretic technique, we can overcome the limitations of the more simple methods; but no method is perfect and there are other limitations which arise when using information theory instead.
-% CITE no free lunch theorem
 In this section, I will first outline the analytic procedure through which information theoretic analysis is applied to neuroscientific data, some of the problems which arise, and how to try to overcome them.
 
 
@@ -467,7 +490,7 @@ Reproduced from \citet{Averbeck2006}.
 
 A similar line of reasoning can be considered for two neurons with offset tuning curves \citet{Franke2016}.
 As shown in \autoref{fig:Franke2016}, when the two tuning curves are considered together we traverse a manifold in $2d$ space.
-Noise correlations are a hindrance only when the direction of noise correlation points in the same direction as the derivative of the tuning manifold, since this change is easily confused with a change in the parameter describing the manifold.
+Noise correlations are a hindrance (information-limiting correlations, \citet{Moreno-Bote2014}) only when the direction of noise correlation points in the same direction as the derivative of the tuning manifold, since this change is easily confused with a change in the parameter describing the manifold.
 Whereas noise correlations which are orthogonal to the manifold are beneficial to the neural code, since the result has lower variability when projected onto the manifold than that of independently generated noise.
 However, when the manifold forms a closed loop (as is the case with orientation tuning, shown in \autoref{fig:Franke2016}) the derivative of the tuning manifold processes through a full \SI{360}{\degree}, and the ideal noise correlation varies depending upon which stimulus signal is under consideration.
 
