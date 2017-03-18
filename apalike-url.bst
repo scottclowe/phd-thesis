@@ -610,12 +610,10 @@ FUNCTION {format.eprint}
 { eprint empty$
      { ""}
      { archive empty$
-          {"\href{http://arxiv.org/abs/" eprint * "}" * 
-             "{{\ttfamily " * format.archive * eprint *
-              format.primaryClass * "}}" *}
-          {"\href{" archive *  "/" * eprint * "}" * 
-             "{{\ttfamily " * format.archive * eprint *
-              format.primaryClass * "}}" *}
+          {"\href{http://arxiv.org/abs/" eprint * "}" *
+             "{" * format.archive * eprint * format.primaryClass * "}" *}
+          {format.archive * "\href{" archive *  "/" * eprint * "}" * 
+             "{" * format.archive * eprint * format.primaryClass * "}" *}
        if$
      }
      if$
