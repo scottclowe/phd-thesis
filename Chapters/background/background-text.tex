@@ -177,7 +177,7 @@ From this, we can compare the activity of the neuron under different conditions 
 Frequently, the approach used is to take many recordings of the same neuron for the same condition, and then take the average across these repetitions (``trials'') to reduce the effects of neuronal variability, producing a \ac{PSTH}, for instance.
 This neuronal variability is often referred to as ``noise'', however it is debatable as to whether differences in the behaviour of individual neurons between trials are due to noise within the system or are in fact representative of changes in other, as-yet unknown, hidden or latent variables within the system (see \autoref{sec:bg-noisecorr} for further discussion).
 
-Such a simple treatment of the data --- averaging over the response over repetitions --- is fundamentally flawed, since this is not the manner in which brains process stimuli.
+Such a simple treatment of the data --- averaging the response over repetitions --- is fundamentally flawed, since this is not the manner in which brains process stimuli.
 At any moment in time, the brain has access to the activity of many neurons simultaneously (not a single neuron in isolation), but only has a single sample of each one (not multiple instantiations of the same neuron).
 
 If we instead use information theory to study the neuronal activity, we can consider how much information there is across a system containing multiple neurons during an isolated period of time, for instance a single trial.
@@ -221,7 +221,7 @@ For instance, whether a given visual stimulus contains the face of familiar pers
 After a stimulus has been processed by the brain, information about the exact intensities of individual pixels is lost, but salient information about the environment is preserved.
 We can hence investigate how stimuli are encoded within the brain by computing the amount of information about properties of the stimulus contained within the neural recordings.
 Here, we make the following assumption: if the neuronal activity is observed to contain information about the stimulus, we can assume this information is present due to the manner within which information is encoded by the brain, and that this information can be drawn upon to inform decisions taken with regard to the stimulus.
-We rationalise this assumption on the basis that we know the brain contains information about stimuli (otherwise it would be functionally blind/deaf), and it would be wasteful expend resources encoding stimuli accurately but in a non-functional manner.
+We rationalise this assumption on the basis that we know the brain contains information about stimuli (otherwise it would be functionally blind/deaf), and it would be wasteful to expend resources encoding stimuli accurately but in a non-functional manner.
 
 The neural data which can be collected with modern experimental equipment is very dense and rich in content.
 For instance, individual spikes can be recorded with the precision of fraction of a millisecond, and broadband \acp{LFP} allow for many frequency components to be analysed from the same recording.
@@ -255,7 +255,7 @@ Having constrained both our encoding of the stimulus and the response to a finit
 
 Within the understanding of Shannon information, information is quantified in a manner analogous to how ``surprised'' a receiver would be if they were to reveal the contents of a message sent by the transmitter.
 Unless there is only one possible message, there is uncertainty over what will be sent, potentially with some messages more likely than others.
-If an \textit{a priori} likely message is received, this confirms the expectations so the receiver, so they are less ``surprised''.
+If an \textit{a priori} likely message is received, this confirms the expectations of the receiver, so they are less ``surprised''.
 If an unlikely message is received, the receiver is more ``surprised''.
 Intuitively, the amount of information gained on receipt of the message is related to how much the uncertainty in the message was reduced upon its arrival.
 
@@ -371,7 +371,7 @@ An alternative method to correct for the bias is to decompose the measured mutua
 The $\nicefrac{1}{N}$ coefficient in the expansion depends only on the number of stimuli and number of possible responses \citep{Miller1955,Treves1995}.
 This dominant term is a good estimate of the bias, and subtracting it from our uncorrected information value greatly improves its accuracy \citep{Treves1995}.
 This works for a single-dimensional or multi-dimensional response, and is more accurate than shuffling for a single-dimensional response \citep{Panzeri1996}.
-However, this term is dependent on the on the total number of potential responses for each stimulus.
+However, this term is dependent on the total number of potential responses for each stimulus.
 Since some stimuli may not be able to elicit every response, this is smaller than the number of theoretically possible responses.
 However as described above, some responses may be possible to produce but unobserved in the limited set of samples.
 Consequently, \ac{PT} bias-correction method of \citet{Panzeri1996} uses Bayesian statistics to estimate the actual number of potential responses.
@@ -384,7 +384,7 @@ Here, the bias on the mutual information is assumed to be well approximated by a
 \I_{\text{true}}(S;R) + \frac{a}{N} + \frac{b}{N^2}
 ,\end{equation}
 and the two free parameters, $a$ and $b$, are found by computing the information content with fractions of the full available dataset (\ie{} using $\nicefrac{N}{2}$ and $\nicefrac{N}{4}$ trials).
-Since the two are built on the same assumptions, \ac{QE} gives similar performance to \ac{PT}, but with because it is computationally instead of analytically derived it requires more computational processing.
+Since the two are built on the same assumptions \ac{QE} gives similar performance to \ac{PT}, but because it is computationally instead of analytically derived \ac{QE} requires more computational processing.
 
 % Consider discussing Best Universal Bound (BUB) method (Paninski, 2003)
 
@@ -416,7 +416,7 @@ A simple way to do this is to measure the correlation between the outputs of pai
 
 Although this is a much less nuanced technique than using Shannon information to study the relationship between the neurons, measuring the correlation provides us with a much easier to use metric.
 In particular, the amount of data needed to measure the mutual information between stimulus and response increases exponentially in the dimensionality of the response.
-This means it is impossible to compute the amount of information conveyed by in the response of more than a handful of neurons.
+This means it is impossible to compute the amount of information conveyed by the response of more than a handful of neurons.
 However, a simplistic interpretation of the correlation can be simplistic because, as we discuss below, one must take into account the relationship between the signal and the noise correlation to correctly understand the impact of the neural correlations on the information contained by a collection of neurons.
 
 
