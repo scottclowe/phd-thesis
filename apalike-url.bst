@@ -48,6 +48,7 @@ ENTRY
     author
     booktitle
     chapter
+    doi
     edition
     editor
     howpublished
@@ -222,16 +223,18 @@ FUNCTION {output.bibitem}
   before.all 'output.state :=
 }
 
-FUNCTION {fin.entry}
-{ 
-  bracket.state close.brackets = % urlbst
-    { "]" * }
-    'skip$
-  if$
-   add.period$
-  write$
-  newline$
-}
+% Now defined using apacite version instead
+%
+%FUNCTION {fin.entry}
+%{ 
+%  bracket.state close.brackets = % urlbst
+%    { "]" * }
+%    'skip$
+%  if$
+%   add.period$
+%  write$
+%  newline$
+%}
 
 FUNCTION {new.block}
 { output.state before.all =
@@ -575,6 +578,98 @@ FUNCTION {format.date}
     }
   if$
 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% apacite...
+% Helper functions
+
+    %
+    % encloses string in pre- and postfix string
+    % call with
+    %    prefix postfix  S  enclose.check
+    % delivers empty string if S empty
+    %
+FUNCTION {enclose.check}
+{ duplicate$ empty$
+    { pop$ pop$ pop$
+      ""
+    }
+    { swap$ * * }
+  if$
+}
+
+    %
+    % end block by writing what's left on the stack and
+    % starting a new line
+    %
+FUNCTION {output.end.block}
+{ write$
+  newline$
+}
+
+    %
+    % starting new block by writing what's left on the stack,
+    % starting a new line and adding some extra space or
+    % whatever is more defined in \newblock
+    %
+FUNCTION {output.new.block}
+{ output.end.block
+  "\newblock" write$ newline$
+}
+
+FUNCTION {start.new.block}
+{ "\unskip\ " write$ newline$
+  "\newblock " write$ newline$
+}
+
+
+% DOI Content
+
+FUNCTION {begin.end.doi.env}
+{ "\begin{APACrefDOI} "
+  " \end{APACrefDOI} "
+}
+
+FUNCTION {format.doi}
+{ begin.end.doi.env
+  "\doi{" doi * "}" *
+  enclose.check
+}
+
+FUNCTION {doi.block}
+{ doi empty$
+    'skip$
+    { start.new.block
+      format.doi
+      output.end.block
+    }
+  if$
+}
+
+FUNCTION {test} { #0 }
+
+FUNCTION {fin.entry}
+{
+  bracket.state close.brackets = % urlbst
+    { "]" * }
+    'skip$
+  if$
+  doi empty$
+    'skip$
+    { output.new.block
+      format.doi
+    }
+  if$
+  output.end.block
+  "\PrintBackRefs{\CurrentBib}" write$ newline$
+  test
+    { "\vspace{\baselineskip}" write$ newline$ }
+    'skip$
+  if$
+}
+% ...apacite to here
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % urlbst...
 % Functions for making hypertext links.
