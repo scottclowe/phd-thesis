@@ -1956,6 +1956,7 @@ This result leads us to ask whether there is information about the stimulus enco
 
 %==============================================================================
 \section{Information sustained in post-stimulation activity}
+\label{sec:pl_poststim_info}
 
 In \autoref{sec:pl_info_latency}, we described an increase in information late in the stimulus presentation for both \ac{M2} \ac{V1} and \ac{M1} \ac{V4}, which could hypothetically be caused by information projected back to the visual cortex from higher cortical regions.
 Following on from this, we will next consider how much task-pertinent information about the stimulus is maintained in the neural activity after the stimulus is removed, to determine how much information about the stimulus is present in the visual cortex without the influence of the visual stimulation.
@@ -2343,6 +2344,7 @@ There was significantly more information about the behavioural response for \ac{
 
 
 \subsection{Discussion of post-stimulus information}
+\label{sec:pl_poststim_discuss}
 
 In this section, we investigated the amount of information about the stimulus and about the behavioural response of the subject encoded in the post-stimulus activity within \ac{V1} and \ac{V4}.
 We found that, after training, there was a significant amount of information about the behavioural response in both brain regions for both subjects.
@@ -2456,6 +2458,7 @@ However, in practice our neurons nearly all have monotonically increasing respon
 
 
 \subsubsection{Performance evaluation}
+\label{sec:pl_decoder_evaluation}
 
 To investigate the performance of the classifier on the data from a single session, we used leave-one-out cross-validation.
 Under leave-one-out cross-validation, a data-set with $n$ samples, the decoder is trained on $(n-1)$ trials with the spike counts for all the trials and the correct response (higher or lower than \SI{30}{\percent} contrast) and we then check whether the decoder identifies the remaining trial correctly.
