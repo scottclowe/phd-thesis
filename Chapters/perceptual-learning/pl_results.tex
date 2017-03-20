@@ -414,7 +414,7 @@ to ensure sufficient detail was captured and the two density estimates are compa
 
 First, we will consider the amount of information about the stimulus contained in a simple firing rate encoding.
 For each test stimulus presentation, our response is the total number of spikes which were detected from a single channel during the first \SI{527}{\milli\second} of the stimulus presentation.%
-\footnote{This duration is chosen because there is slight variation in the stimulus presentation time, and \SI{527}{\milli\second} is the shortest presentation duration.}
+\footnote{This duration is chosen because there is slight variation in the stimulus presentation time, and \SI{527}{\milli\second} slightly shorter than the shortest presentation duration.}
 
 For each recording channel, we computed how much information was contained in this overall firing response about the identity of which stimulus had been presented.
 The results of this initial analysis are shown in \autoref{fig:info_sess_1x527}.
@@ -2601,10 +2601,12 @@ Our results from the population-level decoder correspond to our findings about t
     \caption{
     \captionemph{Classifying the stimulus using \ac{V1} population activity.}
     We report the accuracy of the linear decoder classifying the group of each stimulus (greater or less than \SI{30}{\percent} contrast) after training on the population activity (blue; \protect\subref{fig:dec_b1_allp}~\ac{M1}, \num{14} channels; \protect\subref{fig:dec_j1_allp}~\ac{M2}, \num{20} channels).
-    In \protect\subref{fig:dec_b1_allp} and \protect\subref{fig:dec_j1_allp}, performance was evaluated as the average accuracy across each of the \num{14} stimulus classes.
+    In \protect\subref{fig:dec_b1_allp} and \protect\subref{fig:dec_j1_allp}, performance was evaluated as the average accuracy across each of the \num{14} stimulus classes (main $y$-axis, left-side).
+    A second $y$-axis (right-side) shows the corresponding amount of information about the stimulus group which would be attained if the average accuracy for stimuli lower than \SI{30}{\percent} contrast and the accuracy for stimuli higher than \SI{30}{\percent} contrast were equal.
     We also report the accuracy of the linear decoder when trained on a copy of the data with responses recorded from each channel matched at random such that noise correlations are removed (red; see \autoref{sec:pl_dec_shuffle}).
     For comparison, the behavioural performance of the subject is also shown for each recording session (black).
-    In \protect\subref{fig:dec_b1_info} and \protect\subref{fig:dec_j1_info}, we show the information about the stimulus group (higher or lower than \SI{30}{\percent} contrast) contained in the responses from the behaviour and decoders.
+    In \protect\subref{fig:dec_b1_info} and \protect\subref{fig:dec_j1_info}, we show the information about the stimulus group (higher or lower than \SI{30}{\percent} contrast) contained in the responses from the behaviour and decoders (main $y$-axis, left-side).
+    A second $y$-axis (right-side) shows the overall accuracy which would be illicit this information (assuming the same accuracy for every stimulus).
 }
     \label{fig:dec_all_v1}
 \end{figure}
@@ -2886,7 +2888,8 @@ However for \ac{M2}, shown in \autoref{fig:decag_j1_allp} and \autoref{fig:decag
     \hspace*{\fill}
     \caption{
     \captionemph{Response coincidence rate for \ac{V1}.}
-    In \protect\subref{fig:decag_b1_allp} and \protect\subref{fig:decag_j1_allp}, the response coincidence rate, $\xi$, is the average probability that the classifications given by the model trained on the population activity will match those given by the subject's behavioural response.
+    In \protect\subref{fig:decag_b1_allp} and \protect\subref{fig:decag_j1_allp}, the response coincidence rate, $\xi$, is the average probability that the classifications given by the model trained on the population activity will match those given by the subject's behavioural response (main $y$-axis, left-side).
+    A second $y$-axis (right-side) shows the corresponding amount of information about the stimulus group which would be attained if the average accuracy for stimuli lower than \SI{30}{\percent} contrast and the accuracy for stimuli higher than \SI{30}{\percent} contrast were equal.
     The shaded region indicates the \SI{95}{\percent} \acf{CI} of the \acf{NH} constructed for each session (see \autoref{sec:dec-meth-prob} for details).
     In \protect\subref{fig:decag_b1_condinfo} and \protect\subref{fig:decag_j1_condinfo}, the amount of information about the behavioural response given by the decoder, conditioned on the correct experimental response to the stimulus.
 }
