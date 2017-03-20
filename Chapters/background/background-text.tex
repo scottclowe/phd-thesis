@@ -1,17 +1,12 @@
 %!TEX root = ../../ClassicThesis.tex
 
 
-In this chapter, we present background information which the reader is required to know in order to understand the research material which follows.
-We will introduce and discuss the fundamental properties of the mammalian visual system, information theory, and neuronal correlations.
+In this chapter, we present background information which the reader is required to know in order to understand the original research material which follows in the remainder of the thesis.
+Here, we will introduce and discuss the fundamental properties of the mammalian visual system, information theory, and neuronal correlations.
 
 
 %------------------------------------------------------------------------------
 \section{Mammalian visual system}
-
-\citet[Chapter~2]{nsbook} % neuron
-\citet[Chapter~11]{nsbook} % eye
-\citet[Chapter~23]{nsbook} % learning
-
 
 Sensitivity to the visual spectrum is an important survival trait for almost all land animals.
 Whether predator or prey, the ability to see allows an individual organism to receive and perceive information about their environment over large distances.
@@ -28,10 +23,11 @@ Reproduced (with modifications) from \href{https://commons.wikimedia.org/wiki/Fi
 \label{fig:bg_visual_pathway}
 \end{figure}
 
-In humans and other mammals, the visual system is composed of several processing stages, illustrated in \autoref{fig:bg_visual_pathway}.
-Light enters the eye (potentially focused into a clear image by the lens), and is encoded as electrical signals in the retina at the back of the eye.
+Across all mammals, the visual system is composed of several processing stages, illustrated in \autoref{fig:bg_visual_pathway}.
+Light enters the eye (if possible, focused into a clear image by the lens), and is encoded as electrical signals in the retina at the back of the eye.
 This information is transmitted to the brain through the optic nerve, where it reaches the \ac{LGN}.
 From here, the visual information is propagated to the \acf{V1}, which feeds its outputs to the rest of the visual (and non-visual) cortical regions.
+For humans and other primates, vision is our dominant sense, and a large fraction of our brains (sometimes estimated as around half the brain, excluding the cerebellum) is devoted to processing visual information.
 
 
 \subsection{The central nervous system}
@@ -43,14 +39,31 @@ Neurons are common across all species of animals, though the architecture of the
 Plants are also able to infer properties of their environment and respond accordingly using chemical and electrical signals, despite their lack of neurons \citep{Brenner2006,Barlow2008}.
 }
 The peripheral nervous system and the retina together provide a stream of data about the environment within which the subject resides, known as the \termemph{senses} (sight, sound, touch, smell, taste, temperature, pressure, \textit{etc.}).
-The computations performed by the central nervous system allow it to extract features from this stream of sensory information, store properties of it for later computational use, and decide which behavioural actions to perform in order to influence the environment of its body \citep{TEDWolpert}.
+The computations performed by the central nervous system allow it to extract features from this stream of sensory information, store properties of it for later computational use, and decide which behavioural actions to perform in order to move its body and influence the environment within which it resides (arguably the only important function of a brain; \citealp{WolpertTED}).
 
 Information transmission between neurons is principally mediated by changes in the voltage, or potential difference, between the inside and the outside of the neuron \citep[Chapter~2]{nsbook}.
-The change in voltage within one neuron propagates along its cell body, and can affect other neurons which make direct conductive connections with it.
-However, the majority of connections between neurons are indirect, involving a synaptic junction between the output of one neuron and the input to the next.
-In this situation, the voltage of one neuron (the ``sending'' neuron) --- which is negative at rest, around \SI{-70}{\milli\volt} --- must become sufficiently hyperpolarised to trigger a change in the state of the neuron such the distribution of ion channels open changes.
-Then there is a spike and it travels down the axon.
-At the terminus of the axon, neurotransmitters are released which cross the synapse to induce a change in voltage in the recipient neuron.
+A change in this membrane potential within one neuron will propagate along its cell body, and in doing so will affect other neurons which make direct conductive connections with it.
+However, the majority of connections between neurons are indirect, involving a synaptic junction in which chemicals, referred to as neurotransmitters, are passed from one neuron to the other in order to induce an electrochemical change in the recipient.
+
+In order to transmit electrical signals over long distances (longer than \SI{1}{\milli\metre}), instead of making direct, analog connections with one another, neurons digitise their information as \termemph{action potentials}.
+At rest, the membrane potential of a neuron is typically negative, around \SI{-70}{\milli\volt}.
+For an action potential to be elicited by a neuron, its membrane potential must depolarise, becoming less negative.
+Once the membrane voltage passes above a certain threshold (typically around \SI{-55}{\milli\volt}, but the specific value depends on the neuron in question) a temporary change occurs in the dynamics of the ion channels which allow ionised chemicals to pass between the inside and outside of the cell is triggered.
+Sodium ions suddenly flow into the neuron, then potassium ions flow out just as suddenly, causing the membrane potential to rapidly increase to around \SI{+40}{\milli\volt} and then fall back to a voltage a little below its value at rest.
+The sharp rise and fall of the voltage across the membrane is known as an action potential, or \textemph{spike}, and has a duration of only around \SIrange{1}{2}{\milli\second} \citealp[Chapter~1]{Dayan2001}.
+Following a spike, there is a recovery period (refractory period) of another few milliseconds during which further spikes cannot be elicited; following this system is to its original resting state.
+
+We can consider an occurrence of action potential event to be the output of a neuron.
+Aided by an insulating covering of myelin and repeating stations (known as Nodes of Ranvier), an action potential can travel along its \termemph{axon} for long distances.%
+\footnote{
+% The longest neuron in the human body is the sciatic nerve, which stretches from the base of the spine to the big toe.
+The longest axon in the human body is the that of the dorsal root ganglion, which extends from the big toe to the primary sensory cortex in the brain.
+The equivalent nerve in the blue whale can have an uninterrupted axon \SI{25}{\metre} in length \citep{Smith2009,Voytek2012}.
+}
+At the terminus of the axon, synaptic connections are formed with the dendrites of other neurons.
+Upon the arrival of an action potential at the synapse, neurotransmitters are released which can either increase or decrease the membrane potential of the recipient neuron.
+
+Learning occurs principally by the strengthening and weakening of these synaptic connections between neurons such that more or fewer neurotransmitters are transferred into the recipient upon the arrival of a single action potential (\citealp[Chapter~23]{nsbook}; \citealp[Chapter~8]{Dayan2001}).
 
 
 \subsection{The eye}
@@ -60,6 +73,8 @@ In this section, since we are concerned with the mammalian visual system, we des
 %
 % Light, after entering the eye, lands upon the retina, where neurons detect and encode.
 
+\citet[Chapter~11]{nsbook} % eye
+
 
 \subsubsection{Rods and cones}
 
@@ -67,15 +82,16 @@ For any visual system, the most fundamental component is a set of cells which ar
 In mammals the light-sensitive cells, or photoreceptors, come in two types: rods and cones.%
 \footnote{
 There are also intrinsically photosensitive \aclp{RGC}, however these cells are not directly involved in forming an image of the visual stimulus.
-Instead, they mediate the circadian rhythm, and influence pupil dilation \citep{Berson2002,Ecker2010,Wong2005}.}
+Instead, they mediate the circadian rhythm, and influence pupil dilation \citep{Berson2002,Ecker2010,Wong2005}.
+}
 Rods and cones are subtypes of neuron which are surrounded by photosensitive pigment.
 When photons of light collide with the photopigment protein, it changes state and shape, causing a cascade of biochemical changes resulting in the closing of ion channels in the cell membrane of the neuron.
-Since the the energy in the photon%
-\footnote{The amount of energy within a photon is related to its wavelength according to the Planck--Einstein relation,
-$E = h f$, where $E$ denotes the energy of a photon, $f$, the frequency associated with it, and $h$ is the Planck constant.% h = 6.626...\times 10^{−34}
+Since the energy in the photon%
+\footnote{
+The amount of energy within a photon is related to its wavelength according to the Planck--Einstein relation,
+$E = h f$, where $E$ denotes the energy of a photon, $f$, the frequency associated with it, and $h$ is Planck's constant.% h = 6.626...\times 10^{−34}
 }
-(which is indivisibly quantised)
-must closely match the difference in energy levels of the photopigment, each photopigment is only sensitive to a particular range of wavelengths of light.
+(which is indivisibly quantised) must closely match the difference in energy levels of the photopigment, each photopigment is only sensitive to a particular range of wavelengths of light.
 The spectral absorption curves for photopigments used in the rods and cones of humans are shown in \autoref{fig:bg_cone_responses}.
 
 \begin{figure}[htbp]
@@ -95,21 +111,24 @@ Rod photoreceptor cells are very sensitive to light, making them ideal for seein
 % These cells have a large surface area over which the photopigment is exposed to light, and their photopigment is very sensitive, producing a high gain on the detected signal.
 However, in well-lit scenes, rods quickly become saturated, at which point they offer no information about the external world other than the fact that it is ``quite bright right now''.
 
-Cone photoreceptors come in several different types, using different photopigments to detect different ranges of the electromagnetic spectrum.
+Cone photoreceptors come in several different types, each using a different photopigment to detect different ranges of the electromagnetic spectrum.
 In humans, there are three types%
-\footnote{With the exception of colour-blind individuals, who sometimes have only two or fewer types of cones, and tetrachromats \citep{Nagy1981,Jordan1993,Jameson2001} who have four.}
+\footnote{With the exception of colour-blind individuals, who may have only two or fewer types of cones, and tetrachromats \citep{Nagy1981,Jordan1993,Jameson2001} who have four.}
 of cones:
-\acl{L}, \acl{M}, and \acl{S} (\acsu{L}, \acsu{M}, and \acsu{S}).
+\acl{L}, \acl{M}, and \acl{S} (\acsu{L}, \acsu{M}, and \acsu{S}) cones.
 These can be approximately considered sensitive to red, green, and blue light respectively --- however, it should be noted that there is a broad range of wavelengths which each is sensitive to (see \autoref{fig:bg_cone_responses}), and this range is very similar for the \ac{L} and \ac{M} cells.
 Possessing three cones makes humans (along with other apes and Old World monkeys) the exception instead of the norm within the mammal class --- most mammals, including cats, dogs, and the New World monkeys, are dichromatic with only two types of cones (\ac{M} and \ac{S}).
 
-Possessing cones with different spectral sensitivities enables \textemph{colour vision}.
-For a given frequency of light, we can consider the response evoked in each cone type.
+The presence of photoreceptors with different spectral sensitivities enables \textemph{colour vision}.
+When light of a given frequency meets the retina, we can compare the relative responses of the different types of cone to determine which frequency it was.
+From the absolute intensity of the responses, we can determine the intensity or brightness of the light.
 
 
 \subsubsection{Bipolar and \aclp{RGC}}
 
-Rods and cones are connected to bipolar cells, are also located in the retina of the eye.
+Since there are about \num{130} million photoreceptors in the human eye, but only \num{1.5} million axons which send information from the retina to the brain \citep{Nassi2009}, the information collected from the photoreceptors must be processed.
+
+Within the retina, rods and cones feed their outputs into bipolar cells, are also located in the retina of the eye.
 
 These feed into \acp{RGC}, which detect centre-surround differences in colour, 
 
@@ -134,18 +153,6 @@ Parasol \acp{RGC} feed Magnocellular \ac{LGN} (M-pathway), then L$4C\alpha$
 
 
 
-\subsection{The brain}
-
-Glial cells provide support for the neurons
-
-Information about the 
-
-Half the monkey cortex is dedicated to visual processing
-
-Cortex allows generic information processing
-
-
-
 \subsection{The \acl{LGN}}
 
 within the thalamus
@@ -159,12 +166,31 @@ The primary visual cortex is sensitive to orientated bars edges at different
 
 Classically, this was understood as simple and complex cells, however the full processing is more complicated \cite{Harris2013}
 
-Topological maps form across the cortex, which appears to be a self-organising mapping \cite{Miikkulainen2005,Stevens2013,Wilson2015}.
+Topological maps form across the cortex, which appears to be a self-organising mapping providing good coverage over all inputs to \ac{V1} \cite{Miikkulainen2005,Stevens2013,Wilson2015}.
 
 
-\subsection{Rest of cortex}
+\subsection{Rest of visual cortex}
 
-Infero-temporal gyrus contains face cells and concept cells \cite{Quiroga2012}
+Two streams \cite{Goodale199220,Mishkin198257}.
+
+Beginning with \ac{V1} and \ac{V2}, the dorsal stream progresses to \ac{V5} and \ac{V6}.
+It is involved with spatial attention, communicating with regions which control eye movements and those that control hand movements, hence it is nicknamed the ``where'' pathway.
+
+The ventral stream also begins with \ac{V1} and \ac{V2}, but then progresses to \ac{V4} and \ac{IT}.
+Involved in the recognition, identification, and categorization of visual stimuli, it is referred to as the ``what'' pathway.
+Whilst \ac{V1} responds strongly to oriented bars, \ac{V2} and \ac{V4} have been found to respond to increasingly more abstract shapes.
+At the higher end of the visual stream, \ac{IT} contains cells which have been identified to respond to high-level objects, such as faces.%, and concept cells \cite{Quiroga2012}.
+
+
+\subsection{The rest of the brain}
+
+Glial cells provide support for the neurons
+
+Information about the 
+
+Half the monkey cortex is dedicated to visual processing
+
+Cortex allows generic information processing
 
 
 %------------------------------------------------------------------------------
