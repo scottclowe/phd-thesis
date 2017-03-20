@@ -1076,6 +1076,8 @@ FUNCTION {misc}
   new.block
   format.title output
   new.block
+  booktitle emphasize "booktitle" output.check  %% new
+  new.block
   howpublished output
   new.block
   format.eprint output
