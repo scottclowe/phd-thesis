@@ -13,7 +13,7 @@ In this chapter, we will investigate the information encoded in the phase of the
 \label{sec:lam_phase_method}
 
 The phase was computed in a similar manner to the power in \autoref{sec:lam_power_method}.
-We filtered both the \ac{LFP} and \ac{CSD} using a series of bands each with a fractional bandwidth of \SI{50}{\percent}, spaced logarithmically at multiples \num{1.291}.
+We filtered both the \ac{LFP} and \ac{CSD} using a series of bands each with a fractional bandwidth of \SI{50}{\percent}, spaced logarithmically at multiples of \num{1.291}.
 This spacing ensures each band has \SI{0}{\percent} overlap with bands further away than its immediate neighbours and a \SI{44}{\percent} and \SI{56}{\percent} overlap with its preceding and succeeding bands respectively.
 The filter chosen was a zero-phase sixth-order Butterworth filter, after which the instantaneous phase was estimated by taking the angle of the Hilbert transform.
 The phase the \SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz} bands was extracted in the same manner.
@@ -27,11 +27,6 @@ Similar to \autoref{sec:lam_info_method}
 \subsection{Phase-phase correlation}
 
 We used directional (or circular) statistics
-Circular statistics were computed using the CircStat toolbox \citep{Berens2009}.
-
-
-\subsection{Phase-power correlation}
-
 Circular statistics were computed using the CircStat toolbox \citep{Berens2009}.
 
 
