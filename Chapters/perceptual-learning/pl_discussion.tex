@@ -49,8 +49,17 @@ Previous analysis of the same dataset found the response time of the subject fel
 Using a decoder to classify the stimuli based on the population activity, we found that before training the subject there was more information about the stimulus in the small population of \ac{V1} neurons than we recorded than in the behavioural responses of the subject.
 As training progressed, the information encoded in the \ac{V1} neurons of \ac{M2} rose, but not as quickly as the behavioural performance rose, such that after training the behavioural performance was higher than the decoder trained on \ac{V1} activity.
 In contrast, the \ac{V4} population contained a similar amount of information about the stimulus as the behavioural response, and though both rose with training, this remained true throughout the experiment.
-These results suggest a large amount of redundancy in the neural activity, since decision processes of the subject in principle have access to all the neurons of the brain, but perform at a level comparable with a decoder train on the activity of only around \num{20} neurons.
-Furthermore, the performance we could attain with only a handful of \ac{V1} neurons was higher than the initial performance of the individual.
+These results suggest a large amount of redundancy in the neural activity, since decision processes of the subject in principle have access to all the neurons of the brain, but perform at a level comparable with a decoder train on the activity of only around \num{20} neurons.%
+\footnote{
+\label{foot:pl_decoder_saturation}
+In fact, the situation is more extreme than this.
+We used greedy feature selection to investigate the performance of the decoder as a function of the number of channels available to it, and found the decoder performance saturated with only \num{8} recording channels (not shown).
+}
+Furthermore, the performance we could attain with only a handful of \ac{V1} neurons%
+\footnote{
+The decoder trained on \ac{V1} activity also saturated with the \num{8} best recording channels (see \hyperref[foot:pl_decoder_saturation]{Footnote~\ref{foot:pl_decoder_saturation}}).
+}
+was higher than the initial performance of the individual.
 This indicates the information needed to complete the task is available before training begins, but that neural pathways  must be rewired for such information to propagate to the higher cortical regions which decide what behavioural response to provide.
 
 By shuffling responses from recording channels across trials, we measured the impact of noise correlations on the decoder trained on either \ac{V1} or \ac{V4} activity.
