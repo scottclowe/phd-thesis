@@ -2795,8 +2795,8 @@ An alternative solution to this is to measure the mutual information between the
 Conditional mutual information is the expected mutual information between two variables conditioned on a third,
 \begin{align}
 \I(X;Y|Z)
-  &= \E_{Z} \left[ I(X;Y|Z) \right] \notag
-\\&= \EE_{X, Y, Z} \left[ \log_2 \frac{p(x,y|z)}{p(x|z)p(y|z)} \right] \notag
+  &= \E_{z\sim Z} \left[ I(X;Y|Z) \right] \notag
+\\&= \EE_{x\sim X, y\sim Y, z\sim Z} \left[ \log_2 \frac{p(x,y|z)}{p(x|z)p(y|z)} \right] \notag
 \\&= \sum_{z \in \SET{Z}} p(z) \sum_{x \in \SET{X}, \, y \in \SET{Y}} p(x,y|z) \, \log_2 \frac{p(x,y|z)}{p(x|z)p(y|z)}
 \label{eq:conditional-info}
 .\end{align}
