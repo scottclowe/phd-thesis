@@ -7,7 +7,7 @@
 
 When an individual repeatedly performs a sensory perception task they will, over time, demonstrate an improvement in performance.
 If the task is repeated --- frequently and over the course of several weeks --- until performance finally saturates, the effect can persist for months.
-This phenomenon is known as perceptual learning, and its duration sets it apart from shorter term effects such as sensitization (transient increase in sensitivity following a period of stimulation) and priming (change in perception of one stimulus immediately following a different, faint, stimulus).
+This phenomenon is known as perceptual learning, and its duration sets it apart from shorter term effects such as sensitization (a transient increase in sensitivity following a period of stimulation) and priming (a change in perception of one stimulus immediately following a different, but related, stimulus).
 
 For the purposes of studying perceptual learning, fine-grained discrimination tasks are appropriate; since they are intrinsically difficult, they cannot be immediately solved and there is scope for improvement.
 For instance, an example of a typical task chosen by neuroscientists when studying perceptual learning is that of discerning the difference between straight lines of very similar orientations, or the alignment offset between sets of straight lines, known as vernier acuity.
@@ -25,12 +25,6 @@ The `early' model hypothesises that improvements principally occur at a low leve
 The `late' model states that improvements are in the higher level cortical areas related to decision making \citep{Yu2004}.
 Whilst according to the `reverse hierarchy model', improvements are made first in higher level decision areas, and then these are propagated down the cortical hierarchy to lower levels via top-down feedback signals if the changes at higher levels are insufficient \citep{Ahissar2004,Hochstein2002}.
 
-%%%
-The most obvious of these is that we would expect the information contained in the population spiking activity to increase over time as perceptual learning occurs.
-This is likely to involve an increase in information for some of the individual neurons, but not necessarily all.
-In line with previous experiments \citep{Raiguel2006}, I would also expect to see more of a change in information for neurons in \ac{V4} than \ac{V1}, and also a greater change in the \ac{V4} neurons which are the most informative to begin with \citep{Raiguel2006}.
-In keeping with the reverse hierarchy model, learning should begin in \ac{V4} first before being propagated down to \ac{V1}, so one would expect to see distinct increases in the mutual information between the stimulus and \ac{V4} on a shorter timescale than between \ac{V1} and \ac{V4}.
-%%%
 
 Perceptual learning is thought to be connected to cortical remapping and reorganisation in response to similar stimuli \citep{Dinse2003,Pleger2003,Polley2006}.
 In such experiments, the region of the cortex coding for the stimulus is seen to expand.
@@ -54,9 +48,13 @@ Since all neurons in the visual system have contrast tuning to some degree, one 
 However, perceptual learning has proven unreliable for such discrimination problems, possibly because contrast sensitivity is already overtrained due to its importance in low-light conditions.
 Better results have sometimes been found if the contrast test stimulus is accompanied with flanking stimuli \citep{Adini2002}, a phenomenon known as context-dependent learning, though other studies have found learning occurs at the same rate both with and without flankers \citep{Yu2004}, despite nearly identical setup between the experiments with the conflicting two results.
 
-%%%
+
+When studying perceptual learning with information theory, an obvious expectation is for the information contained in the population spiking activity to increase over time as perceptual learning occurs.
+It is also likely that this increase will not be symmetric across the population, with some neurons adapting their responses to the training stimulus class more than others.
+In line with previous experiments \citep{Raiguel2006}, I would also expect to see more of a change in information for neurons in \ac{V4} than \ac{V1}, and also a greater change in the \ac{V4} neurons which are the most informative to begin with \citep{Raiguel2006}.
+In keeping with the reverse hierarchy model, learning should begin in \ac{V4} first before being propagated down to \ac{V1}, so one would expect to see distinct increases in the mutual information between the stimulus and \ac{V4} on a shorter timescale than between \ac{V1} and \ac{V4}.
+
 Since temporal coding, in particular response latency, has been found to be important for subtle contrast differences \citep{Reich2001,Arabzadeh2006}, I hypothesise that the amount of information in the temporal coding of the spiking data will have increased above and beyond any increase in the information contained in the firing rates alone.
 Furthermore, I expect to see that response latencies become more stimulus dependent, conveying an increasing amount of information about the stimulus contrast.
 
 Additionally, since these studies \citep{Reich2001,Arabzadeh2006} also found the information contained within firing rate alone was sufficient for gross discrimination of contrast, I hypothesise that information in the latency and temporal code will only increase significantly for test stimuli close in contrast to the sample stimulus (see \autoref{ch:exp} for an explanation of the experimental setup).
-%%%

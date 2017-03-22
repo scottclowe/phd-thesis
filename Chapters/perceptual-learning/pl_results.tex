@@ -1557,7 +1557,7 @@ In this section, we investigate when the firing rate of the neurons is most info
 \subsection{Methods and results for information latency}
 
 We considered the firing rate of the neuron as measured within windows of varying lengths, logarithmically spaced from \SI{2.5}{\milli\second} to \SI{501}{\milli\second}.
-Since we are now using windows shorter than the stimulation period, we also varied the latency of the window with respect to the time of the stimulus onset.
+Since we are using windows shorter than the stimulation period, we also varied the latency of the window with respect to the time of the stimulus onset.
 For each window duration, we varied the latency of the window from the very start to the very end of the stimulus presentation period, at linear intervals equal to either \SI{10}{\milli\second} or one quarter of the window duration (whichever was shorter).
 
 \begin{figure}[htbp]%
@@ -1645,7 +1645,11 @@ This curve is different from those shown in \autoref{fig:info_winlen} due to the
 }
 \end{figure}
 
-As the set of window latencies considered is necessarily different for each window duration (one cannot examine the information encoded in a window with \SI{500}{\milli\second} duration and starting from a \SI{100}{\milli\second} latency when the stimulus is only presented for \SI{527}{\milli\second}), we cannot simply average the data over the experimental session dimension.
+As the set of window latencies considered is necessarily different for each window duration,%
+\footnote{
+One cannot reasonably examine the information encoded in the \SI{400}{\milli\second} of stimulus-driven activity starting from a \SI{200}{\milli\second} latency, since the stimulus presentation has finished within \SI{530}{\milli\second}.
+}
+we cannot simply average the data over the experimental session dimension.
 Since we wish to understand \textemph{when} the firing rate is most informative about the stimulus, we reparametrised the results over latencies with a very high sampling frequency and, for each window duration, took the average over all information measurements containing this latency.
 These steps were repeated for bootstrapped information values, and their average was subtracted from the information estimate.
 Information values less than \num{3} times the standard deviation of the bootstraps were considered non-significant (indicated in white in \autoref{fig:info_offset_vs_winlen}).
@@ -1793,7 +1797,7 @@ Above-right: for \zonename{A} and \zonename{B}, the distribution over channels o
 
 
 For both subjects, the sharp peak in the information contained in \ac{V1} coincides precisely with the maxima of the average firing rate, with a latency of approximately \SI{50}{\milli\second}.
-The firing rate for \ac{V4} shows a large stimulus-onset response with \SI{100}{\milli\second} latency for \ac{M1} (see \autoref{fig:fr_hm_v4_blanco}), but this is not present for \ac{M2} (absent from \autoref{fig:fr_hm_v4_jack}).
+The firing rate for \ac{V4} shows a large stimulus-onset response with \SI{100}{\milli\second} latency for \ac{M1} (see \autoref{fig:fr_hm_v4_blanco}), but this is not present for \ac{M2} (see \autoref{fig:fr_hm_v4_jack}).
 However, for \ac{M2} the overall firing rate increased significantly ($p < 5 \times 10^{-6}$) with training by \SI{2.30\pm0.35}{Hz}.
 These observations correspond to our sensitivity analysis (see \autoref{sec:pl_dprime}), where we observed almost all recording channels for \ac{M2} \ac{V4} were initially not tuned to the stimulus class.
 The firing rate showed no change over training for \ac{M2} ($p=0.97$).
@@ -1936,12 +1940,14 @@ The amount of information encoded in the peak response also falls for both subje
 
 We found that the amount of information encoded in the \ac{V1} firing rate fell as the duration of the window used to summate the neural activity increased above \SI{100}{\milli\second}.
 This ran counter to our expectations, since a longer window duration should intuitively integrate over more signal, resulting in an increase in information.
-This result indicates that the number of spikes elicited during the sharp burst of activity triggered by the onset of the stimulus is negatively correlated with the number of spikes elicited later in the stimulus presentation.
-Such a negative correlation would have to be dispersed over a long duration, otherwise we detect it as another high-information content signal.
-But if it were dispersed, the effects would be manifest as a reduction in information with longer windows including the onset response because the two signals would partially cancel out.
-Such a phenomenon could be triggered by the natural dynamics of the neurons, which become harder to excite after repeated firing due to a decrease in the resting membrane potential, increase in sodium and decrease of potassium within the cell, and depletion of available neurotransmitters.
+However, this follows naturally from the fact that the sharp burst of activity triggered by the onset of the stimulus contains so much more information than the activity which subsequently follows it.
+The activity later in the stimulus presentation period has a signal-to-noise ratio much lower than the preceding activity, so including this in the window will reduce the overall signal-to-noise ratio and hence the total information.
+% An alternative interpretation is this that the number of spikes elicited during the sharp burst of activity triggered by the onset of the stimulus is \textemph{negatively correlated} with the number of spikes elicited later in the stimulus presentation.
+% Such a negative correlation would have to be dispersed over a long duration, otherwise we detect it as another high-information content signal.
+% But if it were dispersed, the effects would be manifest as a reduction in information with longer windows including the onset response because the two signals would partially cancel out.
+% Such a phenomenon could be triggered by the natural dynamics of the neurons, which become harder to excite after repeated firing due to a decrease in the resting membrane potential, increase in sodium and decrease of potassium within the cell, and depletion of available neurotransmitters.
 
-Despite this, there was an increase in the information encoded in \ac{V1} with longer windows for \ac{M1}, due to another signal containing information about the stimulus in the final \SI{200}{\milli\second} of stimulus presentation (\autoref{fig:info_offset_vs_winlen_dif_v1_jack}).
+Despite this, there was an increase in the information encoded in \ac{V1} with longer windows for \ac{M1}, due to another increase in the amount of information about the stimulus contained in the firing rate during the final \SI{200}{\milli\second} of stimulus presentation (\autoref{fig:info_offset_vs_winlen_dif_v1_jack}).
 This signal increased in information over training despite the firing rate at this latency after the onset of the stimulus remaining the same during training (\autoref{fig:fr_hm_v1_jack}).
 The same result --- an increase in late-presentation information without an increase in firing rate --- was found in \ac{V4} for \ac{M1} (\autoref{fig:info_offset_vs_winlen_dif_v4_blanco}).
 
@@ -2072,7 +2078,7 @@ figs/info2/tp5/I_sessionwise_tp3_blanco_v1_chmean14_s343-359_oc0_Gclass-group-ba
         \includegraphics[scale=.45]{%
 figs/info2/tp5/I_sessionwise_tp3_jack_v1_chmean20_s51-72_oc0_Gclass-group-balanced_1bins_of_200ms_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
     \hspace*{\fill}
-    \caption{\captionemph{Information about the stimulus encoded in \ac{V1} when the stimulus is not present.}
+    \caption{\captionemph{Information about the stimulus encoded in \ac{V1} after stimulus is removed.}
 In \protect\subref{fig:info_tp5_v1_blanco} and \protect\subref{fig:info_tp5_v1_jack}, the amount of information about whether the contrast of the stimulus exceeded \SI{30}{\percent} encoded in the firing rate during the window \SIrange{220}{420}{\milli\second} after the stimulus was removed.
 In \protect\subref{fig:respinfo_tp5_v1_blanco} and \protect\subref{fig:respinfo_tp5_v1_jack}, the amount of information about the behavioural response given by the subject encoded in the firing rate during the window \SIrange{220}{420}{\milli\second} after the stimulus was removed.
 In \protect\subref{fig:info_tp3_v1_blanco} and \protect\subref{fig:info_tp3_v1_jack}, the information about the stimulus encoded in the \SI{200}{\milli\second} before the stimulus was presented, shown here for comparison purposes only.
@@ -2112,7 +2118,7 @@ figs/info2/tp5/I_sessionwise_tp3_blanco_v4_chmean25_s307,308,311,313,314,317,318
         \includegraphics[scale=.45]{%
 figs/info2/tp5/I_sessionwise_tp3_jack_v4_chmean18_s24,25,27-38,40-49_oc0_Gclass-group-balanced_1bins_of_200ms_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
     \hspace*{\fill}
-    \caption{\captionemph{Information about the stimulus encoded in \ac{V4} when the stimulus is not present.}
+    \caption{\captionemph{Information about the stimulus encoded in \ac{V4} after stimulus is removed.}
 In \protect\subref{fig:info_tp5_v4_blanco} and \protect\subref{fig:info_tp5_v4_jack}, the amount of information about whether the contrast of the stimulus exceeded \SI{30}{\percent} encoded in the firing rate during the window \SIrange{220}{420}{\milli\second} after the stimulus was removed.
 In \protect\subref{fig:respinfo_tp5_v4_blanco} and \protect\subref{fig:respinfo_tp5_v4_jack}, the amount of information about the behavioural response given by the subject encoded in the firing rate during the window \SIrange{220}{420}{\milli\second} after the stimulus was removed.
 In \protect\subref{fig:info_tp3_v4_blanco} and \protect\subref{fig:info_tp3_v4_jack}, the information about the stimulus encoded in the \SI{200}{\milli\second} before the stimulus was presented, shown here for comparison purposes only.
@@ -2144,7 +2150,7 @@ Since our test stimulus is only presented for \SI{530}{\milli\second}, the amoun
 % INCLUDE AFTERIMAGE EXAMPLE STIMULUS
 
 Secondly, there could be a residual effect residing in the visual cortex itself.
-Possible mechanisms include activity patterns sustained in recurrent activity, delayed responses to the stimulus due to slow, long-range lateral connections, and desensitisation through depletion of neurotransmitters causing a negative afterimage as discussed before in the context of the retina.
+Possible mechanisms include activity patterns sustained in recurrent activity, delayed responses to the stimulus due to slow, long-range lateral connections, and desensitisation through depletion, which could result in effects either positively or negatively correlated with the contrast of the preceding stimulus.
 
 Thirdly, there could be top-down effects driven by feedback from higher cortical regions.
 The experimental paradigm we are using requires the subject to remember the stimulus, or properties of it, for \SI{425}{\milli\second} before they can give their response.
@@ -2609,7 +2615,7 @@ Our results from the population-level decoder correspond to our findings about t
     We also report the accuracy of the linear decoder when trained on a copy of the data with responses recorded from each channel matched at random such that noise correlations are removed (red; see \autoref{sec:pl_dec_shuffle}).
     For comparison, the behavioural performance of the subject is also shown for each recording session (black).
     In \protect\subref{fig:dec_b1_info} and \protect\subref{fig:dec_j1_info}, we show the information about the stimulus group (higher or lower than \SI{30}{\percent} contrast) contained in the responses from the behaviour and decoders (main $y$-axis, left-side).
-    A second $y$-axis (right-side) shows the overall accuracy which would be illicit this information (assuming the same accuracy for every stimulus).
+    A second $y$-axis (right-side) shows the overall accuracy which would illicit this information (assuming the same accuracy for every stimulus).
 }
     \label{fig:dec_all_v1}
 \end{figure}
@@ -2719,7 +2725,7 @@ With \ac{V1} \ac{M2}, the performance of the decoder starts high and does not ma
 This means that the information needed to complete the task accurately was present in the primary visual cortex from the start, but the subject needed to rewire higher cortical regions in order to access this information when making its decision about the stimulus.
 
 The performance of the decoder always \textemph{increased} when we removed noise correlations between channels by shuffling the data across trials.
-This suggests that noise correlations hinder the ability of the brain to perceive the contrast of the stimulus correctly, and the subject's performance would potentially improve if the visual cortex learnt to decouple the noise for its neurons.
+This suggests that noise correlations hinder the ability of the brain to perceive the contrast of the stimulus correctly, and the subject's performance would potentially improve if the visual cortex learnt to decouple the noise for its neurons \citep{Cohen2008}.
 However, there was no particular decline in the difference between the decoder trained on the original data and the decoder trained on shuffled data.
 The decline in difference with and without noise correlations in \ac{V1} for \ac{M1} is most likely due to a decline in recording signal quality since the accuracy of the model falls over time.
 For \ac{M2}, the marginal decrease in difference is most likely due to saturation of the model performance --- the decoder trained on data with noise correlations removed attains \SI{94}{\percent} accuracy by the final session, which leaves little room for improvement.

@@ -7,21 +7,24 @@ We were interested in studying the neural correlates of this phenomenon, referre
 The experimental process was performed for two macaques (\ac{M1} and \ac{M2}), and we analysed the amount of information encoded in the spike trains elicited in response to the test stimulus, whose contrast was selected within a range of \SIrange{5}{90}{\percent}.
 
 
-\subsection{Summary and discussion of findings}
+\subparagraph{Task-pertinent information}
 
 We decomposed the information about the stimulus contained in the neural activity into task-pertinent information, which helps an observer distinguish whether the presented stimulus had a contrast higher or lower than \SI{30}{\percent}, and task-nonpertinent information which only distinguish which of the \num{7} stimuli in each of the two categories was more likely.
-We found the amount of information which was not pertinent to the experimental task remained the same throughout training, whereas the amount of information which was pertinent to the task increased (this increase was statistically significant for \ac{M2} but not \ac{M1}).
+From this, we found the amount of information which was not pertinent to the experimental task remained the same throughout training, whereas the amount of information which was pertinent to the task increased (this increase was statistically significant for \ac{M2} but not \ac{M1}).
 These observations are compatible with the hypothesis that the cortex is rewiring itself with training in a way which is directed towards optimising the target objective provided by the experimental protocol, which might be provided to visual regions in feedback from higher cortical regions involved with decision making.
 It also suggests that the neurons in the visual cortex are restricted to encoding information in a certain manner, such that they can not increase the task-pertinent information at the expense of the information encoded about the stimulus which is not relevant to the behavioural task.
 One possible explanation for this that the contrast tuning curves of the cortical neurons become sharper with training, but the tuning curves are constrained such they cannot mimic the step-function.
 A previous study analysing the same dataset, \citet{Chen2013} found that exponential functions corresponding to the psychometric performance of the subject became steeper with training, in corroboration with this idea.
+
+
+\subparagraph{Timing of information}
 
 Within \ac{V1}, the most informative neural activity was the transient response to the onset of the stimulus, an observation supported by previous literature \citep{Muller2001}.
 This is the first cortical response to the stimulus after it is presented, occurring with a latency of approximately \SI{50}{\milli\second}, in which the firing rate increases sharply, but briefly.
 More information can be obtained by observing the neural activity during a short slice of only \SI{10}{\milli\second} than the overall firing rate for the entire \SI{530}{\milli\second} stimulus presentation period, provided the timing of the \SI{10}{\milli\second} window is chosen appropriately.
 Furthermore, the most informative part of the stimulus onset response is the beginning.
 We previously reported \citep{Lowe2012} that splitting \SI{20}{\milli\second} windows into \num{5} bins each with duration \SI{4}{\milli\second} to capture spike timing information only yielded an increase in information above a rate code for the timing of the onset response.
-This is most likely because higher contrast stimuli elicit spikes sooner within the retina, and as a consequence the cortical response for higher contrast stimuli has lower latency.
+This is most likely because higher contrast stimuli elicit spikes sooner within the retina, and as a consequence the cortical response for higher contrast stimuli has lower latency \citep{Albrecht2002}.
 However, the amount of information encoded in the stimulus-onset response did not increase with training.
 In fact, for both subjects, it \textemph{declined} with training.
 This is most likely explained by a decline in quality of the recording electrodes --- in \autoref{sec:pl_dprime} we demonstrated the sensitivity of the electrodes in \ac{V1} declined over time.
@@ -29,12 +32,15 @@ The lack of improvement in the most informative \ac{V1} activity could be becaus
 However, this seems unlikely as \ac{V1} is the largest cortical region and appears to play an essential part of visual processing in mammals.%
 \footnote{There are direct connections from \ac{LGN} to \ac{V2} and \ac{V3}, but \ac{V1} also makes projections to both of these cortices.}
 Throwing away information from by far the most informative component of the response does not seem a likely coding strategy employed by the brain, but since changes in lighting and contrast are hurdles to be overcome when identifying a stimulus it is possible that this is the case.
-Usually the visual system needs to know what an object is in spite of its contrast, not to identify the contrast itself.
+Usually the visual system needs to know what an object is in spite of its contrast, not to identify the contrast itself, and later stages in the visual processing hierarchy are less sensitive to changes in contrast \citep{Sclar1990}.
 Because of this, it would be useful to see the results if this experiment were repeated with fine grained classification on a different stimulus property, such as orientation or spatial frequency.
 
 Although the information in the onset-response did not increase with training, the overall firing rate for the whole stimulus presentation did rise, for \ac{M2} at least.
 This was due to an increase in information in the late stages of stimulus presentation --- the final \SI{200}{\milli\second}.
 Since the neural activity present after the stimulus was removed contained more information about the behavioural response than the target label of the stimulus, and the decoder trained on data from later sessions showed a significant correlation with the behavioural responses, we believe this information is indicative of latent representation of the stimulus feedback sustained after the removal of the stimulus through feedback from higher cortical regions.
+
+
+\subparagraph{Information at the population level}
 
 As evidenced by our results with the linear decoder, \ac{V4} activity during the stimulus presentation is indicative of the behavioural response of the subject.
 We trained the linear decoder to classify the group of the stimulus, giving us a reflection of the information about the stimulus contained in the cortical activity.
@@ -55,11 +61,13 @@ These results suggest a large amount of redundancy in the neural activity, since
 In fact, the situation is more extreme than this.
 We used greedy feature selection to investigate the performance of the decoder as a function of the number of channels available to it, and found the decoder performance saturated with only \num{8} recording channels (not shown).
 }
-Furthermore, the performance we could attain with only a handful of \ac{V1} neurons%
+However this is not so surprising, since it has long been known that single neurons can convey a large fraction of the information present in the behavioural response \citep{Britten1992}.
+The information contained in a pooled set of neural responses saturates quickly as the size of the pool grows due to the correlations of the responses within the population \citep{Zohary1994}.
+But further to this, the performance we could attain with only a handful of \ac{V1} neurons%
 \footnote{
 The decoder trained on \ac{V1} activity also saturated with the \num{8} best recording channels (see \hyperref[foot:pl_decoder_saturation]{Footnote~\ref{foot:pl_decoder_saturation}}).
 }
-was higher than the initial performance of the individual.
+was \textemph{higher} than the initial performance of the individual.
 This indicates the information needed to complete the task is available before training begins, but that neural pathways  must be rewired for such information to propagate to the higher cortical regions which decide what behavioural response to provide.
 
 By shuffling responses from recording channels across trials, we measured the impact of noise correlations on the decoder trained on either \ac{V1} or \ac{V4} activity.
@@ -67,6 +75,8 @@ We found that the impact of noise correlations on the population-level informati
 However, we note that this interpretation of the results was not obvious when we measured the accuracy of the decoder instead of the information it contained, due to the non-linear relationship between information and accuracy.
 In a study of the macaque \ac{MSTd}, \citet{Gu2011} found similar results: pairwise noise correlations between neurons are reduced with training, but this does not yield an increase in performance in a decoder trained on the population activity.
 
+
+\subparagraph{Correlations with behaviour}
 
 % Cite work on **choice correlations**.
 
@@ -87,45 +97,3 @@ This seems the more likely conclusion to draw from the analysis.
 In particular, we suspect that the rise in information in \ac{M1} \ac{V1} about the behavioural response is restricted to the final \SI{200}{\milli\second} of activity, which is where we see increases in information about the stimulus.
 Although the \acl{V1} has long been believed to process visual information only, recent studies have shown that mouse \ac{V1} responds to locomotion, even in the dark \citep{Pakan2016,Saleem2013,Keller2012}.
 This finding lends support to the idea of projections to macaque \ac{V1} from motor planning regions, which could be triggered once the subject has decided on its response to the stimulus and is planning its saccade to the response stimuli.
-
-
-\subsection{Summary of interpretation}
-
-Together, our results show the most informative signal about the contrast of the stimulus within the cortex is contained in the initial response to the stimulus onset within \ac{V1}, and this does not rise with training.
-The population activity in \ac{V4} rises with training, in line with the rise in behavioural performance of the subject.
-This indicates that \ac{V4} is trained to be better at read out the information in \ac{V1} relevant to the task.
-Our results also indicate that feedback signals from higher cortical regions into both \ac{V1} and \ac{V4} become more pronounced with training.
-
-
-\subsection{Open directions for future research}
-
-There are obvious several directions for future work to expand on this study, some of which are more likely to bear fruit than others.
-
-We could use other models to classify the stimulus from the population activity.
-Linear models, such as linear regression or support vector machines would likely give similar performance to the Fisher linear discriminant which we employed.
-Non-linear models such as a multi-layered perceptron neural network may be able to information in the population activity which was lost when we made the assumption of monotonic tuning curves, however the difference in effect which would result is not likely to be very large.
-
-In our study, we trained the classifier on trials originating during an individual session, and evaluated in against the performance from held out trials from the same session.
-Consequently, it is possible for the model which we construct to deviate between sessions --- if the structure of the population activity changes over time the classifier built for the final session might be quite different from the classifier trained on the data from the first session.
-Allowing the model built by the classifier to change over time corresponds fits with the implicit assumption that the higher-cortical areas can, at will, change the mapping they employ to decode the results of lower-cortical areas.
-Instead, we could consider the implications of a fixed mapping from low to high cortical regions, for instance by training a decoder on data from the initial sessions, then fixing the decoder when evaluating the amount of information present in the later sessions.
-If there is little difference in performance between the two methods, this would suggest that the cortical region under consideration is directed to improve its encoding of the data by higher cortical regions, or is under the constraint of a certain decoding model employed by higher-cortical regions.
-
-The decoder-based population analysis from \autoref{sec:dec-meth-lin} and \autoref{sec:pl_agreement} could also be applied to the population activity collected over shorter windows, such as the few tens of milliseconds surrounding stimulus onset response.
-In doing so, we could repeat the results of \autoref{sec:pl_info_latency}, but for the information encoded in the population activity instead of the average information encoded by individual channels.
-The final outcome of this would be a heatmap similar to \autoref{fig:info_offset_vs_winlen_dif} showing when the population activity becomes more or less informative over time.
-However, we anticipate that the results would be similar to the ones we already have, just with a larger effect size (since the population is more informative than any individual channel) and without statistics (since we have many channels but only one neural population), and would not yield any more insight into the neural changes relating to perceptual learning.
-
-Similarly, we could apply the population activity decoder to the activity during the stimulus-off period, as we performed in \autoref{sec:pl_poststim_info} for individual channels.
-Again, we expect this would corroborate the results we have already reported.
-But since the effect size for post-stimulus information about the stimulus contained in individual channels was low, it would be useful to repeat this analysis using the population activity.
-
-Instead of training a decoder to classify the stimulus and investigating the agreement between the output of this classifier and the behavioural response, we could train a decoder to predict the behavioural response directly.
-Such a procedure would be similar to a brain-machine interface.
-
-We could compute the redundancy%
-\footnote{We utilise redundancy in the next chapter, and the methodology for its analysis is described in \autoref{sec:lam_redundancy_method}}
-between pairs of channels for the information they encode about the stimulus, and see how the redundancy changes with training.
-This would have to be reported with care, since the absolute amount of information encoded in the channels changes (typically increasing, but not always) with training.
-For instance, if the information encoded in each channel increases and some of the increase is the same information for each channel, this will cause the redundancy to rise.
-Consequently, it may be more interesting to consider the relative redundancy, normalised against the total information encoded in one or both of the channels, instead.

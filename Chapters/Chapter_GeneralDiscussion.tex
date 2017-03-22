@@ -1,4 +1,64 @@
 %!TEX root = ../PhDthesis.tex
-\chapter{General Discussion}
+\chapter{Discussion}
 
-The end
+In this thesis, we have ... generic
+
+
+\section{Summary}
+
+\subsection{Perceptual learning}
+
+Together, our results show the most informative signal about the contrast of the stimulus within the cortex is contained in the initial response to the stimulus onset within \ac{V1}, and this does not rise with training.
+The population activity in \ac{V4} rises with training, in line with the rise in behavioural performance of the subject.
+This indicates that \ac{V4} is trained to be better at read out the information in \ac{V1} relevant to the task.
+Our results also indicate that feedback signals from higher cortical regions into both \ac{V1} and \ac{V4} become more pronounced with training.
+
+
+\subsection{Laminar distribution of information}
+
+
+
+\section{Open directions for future research}
+
+There are obvious several directions for future work to expand on this study, some of which are more likely to bear fruit than others.
+
+
+\subsection{Perceptual learning}
+
+We identified the narrow beginning of the \ac{V1} stimulus-onset response as the most informative cortical signal conveying information about the contrast of the stimulus, and concluded this was likely to be because the latency of the signal reaching the cortex was sensitive to the contrast of the stimulus presented.
+Consequently, it would be useful to investigate the amount of information encoded in the latency of the first spike in response to the stimulus onset.
+That said, the spontaneous firing rate before the stimulus is around \SI{7}{Hz} (shown in \autoref{fig:fr_hm}), which implies a spontaneously generated spike will occur in the first \SI{50}{\milli\second} around \SI{35}{\percent} of the time.
+With this in mind, the time of the second spike after stimulus onset may prove even more informative.
+
+We used a Fisher linear discriminant classifier to decoded information in the population activity, and alternatives to this could be explored.
+Linear models, such as linear regression or support vector machines would likely give similar performance to the Fisher linear discriminant which we employed.
+Non-linear models such as a multi-layered perceptron neural network may be able to information in the population activity which was lost when we made the assumption of monotonic tuning curves, however the difference in effect which would result is not likely to be very large.
+
+In our study, we trained the classifier on trials originating during an individual session, and evaluated against the performance from held out trials from the same session.
+Consequently, it is possible for the model which we construct to deviate between sessions --- if the structure of the population activity changes over time the classifier built for the final session might be quite different from the classifier trained on the data from the first session.
+Allowing the model built by the classifier to change over time corresponds fits with the implicit assumption that the higher-cortical areas can, at will, change the mapping they employ to decode the results of lower-cortical areas.
+Instead, we could consider the implications of a fixed mapping from low to high cortical regions, for instance by training a decoder on data from the initial sessions, then fixing the decoder when evaluating the amount of information present in the later sessions.
+If there is little difference in performance between the two methods, this would suggest that the cortical region under consideration is directed to improve its encoding of the data by higher cortical regions, or is under the constraint of a certain decoding model employed by higher-cortical regions.
+
+Instead of training a decoder to classify the stimulus and investigating the agreement between the output of this classifier and the behavioural response, we could train a decoder to predict the behavioural response directly.
+Such a procedure would be similar to a brain-machine interface.
+
+The decoder-based population analysis from \autoref{sec:dec-meth-lin} and \autoref{sec:pl_agreement} could also be applied to the population activity collected over shorter windows, such as the few tens of milliseconds surrounding stimulus onset response.
+In doing so, we could repeat the results of \autoref{sec:pl_info_latency}, but for the information encoded in the population activity instead of the average information encoded by individual channels.
+The final outcome of this would be a heatmap similar to \autoref{fig:info_offset_vs_winlen_dif} showing when the population activity becomes more or less informative over time.
+However, we anticipate that the results would be similar to the ones we already have, just with a larger effect size (since the population is more informative than any individual channel) and without statistics (since we have many channels but only one neural population), and would not yield any more insight into the neural changes relating to perceptual learning.
+
+Similarly, we could apply the population activity decoder to the activity during the stimulus-off period, as we performed in \autoref{sec:pl_poststim_info} for individual channels.
+Again, we expect this would corroborate the results we have already reported.
+But since the effect size for post-stimulus information about the stimulus contained in individual channels was low, it would be useful to repeat this analysis using the population activity.
+This section of the analysis could also benefit from computing the conditional mutual information between the neural activity and the behavioural response, conditioned on the true stimulus group.
+
+Similar to the procedure we later used in \autoref{sec:lam_redundancy}, we could compute the redundancy between pairs of channels for the information they encode about the stimulus, and see how the redundancy changes with training.
+This would have to be reported with care, since the absolute amount of information encoded in the channels changes (typically increasing, but not always) with training.
+For instance, if the information encoded in each channel increases and some of the increase is the same information for each channel, this will cause the redundancy to rise.
+Consequently, it may be more interesting to consider the relative redundancy, normalised against the total information encoded in one or both of the channels, instead.
+
+
+\section{Laminar information}
+
+We could remove correlations between \ac{LFP} and \ac{MUA} using the method of \citet{Zanos2011}.
