@@ -972,18 +972,17 @@ Now we also observe that a broad range of temporal components contribute to this
 
 We wanted to consider the information about spatiotemporal components of the movie as a continuous function of both spatial and temporal frequency ranges.
 For this, we fixed the temporal bandwidth as \SI{6}{Hz} and again fixed the spatial bandwidth as one octave.
-As shown in \autoref{fig:lam_spatmf}, the two \ac{CSD} frequency ranges contain information about entirely complementary spatiotemporal components of the stimulus.
+As shown in \autoref{fig:lam_spatmf}, the two \ac{CSD} frequency ranges contain information about entirely complementary spatiotemporal components of the stimulus, and the \ac{MUA} contains information about the same spatiotemporal range as the \SIrange{60}{170}{Hz} power.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[scale=.5]{figs/tmf/tmf-v-spares-sggig-avg-spatmf2-2Band.eps}
+\includegraphics[scale=.5]{figs/tmf/spatmf2_3bnd.eps}
 %
 \caption{
 \captionemph{Information about different spatiotemporal components.}
 The luminance of the movie was filtered in the spatial domain with a bandpass filters each with width one octave, and in the temporal domain with bandpass filters each with width \SI{6}{Hz}.
 Datapoints are shown against the middle of the band on both $x$ and $y$.
-In the left column of panels, we show the amount of information about the rate of change of filtered luminance encoded in the \SIrange{4}{16}{Hz} frequency range of the \ac{CSD}.
-For the right column, we show information in \SIrange{60}{170}{Hz}.
+We show the amount of information about the rate of change of filtered luminance encoded in the \SIrange{4}{16}{Hz} frequency range of the \ac{CSD} (left column), information in \SIrange{60}{170}{Hz} power (middle), and information in the \ac{MUA} (right).
 Each row of panels corresponds to a different cortical depth, averaging over \ac{SG}, \ac{G} and \ac{IG} compartments, respectively.
 Throughout all panels, the mean over \num{6} sessions is indicated.
 Statistical significance thresholds were computed for each datapoint individually, and a typical significance threshold is shown by the black line across the colour bar, near $0$.
