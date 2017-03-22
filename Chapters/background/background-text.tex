@@ -6,6 +6,43 @@ Here, we will introduce and discuss the fundamental properties of the mammalian 
 
 
 %------------------------------------------------------------------------------
+\section{Neurons and the brain}
+
+The central nervous system consists of the brain, spinal cord, and retina.
+Within each, there are specialised biological cells called neurons, whose properties allow them to encode information about the external world gleamed through the body's sensory organs, manipulate this information and perform computations with it in order to control the behaviour of the body.%
+\footnote{
+Neurons are common across all species of animals, though the architecture of their nervous systems vary greatly.
+Plants are also able to infer properties of their environment and respond accordingly using chemical and electrical signals, despite their lack of neurons \citep{Brenner2006,Barlow2008}.
+}
+The peripheral nervous system and the retina together provide a stream of data about the environment within which the subject resides, known as the \termemph{senses} (sight, sound, touch, smell, taste, temperature, pressure, \textit{etc.}).
+The computations performed by the central nervous system allow it to extract features from this stream of sensory information, store properties of it for later computational use, and decide which behavioural actions to perform in order to move its body and influence the environment within which it resides (arguably the only important function of a brain; \citealp{WolpertTED}).
+
+Information transmission between neurons is principally mediated by changes in the voltage, or potential difference, between the inside and the outside of the neuron \citep[Chapter~2]{nsbook}.
+A change in this membrane potential within one neuron will propagate along its cell body, and in doing so will affect other neurons which make direct conductive connections with it.
+However, the majority of connections between neurons are indirect, involving a synaptic junction in which chemicals, referred to as neurotransmitters, are passed from one neuron to the other in order to induce an electrochemical change in the recipient.
+
+In order to transmit electrical signals over long distances (longer than \SI{1}{\milli\metre}), instead of making direct, analog connections with one another, neurons digitise their information as \termemph{action potentials}.
+At rest, the membrane potential of a neuron is typically negative, around \SI{-70}{\milli\volt}.
+For an action potential to be elicited by a neuron, its membrane potential must depolarise, becoming less negative.
+Once the membrane voltage passes above a certain threshold (typically around \SI{-55}{\milli\volt}, but the specific value depends on the neuron in question) a temporary change occurs in the dynamics of the ion channels which allow ionised chemicals to pass between the inside and outside of the cell is triggered.
+Sodium ions suddenly flow into the neuron, then potassium ions flow out just as suddenly, causing the membrane potential to rapidly increase to around \SI{+40}{\milli\volt} and then fall back to a voltage a little below its value at rest.
+The sharp rise and fall of the voltage across the membrane is known as an action potential, or \textemph{spike}, and has a duration of only around \SIrange{1}{2}{\milli\second} \citep[Chapter~1]{Dayan2001}.
+Following a spike, there is a recovery period (refractory period) of another few milliseconds during which further spikes cannot be elicited; following this system is to its original resting state.
+
+We can consider an occurrence of action potential event to be the output of a neuron.
+Aided by an insulating covering of myelin and repeating stations (known as Nodes of Ranvier), an action potential can travel along its \termemph{axon} for long distances.%
+\footnote{
+% The longest neuron in the human body is the sciatic nerve, which stretches from the base of the spine to the big toe.
+The longest axon in the human body is the that of the dorsal root ganglion, which extends from the big toe to the primary sensory cortex in the brain.
+The equivalent nerve in the blue whale can have an uninterrupted axon \SI{25}{\metre} in length \citep{Smith2009,Voytek2012}.
+}
+At the terminus of the axon, synaptic connections are formed with the dendrites of other neurons.
+Upon the arrival of an action potential at the synapse, neurotransmitters are released which can either increase or decrease the membrane potential of the recipient neuron.
+
+Learning occurs principally by the strengthening and weakening of these synaptic connections between neurons such that more or fewer neurotransmitters are transferred into the recipient upon the arrival of a single action potential (\citealp[Chapter~23]{nsbook}; \citealp[Chapter~8]{Dayan2001}).
+
+
+%------------------------------------------------------------------------------
 \section{Mammalian visual system}
 
 Sensitivity to the visual spectrum is an important survival trait for almost all land animals.
@@ -28,42 +65,6 @@ Light enters the eye (if possible, focused into a clear image by the lens), and 
 This information is transmitted to the brain through the optic nerve, where it reaches the \ac{LGN}.
 From here, the visual information is propagated to the \acf{V1}, which feeds its outputs to the rest of the visual (and non-visual) cortical regions.
 For humans and other primates, vision is our dominant sense, and a large fraction of our brains (sometimes estimated as around half the brain, excluding the cerebellum) is devoted to processing visual information.
-
-
-\subsection{The central nervous system}
-
-The central nervous system consists of the brain, spinal cord, and retina.
-Within each, there are specialised biological cells called neurons, whose properties allow them to encode information about the external world gleamed through the body's sensory organs, manipulate this information and perform computations with it in order to control the behaviour of the body.%
-\footnote{
-Neurons are common across all species of animals, though the architecture of their nervous systems vary greatly.
-Plants are also able to infer properties of their environment and respond accordingly using chemical and electrical signals, despite their lack of neurons \citep{Brenner2006,Barlow2008}.
-}
-The peripheral nervous system and the retina together provide a stream of data about the environment within which the subject resides, known as the \termemph{senses} (sight, sound, touch, smell, taste, temperature, pressure, \textit{etc.}).
-The computations performed by the central nervous system allow it to extract features from this stream of sensory information, store properties of it for later computational use, and decide which behavioural actions to perform in order to move its body and influence the environment within which it resides (arguably the only important function of a brain; \citealp{WolpertTED}).
-
-Information transmission between neurons is principally mediated by changes in the voltage, or potential difference, between the inside and the outside of the neuron \citep[Chapter~2]{nsbook}.
-A change in this membrane potential within one neuron will propagate along its cell body, and in doing so will affect other neurons which make direct conductive connections with it.
-However, the majority of connections between neurons are indirect, involving a synaptic junction in which chemicals, referred to as neurotransmitters, are passed from one neuron to the other in order to induce an electrochemical change in the recipient.
-
-In order to transmit electrical signals over long distances (longer than \SI{1}{\milli\metre}), instead of making direct, analog connections with one another, neurons digitise their information as \termemph{action potentials}.
-At rest, the membrane potential of a neuron is typically negative, around \SI{-70}{\milli\volt}.
-For an action potential to be elicited by a neuron, its membrane potential must depolarise, becoming less negative.
-Once the membrane voltage passes above a certain threshold (typically around \SI{-55}{\milli\volt}, but the specific value depends on the neuron in question) a temporary change occurs in the dynamics of the ion channels which allow ionised chemicals to pass between the inside and outside of the cell is triggered.
-Sodium ions suddenly flow into the neuron, then potassium ions flow out just as suddenly, causing the membrane potential to rapidly increase to around \SI{+40}{\milli\volt} and then fall back to a voltage a little below its value at rest.
-The sharp rise and fall of the voltage across the membrane is known as an action potential, or \textemph{spike}, and has a duration of only around \SIrange{1}{2}{\milli\second} \citealp[Chapter~1]{Dayan2001}.
-Following a spike, there is a recovery period (refractory period) of another few milliseconds during which further spikes cannot be elicited; following this system is to its original resting state.
-
-We can consider an occurrence of action potential event to be the output of a neuron.
-Aided by an insulating covering of myelin and repeating stations (known as Nodes of Ranvier), an action potential can travel along its \termemph{axon} for long distances.%
-\footnote{
-% The longest neuron in the human body is the sciatic nerve, which stretches from the base of the spine to the big toe.
-The longest axon in the human body is the that of the dorsal root ganglion, which extends from the big toe to the primary sensory cortex in the brain.
-The equivalent nerve in the blue whale can have an uninterrupted axon \SI{25}{\metre} in length \citep{Smith2009,Voytek2012}.
-}
-At the terminus of the axon, synaptic connections are formed with the dendrites of other neurons.
-Upon the arrival of an action potential at the synapse, neurotransmitters are released which can either increase or decrease the membrane potential of the recipient neuron.
-
-Learning occurs principally by the strengthening and weakening of these synaptic connections between neurons such that more or fewer neurotransmitters are transferred into the recipient upon the arrival of a single action potential (\citealp[Chapter~23]{nsbook}; \citealp[Chapter~8]{Dayan2001}).
 
 
 \subsection{The eye}
@@ -211,7 +212,7 @@ A common experimental methodology used in neuroscience is to record the extracel
 From this, we can compare the activity of the neuron under different conditions to examine whether it is dependent on this set of conditions, and if so investigate the nature of the relationship between the two.
 
 Frequently, the approach used is to take many recordings of the same neuron for the same condition, and then take the average across these repetitions (``trials'') to reduce the effects of neuronal variability, producing a \ac{PSTH}, for instance.
-This neuronal variability is often referred to as ``noise'', however it is debatable as to whether differences in the behaviour of individual neurons between trials are due to noise within the system or are in fact representative of changes in other, as-yet unknown, hidden or latent variables within the system (see \autoref{sec:bg-noisecorr} for further discussion).
+This neuronal variability is often referred to as ``noise'', however it is debatable as to whether differences in the behaviour of individual neurons between trials are due to noise within the system or are in fact due to non-stationarity within the system due to changes in neural state or unknown latent variables within the system (see \autoref{sec:bg-noisecorr} for further discussion).
 
 Such a simple treatment of the data --- averaging the response over repetitions --- is fundamentally flawed, since this is not the manner in which brains process stimuli.
 At any moment in time, the brain has access to the activity of many neurons simultaneously (not a single neuron in isolation), but only has a single sample of each one (not multiple instantiations of the same neuron).
@@ -226,15 +227,11 @@ In this section, I will first outline the analytic procedure through which infor
 In the context of trying to experimentally investigate properties of the sensory cortex of the brain, one typically uses an experimental set-up with a finite collection of discrete experimental stimuli.
 These stimuli are then repeatedly presented to the sensory organ in an appropriate fashion, and the responses during each presentation are recorded.
 
-% Can cut the Fisher information, since it isn't actually information theoretic
-Even when investigating the responses to stimulus features which vary continuously, such as line orientation for the visual stimulation and frequency for auditory stimulation, one has two options.
-Firstly, the features can be preserved in a continuous space and the information about the stimulus estimated using Fisher information. The inverse of the Fisher information provides a lower bound on the mean squared error which any decoder can achieve \citep{Quiroga2009}.
-Alternatively, the stimulus space can be discretized into a finite subset of stimuli from which we can draw samples with repetition.
-Once the samples are discretized and presented repeatedly, we can use Shannon information to compute the amount of information about the stimulus identity contained in the neuronal response.
-If the stimulus set is intrinsically discrete, Fisher information can not be used and an information theoretic analysis can only be performed using Shannon information.
-
 For such an experimental set-up, let us assume that on each trial some stimulus $s$ is selected at random, with probability $p(s)$, from a set of discrete stimuli $\SET{S}$.
 The random variable $S$ denotes this selection of a stimulus, with some arbitrary probability distribution across the elements of $\SET{S}$.
+Even if our stimuli come from a continuous stimulus space, parametrically varying in orientation or frequency, say, it is important to discretise this down to a finite subset of stimuli from which samples will be drawn.
+This is because we must estimate either $p(s,r)$, $p(r|s)$, or $p(s|r)$ from the data for each stimulus $s$ in order to compute the mutual information, which is only possible if we have at least one presentation of every stimulus within our collection of stimuli.
+
 The neuronal response could be one (or more than one) of several data types, such as a spike train from one or more neurons, the \ac{LFP}, \ac{CSD}, \ac{BOLD} signal, a calcium indicator, \ac{EEG}, or others \citep{Magri2009,Quiroga2009}.
 The principles of information theory can be applied whichever neural signal is taken to be the response.
 In \autoref{ch:pl}, we will work with information encoded in \ac{MUA} and spike trains, whilst in Chapters~\ref{ch:lam} and \ref{ch:plam} we will be considering the \ac{LFP} and \ac{CSD}.
@@ -249,7 +246,7 @@ The message passing between them in modified as it passes through the channel, a
 
 In some ways, some functions of the brain are similar to the process of a compression algorithm.
 The initial encoding of the stimulus as transcribed by the appropriate sensory organ contains a large amount of information about the precise input stimulus --- for example the individual pixel values with an image stimulus --- which has a large amount of redundancy if one is interested only in detecting, classifying, and reacting to stimuli.
-A binary image of only $17 \times 17$ pixels can express \num{9.9e86} different states --- around a million times more than there are atoms in the visible universe, thought to be around \num{1e80}.
+A binary image of only $17 \times 17$ pixels can express \num{9.9e86} different states --- around a million times more than there are atoms in the visible universe, thought to be around $10^{80}$.
 However the vast majority of these images (for this, or equally true for a larger image with more intensity levels and colours) resemble unstructured random noise.
 The set of images which are of interest for interacting with a real world environment is vastly smaller, and with an appropriate high-level statistical model of the appropriate subset of the class of all potential stimuli can be compressed down to a much smaller number of bytes.
 For instance, whether a given visual stimulus contains the face of familiar person.
@@ -478,7 +475,7 @@ However, the prospective gain in performance when considering the responses from
 % Repetition is an inefficient method of error correction though \citep[Chapter~1]{mackay2003information}, and neuroscientists do not typically interpret groups of neurons to be duplicated instantiations of the same function of the stimulus.
 
 
-\subsection{Noise correlations}
+\subsection{Noise response correlations}
 \label{sec:bg-noisecorr}
 
 Previously we noted that the response from a single neuron to a fixed stimulus is not fixed but effectively sampled from some stochastic distribution.
