@@ -99,17 +99,17 @@ R_{\alpha, \beta} = |z_{\alpha, \beta}| = \operatorname{abs}(z_{\alpha, \beta})
 Strength of cross-frequency coupling was measured using the modulation index \citep{Tort2010}.
 \ac{CSD} data was filtered for two bands, \SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz}, using a zero-phase sixth-order Butterworth filter, and the instantaneous phase of \SIrange{4}{16}{Hz} and envelope amplitude of \SIrange{60}{170}{Hz} were each estimated using a Hilbert transform.
 We took a histogram of the \SIrange{4}{16}{Hz} phase datapoints with $M = 16$ bins each of width $\nicefrac{\pi}{8}$ radians, and for each bin took the average of the \SIrange{60}{170}{Hz} amplitudes simultaneously co-occurring with each of the phases in that bin.
-This provides the expected amplitude, $a(j)$, at one depth as a function of phase, $\phi(j)$, at another, parametrised by the bin index, $j$.
+This provides the expected amplitude, $a(j)$, at one depth as a function of phase, $\phi(j)$, at another depth, indexed by the bin index, $j$.
 
 We then normalise $a$ against the total over all bins, $a'(j) = a(j) / \sum_k a(k)$,
-such that $a'$ resembles a discrete probability density function.
+such that $a'$ has the properties of a discrete probability density function.
 
 Next, we utilise the \ac{KL} divergence, in general given by
 \begin{equation}
 D_\text{KL}(P \| Q) = \sum_k P(k) \log_2 \frac{P(k)}{Q(k)}
 \end{equation}
 for two discrete probability distributions $P$ and $Q$.
-The \termemph{modulation index} is the normalised \ac{KL} divergence of the distribution $a'$ from a uniform distribution, which is given by
+The \termemph{modulation index} is defined as the normalised \ac{KL} divergence of the distribution $a'$ from a uniform distribution \citep{Tort2010}, which is given by
 \begin{equation}
 \operatorname{MI} = \frac{
 \log_2(M) + \sum_{j = 1,\ldots,M} a'_j \, \log_2(a'_j)
@@ -129,7 +129,7 @@ The \termemph{modulation index} is the normalised \ac{KL} divergence of the dist
 \subsection{Information contained in phase of cortical oscillations}
 
 We computed the amount of information about the movie encoded in the phase of oscillations in both cortical \ac{LFP} and \ac{CSD}, as a function of cortical depth and oscillation frequency.
-As shown in \autoref{fig:lam_phase_info}, we find that there is more information in the phase than the power of oscillations (\autoref{fig:lam_info}) for all frequencies lower than \SI{40}{Hz}.
+As shown in \autoref{fig:lam_phase_info}, we find that there is more information in the phase than the power of oscillations (see \autoref{fig:lam_info}) for all frequencies lower than \SI{40}{Hz}.
 The phase contains much less information for higher frequencies, and the power contains more information than the phase for all frequencies above \SI{40}{Hz}.
 Intuitively, this is because the phase of high frequency oscillations changes more rapidly and hence it is harder for it to be well aligned across trials than the phase of lower frequency oscillations.
 In contrast, power of an oscillation fluctuates with the envelope amplitude of the oscillation, which can change much slower than the frequency of the oscillations.
@@ -238,7 +238,7 @@ These results prompt us to consider the redundancy of the phase of oscillations.
 Do the phases of oscillations at different frequencies convey information about the same aspects of the stimulus, as we found for the information in the power of the same oscillations?
 Furthermore, how is the information in the phase related to the information in the power?
 
-First, we consider the relationship between the phases of narrow frequency bands ($50\%$ bandwidth) occurring at the same cortical depths as one another.
+First, we consider the relationship between the phases of the frequency bands ($50\%$ bandwidth) occurring at the same cortical depths as one another.
 As shown in \autoref{fig:lam_phase_cxfrq_info}, we find that pairs of frequency bands \SI{<40}{Hz} contain synergistic information about the stimulus.
 This means that knowing the phase of two such frequency bands provides more information about the stimulus than the information in the two of them individually.
 The observed synergy is similar across all pairs of frequencies \SI{<40}{Hz}, which suggests the cause is intrinsic to the phase in general and not specific to the cortical oscillation data we are considering.
@@ -253,7 +253,7 @@ Since the distribution over phase for any single frequency component is uniform,
 %
 % Intuitively, it seems likely that this situation arises from the properties of the Fourier transform and the power distribution of the stimulus.
 % The power of the \ac{LFP} and \ac{CSD} vary smoothly with over the frequency domain, with an approximately $\nicefrac{1}{f}$, or power law, relationship (\autoref{fig:lam_info}).
-% There is a known phenomenon which occurs for natural images: the power spectral density varies smoothly with a power law and so the phase of the Fourier transformation alone encodes the structural information in the image \citep[Chapter~3, page~62]{Jahne1991}.
+% There is a known phenomenon which occurs for natural images: the power spectral density varies smoothly with a power law and so the phase of the Fourier transformation alone encodes the structural information in the image (\citealp[Chapter~3, page~62]{Jahne1991}; \citealp[Chapter~5, page~121]{Hyvarinen2009}).
 % Using the Fourier transformation, we decompose the raw \ac{CSD} into a collection of sinusoidal waves at different frequencies
 % Irrespective of which pair of frequency bands we consider,
 %
@@ -275,6 +275,7 @@ redundancy-cxsfrq/cxsfrq-pcgain-i2d2_phase-phase_avg-log_nodiag.eps}}
 \captionemph{Information redundancy between the phase of \ac{CSD} frequency components.}
 \protect\subref{fig:lam_phase_cxfrq_info_red}:~Redundancy (as defined in \autoref{eq:redundancy}) between pairs of frequencies, averaged over all cortical recording depth, then averaged over \num{6} sessions.
 Each datapoint was tested for statistical significance using bootstrapping, and non-significant values are shown in white (the median threshold for statistical significance is shown as a line across the colour bar).
+The leading diagonal, which is trivially redundant, is removed (black).
 \protect\subref{fig:lam_phase_cxfrq_info_gain}:~Same as \protect\subref{fig:lam_cxfrq_red}, but for the asymmetric information gain $\operatorname{InfoGain}\left(Y\to\left\{X,Y\right\};S\right)$ (defined in \autoref{eq:infogain}).
 }
 \label{fig:lam_phase_cxfrq_info}
@@ -283,9 +284,9 @@ Each datapoint was tested for statistical significance using bootstrapping, and 
 
 We also computed the signal and noise correlation, using the methodology described in \autoref{sec:pl_phase_correlation}.
 Beyond the trivially positively correlated signal correlation of neighbouring frequency bands, as shown in \autoref{fig:lam_signal_corr_phase} we find there are some pairs of frequencies which are positively correlated (phase of \SI{10}{Hz} and \SI{30}{Hz}) and negatively correlated (phase of \SI{3}{Hz} and \SI{30}{Hz}).
-The level of signal correlation is lower than we observed for the power-power correlation across frequency (\autoref{fig:lam_cxfrq_cor}).
+The level of signal correlation is lower than we observed for the power-power correlation across frequency (see \autoref{fig:lam_cxfrq_cor}).
 % though the two do measure different things
-The noise correlation was small and positive for all pairs of phases considered \autoref{fig:lam_noise_corr_phase}.
+The noise correlation was small and positive for all pairs of phases considered, shown in \autoref{fig:lam_noise_corr_phase}.
 
 
 \begin{figure}[htbp]
@@ -302,6 +303,7 @@ The noise correlation was small and positive for all pairs of phases considered 
     \caption{
 \captionemph{Correlation between phase of different \ac{CSD} frequency components.}
 \protect\subref{fig:lam_signal_corr_phase}:~Signal correlation between the phase in pairs of frequencies, median across \numrange{12}{14} cortical recording sites, mean across \num{6} sessions.
+The leading diagonal, which is trivially perfectly correlated, and second diagonal, which is highly correlated due to the $50\%$ overlap between neighbouring frequency bands, are removed (black).
 \protect\subref{fig:lam_noise_corr_phase}:~Noise correlation between the phase in pairs of frequencies, median across \numrange{12}{14} cortical recording sites, mean across \num{6} sessions.
 Non-significant datapoints are shown in white, with minimum and maximum significance thresholds indicated by the black lines across the colour bar.
 }
@@ -367,9 +369,9 @@ The information about the stimulus encoded in the \SIrange{4}{16}{Hz} phase appe
 
 We computed the amount of information in the \ac{CSD} phase about scene transitions in the movie (agnostic about which of the scene transitions was occurring) in the same manner as described in \autoref{sec:lam_scnchg_method}.
 
-The fraction of information contained in the \ac{CSD} phase which is explained by scene transitions is smaller than we observed for the power (see \autoref{fig:lam_phs_scnchg}; compare \autoref{fig:lam_scnchg} for comparison).
-In terms of number of bits encoded, the phase and power are similar.
-However the amount of information encoded in the phase is larger, hence it appears the phase encodes more properties of the stimulus than the power of cortical oscillations.
+In terms of number of bits encoded, the phase and power contain amount of information about the presence of scene cuts.
+The fraction of information contained in the \ac{CSD} phase which is explained by scene transitions is smaller than we observed for the power (see \autoref{fig:lam_phs_scnchg}; \autoref{fig:lam_scnchg} for comparison).
+This indicates that the phase encodes more properties of the stimulus than the power of cortical oscillations.
 
 
 \begin{figure}[htbp]

@@ -637,8 +637,8 @@ figs/redundancy/cxsfrq-pcgain-i2d2_power-power_avg-log_diagonal_noleg.eps}}
 \captionemph{Information redundancy between \ac{CSD} frequency components.}
 \protect\subref{fig:lam_cxfrq_red}:~Redundancy (as defined in \autoref{eq:redundancy}) between pairs of frequencies, averaged over each cortical recording depths, then averaged over \num{6} sessions.
 Each datapoint was tested for statistical significance using bootstrapping, and non-significant values are shown in white (the median threshold for statistical significance is shown as a line across the colour bar).
+The leading diagonal, which is trivially redundant, and second diagonal, which is highly redundant due to the $50\%$ overlap between neighbouring frequency bands, are removed (black).
 \protect\subref{fig:lam_cxfrq_gain}:~Same as \protect\subref{fig:lam_cxfrq_red}, but for the asymmetric information gain $\operatorname{InfoGain}\left(Y\to\left\{X,Y\right\};S\right)$ (defined in \autoref{eq:infogain}).
-Above, traces along the off-diagonals of the heatmap.
 \protect\subref{fig:lam_cxfrq_red_diag}:~Redundancy between pairs of bands with a fixed ratio between their frequencies, plotted against the geometric mean of their band centres.
 The shaded region indicates the standard error on the mean over \num{6} sessions.
 \protect\subref{fig:lam_cxfrq_gain_diag}:~Same as \protect\subref{fig:lam_cxfrq_red_diag}, but for the information gain.
@@ -676,6 +676,7 @@ figs/noisesigcor/cxsfrq-noise-power-power-avg-log_diagonal.eps}}
 \caption{
 \captionemph{Correlation between \ac{CSD} frequency bands.}
 \protect\subref{fig:lam_cxfrq_sigcor}:~Signal correlation between the power in pairs of frequencies, median across \numrange{12}{14} cortical recording sites, mean over \num{6} sessions.
+The leading diagonal, which is trivially perfectly correlated, and second diagonal, which is highly correlated due to the $50\%$ overlap between neighbouring frequency bands, are removed (black).
 \protect\subref{fig:lam_cxfrq_noisecor}:~Noise correlation between the power in pairs of frequencies, median across \numrange{12}{14} cortical recording sites, mean over \num{6} sessions.
 \protect\subref{fig:lam_cxfrq_sigcor_diag}:~As per \autoref{fig:lam_cxfrq_red_diag}, the signal correlation between pair of frequencies with a fixed ratio between their frequencies, plotted against the geometric mean of their band centres.
 \protect\subref{fig:lam_cxfrq_noisecor_diag}:~Same as \protect\subref{fig:lam_cxfrq_sigcor_diag}, but for noise correlation.
