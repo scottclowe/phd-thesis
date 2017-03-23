@@ -7,7 +7,7 @@ We were interested in studying the neural correlates of this phenomenon, referre
 The experimental process was performed for two macaques (\ac{M1} and \ac{M2}), and we analysed the amount of information encoded in the spike trains elicited in response to the test stimulus, whose contrast was selected within a range of \SIrange{5}{90}{\percent}.
 
 
-\subparagraph{Task-pertinent information}
+\subsection{Task-pertinent information}
 
 We decomposed the information about the stimulus contained in the neural activity into task-pertinent information, which helps an observer distinguish whether the presented stimulus had a contrast higher or lower than \SI{30}{\percent}, and task-nonpertinent information which only distinguish which of the \num{7} stimuli in each of the two categories was more likely.
 From this, we found the amount of information which was not pertinent to the experimental task remained the same throughout training, whereas the amount of information which was pertinent to the task increased (this increase was statistically significant for \ac{M2} but not \ac{M1}).
@@ -17,7 +17,7 @@ One possible explanation for this that the contrast tuning curves of the cortica
 A previous study analysing the same dataset, \citet{Chen2013} found that exponential functions corresponding to the psychometric performance of the subject became steeper with training, in corroboration with this idea.
 
 
-\subparagraph{Timing of information}
+\subsection{Timing of information}
 
 Within \ac{V1}, the most informative neural activity was the transient response to the onset of the stimulus, an observation supported by previous literature \citep{Muller2001}.
 This is the first cortical response to the stimulus after it is presented, occurring with a latency of approximately \SI{50}{\milli\second}, in which the firing rate increases sharply, but briefly.
@@ -40,7 +40,7 @@ This was due to an increase in information in the late stages of stimulus presen
 Since the neural activity present after the stimulus was removed contained more information about the behavioural response than the target label of the stimulus, and the decoder trained on data from later sessions showed a significant correlation with the behavioural responses, we believe this information is indicative of latent representation of the stimulus feedback sustained after the removal of the stimulus through feedback from higher cortical regions.
 
 
-\subparagraph{Information at the population level}
+\subsection{Information at the population level}
 
 As evidenced by our results with the linear decoder, \ac{V4} activity during the stimulus presentation is indicative of the behavioural response of the subject.
 We trained the linear decoder to classify the group of the stimulus, giving us a reflection of the information about the stimulus contained in the cortical activity.
@@ -76,7 +76,7 @@ However, we note that this interpretation of the results was not obvious when we
 In a study of the macaque \ac{MSTd}, \citet{Gu2011} found similar results: pairwise noise correlations between neurons are reduced with training, but this does not yield an increase in performance in a decoder trained on the population activity.
 
 
-\subparagraph{Correlations with behaviour}
+\subsection{Correlations with behaviour}
 
 % Cite work on **choice correlations**.
 
