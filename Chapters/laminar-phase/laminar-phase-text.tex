@@ -317,6 +317,61 @@ This allows us to compare the information in the phase and power of the same ban
 
 
 %-------------------------------------------------------------------------------
+\subsection{Phase-power redundancy}
+
+Similar to the above, we can also consider the redundancy between information in the power and phase across a range of frequencies.
+
+
+\begin{figure}[htbp]
+    \centering
+    \subfloat[Redundancy.\label{fig:lam_cxfrq_powerphase_info_red}]{
+        \includegraphics[scale=.5]{redundancy-cxsfrq/cxsfrq-pcred_phase-power_avg-log_nodiag.eps}
+}
+    \\
+    \hspace*{\fill}
+    \subfloat[$\operatorname{InfoGain}\left(\text{Phase}\to\left\{\text{Phase},\text{Power}\right\};S\right)$.\label{fig:lam_cxfrq_phasepower_gain}]{
+        \includegraphics[scale=.5]{redundancy-cxsfrq/cxsfrq-pcgain-i2d2_phase-power_avg-log_nodiag.eps}
+}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[$\operatorname{InfoGain}\left(\text{Power}\to\left\{\text{Phase},\text{Power}\right\};S\right)$.\label{fig:lam_cxfrq_powerphase_gain}]{
+        \includegraphics[scale=.5]{redundancy-cxsfrq/cxsfrq-pcgain-i2d2_power-phase_avg-log_nodiag_flipped.eps}
+}
+    \hspace*{\fill}
+    \caption{
+\captionemph{Information redundancy between the phase and power of \ac{CSD} frequency components.}
+\protect\subref{fig:lam_cxfrq_powerphase_info_red}:~Redundancy (as defined in \autoref{eq:redundancy}) between phase and power, averaged over all cortical recording depths, then averaged over \num{6} sessions.
+Each datapoint was tested for statistical significance using bootstrapping, and non-significant values are shown in white (the median threshold for statistical significance is shown as a line across the colour bar).
+\protect\subref{fig:lam_cxfrq_phasepower_gain}:~Same as \protect\subref{fig:lam_cxfrq_powerphase_info_red}, but for the asymmetric information gain when Phase is already known and Power is revealed (see \autoref{eq:infogain}).
+\protect\subref{fig:lam_cxfrq_powerphase_gain}:~Same as \protect\subref{fig:lam_cxfrq_phasepower_gain}, but for the information gain when Power is already known and Phase is revealed.
+}
+\label{fig:lam_cxfrq_powerphase_info}
+\end{figure}
+
+We find that \autoref{fig:lam_cxfrq_powerphase_info}
+
+\SIrange{5}{15}{Hz} phase \SIrange{10}{20}{Hz} power
+
+% \begin{figure}[htbp]
+%     \centering
+%     \hspace*{\fill}
+%     \subfloat[Signal correlation\label{fig:lam_signal_corr_phase_power}]{
+%         \includegraphics[scale=.45]{noisesigcorr/cxsfrq-signal-phase-power-avg-log.eps}
+% }
+%     \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+%     \subfloat[Noise correlation\label{fig:lam_noise_corr_phase_power}]{
+%         %\includegraphics[scale=.45]{noisesigcorr/cxsfrq-noise-phase-power-avg-log.eps}
+%         <code running>
+% }
+%     \hspace*{\fill}
+%     \caption{Phase correlation with power
+% \protect\subref{fig:lam_signal_corr_phase_power}:~Signal correlation.
+% \protect\subref{fig:lam_noise_corr_phase_power}:~Noise correlation.
+% }
+% \label{fig:lam_noisesignal_corr_phase_power}
+% \end{figure}
+
+
+%-------------------------------------------------------------------------------
 %\FloatBarrier
 \subsection{Cross-channel, cross-depth redundancy}
 %-------------------------------------------------------------------------------
@@ -361,6 +416,7 @@ Since phase is uniformly instead of sparsely distributed, a secondary signal abo
 We note that the correlation with the \SIrange{4}{16}{Hz} phase is higher for the \SIrange{4}{16}{Hz} power than the higher frequency bands, whilst the noise is constant across all three, which supports this interpretation.
 
 The information about the stimulus encoded in the \SIrange{4}{16}{Hz} phase appears to be different to the information encoded in the \SIrange{60}{170}{Hz} power and \ac{MUA} activity, which have balanced synergy and redundancy as shown in \autoref{fig:lam_signal_red_depth}.
+
 
 %-------------------------------------------------------------------------------
 \subsection{Information about scene cuts}
@@ -436,64 +492,6 @@ Statistical significance thresholds were computed for each datapoint individuall
 \label{fig:lam_phs_spatmf}
 %
 \end{figure}
-
-
-%-------------------------------------------------------------------------------
-
-
-% %-------------------------------------------------------------------------------
-% \subsubsection{Cross frequency phase vs power}
-%
-% \begin{figure}[htbp]
-%     \centering
-%     \subfloat[\label{fig:lam_cxfrq_powerphase_info_red_hm}]{
-%         \includegraphics[scale=.5]{redundancy-cxsfrq/cxsfrq-pcred_phase-power_avg-log.eps}
-% }
-%     \\
-%     \subfloat[\label{fig:lam_cxfrq_powerphase_info_red_bar}]{
-%         \includegraphics[scale=.5]{redundancy-cxsfrq/cxsfrq-pcred_power-phase_avg-log.eps}
-% }
-%     \caption{
-% Redundancy between frequencies.
-% }
-% \label{fig:lam_cxfrq_powerphase_info_red}
-% \end{figure}
-%
-%
-%
-% \begin{figure}[htbp]
-%     \centering
-%     \subfloat[\label{fig:lam_cxfrq_powerphase_info_gain_hm}]{
-%         \includegraphics[scale=.5]{redundancy-cxsfrq/cxsfrq-pcgain-i2d2_phase-power_avg-log.eps}
-% }
-%     \\
-%     \subfloat[\label{fig:lam_cxfrq_powerphase_info_gain_bar}]{
-%         \includegraphics[scale=.5]{redundancy-cxsfrq/cxsfrq-pcgain-i2d2_power-phase_avg-log.eps}
-% }
-%     \caption{
-% Information gain between frequencies.
-% }
-% \label{fig:lam_cxfrq_powerphase_info_gain}
-% \end{figure}
-%
-% \begin{figure}[htbp]
-%     \centering
-%     \hspace*{\fill}
-%     \subfloat[Signal correlation\label{fig:lam_signal_corr_phase_power}]{
-%         \includegraphics[scale=.45]{noisesigcorr/cxsfrq-signal-phase-power-avg-log.eps}
-% }
-%     \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
-%     \subfloat[Noise correlation\label{fig:lam_noise_corr_phase_power}]{
-%         %\includegraphics[scale=.45]{noisesigcorr/cxsfrq-noise-phase-power-avg-log.eps}
-%         <code running>
-% }
-%     \hspace*{\fill}
-%     \caption{Phase correlation with power
-% \protect\subref{fig:lam_signal_corr_phase_power}:~Signal correlation.
-% \protect\subref{fig:lam_noise_corr_phase_power}:~Noise correlation.
-% }
-% \label{fig:lam_noisesignal_corr_phase_power}
-% \end{figure}
 
 
 %-------------------------------------------------------------------------------
