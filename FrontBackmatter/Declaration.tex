@@ -1,10 +1,19 @@
 %*******************************************************
 % Declaration
 %*******************************************************
-\refstepcounter{dummy}
-\pdfbookmark[0]{Declaration}{declaration}
+% \refstepcounter{dummy}
+\pdfbookmark[1]{Declaration}{declaration}
+
+\begingroup
+
+\let\clearpage\relax
+\let\cleardoublepage\relax
+\let\cleardoublepage\relax
+
 \chapter*{Declaration}
-\thispagestyle{empty}
+% \addcontentsline{toc}{chapter}{\tocEntry{Declaration}}
+
+% \thispagestyle{empty}
 I declare that this thesis was composed by myself, that the work contained herein is my own except where explicitly stated otherwise in the text, and that this work has not been submitted for any other degree or professional qualification except as specified.
 \bigskip
  
@@ -18,3 +27,5 @@ I declare that this thesis was composed by myself, that the work contained herei
         \centering\myName,\\\today\\
     \end{tabular}
 \end{flushright}
+
+\endgroup
