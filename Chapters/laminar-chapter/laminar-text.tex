@@ -1029,57 +1029,43 @@ Of course, since axons from the \ac{LGN} target specific sites within \ac{L4} of
 Such information is not detectable from the population level activity.
 From there, fine-scale information can be redirected to \ac{SG}, where it is encoded in oscillations of activity in the \SIrange{60}{170}{Hz}.
 
+As we discussed in \autoref{sec:bg_visual_system}, the most important visual pathways from the retina to \ac{V1} are the P- and M-pathways.
+The M-pathway is encoded by parasol ganglion cells in the retina, which are responsive to low spatial and high temporal frequencies.
+This pathway terminates in layer $4C\alpha$ of \ac{V1}.
+The P-pathway originates with midget ganglion cells, encoding low temporal, high spatial frequencies of the stimulus and terminating in layer $4C\beta$ of \ac{V1}.
 
-As we discussed in \autoref{sec:bg_visual_system},
-Midget ganglion cells  P-pathway  high spatial and low temporal frequencies  $4C\beta$
-Parasol ganglion cells  M-pathway  high temporal, low spatial frequencies $4C\alpha$
+The properties of these two pathways are reminiscent of properties of the two frequency bands we have isolated.
+The \SI{4}{16}{Hz} power pertains to changes in the stimulus with high temporal, low spatial frequencies, like the parasol ganglion cells.
+The \SI{60}{170}{Hz} power and \ac{MUA} pertain to changes in the stimulus with high spatial frequencies, similar to the midget ganglion cells.
+Consequently, these frequency bands in \ac{V1} may be conveying information passed directly through the M- and P-pathways from the retina.
+The information could, hypothetically, be encoded into these frequency ranges by the \ac{LGN}, or within \ac{V1}.
 
+The terminus locations for the M- and P-pathways are mid- and lower-\ac{G}, which is not the cortical depths for which we identified the origins of the two informative frequency bands.
+However, this does not disprove the hypothesis, since the dendritic and somatic structures of the cortical neurons in \ac{V1} are spatially extended, spanning multiple layers.
+Even if the feedforward visual information from \ac{LGN} solely terminated in the \ac{G} compartment (which it does not), the information could be transferred to other cortical depths before oscillatory population activity is generated.
 
-There are several possible interpretations of these findings; how and why these spatial components are encoded in this manner may be explained my several different hypotheses.
+There are several other possible interpretations of our findings.
+For instance, the segregation of visual information into two frequency bands may be preparation for the fork in the visual hierarchy into dorsal (motion-sensitive) and ventral (shape-sensitive) streams.
+It has previously been hypothesised that the M-pathway steered information to the dorsal stream and the P-pathway to the ventral stream.
+Studies since have demonstrated that activity in \ac{MT} is dependent on both M- and P-pathways \citep{Merigan1991,Yabuta2001}.
+Our results may be indicative of two different pathways for transmission of information between cortices, in which \ac{V1} integrates both M- and P-pathways together and then separates them out again.
+However, this seems like an ambitious objective for \ac{V1} to achieve.
 
-Additionally, we can speculate about why separating the visual scene into low frequency (coarse) and high frequency (fine) components in \ac{V1} is useful.
-One possibility is that low frequency oscillations are output from \ac{V1} along the dorsal visual stream, whereas high frequency oscillations travel propagate through the ventral stream [IS THERE EVIDENCE FOR THIS?].
-Another possibility is that broad, coarse changes in the stimulus are useful for making rapid responses in the motor cortex to sudden changes, such as approaching threats.
+As discussed in \autoref{sec:bg_v1}, neurons in \ac{V1} are known to be tuned to the orientation, spatial frequency, direction of motion, and colour of oriented bars.
+Functionally, this is similar to edge detection, which requires high spatial frequency contrast in the stimulus.
+It is therefore possible that the \SI{60}{170}{Hz} power reflects the output of the cortical column.
+Such a hypothesis could be tested by investigating whether cortical power in this frequency range is tuned to orientated bar stimuli.
 
-Separation into low and high frequency domains with different properties seems to be a common property of the cortex.
-In motor cortex, activity at \SI{<13}{Hz} and \SI{>60}{Hz} relates to behaviour but there is a separating band \SI{\approx30}{Hz} which does not \citep{Rickert2005}.
-% [also some unpublished research by Julian Hoffman into independent oscillations in the barrel cortex].
-This suggests this encoding scheme is common across the cortex.
+The information encoded in the \SIrange{4}{16}{Hz} power pertained to coarse, sudden changes in the stimulus, such as scene cuts.
+When coarse and fast changes occur in the movie, the next frame seen by the cortex is very different from the previous stimuli in an unpredictable manner.
+Should \ac{V1} be utilising predictive coding, a sudden change in the stimulus such as this would violate the expected input predicted by \ac{V1}.
+Consequently, it may be that \SIrange{4}{16}{Hz} activity reflects an error signal, either triggering the latent state of \ac{V1} neurons to correct for the error or reset ready for a new initialisation.
 
-A separation of visual stimuli into coarse and fine channels is known to occur before the stimuli arrive in the cortex.
-The outputs from different types of \acp{RGC} travel to the cortex through different regions of \iac{LGN}.
-The M-pathway arises from \acp{RGC} with large, achromatic receptive fields, and projects mainly onto layer $4C\alpha$ in \ac{V1}.
-The P-pathway originates with \acp{RGC} with smaller, chromatic \acp{RF} providing higher spatial resolution but lower temporal resolution; this pathway projects onto layer $4C\beta$ \citep{Callaway1998}.
-It is possible that the two frequency channels in \ac{V1} relate to the two pathways providing its inputs.
-[Cite Nathaniel J Killian from AREADNE on information in low-frequencies of \ac{LGN}.
-Nothing available to actually cite?]
-
-As many readers will be aware, it has long been known that neurons in the primary visual cortex have a response curve tuned to a preferred spatial frequency.
-Work demonstrating the spatial frequency preference of single neurons typically involves the presentation of moving sinusoidal grating with a particular spatial frequency.
-[NOT SURE WHERE I WAS GOING WITH THIS{\dots}]
-
-The higher frequency band contains information about higher spatial frequencies changes in the stimulus.
-This corresponds to the detection of edges and texture, which are properties that single neurons in \ac{V1} are known to be selective for.
-
-
-We observed that each frequency has a similar amount of power across the cortical depth, but oscillations at these frequency ranges contain much more information at particular cortical depths.
-This is curious as it indicates that, for any given frequency band, oscillations are present in all cortical depths, but most of the oscillations exhibited are not stimulus encoding.
-This seems wasteful.
-[important point]
-
-We observed qualitatively that information-carrying events in \ac{L4} were large, temporary deflections with a long duration (low frequency), whereas \acs{L5/6} contained sustained oscillations (see \autoref{fig:lam_1a} for examples).
-The deflections in \ac{L4} were usually coincident with scene cuts or rapid changes in the stimulus.
-This could be interpreted as an error signal, since sudden, large changes in the stimulus would result in any predictive model of the stimulus making large errors.
-However, a more simple interpretation is these deflections correspond to changes in the afferent input to \ac{V1} from \ac{LGN}.
-In support of this, we note that the spatial scale of the information in the low frequency band (\SI{0.25}{\cpd}) approximately corresponds to the size of receptive fields for regions of the \ac{V1} corresponding to the parafovea (\SI{2}{\degree}).
-
-The sustained oscillations in \acs{L5/6} also contain information about coarse changes in the stimuli.
-These cortical layers are known to have connections to the motor cortex, feedback to \iac{LGN} and receiving feedback from higher cortical regions.
-
-
-Recent work has shown stimulation in \ac{V1} induces gamma activity in \ac{V4} (feedforward), whilst stimulation in \ac{V4} induces alpha oscillations in \ac{V1} (feedback) \citep{VanKerkoerle2014}.
-Recent work has indicated that alpha and gamma bands are important for feedback and feedforward activity respectively \citep{VanKerkoerle2014}.
-This study \citep{VanKerkoerle2014} found that gamma waves are initiated at \ac{L4} and propagate outwards to the top of \ac{SG} and bottom of \ac{IG}, with alpha waves propagating in the opposite direction.
-Our study finds the most information in gamma bands at the very top (and very bottom) of the cortex, and the most information in alpha bands at the top of \ac{L4} (and \ac{L6}).
-Reconciling these results together, we find that there is most information in the power of the alpha and gamma oscillations at the cortical depths where they terminate, and the least where they originate.
-This suggests that the oscillations are generated at one cortical depth without much stimulus dependency, but as the oscillations propagate up and down the cortex they are either amplified or supressed in a stimulus dependent manner.
+Recent work has shown that stimulation in \ac{V1} induces gamma (\SIrange{40}{90}{Hz}) activity in \ac{V4} (feedforward), whilst stimulation in \ac{V4} induces alpha (\SIrange{5}{15}{Hz}) oscillations in \ac{V1} (feedback) \citep{VanKerkoerle2014}.
+These results seem to lend further credence to the interpretation of alpha as a feedback error signal and gamma as a feedforward output of \ac{V1}.
+\citet{VanKerkoerle2014} also found that the gamma waves were initiated at \ac{L4}, propagating outwards to the top of \ac{SG} and bottom of \ac{IG}.
+Alpha waves propagated in the opposite direction, originating a the top and bottom of the cortex and travelling the middle.
+Our own analysis demonstrated that the gamma band were most informative at the top and bottom boundaries of the cortical column, and alpha in the middle of \ac{L4}.
+These localisations are the terminus of the \citet{VanKerkoerle2014} waves, not their origins, which is a surprising difference.
+To reconcile these two results together, we hypothesise that the cortical waves are gated as they travel through the cortical depth, such that the amplitude of the oscillations is amplified and supressed in a stimulus-dependent manner.
+However, this does seem unlikely and we must await the results of further studies in order to understand this cortical process.
