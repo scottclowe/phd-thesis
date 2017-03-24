@@ -239,7 +239,7 @@ Do the phases of oscillations at different frequencies convey information about 
 Furthermore, how is the information in the phase related to the information in the power?
 
 First, we consider the relationship between the phases of the frequency bands ($50\%$ bandwidth) occurring at the same cortical depths as one another.
-As shown in \autoref{fig:lam_phase_cxfrq_info}, we find that pairs of frequency bands \SI{<40}{Hz} contain synergistic information about the stimulus.
+As shown in \autoref{fig:lam_phase_cxfrq_info}, we find that pairs of frequency bands \SI{<40}{Hz} contain synergistic information about the stimulus, except for overlapping frequency bands which show redundancy.
 This means that knowing the phase of two such frequency bands provides more information about the stimulus than the information in the two of them individually.
 The observed synergy is similar across all pairs of frequencies \SI{<40}{Hz}, which suggests the cause is intrinsic to the Fourier transform its phase in general, and not specific to the cortical oscillation data we are considering.
 In particular, peaks and troughs in the overall \ac{CSD} signal occur when multiple frequency components reach $0$ and $\pi$ radians, respectively.
@@ -714,7 +714,7 @@ We considered the amount of information encoded in the phase of cortical oscilla
 For low frequency oscillations (\SI{<40}{Hz}) we found there was around $50\%$ more information in the phase than there was in the power.
 Higher frequency oscillations have phases which vary too quickly to reliably correspond to the same parts of the stimulus, and hence we do not find they convey much information about the stimulus.
 
-We found that the information in the phase any pair of oscillation frequencies less than \SI{40}{Hz} (recorded within the same cortical depth as each other) were synergistic.
+We found that the information in the phase of any pair of oscillation frequencies less than \SI{40}{Hz} (recorded within the same cortical depth as each other) were synergistic (except for overlapping bands).
 Furthermore, we found a substantial amount of information about the timing of scene cuts in the \ac{CSD} phase.
 The occurrence of each scene cut produces a stereotypical waveforms in response in the cortex (not shown), similar to the stimulus-onset response shown in \autoref{fig:lam_align_csd}.
 Consequently, we believe the synergy between the phase of non-overlapping cortical frequency bands is because maxima and minima of the overall \ac{CSD} occur when all frequencies strike phase $0$ and $\pi$ simultaneously, and these maxima and minima events are repeatably triggered by the stimulus.
@@ -731,4 +731,5 @@ Whichever aspects they encode remain unknown.
 In agreement with previous work \citep{Spaak2012}, we found there was cross-frequency coupling between the stimulus-encoding power of gamma oscillations in \acs{L1} and the phase of alpha oscillations in lower \acs{L4}.
 Anatomically, we believe this is related to the pyramidal cell bodies in \acs{L5A}, which have apical dendritic tufts in \acs{L1} \citep{Hill2013,Zhu2004}.
 This cross-frequency coupling could be one mechanism through which the \acs{L1} gamma wave containing high levels of information about the stimulus is converted into an alpha oscillation for feedback into the hierarchically lower cortical region.
+However, the direction of causality for the cross-frequency is unknown, so this alternatively could be alpha oscillations modulating the gamma power instead.
 Neurons in \acs{L5} are known to be related to long-range cortical output \citep{Hill2013}, and inputs into \acs{L1} are known to be predominantly inputs from higher-order cortices, so this cross-frequency coupling may provide a system for low-frequency feedback to be translated into higher frequency oscillations within \ac{V1}.
