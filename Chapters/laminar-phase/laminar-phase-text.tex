@@ -34,7 +34,7 @@ Hence for the phase, the bin widths were approximately $\nicefrac{2\pi}{3}$ radi
 \subsection{Signal and noise correlation}
 \label{sec:pl_phase_correlation}
 
-For both signal and noise correlation calculations, we used directional statistics (also known as circular statistics) which were were computed using the \textpackage{CircStat} toolbox \citep{Berens2009}.
+For both signal and noise correlation calculations, we used directional statistics (also known as circular statistics) which were computed using the \textpackage{CircStat} toolbox \citep{Berens2009}.
 
 The phase-phase correlations were evaluated with the circular-circular correlation coefficient \citep[page~176]{Jammalamadaka2001}, given by
 \begin{equation}
@@ -241,7 +241,7 @@ Furthermore, how is the information in the phase related to the information in t
 First, we consider the relationship between the phases of the frequency bands ($50\%$ bandwidth) occurring at the same cortical depths as one another.
 As shown in \autoref{fig:lam_phase_cxfrq_info}, we find that pairs of frequency bands \SI{<40}{Hz} contain synergistic information about the stimulus, except for overlapping frequency bands which show redundancy.
 This means that knowing the phase of two such frequency bands provides more information about the stimulus than the information in the two of them individually.
-The observed synergy is similar across all pairs of frequencies \SI{<40}{Hz}, which suggests the cause is intrinsic to the Fourier transform its phase in general, and not specific to the cortical oscillation data we are considering.
+The observed synergy is similar across all pairs of frequencies \SI{<40}{Hz}, which suggests the cause is intrinsic to the Fourier transform and its phase in general, and not specific to the cortical oscillation data we are considering.
 In particular, peaks and troughs in the overall \ac{CSD} signal occur when multiple frequency components reach $0$ and $\pi$ radians, respectively.
 As we already demonstrated in \autoref{sec:lam_scnchg} for the information in the power (and will demonstrate for the phase in \autoref{sec:lam_phase_scnchg}), scene transitions provide an important stimulation drive for low frequency oscillations.
 In particular, scene cuts induce similar oscillation waveforms on each of their occurrences (not shown, but similar to the stimulus-onset stereotyped response shown in \autoref{fig:lam_align_csd}).
@@ -258,7 +258,7 @@ Since the distribution over phase for any single frequency component is uniform,
 % Irrespective of which pair of frequency bands we consider,
 %
 
-For frequencies above \SI{40}{Hz}, the redundancy of the phase with other frequency bands was not significant, due to the low amount of information this frequency range.
+For frequencies above \SI{40}{Hz}, the redundancy of the phase with other frequency bands was not significant, due to the low amount of information in this frequency range.
 
 \begin{figure}[htbp]
 \centering
@@ -349,7 +349,7 @@ Each datapoint was tested for statistical significance using bootstrapping, and 
 \end{figure}
 
 There is significant redundancy between \SIrange{5}{15}{Hz} phase \SIrange{10}{20}{Hz} power, though the effect size is small.
-Synergy is found between the phase (across all frequencies) and the power of oscillations below \SI{10}{Hz}, with a notable gain relative to the amount of information the power of these frequencies (see \autoref{fig:lam_cxfrq_phasepower_gain}).
+Synergy is found between the phase (across all frequencies) and the power of oscillations below \SI{10}{Hz}, with a notable gain relative to the amount of information in the power of these frequencies (see \autoref{fig:lam_cxfrq_phasepower_gain}).
 We also see synergy between the phase of frequencies below \SI{20}{Hz} with the power in higher frequencies (\SI{>60}{Hz}).
 These findings could be caused by a coupling of the envelope amplitude of the power for oscillations in one frequency band with the phase of oscillations in another band, which we consider in \autoref{sec:lam_cfc}.
 
@@ -468,9 +468,9 @@ For the phase of oscillations, the peak frequency range best explained by scene 
 We computed the amount of information about changes in luminance at different spatiotemporal scales contained in the \ac{CSD} phase, the methodology for which is described in \autoref{sec:lam_tmf_method}.
 
 The amount of information encoded in the \ac{CSD} phase is only around $10\%$ of the information encoded in the power (\autoref{fig:lam_phs_spatmf}; see \autoref{sec:lam_spatmf} for comparison).
-This result is surprising, since we observed in \autoref{sec:lam_phase_scnchg} that the \ac{CSD} contains information a significant amount of information about scene cuts in the movie --- around \SI{0.06}{bits}, which is ten times more than we observe here.
+This result is surprising, since we observed in \autoref{sec:lam_phase_scnchg} that the \ac{CSD} contains a significant amount of information about scene cuts in the movie --- around \SI{0.06}{bits}, which is ten times more than we observe here.
 These two results appear to be contradictory, since scene transitions typically involve sudden, coarse changes in the luminance of the stimulus.
-But we note that the spatiotemporal distribution of information contained in the \SIrange{4}{16}{Hz} phase is the same as the distribution that for the \SIrange{4}{16}{Hz} power, though the distribution over depth is skewed towards deeper, \ac{IG}, cortical layers.
+But we note that the spatiotemporal distribution of information contained in the \SIrange{4}{16}{Hz} phase is the same as the distribution for the \SIrange{4}{16}{Hz} power, though the distribution over depth is skewed towards deeper, \ac{IG}, cortical layers.
 
 
 \begin{figure}[htbp]
