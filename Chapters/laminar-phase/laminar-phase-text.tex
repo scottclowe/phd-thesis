@@ -319,7 +319,7 @@ This allows us to compare the information in the phase and power of the same ban
 %-------------------------------------------------------------------------------
 \subsection{Phase-power redundancy}
 
-Similar to the above, we can also consider the redundancy between information in the power and phase across a range of frequencies.
+Similar to the above, we can also consider the redundancy between information in the power and phase as a function of their frequencies.
 
 
 \begin{figure}[htbp]
@@ -347,9 +347,12 @@ Each datapoint was tested for statistical significance using bootstrapping, and 
 \label{fig:lam_cxfrq_powerphase_info}
 \end{figure}
 
-We find that \autoref{fig:lam_cxfrq_powerphase_info}
+As shown in \autoref{fig:lam_cxfrq_powerphase_info}, we find that some pairs of power and phase have redundant information about the stimulus, some synergistic, and others approximately independent.
 
-\SIrange{5}{15}{Hz} phase \SIrange{10}{20}{Hz} power
+There is significant redundancy between \SIrange{5}{15}{Hz} phase \SIrange{10}{20}{Hz} power, though the effect size is small.
+Synergy is found between the phase (across all frequencies) and the power of oscillations below \SI{10}{Hz}, with a notable gain relative to the amount of information the power of these frequencies (see \autoref{fig:lam_cxfrq_phasepower_gain}).
+We also see synergy between the phase of frequencies below \SI{20}{Hz} with the power in higher frequencies (\SI{>60}{Hz}).
+These findings could be caused by a coupling of the envelope amplitude of the power for oscillations in one frequency band with the phase of oscillations in another band, which we consider in \autoref{sec:lam_cfc}.
 
 % \begin{figure}[htbp]
 %     \centering
@@ -674,6 +677,7 @@ The phase synchrony is shown for stimulus driven \protect\subref{fig:lam_phasest
 %-------------------------------------------------------------------------------
 %\FloatBarrier
 \subsection{Cross-frequency phase-amplitude coupling}
+\label{sec:lam_cfc}
 %-------------------------------------------------------------------------------
 
 Another manner in which we can investigate the relationship between phase and power is cross-frequency coupling.
@@ -705,7 +709,9 @@ The same relationship was discovered to hold both for spontaneous activity and s
 \section{Conclusions}
 %-------------------------------------------------------------------------------
 
+We
+
 In agreement with previous work \citep{Spaak2012}, we found there was cross-frequency coupling between the stimulus-encoding power of gamma oscillations in \ac{L1} and the phase of alpha oscillations in lower \ac{L4}.
 Anatomically, we believe this is related to the pyramidal cell bodies in \ac{L5A}, which have apical dendritic tufts in \ac{L1} \citep{Hill2013,Zhu2004}.
 This cross-frequency coupling could be one mechanism through which the \ac{L1} gamma wave containing high levels of information about the stimulus is converted into an alpha oscillation for feedback into the hierarchically lower cortical region.
-Neurons in \ac{L5} are known to be related to long-range cortical output \citep{Hill2013}.
+Neurons in \ac{L5} are known to be related to long-range cortical output \citep{Hill2013}, and inputs into \ac{L1} are known to be predominantly inputs from higher-order cortices, so this cross-frequency coupling may provide a system for low-frequency feedback to be translated into higher frequency oscillations within \ac{V1}.
