@@ -320,6 +320,7 @@ This allows us to compare the information in the phase and power of the same ban
 \subsection{Phase-power redundancy}
 
 Similar to the above, we can also consider the redundancy between information in the power and phase as a function of their frequencies.
+As shown in \autoref{fig:lam_cxfrq_powerphase_info}, we find that some pairs of power and phase have redundant information about the stimulus, some synergistic, and others approximately independent.
 
 
 \begin{figure}[htbp]
@@ -346,8 +347,6 @@ Each datapoint was tested for statistical significance using bootstrapping, and 
 }
 \label{fig:lam_cxfrq_powerphase_info}
 \end{figure}
-
-As shown in \autoref{fig:lam_cxfrq_powerphase_info}, we find that some pairs of power and phase have redundant information about the stimulus, some synergistic, and others approximately independent.
 
 There is significant redundancy between \SIrange{5}{15}{Hz} phase \SIrange{10}{20}{Hz} power, though the effect size is small.
 Synergy is found between the phase (across all frequencies) and the power of oscillations below \SI{10}{Hz}, with a notable gain relative to the amount of information the power of these frequencies (see \autoref{fig:lam_cxfrq_phasepower_gain}).
@@ -471,12 +470,7 @@ We computed the amount of information about changes in luminance at different sp
 The amount of information encoded in the \ac{CSD} phase is only around $10\%$ of the information encoded in the power (\autoref{fig:lam_phs_spatmf}; see \autoref{sec:lam_spatmf} for comparison).
 This result is surprising, since we observed in \autoref{sec:lam_phase_scnchg} that the \ac{CSD} contains information a significant amount of information about scene cuts in the movie --- around \SI{0.06}{bits}, which is ten times more than we observe here.
 These two results appear to be contradictory, since scene transitions typically involve sudden, coarse changes in the luminance of the stimulus.
-
-How does this behaviour arise, when the \ac{CSD} power was observed to give similar results for both scene transitions and spatiotemporal changes?
-Unlike the power, the phase changes is always changing rapidly --- it must change at a rate similar to the frequency of the filtered band --- whereas the envelope amplitude describing how the power changes over time can vary much more slowly.
-Consequently, the power of the \ac{CSD} has a long autocorrelation duration and the phase does not.
-This means that small perturbations in the differences between recorded and actual presentation times of the stimuli will not have much effect on the measured information in the power but will for the phase.
-Consequently, the relationship between the spatiotemporal changes in the movie and the \ac{CSD} phase may not be well aligned across trials.
+But we note that the spatiotemporal distribution of information contained in the \SIrange{4}{16}{Hz} phase is the same as the distribution that for the \SIrange{4}{16}{Hz} power, though the distribution over depth is skewed towards deeper, \ac{IG}, cortical layers.
 
 
 \begin{figure}[htbp]
@@ -495,6 +489,13 @@ Statistical significance thresholds were computed for each datapoint individuall
 \label{fig:lam_phs_spatmf}
 %
 \end{figure}
+
+
+How does this behaviour arise, when the \ac{CSD} power was observed to give similar results for both scene transitions and spatiotemporal changes?
+Unlike the power, the phase changes is always changing rapidly --- it must change at a rate similar to the frequency of the filtered band --- whereas the envelope amplitude describing how the power changes over time can vary much more slowly.
+Consequently, the power of the \ac{CSD} has a long autocorrelation duration and the phase does not.
+This means that small perturbations in the differences between recorded and actual presentation times of the stimuli will not have much effect on the measured information in the power but will for the phase.
+Consequently, the relationship between the spatiotemporal changes in the movie and the \ac{CSD} phase may not be well aligned across trials.
 
 
 %-------------------------------------------------------------------------------
