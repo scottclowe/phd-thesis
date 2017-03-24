@@ -90,6 +90,11 @@ This, the kernel \acl{CSD} method (kCSD; \citealp{Potworowski2012}), is non-para
 In particular, kCSD provides a native handling for unevenly spaced signal samples, which is useful since we had a small number of faulty electrode contacts, leaving holes in our sampling grid.
 Re-extracting the \ac{CSD} using kCSD would be more accurate, but is unlikely to perturb our results by a large amount.
 
+When discussing the results for information encoded in the power of cortical oscillations, we speculated that the power of the \SIrange{60}{170}{Hz} range may encode the output of the cortical column.
+Typically, neurons in \ac{V1} are tuned to respond to the movement of oriented bars with specific properties, such as orientation, spatial frequency, direction of motion, and colour.
+We could test this hypothesis by computing the spatiotemporal receptive field of the power of cortical oscillations by reverse correlating it with the movie frames \citep{Theunissen2001}.
+If the spatiotemporal receptive field is corresponds to such a stimulus, and in particular if it is similar to that of the \ac{MUA}, that would be evidence in support of the hypothesis.
+
 When determining which spatiotemporal components of the stimulus corresponded to the changes in cortical power and phase, we focused on the rate of change of luminance.
 However, we did not find information about any spatiotemporal scales present in the phase of oscillations.
 Consequently, it would be prudent to widen our search and consider colour-opponent changes in the stimulus, as is provided to the visual cortex through the P-pathway and K-pathway.
@@ -104,6 +109,8 @@ Since such events are temporally isolated, it would be more prudent to use a \ac
 Alternatively, we use wavelets transforms to decompose the \ac{CSD} signal into frequency components each considering isolated temporal periods.
 Secondly, we could the characteristic shape of the stimulus-onset response to search for similar events throughout the stimulus presentation.
 From this, we can investigate how such waveforms relate to scene changes and other aspects of the visual stimulus.
+
+% what do oscillations at other depths encode
 
 For this project, we principally investigated the population activity by considering the \ac{LFP} and \ac{CSD}.
 However, the process through which each of the different types of neuron within \ac{V1} manifest \acp{CSD} and how each frequency component in the signal is generated is not yet well understood.
