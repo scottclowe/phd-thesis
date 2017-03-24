@@ -9,12 +9,12 @@ The experimental process was performed for two macaques (\ac{M1} and \ac{M2}), a
 
 \subsection{Task-pertinent information}
 
-We decomposed the information about the stimulus contained in the neural activity into task-pertinent information, which helps an observer distinguish whether the presented stimulus had a contrast higher or lower than $30\%$, and task-nonpertinent information which only distinguish which of the \num{7} stimuli in each of the two categories was more likely.
+We decomposed the information about the stimulus contained in the neural activity into task-pertinent information, that helps an observer distinguish whether the presented stimulus had a contrast higher or lower than $30\%$, and task-nonpertinent information, that only helps distinguish which of the \num{7} stimuli in each of the two categories was more likely.
 From this, we found the amount of information which was not pertinent to the experimental task remained the same throughout training, whereas the amount of information which was pertinent to the task increased (this increase was statistically significant for \ac{M2} but not \ac{M1}).
-These observations are compatible with the hypothesis that the cortex is rewiring itself with training in a way which is directed towards optimising the target objective provided by the experimental protocol, which might be provided to visual regions in feedback from higher cortical regions involved with decision making.
+These observations are compatible with the hypothesis that the cortex is rewiring itself with training in a way which is directed towards optimising the target objective provided by the experimental protocol, which might be provided to visual regions in the form of feedback from higher cortical regions involved with decision making.
 It also suggests that the neurons in the visual cortex are restricted to encoding information in a certain manner, such that they can not increase the task-pertinent information at the expense of the information encoded about the stimulus which is not relevant to the behavioural task.
-One possible explanation for this that the contrast tuning curves of the cortical neurons become sharper with training, but the tuning curves are constrained such they cannot mimic the step-function.
-A previous study analysing the same dataset, \citet{Chen2013} found that exponential functions corresponding to the psychometric performance of the subject became steeper with training, in corroboration with this idea.
+One possible explanation for this is that the contrast tuning curves of the cortical neurons become sharper with training, but the tuning curves are constrained such that they cannot mimic the step-function.
+In a previous study analysing the same dataset, \citet{Chen2013} found that exponential functions corresponding to the psychometric performance of the subject became steeper with training, in corroboration with this idea.
 
 
 \subsection{Timing of information}
@@ -47,12 +47,12 @@ We trained the linear decoder to classify the group of the stimulus, giving us a
 We did not train the decoder to predict the behavioural choices made by the subject, and yet its responses coincided with the subject's behaviour more often than expected by chance.
 This phenomenon of elevated response agreement occurred after training but not before.
 
-There also was information about the both stimulus group and the behavioural response given by the subject in the sustained activity within the visual cortex after the stimulus was removed.
+There also was information about both the stimulus group and the behavioural response given by the subject in the sustained activity within the visual cortex after the stimulus was removed.
 This increased with training for both subjects and both brain regions.
 As discussed in \autoref{sec:pl_poststim_discuss}, this could be due to information reaching the visual cortex from the higher brain regions within the cortex associated with decision making.
 Previous analysis of the same dataset found the response time of the subject fell with training \citep{Chen2013,Chen2013thesis}, which could be related to this result.
 
-Using a decoder to classify the stimuli based on the population activity, we found that before training the subject there was more information about the stimulus in the small population of \ac{V1} neurons than we recorded than in the behavioural responses of the subject.
+Using a decoder to classify the stimuli based on the population activity, we found that before training the subject there was more information about the stimulus in the small population of \ac{V1} neurons that we recorded than in the behavioural responses of the subject.
 As training progressed, the information encoded in the \ac{V1} neurons of \ac{M2} rose, but not as quickly as the behavioural performance rose, such that after training the behavioural performance was higher than the decoder trained on \ac{V1} activity.
 In contrast, the \ac{V4} population contained a similar amount of information about the stimulus as the behavioural response, and though both rose with training, this remained true throughout the experiment.
 These results suggest a large amount of redundancy in the neural activity, since decision processes of the subject in principle have access to all the neurons of the brain, but perform at a level comparable with a decoder train on the activity of only around \num{20} neurons.%
@@ -83,7 +83,7 @@ In a study of the macaque \ac{MSTd}, \citet{Gu2011} found similar results: pairw
 Previous analysis of the same dataset using \ac{AUROC} found that, on average, the probability of agreement between the spiking activity from individual recording channels in \ac{V4} and the behavioural response rose with training, and the agreement between \ac{V1} and behaviour rose for \ac{M2}, but not \ac{M1} \citep{Chen2013thesis}.
 In this new work (\autoref{sec:dec-meth-prob}), we controlled for the change in behavioural performance with training, and computed the conditional mutual information between decoded population activity and behaviour (conditioning on the identity of the stimulus).
 
-For both animals, we find that knowing result of the decoder trained on the \ac{V4} population activity did not provide a much information about the behavioural response (beyond the information contained in the identity of the stimulus) before training began, but did yield a significant amount of information after training.
+For both animals, we find that knowing the result of the decoder trained on the \ac{V4} population activity did not provide as much information about the behavioural response (beyond the information contained in the identity of the stimulus) before training began, but did yield a significant amount of information after training.
 There was also an increase in information about the behavioural response contained in the activity of the \ac{V1} population for \ac{M2} (but not \ac{M1}), though the effect size was smaller than for \ac{V4}.
 There are two interpretations to this result: either the subject becomes more dependent on the activity of its \ac{V1} and \ac{V4} neurons when making its decision,%
 \footnote{Since we only record a small number of cortical neurons, we would here assume that the activity of the neurons which we record are representative of the cortical region as a whole.}
@@ -91,7 +91,7 @@ or that information pertaining to the subject's decision is fed back into \ac{V1
 However, both of these interpretations are problematic.
 Since we already showed that the performance of the \ac{V4} decoder and the subject's behaviour are similar throughout training, it would make more sense for the subject's decision process to be equally reliant on its \ac{V4} activity throughout training.
 But similarly, there is no reason to suspect that feedback from higher cortical regions involved in the decision making process to the visual cortex should increase with training.
-Furthermore, the decision of which behavioural response to provide is not necessarily finalised during the stimulus presentation period --- the subject has another \SI{400}{\milli\second} of fixation after the stimulus is removed before they are able to respond, and even they they do not necessarily respond immediately.
+Furthermore, the decision of which behavioural response to provide is not necessarily finalised during the stimulus presentation period --- the subject has another \SI{400}{\milli\second} of fixation after the stimulus is removed before they are able to respond, and even then they do not necessarily respond immediately.
 However, the response time does decline with training \citep{Chen2013,Chen2013thesis}, so it may be that decisions made by the subject are initially made after the stimulus is removed, but with training the subject becomes more decisive and feedback pertaining to this decision can consequently be witnessed in the visual areas during the stimulus presentation.
 This seems the more likely conclusion to draw from the analysis.
 In particular, we suspect that the rise in information in \ac{M1} \ac{V1} about the behavioural response is restricted to the final \SI{200}{\milli\second} of activity, which is where we see increases in information about the stimulus.

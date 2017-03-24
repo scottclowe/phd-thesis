@@ -421,13 +421,13 @@ Since the two are built on the same assumptions \ac{QE} gives similar performanc
 
 % Consider discussing Best Universal Bound (BUB) method (Paninski, 2003)
 
-The \ac{NSB} entropy estimation method \citep{Nemenman2004} provides an alternative framework through which the bias can minimised.
+The \ac{NSB} entropy estimation method \citep{Nemenman2004} provides an alternative framework through which the bias can be minimised.
 This method begins with a uniform prior and uses Bayesian inference to update the probability distribution given each sample in turn.
 The result has less residual bias than the \ac{PT} or \ac{QE} methods, but at higher computational cost \citep{Panzeri2007}.
 
 Each of these bias correction methods make a trade off between variability and bias.
 Introducing more terms in order to reduce the bias invariably increases variability, but this is a price worth paying since the uncorrected bias is so prominent in the results.
-Unless indicated otherwise, we will be using the \ac{PT} bias correction method when computing mutual information with a single dimensional response, and $\I_{\text{sh}}$ with \ac{PT} when using multi-dimensional response vector.
+Unless indicated otherwise, we will be using the \ac{PT} bias correction method when computing mutual information with a single dimensional response, and $\I_{\text{sh}}$ with \ac{PT} when using a multi-dimensional response vector.
 In addition to this, we will repeat the mutual information calculation with shuffled stimulus-response pairing multiple times (typically 20 different shuffled pairings) with bias correction and use the average of the bootstraps to estimate the residual bias uncorrected by \ac{PT}.
 The estimated residual bias is also removed from our reported mutual information between stimulus and response.
 
@@ -441,13 +441,13 @@ One might expect that, should we eliminate variations in the environment such th
 However this is not the case.
 Firstly, some stimuli, such as optical illusions and multistable perceptual phenomena induce unstable high-level representations in the brain \citep{Lumer1998,Sterzer2009,Watanabe2014}.
 This aside, for more classical typical stimuli (with only a single perceptual interpretation) the high-level representations of stimuli are stable, but the activity of each individual neuron is not.
-On each successive presentation of a stimulus, the number of spikes elicited in response to the stimulus and the time at each occurs may vary.
+On each successive presentation of a stimulus, the number of spikes elicited in response to the stimulus and the time at which each occurs may vary.
 Precisely how a stable internal representation is of a stimulus is constructed from the collection of unstable responses from individual neurons remains an open question actively researched within the theoretical neuroscience community.
 
 Since neurons function in harmony and not in isolation, and the neural code is distributed across the population of many neurons, it is often important to consider how the behaviour of multiple neurons relate to one-another.
 A simple way to do this is to measure the correlation between the outputs of pairs of neurons.
 
-Although this is a much less nuanced technique than using Shannon information to study the relationship between the neurons, measuring the correlation provides us with a much easier to use metric.
+Although this is a less nuanced technique than using Shannon information to study the relationship between the neurons, measuring the correlation provides us with a much easier to use metric.
 In particular, the amount of data needed to measure the mutual information between stimulus and response increases exponentially in the dimensionality of the response.
 This means it is impossible to compute the amount of information conveyed by the response of more than a handful of neurons.
 However, a simplistic interpretation of the correlation can be simplistic because, as we discuss below, one must take into account the relationship between the signal and the noise correlation to correctly understand the impact of the neural correlations on the information contained by a collection of neurons.
@@ -479,13 +479,13 @@ However, the prospective gain in performance when considering the responses from
 \label{sec:bg-noisecorr}
 
 Previously we noted that the response from a single neuron to a fixed stimulus is not fixed but effectively sampled from some stochastic distribution.
-This internally-generated fluctuation in the neuronal response is referred to as noise.%
+This internally-generated fluctuation in the neuronal response is referred to as noise.
 When we consider a pair of neurons, the responses from each may vary independently over their two distributions; alternatively their responses may co-vary.
 If the simultaneously measured responses from the pair of neurons are both higher than average on the same trials, and lower than average on the same trials, their noise is positively correlated.
-Should the simultaneously responses from one neuron be consistently higher than average when the other is lower than average, we say their noise is negatively correlated.
+Should the response from one neuron be consistently higher than average when the other is lower than average, we say their noise is negatively correlated.
 
-To a certain extent, positive noise correlations between neighbouring neurons in are inevitable, because they have correlated inputs.
-Firstly, the path length (in the graphical sense of the number of separating nodes) between any given pair is likely to be short for because neurons are preferentially connected to other neurons within their local vicinity.
+To a certain extent, positive noise correlations between neighbouring neurons are inevitable, because they have correlated inputs.
+Firstly, the path length (in the graphical sense of the number of separating nodes) between any given pair is likely to be short because neurons are preferentially connected to other neurons within their local vicinity.
 Secondly, since there are more neurons in \ac{V1} than in the \ac{LGN} \citep{Kanitscheider2015}, the upscaling of the afferent sensory input makes noise correlations within \ac{V1} inevitable.
 
 Intuitively, one can see that such noise correlations between pairs of neurons can inhibit the accuracy with which the stimulus is encoded in their activities.
