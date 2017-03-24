@@ -19,9 +19,9 @@ The computations performed by the central nervous system allow it to extract fea
 
 Information transmission between neurons is principally mediated by changes in the voltage, or potential difference, between the inside and the outside of the neuron \citep[Chapter~2]{nsbook}.
 A change in this membrane potential within one neuron will propagate along its cell body, and in doing so will affect other neurons which make direct conductive connections with it.
-However, the majority of connections between neurons are indirect, involving a synaptic junction in which chemicals, referred to as neurotransmitters, are passed from one neuron to the other in order to induce an electrochemical change in the recipient.
+However, the majority of connections between neurons are indirect, involving a synaptic junction in which chemicals, referred to as neurotransmitters, are released by one neuron and sensed by another where it induces an electrochemical change.
 
-In order to transmit electrical signals over long distances (longer than \SI{1}{\milli\metre}), instead of making direct, analog connections with one another, neurons digitise their information as \termemph{action potentials}.
+In order to be able to transmit electrical signals over long distances (longer than \SI{1}{\milli\metre}), neurons digitise their information as \termemph{action potentials}.
 At rest, the membrane potential of a neuron is typically negative, around \SI{-70}{\milli\volt}.
 For an action potential to be elicited by a neuron, its membrane potential must depolarise, becoming less negative.
 Once the membrane voltage passes above a certain threshold (typically around \SI{-55}{\milli\volt}, but the specific value depends on the neuron in question) a temporary change occurs in the dynamics of the ion channels which allow ionised chemicals to pass between the inside and outside of the cell is triggered.
@@ -137,6 +137,7 @@ The important feature of natural stimuli which must be preserved is the spatial 
 Indeed this is the reason why there are so many photoreceptors in the first place --- to capture spatial changes at high resolution.
 One unimportant feature of the stimuli is the absolute intensity of the light, consequently the output from the retina to the brain is local spatial contrast and how this varies over time.
 Furthermore, the colour of stimuli tends to vary coarsely within stimuli, and so this is downsampled.
+There is also decorrelation of the output from the retina, reducing the redundancy in the information sent to the brain.
 
 This functionality is achieved by the circuitry within the retina.
 In particular, \termemph{bipolar cells} connect to the rods and cones and filter their outputs, with some bipolar cells inverting the output of the photoreceptors.
@@ -148,7 +149,7 @@ The axons of the \acp{RGC} constitute the optic nerve, and their outputs are the
 
 Invariance to the changes in absolute illumination is produced partly by the centre-surround selectivity of the \acp{RGC}, and partly by \termemph{horizontal cells}.
 Horizontal cells receive inputs both from several cones and from other horizontal cells, such that each has a wide \ac{RF} and represents the average illumination over a large area \citep[Chapter~11]{nsbook}.
-The output of horizontal cells is directed towards the cones, to which they suppress the changes in response driven by illumination.
+The output of horizontal cells is fed back to the cones, suppressing their changes in activity driven by illumination.
 In doing so, horizontal cells effectively subtract from each cone the average activity of all neighbouring cones, providing light adaptation.
 
 There are known to be many types of \acp{RGC} (at least \num{17}), most of which are not well studied and poorly understood, but the three most common types are well characterised and constitute around $88\%$ of the all \acp{RGC} \citep{Nassi2009}.
@@ -181,7 +182,7 @@ Each of these three streams progresses simultaneously and in parallel, conveying
 \subsection{The primary visual cortex}
 \label{sec:bg_v1}
 
-The \acf{V1} is constituted of several layers stacked on top of each other, with total thickness around \SI{2}{\milli\metre}.
+The \acf{V1} is constituted of several layers stacked on top of each other, with total thickness around \SI{2}{\milli\metre} in primates.
 Each of these layers contains a different distribution of the many types of cortical neurons, and each layer has inputs and outputs directed to different brain regions \citep{Harris2013}.
 Typically, we refer to anatomically-defined \num{6} layers which together make up \ac{V1}, however as knowledge about the cortical structure has increased, these have been subdivided further.
 
