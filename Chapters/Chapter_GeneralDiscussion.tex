@@ -1,13 +1,15 @@
 %!TEX root = ../PhDthesis.tex
 \chapter{Discussion}
 
-In this thesis, we have ... generic
+In this thesis, we have applied information theoretic techniques to study the activity of populations of neurons within visual cortices \ac{V1} and \ac{V4}.
+Here, we summarise and discuss our findings, and propose future research directions.
 
 
 \section{Summary}
 
 \subsection{Perceptual learning}
 
+We investigated the neural correlates of a perceptual learning task in which monkeys had to discriminate between stimuli of varying contrast.
 Together, our results show the most informative signal about the contrast of the stimulus within the cortex is contained in the initial response to the stimulus onset within \ac{V1}, and this does not rise with training.
 The population activity in \ac{V4} rises with training, in line with the rise in behavioural performance of the subject.
 This indicates that \ac{V4} is trained to be better at reading out the information in \ac{V1} relevant to the task.
@@ -16,6 +18,7 @@ Our results also indicate that feedback signals from higher cortical regions int
 
 \subsection{Laminar distribution of information}
 
+What really are the effects of anaesthesia?
 
 
 \section{Open directions for future research}
@@ -23,7 +26,7 @@ Our results also indicate that feedback signals from higher cortical regions int
 There are obviously several directions for future work to expand on this study, some of which are more likely to bear fruit than others.
 
 
-\subsection{Perceptual learning}
+\subsection{Perceptual learning within the visual cortex}
 
 We identified the narrow beginning of the \ac{V1} stimulus-onset response as the most informative cortical signal conveying information about the contrast of the stimulus, and concluded this was likely to be because the latency of the signal reaching the cortex was sensitive to the contrast of the stimulus presented.
 Consequently, it would be useful to investigate the amount of information encoded in the latency of the first spike in response to the stimulus onset.
@@ -59,18 +62,18 @@ For instance, if the information encoded in each channel increases and some of t
 Consequently, it may be more interesting to consider the relative redundancy, normalised against the total information encoded in one or both of the channels, instead.
 
 
-\section{Laminar information}
+\subsection{Laminar distribution of cortical information}
 
 Firstly, multi-unit spiking activity has frequency components extending into the high-gamma range at around \SI{100}{Hz} \citep{Einevoll2013}.
 In addition to this, recent work by \citet{Zanos2011} has indicated that low-frequency components of the sharp changes in voltage in the broadband signal which associated with spikes are retained in \ac{LFP} extracted from the broadband signal.
 As a consequence, there spurious correlations between the \ac{LFP} and \ac{MUA}.
-These spurious correlations may impact our results, and it would be prudent remove the waveforms of the spikes from the broadband signal before extracting the power of \ac{LFP} and \ac{CSD} oscillations \citep{Zanos2011} and confirm that the \SIrange{60}{170}{Hz} power is still redundant with the \ac{MUA}.
+These spurious correlations may impact our results, and it would be prudent remove the waveforms of the spikes from the broadband signal before extracting the power of \ac{LFP} and \ac{CSD} oscillations \citep{Zanos2011} and confirm that the information about the stimulus in the \SIrange{60}{170}{Hz} power is still redundant with that of the \ac{MUA}.
 
 We determined the \ac{CSD} from the \ac{LFP} using the inverse \ac{CSD} method (iCSD; \citealp{Pettersen2006}).
 However, the authors have since detailed a more advanced procedure for estimating the \ac{CSD} from \acp{LFP}.
 This, the kernel \acl{CSD} method (kCSD; \citealp{Potworowski2012}), is non-parametric and uses Gaussian kernels with regularisation to estimate the ground truth \ac{CSD}.
 In particular, kCSD provides a native handling for unevenly spaced signal samples, which is useful since we had a small number of faulty electrode contacts, leaving holes in our sampling grid.
-Re-extracting the \ac{CSD} with kCSD would be more accurate, but is unlikely to perturb our results by a large amount.
+Re-extracting the \ac{CSD} using kCSD would be more accurate, but is unlikely to perturb our results by a large amount.
 
 When determining which spatiotemporal components of the stimulus corresponded to the changes in cortical power and phase, we focused on the rate of change of luminance.
 However, we did not find information about any spatiotemporal scales present in the phase of oscillations.
@@ -78,6 +81,14 @@ Consequently, it would be prudent to widen our search and consider colour-oppone
 One could even go so far as to model the transformations to the raw visual input performed by each of the \acp{RGC} types.
 In doing so, we would simulate the full effects of processing in the retina and be able to investigate the structure of information in \ac{V1} with respect to its actual input.
 However, such an undertaking would be quite significant, since our understanding the computational processing within the retina remains incomplete and is actively researched by many groups.
+
+We hypothesised that phase encoded synergistic information about the stimulus because scene changes induce stereotypical, transient waveforms and pairs of phase enable the determination of maxima and minima in such shapes.
+To investigate this hypothesis further, there are several directions we could consider.
+Firstly, we filtered signal using an \ac{IIR} Butterworth filter before using the Hilbert transform to determine the instantaneous power and phase.
+Since such events are temporally isolated, it would be more prudent to use a \ac{FIR} filter instead, such that transient waveforms do not have an isolated instead of infinite extent on the measurement of power and phase oscillations across time.
+Alternatively, we use wavelets transforms to decompose the \ac{CSD} signal into frequency components each considering isolated temporal periods.
+Secondly, we could the characteristic shape of the stimulus-onset response to search for similar events throughout the stimulus presentation.
+From this, we can investigate how such waveforms relate to scene changes and other aspects of the visual stimulus.
 
 For this project, we principally investigated the population activity by considering the \ac{LFP} and \ac{CSD}.
 However, the process through which each of the different types of neuron within \ac{V1} manifest \acp{CSD} and how each frequency component in the signal is generated is not yet well understood.
