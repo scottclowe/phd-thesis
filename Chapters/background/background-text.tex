@@ -71,16 +71,12 @@ For humans and other primates, vision is our dominant sense, and a large fractio
 
 The story of visual perception begins with the eye.
 In this section, since we are concerned with the mammalian visual system, we describe the properties of the eye common as it is among humans and other mammals.
-%
-% Light, after entering the eye, lands upon the retina, where neurons detect and encode.
-
-\citet[Chapter~11]{nsbook} % eye
 
 
 \subsubsection{Rods and cones}
 
 For any visual system, the most fundamental component is a set of cells which are sensitive to electromagnetic radiation.
-In mammals the light-sensitive cells, or photoreceptors, come in two types: rods and cones.%
+In mammals the light-sensitive cells, or photoreceptors, come in two types: rods and cones \citep[Chapter~11]{nsbook}.%
 \footnote{
 There are also intrinsically photosensitive \aclp{RGC}, however these cells are not directly involved in forming an image of the visual stimulus.
 Instead, they mediate the circadian rhythm, and influence pupil dilation \citep{Berson2002,Ecker2010,Wong2005}.
@@ -124,84 +120,96 @@ The presence of photoreceptors with different spectral sensitivities enables \te
 When light of a given frequency meets the retina, we can compare the relative responses of the different types of cone to determine which frequency it was.
 From the absolute intensity of the responses, we can determine the intensity or brightness of the light.
 
+The distribution of rods and cones within the eye is not uniform.
+Overall, there are twenty times more rods than cones in primates, but there is a small region (called the fovea) within which the ratio is reversed \citep[Chapter~11]{nsbook}.
+Consequently, the fovea has much higher visual acuity than the rest of the retina.
+In addition to this, the ratio of the three types of cones is not balanced.
+\ac{S} cones constitute only $5\%$ to $10\%$ of the total, and even fewer within the fovea \citep[Chapter~11]{nsbook}.
+The number of \ac{M} and \ac{L} cones are roughly equal.
 
-\subsubsection{Bipolar and \aclp{RGC}}
 
-Since there are about \num{130} million photoreceptors in the human eye, but only \num{1.5} million axons which send information from the retina to the brain \citep{Nassi2009}, the information collected from the photoreceptors must be processed.
+\subsubsection{Retinal processing}
 
-Within the retina, rods and cones feed their outputs into bipolar cells, are also located in the retina of the eye.
+Since there are about \num{130} million photoreceptors in the human eye, but only \num{1.5} million axons which send information from the retina to the brain \citep{Nassi2009}, the information collected from the photoreceptors must be compressed.
+This compression is lossy, but the processing performed in the retina allows the important properties of natural stimuli to be preserved and unimportant properties discarded.
+The important feature of natural stimuli which must be preserved is the spatial variations in luminance \citep[Chapter~11]{nsbook}.
+Indeed this is the reason why there are so many photoreceptors in the first place --- to capture spatial changes at high resolution.
+One unimportant feature of the stimuli is the absolute intensity of the light, consequently the output from the retina to the brain is local spatial contrast and how this varies over time.
+Furthermore, the colour of stimuli tends to vary coarsely within stimuli, and so this is downsampled.
 
-These feed into \acp{RGC}, which detect centre-surround differences in colour, 
+This functionality is achieved by the circuitry within the retina.
+In particular, \termemph{bipolar cells} connect to the rods and cones and filter their outputs, with some bipolar cells inverting the output of the photoreceptors.
+\acp{RGC} connect to a group of these bipolar cells, connected such that each \ac{RGC} has a small, localised, circular \ac{RF} to which it is sensitive.
+Each \ac{RGC} is wired such that they are sensitive to the difference in intensity between the centre of their \ac{RF} and the rest of the \ac{RF}.
+Consequently there are two complementary flavours of \acp{RGC}.
+The first responds strongly when the centre of the \ac{RF} is more illuminated than the surrounding (an \termemph{on-centre} ganglion), and the second responds strongly when the surrounding is more illuminated than the centre (an \termemph{off-centre} ganglion).
+The axons of the \acp{RGC} constitute the optic nerve, and their outputs are the source of visual information received by the brain.
 
-Research in animal models has shown there are a wide variety of .
-Within the mouse, there are at least xxx different xxx cells, detecting directed motion etc.
-It is not currently clear how many of these distinct subclasses of neurons are present in humans.
-They seem to be more common in mice than humans because higher order mammals have the cortical capacity to perform such functions in higher brain regions.
+Invariance to the changes in absolute illumination is produced partly by the centre-surround selectivity of the \acp{RGC}, and partly by \termemph{horizontal cells}.
+Horizontal cells receive inputs both from several cones and from other horizontal cells, such that each has a wide \ac{RF} and represents the average illumination over a large area \citep[Chapter~11]{nsbook}.
+The output of horizontal cells is directed towards the cones, to which they suppress the changes in response driven by illumination.
+In doing so, horizontal cells effectively subtract from each cone the average activity of all neighbouring cones, providing light adaptation.
 
-This in turn changes the voltage of neurons connected to the photoreceptor.
+There are known to be many types of \acp{RGC} (at least \num{17}), most of which are not well studied and poorly understood, but the three most common types are well characterised and constitute around $88\%$ of the all \acp{RGC} \citep{Nassi2009}.
 
-There are on and off bipolar cells
+Midget ganglion cells have small receptive fields with low contrast sensitivity and consequently sensitivity to high spatial and low temporal frequencies \citep{Nassi2009}.
+They are either red-green colour opponent, with either an \ac{M} or \ac{L} cone in the centre with a mixture of \ac{M} and \ac{L} cones in the surround.
 
-RGCs come in at least 17 types \citep{Nassi2009}
+Parasol ganglion cells have larger receptive fields, resulting in higher contrast sensitivity which is achromatic, and a preference for high temporal, low spatial frequencies \citep{Nassi2009}.
+The axon conductivities for parasol ganglion cells are higher than those of midget ganglions, and output of the parasols provides the first visual response within the visual cortex.
 
-There are three dominant types, which account for \SI{90}{\percent} \citep{Nassi2009}
+The third \ac{RGC} type is bistratified ganglion cells, which convey blue-on yellow-off colour-opponent signals \citep{Nassi2009}.
 
-Bistratified \acp{RGC} feed Koniocellular \ac{LGN} (K-pathway), then L2/3 \ac{V1} blob cells
-
-Midget \acp{RGC} feed Parvocellular \ac{LGN} (P-pathway), then L$4C\beta$
-
-Parasol \acp{RGC} feed Magnocellular \ac{LGN} (M-pathway), then L$4C\alpha$
-
+% Each type of \ac{RGC} is tiled across the retina.
 
 
 \subsection{The \acl{LGN}}
 
-within the thalamus
+The optic nerve sends visual information from the retina to the \ac{LGN}.
+The \ac{LGN} is banded, with layers of cells of several types.
 
-thought to be a central hub for 
+The output of midget \acp{RGC} are directed to parvocellular layers in the \ac{LGN}, which is then directed to layer $4C\beta$ within \ac{V1}.
+Because the signal passes through the parvocellular layers, this is known as the P-pathway.
+Parasol \acp{RGC} target the magnocellular \ac{LGN} layers, which subsequently target layer $4C\alpha$ of \ac{V1} (the M-pathway).
+Bistratified \acp{RGC} project to the koniocellular layers of \ac{LGN}, which is then target then blob cells in \ac{L2/3} of \ac{V1} (K-pathway).
+
+Each of these three streams progresses simultaneously and in parallel, conveying different information about the stimulus but sampling from the same spatial locations within the visual field.
 
 
-\subsection{Primary visual cortex}
+\subsection{The primary visual cortex}
+\label{sec:bg_v1}
+
+The \acf{V1} is constituted of several layers stacked on top of each other, like a 
 
 The primary visual cortex is sensitive to orientated bars edges at different
 
-Classically, this was understood as simple and complex cells, however the full processing is more complicated \cite{Harris2013}
+Classically, this was understood as simple and complex cells, however the full processing is more complicated \citep{Harris2013}
 
-Topological maps form across the cortex, which appears to be a self-organising mapping providing good coverage over all inputs to \ac{V1} \cite{Miikkulainen2005,Stevens2013,Wilson2015}.
+Topological maps form across the cortex, which appears to be a self-organising mapping providing good coverage over all inputs to \ac{V1} \citep{Miikkulainen2005,Stevens2013,Wilson2015}.
 
 
 
 The cortical column is widely regarded as the fundamental processing unit of the neocortex \citep{Mountcastle1957}.
 Under this hypothesis, there is a common microcircuit spanning the depth of the cortex which is repeated across the cortical plane.
 As the circuitry of the microcolumn is expected to have structural and functional similarities across the sensory modalities, therefore understanding this generic circuitry of the columnar computation will have far reaching impacts.
-However, despite some progress towards understanding knowing the different types of neurons in present in different layers [CITATION], and the distribution of their most prominent inter-connections [CITATION], and a structural wiring diagram for the cortical microcircuit [CITATION], is still unknown.
+However, despite some progress towards understanding knowing the different types of neurons in present in different layers, and the distribution of their most prominent inter-connections, and a structural wiring diagram for the cortical microcircuit, is still unknown.
 Furthermore, the functional structure and computation of the microcircuit, which is to say the purpose of the processing in each cortical layer, is also still unknown.
-In this paper, we aim to elucidate the functional structure of the cortical layers in \ac{V1} by examining the information contained in population activity at the various layers using \acp{LFP}.
 
 
+\subsection{The rest of the visual cortex}
 
-\subsection{Rest of visual cortex}
-
-Two streams \cite{Goodale199220,Mishkin198257}.
-
+From \ac{V1}, visual information forks and progresses down two parallel streams \citep{Goodale199220,Mishkin198257}.
 Beginning with \ac{V1} and \ac{V2}, the dorsal stream progresses to \ac{V5} and \ac{V6}.
 It is involved with spatial attention, communicating with regions which control eye movements and those that control hand movements, hence it is nicknamed the ``where'' pathway.
 
 The ventral stream also begins with \ac{V1} and \ac{V2}, but then progresses to \ac{V4} and \ac{IT}.
 Involved in the recognition, identification, and categorization of visual stimuli, it is referred to as the ``what'' pathway.
-Whilst \ac{V1} responds strongly to oriented bars, \ac{V2} and \ac{V4} have been found to respond to increasingly more abstract shapes.
+Whilst \ac{V1} responds strongly to oriented bars, neurons in \ac{V2} and \ac{V4} have been found to respond to increasingly more abstract shapes.
 At the higher end of the visual stream, \ac{IT} contains cells which have been identified to respond to high-level objects, such as faces.%, and concept cells \cite{Quiroga2012}.
 
-
-\subsection{The rest of the brain}
-
-Glial cells provide support for the neurons
-
-Information about the 
-
-Half the monkey cortex is dedicated to visual processing
-
-Cortex allows generic information processing
+These visual cortical regions are connected to other cortical regions higher up the cortical processing hierarchy.
+Some of these are associative cortical regions, which integrate information across different sensory modalities.
+The visual and associative cortices are also connected to regions related to planning and decision making, such as the prefrontal cortex.
 
 
 %------------------------------------------------------------------------------
