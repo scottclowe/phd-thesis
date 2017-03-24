@@ -1004,9 +1004,9 @@ Statistical significance thresholds were computed for each datapoint individuall
 \section{Conclusions}
 % =============================================================================
 
-In summary, we find while the average power of cortical oscillations is distributed similarly across the entire cortical depth, the strength of these oscillations is only tuned to the stimulus at certain depths (\autoref{fig:lam_info}).
+In summary, we find that while the average power of cortical oscillations is distributed similarly across the entire cortical depth, the strength of these oscillations at particular frequencies are tuned to the stimulus at certain depths (\autoref{fig:lam_info}).
 Previous work by \citet{Belitski2008} demonstrated there are two cortical frequency bands (\SI{<40}{Hz} and \SI{>40}{Hz}) within \ac{V1} which encode independent information about the natural visual scenes.
-We discovered that these frequency bands are redundant within themselves across the whole cortical depth, but the information contained within them is localised at specific cortical laminae.
+We discovered that these frequency bands are partially redundant within themselves across the whole cortical depth, but the information contained within them is localised at specific cortical laminae.
 In particular, the \SIrange{4}{16}{Hz} frequency band is informative in the upper granular and mid-infragranular compartments, and the \SIrange{60}{170}{Hz} range at upper supragranular and mid-infragranular regions.
 
 We investigated which unique properties of the stimulus may be encoded by each frequency band.
@@ -1014,7 +1014,7 @@ The occurrence of scene cuts in the movie, whose effects can be considered analo
 
 Subsequently, we examined whether changes in luminance at different spatial frequencies induced differential changes in the cortex as a function of neural frequency and depth.
 In corroboration with the results for scene cuts, we found that a similar frequency range, \SIrange{4}{16}{Hz}, encoded information about changes in the low spatial frequency aspects of the stimulus.
-The high frequency components of the neural activity, \SI{>60}{Hz}, encoded information about the high spatial frequency components of the stimulus.
+The high frequency components of the neural activity, \SI{>60}{Hz}, encoded information about the high spatial frequency components of the stimulus, shown in \autoref{fig:lam_spares_csdfrq}.
 
 Extending our decomposition of the natural stimulus into the temporal domain, we found our two neural frequency bands encoded information about different spatiotemporal aspects of the stimulus.
 The \SIrange{4}{16}{Hz} band of neural oscillations conveyed most information about sudden, coarse, changes in the stimulus --- such as would be induced by scene transitions in the movie presented and saccades in natural behaviour.
@@ -1025,7 +1025,7 @@ Our results suggest there is multiplexing in the cortex, with low frequency and 
 This finding corroborates previous results studying \ac{EEG}: \citet{Smith2006} found that two bands of oscillations --- theta (\SIrange{4}{8}{Hz}) and beta (\SIrange{12}{25}{Hz}) --- correspond to the conscious perception of low and high spatial frequency aspects (respectively) of a bistable image.
 
 As \ac{L4} is generally regarded as the principal layer of \ac{V1} receiving afferent inputs from the \ac{LGN} (see \autoref{sec:bg_v1}; \citealp{Callaway1998,Horton2005,Nassi2009,Harris2013}), this begs the question of how information in the gamma band has ``arisen'' in \ac{SG} layers without passing through \ac{G}.
-Of course, since axons from the \ac{LGN} target specific sites within \ac{L4} of \ac{V1}, it is reasonable to assume that fine-resolution information about the visual stimulus arrives from the \ac{LGN} into \ac{L4} of \ac{V1}, with the information encoded into which the pattern of which neurons are targeted by these afferent connections.
+Of course, since axons from the \ac{LGN} target specific sites within \ac{L4} of \ac{V1}, it is reasonable to assume that fine-resolution information about the visual stimulus arrives from the \ac{LGN} into \ac{L4} of \ac{V1}, with the information encoded in the pattern of \ac{V1} neurons activated by these afferent connections.
 Such information is not detectable from the population level activity.
 From there, fine-scale information can be redirected to \ac{SG}, where it is encoded in oscillations of activity in the \SIrange{60}{170}{Hz}.
 
@@ -1035,8 +1035,8 @@ This pathway terminates in layer $4C\alpha$ of \ac{V1}.
 The P-pathway originates with midget ganglion cells, encoding low temporal, high spatial frequencies of the stimulus and terminating in layer $4C\beta$ of \ac{V1}.
 
 The properties of these two pathways are reminiscent of properties of the two frequency bands we have isolated.
-The \SI{4}{16}{Hz} power pertains to changes in the stimulus with high temporal, low spatial frequencies, like the parasol ganglion cells.
-The \SI{60}{170}{Hz} power and \ac{MUA} pertain to changes in the stimulus with high spatial frequencies, similar to the midget ganglion cells.
+The \SIrange{4}{16}{Hz} power pertains to changes in the stimulus with high temporal, low spatial frequencies, like the parasol ganglion cells.
+The \SIrange{60}{170}{Hz} power and \ac{MUA} pertain to changes in the stimulus with high spatial frequencies, similar to the midget ganglion cells.
 Consequently, these frequency bands in \ac{V1} may be conveying information passed directly through the M- and P-pathways from the retina.
 The information could, hypothetically, be encoded into these frequency ranges by the \ac{LGN}, or within \ac{V1}.
 
@@ -1053,7 +1053,7 @@ However, this seems like an ambitious objective for \ac{V1} to achieve.
 
 As discussed in \autoref{sec:bg_v1}, neurons in \ac{V1} are known to be tuned to the orientation, spatial frequency, direction of motion, and colour of oriented bars.
 Functionally, this is similar to edge detection, which requires high spatial frequency contrast in the stimulus.
-It is therefore possible that the \SI{60}{170}{Hz} power reflects the output of the cortical column.
+It is therefore possible that the \SIrange{60}{170}{Hz} power reflects the output of the cortical column.
 Such a hypothesis could be tested by investigating whether cortical power in this frequency range is tuned to orientated bar stimuli.
 
 The information encoded in the \SIrange{4}{16}{Hz} power pertained to coarse, sudden changes in the stimulus, such as scene cuts.
@@ -1069,3 +1069,5 @@ Our own analysis demonstrated that the gamma band were most informative at the t
 These localisations are the terminus of the \citet{VanKerkoerle2014} waves, not their origins, which is a surprising difference.
 To reconcile these two results together, we hypothesise that the cortical waves are gated as they travel through the cortical depth, such that the amplitude of the oscillations is amplified and supressed in a stimulus-dependent manner.
 However, this does seem unlikely and we must await the results of further studies in order to understand this cortical process.
+
+We discuss possible future work to resolve these issues and questions in \autoref{ch:discussion}.
