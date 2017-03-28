@@ -33,7 +33,7 @@
 % ******************************************************************** 
 \usepackage{ifthen}
 \newboolean{enable-backrefs} % enable backrefs in the bibliography
-\setboolean{enable-backrefs}{false} % true false
+\setboolean{enable-backrefs}{true} % true false
 % ****************************************************************************************************
 
 
@@ -299,13 +299,6 @@
 % ********************************************************************
 \PassOptionsToPackage{pdftex,hyperfootnotes=false,pdfpagelabels,backref=page}{hyperref}
 	\usepackage{hyperref}  % backref linktocpage pagebackref
-% Configure backref=page output suitably
-\renewcommand*{\backref}[1]{}
-\renewcommand*{\backrefalt}[4]{%
-    \ifcase #1 (Not cited.)%
-    \or        (Cited on page~#2.)%
-    \else      (Cited on pages~#2.)%
-    \fi}
 
 \pdfcompresslevel=9
 \pdfadjustspacing=1 
