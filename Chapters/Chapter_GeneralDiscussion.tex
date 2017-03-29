@@ -92,8 +92,8 @@ This opens up the possibility of an additional frequency band at the same freque
 
 Firstly, multi-unit spiking activity has frequency components extending into the high-gamma range at around \SI{100}{Hz} \citep{Einevoll2013}.
 In addition to this, recent work by \citet{Zanos2011} has indicated that low-frequency components of the sharp changes in voltage in the broadband signal which associated with spikes are retained in \ac{LFP} extracted from the broadband signal.
-As a consequence, there spurious correlations between the \ac{LFP} and \ac{MUA}.
-These spurious correlations may impact our results, and it would be prudent remove the waveforms of the spikes from the broadband signal before extracting the power of \ac{LFP} and \ac{CSD} oscillations \citep{Zanos2011} and confirm that the information about the stimulus in the \SIrange{60}{170}{Hz} power is still redundant with that of the \ac{MUA}.
+As a consequence, there are spurious correlations between the \ac{LFP} and \ac{MUA}.
+These spurious correlations may impact our results, and it would be prudent to remove the waveforms of the spikes from the broadband signal before extracting the power of \ac{LFP} and \ac{CSD} oscillations \citep{Zanos2011} and confirm that the information about the stimulus in the \SIrange{60}{170}{Hz} power is still redundant with that of the \ac{MUA}.
 
 We determined the \ac{CSD} from the \ac{LFP} using the inverse \ac{CSD} method (iCSD; \citealp{Pettersen2006}).
 However, the authors have since detailed a more advanced procedure for estimating the \ac{CSD} from \acp{LFP}.
@@ -104,21 +104,21 @@ Re-extracting the \ac{CSD} using kCSD would be more accurate, but is unlikely to
 When discussing the results for information encoded in the power of cortical oscillations, we speculated that the power of the \SIrange{60}{170}{Hz} range may encode the output of the cortical column.
 Typically, neurons in \ac{V1} are tuned to respond to the movement of oriented bars with specific properties, such as orientation, spatial frequency, direction of motion, and colour.
 We could test this hypothesis by computing the spatiotemporal receptive field of the power of cortical oscillations by reverse correlating it with the movie frames \citep{Theunissen2001}.
-If the spatiotemporal receptive field is corresponds to such a stimulus, and in particular if it is similar to that of the \ac{MUA}, that would be evidence in support of the hypothesis.
+If the spatiotemporal receptive field corresponds to such a stimulus, and in particular if it is similar to that of the \ac{MUA}, that would be evidence in support of the hypothesis.
 
 When determining which spatiotemporal components of the stimulus corresponded to the changes in cortical power and phase, we focused on the rate of change of luminance.
 However, we did not find information about any spatiotemporal scales present in the phase of oscillations.
 Consequently, it would be prudent to widen our search and consider colour-opponent changes in the stimulus, as is provided to the visual cortex through the P-pathway and K-pathway.
-One could even go so far as to model the transformations to the raw visual input performed by each of the \acp{RGC} types.
+One could even go so far as to model the transformations to the raw visual input performed by each of the \ac{RGC} types.
 In doing so, we would simulate the full effects of processing in the retina and be able to investigate the structure of information in \ac{V1} with respect to its actual input.
-However, such an undertaking would be quite significant, since our understanding the computational processing within the retina remains incomplete and is actively researched.
+However, such an undertaking would be quite significant, since our understanding of the computational processing within the retina remains incomplete and is actively researched.
 
-We hypothesised that phase encoded synergistic information about the stimulus because scene changes induce stereotypical, transient waveforms and pairs of phase enable the determination of maxima and minima in such shapes.
+We hypothesised that the phase of multiple cortical frequency components encoded synergistic information about the stimulus because scene changes induce stereotypical, transient waveforms and pairs of phase enable the determination of maxima and minima in such shapes.
 To investigate this hypothesis further, there are several directions we could consider.
 Firstly, we filtered signal using an \ac{IIR} Butterworth filter before using the Hilbert transform to determine the instantaneous power and phase.
 Since such events are temporally isolated, it would be more prudent to use a \ac{FIR} filter instead, so that transient waveforms remain isolated and do not have effects on the reported power and phase across all time, into both the past and future.
-Alternatively, we could use a wavelets transform to decompose the \ac{CSD} signal into frequency components each considering isolated temporal periods.
-Secondly, we could the characteristic shape of the stimulus-onset response to search for similar events throughout the stimulus presentation.
+Alternatively, we could use a wavelet transform to decompose the \ac{CSD} signal into frequency components each considering isolated temporal periods.
+Secondly, we could use the characteristic shape of the stimulus-onset response to search for similar events throughout the stimulus presentation.
 From this, we can investigate how such waveforms relate to scene changes and other aspects of the visual stimulus.
 
 % what do oscillations at other depths encode
