@@ -9,12 +9,13 @@ In this chapter, we will investigate the information encoded in the phase of the
 % =============================================================================
 
 Since this dataset is the same as that analysed in \autoref{ch:lam}, the methodology for data collection and preprocessing are the same as were described in \autoref{sec:lam_exp}.
+In this section, we present additional methods specific to the analysis of the oscillation phase.
 
 
 \subsection{Phase across depth and frequencies}
 \label{sec:lam_phase_method}
 
-The phase was computed in a similar manner to the power in \autoref{sec:lam_power_method}.
+The phase was computed in a similar manner to the power, documented in \autoref{sec:lam_power_method}.
 We filtered both the \ac{LFP} and \ac{CSD} using a series of bands each with a fractional bandwidth of $50\%$, spaced logarithmically at multiples of \num{1.291}.
 This spacing ensures each band has $0\%$ overlap with bands further away than its immediate neighbours and a $44\%$ and $56\%$ overlap with its preceding and succeeding bands respectively.
 The filter chosen was a zero-phase sixth-order Butterworth filter, after which the instantaneous phase was estimated by taking the angle of the Hilbert transform.
@@ -348,7 +349,7 @@ Each datapoint was tested for statistical significance using bootstrapping, and 
 \label{fig:lam_cxfrq_powerphase_info}
 \end{figure}
 
-There is significant redundancy between \SIrange{5}{15}{Hz} phase \SIrange{10}{20}{Hz} power, though the effect size is small.
+There is significant redundancy between the \SIrange{5}{15}{Hz} phase and \SIrange{10}{20}{Hz} power, though the effect size is small.
 Synergy is found between the phase (across all frequencies) and the power of oscillations below \SI{10}{Hz}, with a notable gain relative to the amount of information in the power of these frequencies (see \autoref{fig:lam_cxfrq_phasepower_gain}).
 We also see synergy between the phase of frequencies below \SI{20}{Hz} with the power in higher frequencies (\SI{>60}{Hz}).
 These findings could be caused by a coupling of the envelope amplitude of the power for oscillations in one frequency band with the phase of oscillations in another band, which we consider in \autoref{sec:lam_cfc}.
@@ -427,8 +428,8 @@ The information about the stimulus encoded in the \SIrange{4}{16}{Hz} phase appe
 
 We computed the amount of information in the \ac{CSD} phase about scene transitions in the movie (agnostic about which of the scene transitions was occurring) in the same manner as described in \autoref{sec:lam_scnchg_method}.
 
-In terms of number of bits encoded, the phase and power contain amount of information about the presence of scene cuts.
-The fraction of information contained in the \ac{CSD} phase which is explained by scene transitions is smaller than we observed for the power (see \autoref{fig:lam_phs_scnchg}; \autoref{fig:lam_scnchg} for comparison).
+In terms of number of bits encoded, the phase and power contain the same amount of information about the presence of scene cuts.
+The fraction of information contained in the \ac{CSD} phase which is explained by scene transitions is smaller than we observed for the power (see \autoref{fig:lam_phs_scnchg}; \autoref{fig:lam_scnchg} for comparison), since the total amount of information encoded in the \SI{<40}{Hz} phase is larger than that encoded in the power.
 This indicates that the phase encodes more properties of the stimulus than the power of cortical oscillations.
 
 
@@ -481,7 +482,7 @@ spatmf/tmf-v-spares-sggig-avg-spatmf2_4-16Hz_phase.eps}
 \captionemph{Information contained in the \SIrange{4}{16}{Hz} \ac{CSD} phase about different spatiotemporal components.}
 % Same as \autoref{fig:lam_spatmf}, but for phase.
 The luminance of the movie was filtered in the spatial domain with using bandpass filters each with width one octave, and in the temporal domain with bandpass filters each with width \SI{6}{Hz}.
-Datapoints are shown against the middle of the band on both $x$ and $y$.
+Datapoints are shown against the middle of the band on both $x$ and $y$ axes.
 Each row of panels corresponds to a different cortical depth, averaging over \ac{SG}, \ac{G} and \ac{IG} compartments, respectively.
 Throughout all panels, the mean over \num{6} sessions is indicated.
 Statistical significance thresholds were computed for each datapoint individually, and a typical significance threshold is shown by the black line across the colour bar.
@@ -492,7 +493,7 @@ Statistical significance thresholds were computed for each datapoint individuall
 
 
 How does this behaviour arise, when the \ac{CSD} power was observed to give similar results for both scene transitions and spatiotemporal changes?
-Unlike the power, the phase changes is always changing rapidly --- it must change at a rate similar to the frequency of the filtered band --- whereas the envelope amplitude describing how the power changes over time can vary much more slowly.
+Unlike the power, the phase is always changing rapidly --- it must change at a rate similar to the frequency of the filtered band --- whereas the envelope amplitude describing how the power changes over time can vary much more slowly.
 Consequently, the power of the \ac{CSD} has a long autocorrelation duration and the phase does not.
 This means that small perturbations in the differences between recorded and actual presentation times of the stimuli will not have much effect on the measured information in the power but will for the phase.
 Consequently, the relationship between the spatiotemporal changes in the movie and the \ac{CSD} phase may not be well aligned across trials.
@@ -541,9 +542,9 @@ Consequently, the relationship between the spatiotemporal changes in the movie a
 % \end{figure}
 
 
-We determined the average phase difference and the phase synchrony between oscillations in the \SIrange{4}{16}{Hz} across the cortical depth, for both stimulus driven and spontaneous activity.
+We determined the average phase difference and the phase synchrony between oscillations in the \SIrange{4}{16}{Hz} band across the cortical depth, for both stimulus driven and spontaneous activity.
 As shown in \autoref{fig:lam_phasestats_alpha_combo_csd}, there is high phase synchrony within \ac{G} and \ac{SG}, and synchrony within \ac{IG}, but low synchrony between these compartments.
-Furthermore, the average phase difference between channels was always near $0$ (where ever there was synchrony).
+Furthermore, the average phase difference between channels was always near $0$ (wherever there was synchrony).
 These results were similar for stimulus driven and spontaneous activity.
 
 \begin{figure}[htbp]

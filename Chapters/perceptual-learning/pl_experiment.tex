@@ -293,8 +293,8 @@ The upper cutoff frequency was manually selected for each channel and session so
 
 Spikes were extracted from the filtered data using a voltage threshold.
 For each recording channel and session, a threshold was selected by hand at a voltage higher than the background noise, such that both high and low amplitude spikes will exceed the threshold.
-For each channel, the extracted spike trains contain spikes from multiple neurons (multi-unit) surrounding the electrode.
-All the spikes from high-amplitude neurons close to the electrode will be included, but lower-amplitude spikes from further away may peak with a voltage around the detection threshold.
+For each channel, the extracted spike trains contain spikes from multiple neurons (multi-unit activity) surrounding the electrode.
+All the spikes from high-amplitude neurons close to the electrode will be included, but lower-amplitude spikes from further away may be detected with a peak voltage around the detection threshold.
 Consequently, only a subset of the spikes from more distant neurons will be detected.
 
 After defining a detection threshold, spikes were extracted using the following algorithm.
@@ -302,6 +302,6 @@ After defining a detection threshold, spikes were extracted using the following 
 \item Find the first sample point to exceed the threshold.
 \item Find the peak of the spike by searching for next time the voltage decreases (searching forwards by at most \num{24} data points, spanning \SI{0.74}{\milli\second}).
 \item Extract the \num{8} data points preceding and \num{23} data points succeeding the peak as the waveform of the spike, with duration \SI{0.98}{\milli\second}.
-\item Skip forward to the end of the extracted waveform (\num{24} data points after the peak) before searching for the threshold to be exceeded again.
+\item Skip forward to the end of the extracted waveform (\num{24} data points after the peak) before searching for the next sample point to exceed the threshold again.
 \end{enumerate}
 By its construction, this algorithm enforces a minimum inter-spike interval of \SI{0.74}{\milli\second}.

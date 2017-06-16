@@ -17,7 +17,7 @@ An artifact was identified which was triggered whenever the monitor refreshed.
 Unfortunately, the monitor-refresh artifact had a profile very similar to that of a neural spike.
 Consequently, it continued to contaminate the data further down the processing pipeline post-spike extraction.
 
-The precise shape and magnitude of the artifact signal varied depending on channel and session, however for each individual channel the timing and shape of the artifact relative to the monitor refresh was highly reliable over the course of each session.
+The precise shape and magnitude of the artifact signal varied depending on channel and session, however for each individual channel the timing and shape of the artifact relative to the monitor refresh was highly reliable over the course of an individual session.
 Therefore, this artifact was removed from the data by averaging the raw recordings between each monitor refresh to find a stereotyped artifact profile, and subtracting this template from the recordings immediately following each monitor refresh.
 Since the artifact signal was sharply peaked and the monitor refresh was not phase-locked with the data sampling frequency, the stereotypical template was super-resolved by binning the samples into bins with 4 times the sampling frequency.
 For each monitor refresh, the template subtracted from the data samples was linearly interpolated against the super-resolved template depending on the phase of the data sampling rate.
@@ -62,22 +62,24 @@ To resolve this problem, spiking activity was re-extracted with an automated thr
 
 For each channel, a target spontaneous firing rate, $f_\text{target}$, was set by manually choosing a session from the middle of the experiment with an intermediate signal to noise ratio.
 Spikes from each channel had previously been sorted using computer-assisted manual clustering, and the target firing rate was set at the total multi-unit firing rate of all clusters.
-Unsorted spikes outside of all clusters were not included in the firing rate target.
+Unsorted spikes outside of the clusters were not included in the firing rate target.
 This choice should ensure the target firing rate is a sensible expectation of the true background firing rate for as many recording sessions as possible.
 
 Due to, amongst other differences, changes in the noise level between sessions, simply using the same voltage threshold for each session would not result in extracting a consistent firing rate.
 To determine the appropriate spike detection threshold which would match the target spontaneous activity for each session, we searched using an iterative routine on the number of extracted spikes as a function of the threshold.
 On each iteration, the spontaneous firing rate was determined based on the number of spikes during the pre-trial fixation period (Step \num{1} in \autoref{sec:pl_task}), as extracted using our algorithm described in \autoref{sec:pl_spike_extraction}.
 
-The initial threshold was set using the following method.
+To ensure the iterative algorithm had a suitable initialisation, which considerably reduced the runtime, the initial threshold was set using the following method.
 \begin{enumerate}
 \item Find the overall firing rate over all trials (including stimulus presentation as well as spontaneous activity) for the benchmark session being used to define the target spontaneous activity firing rate, $\tilde{f}_\text{target}$.
 \item Set $\SET{V}_{40}$ to be the maximum voltage over every \num{40} consecutive samples (a duration of \SI{1.23}{\milli\second}) during the first hour of recording for the session to be matched.
-\item Find the threshold $T_0$ such that number of values in $\SET{V}_{40}$ exceeding $T_0$ equals one hour at a rate of $\tilde{f}_\text{target}$.
+\item Find the threshold $T_0$ such that number of values in $\SET{V}_{40}$ exceeding $T_0$ equals one hour of spikes at a rate of $\tilde{f}_\text{target}$.
 \end{enumerate}
-This routine effectively allowed us to search over all possible thresholds very rapidly and find a suitable initialisation close to the final threshold for the majority of channels and sessions.
+This initialisation routine allowed us to search over all possible thresholds very rapidly, and find a suitable initial threshold which was close to the final solution for the majority of channels and sessions.
 
-If the initial threshold was too low, our second try was $3\%$ higher; if it was too high, our second try was $1\%$ lower\footnote{Since the computation involved in our spike extraction routine scales linearly with the number of spikes extracted, we err on the side of over-estimating the threshold since this costs notably less time.}.
+We then extracted the spikes using the algorithm described in \autoref{sec:pl_spike_extraction}, and compared the average firing rate during all pre-trial fixation periods in the recording session with $f_\text{target}$.
+If the initial threshold was too low, our second try was $3\%$ higher; if it was too high, our second try was $1\%$ lower.%
+\footnote{Since the computation involved in our spike extraction routine scales linearly with the number of spikes extracted, we err on the side of over-estimating the threshold since this costs notably less time.}
 After this, we performed an iterative search for the target threshold using a weighted combination of linear interpolation and bisection on each step ($80\%$ linear interpolation, $20\%$ bisection).
 The weightings for this hybrid root-finding algorithm were determined empirically and chosen to give reliably fast convergence.
 The search was halted once a threshold was found which yielded a spontaneous firing rate within \SI{\pm1}{\percent} of the target.

@@ -9,7 +9,7 @@ Here, we will introduce and discuss the fundamental properties of the mammalian 
 \section{Neurons and the brain}
 
 The central nervous system consists of the brain, spinal cord, and retina.
-Within each, there are specialised biological cells called neurons, whose properties allow them to encode information about the external world gleamed through the body's sensory organs, manipulate this information and perform computations with it in order to control the behaviour of the body.%
+Within each, there are specialised biological cells called \termemph{neurons}, whose properties allow them to encode information about the external world gleamed through the body's sensory organs, manipulate this information and perform computations with it in order to control the behaviour of the body.%
 \footnote{
 Neurons are common across all species of animals, though the architecture of their nervous systems vary greatly.
 Plants are also able to infer properties of their environment and respond accordingly using chemical and electrical signals, despite their lack of neurons \citep{Brenner2006,Barlow2008}.
@@ -24,10 +24,10 @@ However, the majority of connections between neurons are indirect, involving a s
 In order to be able to transmit electrical signals over long distances (longer than \SI{1}{\milli\metre}), neurons digitise their information as \termemph{action potentials}.
 At rest, the membrane potential of a neuron is typically negative, around \SI{-70}{\milli\volt}.
 For an action potential to be elicited by a neuron, its membrane potential must depolarise, becoming less negative.
-Once the membrane voltage passes above a certain threshold (typically around \SI{-55}{\milli\volt}, but the specific value depends on the neuron in question) a temporary change occurs in the dynamics of the ion channels which allow ionised chemicals to pass between the inside and outside of the cell is triggered.
+Once the membrane voltage passes above a certain threshold (typically around \SI{-55}{\milli\volt}, but the specific value depends on the neuron in question) a temporary change occurs in the dynamics of the ion channels which allow ionised chemicals to pass between the inside and outside of the cell.
 Sodium ions suddenly flow into the neuron, then potassium ions flow out just as suddenly, causing the membrane potential to rapidly increase to around \SI{+40}{\milli\volt} and then fall back to a voltage a little below its value at rest.
 The sharp rise and fall of the voltage across the membrane is known as an action potential, or \textemph{spike}, and has a duration of only around \SIrange{1}{2}{\milli\second} \citep[Chapter~1]{Dayan2001}.
-Following a spike, there is a recovery period (refractory period) of another few milliseconds during which further spikes cannot be elicited; following this system is to its original resting state.
+Following a spike, there is a recovery period (refractory period) of another few milliseconds during which further spikes cannot be elicited; following this the system is returned to its original resting state.
 
 We can consider an occurrence of action potential event to be the output of a neuron.
 Aided by an insulating covering of myelin and repeating stations (known as Nodes of Ranvier), an action potential can travel along its \termemph{axon} for long distances.%
@@ -39,7 +39,7 @@ The equivalent nerve in the blue whale can have an uninterrupted axon \SI{25}{\m
 At the terminus of the axon, synaptic connections are formed with the dendrites of other neurons.
 Upon the arrival of an action potential at the synapse, neurotransmitters are released which can either increase or decrease the membrane potential of the recipient neuron.
 
-Learning occurs principally by the strengthening and weakening of these synaptic connections between neurons such that more or fewer neurotransmitters are transferred into the recipient upon the arrival of a single action potential (\citealp[Chapter~23]{nsbook}; \citealp[Chapter~8]{Dayan2001}).
+Learning occurs principally by the strengthening and weakening of these synaptic connections between neurons such that more or fewer neurotransmitters are transferred into the recipient upon the arrival of a single action potential (\citealp[Chapter~8]{Dayan2001}; \citealp[Chapter~23]{nsbook}).
 
 
 %------------------------------------------------------------------------------
@@ -71,18 +71,19 @@ For humans and other primates, vision is our dominant sense, and a large fractio
 \subsection{The eye}
 
 The story of visual perception begins with the eye.
-In this section, since we are concerned with the mammalian visual system, we describe the properties of the eye common as it is among humans and other mammals.
+Eyes have evolved multiple times throughout the history of life on Earth.
+Noting that other animals have eyes which are structured differently, in this section we describe the properties of the eye as they are for humans and other mammals.
 
 
 \subsubsection{Rods and cones}
 
 For any visual system, the most fundamental component is a set of cells which are sensitive to electromagnetic radiation.
-In mammals the light-sensitive cells, or photoreceptors, come in two types: rods and cones \citep[Chapter~11]{nsbook}.%
+In mammals the light-sensitive cells, or \textemph{photoreceptors}, come in two types: \termemph{rods} and \termemph{cones} \citep[Chapter~11]{nsbook}.%
 \footnote{
 There are also intrinsically photosensitive \aclp{RGC}, however these cells are not directly involved in forming an image of the visual stimulus.
 Instead, they mediate the circadian rhythm, and influence pupil dilation \citep{Berson2002,Ecker2010,Wong2005}.
 }
-Rods and cones are subtypes of neuron which contain photosensitive proteins, rhodopsin and photopsin.
+Rods and cones are subtypes of neurons which contain photosensitive proteins, rhodopsin and photopsin, respectively.
 When photons of light collide with a photopigment protein, it changes state and shape, causing a cascade of biochemical changes resulting in the closing of ion channels in the cell membrane of the neuron.
 Since the energy in the photon%
 \footnote{
@@ -135,7 +136,7 @@ Since there are about \num{130} million photoreceptors in the human eye, but onl
 This compression is lossy, but the processing performed in the retina allows the important properties of natural stimuli to be preserved and unimportant properties discarded.
 The important feature of natural stimuli which must be preserved is the spatial variations in luminance \citep[Chapter~11]{nsbook}.
 Indeed this is the reason why there are so many photoreceptors in the first place --- to capture spatial changes at high resolution.
-One unimportant feature of the stimuli is the absolute intensity of the light, consequently the output from the retina to the brain is local spatial contrast and how this varies over time.
+One unimportant feature of the stimuli is the absolute intensity of the light; consequently the output from the retina to the brain is local spatial contrast and how this varies over time.
 Furthermore, the colour of stimuli tends to vary coarsely within stimuli, and so this is downsampled.
 There is also decorrelation of the output from the retina, reducing the redundancy in the information sent to the brain.
 
@@ -152,10 +153,10 @@ Horizontal cells receive inputs both from several cones and from other horizonta
 The output of horizontal cells is fed back to the cones, suppressing their changes in activity driven by illumination.
 In doing so, horizontal cells effectively subtract from each cone the average activity of all neighbouring cones, providing light adaptation.
 
-There are known to be many types of \acp{RGC} (at least \num{17}), most of which are not well studied and poorly understood, but the three most common types are well characterised and constitute around $88\%$ of the all \acp{RGC} \citep{Nassi2009}.
+There are known to be many types of \acp{RGC} (at least \num{17}), most of which are not well studied and poorly understood, but the three most common types are well characterised and constitute around $88\%$ of all the \acp{RGC} \citep{Nassi2009}.
 
 Midget ganglion cells have small receptive fields with low contrast sensitivity and consequently sensitivity to high spatial and low temporal frequencies \citep{Nassi2009}.
-They are red-green colour opponent, with either an \ac{M} or \ac{L} cone in the centre with a mixture of \ac{M} and \ac{L} cones in the surround.
+They are red-green colour opponent, with either an \ac{M} or \ac{L} cone in the centre and a mixture of \ac{M} and \ac{L} cones surrounding it.
 Approximately $70\%$ of retinal cells which project to the \ac{LGN} are midget cells, making them by far the most common class of \acp{RGC}.
 
 Parasol ganglion cells have larger receptive fields, resulting in higher contrast sensitivity which is achromatic, and a preference for high temporal, low spatial frequencies \citep{Nassi2009}.
@@ -169,7 +170,7 @@ The third most common \ac{RGC} type is the bistratified ganglion cells, which co
 \subsection{The \acl{LGN}}
 
 The optic nerve sends visual information from the retina to the \acf{LGN}.
-The \ac{LGN} is banded, with layers of cells of several types, illustrated in \autoref{fig:bg_pathway}.
+The \ac{LGN} is banded, with layers of cells of several types, as illustrated in \autoref{fig:bg_pathway}.
 
 \begin{figure}[htb]
 \centering
@@ -183,10 +184,10 @@ Adapted by permission from Macmillan Publishers Ltd: \textit{Nature Reviews Neur
 \label{fig:bg_pathway}
 \end{figure}
 
-The output of midget \acp{RGC} are directed to parvocellular layers in the \ac{LGN}, which is then directed to \aclu{L4Cb} within \ac{V1} (\acs{L4Cb}).
+The outputs of midget \acp{RGC} are directed to parvocellular layers in the \ac{LGN}, which is then directed to \aclu{L4Cb} within \ac{V1} (\acs{L4Cb}).
 Because the signal passes through the parvocellular layers, this is known as the P-pathway.
 Parasol \acp{RGC} target the magnocellular \ac{LGN} layers, which subsequently target \acs{L4Ca} of \ac{V1} (the M-pathway).
-Bistratified \acp{RGC} project to the koniocellular layers of \ac{LGN}, which then targets cytochrome oxidase-expressing patches (blob cells) in \acs{L2/3} of \ac{V1} (K-pathway).
+Bistratified \acp{RGC} project to the koniocellular layers of \ac{LGN}, which then target cytochrome oxidase-expressing patches (blob cells) in \acs{L2/3} of \ac{V1} (K-pathway).
 
 The tuning properties of \ac{LGN} cells are very similar to \acp{RGC}.
 Each of these three streams progresses simultaneously and in parallel, conveying different information about the stimulus but sampling from the same spatial locations within the visual field.
@@ -197,16 +198,16 @@ Each of these three streams progresses simultaneously and in parallel, conveying
 
 The \acf{V1} is constituted of several layers stacked on top of each other, with total thickness around \SI{2}{\milli\metre} in primates.
 Each of these layers contains a different distribution of the many types of cortical neurons, and each layer has inputs and outputs directed to different brain regions \citep{Harris2013}.
-Typically, we refer to anatomically-defined \num{6} layers which together make up \ac{V1}, however as knowledge about the cortical structure has increased, these have been subdivided further.
+Classically, we refer to \num{6} anatomically-defined layers which together make up \ac{V1} --- however as knowledge about the cortical structure has increased, these have been subdivided further.
 
-Examining the properties of neurons along the cortical depth reveals they have the same \ac{RF} (\citealp{Hubel1962}; \citealp{Hubel1963}), and this extends for a planar radius of around \SI{500}{\micro\metre} \citep{Mountcastle1997}.
-Furthermore, the neurons within this column preferentially to oriented edges with the same angle \citep{Hubel1962}.
-As the structure of the cortex with regards to its layer-wise depth dimension is similar across all its planar surface (not just within the confines of area \ac{V1}), this suggests that there is a fundamental columnar processing unit which is replicated across the surface of the cortex \citep{Mountcastle1957}.
-It is hypothesised that the circuitry of the cortical column has structural and functional similarities across all sensory modalities, serving as a generic cortical processing unit.
+Fixing our location within the cortical planar and examining the properties of neurons as we move along the cortical depth reveals that these neurons have the same visual \ac{RF} (\citealp{Hubel1962}; \citealp{Hubel1963}), and this extends for a planar radius of around \SI{500}{\micro\metre} \citep{Mountcastle1997}.
+Furthermore, the neurons within a cylindrical column of the cortex preferentially to oriented edges with the same angle \citep{Hubel1962}.
+The structure of the cortex (the constitution of each of the 6 layers) is similar across all its planar surface (not just within the confines of area \ac{V1}), suggesting there is a fundamental columnar processing unit which is replicated across the surface of the cortex \citep{Mountcastle1957}.
+It has been hypothesised that the circuitry of the cortical column has structural and functional similarities across all sensory modalities, serving as a generic cortical processing unit.
 
-Cortical columns (and their constituent neurons) within \ac{V1} have been observed as tuned to bars or edges with specific spatial frequency, orientation, direction of motion, and colour.
-Neighbouring cortical columns compete with each other due to horizontal inhibition within \acs{L2/3} of \ac{V1}.
-As a consequently, topological maps self-organise across the surface of \ac{V1}, together providing an efficient representation of the space of stimuli natural native to the individual's sensory environment \citep{Miikkulainen2005,Stevens2013,Wilson2015}.
+Cortical columns (and their constituent neurons) within \ac{V1} have been observed to be tuned to bars or edges with specific spatial frequency, orientation, direction of motion, and colour.
+Neighbouring cortical columns compete with each other due to the horizontal inhibition within \acs{L2/3} of \ac{V1}.
+As a consequence, topological maps self-organise across the surface of \ac{V1}, together providing an efficient representation of the space of stimuli native to the individual's sensory environment \citep{Miikkulainen2005,Stevens2013,Wilson2015}.
 As we traverse the cortical plane, neurons change in \ac{RF} location, preferred orientation and spatial frequency, such that there is good coverage over the full distribution of possible stimuli.
 
 
@@ -214,9 +215,10 @@ As we traverse the cortical plane, neurons change in \ac{RF} location, preferred
 
 From \ac{V1}, the flow of visual information within the brain forks, progressing down two parallel streams \citep{Goodale199220,Mishkin198257}.
 Beginning with \ac{V1} and \ac{V2}, the dorsal stream progresses to \ac{V5} and \ac{V6}.
-It is involved with spatial attention, communicating with regions which control eye movements and those that control hand movements, hence it is nicknamed the ``where'' pathway.
+Brain regions within this stream are involved in spatial attention.
+They communicate with other regions which control eye movements and hand movements, and hence it is nicknamed the ``where'' pathway.
 
-The ventral stream also begins with \ac{V1} and \ac{V2}, but then progresses to \ac{V4} and \ac{IT}.
+The ventral stream also begins with \ac{V1} and \ac{V2}, but then progresses to \ac{V4} and the \acl{IT}.
 Involved in the recognition, identification, and categorization of visual stimuli, it is referred to as the ``what'' pathway.
 Whilst \ac{V1} responds strongly to oriented bars, neurons in \ac{V2} and \ac{V4} have been found to respond to increasingly more abstract shapes.
 At the higher end of the visual stream, \ac{IT} contains cells which have been identified to respond to high-level objects, such as faces.%, and concept cells \cite{Quiroga2012}.
@@ -233,8 +235,8 @@ The visual and associative cortices are also connected to regions related to pla
 A common experimental methodology used in neuroscience is to record the extracellular activity of individual neurons under different conditions.
 From this, we can compare the activity of the neuron under different conditions to examine whether it is dependent on this set of conditions, and if so investigate the nature of the relationship between the two.
 
-Frequently, the approach used is to take many recordings of the same neuron for the same condition, and then take the average across these repetitions (``trials'') to reduce the effects of neuronal variability, producing a \ac{PSTH}, for instance.
-This neuronal variability is often referred to as ``noise'', however it is debatable as to whether differences in the behaviour of individual neurons between trials are due to noise within the system or are in fact due to non-stationarity within the system due to changes in neural state or unknown latent variables within the system (see \autoref{sec:bg-noisecorr} for further discussion).
+Frequently, the approach used is to take many recordings of the same neuron for the same condition, and then take the average across these repetitions (\textemph{trials}) to reduce the effects of neuronal variability, producing a \ac{PSTH}, for instance.
+This neuronal variability is often referred to as \textemph{noise}, however it is debatable as to whether differences in the behaviour of individual neurons between trials are due to noise within the system or are in fact due to non-stationarity within the system due to changes in neural state or unknown latent variables within the system (see \autoref{sec:bg-noisecorr} for further discussion).
 
 Such a simple treatment of the data --- averaging the response over repetitions --- is fundamentally flawed, since this is not the manner in which brains process stimuli.
 At any moment in time, the brain has access to the activity of many neurons simultaneously (not a single neuron in isolation), but only has a single sample of each one (not multiple instantiations of the same neuron).
@@ -252,10 +254,10 @@ These stimuli are then repeatedly presented to the sensory organ in an appropria
 For such an experimental set-up, let us assume that on each trial some stimulus $s$ is selected at random, with probability $p(s)$, from a set of discrete stimuli $\SET{S}$.
 The random variable $S$ denotes this selection of a stimulus, with some arbitrary probability distribution across the elements of $\SET{S}$.
 Even if our stimuli come from a continuous stimulus space, parametrically varying in orientation or frequency, say, it is important to discretise this down to a finite subset of stimuli from which samples will be drawn.
-This is because we must estimate either $p(s,r)$, $p(r|s)$, or $p(s|r)$ from the data for each stimulus $s$ in order to compute the mutual information, which is only possible if we have at least one presentation of every stimulus within our collection of stimuli.
+This is because we must estimate either $p(s,r)$, $p(r|s)$, or $p(s|r)$ from the data for each stimulus $s$ and response $r$ in order to compute the mutual information, which is only possible if we have at least one presentation of every stimulus within our collection of stimuli.
 
 The neuronal response could be one (or more than one) of several data types, such as a spike train from one or more neurons, the \ac{LFP}, \ac{CSD}, \ac{BOLD} signal, a calcium indicator, \ac{EEG}, or others \citep{Magri2009,Quiroga2009}.
-The principles of information theory can be applied whichever neural signal is taken to be the response.
+The principles of information theory can be applied whichever neural signal recorded from and taken to be a measure of the neural response.
 In \autoref{ch:pl}, we will work with information encoded in \ac{MUA} and spike trains, whilst in Chapters~\ref{ch:lam} and \ref{ch:plam} we will be considering the \ac{LFP} and \ac{CSD}.
 
 With regards to the analysis of sensory recordings (with which this thesis will be concerned), the different conditions used on the trial are typically different stimuli, and the extracellular recordings provide us with the neuron's response to the stimuli.
@@ -264,37 +266,38 @@ We are hence interested in how much information the response in the brain contai
 
 However, it should be noted that we frame the problem in the context of a \termemph{communication channel} simply because this is the framework around which Shannon information is formulated \citep{mackay2003information}.
 Within information theory, systems are modelled with information passing between a transmitter and receiver through a communication channel.
-The message passing between them in modified as it passes through the channel, and the receiver must attempt to decipher which message was originally sent.
+The message passing between them is modified as it passes through the channel, and the receiver must attempt to decipher which message was originally sent.
 
 In some ways, some functions of the brain are similar to the process of a compression algorithm.
 The initial encoding of the stimulus as transcribed by the appropriate sensory organ contains a large amount of information about the precise input stimulus --- for example the individual pixel values with an image stimulus --- which has a large amount of redundancy if one is interested only in detecting, classifying, and reacting to stimuli.
 A binary image of only $17 \times 17$ pixels can express \num{9.9e86} different states --- around a million times more than there are atoms in the visible universe, thought to be around $10^{80}$.
-However the vast majority of these images (for this, or equally true for a larger image with more intensity levels and colours) resemble unstructured random noise.
-The set of images which are of interest for interacting with a real world environment is vastly smaller, and with an appropriate high-level statistical model of the appropriate subset of the class of all potential stimuli can be compressed down to a much smaller number of bytes.
-For instance, whether a given visual stimulus contains the face of familiar person.
+However the vast majority of these images (for this, and equally true for a larger image with more intensity levels and colours) resemble unstructured random noise.
+The set of images which are of interest for interacting with a real world environment is vastly smaller; with an appropriate high-level statistical model, the subset of stimuli which are of interest can be compressed down to a much smaller number of bytes.
+For instance, we can take large image and compress this down to a binary value indicating whether this visual stimulus contains the face of familiar person.
 
 After a stimulus has been processed by the brain, information about the exact intensities of individual pixels is lost, but salient information about the environment is preserved.
-We can hence investigate how stimuli are encoded within the brain by computing the amount of information about properties of the stimulus contained within the neural recordings.
+We can hence investigate how stimuli are encoded within the brain by considering certain properties of the stimulus and computing the amount of information about them which is contained within the neural recordings.
 Here, we make the following assumption: if the neuronal activity is observed to contain information about the stimulus, we can assume this information is present due to the manner within which information is encoded by the brain, and that this information can be drawn upon to inform decisions taken with regard to the stimulus.
 We rationalise this assumption on the basis that we know the brain contains information about stimuli (otherwise it would be functionally blind/deaf), and it would be wasteful to expend resources encoding stimuli accurately but in a non-functional manner.
 
 The neural data which can be collected with modern experimental equipment is very dense and rich in content.
 For instance, individual spikes can be recorded with the precision of fraction of a millisecond, and broadband \acp{LFP} allow for many frequency components to be analysed from the same recording.
-Typically, it is not possible to compute the information about the stimulus contained in the entire data stream all at once.
-The reason for this is the relatively small number of trials which can be collected for any given dataset.
+Typically, it is not possible to compute the information about the stimulus contained in the entire data stream all at once when such a large quantity of neural activity is recorded simultaneously.
+This is because our analysis is limited by the relatively small number of trials which can be collected for any given dataset.
 
 % Mark dislikes this paragraph I guess?
-The repetitions of presenting the same stimulus and recording the neural response must be performed with the experimental setup the same, and recording taken from the same neurons.
-However, there is a maximum duration for any \invivo{} experiment of a few hours, after which the experimenters and subjects will be fatigued.
-This, naturally, leads to a maximum number of repetitions of an experimental protocol which can be completed within this timeframe, and that is in the order of 100.
-Should more trials be undertaken in a different experimental session, there is no guarantee that the neurons recorded from will be the same, so the response structure may be different and can't be combined with that of the prior session.
+In order to study information encoded within neural recordings, we must compare the activity across many repetitions of the same stimulus.
+Furthermore, to be able to compare the activity across trials, we must ensure we are making our recordings in precisely the same manner throughout all trials.
+Given the large number of neurons within the brain and the natural movement of brain tissue over time, it is not possible to set-up multiple experiments with the same subject and record precisely the same neurons each time.
+Consequently, the maximum number of repetitions we can achieve for any recording stream is limited to the number of repetitions which can be recorded over the course of a single recording session of at most a few hours in duration.
+With trials whose duration are in the order of a minute, we can only expect to record in the order of 100 trials in any dataset with consistent and comparable neural recordings across all the trials.
 
 Using information theory, we can investigate the nature of the neural code used by individual neurons and populations of neurons \citep{Optican1987}.
 For example, if our dataset consists of recordings of neuronal spiking activity, we can consider the amount of information contained in the spike train coincident with a \SI{40}{\milli\second} stimulus, say.
 First, we can consider our response vector to be the total number of spikes over the \SI{40}{\milli\second} window and compute the information contained in these about the identity of the presented stimulus.
 Second, we can consider our response vector to be the number of spikes in each quarter of the stimulus presentation period (four \SI{10}{\milli\second} windows).
 This step could equally be performed with more windows of finer granularity, so in general we would have a response vector $r = [r_1, \ldots, r_L]$, with $L$ windows each of length $\nicefrac{T}{L}$ and $r_i$ the number of spikes during the $i$-th window\footnote{In our example, $T = \SI{40}{\milli\second}$.}.
-Since the information contained in single \SI{40}{\milli\second} window approach is, by construction, contained in the vector of responses within the shorter windows, we can investigate amount of information contained within the timing of the spikes.
+Since the information contained in single \SI{40}{\milli\second} window approach is, by construction, fully contained in the vector of responses within the shorter windows, we can investigate amount of information contained within the timing of the spikes.
 If there is no significant difference between the amount of information about the stimulus contained in the two vectors, it seems reasonable to conclude that the stimulus, or some attributes which distinguish it, are encoded in the firing rate, whilst the exact timing of the spikes is unimportant.
 
 % Typically \citep{Quiroga2009,Brasselet2012,Panzeri2007,Arabzadeh2006,Strong1998}, a certain post-stimulus time window of duration $t$ in \SIrange{20}{40}{\milli\second} is chosen and a neural code is constructed which forms a discrete, multi-dimensional array $r = \{r_1, \ldots, r_L\}$ of dimension $L$, because a discrete response of this form is appropriate for performing an information theoretic analysis on.
@@ -322,8 +325,8 @@ Rigorously, we define the \termemph{Shannon information} content of an outcome o
 This corresponds to how ``surprised'' we would be to observe the result $x$ being produced by the system in question.
 Note that $h(x)=0$ if $p(x)=1$ (if an event is certain, we are never surprised and gain no information observing it), and $h(x) \to \infty$ as $p(x) \to 0^+$ (we gain more information --- we are increasingly surprised --- when a diminishingly unlikely event occurs).
 
-The \termemph{entropy} of a system is a measure of amount of uncertainty we have about its state.
-We define this as the expected amount of information we will gain when we observe it,
+The \termemph{entropy} of a system is a measure of amount of the uncertainty we have about its state.
+We define this as the expected amount of information we will gain when we observe the state of the system,
 \begin{align}
 \HH( X )
   &= \EE_{x\sim X} \left[ \log_2 \frac{1}{p(x)} \right] \notag
@@ -333,8 +336,8 @@ We define this as the expected amount of information we will gain when we observ
 where $X$ is the ensemble of possible states of the system in question.
 
 When studying neural recordings using information theory, we will need to take note of the uncertainty in which stimulus is presented, $\HH(S)$, and the uncertainty in the response, $\HH(R)$.
-In particular, the amount of information about the stimulus contained in the response is their \termemph{mutual information}, $\I(S;R)$.
-The mutual information is the amount by which our uncertainty in the stimulus is reduced when we discover the identity of the response to that stimulus, which is equivalent to the amount by which our uncertainty in the response decreases when we discover the identity of the stimulus.
+In particular, the amount of information about the stimulus contained in the response is equivalent to their \termemph{mutual information}, $\I(S;R)$.
+The mutual information is the amount by which our uncertainty in the stimulus is reduced when we discover the identity of the response to that stimulus --- which, by symmetry, is equivalent to the amount by which our uncertainty in the response decreases when we discover the identity of the stimulus.
 In general, we can express the mutual information between two random variables, $X$ and $Y$, as
 \begin{align}
 \I(X;Y)
@@ -343,10 +346,11 @@ In general, we can express the mutual information between two random variables, 
 \\&= \HH(X) - \HH(X | Y) \notag
 \\&= \HH(Y) - \HH(Y | X) \label{eq:info}
 .\end{align}
-For brevity, we will use the term \textemph{information} to refer to the mutual information between two random variables throughout this thesis, instead of the self-information defined in \autoref{eq:shannon-information}.
+For brevity, throughout this thesis we will use the term \textemph{information} to refer to the mutual information between two random variables (instead of the self-information defined in \autoref{eq:shannon-information}).
 
-In \autoref{eq:info}, we make use of the conditional entropy, $\HH(X | Y)$.
-This is so named because it is the entropy of one variable when conditioned on the state of another --- it is also referred to as the noise entropy, particularly when we consider the entropy of the response conditioned on the stimulus, $\HH(R|S)$.
+In \autoref{eq:info}, we made use of the conditional entropy, $\HH(X | Y)$.
+This is so named because it is the entropy of one variable when conditioned on the state of another.%
+\footnote{It is also referred to as the noise entropy, particularly when we consider the entropy of the response conditioned on the stimulus, $\HH(R|S)$.}
 Analogously to \autoref{eq:shannon-information}, conditional entropy is defined as
 \begin{align}
 \HH(X | Y)
@@ -383,12 +387,12 @@ In practice, $p(r|s)$ is much easier to derive than $p(s|r)$, and so we estimate
 As mentioned earlier, we must repeatedly present each stimulus so it is possible to estimate the response distribution $p(r|s)$ for each stimulus condition.
 
 However, estimating these probabilities from the data can cause problems with our estimated mutual information.
-Since we have only a finite number of samples, there will inevitably be inaccuracies in our probability estimates (the ``limited sampling'' problem).
+Since we have only a finite number of samples, there will inevitably be inaccuracies in our probability estimates (the \textemph{limited sampling} problem).
 Should we repeat the experiment, the natural variation in the samples we collect will result in statistical variance in our measured mutual information.
 Moreover, the variation due to finite sampling may cause our response distributions to appear different for different stimuli, even when the underlying response generation process is the same for each stimulus.
-Such problems produce an over-estimation bias in the computed mutual information compared with the ground truth.
-For instance, if a particular response never occurs for given stimulus presentation, a na{\"i}ve frequentist estimate of its probability would be $0$.
-This would lead us to mistakenly conclude that it is impossible a certain stimulus was presented if we observe this response, even though we could have observed this combination had we taken more samples.
+Such problems produce an \textemph{over-estimation bias} in the computed mutual information compared with the ground truth.
+For instance, if a particular response never occurs for a given stimulus presentation, a na{\"i}ve frequentist estimate of its probability would be $0$.
+This would lead us to mistakenly conclude that it is impossible that a certain stimulus was presented if we observe this response, even if we could in fact have observed this combination of stimulus and response had we collected more samples.
 
 Of even greater concern, the bias to the estimated mutual information can vary greatly depending on the choice of experiment or analysis framework.
 One cannot draw comparisons between na{\"i}vely estimated mutual information values under different experimental criteria because the changes in the bias can completely dwarf the changes in the ground truth information value.
@@ -409,9 +413,9 @@ Exploiting this, we have
 \begin{equation}
 p_\text{ind}([r_1,r_2,r_3,\cdots]|s) = p(r_1|s) \, p(r_2|s) \, p(r_3|s) \, \cdots
 \end{equation}
-and can can compute $\HH_\text{ind}( R | S )$ directly from estimates of each $p(r_i|s)$ derived from the data.
-This has very little bias compared with $\HH( R | S )$ there are so many more samples --- the ratio of samples for unique response vectors to individual response elements rises exponentially with the dimension of the response vector.
-One can alternatively estimate this entropy from pseudo-response arrays by shuffling each element in the response vector conditioned on the stimulus, producing $\HH_\text{sh}( R | S )$.
+and can can compute $\HH_\text{ind}( R | S )$, the entropy under the independence assumption, directly from estimates of each $p(r_i|s)$ derived from the data.
+This has very little bias compared with $\HH( R | S )$ since there are so many more samples --- the ratio of samples for unique response vectors to individual response elements rises exponentially with the dimension of the response vector.
+One can alternatively estimate this entropy, $\HH_\text{ind}( R | S )$, from pseudo-response arrays by shuffling each element in the response vector conditioned on the stimulus, producing $\HH_\text{sh}( R | S )$.
 Since this shuffling destroys information contained in the dependencies between elements in the response vector, this is an estimate of the same entropy value as $\HH_\text{ind}( R | S )$.
 Except the bias on $\HH_\text{sh}( R | S )$ will be similar to the bias of $\HH( R | S )$ because each computation uses the same number of samples.
 Consequently, we can estimate the mutual information between $S$ and $R$ using
@@ -462,17 +466,17 @@ When an individual is repeatedly presented with the same stimulus, a representat
 One might expect that, should we eliminate variations in the environment such that an external stimulus is precisely the same --- an identical audio track is played without any background stimulus or a visual image is presented with the eyes held in place, for instance --- the activity within the associated sensory cortex would be identical on each repetition of the stimulus presentation.
 However this is not the case.
 Firstly, some stimuli, such as optical illusions and multistable perceptual phenomena induce unstable high-level representations in the brain \citep{Lumer1998,Sterzer2009,Watanabe2014}.
-This aside, for more classical typical stimuli (with only a single perceptual interpretation) the high-level representations of stimuli are stable, but the activity of each individual neuron is not.
+But this aside, for more classical typical stimuli (with only a single perceptual interpretation) the high-level representations of stimuli are stable, but the activity of each individual neuron is not.
 On each successive presentation of a stimulus, the number of spikes elicited in response to the stimulus and the time at which each occurs may vary.
-Precisely how a stable internal representation is of a stimulus is constructed from the collection of unstable responses from individual neurons remains an open question actively researched within the theoretical neuroscience community.
+Precisely how a stable internal representation of a stimulus is constructed from the collection of unstable responses from individual neurons remains an open question actively researched within the theoretical neuroscience community.
 
 Since neurons function in harmony and not in isolation, and the neural code is distributed across the population of many neurons, it is often important to consider how the behaviour of multiple neurons relate to one-another.
 A simple way to do this is to measure the correlation between the outputs of pairs of neurons.
 
 Although this is a less nuanced technique than using Shannon information to study the relationship between the neurons, measuring the correlation provides us with a much easier to use metric.
-In particular, the amount of data needed to measure the mutual information between stimulus and response increases exponentially in the dimensionality of the response.
-This means it is impossible to compute the amount of information conveyed by the response of more than a handful of neurons.
-However, a simplistic interpretation of the correlation can be simplistic because, as we discuss below, one must take into account the relationship between the signal and the noise correlation to correctly understand the impact of the neural correlations on the information contained by a collection of neurons.
+In particular, the amount of data needed to measure the mutual information between stimulus and response increases exponentially in the dimensionality of the response, which means it is impossible to compute the amount of information conveyed by the response of more than a handful of neurons.
+In comparison, a simplistic interpretation of the correlation between the neurons can be performed with fewer trials.
+However, as we discuss below, one must take into account the relationship between the signal and the noise correlation to correctly understand the impact of the neural correlations on the information contained by a collection of neurons.
 
 
 \subsection{Signal correlations}

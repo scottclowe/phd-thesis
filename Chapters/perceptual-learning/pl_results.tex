@@ -39,16 +39,16 @@ The spontaneous (noise) activity was defined as the number of spikes detected du
 The signal activity was the number of spikes during the \SI{525}{\milli\second} immediately following the sample stimulus onset.
 From this, $d'$ was computed using \autoref{eq:dprime}.
 
-To investigate whether $d'$ changed significantly during the course of our experiments, we compared the average $d'$ during the first and final three experimental sessions (\zonename{A} and \zonename{B}).
-A paired $t$-test (two-tailed) was used to study whether the $d'$ consistently increased or decreased for the channels.
+To investigate whether $d'$ changed significantly during the course of our experiments, we compared the average $d'$ during the first and final three experimental sessions (intervals which we denote \zonename{A} and \zonename{B}, respectively).
+A paired $t$-test (two-tailed) was used to study whether $d'$ consistently increased or decreased for the channels.
 
-The violin plots (see, for instance, the upper-right panel of \autoref{fig:dprime_v1_blanco}) show the Gaussian kernel density estimation of the distribution over channels of $d'$ before and after training (\zonename{A} and \zonename{B}).
+The violin plots (see, for instance, the upper-right panel of \autoref{fig:dprime_v1_blanco}) show the Gaussian kernel density estimation of the distribution over channels of $d'$ before and after training (intervals \zonename{A} and \zonename{B}).
 This bandwidth of the Gaussian kernel was determined using the rule of thumb bandwidth estimator,
 \begin{equation}
 h = \hat{\sigma} \left( \frac{4}{3 n} \right) ^ \frac{1}{5}
 ,\label{eq:estimate-bw}\end{equation}
 where $n$ is the number of samples and $\hat{\sigma}$ is the estimated standard deviation for the population determined from these samples.
-We applied the bandwidth estimator to the set of $d'$ averaged over the first three sessions of training, $\SET{\zonename{A}}$, and averaged over final three sessions, $\SET{\zonename{A}}$, to find $h_\zonename{A}$ and $h_\zonename{B}$.
+We applied the bandwidth estimator to the set of $d'$ averaged over the first three sessions of training, $\SET{\zonename{A}}$, and averaged over final three sessions, $\SET{\zonename{B}}$, to find $h_\zonename{A}$ and $h_\zonename{B}$.
 In each plot, the same kernel bandwidth of
 $H = \min(h_\zonename{A}, h_\zonename{B}) / 2$
 is used when estimating the density at \zonename{A} and at \zonename{B}.
@@ -74,7 +74,7 @@ This ensures sufficient detail about the distribution is preserved for each, and
 
 For \ac{V1}, we found $d'$ decreased with training (see \autoref{fig:dprime_v1}).
 A similar result was observed for each subject.
-The average change in sensitivity index was $\Delta d' = -0.323$ ($p=0.02$, paired $t$-test) for \ac{M1} and $\Delta d' = -0.419$ ($p < 4 \times 10 ^{-7}$, paired $t$-test) for \ac{M2}.
+The average change in the sensitivity index was $\Delta d' = -0.323$ ($p=0.02$, paired $t$-test) for \ac{M1} and $\Delta d' = -0.419$ ($p < 4 \times 10 ^{-7}$, paired $t$-test) for \ac{M2}.
  
 \begin{figure}[htbp]
     \centering
@@ -109,7 +109,7 @@ figs/dprime/dprime_sample_hm_hotcold_jack_v4_1_rmon2_rmvet2.eps}
 \protect\subref{fig:dprime_v1_blanco}: $d'$ for \ac{M1} \ac{V1}, shown for each recording channel, with channels ordered according to average $d'$ over all sessions.
 Above, traces of $d'$ for each channel (colours), and average over channels (black).
 Below, heatmap showing $d'$ for each channel.
-Right top, violin plots showing distribution over channels of the average $d'$ in the first three sessions (\zonename{A}) and last three sessions (\zonename{B}), with mean (solid black line) and median (dashed green line) over channels indicated.
+Right top, violin plots showing distribution over channels of the average $d'$ in the first three sessions (\zonename{A}) and last (\zonename{B}) three sessions, with mean (solid black line) and median (dashed green line) over channels indicated.
 The violin plot shows a Gaussian kernel density using a bandwidth determined automatically as described in \autoref{sec:violin_plot_method}.
 \protect\subref{fig:dprime_v1_jack}: Same as \protect\subref{fig:dprime_v1_blanco}, but for \ac{M2}.
 \protect\subref{fig:dprime_v4_blanco} and \protect\subref{fig:dprime_v4_jack}: Same as \protect\subref{fig:dprime_v1_blanco} and \protect\subref{fig:dprime_v1_jack}, but for \ac{V4}.
@@ -119,12 +119,12 @@ The violin plot shows a Gaussian kernel density using a bandwidth determined aut
 \label{fig:dprime_v4}
 \end{figure}
 
-The results for \ac{V1} contrast with our findings for \ac{V4}.
-For \ac{M1}, some channels marginally increased and others marginally decreased their $d'$ with training (\autoref{fig:dprime_v4_blanco}).
-Overall, there was a small increase in average $d'$, with $\Delta d' = +0.052$, which was not a statistically significant change ($p=0.46$).
+The results for \ac{V4} contrast with our findings for \ac{V1}.
+For \ac{M1}, some \ac{V4} channels marginally increased and others marginally decreased their $d'$ with training (\autoref{fig:dprime_v4_blanco}).
+Overall, there was on average a small increase in $d'$, with $\Delta d' = +0.052$, which was not a statistically significant change ($p=0.46$).
 
-With \ac{M2}, many channels began training either indifferent to the stimulus, $d'=0$, or were suppressed by it, $d'<0$ (\autoref{fig:dprime_v4_jack}).
-Starting from this lower position, there was a significant increase of $\Delta d' = +0.491$ ($p < 7 \times 10 ^{-8}$).
+For \ac{M2}, many \ac{V4} channels were either indifferent to the stimulus, $d'=0$, or were suppressed by it, $d'<0$ (\autoref{fig:dprime_v4_jack}) on the first day of the experiment.
+There was a significant increase of $\Delta d' = +0.491$ ($p < 7 \times 10 ^{-8}$) over training.
 However the final $d'$ for almost all channels recorded for \ac{M2} was still lower than the average $d'$ for \ac{M1}.
 
 
@@ -143,7 +143,7 @@ For \ac{M1}, many of the neurons we recorded from were responsive to the primiti
 But for \ac{M2}, this was not the case --- on the contrary, many neurons were suppressed by the Gabor stimulus.
 With training, neurons recorded in \ac{M1} did not notably change their sensitivity to the sample stimulus, whereas $d'$ did increase for \ac{M2}.
 
-We make particular note of the fact that the $d'$ in \ac{V4} increased for \ac{M2} from initially mostly negative values.
+We make particular note of the fact that $d'$ in \ac{V4} increased for \ac{M2} from initially mostly negative values.
 In principle, a decrease in activity in response to a stimulus can provide as much information about the presence of the stimulus as increase in activity.
 However, it is difficult for neurons to increase their spontaneous activity due to the constraining effects of homeostasis, and it would be energetically inefficient for them to do so.
 Therefore, since the firing rate of a neuron cannot fall below $0$ there is a smaller limit to the amount by which firing rates can differ if the information about the stimulus is conveyed by a reduction in activity compared to the background rate.
@@ -162,19 +162,19 @@ For instance, this would be achieved if the absolute activity in response to the
 %==============================================================================
 \section{Neural correlations}
 
-To provide a simple measure of the similarity in the neural responses given by the recording channels, we computed the correlation in the response.
-As described in \autoref{sec:bg-corr}, we can compute both the signal correlation and the noise correlation.
+To provide a simple measure of the similarity in the neural responses given by the recording channels, we computed the correlation in their responses.
+As described in \autoref{sec:bg-corr}, we can consider both the signal correlation and the noise correlation.
 
 To measure the signal correlation, we first averaged the response (over all repetitions) elicited by each stimulus for each recording channel.
 Then, for each pair of channels we took the correlation in the average responses to each stimulus.
 Channels which respond to the set of stimuli in a similar manner will have a high signal correlation, irrespective of how the response curve is shaped.
 
-To measure the noise correlation, we measured the correlation in responses from a pair of channels obtained over all presentations of single stimulus.
+To determine the noise correlation, we measured the correlation in responses from a pair of channels obtained over all presentations of single stimulus.
 This was repeated for each stimulus class, and then averaged over the stimuli.
 Channels whose responses vary in a similar manner for a simultaneously recorded trial will have a high noise correlation.
 
 In both cases, we measured the correlation between the responses from the two channels using the Pearson correlation coefficient.
-If we let the responses observed from our two recording channels be denoted by the random variables $X$ and $Y$, the Pearson correlation coefficient is given by
+If we let the responses observed from our two recording channels be denoted by the random variables $X$ and $Y$, their Pearson correlation coefficient is given by
 \begin{equation}
 \label{eq:pearson}
 r(X,Y) = \frac{\operatorname{cov}(X,Y)}{\operatorname{var}(X) \, \operatorname{var}(Y)}
@@ -182,7 +182,7 @@ r(X,Y) = \frac{\operatorname{cov}(X,Y)}{\operatorname{var}(X) \, \operatorname{v
 This provides a measure of the covariance between $X$ and $Y$ which is normalised again their standard deviations, meaning that $-1 \le r \le 1$ and $r$ is robust against linear rescaling of either $X$ or $Y$ (or both).
 If $r=\pm1$, there is a perfect linear relationship between $X$ and $Y$, whereas $r=0$ when $X$ and $Y$ are completely independent of one another.
 
-To investigate whether the signal and noise correlations rose or fell during the experiments, we compared the average correlation over the first and last three sessions (\zonename{A} and \zonename{B}).
+To investigate whether the signal and noise correlations rose or fell during the experiments, we compared the average correlation over the first and last three sessions (intervals \zonename{A} and \zonename{B}).
 We used a paired $t$-test to measure whether the correlations changed significantly over all pairs of channels.
 
 
@@ -265,7 +265,7 @@ figs/correlations/signal_correlation_sessionwise_jack_v4_20chn_s24,25,27-38,40-4
     \caption{\captionemph{Signal correlation between pairs of recording channels.}
 The correlation in the average firing rate in response to each stimulus condition was computed for each pair of channels (\protect\subref{fig:pl_sigcor_v1_blanco}~\num{253} pairs of channels, \protect\subref{fig:pl_sigcor_v1_jack}~\num{300} pairs, \protect\subref{fig:pl_sigcor_v4_blanco}~\num{435} pairs, \protect\subref{fig:pl_sigcor_v4_jack}~\num{190} pairs).
 Main panels: average across all pairs of channels, with standard deviation indicated by the shaded region.
-Right hand panels: the Gaussian kernel density for the distribution over channel pairs of the average signal correlation during the first (\zonename{A}) and last three sessions (\zonename{B}), with mean (solid black line) and median (dashed green line) indicated.
+Right hand panels: the Gaussian kernel density for the distribution over channel pairs of the average signal correlation during the first (\zonename{A}) and last (\zonename{B}) three sessions, with mean (solid black line) and median (dashed green line) indicated.
 The bandwidth for the Gaussian kernel density estimate was determined as described in \autoref{sec:info-methods}.
 }
     \label{fig:pl_sigcor}
@@ -346,7 +346,7 @@ figs/correlations/noise_correlation_sessionwise_jack_v4_20chn_s24,25,27-38,40-49
     \caption{\captionemph{Noise correlation between pairs of recording channels.}
 The correlation in the average firing rate in response to each stimulus condition was computed for each pair of channels (\protect\subref{fig:pl_noisecor_v1_blanco}~\num{253} pairs of channels, \protect\subref{fig:pl_noisecor_v1_jack}~\num{300} pairs, \protect\subref{fig:pl_noisecor_v4_blanco}~\num{435} pairs, \protect\subref{fig:pl_noisecor_v4_jack}~\num{190} pairs).
 Main panels: average across all pairs of channels, with standard deviation indicated by the shaded region.
-Right hand panels: the Gaussian kernel density for the distribution over channel pairs of the average noise correlation during the first (\zonename{A}) and last three sessions (\zonename{B}), with mean (solid black line) and median (dashed green line) indicated.
+Right hand panels: the Gaussian kernel density for the distribution over channel pairs of the average noise correlation during the first (\zonename{A}) and last (\zonename{B}) three sessions, with mean (solid black line) and median (dashed green line) indicated.
 The bandwidth for the Gaussian kernel density estimate was determined as described in \autoref{sec:info-methods}.
 }
     \label{fig:pl_noisecor}
@@ -376,8 +376,8 @@ Since the subject's performance increases with training, we expect to find the a
 This much is trivial, since perception occurs within the neural activity of an individual.
 What will be interesting to uncover is \textemph{where} the neural changes take place --- in \ac{V1}, in \ac{V4}, neither, or both?
 
-To make its decision, the subject has access to all the neurons we have recorded and all the neurons in the brain from which we have not recorded.
-For the best idea of how much information the brain has access to, we would evaluate how much information is contained in the vector of neuronal responses for every recording channel.
+To make its decision, the subject potentially has access to all the neurons we have recorded and all the neurons in the brain from which we have not recorded.
+For the best idea of how much information the brain has access to from the recordings we have available, we could evaluate how much information is contained in the vector of neuronal responses for every recording channel.
 However, this is problematic.
 As the number of data streams combined into the response vector increases, the number of possible unique response vectors increases exponentially.
 However, the number of trials recorded is fixed, and the number of possible response vectors must be constrained to prevent the estimated amount of information diverging to infinity (see \autoref{sec:bgit}).
@@ -460,7 +460,7 @@ The \ac{PT} bias correction method was used, without further correction to the r
 For some channels, the measured information was a \textemph{negative} value.
 Consequently, the violin plots in \autoref{fig:info_sess_1x527} showing the distribution of information values across channels extend below \num{0}.
 This is not because these channels contain a negative amount of information about the stimulus --- in fact it is mathematically impossible for there to be less than \num{0} mutual information between two random variables (see \autoref{eq:info} and its discussion).
-Instead, this observation negative value is due to the inherent uncertainty of our measurement of mutual information, which we corrected against the finite-sampling upward bias using the \ac{PT} method.
+Instead, this observed negative value is due to the inherent uncertainty of our measurement of mutual information, which we corrected against the finite-sampling upward bias using the \ac{PT} method.
 If we were to measure two completely independent events and perfectly correct for the bias due to finite sampling, our measurements of the information would be distributed around \num{0}.
 
 As described in \autoref{sec:pl_dprime_discuss}, the non-significant reduction of information witnessed for \ac{M1} \ac{V1} is most likely explained by the unavoidable reduction of recording signal quality over time.
@@ -619,7 +619,7 @@ When training \ac{M2} with the \ac{V4} stimuli, the overall performance was init
 Consequently, the largest increase in performance was that attained for the easier stimuli, and the percentage of trials featuring one of the 6 easiest stimuli (furthest from $30\%$ contrast) fell by \SI{5.4}{\percent} in absolute terms.
 
 Changes in the distribution of classes between sessions can impact our analysis in two ways.
-Firstly, as described \autoref{eq:info} the amount of information between stimulus, $\S$, and response, $\R$, is dependent on the entropy of the stimulus, $\HH(S)$.
+Firstly, as described \autoref{eq:info} the amount of information between stimulus, $S$, and response, $R$, is dependent on the entropy of the stimulus, $\HH(S)$.
 As the distribution of stimulus classes moves closer to uniform, the stimulus entropy increases.
 Since our stimulus distribution generally tends to become flatter after training, this may cause the measured information to be inflated as training progresses.
 Secondly, as seen for \ac{M2} \ac{V1}, the proportion of trials which are in the easier categories is higher for later sessions.
@@ -1010,7 +1010,7 @@ Results are shown both without correcting for the finite measurement bias (grey 
 
 As anticipated, using only two stimulus classes to increase the number of trials per stimulus class greatly reduces the residual bias after \ac{PT} bias correction.
 This is witnessed in the reduced correlation between estimated information and $\nicefrac{1}{N}$ seen in \autoref{fig:I_vs_invN_target-group}.
-Here we find all correlations a negative correlation between $\nicefrac{1}{N}$ and $\I_\text{measured}$ are reduced and no longer significant, with the exception of \ac{M2} \ac{V1}, where $R<-0.47$ for both \ac{PT} and \ac{QE} ($p < 0.027$).
+Here we find the magnitude of the correlations between $\nicefrac{1}{N}$ and $\I_\text{measured}$ are reduced and no longer significant, with the exception of \ac{M2} \ac{V1}, where $R<-0.47$ for both \ac{PT} and \ac{QE} ($p < 0.027$).
 
 
 % NvsI labels=class-group-balanced, with 20 bootstraps
@@ -1226,7 +1226,7 @@ To quantify the change over time, we again compared the information averaged ove
 For the relative information, only channels which had a significant amount of total information (exceeding \num{1.5} times the standard deviation over bootstraps) for both the average over \zonename{A} and also over \zonename{B} were included.
 This step was included to ensure \zonename{A} and \zonename{B} were directly comparable; a paired $t$-test was used to compare the information at \zonename{A} with \zonename{B}.
 
-Similarly, we considered the amount of information about the stimulus contained in the behavioural response of the animal, which was a saccade to one of two targets, indicating whether the subject believed the contrast to be higher or lower than $30\%$ (two forced-choice).
+Similarly, we considered the amount of information about the stimulus contained in the behavioural response of the animal --- a saccade to one of two targets indicating whether the subject believed the contrast to be higher or lower than $30\%$ (two forced-choice).
 The same procedure was used to decompose the the total information in this response into task-pertinent and nonpertinent components, and find the proportion of the information which was task-pertinent.
 
 
@@ -1236,9 +1236,9 @@ We separated the total information about the stimulus contained in the neural re
 For \ac{M1}, there was a non-significant decrease in the total information, task-pertinent information, and the task-nonpertinent information between \zonename{A} and \zonename{B} (paired Student's $t$-test; $p=0.20$, $p=0.38$, and $p=0.13$ respectively), as shown in \autoref{fig:info_taskpertinent_v1_ch_blanco}.
 Correspondingly, there was no significant change in the fraction of the total information which was task-pertinent either ($p=0.60$; see \autoref{fig:info_taskpertinent_rel_v1_ch_blanco}).
 
-For \ac{M2}, there was a small, non-significant, decrease in the task-nonpertinent information between \zonename{A} and \zonename{B} (\SI{-0.010\pm0.007}{bits}, $p=0.16$), but there was a significant increase in the task-pertinent information (\SI{+0.060\pm0.011}{bits}, $p = 2 \times 10^-5$; see \autoref{fig:info_taskpertinent_v1_ch_jack}).
+For \ac{M2}, there was a small, non-significant, decrease in the task-nonpertinent information between \zonename{A} and \zonename{B} (\SI{-0.010\pm0.007}{bits}, $p=0.16$), but there was a significant increase in the task-pertinent information (\SI{+0.060\pm0.011}{bits}, $p = 2 \times 10^{-5}$; see \autoref{fig:info_taskpertinent_v1_ch_jack}).
 Together, these give a combined increase in the total information of \SI{+0.050\pm0.015}{bits} ($p=0.004$).
-Since the task-nonpertinent information was stable while the task-pertinent information increased with training, the proportion of encoded information which was task-pertinent increased by \SI{+7.0\pm1.3}{\percent} ($p = 4 \times 10^-5$), as shown in \autoref{fig:info_taskpertinent_rel_v1_ch_jack}.
+Since the task-nonpertinent information was stable while the task-pertinent information increased with training, the proportion of encoded information which was task-pertinent increased by \SI{+7.0\pm1.3}{\percent} ($p = 4 \times 10^{-5}$), as shown in \autoref{fig:info_taskpertinent_rel_v1_ch_jack}.
 
 % blanco v1 1x527.00ms
 % dr pt
@@ -1377,7 +1377,7 @@ Correspondingly, there was no significant change in the fraction of information 
 On the other hand, for \ac{M2} there was a significant ($p=0.0005$) increase in task-pertinent information from \zonename{A} to \zonename{B}, increasing by \SI{+0.054\pm0.013}{bits}, which is approximately \num{5} times its initial value.
 Meanwhile, the amount of task-nonpertinent information did not notably change (\SI{+0.008\pm0.008}{bits}, $p=0.32$).
 Together, these effects accumulatively produced a significant increase in total information of \SI{+0.062\pm0.018}{bits} ($p=0.003$).
-As a consequence of this, the proportion of information which is task-pertinent increased from under \SI{20}{\percent} to around \SI{50}{\percent}, with a swing from \zonename{A} to \zonename{B} of \SI{+33\pm3}{\percent} ($p=5 \times 10^-5$).
+As a consequence of this, the proportion of information which is task-pertinent increased from under \SI{20}{\percent} to around \SI{50}{\percent}, with a swing from \zonename{A} to \zonename{B} of \SI{+33\pm3}{\percent} ($p=5 \times 10^{-5}$).
 
 Most information is initially not pertinent to the task, which may relate to most channels initially being inhibited by sample stimulus, as described in \autoref{sec:pl_dprime_v4} (\autoref{fig:dprime_v4_jack}).
 The largest increase in task-pertinent information occurs on the 5th experimental session.
@@ -1518,7 +1518,7 @@ The stimulus class imbalance was corrected using subsampling, as described in \a
 
 \subsection{Discussion of task-pertinence of encoded information}
 
-We decomposed the information, encoded in the firing rate detected by \ac{V1} and \ac{V4} recording channels, into task-pertinent information and task-nonpertinent information.
+We decomposed the information encoded in the firing rate detected by \ac{V1} and \ac{V4} recording channels into task-pertinent information and task-nonpertinent information.
 The task-pertinent information is that which would help an observer to classify whether the stimulus was in the upper or lower half of all stimulus contrasts.
 Task-nonpertinent information, which is also encoded in the firing rate, is that which would help an observer to narrow down which of the stimuli within the upper or lower half was more likely.
 Although the task-nonpertinent information is useful when trying to decode exactly which stimulus was presented, it is not useful for the behavioural task which the subject needs to perform.
@@ -1538,9 +1538,8 @@ There was an increase in both task-pertinent and task-nonpertinent information c
 However, the increase in task-pertinent information was always larger than the increase in task-nonpertinent information.
 
 Arguably, changes in amount of task-pertinent information are more interesting to consider than the amount of task-nonpertinent information, since this directly relates to the performance of the subject.
-But even if this were not the case, there is no significant change in the task-nonpertinent information.
-Consequently, we from now on only compute the amount of information about the stimulus which is task-pertinent by collapsing the stimulus labels together into only two groups.
-As described in \autoref{sec:pl_bias_grouping}, this will reduce the amount of residual bias on the computed information.
+But even if this were not the case, there is no significant change in the task-nonpertinent information; consequently, for the rest of this chapter we will only consider the amount of information about the stimulus which is task-pertinent.
+We will do so by collapsing the stimulus labels together into two groups which, as described in \autoref{sec:pl_bias_grouping}, reduces the residual bias on the computed information since having \num{2} classes instead of \num{14} provides us with \num{7} times more samples per class.
 
 
 %==============================================================================
@@ -1550,13 +1549,13 @@ As described in \autoref{sec:pl_bias_grouping}, this will reduce the amount of r
 So far, we have only been considering the amount of information about the stimulus encoded in the firing rate during the entire stimulation period.
 But is it truly best to use the entire \SI{527}{\milli\second} period of stimulation?
 Due to environmental pressures such as predation, perception occurs in notably less than half a second.
-It is possible that the signal encoding which stimulus is on screen is only transiently emitted by visual neurons, in which case a shorter window will give just as much information about the stimulus.
+It is possible that the signal encoding which stimulus is on screen is only transiently emitted by visually responsive neurons, in which case a shorter window will give just as much information about the stimulus.
 In this section, we investigate when the firing rate of the neurons is most informative about the stimulus.
 
 
 \subsection{Methods and results for information latency}
 
-We considered the firing rate of the neuron as measured within windows of varying lengths, logarithmically spaced from \SI{2.5}{\milli\second} to \SI{501}{\milli\second}.
+We considered the firing rate of each multi-unit channel as measured within windows of varying lengths, logarithmically spaced from \SI{2.5}{\milli\second} to \SI{501}{\milli\second}.
 Since we are using windows shorter than the stimulation period, we also varied the latency of the window with respect to the time of the stimulus onset.
 For each window duration, we varied the latency of the window from the very start to the very end of the stimulus presentation period, at linear intervals equal to either \SI{10}{\milli\second} or one quarter of the window duration (whichever was shorter).
 
@@ -1608,7 +1607,7 @@ However, this change is different for the two subjects, with information measure
 For \ac{V4} (\autoref{fig:info_winlen_v4_blanco} and \autoref{fig:info_winlen_v4_jack}), using a longer window to measure the firing rate is always more informative.
 There seems to be an increase in information after training for all window durations for \ac{M2}, but only when the firing rate window is longer than \SI{350}{\milli\second} for \ac{M1}.
 
-Our results are parametrised in three dimensions --- experimental session, window duration, and window latency --- which is too many to portray at once in a single figure.
+Our results are parametrised in three dimensions --- experimental session (number of days of training), window duration, and window latency --- which is too many to portray at once in a single figure.
 The results in \autoref{fig:info_winlen} are a summary over two of these dimensions, collapsing the window latency dimension by taking the maximum.
 To understand the results better, we next collapse along the ``session'' dimension instead.
 
@@ -1658,7 +1657,7 @@ These results, shown in \autoref{fig:info_offset_vs_winlen}, corroborate the fin
 Namely, firing rates evaluated over longer durations always give more information about the stimulus for \ac{V4}, but not \ac{V1}.
 
 Examining the data as a function of latency, we can see \textemph{when} it is possible to estimate the \ac{V1} firing rate using only a very short window and still gain a large amount of information about the stimulus.
-As shown in \autoref{fig:info_offset_vs_winlen_v1_blanco} and \autoref{fig:info_offset_vs_winlen_v1_jack}, short windows of \SI{40}{\milli\second} and below are only transitively informative, with a narrow peak with a \SI{50}{\milli\second} latency after the onset of the stimulus.
+As shown in \autoref{fig:info_offset_vs_winlen_v1_blanco} and \autoref{fig:info_offset_vs_winlen_v1_jack}, short windows of \SI{40}{\milli\second} and below are only transitively informative, with a narrow peak at \SI{50}{\milli\second} latency after the onset of the stimulus.
 This temporally localised period of high information content coincides with the elevated firing rate of the stimulus-onset response, as shown in the rastergrams of \autoref{sec:pl_rasters}, which also occurs with a latency around \SI{50}{\milli\second}.
 To directly compare the temporal profile of the information with the average firing rate, we plotted the average firing rate as a function of the latency and experimental session, shown in \autoref{fig:fr_hm}.
 This was evaluated using windows \SI{5}{\milli\second} in duration, and \autoref{fig:info_offset_5ms} shows the amount of information contained in the firing rate using the same windows.
@@ -1922,7 +1921,7 @@ The results are shown in \autoref{fig:info_offset_vs_winlen_dif}.
 We found there was a significant increase in information in the final \SI{150}{\milli\second} for both \ac{M2} \ac{V1} and \ac{M1} \ac{V4}, with magnitude \SI{0.06}{bits} and \SI{0.009}{bits} (see \autoref{fig:info_offset_vs_winlen_dif_v1_jack} and \autoref{fig:info_offset_vs_winlen_dif_v4_blanco}).
 
 For both subjects, we do not find an increase in the most informative part of the stimulus response profile for \ac{V1}.
-On the contrary, we find a significant reduction in the information encoded by the narrow, but sharp, peak in firing rate with \SI{50}{\milli\second} latency (of approximately \SI{0.01}{bits} and \SI{0.03}{bits}), which we had previously noted was the most informative part of the response to the stimulus.
+On the contrary, we find a significant reduction in the information encoded by the narrow, sharp, peak in firing rate with \SI{50}{\milli\second} latency (of approximately \SI{0.01}{bits} and \SI{0.03}{bits}), which we had previously noted was the most informative part of the response to the stimulus.
 This corresponds to the reduction in firing rate between the start and end of training.
 
 For \ac{M2} \ac{V4}, there is an increase in information, primarily with a latency from \SIrange{150}{250}{\milli\second}.
@@ -1972,13 +1971,13 @@ Following on from this, we will next consider how much task-pertinent informatio
 
 We noted in \autoref{sec:pl_rasters} that there was a large increase in firing rate triggered by the onset of the stimulus, which is also shown in \autoref{fig:fr_hm}, with a latency of around \SI{50}{\milli\second}, corresponding to the latency of the signal from the cones of the retina to reach the visual cortex.
 A similar burst of activity is triggered by the removal (or offset) of the stimulus.
-The change in the visual stimulation over time is the inverse of the stimulus, which is just as powerful a stimulant as the stimulus itself.
+The change in the visual stimulation over time is the negative of the stimulus, which is just as powerful a stimulant as the stimulus itself.
 The offset-response also has a latency, occurring in \ac{V1} \SI{50}{\milli\second} after the stimulus is removed.
 This offset-response will contain substantial information about the stimulus, driven by the change in visual stimulation.
 
 In this section, we want to remove as much visually driven activity as possible, which includes the offset-response with its \SI{50}{\milli\second} delay to \ac{V1}.
-Consequently, we ignored the first \SI{220}{\milli\second} of activity after the stimulus offset and restricted ourselves to studying the information encoded in subsequent \SI{200}{\milli\second}.
-These \SI{200}{\milli\second} were immediately followed by the removal of the fixation point and the appearance of the black and white targets with which the subject recorded their response with a saccade to the corresponding target.
+Consequently, we ignored the first \SI{220}{\milli\second} of activity after the stimulus offset and restricted ourselves to studying the information encoded in the subsequent \SI{200}{\milli\second}.
+These \SI{200}{\milli\second} were immediately followed by the removal of the fixation point and the appearance of the black and white targets with which the subject recorded their response by means of a saccade to the corresponding target.
 We computed the amount of task-pertinent information encoded in the firing rate, correcting for the change in class balance (see \autoref{sec:pl_class_imbalance}), using the \ac{PT} bias correction, with further correction by subtracting the mean of \num{20} bootstrapped information values (see \autoref{sec:pl_bootstrapping}).
 
 % Information about stimulus class <>30% in tp5
@@ -2144,7 +2143,7 @@ First, let us consider bottom-up effects driven by the retina.
 During the experimental trial, the subject must keep their gaze fixated on the central target whilst the sample and test stimuli appear and disappear (see \autoref{sec:pl_task} for details of the experimental set-up).
 Such unnatural fixation will mean the same rods and cones are exposed to the test stimulus whilst it is presented, and this will partially deplete their supply of photopigment.
 This depletion of photopigment results in a negative afterimage, wherein the subject sees an internally generated inverse of the over-exposed stimulus at the same location of the visual field.
-Such negative afterimages can be induced readily in humans, although for the effect to be clearly perceived the subject must fixate on the stimulus for some tens seconds, in order fully deplete the photopigment.
+Such negative afterimages can be induced readily in humans, although for the effect to be clearly perceived the subject must fixate on the stimulus for some tens of seconds, in order fully deplete the photopigment.
 Since our test stimulus is only presented for \SI{530}{\milli\second}, the amount of depleted photopigment will be much smaller, resulting a much less intense afterimage (potentially imperceivable), but it is still possible that there is an effect of the conditioning of the retina during the stimulus presentation which manifests itself as a change in retinal activity (triggering a change in the visual cortex upstream) after it is removed.
 
 % INCLUDE AFTERIMAGE EXAMPLE STIMULUS
@@ -2155,7 +2154,7 @@ Possible mechanisms include activity patterns sustained in recurrent activity, d
 Thirdly, there could be top-down effects driven by feedback from higher cortical regions.
 The experimental paradigm we are using requires the subject to remember the stimulus, or properties of it, for \SI{425}{\milli\second} before they can give their response.
 Consequently, the stimulus must remain in working memory in higher cortical regions involved with planning.
-Since there are as many backward cortical projections as forward connections, it is possible for the memory of the stimulus residing in the higher regions to excite neurons in the visual cortex even after it is no longer present.
+Since there are as many backward cortical projections as forward connections within the neocortex, it is possible for the memory of the stimulus residing in the higher regions to excite neurons in the visual cortex even after it is no longer present.
 
 
 \subsection{Difference in post-stimulation firing rate}
@@ -2256,7 +2255,7 @@ The change between \zonename{A} and \zonename{B} in firing rate difference was \
 
 \subsection{Post-stimulation information about behavioural response}
 
-In a similar manner to how we compute the amount of information about the group of the stimulus (higher or lower than $30\%$ contrast), we can also compute the amount of information the neural activity contains about the behavioural response the animal is about to provide.
+In a similar manner to how we computed the amount of information about the group of the stimulus (higher or lower than $30\%$ contrast), we can also compute the amount of information the neural activity contains about the behavioural response the animal is about to provide at the end of the trial.
 Taking the firing rate during the activity \SIrange{220}{420}{\milli\second} after the stimulus was removed, we computed the amount of information about the behavioural response provided by the subject.
 
 % Information about behavioural response in tp5
@@ -2336,7 +2335,7 @@ There was not significantly more or less information about the behavioural respo
 
 For \ac{V4}, \ac{M1} showed a significant amount of information about the behavioural response both before ($p=0.009$) and after ($p=0.002$) training, without a significant change between the two (\SI{+0.0037\pm0.0020}{bits}, $p=0.077$).
 Meanwhile \ac{M2} showed a significant amount only after training ($p=0.016$), without showing a significant difference after training compared to before (\SI{+0.0048\pm0.0026}{bits}, $p=0.077$).
-There was significantly more information about the behavioural response for \ac{M2}, but not for \ac{M1} (\ac{M1}: \SI{+0.0007\pm0.0006}{bits}, $p=0.26$; \ac{M2}: \SI{+0.0027\pm0.0011}{bits}, $p=0.024$).
+There was significantly more information about the behavioural response for \ac{M2}, but this is not true for \ac{M1} (\ac{M1}: \SI{+0.0007\pm0.0006}{bits}, $p=0.26$; \ac{M2}: \SI{+0.0027\pm0.0011}{bits}, $p=0.024$).
 
 % Comparing information about stimulus with information about neural response, in zone B
 % blanco v1
@@ -2380,11 +2379,11 @@ Consequently, it is more pertinent for us to consider how much information is en
 % To consider the amount of information encoded across the population, let the variable $x_i$ denote the firing rate (measured over some finite duration) from neuron $i$.
 % If we were, hypothetically, to measure the firing from every neuron in the visual cortex we would have some very large array $\vec{x} = [x_1, x_2 \ldots]$.
 
-Whilst we cannot simultaneously measure the firing rate of every neuron in the visual cortex, we can consider the firing rates simultaneously observed at all \num{20} or so channels (for exact values for each dataset, see \autoref{tab:nchannels_restricted}).
+Whilst we cannot simultaneously measure the firing rate of every neuron in the visual cortex, we can consider the firing rates simultaneously observed on all our \numrange{20}{30} multi-unit recording channels (for exact values for each dataset, see \autoref{tab:nchannels_restricted}).
 Computing the amount of information encoded in the vector of simultaneous responses across all the recording channels allows us to investigate how the encoded information scales as the number of neurons increases.
 Since the neurons in a neighbouring region of cortex will encode the stimulus in a similar manner, there will be a reasonable amount of redundancy between the neurons.
 Consequently, the total amount of information will rise sublinearly with respect to the number of channels included in the response vector.
-However, even if the neurons are encoding visual stimulation using identical response functions, there is still a benefit to knowing the response across multiple channels since each will have an independent sampling of a certain amount of randomly neural noise.
+However, even if the neurons are encoding visual stimulation using identical response functions, there is still a benefit to knowing the response across multiple channels since each will have an independent sample for (some of) the noise on each recording channel.
 
 The noise on the sampling of the neurons will not be completely independent, since their inputs are correlated and they are connected to each other either directly or indirectly via other neurons in the network.
 As discussed in \autoref{sec:bg-noisecorr}, the presence of correlated noise within a population of neurons is generally thought to hinder the amount of information encoded in the population.
@@ -2400,19 +2399,19 @@ The performance of the model --- the proportion of samples which it correctly cl
 
 % COULD PUT EXAMPLE CONFUSION MATRICES HERE?
 
-In line with our findings about task pertinent information in \autoref{sec:task-info}, we will group together all the contrasts on one side of the $30\%$ contrast task separation line.
+In line with our findings about task-pertinent information in \autoref{sec:task-info}, we will group together all the contrasts on one side of the $30\%$ contrast task separation line.
 This means objective function for the classification model we will train on the data will match the objective function which the subject was tasked with during the experiments.
 
 
 \subsection{Methods for decoding population activity}
 
-Our input to the model is the vector of multi-unit firing rates recorded from each electrode over the \SI{527}{\milli\second} of stimulus presentation.
+Our input to the model is the vector of multi-unit firing rates recorded from each electrode contact over the initial \SI{527}{\milli\second} of test-stimulus presentation.
 
 
 \subsubsection{Linear discriminant classifier}
 
 To evaluate the amount of information contained in the data, we trained a Fisher linear discriminant classifier to distinguish between the two groups of stimuli.
-Given a training dataset of labelled data-points in with $m$-dimensions for each training sample, the linear classifier fits an $(m-1)$-dimensional hyperplane to separate the classes of the training samples optimally, under the assumption that the two clusters to be separated are multivariate normal distributions.
+Given a training dataset of labelled data-points with $m$-dimensions for each training sample, the linear classifier fits an $(m-1)$-dimensional hyperplane to separate the classes of the training samples optimally, under the assumption that the two clusters to be separated are multivariate normal distributions.
 
 The vector normal to the hyperplane is 
 \begin{equation}
@@ -2441,7 +2440,7 @@ otherwise we classify it as the group labelled $0$.
     \hspace*{\fill}
     \caption{
     \captionemph{Example linear discriminator.}
-    The data samples are shown as offset black and white triangles, whose size scales linearly with the number of samples with a given pair of firing rate responses elicited in the two channels.
+    The data samples are shown as offset black and white triangles, whose size scales linearly with the number of samples which have the same pair of firing rate responses elicited in the two channels.
     The separating hyperplane fit by the model is shown in blue.
     In each case, the model was trained on the data from only two recording channels.
     In \protect\subref{fig:pl_lin_discrim_example_v1_blanco}, one channel is much more informative than the other and the separating line for the decision boundary correspondingly weights one channel more heavily.
@@ -2453,32 +2452,33 @@ otherwise we classify it as the group labelled $0$.
 \end{figure}
 
 
-The linear discriminant model was fit using MATLAB's \texttt{classify} function (type `linear').
+The linear discriminant model was fit using MATLAB's \texttt{classify} function (with type `linear').
 We also tested a quadratic model, and using Mahalanobis distances for the discrimination (not shown).
 However, neither of these models resulted in better performance than the linear model.
 
 Restricting ourselves to a linear model of the data imposes the assumption that the contrast response tuning curves are monotonic for all neurons under observation.
 This is a gross reduction of the space of possible encoding schemes and will prevent many theoretically possible stimulus codes from giving any information about the stimuli.
-For instance if the firing rate is \SI{10}{Hz} for \SIrange{0}{20}{\percent} contrast, \SI{30}{Hz} for \SIrange{20}{30}{\percent} contrast, and \SI{20}{Hz} for \SI{>30}{\percent} contrast: this would give much task-pertinent information which is entirely lost when we are restricted to using a linear decoder.
-However, in practice our neurons nearly all have monotonically increasing response curves and thus making such an imposition on the model does not appear to hinder its performance, as demonstrated by the similarity of performance for linear and quadratic decoder models.
+For instance if the firing rate is \SI{10}{Hz} for \SIrange{0}{20}{\percent} contrast, \SI{30}{Hz} for \SIrange{20}{30}{\percent} contrast, and \SI{20}{Hz} for \SI{>30}{\percent} contrast: this would give considerable task-pertinent information about the stimulus but it is entirely lost when we are restricted to using a linear decoder.
+However, in practice our neurons nearly all have monotonically increasing response curves (as discussed in \autoref{sec:pl_response_curves}) and thus making such an imposition on the model does not appear to hinder its performance, as demonstrated by the similarity of performance for linear and quadratic decoder models.
 
 
 \subsubsection{Performance evaluation}
 \label{sec:pl_decoder_evaluation}
 
 To investigate the performance of the classifier on the data from a single session, we used leave-one-out cross-validation.
-Under leave-one-out cross-validation, a data-set with $n$ samples, the decoder is trained on $(n-1)$ trials with the spike counts for all the trials and the correct response (higher or lower than $30\%$ contrast) and we then check whether the decoder identifies the remaining trial correctly.
-This is repeated for all the $n$ trials, and then the performance is defined as the proportion of trials which are identified correctly.
+Under leave-one-out cross-validation, given a dataset with $n$ samples, the decoder is trained on the labelled data from $(n-1)$ samples and we then check whether the decoder classifies the remaining trial correctly.
+This is repeated, so that each of the $n$ samples takes a turn at being the singular test sample, and then the performance is defined as the proportion of trials which are identified correctly.
 
 In the machine learning literature, leave-one-out is regarded as a poor method of cross-validation in order to evaluate and compare models against one another.
 This is because the models trained in each leave-one-out fold of the data will have almost identical sets of training data.
-Consequently each classifier will be almost identical (the learned hyperplane will be almost exactly the same for each test-step), and the evaluation will not indicate the variance of performance which would be expected across a diversity of sample sets.
+Consequently each classifier will be almost identical --- with a linear classifier, the learned hyperplane will be almost exactly the same for each test-step --- and the evaluation will not indicate the variance of performance which would be expected across a diversity of sample sets.
 Such problems result in suboptimal model selection criteria, however these need not concern us since our task is to most accurately estimate the performance of the model.
 For this, leave-one-out has low bias and variance \citep{Zhang2015}, which is most appropriate to us since we are interested in how the data changes over training.
 
-However, we also needed to address the change in class balance over training, as described in \autoref{sec:pl_class_imbalance}.
-Instead of using the same balanced subsample we randomly selected and used across previous sections, we randomly subsampled the data on every fold of the leave-one-out validation.\footnote{We also tried training the model using leave-one-out validation without subsampling and our findings were not notably different.}
-To ensure the measured performance was robust against changes in the class balance, we determined the accuracy for each of the \num{14} stimulus classes and then reported the performance as the average of these \num{14} accuracies.
+However, we also need to address the change in class balance over training, as described in \autoref{sec:pl_class_imbalance}.
+Instead of using the same balanced subsample we randomly selected and used across previous sections, we randomly subsampled the data (such that the same number of each stimulus contrast was included) independently on every fold of the leave-one-out validation.%
+\footnote{We also tried training the model using leave-one-out validation without subsampling and our findings were not notably different.}
+To ensure the measured performance was robust against changes in the class balance, we determined the classification accuracy for each of the \num{14} stimulus classes and then reported the performance as the average of these \num{14} accuracies.
 
 
 \subsubsection{Information estimate}
@@ -2488,10 +2488,13 @@ We also computed the amount of information about the target response encoded in 
 As with the overall model performance measurement, the class balance was corrected \textit{post hoc} by weighting each stimulus class equally while deriving the probability of the response to each stimulus group.
 That is to say, the probability of each response given the stimulus was in the lower (or higher) group was set to be equal to the average over all stimuli conditions within the group.
 The mutual information between the response and the true label of the group was then derived using \autoref{eq:info}.
-Since we only have \num{2} stimulus and \num{2} response conditions, we corrected for the finite-sampling bias of the estimated information using Equation 7 of \citet{Panzeri1996}.
-% \begin{equation}
-% \I_\text{bias} = \frac{1}{2 N \ln 2}
-% \end{equation}
+Since we only have \num{2} stimulus and \num{2} response conditions, the bias correction routine to account for the finite-sampling is simpler than the full \ac{PT} method.
+We estimated the bias using Equation~7 of \citet{Panzeri1996}, which we restate here as
+\begin{equation}
+\I_\text{bias} = \frac{1}{2 N \ln 2}
+,\end{equation}
+where $N$ is the total number of samples, under the assumption that each of the \num{4} stimulus-response pairs can occur in practice.
+This estimate of the bias was subtracted from our information calculations.
 
 
 \subsubsection{Shuffling to destroy noise correlations}
@@ -2609,7 +2612,7 @@ Our results from the population-level decoder correspond to our findings about t
     \hspace*{\fill}
     \caption{
     \captionemph{Classifying the stimulus using \ac{V1} population activity.}
-    We report the accuracy of the linear decoder classifying the group of each stimulus (greater or less than $30\%$ contrast) after training on the population activity (blue; \protect\subref{fig:dec_b1_allp}~\ac{M1}, \num{14} channels; \protect\subref{fig:dec_j1_allp}~\ac{M2}, \num{20} channels).
+    We report the accuracy of the linear decoder at classifying the group of each stimulus (greater or less than $30\%$ contrast) after training on the population activity (blue; \protect\subref{fig:dec_b1_allp}~\ac{M1}, \num{14} channels; \protect\subref{fig:dec_j1_allp}~\ac{M2}, \num{20} channels).
     In \protect\subref{fig:dec_b1_allp} and \protect\subref{fig:dec_j1_allp}, performance was evaluated as the average accuracy across each of the \num{14} stimulus classes (main $y$-axis, left-side).
     A second $y$-axis (right-side) shows the corresponding amount of information about the stimulus group which would be attained if the average accuracy for stimuli lower than $30\%$ contrast and the accuracy for stimuli higher than $30\%$ contrast were equal.
     We also report the accuracy of the linear decoder when trained on a copy of the data with responses recorded from each channel matched at random such that noise correlations are removed (red; see \autoref{sec:pl_dec_shuffle}).
@@ -2628,7 +2631,7 @@ The behavioural performance increases similarly for \ac{M1} (rising from \SI{69}
 As stated previously, we expect this decline in performance is due to a decline in signal quality over time and is not due to a reduction of information encoded within the cortex.
 
 Destroying the noise correlations between the responses from each channel increased the performance of the decoder significantly for both subjects (\ac{M1}: $p=0.0006$; \ac{M2}: $p < 4 \times 10^{-17}$).
-However the effect of shuffling the responses was larger for \ac{M2} (an improvement in performance of \SI{5.4\pm0.2}{\percent}) than \ac{M1} (\SI{+1.9\pm0.5}{\percent}).
+However this effect was larger for \ac{M2} (an improvement in performance of \SI{5.4\pm0.2}{\percent}) than \ac{M1} (\SI{+1.9\pm0.5}{\percent}).
 Additionally, the effect of removing noise correlations on \ac{M1} declined as experimental training progressed, falling from \SI{3.1}{\percent} to \SI{1.3}{\percent} (average of first and last three sessions respectively).
 This corroborates our notion that the decline in information and hence performance for the decoder is due to a gradual degradation of signal quality in the apparatus.
 % As the extrinsic, observational noise increases it will dominate over the intrinsic noise within the cortex, and if the noise from the apparatus is generated independently for each recording channel then decorrelating the noise on the signals we observe will become decreasingly useful.
@@ -2728,7 +2731,7 @@ The performance of the decoder always \textemph{increased} when we removed noise
 This suggests that noise correlations hinder the ability of the brain to perceive the contrast of the stimulus correctly, and the subject's performance would potentially improve if the visual cortex learnt to decouple the noise for its neurons \citep{Cohen2008}.
 However, there was no particular decline in the difference between the decoder trained on the original data and the decoder trained on shuffled data.
 The decline in difference with and without noise correlations in \ac{V1} for \ac{M1} is most likely due to a decline in recording signal quality since the accuracy of the model falls over time.
-For \ac{M2}, the marginal decrease in difference is most likely due to saturation of the model performance --- the decoder trained on data with noise correlations removed attains \SI{94}{\percent} accuracy by the final session, which leaves little room for improvement.
+For \ac{M2}, the marginal decrease in difference is most likely due to saturation of the model performance --- the decoder trained on data with noise correlations removed attains \SI{94}{\percent} accuracy by the final session, which leaves little room for improvement, and there was no notable decrease in the difference when we considered the amount of information encoded.
 The dataset which shows the largest improvement in decoder accuracy is \ac{M2} \ac{V4}, which also has an \textemph{increase} in the gap between decoders trained without and with noise correlations, so a reduction in noise correlation over time is certainly not the cause for the improved behavioural performance.
 
 
@@ -2736,9 +2739,9 @@ The dataset which shows the largest improvement in decoder accuracy is \ac{M2} \
 \section{Agreement between decoder and behavioural responses}
 \label{sec:pl_agreement}
 
-Previously, we speculated about the possibility of the subject's responses on each trial being governed by the activity in \ac{V4}.
+Previously, we speculated about the possibility of the subject's responses on each trial being mediated by the activity in \ac{V4}.
 Should this hypothesis be correct, the classifications made by a decoder trained on the activity within \ac{V4} should, right or wrong, be the same as the responses given by the subject.
-We tested this by evaluating the response coincidence, or agreement, between the classifications made by the decoder and by the subject when behaviourally performing the discrimination task.
+We tested this by evaluating the response coincidence (agreement) between the classifications made by the decoder and the behavioural responses of the subject.
 
 The response coincidence, $\xi$, was defined as the proportion of trials on which the two responses matched.
 However, to avoid changes in the response coincidence over time due to changes in the class balance, we measured the response coincidence for each stimulus class individually and then averaged over all the classes to find the overall response coincidence rate.
@@ -2760,7 +2763,7 @@ This is important because the expected response coincidence rate is highly depen
 For instance, if the behaviour and decoder are both \SI{50}{\percent} accurate, we na\"ively expect them to agree with each other \SI{50}{\percent} of the time.
 But if both are \SI{100}{\percent} accurate, by construction they must agree with each other \SI{100}{\percent} of the time as well.
 If we take an intermediate accuracy, the expected rate of agreement between the two classifiers will also be intermediate.
-For instance, if both are \SI{75}{\percent} accurate, they will both agree on the correct classification $0.75 \times 0.75 = 0.5625$ of the time and agree on the incorrect classification $0.25 \times 0.25 = 0.0625$, yielding a total expected agreement rate of \SI{62.5}{\percent}.
+For instance, if both are \SI{75}{\percent} accurate, they will both agree on the correct classification $0.75 \times 0.75 = 0.5625$ of the time and agree on the incorrect classification $0.25 \times 0.25 = 0.0625$, yielding a total expected response coincidence rate of \SI{62.5}{\percent}.
 
 In order to construct our \ac{NH} model, we assumed that the classifications made by the subject's behaviour and our decoder are sampled from a Bernoulli distribution, each with a fixed probability of being correct.
 (This assumption was implicitly made in the statements of the previous paragraph.)
@@ -2789,7 +2792,7 @@ Correspondingly, to find the confidence interval under the \ac{NH}, we averaged 
 \subsubsection{Conditional information}
 
 Measuring the response coincidence rate alone is problematic, because the rate at which the decoder and behavioural responses agree with each other trivially increases as their individual accuracies increase.
-In \autoref{sec:dec-meth-prob}, we described how to test whether the response coincidence rate is significantly more than expected under a null-hypothesis of assuming independent responses conditioned on the class of the stimulus.
+In \autoref{sec:dec-meth-prob}, we described how to test whether the response coincidence rate is significantly more than expected under a null-hypothesis assuming independent responses conditioned on the class of the stimulus.
 An alternative solution to this is to measure the mutual information between the behaviour and decoder responses conditioned on the class of the stimulus.
 
 Conditional mutual information is the expected mutual information between two variables conditioned on a third,
@@ -2801,7 +2804,7 @@ Conditional mutual information is the expected mutual information between two va
 \label{eq:conditional-info}
 .\end{align}
 We computed the amount of information about the behavioural response encoded in the decoder classifications, conditioned on the correct response to the stimulus using \autoref{eq:conditional-info}.
-The methodology was the same as described in \autoref{sec:pl_decode_info}, but we measured amount of information about the behavioural response contained in the decoder responses for each of the two stimulus groups and then combined the two values with equal weighting.
+The methodology was the same as described in \autoref{sec:pl_decode_info}, but we measured the amount of information about the behavioural response contained in the decoder responses for each of the two stimulus groups and then combined the two values with equal weighting.
 
 
 \subsection{Results for response agreement rate}
