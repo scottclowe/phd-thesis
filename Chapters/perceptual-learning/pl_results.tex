@@ -2795,6 +2795,21 @@ Measuring the response coincidence rate alone is problematic, because the rate a
 In \autoref{sec:dec-meth-prob}, we described how to test whether the response coincidence rate is significantly more than expected under a null-hypothesis assuming independent responses conditioned on the class of the stimulus.
 An alternative solution to this is to measure the mutual information between the behaviour and decoder responses conditioned on the class of the stimulus.
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[scale=.5]{figs/venn/conditional-information-diagram.pdf}
+\caption{
+\captionemph{Venn diagram of the mutual information between three random variables, $X$, $Y$, and $Z$.}
+The three black circles represent the entropies of $X$, $Y$, and $Z$ ($\HH(X)$, $\HH(Y)$, and $\HH(Z)$); their total area is the joint uncertainty over all three variables, $\HH(X, Y, Z)$.
+The intersection between all three circles (grey) is $\I{X;Y;Z}$, the entropy (or information) mutually shared by all three variables.
+The area covered only by a single circle (red, blue, or green regions) represents the entropy unique to a single variable.
+Of particular interest to us is the area covered by precisely two circles, which denotes the entropy shared exclusively by two variables, such as the magenta region (and similarly also yellow and cyan).
+This is equivalent to the mutual information between two random variables ($X$ and $Y$) conditioned on the simultaneous observation of a third ($Z$), and is given by $\I(X;Y|Z)$ as described in \autoref{eq:conditional-info}.
+Similar to \autoref{fig:bg_info_venn}, in this diagram all regions are non-empty and as such all three variables are partially but incompletely redundant.
+}
+\label{fig:pl_cond_info_venn}
+\end{figure}
+
 Conditional mutual information is the expected mutual information between two variables conditioned on a third,
 \begin{align}
 \I(X;Y|Z)
@@ -2803,6 +2818,7 @@ Conditional mutual information is the expected mutual information between two va
 \\&= \sum_{z \in \SET{Z}} p(z) \sum_{x \in \SET{X}, \, y \in \SET{Y}} p(x,y|z) \, \log_2 \frac{p(x,y|z)}{p(x|z)p(y|z)}
 \label{eq:conditional-info}
 .\end{align}
+This relationship between the three variables and the associated joint entropies is conceptually illustrated in \autoref{fig:pl_cond_info_venn}.
 We computed the amount of information about the behavioural response encoded in the decoder classifications, conditioned on the correct response to the stimulus using \autoref{eq:conditional-info}.
 The methodology was the same as described in \autoref{sec:pl_decode_info}, but we measured the amount of information about the behavioural response contained in the decoder responses for each of the two stimulus groups and then combined the two values with equal weighting.
 
