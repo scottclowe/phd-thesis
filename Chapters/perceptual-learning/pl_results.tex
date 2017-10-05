@@ -2426,29 +2426,82 @@ For a new data point, $\vec{x}$, we classify $\vec{x}$ as group $1$ if
 ,\end{equation}
 otherwise we classify it as the group labelled $0$.
 
-% For blanco v1, session 359, ch 11 vs 31, training accuracy is 67.445152%
+Example linear classifiers are shown in Figures \ref{fig:pl_lin_discrim_example_v1} and \ref{fig:pl_lin_discrim_example_v4}.
+Note that for illustrative purposes, these figures show classifiers which were trained using only two recording channels, but for the results discussed later in this section our classifiers were trained on all recording channels.
+In these preliminary figures, we can see that the separating plane fit by the linear model does a good job at separating the two classes, given the observed dataset.
+After the animal has been trained on the task and the changes due to perceptual learning have saturated, the samples with contrast \SI{<30}{\percent} and \SI{>30}{\percent} are more easily separable.
+
+
+% For blanco v1, session 343, ch 31 vs 44, training accuracy is 64.212488%
+% For blanco v1, session 359, ch 31 vs 44, training accuracy is 73.389950%
+% For jack v1, session 51, ch 12 vs 19, training accuracy is 78.521940%
 % For jack v1, session 72, ch 12 vs 19, training accuracy is 83.840304%
 
 \begin{figure}[htbp]
     \centering
-    \hspace*{\fill}
-    \subfloat[][\ac{M1} \ac{V1}, session \num{359}.\label{fig:pl_lin_discrim_example_v1_blanco}]{%
-        \includegraphics[scale=.45]{figs/decoding/lindiscrimex_v1_blanco_359_2vs8.eps}}
+    %\hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V1}, session \num{1}.\label{fig:pl_lin_discrim_example_v1_blanco_pre}]{%
+        \includegraphics[scale=.4]{figs/decoding/lindiscrimexRGBlog_v1_blanco_343_31vs44.eps}}
     \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
-    \subfloat[][\ac{M2} \ac{V1}, session \num{72}.\label{fig:pl_lin_discrim_example_v1_jack}]{%
-        \includegraphics[scale=.45]{figs/decoding/lindiscrimex_v1_jack_72_3vs8.eps}}
-    \hspace*{\fill}
+    \subfloat[][\ac{M2} \ac{V1}, session \num{1}.\label{fig:pl_lin_discrim_example_v1_jack_pre}]{%
+        \includegraphics[scale=.4]{figs/decoding/lindiscrimexRGBlog_v1_jack_51_12vs19.eps}}
+    %\hspace*{\fill}
+    \\
+    %\hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V1}, session \num{17}.\label{fig:pl_lin_discrim_example_v1_blanco_post}]{%
+        \includegraphics[scale=.4]{figs/decoding/lindiscrimexRGBlog_v1_blanco_359_31vs44.eps}}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\ac{M2} \ac{V1}, session \num{22}.\label{fig:pl_lin_discrim_example_v1_jack_post}]{%
+        \includegraphics[scale=.4]{figs/decoding/lindiscrimexRGBlog_v1_jack_72_12vs19.eps}}
+    %\hspace*{\fill}
     \caption{
-    \captionemph{Example linear discriminator.}
-    The data samples are shown as offset black and white triangles, whose size scales linearly with the number of samples which have the same pair of firing rate responses elicited in the two channels.
-    The separating hyperplane fit by the model is shown in blue.
-    In each case, the model was trained on the data from only two recording channels.
-    In \protect\subref{fig:pl_lin_discrim_example_v1_blanco}, one channel is much more informative than the other and the separating line for the decision boundary correspondingly weights one channel more heavily.
-    This model achieved \SI{67.4}{\percent} training accuracy.
-    In \protect\subref{fig:pl_lin_discrim_example_v1_jack}, both channels are very informative and the decision boundary weights the two channels similarly.
-    This model achieved \SI{83.8}{\percent} training accuracy.
+    \captionemph{Exemplar linear discriminators for pairs of \ac{V1} channels.}
+    A pair of channels were selected to optimise the performance of the classifier in the final exp
+    The number of paired observations of firing rates for two channels is shown on a two-dimensional colour bar scale.
+    The red colour channel indicates observations of $(x,y)$ during trials with a contrast $< 30\%$; blue indicates observations with contrast $> 30\%$.
+    Consequently, pairs of firing rates which were not observed are shown in black, and data-points which occurred at a similar frequency for both stimulus conditions are shown in purple.
+    Note that, as illustrated to the right of each panel, the colour scale is logarithmic (a doubling of the number of samples results in the same change in saturation).
+    The separating hyperplane fit by the model is superimposed in white.
+    In each case, the model was trained on the data from only two recording channels, for illustrative purposes.
+    We selected the pair of channels which provided the highest classifier performance during the final recording session.
+    For \ac{M1} \ac{V1}, this pair of channels permitted \SI{64.2}{\percent} training accuracy for the na\"{i}ve animal and \SI{73.4}{\percent} during the final experimental session, shown in \protect\subref{fig:pl_lin_discrim_example_v1_blanco_pre} and \protect\subref{fig:pl_lin_discrim_example_v1_blanco_post} respectively.
+    For \ac{M2} \ac{V1}, this pair of channels permitted \SI{78.5}{\percent} training accuracy for the na\"{i}ve animal and \SI{83.8}{\percent} during the final experimental session, shown in \protect\subref{fig:pl_lin_discrim_example_v1_jack_pre} and \protect\subref{fig:pl_lin_discrim_example_v1_jack_post} respectively.
 }
-    \label{fig:pl_lin_discrim_example}
+    \label{fig:pl_lin_discrim_example_v1}
+\end{figure}
+
+
+% For blanco v4, session 307, ch 12 vs 51, training accuracy is 65.440000%
+% For blanco v4, session 341, ch 12 vs 51, training accuracy is 74.115456%
+% For jack v4, session 24, ch 10 vs 53, training accuracy is 54.143019%
+% For jack v4, session 48, ch 10 vs 53, training accuracy is 73.445212%
+
+\begin{figure}[htbp]
+    \centering
+    %\hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V4}, session \num{1}.\label{fig:pl_lin_discrim_example_v4_blanco_pre}]{%
+        \includegraphics[scale=.4]{figs/decoding/lindiscrimexRGBlog_v4_blanco_307_12vs51.eps}}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\ac{M2} \ac{V4}, session \num{1}.\label{fig:pl_lin_discrim_example_v4_jack_pre}]{%
+        \includegraphics[scale=.4]{figs/decoding/lindiscrimexRGBlog_v4_jack_24_10vs53.eps}}
+    %\hspace*{\fill}
+    \\
+    %\hspace*{\fill}
+    \subfloat[][\ac{M1} \ac{V4}, session \num{35}.\label{fig:pl_lin_discrim_example_v4_blanco_post}]{%
+        \includegraphics[scale=.4]{figs/decoding/lindiscrimexRGBlog_v4_blanco_341_12vs51.eps}}
+    \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
+    \subfloat[][\ac{M2} \ac{V4}, session \num{25}.\label{fig:pl_lin_discrim_example_v4_jack_post}]{%
+        \includegraphics[scale=.4]{figs/decoding/lindiscrimexRGBlog_v4_jack_48_10vs53.eps}}
+    %\hspace*{\fill}
+    \caption{
+    \captionemph{Exemplar linear discriminator for pairs of \ac{V4} channels.}
+    The number of paired observations of firing rates for two channels is shown on a two-dimensional colour bar scale, as for \autoref{fig:pl_lin_discrim_example_v1}.
+    The separating hyperplane fit by the model is superimposed in white.
+    We selected the pair of channels which provided the highest classifier performance during the final recording session.
+    For \ac{M1} \ac{V4}, this pair of channels permitted \SI{65.4}{\percent} training accuracy for the na\"{i}ve animal and \SI{74.1}{\percent} during the final experimental session, shown in \protect\subref{fig:pl_lin_discrim_example_v4_blanco_pre} and \protect\subref{fig:pl_lin_discrim_example_v4_blanco_post} respectively.
+    For \ac{M2} \ac{V4}, this pair of channels permitted \SI{54.1}{\percent} training accuracy for the na\"{i}ve animal and  \SI{73.4}{\percent} during the final experimental session, shown in \protect\subref{fig:pl_lin_discrim_example_v4_jack_pre} and \protect\subref{fig:pl_lin_discrim_example_v4_jack_post} respectively.
+}
+    \label{fig:pl_lin_discrim_example_v4}
 \end{figure}
 
 
