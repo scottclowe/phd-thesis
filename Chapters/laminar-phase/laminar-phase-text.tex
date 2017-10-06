@@ -18,8 +18,8 @@ In this section, we present additional methods specific to the analysis of the o
 The phase was computed in a similar manner to the power, documented in \autoref{sec:lam_power_method}.
 We filtered both the \ac{LFP} and \ac{CSD} using a series of bands each with a fractional bandwidth of $50\%$, spaced logarithmically at multiples of \num{1.291}.
 This spacing ensures each band has $0\%$ overlap with bands further away than its immediate neighbours and a $44\%$ and $56\%$ overlap with its preceding and succeeding bands respectively.
-The filter chosen was a zero-phase sixth-order Butterworth filter, after which the instantaneous phase was estimated by taking the angle of the Hilbert transform.
-The phase in the \SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz} frequency bands was extracted in the same manner.
+The signal was filtered with a zero-phase sixth-order Butterworth filter, after which the instantaneous phase was estimated by taking the angle of the Hilbert transform.
+This procedure was also used to extract the phase of the \SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz} frequency bands.
 
 
 \subsection{Information contained in cortical oscillation phase}
