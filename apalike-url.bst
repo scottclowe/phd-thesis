@@ -43,9 +43,9 @@
 %			apalike now sorts by author, then year, then title;
 %			THIS `apalike' VERSION DOES NOT WORK WITH BIBTEX 0.98i.
 
-MACRO {arXiv}     {"http://arxiv.org/abs"}
-MACRO {cogprints} {"http://cogprints.org"}
-MACRO {pubmed}    {"http://www.ncbi.nlm.nih.gov/pubmed"}
+MACRO {arXiv}     {"https://arxiv.org/abs"}
+MACRO {cogprints} {"https://cogprints.org"}
+MACRO {pubmed}    {"https://www.ncbi.nlm.nih.gov/pubmed"}
 
 ENTRY
   { address
@@ -90,7 +90,7 @@ INTEGERS { hrefform addeprints }
 FUNCTION {init.config.constants}
 {
   "Available from: " 'urlintro :=  % prefix before URL
-  "http://arxiv.org/abs/" 'eprinturl :=  % prefix to make URL from eprint ref
+  "https://arxiv.org/abs/" 'eprinturl :=  % prefix to make URL from eprint ref
   "arXiv:" 'eprintprefix := % text prefix printed before eprint ref
   #0 'addeprints := % 0=no eprints; 1=include eprints
   #0 'hrefform := % 0=no crossrefs; 1=hypertex xrefs; 2=hyperref refs
@@ -622,7 +622,7 @@ FUNCTION {format.eprint}
 { eprint empty$
      { ""}
      { archive empty$
-          {"\href{http://arxiv.org/abs/" eprint * "}" *
+          {"\href{https://arxiv.org/abs/" eprint * "}" *
              "{" * format.archive * eprint * format.primaryClass * "}" *}
           {format.archive "\href{" * archive *  "/" * eprint * "}" *
              "{" * format.archive * eprint * format.primaryClass * "}" *}
