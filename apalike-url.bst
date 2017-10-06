@@ -57,6 +57,7 @@ ENTRY
     editor
     howpublished
     institution
+    isbn
     journal
     key
 %    month		not used in apalike
@@ -359,6 +360,17 @@ FUNCTION {format.editors}
     }
   if$
 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% plainnat.bst...
+
+FUNCTION {format.isbn}
+{ isbn empty$
+    { "" }
+    { "\textsc{isbn} " isbn * }
+  if$
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 FUNCTION {format.title}
 { title empty$
@@ -904,6 +916,8 @@ FUNCTION {book}
   if$
   format.edition output
   new.block
+  format.isbn output            % plainnat.bst
+  new.block
   format.eprint output
   new.block
   note output
@@ -921,6 +935,8 @@ FUNCTION {booklet}
   new.block
   howpublished output
   address output
+  new.block
+  format.isbn output            % plainnat.bst
   new.block
   format.eprint output
   new.block
@@ -961,6 +977,8 @@ FUNCTION {inbook}
   if$
   format.edition output
   new.block
+  format.isbn output            % plainnat.bst
+  new.block
   format.eprint output
   new.block
   note output
@@ -991,6 +1009,8 @@ FUNCTION {incollection}
     }
   if$
   new.block
+  format.isbn output            % plainnat.bst
+  new.block
   format.eprint output
   new.block
   note output
@@ -1020,6 +1040,8 @@ FUNCTION {inproceedings}
       format.pages output
     }
   if$
+  new.block
+  format.isbn output            % plainnat.bst
   new.block
   format.eprint output
   new.block
@@ -1119,6 +1141,8 @@ FUNCTION {proceedings}
   new.sentence					% we always output
   organization output				% a nonempty organization
   publisher output				% here
+  new.block
+  format.isbn output            % plainnat.bst
   new.block
   format.eprint output
   new.block
