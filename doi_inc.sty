@@ -30,6 +30,8 @@
 %%     A \doitext command is added, following the example from doipubmed.
 %%     Some comments are added to make the code a little more readable.
 %% July 2007: Michael Orlov sends in a patch to correctly handle underscores.
+%% October 2016: Modified so "doi:" is inside the hyperlink, based on solution
+%%     https://tex.stackexchange.com/a/276636 by StackExchange user jarauh
 
 %% We need hyperref, but you probably want to load hyperref 
 %% beforehand, or set some options later on.
@@ -75,7 +77,7 @@
   \edef\textgreater{\@percentchar3E}% instead of {\sting>} for Apple
   \edef\x{\toks1={\noexpand\href{http://dx.doi.org/#1}}}% 
   \x
-  \edef\x{\endgroup\doitext\the\toks1 \the\toks0}%
+  \edef\x{\endgroup\the\toks1 {\doitext\the\toks0}}%
   \x
 }
 
