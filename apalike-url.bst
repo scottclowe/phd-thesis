@@ -678,15 +678,8 @@ FUNCTION {start.new.block}
 
 % DOI Content
 
-FUNCTION {begin.end.doi.env}
-{ "\begin{APACrefDOI}"
-  "\end{APACrefDOI}"
-}
-
 FUNCTION {format.doi}
-{ begin.end.doi.env
-  "\doi{" doi * "}" *
-  enclose.check
+{ "\doi{" doi * "}" *
 }
 
 FUNCTION {doi.block}
