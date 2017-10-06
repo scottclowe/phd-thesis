@@ -190,7 +190,7 @@ The \ac{CSD} was spatially smoothed with a three-point Hamming filter.
 % \autoref{fig:lam_1}:~\ac{MUA} was calculated by band-passing the voltage recording between \SIrange{900}{3000}{Hz} with a zero-phase sixth-order Butterworth filter, taking the absolute value, applying a \SI{300}{Hz} low pass third-order Butterworth filter, and then downsampling.
 % This yields a smoothed spike rate, analogous to a population firing rate.
 
-The \ac{MUA} was calculated by downsampling the raw signal by a factor of \num{3}, band-passing the voltage recording between \SIrange{900}{3000}{Hz} with a zero-phase sixth-order Butterworth filter, taking the absolute value, and then downsampling by a further factor of \num{12}.
+The \ac{MUA} was calculated by downsampling the raw signal by a factor of \num{3}, band-passing the voltage recording between \SIrange{900}{3000}{Hz} with a zero-phase sixth-order \ac{IIR} Butterworth filter, taking the absolute value, and then downsampling by a further factor of \num{12}.
 
 
 \subsection{Receptive field locations}
@@ -263,7 +263,7 @@ We estimated the location of the boundary between the \ac{G} and \ac{SG} compart
 
 The majority of thalamic afferents in \ac{V1} stimulate \ac{L4} (though some argue the connection is indirect; \citealp{Hansen2012}), and studies have found the first cortical response to the onset of stimuli is at \acsu{L4Ca}, in the middle of the \ac{G} compartment \citep{Callaway1998}.
 Consequently, we also extracted spikes from the broadband recordings, and investigated the spatiotemporal distribution of the spiking response to the onset of the stimulus.
-For this purpose, we extracted spikes by first high-pass filtering the raw signal above \SI{500}{Hz} with a zero-phase eighth-order Butterworth filter.
+For this purpose, we extracted spikes by first high-pass filtering the raw signal above \SI{500}{Hz} with a zero-phase eighth-order \ac{IIR} Butterworth filter.
 We classified any points more than \num{3.5} standard deviations above the mean signal during inter-stimulus periods as a spike, under the restriction of a minimum inter-spike-interval of \SI{1}{\milli\second}.
 Finally, we binned the spikes in intervals of \SI{1}{\milli\second} and took the average count over all stimulus presentations to find the instantaneous spike probability.
 As shown in \autoref{fig:lam_align_mua}, there is a strong and early response near the middle of \ac{G} across all recording sessions, indicating the electrode alignment is correct.
@@ -275,7 +275,7 @@ As shown in \autoref{fig:lam_align_mua}, there is a strong and early response ne
 To derive the power as a function of temporal frequency, the cortical data (\ac{LFP} and \ac{CSD}) was filtered in a series of bands each with a fractional bandwidth of $50\%$.
 We held the fractional bandwidth constant instead of the actual bandwidth because cortical power falls off rapidly with frequency, approximately following a power law.
 Each successive band we considered begins and ends with frequencies \num{1.291} times higher than the last, so that each band has $0\%$ overlap with bands further away than its immediate neighbours and a $44\%$ and $56\%$ overlap with its preceding and succeeding bands respectively.
-The data was filtered with a zero-phase sixth-order Butterworth filter, after which the instantaneous power was estimated by taking the squared absolute value of the Hilbert transform.
+The data was filtered with a zero-phase sixth-order \ac{IIR} Butterworth filter, after which the instantaneous power was estimated by taking the squared absolute value of the Hilbert transform.
 The power in each band was integrated over a series of \SI{50}{\milli\second} windows, centred at the time of each frame change in the movie (once every \SI{33}{\milli\second}, leading to a $50\%$ overlap of neighbouring windows).
 The power in the \SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz} bands was extracted in the same manner.
 In figures \ref{fig:lam_power_lfp} and \ref{fig:lam_power_csd}, the average power over all frame presentations is shown, expressed in decibels relative to the average broadband \SIrange{1.5}{248}{Hz} power (estimated by summing the power in alternate bands of $50\%$ fractional bandwidth).
@@ -405,7 +405,7 @@ We expressed the information about scene changes as a percentage of the total in
 
 To extract a measure of change in the movie at different spatial scales, we followed the procedure illustrated in \autoref{fig:lam_spares_method} and described below.
 First, we took the two-dimensional fast-Fourier transform of a \SI{224}{px} square from the luminance of the movie (with luminance determined as described in \autoref{sec:lam_lumos}).
-We applied a fourth-order Butterworth filter with a width of one octave by means of a mask in the Fourier domain, and then projected the output back to the spatial domain.
+We applied a fourth-order \ac{IIR} Butterworth filter with a width of one octave by means of a mask in the Fourier domain, and then projected the output back to the spatial domain.
 We then took the pixel-wise difference between each spatially-filtered pair of consecutive frames.
 We integrated the absolute magnitude of the rate-of-change of spatially filtered luminance within a \SI{2}{\degree} diameter circular window centred at the receptive field location (determined as described in \autoref{sec:lam_rf}).
 
@@ -431,7 +431,7 @@ The mutual information between this labelling of the stimulus and the neural res
 
 \subsection{Information about fine and coarse luminance changes}
 
-Coarse and fine luminance changes in the stimulus were extracted using the methodology of \autoref{sec:lam_spares_method}, but instead of a bandpass filter we used a low-pass (\SI{<0.3}{\cpd}) and high-pass (\SI{>1}{\cpd}) fourth-order Butterworth filter respectively.
+Coarse and fine luminance changes in the stimulus were extracted using the methodology of \autoref{sec:lam_spares_method}, but instead of a bandpass filter we used a low-pass (\SI{<0.3}{\cpd}) and high-pass (\SI{>1}{\cpd}) fourth-order \ac{IIR} Butterworth filter respectively.
 For both the \SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz} \ac{CSD} powers, we computed the correlation with and information about the coarse and fine luminance changes.
 
 
@@ -457,7 +457,7 @@ In \autoref{fig:lam_latencydiff}, the insignificant ($p>0.05$) latency differenc
 \label{sec:lam_tmf_method}
 
 We extended the methodology of \autoref{sec:lam_spares_method}, to extract specific temporal components (as well as spatial components) of the movie stimulus.
-To achieve this, we inserted an additional step, and applied a fourth-order Butterworth filter across the temporal dimension whilst in the Fourier domain.
+To achieve this, we inserted an additional step, and applied a fourth-order \ac{IIR} Butterworth filter across the temporal dimension whilst in the Fourier domain.
 There were many points in the processing pipeline where we could add the temporal filter step, and we chose to apply the temporal filter after temporally differentiating the signal.
 However further investigations demonstrated that the ordering of these steps in the analysis did not impact our results (not shown).
 The full procedure was thus as follows.
@@ -956,7 +956,7 @@ We extracted specific temporal frequency bands of the luminance signal in the mo
 \caption{
 \captionemph{Information about different temporal components of the stimulus.}
 The amount of information about the rate of change of luminance encoded in \SIrange{4}{16}{Hz} (left two columns) and \SIrange{60}{170}{Hz} (right two columns) frequency bands of the neural \ac{CSD} activity, subject to either a low or high spatial filter (width of one octave) and a temporal filter.
-We applied temporal filters (6th-order Butterworth filter) with lower cutoff $f_\text{low}$ from \num{0}{Hz} to \num{14}{Hz} ($y$-axes) and upper cutoff $f_\text{up}$ from $f_\text{low}$ to \num{15}{Hz} ($x$-axes).
+We applied temporal filters (6th-order \ac{IIR} Butterworth filter) with lower cutoff $f_\text{low}$ from \num{0}{Hz} to \num{14}{Hz} ($y$-axes) and upper cutoff $f_\text{up}$ from $f_\text{low}$ to \num{15}{Hz} ($x$-axes).
 (In the case $f_\text{low} = 0$, a lowpass filter was used instead of a bandpass.)
 The lower triangle of each panel, where $f_\text{up} < f_\text{low}$, is omitted.
 Each row of panels corresponds to a different cortical depth, averaging over \ac{SG}, \ac{G} and \ac{IG} compartments, respectively.
