@@ -45,7 +45,7 @@ For \ac{M2}, a $5{\times}5$ grid was implanted in \ac{V4}, and a $5{\times}5$ gr
 % Wire bundles were held in place with biologically-compatible glue (histoacrylic), and the connector (CerePortTM) was secured to the skull with titanium bone screws.
 % In both animals, the titanium screws were rejected by the bone within 6 to 10 weeks following the implant, so a dental acrylic bridge was built to fuse the base of1 the connector to the existing head stage, during a subsequent surgical operation.
 
-As is common with intricate electrical work, a minority of electrode contacts were unstable and post-surgery were found to have high impedance.
+A minority of electrode contacts were unstable, and post-surgery were found to have excessively high impedance.
 These electrodes (channels) were not viable for use in electrophyisiological recordings.
 The number of recording channels from the \acp{MEA} used in the study are shown in \autoref{tab:nchannels}.
 
@@ -80,7 +80,7 @@ For \ac{M1}, the \ac{MEA} in \ac{V1} was \SI{4.6}{\degree} from the centre, and 
 The \ac{RF} locations for the implantation sites in \ac{V4} and \ac{V1} were not retinotopically congruent for either animal.
 Consequently, for each animal the experimental protocol was performed first in the peripheral region of the visual field corresponding to the \ac{RF} of the \ac{V4} array, and then repeated in the parafoveal region corresponding to the \ac{V1} array.
 
-Since the improvements in task-performance driven by perceptual learning are known to be specific to stimuli at the same location as the training stimuli, training the animal on the stimulus at the peripheral location will not impact its learning when the experiment is repeated at a parafoveal location.
+Since the improvements in task-performance driven by perceptual learning are known to be specific to stimuli at the same location as the training stimuli (\citealp{Fiorentini1980}; \citealp{Fiorentini1981,Poggio1991,Karni1991}), training the animal on the stimulus at the peripheral location should not impact its performance when the experiment is repeated at a parafoveal location.
 
 
 \subsection{Behavioural task}
@@ -284,8 +284,8 @@ Raw data was acquired at a sampling frequency of \SI{32556}{Hz} using a \SI{24}{
 The minimum and maximum inputs were \SI{11}{\micro\volt} and \SI{136986}{\micro\volt} --- values outside this range were recorded at the floor or ceiling value respectively.
 To ensure data was collected from each channel with a good signal-to-noise ratio, digital referencing was performed prior to recording the raw data.
 
-Raw data was subsequently bandpass filtered with a lower cutoff frequency of \SI{600}{Hz} and upper cutoff in the range \SIrange{2500}{4000}{Hz}.
-The upper cutoff frequency was manually selected for each channel and session so as to exclude high frequency noise from the experimental equipment.
+Raw data was subsequently bandpass filtered with a lower cutoff frequency of \SI{600}{Hz} and an upper cutoff from within the range \SIrange{2500}{4000}{Hz}.
+The upper cutoff frequency was manually selected for each channel and session such that it was low enough to exclude high frequency noise from the experimental equipment, but no lower than necessary.
 
 
 \subsection{Initial spike extraction}
