@@ -624,7 +624,7 @@ FUNCTION {format.eprint}
      { archive empty$
           {"\href{http://arxiv.org/abs/" eprint * "}" *
              "{" * format.archive * eprint * format.primaryClass * "}" *}
-          {format.archive * "\href{" archive *  "/" * eprint * "}" * 
+          {format.archive "\href{" * archive *  "/" * eprint * "}" *
              "{" * format.archive * eprint * format.primaryClass * "}" *}
        if$
      }
