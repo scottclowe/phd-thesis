@@ -55,10 +55,10 @@ The number of recording channels from the \acp{MEA} used in the study are shown 
 \toprule
 Animal   & Region   & Number of viable channels \\
 \midrule
-\acs{M1} & \acs{V4} & 30 \\
-         & \acs{V1} & 23 \\
-\acs{M2} & \acs{V4} & 20 \\
-         & \acs{V1} & 25 \\
+\acs{M1} & \acs{V4} & \num{30} \\
+         & \acs{V1} & \num{23} \\
+\acs{M2} & \acs{V4} & \num{20} \\
+         & \acs{V1} & \num{25} \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -221,10 +221,10 @@ To ensure the subject was incentivised to attempt all the trials and not just ex
 \toprule
 Animal   & Region   & Type      & Test contrasts (\%) \\
 \midrule
-\acs{M1} & \acs{V4} & Gabor     & 10, 15, 20, 25, 27, 28, 29, 31, 32, 33, 35, 40, 50, 60 \\
-         & \acs{V1} & sinusoid  &  5, 10, 15, 20, 22, 25, 28, 32, 35, 40, 45, 50, 60, 90 \\
-\acs{M2} & \acs{V4} & Gabor     & 10, 15, 20, 25, 27, 28, 29, 31, 32, 33, 35, 40, 50, 60 \\
-         & \acs{V1} & sinusoid  &  5, 10, 15, 20, 22, 25, 28, 32, 35, 40, 45, 50, 60, 90 \\
+\acs{M1} & \acs{V4} & Gabor     & \numlist[list-final-separator={, }]{10; 15; 20; 25; 27; 28; 29; 31; 32; 33; 35; 40; 50; 60} \\
+         & \acs{V1} & sinusoid  & \numlist[list-final-separator={, }]{ 5; 10; 15; 20; 22; 25; 28; 32; 35; 40; 45; 50; 60; 90} \\
+\acs{M2} & \acs{V4} & Gabor     & \numlist[list-final-separator={, }]{10; 15; 20; 25; 27; 28; 29; 31; 32; 33; 35; 40; 50; 60} \\
+         & \acs{V1} & sinusoid  & \numlist[list-final-separator={, }]{ 5; 10; 15; 20; 22; 25; 28; 32; 35; 40; 45; 50; 60; 90} \\
 \bottomrule
 %
 \end{tabular}
@@ -246,13 +246,13 @@ The test contrasts were set such that \ac{M1} achieved a similar initial accurac
                             \cmidrule(r){2-3}               \cmidrule(l){4-5}
                             & \acs{V4}      & \acs{V1}      & \acs{V4}      & \acs{V1}      \\
 \midrule
-Number of channels          & 30            & 23            & 20            & 25            \\
-Number of sessions          & 30            & 17            & 26            & 22            \\
+Number of channels          & \num{30}      & \num{23}      & \num{20}      & \num{25}      \\
+Number of sessions          & \num{30}      & \num{17}      & \num{26}      & \num{22}      \\
 Stimulus location           & peripheral    & parafoveal    & peripheral    & parafoveal    \\
 Centre coords (\acs{dva})   & $(-5, 16)$    & $(-3.5, 3)$   & $(-5, 16)$    & $(-0.7, -1.3)$\\
-Size (\acs{dva})            & 16            & 3             & 14            & 0.75          \\
+Size (\acs{dva})            & \num{16}      & \num{3}       & \num{14}      & \num{0.75}    \\
 Stimulus type               & Gabor         & sinusoid      & Gabor         & sinusoid      \\
-Spatial frequency (\acs{cpd})   & 2         & 2             & 2             & 4             \\
+Spatial frequency (\acs{cpd})   & \num{2}   & \num{2}       & \num{2}       & \num{4}       \\
 \bottomrule
 %
 \end{tabular}
