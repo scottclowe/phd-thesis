@@ -16,8 +16,8 @@ In this section, we present additional methods specific to the analysis of the o
 \label{sec:lam_phase_method}
 
 The phase was computed in a similar manner to the power, documented in \autoref{sec:lam_power_method}.
-We filtered both the \ac{LFP} and \ac{CSD} using a series of bands each with a fractional bandwidth of $50\%$, spaced logarithmically at multiples of \num{1.291}.
-This spacing ensures each band has $0\%$ overlap with bands further away than its immediate neighbours and a $44\%$ and $56\%$ overlap with its preceding and succeeding bands respectively.
+We filtered both the \ac{LFP} and \ac{CSD} using a series of bands each with a fractional bandwidth of \SI{50}{\percent}, spaced logarithmically at multiples of \num{1.291}.
+This spacing ensures each band has \SI{0}{\percent} overlap with bands further away than its immediate neighbours and a \SI{44}{\percent} and \SI{56}{\percent} overlap with its preceding and succeeding bands respectively.
 The signal was filtered with a zero-phase sixth-order \ac{IIR} Butterworth filter, after which the instantaneous phase was estimated by taking the angle of the Hilbert transform.
 This procedure was also used to extract the phase of the \SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz} frequency bands.
 
@@ -239,7 +239,7 @@ These results prompt us to consider the redundancy of the phase of oscillations.
 Do the phases of oscillations at different frequencies convey information about the same aspects of the stimulus, as we found for the information in the power of the same oscillations?
 Furthermore, how is the information in the phase related to the information in the power?
 
-First, we consider the relationship between the phases of the frequency bands ($50\%$ bandwidth) occurring at the same cortical depths as one another.
+First, we consider the relationship between the phases of the frequency bands (\SI{50}{\percent} bandwidth) occurring at the same cortical depths as one another.
 As shown in \autoref{fig:lam_phase_cxfrq_info}, we find that pairs of frequency bands \SI{<40}{Hz} contain synergistic information about the stimulus, except for overlapping frequency bands which show redundancy.
 This means that knowing the phase of two such frequency bands provides more information about the stimulus than the information in the two of them individually.
 The observed synergy is similar across all pairs of frequencies \SI{<40}{Hz}, which suggests the cause is intrinsic to the Fourier transform and its phase in general, and not specific to the cortical oscillation data we are considering.
@@ -304,7 +304,7 @@ The noise correlation was small and positive for all pairs of phases considered,
     \caption{
 \captionemph{Correlation between phase of different \ac{CSD} frequency components.}
 \protect\subref{fig:lam_signal_corr_phase}:~Signal correlation between the phase in pairs of frequencies, median across \numrange{12}{14} cortical recording sites, mean across \num{6} sessions.
-The leading diagonal, which is trivially perfectly correlated, and second diagonal, which is highly correlated due to the $50\%$ overlap between neighbouring frequency bands, are removed (black).
+The leading diagonal, which is trivially perfectly correlated, and second diagonal, which is highly correlated due to the \SI{50}{\percent} overlap between neighbouring frequency bands, are removed (black).
 \protect\subref{fig:lam_noise_corr_phase}:~Noise correlation between the phase in pairs of frequencies, median across \numrange{12}{14} cortical recording sites, mean across \num{6} sessions.
 Non-significant datapoints are shown in white, with minimum and maximum significance thresholds indicated by the black lines across the colour bar.
 }
@@ -468,7 +468,7 @@ For the phase of oscillations, the peak frequency range best explained by scene 
 
 We computed the amount of information about changes in luminance at different spatiotemporal scales contained in the \ac{CSD} phase, the methodology for which is described in \autoref{sec:lam_tmf_method}.
 
-The amount of information encoded in the \ac{CSD} phase is only around $10\%$ of the information encoded in the power (\autoref{fig:lam_phs_spatmf}; see \autoref{sec:lam_spatmf} for comparison).
+The amount of information encoded in the \ac{CSD} phase is only around \SI{10}{\percent} of the information encoded in the power (\autoref{fig:lam_phs_spatmf}; see \autoref{sec:lam_spatmf} for comparison).
 This result is surprising, since we observed in \autoref{sec:lam_phase_scnchg} that the \ac{CSD} contains a significant amount of information about scene cuts in the movie --- around \SI{0.06}{bits}, which is ten times more than we observe here.
 These two results appear to be contradictory, since scene transitions typically involve sudden, coarse changes in the luminance of the stimulus.
 But we note that the spatiotemporal distribution of information contained in the \SIrange{4}{16}{Hz} phase is the same as the distribution for the \SIrange{4}{16}{Hz} power, though the distribution over depth is skewed towards deeper, \ac{IG}, cortical layers.
@@ -712,7 +712,7 @@ The same relationship was discovered to hold both for spontaneous activity and s
 %-------------------------------------------------------------------------------
 
 We considered the amount of information encoded in the phase of cortical oscillations.
-For low frequency oscillations (\SI{<40}{Hz}) we found there was around $50\%$ more information in the phase than there was in the power.
+For low frequency oscillations (\SI{<40}{Hz}) we found there was around \SI{50}{\percent} more information in the phase than there was in the power.
 Higher frequency oscillations have phases which vary too quickly to reliably correspond to the same parts of the stimulus, and hence we do not find they convey much information about the stimulus.
 
 We found that the information in the phase of any pair of oscillation frequencies less than \SI{40}{Hz} (recorded within the same cortical depth as each other) were synergistic (except for overlapping bands).

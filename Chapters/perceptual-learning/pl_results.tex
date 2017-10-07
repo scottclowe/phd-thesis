@@ -474,7 +474,7 @@ We address this discrepancy next.
 
 We noted that some channels were moving between sessions.
 In general, it is just as likely for electrode contacts to move into locations where they are more informative as to move such that they are less informative.
-However, to make the results more comparable across sessions, we chose to remove channels whose raster profile (such as those shown in \autoref{sec:pl_rasters}) and overall firing rate in response to the $30\%$ sample stimulus changed clearly and suddenly from one session to the next.
+However, to make the results more comparable across sessions, we chose to remove channels whose raster profile (such as those shown in \autoref{sec:pl_rasters}) and overall firing rate in response to the \SI{30}{\percent} sample stimulus changed clearly and suddenly from one session to the next.
 We manually selected a small number of channels on this basis, and removed them from the analysis.
 For each dataset, the number of channels included afterwards is indicated in \autoref{tab:nchannels_restricted}.
 
@@ -559,8 +559,8 @@ For the other datasets, there were no notable changes.
 
 As mentioned in \autoref{sec:pl_task}, the stimulus presentation procedure was to include a fixed number of repetitions of each stimulus in a block of trials and present them in a random order.
 At the end of each block, additional trials were presented for stimuli which the subject responded to incorrectly.
-Since stimuli with a contrast far from the pedestal contrast of $30\%$ are much easier for the subject, trials which were repeated at the end of the block were not uniformly distributed across the stimuli.
-Overall, this means that harder stimuli close to $30\%$ contrast are presented more often than the easier stimuli, as depicted in \autoref{fig:class_balance}.
+Since stimuli with a contrast far from the pedestal contrast of \SI{30}{\percent} are much easier for the subject, trials which were repeated at the end of the block were not uniformly distributed across the stimuli.
+Overall, this means that harder stimuli close to \SI{30}{\percent} contrast are presented more often than the easier stimuli, as depicted in \autoref{fig:class_balance}.
 
 
 % blanco v4
@@ -601,7 +601,7 @@ figs/class_balance/ntrialscond_prop_jack_v4_oc0_rmvet2_.eps}}
     \hspace*{\fill}
     \caption{\captionemph{Proportion of trials in each stimulus class.}
 Main panels: the proportion (\%) of trials which belong to each stimulus class, with colours indicated to the right, as a function of experimental session.
-Above panels: the ``inner \num{6}'' contrasts closest to $30\%$ (grey) and ``outer \num{6}'' contrasts furthest from $30\%$ (purple).
+Above panels: the ``inner \num{6}'' contrasts closest to \SI{30}{\percent} (grey) and ``outer \num{6}'' contrasts furthest from \SI{30}{\percent} (purple).
 See \autoref{tab:pl_stim} for the \num{6} contrasts in each group by brain region.
 Right hand panels: proportion of trials presented during the first (\zonename{A}) and last (\zonename{B}) three sessions.
 }
@@ -613,10 +613,10 @@ To compute the amount of information about the stimulus contained in the animal'
 However, the subject becomes better at the task with training, and the change in relative performance is necessarily not uniform across sessions.
 For \ac{M1}, the proportion of trials which belong to each stimulus class was very similar throughout the experiment, as shown in \autoref{fig:class_balance_v1_blanco} and \autoref{fig:class_balance_v4_blanco}.
 However for \ac{M2}, this was not the case.
-During training with the \ac{V1} stimulation protocol, there was a larger increase in performance for the harder contrast stimuli, which were consequently presented less frequently by the end of training --- the percentage of stimuli with a contrast in one of the hardest 6 categories (closest to $30\%$ contrast) fell by \SI{2.5}{\percent} in absolute terms.
+During training with the \ac{V1} stimulation protocol, there was a larger increase in performance for the harder contrast stimuli, which were consequently presented less frequently by the end of training --- the percentage of stimuli with a contrast in one of the hardest 6 categories (closest to \SI{30}{\percent} contrast) fell by \SI{2.5}{\percent} in absolute terms.
 This change in stimulus class distribution may seem small, but the size of this change is comparable to the amount of change in information we previously computed.
 When training \ac{M2} with the \ac{V4} stimuli, the overall performance was initially lower.
-Consequently, the largest increase in performance was that attained for the easier stimuli, and the percentage of trials featuring one of the 6 easiest stimuli (furthest from $30\%$ contrast) fell by \SI{5.4}{\percent} in absolute terms.
+Consequently, the largest increase in performance was that attained for the easier stimuli, and the percentage of trials featuring one of the 6 easiest stimuli (furthest from \SI{30}{\percent} contrast) fell by \SI{5.4}{\percent} in absolute terms.
 
 Changes in the distribution of classes between sessions can impact our analysis in two ways.
 Firstly, as described \autoref{eq:info} the amount of information between stimulus, $S$, and response, $R$, is dependent on the entropy of the stimulus, $\HH(S)$.
@@ -833,7 +833,7 @@ There are several potential ways we can correct for the change in bias incurred 
 \begin{itemize}
 \item Subsample all sessions down to the same number of trials (rarefy).
 \item Use bootstrapping, randomising the mapping between stimulus and response, to estimate the residual bias and subtract this from the reported information.
-\item Group together stimuli above and below $30\%$ contrast so we only have two stimulus classes, each with approximately \num{7} times more trials than before.
+\item Group together stimuli above and below \SI{30}{\percent} contrast so we only have two stimulus classes, each with approximately \num{7} times more trials than before.
 \item Group together trials across consecutive sessions so we have the same number of trials in each information computation step.
 \end{itemize}
 
@@ -955,13 +955,13 @@ This effect is particularly problematic for the \ac{V1} dataset of \ac{M2}, wher
 \subsubsection{Grouping stimuli together}
 \label{sec:pl_bias_grouping}
 
-During the experiment, the subject is tasked with determining whether the stimulus contrast is higher or lower than the $30\%$ sample stimulus presented at the start of each trial.
-As a consequence of this, the subject does not need to learn exactly what stimulus is on screen, only whether the stimulus is in the half above or below $30\%$ contrast.
+During the experiment, the subject is tasked with determining whether the stimulus contrast is higher or lower than the \SI{30}{\percent} sample stimulus presented at the start of each trial.
+As a consequence of this, the subject does not need to learn exactly what stimulus is on screen, only whether the stimulus is in the half above or below \SI{30}{\percent} contrast.
 For instance, since the target output is the same for \SI{31}{\percent} and \SI{32}{\percent} contrast stimuli, there is no need for the subject to discriminate between them, but there is motivation for the subject to learn to discriminate between these and the \SI{29}{\percent} contrast stimulus.
 
-We refer to the subset of information which assists in decoding whether the stimulus was higher or lower than the $30\%$ threshold as the task-pertinent information, and discuss this in \autoref{sec:task-info}.
+We refer to the subset of information which assists in decoding whether the stimulus was higher or lower than the \SI{30}{\percent} threshold as the task-pertinent information, and discuss this in \autoref{sec:task-info}.
 For now, we will only consider the impact on the residual information bias when we restrict ourselves to measuring only the task-pertinent information.
-In this calculation, we determine how much information the firing rate conveys about which group the stimulus is in (either higher or lower than $30\%$) instead of the information about precisely which of the \num{14} stimuli was on screen.
+In this calculation, we determine how much information the firing rate conveys about which group the stimulus is in (either higher or lower than \SI{30}{\percent}) instead of the information about precisely which of the \num{14} stimuli was on screen.
 Grouping the stimuli together in this way should reduce the residual bias, since there are only two class labels, and \num{7} times as many trials per class.
 
 % NvsI labels=class-group-balanced, with 0 bootstraps
@@ -1073,7 +1073,7 @@ Since the \ac{PT} method is faster to compute, we chose to use this for the rest
 \subsection{Final results}
 \label{sec:pl_initial_final}
 
-After removing channels with sudden changes in firing rate between consecutive sessions, correcting for the change in stimulus class balance by subsampling, restricting our analysis to only consider task-pertinent information about the grouping of the stimulus (whether it exceeds $30\%$ contrast), and using both the \ac{PT} method and bootstrapping to correct for the finite sampling bias on the measured information, we can present our results concerning the amount of information contained in the firing rate collected during stimulus presentation from one channel at a time.
+After removing channels with sudden changes in firing rate between consecutive sessions, correcting for the change in stimulus class balance by subsampling, restricting our analysis to only consider task-pertinent information about the grouping of the stimulus (whether it exceeds \SI{30}{\percent} contrast), and using both the \ac{PT} method and bootstrapping to correct for the finite sampling bias on the measured information, we can present our results concerning the amount of information contained in the firing rate collected during stimulus presentation from one channel at a time.
 These results are shown in \autoref{fig:info_sess_1x527_final}.
 
 % blanco v1 1x527.00ms
@@ -1162,7 +1162,7 @@ figs/info2/bias/I_sessionwise_blanco_v4_chmean25_s307,308,311,313,314,317,318,32
 figs/info2/bias/I_sessionwise_jack_v4_chmean18_s24,25,27-38,40-49_oc0_Gclass-group-balanced_1bins_of_527ms_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
     \hspace*{\fill}
     \caption{\captionemph{Task-pertinent information about the stimulus contained in the firing rate during \SI{527}{\milli\second} of stimulus presentation.}
-Only task-pertinent information (whether the stimulus was higher or lower than $30\%$ contrast) was included.
+Only task-pertinent information (whether the stimulus was higher or lower than \SI{30}{\percent} contrast) was included.
 The finite sampling bias was corrected for by using both the \ac{PT} method and by subtracting the average of \num{20} bootstrapped information measurements obtained by randomly pairing responses and stimulus labels.
 Main panels: the average over channels (\protect\subref{fig:info_sess_1x527_final_v1_blanco}~\num{14} channels, \protect\subref{fig:info_sess_1x527_final_v1_jack}~\num{20} channels, \protect\subref{fig:info_sess_1x527_final_v4_blanco}~\num{25} channels, \protect\subref{fig:info_sess_1x527_final_v4_jack}~\num{18} channels) with standard error across channels indicated by the shaded region.
 Right hand panels: distribution over channels of the information contained in the first three sessions (\zonename{A}) versus last three sessions (\zonename{B}), with mean (solid black line) and median (dashed green line) over channels indicated.
@@ -1186,7 +1186,7 @@ However, the objective the subject is tasked with --- to identify whether the pr
 To achieve this goal, it is not necessary to distinguish exactly which stimulus was presented.
 
 We can separate the information given by the neural response into two parts: task-pertinent and task-nonpertinent information.
-The task-pertinent information helps one tell whether the stimulus was in the half above or below the pedestal contrast of $30\%$.
+The task-pertinent information helps one tell whether the stimulus was in the half above or below the pedestal contrast of \SI{30}{\percent}.
 However we also gain information about exactly which stimuli within the upper and lower half of the set of contrasts is more likely to have been presented.
 Although this information helps one distinguish which stimulus was presented (and hence presumably helps the subject perceive the stimuli more accurately), it is not pertinent to the subject's task.
 
@@ -1196,7 +1196,7 @@ Whereas if we gain information about the stimulus which updates the probability 
 Although it is only a binary response (a choice of one of two saccade targets), it is still possible for the behavioural response to encode both task-pertinent and task-nonpertinent information.
 For instance, let us assume that the subject performs the task at a rate higher than chance.
 Then, a behavioural response of ``\textemph{test contrast is lower}'' tells us a contrast in the lower half was more likely to have been presented, providing task-pertinent information.
-Additionally, since contrasts further from the $30\%$ threshold are easier for the subject, we can empirically observe that a response of ``\textemph{test contrast is lower}'' is more likely to be elicited if the contrast was further below the threshold than if it was close to the threshold.\footnote{This trivially follows using Bayes' rule.}
+Additionally, since contrasts further from the \SI{30}{\percent} threshold are easier for the subject, we can empirically observe that a response of ``\textemph{test contrast is lower}'' is more likely to be elicited if the contrast was further below the threshold than if it was close to the threshold.\footnote{This trivially follows using Bayes' rule.}
 This difference in relative likelihood supplies us with additional, task-nonpertinent, information about which stimulus was presented.
 
 
@@ -1207,8 +1207,8 @@ First, we computed the total information contained in the neural response as bef
 The finite sampling bias on the estimated information was corrected for using the \ac{PT} method, and further residual bias removed using bootstrapping (see \autoref{sec:pl_bootstrapping}).
 Stimulus class imbalance was corrected for using subsampling, as described in \autoref{sec:pl_class_imbalance}.
 
-The amount of task-pertinent information contained in the response was estimated by shuffling the stimulus labels against the responses, whilst preserving which side of $30\%$ contrast the stimulus label was on.
-This destroys any information about the stimulus beyond that pertinent to the task --- choosing whether the stimulus was above or below $30\%$ contrast --- but maintains the number of class labels and samples per class.
+The amount of task-pertinent information contained in the response was estimated by shuffling the stimulus labels against the responses, whilst preserving which side of \SI{30}{\percent} contrast the stimulus label was on.
+This destroys any information about the stimulus beyond that pertinent to the task --- choosing whether the stimulus was above or below \SI{30}{\percent} contrast --- but maintains the number of class labels and samples per class.
 Consequently, the bias on the information will be similar to that when computing the total information, and the results will be more directly comparable.\footnote{However, the bias will not be the same for the two information values because after shuffling the range of possible values for the response will have increased. Consequently, it is still necessary to do individual bias correction with \ac{PT} and bootstrapping on each of the information computations.}
 We repeated this with \num{20} permutations, each with their own set of \num{20} bootstraps, and took the average over them.
 The amount of task-nonpertinent information was estimated by subtracting the task-pertinent information (found with shuffling) from the total information (found without shuffling).
@@ -1226,7 +1226,7 @@ To quantify the change over time, we again compared the information averaged ove
 For the relative information, only channels which had a significant amount of total information (exceeding \num{1.5} times the standard deviation over bootstraps) for both the average over \zonename{A} and also over \zonename{B} were included.
 This step was included to ensure \zonename{A} and \zonename{B} were directly comparable; a paired $t$-test was used to compare the information at \zonename{A} with \zonename{B}.
 
-Similarly, we considered the amount of information about the stimulus contained in the behavioural response of the animal --- a saccade to one of two targets indicating whether the subject believed the contrast to be higher or lower than $30\%$ (two forced-choice).
+Similarly, we considered the amount of information about the stimulus contained in the behavioural response of the animal --- a saccade to one of two targets indicating whether the subject believed the contrast to be higher or lower than \SI{30}{\percent} (two forced-choice).
 The same procedure was used to decompose the the total information in this response into task-pertinent and nonpertinent components, and find the proportion of the information which was task-pertinent.
 
 
@@ -2078,7 +2078,7 @@ figs/info2/tp5/I_sessionwise_tp3_blanco_v1_chmean14_s343-359_oc0_Gclass-group-ba
 figs/info2/tp5/I_sessionwise_tp3_jack_v1_chmean20_s51-72_oc0_Gclass-group-balanced_1bins_of_200ms_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
     \hspace*{\fill}
     \caption{\captionemph{Information about the stimulus encoded in \ac{V1} after stimulus is removed.}
-In \protect\subref{fig:info_tp5_v1_blanco} and \protect\subref{fig:info_tp5_v1_jack}, the amount of information about whether the contrast of the stimulus exceeded $30\%$ encoded in the firing rate during the window \SIrange{220}{420}{\milli\second} after the stimulus was removed.
+In \protect\subref{fig:info_tp5_v1_blanco} and \protect\subref{fig:info_tp5_v1_jack}, the amount of information about whether the contrast of the stimulus exceeded \SI{30}{\percent} encoded in the firing rate during the window \SIrange{220}{420}{\milli\second} after the stimulus was removed.
 In \protect\subref{fig:respinfo_tp5_v1_blanco} and \protect\subref{fig:respinfo_tp5_v1_jack}, the amount of information about the behavioural response given by the subject encoded in the firing rate during the window \SIrange{220}{420}{\milli\second} after the stimulus was removed.
 In \protect\subref{fig:info_tp3_v1_blanco} and \protect\subref{fig:info_tp3_v1_jack}, the information about the stimulus encoded in the \SI{200}{\milli\second} before the stimulus was presented, shown here for comparison purposes only.
     \label{fig:info_tp5_v1}
@@ -2118,7 +2118,7 @@ figs/info2/tp5/I_sessionwise_tp3_blanco_v4_chmean25_s307,308,311,313,314,317,318
 figs/info2/tp5/I_sessionwise_tp3_jack_v4_chmean18_s24,25,27-38,40-49_oc0_Gclass-group-balanced_1bins_of_200ms_dr_pt_btsp20_rmvet2_rmvms2_imscn_clhot.eps}}
     \hspace*{\fill}
     \caption{\captionemph{Information about the stimulus encoded in \ac{V4} after stimulus is removed.}
-In \protect\subref{fig:info_tp5_v4_blanco} and \protect\subref{fig:info_tp5_v4_jack}, the amount of information about whether the contrast of the stimulus exceeded $30\%$ encoded in the firing rate during the window \SIrange{220}{420}{\milli\second} after the stimulus was removed.
+In \protect\subref{fig:info_tp5_v4_blanco} and \protect\subref{fig:info_tp5_v4_jack}, the amount of information about whether the contrast of the stimulus exceeded \SI{30}{\percent} encoded in the firing rate during the window \SIrange{220}{420}{\milli\second} after the stimulus was removed.
 In \protect\subref{fig:respinfo_tp5_v4_blanco} and \protect\subref{fig:respinfo_tp5_v4_jack}, the amount of information about the behavioural response given by the subject encoded in the firing rate during the window \SIrange{220}{420}{\milli\second} after the stimulus was removed.
 In \protect\subref{fig:info_tp3_v4_blanco} and \protect\subref{fig:info_tp3_v4_jack}, the information about the stimulus encoded in the \SI{200}{\milli\second} before the stimulus was presented, shown here for comparison purposes only.
     \label{fig:info_tp5_v4}
@@ -2159,13 +2159,13 @@ Since there are as many backward cortical projections as forward connections wit
 
 \subsection{Difference in post-stimulation firing rate}
 
-To assist in distinguishing between these explanations, we investigated the difference in post-stimulation firing rate between stimuli with contrast above and below $30\%$.
+To assist in distinguishing between these explanations, we investigated the difference in post-stimulation firing rate between stimuli with contrast above and below \SI{30}{\percent}.
 If the effects providing information about the stimulus after its removal are due to the suppression of activity in the visual cortex from depletion of neurotransmitters, this will mean higher contrast stimuli reduce the subsequent activity by more than lower contrast stimuli.
 Whereas if the the effect is caused by feedback, we would expect to find the memory of the stimulus recreates the activity induced by the stimulus, with more actively responded stimuli also inducing more activity after the stimulus is removed.
 
 For each test stimulus, we measured the average firing rate during the \SI{200}{\milli\second} window starting \SI{220}{\milli\second} after the stimulus presentation ended.
 The change in stimulus class balance during training was not addressed using subsampling, as described in \autoref{sec:pl_class_imbalance}.
-Instead, we took the average firing rate for each stimulus class, then took the average over the \num{7} stimulus classes below and above $30\%$ contrast.
+Instead, we took the average firing rate for each stimulus class, then took the average over the \num{7} stimulus classes below and above \SI{30}{\percent} contrast.
 Next we took the difference between these two averages (referred to as ``Difference in firing rate'' along the $y$-axis in \autoref{fig:frdelta_tp5_v1} and \autoref{fig:frdelta_tp5_v4}).
 Finally, we averaged the difference in firing rate over the first (\zonename{A}) and last (\zonename{B}) three sessions, taking a Student's $t$-test between the distribution over channels of each, and a paired Student's $t$-test between \zonename{A} and \zonename{B}.
 
@@ -2198,13 +2198,13 @@ figs/frdelta/frdelta_tp5_220-420ms_blanco_v1.eps}}
         \includegraphics[scale=.45]{%
 figs/frdelta/frdelta_tp5_220-420ms_jack_v1.eps}}
     \hspace*{\fill}
-    \caption{\captionemph{For \ac{V1}, difference in post-stimulus firing rate between contrasts above and below $30\%$.}
+    \caption{\captionemph{For \ac{V1}, difference in post-stimulus firing rate between contrasts above and below \SI{30}{\percent}.}
     \label{fig:frdelta_tp5_v1}
 }
 \end{figure}
 
 
-Broadly speaking, both \ac{V1} and \ac{V4} brain regions have higher neural activity following presentation of a higher contrast, and the difference in activity between contrasts above and below $30\%$ increases with training.
+Broadly speaking, both \ac{V1} and \ac{V4} brain regions have higher neural activity following presentation of a higher contrast, and the difference in activity between contrasts above and below \SI{30}{\percent} increases with training.
 However, these results, shown in \autoref{fig:frdelta_tp5_v1} and \autoref{fig:frdelta_tp5_v4}, were not significant for both animals.
 
 Considering \ac{V1}, \ac{M1} (see \autoref{fig:frdelta_tp5_v1_blanco}) has a significantly non-zero difference in firing rate both before (\zonename{A}; $p=0.003$) and after (\zonename{B}; $p=0.0008$) training, which rises from \SI{+1.16\pm0.32}{Hz} to \SI{+1.43\pm0.33}{Hz}.
@@ -2242,7 +2242,7 @@ figs/frdelta/frdelta_tp5_220-420ms_blanco_v4.eps}}
         \includegraphics[scale=.45]{%
 figs/frdelta/frdelta_tp5_220-420ms_jack_v4.eps}}
     \hspace*{\fill}
-    \caption{\captionemph{For \ac{V4}, difference in post-stimulus firing rate between contrasts above and below $30\%$.}
+    \caption{\captionemph{For \ac{V4}, difference in post-stimulus firing rate between contrasts above and below \SI{30}{\percent}.}
     \label{fig:frdelta_tp5_v4}
 }
 \end{figure}
@@ -2255,7 +2255,7 @@ The change between \zonename{A} and \zonename{B} in firing rate difference was \
 
 \subsection{Post-stimulation information about behavioural response}
 
-In a similar manner to how we computed the amount of information about the group of the stimulus (higher or lower than $30\%$ contrast), we can also compute the amount of information the neural activity contains about the behavioural response the animal is about to provide at the end of the trial.
+In a similar manner to how we computed the amount of information about the group of the stimulus (higher or lower than \SI{30}{\percent} contrast), we can also compute the amount of information the neural activity contains about the behavioural response the animal is about to provide at the end of the trial.
 Taking the firing rate during the activity \SIrange{220}{420}{\milli\second} after the stimulus was removed, we computed the amount of information about the behavioural response provided by the subject.
 
 % Information about behavioural response in tp5
@@ -2326,7 +2326,7 @@ Taking the firing rate during the activity \SIrange{220}{420}{\milli\second} aft
 
 
 The results, shown in Figures \ref{fig:respinfo_tp5_v1_blanco}, \ref{fig:respinfo_tp5_v1_jack}, \ref{fig:respinfo_tp5_v4_blanco}, and \ref{fig:respinfo_tp5_v4_jack}, indicate the amount of information encoded about the behavioural response is comparable to that of the stimulus group.
-This is inevitable: since the performance of the subjects is much higher than chance, exceeding \SI{85}{\percent} after training, the behavioural responses contain a lot of information about whether the contrast of the stimulus exceeds $30\%$.
+This is inevitable: since the performance of the subjects is much higher than chance, exceeding \SI{85}{\percent} after training, the behavioural responses contain a lot of information about whether the contrast of the stimulus exceeds \SI{30}{\percent}.
 
 
 Before training, \ac{V1} post-stimulus activity did not contain a significant amount of information about the behavioural response for either subject (\ac{M1}: $p=0.84$; \ac{M2}: $p=0.72$).
@@ -2399,7 +2399,7 @@ The performance of the model --- the proportion of samples which it correctly cl
 
 % COULD PUT EXAMPLE CONFUSION MATRICES HERE?
 
-In line with our findings about task-pertinent information in \autoref{sec:task-info}, we will group together all the contrasts on one side of the $30\%$ contrast task separation line.
+In line with our findings about task-pertinent information in \autoref{sec:task-info}, we will group together all the contrasts on one side of the \SI{30}{\percent} contrast task separation line.
 This means objective function for the classification model we will train on the data will match the objective function which the subject was tasked with during the experiments.
 
 
@@ -2458,7 +2458,7 @@ After the animal has been trained on the task and the changes due to perceptual 
     \captionemph{Exemplar linear discriminators for pairs of \ac{V1} channels.}
     A pair of channels were selected to optimise the performance of the classifier in the final exp
     The number of paired observations of firing rates for two channels is shown on a two-dimensional colour bar scale.
-    The red colour channel indicates observations of $(x,y)$ during trials with a contrast $< 30\%$; blue indicates observations with contrast $> 30\%$.
+    The red colour channel indicates observations of $(x,y)$ during trials with a contrast \SI{<30}{\percent}; blue indicates observations with contrast \SI{>30}{\percent}.
     Consequently, pairs of firing rates which were not observed are shown in black, and data-points which occurred at a similar frequency for both stimulus conditions are shown in purple.
     Note that, as illustrated to the right of each panel, the colour scale is logarithmic (a doubling of the number of samples results in the same change in saturation).
     The separating hyperplane fit by the model is superimposed in white.
@@ -2665,12 +2665,12 @@ Our results from the population-level decoder correspond to our findings about t
     \hspace*{\fill}
     \caption{
     \captionemph{Classifying the stimulus using \ac{V1} population activity.}
-    We report the accuracy of the linear decoder at classifying the group of each stimulus (greater or less than $30\%$ contrast) after training on the population activity (blue; \protect\subref{fig:dec_b1_allp}~\ac{M1}, \num{14} channels; \protect\subref{fig:dec_j1_allp}~\ac{M2}, \num{20} channels).
+    We report the accuracy of the linear decoder at classifying the group of each stimulus (greater or less than \SI{30}{\percent} contrast) after training on the population activity (blue; \protect\subref{fig:dec_b1_allp}~\ac{M1}, \num{14} channels; \protect\subref{fig:dec_j1_allp}~\ac{M2}, \num{20} channels).
     In \protect\subref{fig:dec_b1_allp} and \protect\subref{fig:dec_j1_allp}, performance was evaluated as the average accuracy across each of the \num{14} stimulus classes (main $y$-axis, left-side).
-    A second $y$-axis (right-side) shows the corresponding amount of information about the stimulus group which would be attained if the average accuracy for stimuli lower than $30\%$ contrast and the accuracy for stimuli higher than $30\%$ contrast were equal.
+    A second $y$-axis (right-side) shows the corresponding amount of information about the stimulus group which would be attained if the average accuracy for stimuli lower than \SI{30}{\percent} contrast and the accuracy for stimuli higher than \SI{30}{\percent} contrast were equal.
     We also report the accuracy of the linear decoder when trained on a copy of the data with responses recorded from each channel matched at random such that noise correlations are removed (red; see \autoref{sec:pl_dec_shuffle}).
     For comparison, the behavioural performance of the subject is also shown for each recording session (black).
-    In \protect\subref{fig:dec_b1_info} and \protect\subref{fig:dec_j1_info}, we show the information about the stimulus group (higher or lower than $30\%$ contrast) contained in the responses from the behaviour and decoders (main $y$-axis, left-side).
+    In \protect\subref{fig:dec_b1_info} and \protect\subref{fig:dec_j1_info}, we show the information about the stimulus group (higher or lower than \SI{30}{\percent} contrast) contained in the responses from the behaviour and decoders (main $y$-axis, left-side).
     A second $y$-axis (right-side) shows the overall accuracy which would illicit this information (assuming the same accuracy for every stimulus).
 }
     \label{fig:dec_all_v1}
@@ -2751,7 +2751,7 @@ The decoder trained on data with noise correlations removed attains \SI{94}{\per
     \hspace*{\fill}
     \caption{%
     \captionemph{Classifying the stimulus group from \ac{V4} population activity.}
-    We report the accuracy of the linear decoder classifying the group of each stimulus (greater or less than $30\%$ contrast) after training on the population activity (blue; \protect\subref{fig:dec_b4_allp}~\ac{M1}, \num{25} channels; \protect\subref{fig:dec_j4_allp}~\ac{M2}, \num{18} channels).
+    We report the accuracy of the linear decoder classifying the group of each stimulus (greater or less than \SI{30}{\percent} contrast) after training on the population activity (blue; \protect\subref{fig:dec_b4_allp}~\ac{M1}, \num{25} channels; \protect\subref{fig:dec_j4_allp}~\ac{M2}, \num{18} channels).
     For details, see caption \autoref{fig:dec_all_v1}.
 }
     \label{fig:dec_all_v4}
@@ -2970,7 +2970,7 @@ However for \ac{M2}, shown in \autoref{fig:decag_j1_allp} and \autoref{fig:decag
     \caption{
     \captionemph{Response coincidence rate for \ac{V1}.}
     In \protect\subref{fig:decag_b1_allp} and \protect\subref{fig:decag_j1_allp}, the response coincidence rate, $\xi$, is the average probability that the classifications given by the model trained on the population activity will match those given by the subject's behavioural response (main $y$-axis, left-side).
-    A second $y$-axis (right-side) shows the corresponding amount of information about the stimulus group which would be attained if the average accuracy for stimuli lower than $30\%$ contrast and the accuracy for stimuli higher than $30\%$ contrast were equal.
+    A second $y$-axis (right-side) shows the corresponding amount of information about the stimulus group which would be attained if the average accuracy for stimuli lower than \SI{30}{\percent} contrast and the accuracy for stimuli higher than \SI{30}{\percent} contrast were equal.
     The shaded region indicates the \SI{95}{\percent} \acf{CI} of the \acf{NH} constructed for each session (see \autoref{sec:dec-meth-prob} for details).
     In \protect\subref{fig:decag_b1_condinfo} and \protect\subref{fig:decag_j1_condinfo}, the amount of information about the behavioural response given by the decoder, conditioned on the correct experimental response to the stimulus.
 }

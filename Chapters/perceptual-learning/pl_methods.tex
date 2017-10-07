@@ -26,7 +26,7 @@ For each monitor refresh, the template subtracted from the data samples was line
 \subsection{Elimination of movement induced artifacts}
 \label{sec:pl_movement_artifact}
 
-For a minority of trials ($3.6\%$, \num{2879} out of \num{80071}) physical movements by the subject generated high-amplitude artifacts across multiple recording channels.
+For a minority of trials (\SI{3.6}{\percent}, \num{2879} out of \num{80071}) physical movements by the subject generated high-amplitude artifacts across multiple recording channels.
 Due to the high-amplitude and unpredictability of such events, it was not possible to remove artifacts cleanly from the rest of the signal.
 Instead, since these problems occurred on a small proportion of the total trials, we identified trials where this artifact was present and removed them from subsequent analysis.
 
@@ -48,7 +48,7 @@ All trials corresponding to a pairwise correlation coefficient above the thresho
 \subsection{Removal of empty trials}
 \label{sec:pl_empty_trials}
 
-During a minority of trials ($0.81\%$, \num{651} out of \num{80071}) failures in the recording apparatus resulted in no spikes being recorded.
+During a minority of trials (\SI{0.81}{\percent}, \num{651} out of \num{80071}) failures in the recording apparatus resulted in no spikes being recorded.
 We identified these trials as those which had no detected spikes for any of the ${\ge}20$ simultaneously recorded channels\footnote{See \autoref{tab:nchannels} for the exact number of recording channels in each multi-electrode array.} over the full \SI{2.5}{\second} duration of the trial.
 These ``empty'' trials were removed from subsequent analysis.
 
@@ -78,9 +78,9 @@ To ensure the iterative algorithm had a suitable initialisation, which considera
 This initialisation routine allowed us to search over all possible thresholds very rapidly, and find a suitable initial threshold which was close to the final solution for the majority of channels and sessions.
 
 We then extracted the spikes using the algorithm described in \autoref{sec:pl_spike_extraction}, and compared the average firing rate during all pre-trial fixation periods in the recording session with $f_\text{target}$.
-If the initial threshold was too low, our second try was $3\%$ higher; if it was too high, our second try was $1\%$ lower.%
+If the initial threshold was too low, our second try was \SI{3}{\percent} higher; if it was too high, our second try was \SI{1}{\percent} lower.%
 \footnote{Since the computation involved in our spike extraction routine scales linearly with the number of spikes extracted, we err on the side of over-estimating the threshold since this costs notably less time.}
-After this, we performed an iterative search for the target threshold using a weighted combination of linear interpolation and bisection on each step ($80\%$ linear interpolation, $20\%$ bisection).
+After this, we performed an iterative search for the target threshold using a weighted combination of linear interpolation and bisection on each step (\SI{80}{\percent} linear interpolation, \SI{20}{\percent} bisection).
 The weightings for this hybrid root-finding algorithm were determined empirically and chosen to give reliably fast convergence.
 The search was halted once a threshold was found which yielded a spontaneous firing rate within \SI{\pm1}{\percent} of the target.
 
