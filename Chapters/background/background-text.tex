@@ -270,7 +270,7 @@ The message passing between them is modified as it passes through the channel, a
 
 In some ways, some functions of the brain are similar to the process of a compression algorithm.
 The initial encoding of the stimulus as transcribed by the appropriate sensory organ contains a large amount of information about the precise input stimulus --- for example the individual pixel values with an image stimulus --- which has a large amount of redundancy if one is interested only in detecting, classifying, and reacting to stimuli.
-A binary image of only $17 \times 17$ pixels can express \num{9.9e86} different states --- around a million times more than there are atoms in the visible universe, thought to be around $10^{80}$.
+A binary image of only $17 \times 17$ pixels can express \num{9.9e86} different states --- a value ten million times larger than the number of atoms in the visible universe, thought to be around $10^{80}$.
 However the vast majority of these images (for this, and equally true for a larger image with more intensity levels and colours) resemble unstructured random noise.
 The set of images which are of interest for interacting with a real world environment is vastly smaller; with an appropriate high-level statistical model, the subset of stimuli which are of interest can be compressed down to a much smaller number of bytes.
 For instance, we can take large image and compress this down to a binary value indicating whether this visual stimulus contains the face of familiar person.
@@ -444,7 +444,7 @@ Here, the bias on the mutual information is assumed to be well approximated by a
 \I_{\text{true}}(S;R) + \frac{a}{N} + \frac{b}{N^2}
 ,\end{equation}
 and the two free parameters, $a$ and $b$, are found by computing the information content with fractions of the full available dataset (\ie{} using $\nicefrac{N}{2}$ and $\nicefrac{N}{4}$ trials).
-Since the two are built on the same assumptions \ac{QE} gives similar performance to \ac{PT}, but because it is computationally instead of analytically derived \ac{QE} requires more computational processing.
+Since the two are built on the same assumptions \ac{QE} gives similar performance to \ac{PT}, but \ac{QE} requires more computational processing as it is fit empirically instead of derived analytically.
 
 % Consider discussing Best Universal Bound (BUB) method (Paninski, 2003)
 
