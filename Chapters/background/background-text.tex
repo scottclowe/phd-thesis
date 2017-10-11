@@ -342,7 +342,7 @@ The mutual information is the amount by which our uncertainty in the stimulus is
 In general, we can express the mutual information between two random variables, $X$ and $Y$, as
 \begin{align}
 \I(X;Y)
-  &= \EE_{x\sim X, y\sim Y} \left[ \log_2 \frac{p(x,y)}{p(x)p(y)} \right] \notag
+  &= \EE_{x\sim X, \, y\sim Y} \left[ \log_2 \frac{p(x,y)}{p(x)p(y)} \right] \notag
 \\&= \sum_{x \in \SET{X}, \, y \in \SET{Y}} p(x,y) \, \log_2 \frac{p(x,y)}{p(x)p(y)} \notag
 \\&= \HH(X) - \HH(X | Y) \notag
 \\&= \HH(Y) - \HH(Y | X) \label{eq:info}
@@ -355,7 +355,7 @@ This is so named because it is the entropy of one variable when conditioned on t
 Analogously to \autoref{eq:shannon-information}, conditional entropy is defined as
 \begin{align}
 \HH(X | Y)
-  &= \EE_{x\sim X, y\sim Y} \left[ \log_2 \frac{1}{p(x|y)} \right] \notag
+  &= \EE_{x\sim X, \, y\sim Y} \left[ \log_2 \frac{1}{p(x|y)} \right] \notag
 \\&= \sum_{x \in \SET{X}, \, y \in \SET{Y}} p(x,y) \log_2 \frac{1}{p(x|y)} \notag
 \\&= \sum_{y \in \SET{Y}} p(y) \sum_{x \in \SET{X}} p(x|y) \log_2 \frac{1}{p(x|y)} \notag
 \\&= - \sum_{y \in \SET{Y}} p(y) \sum_{x \in \SET{X}} p(x|y) \log_2 p(x|y)
