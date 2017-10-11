@@ -2441,29 +2441,28 @@ After the animal has been trained on the task and the changes due to perceptual 
     \centering
     %\hspace*{\fill}
     \subfloat[][\ac{M1} \ac{V1}, session \num{1}.\label{fig:pl_lin_discrim_example_v1_blanco_pre}]{%
-        \includegraphics[scale=.4]{figs/decoding/lindiscrimexRGBlog_v1_blanco_343_31vs44.eps}}
+        \includegraphics[scale=.4]{figs/decoding/lindiscrimexLCH-RG-log_cbl_v1_blanco_343_31vs44.eps}}
     \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
     \subfloat[][\ac{M2} \ac{V1}, session \num{1}.\label{fig:pl_lin_discrim_example_v1_jack_pre}]{%
-        \includegraphics[scale=.4]{figs/decoding/lindiscrimexRGBlog_v1_jack_51_12vs19.eps}}
+        \includegraphics[scale=.4]{figs/decoding/lindiscrimexLCH-RG-log_cbl_v1_jack_51_12vs19.eps}}
     %\hspace*{\fill}
     \\
     %\hspace*{\fill}
     \subfloat[][\ac{M1} \ac{V1}, session \num{17}.\label{fig:pl_lin_discrim_example_v1_blanco_post}]{%
-        \includegraphics[scale=.4]{figs/decoding/lindiscrimexRGBlog_v1_blanco_359_31vs44.eps}}
+        \includegraphics[scale=.4]{figs/decoding/lindiscrimexLCH-RG-log_cbl_v1_blanco_359_31vs44.eps}}
     \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
     \subfloat[][\ac{M2} \ac{V1}, session \num{22}.\label{fig:pl_lin_discrim_example_v1_jack_post}]{%
-        \includegraphics[scale=.4]{figs/decoding/lindiscrimexRGBlog_v1_jack_72_12vs19.eps}}
+        \includegraphics[scale=.4]{figs/decoding/lindiscrimexLCH-RG-log_cbl_v1_jack_72_12vs19.eps}}
     %\hspace*{\fill}
     \caption{
     \captionemph{Exemplar linear discriminators for pairs of \ac{V1} channels.}
-    A pair of channels were selected to optimise the performance of the classifier in the final exp
     The number of paired observations of firing rates for two channels is shown on a two-dimensional colour bar scale.
-    The red colour channel indicates observations of $(x,y)$ during trials with a contrast \SI{<30}{\percent}; blue indicates observations with contrast \SI{>30}{\percent}.
-    Consequently, pairs of firing rates which were not observed are shown in black, and data-points which occurred at a similar frequency for both stimulus conditions are shown in purple.
-    Note that, as illustrated to the right of each panel, the colour scale is logarithmic (a doubling of the number of samples results in the same change in saturation).
+    The hue of each pixel indicates the fraction of observations of the firing rate pair $(x,y)$ which were recorded with a stimulus above or below \SI{30}{\percent} contrast (red: below; green above).
+    Lightness and chroma (saturation) indicate the total number of observations of $(x,y)$ using a logarithmic scaling (a doubling of the number of samples results in the same absolute change in lightness and chroma).
+    Pairs of firing rates which were never observed to co-occurr are shown in black.
     The separating hyperplane fit by the model is superimposed in white.
     In each case, the model was trained on the data from only two recording channels, for illustrative purposes.
-    We selected the pair of channels which provided the highest classifier performance during the final recording session.
+    For each subject, each pair of channels was evaluated and we selected the pair which gave the highest classification performance during the final recording session.
     For \ac{M1} \ac{V1}, this pair of channels permitted \SI{64.2}{\percent} training accuracy for the na\"{i}ve animal and \SI{73.4}{\percent} during the final experimental session, shown in \protect\subref{fig:pl_lin_discrim_example_v1_blanco_pre} and \protect\subref{fig:pl_lin_discrim_example_v1_blanco_post} respectively.
     For \ac{M2} \ac{V1}, this pair of channels permitted \SI{78.5}{\percent} training accuracy for the na\"{i}ve animal and \SI{83.8}{\percent} during the final experimental session, shown in \protect\subref{fig:pl_lin_discrim_example_v1_jack_pre} and \protect\subref{fig:pl_lin_discrim_example_v1_jack_post} respectively.
 }
@@ -2480,22 +2479,22 @@ After the animal has been trained on the task and the changes due to perceptual 
     \centering
     %\hspace*{\fill}
     \subfloat[][\ac{M1} \ac{V4}, session \num{1}.\label{fig:pl_lin_discrim_example_v4_blanco_pre}]{%
-        \includegraphics[scale=.4]{figs/decoding/lindiscrimexRGBlog_v4_blanco_307_12vs51.eps}}
+        \includegraphics[scale=.4]{figs/decoding/lindiscrimexLCH-RG-log_cbl_v4_blanco_307_12vs51.eps}}
     \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
     \subfloat[][\ac{M2} \ac{V4}, session \num{1}.\label{fig:pl_lin_discrim_example_v4_jack_pre}]{%
-        \includegraphics[scale=.4]{figs/decoding/lindiscrimexRGBlog_v4_jack_24_10vs53.eps}}
+        \includegraphics[scale=.4]{figs/decoding/lindiscrimexLCH-RG-log_cbl_v4_jack_24_10vs53.eps}}
     %\hspace*{\fill}
     \\
     %\hspace*{\fill}
     \subfloat[][\ac{M1} \ac{V4}, session \num{35}.\label{fig:pl_lin_discrim_example_v4_blanco_post}]{%
-        \includegraphics[scale=.4]{figs/decoding/lindiscrimexRGBlog_v4_blanco_341_12vs51.eps}}
+        \includegraphics[scale=.4]{figs/decoding/lindiscrimexLCH-RG-log_cbl_v4_blanco_341_12vs51.eps}}
     \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
     \subfloat[][\ac{M2} \ac{V4}, session \num{25}.\label{fig:pl_lin_discrim_example_v4_jack_post}]{%
-        \includegraphics[scale=.4]{figs/decoding/lindiscrimexRGBlog_v4_jack_48_10vs53.eps}}
+        \includegraphics[scale=.4]{figs/decoding/lindiscrimexLCH-RG-log_cbl_v4_jack_48_10vs53.eps}}
     %\hspace*{\fill}
     \caption{
     \captionemph{Exemplar linear discriminators for pairs of \ac{V4} channels.}
-    The number of paired observations of firing rates for two channels is shown on a two-dimensional colour bar scale, as for \autoref{fig:pl_lin_discrim_example_v1}.
+    The number of paired observations of firing rates for two channels is shown on a two-dimensional colour bar scale, as per \autoref{fig:pl_lin_discrim_example_v1}.
     The separating hyperplane fit by the model is superimposed in white.
     We selected the pair of channels which provided the highest classifier performance during the final recording session.
     For \ac{M1} \ac{V4}, this pair of channels permitted \SI{65.4}{\percent} training accuracy for the na\"{i}ve animal and \SI{74.1}{\percent} during the final experimental session, shown in \protect\subref{fig:pl_lin_discrim_example_v4_blanco_pre} and \protect\subref{fig:pl_lin_discrim_example_v4_blanco_post} respectively.
