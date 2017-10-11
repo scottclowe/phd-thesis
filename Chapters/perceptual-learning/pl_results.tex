@@ -5,7 +5,7 @@
 
 One simple method of comparing how the encoding of stimuli changes over time is to use the sensitivity index, $d'$.
 This gives a measure of how separable the signal and the noise are, by comparing the difference in their means with the overall standard deviation.
-As such, it is one of several methods to measure the signal-to-noise ratio of a communication channel.
+As such, it is one of several methods to measure the \ac{SNR} of a communication channel.
 % For a classifier, this is defined as the difference between the hit rate and the false alarm rate,
 % \begin{equation}
 % d' = P(A | A) - P(A | \bar{A})
@@ -136,7 +136,7 @@ Since \ac{V1} is an early step in the visual processing hierarchy, its neurons r
 Consequently, neurons have large responses to our stimuli even from the first session of the experimental training.
 Over time, we found a decrease in sensitivity in \ac{V1} for both subjects.
 We suspect this decrease in sensitivity of the neural response in \ac{V1} to the sample stimulus is due to unpreventable deterioration in the recording quality of the implanted chronic electrodes over time.
-Over time, the noise increases and the signal-to-noise ratio falls, which leads to a reduction in the distinguishability of the two activity distributions.
+Over time, the noise increases and the \ac{SNR} falls, which leads to a reduction in the distinguishability of the two activity distributions.
 
 On the other hand, \ac{V4} is higher up the visual hierarchy and in general responds to more a complex stimulus class.
 For \ac{M1}, many of the neurons we recorded from were responsive to the primitive Gabor stimulus from the beginning of training.
@@ -1597,7 +1597,7 @@ Note that window durations were sampled logarithmically, but are shown here on a
 \end{figure}
 
 First, we consider the question of which window duration provides the most information about the stimulus.
-Since a longer window duration means a more accurate sample of the firing rate and therefore a higher signal-to-noise ratio, we would expect longer windows to provide more task-pertinent information about the stimulus.
+Since a longer window duration means a more accurate sample of the firing rate and therefore a higher \ac{SNR}, we would expect longer windows to provide more task-pertinent information about the stimulus.
 Taking the maximum information across all latencies, as shown in \autoref{fig:info_winlen}, we find that longer windows are not always more informative.
 
 For \ac{V1} (\autoref{fig:info_winlen_v1_blanco} and \autoref{fig:info_winlen_v1_jack}), shorter windows with a duration around \SI{50}{\milli\second} can capture the most informative firing rate.
@@ -1941,7 +1941,7 @@ The amount of information encoded in the peak response also falls for both subje
 We found that the amount of information encoded in the \ac{V1} firing rate fell as the duration of the window used to summate the neural activity increased above \SI{100}{\milli\second}.
 This ran counter to our expectations, since a longer window duration should intuitively integrate over more signal, resulting in an increase in information.
 However, this follows naturally from the fact that the sharp burst of activity triggered by the onset of the stimulus contains so much more information than the activity which subsequently follows it.
-The activity later in the stimulus presentation period has a signal-to-noise ratio much lower than the preceding activity, so including this in the window will reduce the overall signal-to-noise ratio and hence the total information.
+The activity later in the stimulus presentation period has an \ac{SNR} much lower than the preceding activity, so including this in the window will reduce the overall \ac{SNR} and hence the total information.
 % An alternative interpretation is this that the number of spikes elicited during the sharp burst of activity triggered by the onset of the stimulus is \textemph{negatively correlated} with the number of spikes elicited later in the stimulus presentation.
 % Such a negative correlation would have to be dispersed over a long duration, otherwise we detect it as another high-information content signal.
 % But if it were dispersed, the effects would be manifest as a reduction in information with longer windows including the onset response because the two signals would partially cancel out.
