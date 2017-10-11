@@ -1,4 +1,7 @@
 %!TEX root = ../PhDthesis.tex
+
+\acused{SNR}
+
 \chapter{Discussion}
 \label{ch:discussion}
 
@@ -28,7 +31,36 @@ This would help us determine whether the latency of the signal to \ac{V1} is tru
 That said, the spontaneous firing rate before the stimulus is around \SI{7}{Hz} (shown in \autoref{fig:fr_hm}), which implies a spontaneously generated spike will occur in the first \SI{50}{\milli\second} around $35\%$ of the time.
 With this in mind, the time of the second spike after stimulus onset may prove even more informative.
 
-Next, we used a Fisher linear discriminant classifier to decoded information in the population activity, and alternatives to this could be explored.
+Typical spontaneous firing rates for pyramid neurons in \ac{L2/3} are around \SI{0.03}{Hz} \citep{Lutcke2015}.
+Consequently, the spontaneous firing rate of \SI{7}{Hz} which we report for our recording channels may be erroneously high, considering our \ac{MUA} contains spikes from around \num{5} neurons neighbouring the site of the recording contact.
+% http://neuroelectro.org/ephys_prop/18/
+That said, other neuronal cell types within \ac{V1} such as stellate cells \citep{Iurilli2012,Iurilli2013} and even pyramid neurons in other layers \citep{Manns2004,Dani2005,Maffei2006,Hromadka2008}, do have higher rates of spontaneous activity, typically around \SIrange{0.5}{3}{Hz}, and the distribution of spontaneous firing rates is approximately lognormal \citep{Mizuseki2017}.
+Furthermore, fast-spiking basket neurons \citep{Chadderton2009} and various types of interneurons \citep{Hanganu2009,Lutcke2015} can have even higher spontaneous firing rates of around \SI{8}{Hz}.%
+\footnote{Many interneurons have their activity suppressed instead of enhanced by stimulation, hence their high spontaneous firing rate.}
+% \citep{Baddeley1997,Seki2003} \cite{Barral2016}
+However, pyramidal neurons are the most common neuronal cell type within the cortical microcircuit, constituting around \SI{60}{\percent} by cell count within \ac{V1} \citep{Binzegger2004}, and \ac{L2/3} pyramids the most common of these.
+Consequently, it is possible that our spike detection thresholds are too low, yielding an erroneously high spontaneously firing rate, and this could be re-evaluated.
+
+As described in \autoref{sec:pl_san}, spike extraction thresholds were first selected manually for each session, and then a single session was selected to define a target spontaneous activity rate for each recording channel.
+Then, for each session, we determined the threshold (for each channel) which would yield the same spontaneous activity as the target.
+This technique provides greater consistency in the firing rate across recording sessions, which would otherwise vary greatly session to session.
+However, due to a decline in recording quality over time, as evidenced by our sensitivity analysis in \autoref{sec:pl_dprime}, the firing rate which we extracted during stimulus presentation periods consistently declined over the course of the experiment for \ac{V1} recordings, as shown in \autoref{fig:fr_hm}.
+For \ac{V4}, this decline is not observed, either because these recordings (which were completed sooner after the electrode array was implanted than the \ac{V1} recordings) had a more consistent recording quality, or because an increase in selectivity of the cortical response outweighed a decline in recording signal.
+
+Another potential side-effect of the spontaneous activity normalisation is a change in the set of neurons which are included in the measured \ac{MUA} over the course of the experiment.
+As the \ac{SNR} falls, the spike extraction threshold rises relative to the measured voltage of spiking events.
+Consequently, more distal neurons which had signals strong enough to be recorded at the start of the experiment may no longer exceed the detection threshold in later experimental sessions.
+
+Some, but not all, of these issues could be alleviated through a different choice of extraction threshold.
+For instance, we could select one of the final recording sessions, with the lowest instead of an intermediate \ac{SNR}, to define the spontaneous activity rate.
+From this, the threshold should be high enough to eliminate the incorrect detection of background noise as spiking activity throughout all sessions, and more distal neurons which could not be recorded at end of the experiment may be removed from all sessions.
+Essentially, the amount of signal extracted would be capped at the worst level throughout all sessions, yielding consistency through forced degradation.
+Alternatively, these issues could be addressed by using a more sophisticated action potential extraction procedure.
+If we applied cell sorting techniques, we could remove noise-derived events falsely detected as spikes based on their (lack of) spiking waveform.
+In the ideal scenario, we would cross-reference the spike waveforms between sessions and restrict our analysis to only consider the neurons which could be consistently detected and isolated throughout the experiment.
+Unfortunately, any small movement of the recording apparatus will change the set of neurons neighbouring the electrode contacts from which recordings are taken; as such it is impossible to guarantee that the same neurons are recorded from over multiple days, even if their action potential waveforms are similar.
+
+We used a Fisher linear discriminant classifier to decode information in the population activity, and alternatives to this could be explored.
 Linear models, such as linear regression or support vector machines would likely give similar performance to the Fisher linear discriminant which we employed.
 Non-linear models such as a multi-layered perceptron neural network may be able to capture information in the population activity which was lost when we made the assumption of monotonic tuning curves, however the difference in effect which would result is not likely to be very large.
 If using a non-linear model to decode the activity does increase the performance, this would show that non-linearities in the tuning curves are much more important than we currently believe.
