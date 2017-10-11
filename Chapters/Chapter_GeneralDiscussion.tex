@@ -140,6 +140,29 @@ Typically, neurons in \ac{V1} are tuned to respond to the movement of oriented b
 We could test this hypothesis by computing the spatiotemporal receptive field of the power of cortical oscillations by reverse correlating it with the movie frames \citep{Theunissen2001}.
 If the spatiotemporal receptive field corresponds to such a stimulus, and in particular if it is similar to that of the \ac{MUA}, that would be evidence in support of the hypothesis.
 
+Across our experimental sessions, we recorded from neurons whose \ac{RF} locations varied in eccentricity, from \SI{2.6}{\degree}, which is at the inner edge of the parafovea, to \SI{7.7}{\degree}, in the outer half of the perifoveal ring (see \autoref{tab:lam_md} for a full list of \ac{RF} eccentricities).
+Eccentricities across this range vary in visual acuity and cortical magnification, and as such it is reasonable to expect variability between the sessions, especially in the recorded spatial frequency preferences.
+We reported the average across all sessions, and since there were broad similarities across them it was suitable to do so.
+However, there was some variability across the individual sessions, particularly in the preferred spatial scale of luminance changes for the \SIrange{60}{170}{Hz} power.
+For most sessions, the cortical power was most informative about the spatial frequencies of around \SI{2.4}{\cpd}.
+%          Preferred spatial freq
+%          ------------- -----------------
+% Session   60-170Hz      Neural v Spatial
+%           across depth  depth avg
+% ----------------------------------------
+% E07nm1      2   cpd       2.1 cpd
+% F10nm1     >5   cpd      >5   cpd
+% H05nm7      3   cpd       2.5 cpd
+% H05nm9      4   cpd       4   cpd
+% H05391      1.8 cpd       1.4 cpd
+% J10nm1      2.5 cpd       2.3 cpd
+However, there were two outliers.
+Session \sesname{H05391}, with the most peripheral \ac{RF} with \SI{7.7\pm1.0}{\degree} eccentricity, was tuned to coarser spatial frequencies with a peak around \SI{1.6}{\cpd}.
+Session \sesname{F10nm1}, with one of the two most central \ac{RF} locations at \SI{2.7\pm1.0}{\degree} eccentricity, encoded finer details about the stimulus, peaking at a spatial frequency of at least \SI{5}{\cpd} (its response information curve peaked for the highest spatial frequencies we analysed).
+These findings speculatively indicate there is a relationship between the \ac{RF} eccentricity and the spatial resolution of the information in the gamma power and \ac{MUA}.
+Such a finding would fit with the changes in visual acuity and cortical magnification as a function of eccentricity.
+However, more recording sessions with a variety of (more precisely determined) \ac{RF} locations are needed to confirm this tentative observation.
+
 When determining which spatiotemporal components of the stimulus corresponded to the changes in cortical power and phase, we focused on the rate of change of luminance.
 However, we did not find information about any spatiotemporal scales present in the phase of oscillations.
 Consequently, it would be prudent to widen our search and consider colour-opponent changes in the stimulus, as is provided to the visual cortex through the P-pathway and K-pathway.
