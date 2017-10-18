@@ -137,57 +137,70 @@ Stimuli contrasts depicted here are not to scale and are for illustrative purpos
 % \begin{landscape}
 \begin{table}[bthp]
 \centerline{
-%
-% \begin{tabular}{ccr}
+% %
+% % \begin{tabular}{ccr}
+% % \toprule
+% % Animal   & Region   & Duration (\si{\milli\second}) \\
+% % \midrule
+% %          &          & Inter-trial delay \\
+% % \midrule
+% % \acs{M1} & \acs{V4} & $530.872 \le t_1 \le 545.526$ \\
+% %          & \acs{V1} & $525.803 \le t_1 \le 538.983$ \\
+% % \acs{M2} & \acs{V4} & $526.295 \le t_1 \le 540.641$ \\
+% %          & \acs{V1} & $525.834 \le t_1 \le 540.702$ \\
+% % \midrule
+% %          &          & Sample presentation duration \\
+% % \midrule
+% % \acs{M1} & \acs{V4} & $t_2 = 529.275$ \\
+% %          & \acs{V1} & $t_2 = 529.275$ \\
+% % \acs{M2} & \acs{V4} & $t_2 = 533.176$ \\
+% %          & \acs{V1} & $t_2 = 533.176$ \\
+% % \midrule
+% %          &          & Post-sample stimulus delay \\
+% % \midrule
+% % \acs{M1} & \acs{V4} & $539.720 \le t_3 \le 1058.673$ \\
+% %          & \acs{V1} & $t_3 = 541.164$ \\
+% % \acs{M2} & \acs{V4} & $t_3 = 546.632$ \\
+% %          & \acs{V1} & $t_3 = 546.570$ \\
+% % \midrule
+% %          &          & Test presentation duration \\
+% % \midrule
+% % \acs{M1} & \acs{V4} & $t_4 = 529.275$ \\
+% %          & \acs{V1} & $t_4 = 529.275$ \\
+% % \acs{M2} & \acs{V4} & $t_4 = 533.176$ \\
+% %          & \acs{V1} & $t_4 = 533.176$ \\
+% % \midrule
+% %          &          & Post-test stimulus delay \\
+% % \midrule
+% % \acs{M1} & \acs{V4} & $t_5 = 423.475$ \\
+% %          & \acs{V1} & $t_5 = 423.475$ \\
+% % \acs{M2} & \acs{V4} & $t_5 = 426.578$ \\
+% %          & \acs{V1} & $t_5 = 426.640$ \\
+% % \bottomrule
+% %
+% \begin{tabular}{ccccccc}
 % \toprule
-% Animal   & Region   & Duration (\si{\milli\second}) \\
+%          &          & \multicolumn{5}{c}{Duration (\si{\milli\second})} \\
+% \cmidrule(l){3-7}
+% Subject  & Region   & $t_1$            & $t_2$     & $t_3$             & $t_4$     & $t_5$     \\
 % \midrule
-%          &          & Inter-trial delay \\
-% \midrule
-% \acs{M1} & \acs{V4} & $530.872 \le t_1 \le 545.526$ \\
-%          & \acs{V1} & $525.803 \le t_1 \le 538.983$ \\
-% \acs{M2} & \acs{V4} & $526.295 \le t_1 \le 540.641$ \\
-%          & \acs{V1} & $525.834 \le t_1 \le 540.702$ \\
-% \midrule
-%          &          & Sample presentation duration \\
-% \midrule
-% \acs{M1} & \acs{V4} & $t_2 = 529.275$ \\
-%          & \acs{V1} & $t_2 = 529.275$ \\
-% \acs{M2} & \acs{V4} & $t_2 = 533.176$ \\
-%          & \acs{V1} & $t_2 = 533.176$ \\
-% \midrule
-%          &          & Post-sample stimulus delay \\
-% \midrule
-% \acs{M1} & \acs{V4} & $539.720 \le t_3 \le 1058.673$ \\
-%          & \acs{V1} & $t_3 = 541.164$ \\
-% \acs{M2} & \acs{V4} & $t_3 = 546.632$ \\
-%          & \acs{V1} & $t_3 = 546.570$ \\
-% \midrule
-%          &          & Test presentation duration \\
-% \midrule
-% \acs{M1} & \acs{V4} & $t_4 = 529.275$ \\
-%          & \acs{V1} & $t_4 = 529.275$ \\
-% \acs{M2} & \acs{V4} & $t_4 = 533.176$ \\
-%          & \acs{V1} & $t_4 = 533.176$ \\
-% \midrule
-%          &          & Post-test stimulus delay \\
-% \midrule
-% \acs{M1} & \acs{V4} & $t_5 = 423.475$ \\
-%          & \acs{V1} & $t_5 = 423.475$ \\
-% \acs{M2} & \acs{V4} & $t_5 = 426.578$ \\
-%          & \acs{V1} & $t_5 = 426.640$ \\
+% \acs{M1} & \acs{V4} & $[530.9, 545.5]$ & $529.275$ & $[539.7, 1058.7]$ & $529.275$ & $423.475$ \\
+%          & \acs{V1} & $[525.8, 539.0]$ & $529.275$ & $541.164$         & $529.275$ & $423.475$ \\
+% \acs{M2} & \acs{V4} & $[526.3, 540.6]$ & $529.275$ & $546.632$         & $533.176$ & $426.578$ \\
+%          & \acs{V1} & $[525.8, 540.7]$ & $533.176$ & $546.570$         & $533.176$ & $426.640$ \\
 % \bottomrule
 %
-\begin{tabular}{ccccccc}
+\begin{tabular}{lcccc}
 \toprule
-         &          & \multicolumn{5}{c}{Duration (\si{\milli\second})} \\
-\cmidrule(l){3-7}
-Subject  & Region   & $t_1$            & $t_2$     & $t_3$             & $t_4$     & $t_5$     \\
+                            & \multicolumn{2}{c}{Monkey 1}          & \multicolumn{2}{c}{Monkey 2}          \\
+                            \cmidrule(r){2-3}                       \cmidrule(l){4-5}
+                            & \acs{V4}          & \acs{V1}          & \acs{V4}          & \acs{V1}          \\
 \midrule
-\acs{M1} & \acs{V4} & $[530.9, 545.5]$ & $529.275$ & $[539.7, 1058.7]$ & $529.275$ & $423.475$ \\
-         & \acs{V1} & $[525.8, 539.0]$ & $529.275$ & $541.164$         & $529.275$ & $423.475$ \\
-\acs{M2} & \acs{V4} & $[526.3, 540.6]$ & $529.275$ & $546.632$         & $533.176$ & $426.578$ \\
-         & \acs{V1} & $[525.8, 540.7]$ & $533.176$ & $546.570$         & $533.176$ & $426.640$ \\
+$t_1$                       & $[530.9, 545.5]$  & $[525.8, 539.0]$  & $[526.3, 540.6]$  & $[525.8, 540.7]$  \\
+$t_2$                       & $529.275$         & $529.275$         & $529.275$         & $533.176$         \\
+$t_3$                       & $[539.7, 1058.7]$ & $541.164$         & $546.632$         & $546.570$         \\
+$t_4$                       & $529.275$         & $529.275$         & $533.176$         & $533.176$         \\
+$t_5$                       & $423.475$         & $423.475$         & $426.578$         & $426.640$         \\
 \bottomrule
 %
 \end{tabular}
