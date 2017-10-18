@@ -100,7 +100,8 @@
 %\renewcommand*{\bibname}{new name} % Uncomment to change the name of the bibliography
 %\setbibpreamble{} % Uncomment to include a preamble to the bibliography - some text before the reference list starts
 \pagenumbering{roman} % Roman page numbering prior to the start of the thesis content (i, ii, iii, etc)
-\pagestyle{plain} % Suppress headers for the pre-content pages
+\pagestyle{scrheadings} % Show chapter titles as headings
+\renewcommand*\chapterpagestyle{empty} % No footer on chapter pages
 %********************************************************************
 % Frontmatter
 %*******************************************************
@@ -115,7 +116,6 @@
 %\cleardoublepage\include{FrontBackmatter/Publication}
 \cleardoublepage\include{FrontBackmatter/Acknowledgments}
 \addtocontents{toc}{\protect\vspace{\beforebibskip}} % to have preface a bit from the rest in the toc
-\pagestyle{scrheadings} % Show chapter titles as headings
 \cleardoublepage\include{FrontBackmatter/Contents} % Contents, list of figures/tables/listings and acronyms
 %
 %********************************************************************
