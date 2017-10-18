@@ -228,14 +228,15 @@ For each session, the \ac{RF} centre was manually located using the average of t
 \subsection{Aligning electrode penetrations}
 \label{sec:lam_align}
 
+\let\truelinewidth\linewidth
+
 For each recording session, the electrode was implanted in \ac{V1} at the recording site.
 % indicated in \autoref{fig:lam_nmr_e07} and \autoref{fig:lam_nmr_h05}.
 For each penetration, we endeavoured to align the electrode such that the most shallow electrode contact was at the boundary between cortical matter and the dura (near \aclu{L1}; \acs{L1}).
 However, this \textit{ad-hoc} method of alignment is unreliable, in part due to variation in cortical and laminar thickness both within and between subjects.
 Therefore, we performed \textit{post-hoc} realignment of the electrode contacts using the same methodology as \citet{Self2013} and \citet{VanKerkoerle2014}, described below.
 
-\begin{figure}
-    \hspace*{\fill}
+\begin{sidewaysfigure}
 %     \subfloat[][\acs{NMR} cross-section of \sesname{E07}'s brain.\label{fig:lam_nmr_e07}]{%
 %         \includegraphics[scale=.5]{%
 % figs/recordings/fig1S2-amended-E07.eps}}
@@ -245,14 +246,20 @@ Therefore, we performed \textit{post-hoc} realignment of the electrode contacts 
 % figs/recordings/fig1S2-amended-H05.eps}}
 %     \hspace*{\fill}
 %     \\
+
+    \hspace{1.25cm}
     \subfloat[][Alignment of \acs{CSD} across sessions.\label{fig:lam_align_csd}]{%
         \includegraphics[scale=.35]{%
-figs/recordings/sigtrlavg-allsestb-6ses-photodiode-mixed-Cln-none-none-mean-iCSD-b0=none-0.eps}}
-    \\
+figs/recordings/sigtrlavg-allsestb-6ses-photodiode-mixed-Cln-none-none-mean-iCSD-b0=none-0.eps}
+}
+
+    \hspace{1.25cm}
     \subfloat[][Alignment of \acs{MUA} across sessions.\label{fig:lam_align_mua}]{%
         \includegraphics[scale=.35]{%
-figs/recordings/sigtrlavg-allsestb-6ses-photodiode-mixed-Spkt-none-none-mean-0.eps}}
-%
+figs/recordings/sigtrlavg-allsestb-6ses-photodiode-mixed-Spkt-none-none-mean-0.eps}
+}
+
+\centering \begin{minipage}{15cm}
 \caption{
 \captionemph{Electrode alignment.}
 % \protect\subref{fig:lam_nmr_e07} and \protect\subref{fig:lam_nmr_h05}:~High resolution \ac{NMR} scans of two animals used to measure cortical thickness.
@@ -260,9 +267,10 @@ figs/recordings/sigtrlavg-allsestb-6ses-photodiode-mixed-Spkt-none-none-mean-0.e
 For sessions \sesname{H05391}, \sesname{H05nm7}, \sesname{H05nm9} and \sesname{E07nm1}, the average response to onset of the movie stimulus is shown, whereas for sessions \sesname{F10nm1} and \sesname{J10nm1} the response to a full-field flash is shown.
 \protect\subref{fig:lam_align_mua}:~Corresponding spike densities for the responses in panel \protect\subref{fig:lam_align_csd} (\SI{1}{\milli\second} window duration).
 }
+\end{minipage}
 \label{fig:lam_s1}
 %
-\end{figure}
+\end{sidewaysfigure}
 
 To identify the depth of each electrode contact, we measured the potential evoked in response to the onset of the movie clip, and in response to full-screen maximum-luminance \SI{100}{\milli\second} flash stimuli with \SI{6}{\second} intervals.
 From the measured potentials, we identified the boundary between the \ac{G} and \ac{IG} compartments as the source-sink reversal in the evoked \ac{CSD} \citep{Mitzdorf1979,Mitzdorf1985}.
