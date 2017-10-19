@@ -1583,7 +1583,7 @@ figs/info2/binlen/I_binlength_jack_v4_chmean18_s24,25,27-38,40-49_oc0_Gclass-gro
     \hspace*{\fill}
     \caption{\small
     \captionemph{Duration of the window over which firing rate is measured influences the measured information.}
-For each recording channel and window duration, we took the maximum information over all latencies, then averaged the information over channels.
+For each recording channel and window duration, we took the maximum information over all latencies, then averaged over channels.
 Main panels: heatmap showing information against experimental session and window duration.
 For each information value, we took \num{20} bootstrapped information values by randomly pairing stimuli and responses.
 After taking the maximum over latencies, the mean of the bootstraps was subtracted from the reported information, and if the value did not exceed \num{3} standard deviations over the bootstrapped information values it was deemed insignificant (shown in white; median significance threshold indicated by a line across the colour bar).
@@ -1592,7 +1592,7 @@ The average over channels is shown (black line), along with the standard error o
 Right: for each window duration, the average information over the first (\zonename{A}; blue) and last (\zonename{B}; purple) three sessions.
 The average over channels is shown, along with the standard error over channels (shaded region).
 Above right: violin plots for \zonename{A} and \zonename{B} showing the Gaussian kernel density estimate over channels of the maximum information.
-Note that window durations were sampled logarithmically, but are shown here on a linear scale.
+%Note that window durations were sampled logarithmically, but are shown here on a linear scale.
     \label{fig:info_winlen}
 }
 \end{figure}
