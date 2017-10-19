@@ -388,7 +388,8 @@
         {\titlerule\vspace*{.9\baselineskip}\raggedright\spacedallcaps}[\normalsize\vspace*{.8\baselineskip}\titlerule]%
     }{% something like Bringhurst  
     \titleformat{\chapter}[display]%
-        {\relax}{\mbox{}\oldmarginpar{\vspace*{-3\baselineskip}\color{halfgray}\chapterNumber\thechapter}}{0pt}%
+        {\relax}{\raggedleft{\color{halfgray}\chapterNumber\thechapter} \\ }{0pt}%
+%         {\relax}{\mbox{}\oldmarginpar{\vspace*{-3\baselineskip}\color{halfgray}\chapterNumber\thechapter}}{0pt}%
         {\raggedright\spacedallcaps}[\normalsize\vspace*{.8\baselineskip}\titlerule]% 
     }
     % sections \FloatBarrier
@@ -408,7 +409,7 @@
     % spacing
     \ifthenelse{\boolean{@nochapters}}%
         {\relax}%
-        {\titlespacing*{\chapter}{0pt}{1\baselineskip}{1.2\baselineskip}}
+        {\titlespacing*{\chapter}{0pt}{0pt}{1.2\baselineskip}}
     \titlespacing*{\section}{0pt}{1.25\baselineskip}{1\baselineskip} 
     \titlespacing*{\subsection}{0pt}{1.25\baselineskip}{1\baselineskip}
     \titlespacing*{\paragraph}{0pt}{1\baselineskip}{1\baselineskip}
