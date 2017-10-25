@@ -435,7 +435,7 @@ Exploiting this, we have
 \begin{equation}
 p_\text{ind}([r_1,r_2,r_3,\cdots]|s) = p(r_1|s) \, p(r_2|s) \, p(r_3|s) \, \cdots
 \end{equation}
-and can can compute $\HH_\text{ind}( R | S )$, the entropy under the independence assumption, directly from estimates of each $p(r_i|s)$ derived from the data.
+and can compute $\HH_\text{ind}( R | S )$, the entropy under the independence assumption, directly from estimates of each $p(r_i|s)$ derived from the data.
 This has very little bias compared with $\HH( R | S )$ since there are so many more samples --- the ratio of samples for unique response vectors to individual response elements rises exponentially with the dimension of the response vector.
 One can alternatively estimate this entropy, $\HH_\text{ind}( R | S )$, from pseudo-response arrays by shuffling each element in the response vector conditioned on the stimulus, producing $\HH_\text{sh}( R | S )$.
 Since this shuffling destroys information contained in the dependencies between elements in the response vector, this is an estimate of the same entropy value as $\HH_\text{ind}( R | S )$.
