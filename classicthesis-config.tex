@@ -127,13 +127,24 @@
 \newcommand{\tableheadline}[1]{\multicolumn{1}{c}{\spacedlowsmallcaps{#1}}}
 \newcommand{\myfloatalign}{\centering} % to be used with each float for alignment
 \usepackage{caption}
-\captionsetup{font=small,font=singlespacing,format=plain,indention=0cm} %font=sf,
+\DeclareCaptionLabelFormat{spacedlowsmallcaps}{%
+  \bothIfFirst{\spacedlowsmallcaps{#1}}{~}\spacedlowsmallcaps{#2}}
+\DeclareCaptionLabelSeparator*{periodenspace}{.\enspace}
+\captionsetup{%
+    hypcap=true,%
+    format=plain,%
+    indention=0cm,%
+    font={small,stretch=1.05},%
+    labelformat=spacedlowsmallcaps,%
+    labelsep=periodenspace}
 \usepackage{subfig}
 \usepackage{rotating}
 
 \usepackage{chngcntr}
 % \counterwithin{figure}{section}
 
+% Add padding below caption
+\setlength{\belowcaptionskip}{3pt}
 
 % ****************************************************************************************************
 % 4b. Other useful packages
