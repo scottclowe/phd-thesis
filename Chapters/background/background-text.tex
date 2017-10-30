@@ -553,14 +553,30 @@ However, this line of thinking only holds for a homogeneous population of neuron
 As illustrated in \autoref{fig:Averbeck2006a}, if a pair of neurons have positive signal correlation, then a positive noise correlation points in the direction distinguishing between the two stimuli, reducing the amount of information encoded by the pair of neurons.
 If the pair of neurons have negatively correlated responses with respect to the stimuli, a positive noise correlation increases the amount of information encoded instead (\autoref{fig:Averbeck2006b}).
 
-\begin{figure}[htbp]
+A similar line of reasoning can be considered for two neurons with offset tuning curves \citep{Franke2016}.
+As shown in \autoref{fig:Franke2016}, when the two tuning curves are considered together we traverse a manifold in $2d$ space.
+Noise correlations are a hindrance (information-limiting correlations, \citealp{Moreno-Bote2014}) only when the direction of noise correlation points in the same direction as the derivative of the tuning manifold, since this change is easily confused with a change in the parameter describing the manifold.
+Whereas noise correlations which are orthogonal to the manifold are beneficial to the neural code, since the result has lower variability when projected onto the manifold than that of independently generated noise.
+However, when the manifold forms a closed loop (as is the case with orientation tuning, shown in \autoref{fig:Franke2016}) the derivative of the tuning manifold processes through a full \SI{360}{\degree}, and the ideal noise correlation varies depending upon which stimulus signal is under consideration.
+
+\cleardoubleevenemptypage
+%
+\begin{figure}[p!]
 \subfloat{\label{fig:Averbeck2006a}}
 \subfloat{\label{fig:Averbeck2006b}}
 \subfloat{\label{fig:Averbeck2006c}}
 \centering
-\includegraphics[scale=1.1]{Averbeck2006_Fig.pdf}
+\includegraphics[scale=1.25]{Averbeck2006_Fig.pdf}
 %
 \caption{%
+\textit{(Caption appears on the following page.)}
+}
+\label{fig:Averbeck2006}
+\end{figure}
+
+\addtocounter{figure}{-1}
+\begin{figure}[p!]
+\caption[]{%
 \captionemph{Effects of correlations on information encoding.}
 We show the effect of positive noise correlations on the information encoded by two neurons that respond to two different stimuli in three scenarios.
 The panels on the left show the original unshuffled responses, those on the right show the effect of shuffling the responses over trials to destroy the noise correlations.
@@ -572,33 +588,39 @@ Each diagonal line shows the optimal decision boundary --- responses falling abo
 % Reprinted/Adapted by permission from Macmillan Publishers Ltd: [JOURNAL NAME] (reference citation), copyright (year of publication)
 Adapted by permission from Macmillan Publishers Ltd: \textit{Nature Reviews Neuroscience} \citep{Averbeck2006}, copyright 2006.
 }
-\label{fig:Averbeck2006}
 \end{figure}
 
-
-A similar line of reasoning can be considered for two neurons with offset tuning curves \citep{Franke2016}.
-As shown in \autoref{fig:Franke2016}, when the two tuning curves are considered together we traverse a manifold in $2d$ space.
-Noise correlations are a hindrance (information-limiting correlations, \citealp{Moreno-Bote2014}) only when the direction of noise correlation points in the same direction as the derivative of the tuning manifold, since this change is easily confused with a change in the parameter describing the manifold.
-Whereas noise correlations which are orthogonal to the manifold are beneficial to the neural code, since the result has lower variability when projected onto the manifold than that of independently generated noise.
-However, when the manifold forms a closed loop (as is the case with orientation tuning, shown in \autoref{fig:Franke2016}) the derivative of the tuning manifold processes through a full \SI{360}{\degree}, and the ideal noise correlation varies depending upon which stimulus signal is under consideration.
-
-\begin{figure}[htbp]
-\centering
+\cleardoubleevenemptypage
+%
+\begin{figure}[p!]
+\centerline{
 \hspace*{\fill}
 \subfloat[][Tuning curves for two model neurons.\label{fig:Franke2016a}]{%
-    \includegraphics[scale=1.1]{%
+    \includegraphics[scale=1.3]{%
 10.1016-j.neuron.2015.12.037Figure6a1.eps}}
 \hspace*{\fill}\hspace{.2cm}\hspace*{\fill}
 \subfloat[][Pairwise responses traverse a manifold within $2d$ space.\label{fig:Franke2016b}]{%
-    \includegraphics[scale=1.1]{%
+    \includegraphics[scale=1.3]{%
 10.1016-j.neuron.2015.12.037Figure6a2.eps}}
 \hspace*{\fill}
-\\
+}
+
+\centerline{
 \subfloat[][The effect of noise correlations on decoding from the tuning manifold.\label{fig:Franke2016c}]{%
-    \includegraphics[scale=1.1]{%
+    \includegraphics[scale=1.3]{%
 10.1016-j.neuron.2015.12.037Figure6b.eps}}
+}
 %
 \caption{%
+\textit{(Caption appears on the following page.)}
+}
+\label{fig:Franke2016}
+%
+\end{figure}
+
+\addtocounter{figure}{-1}
+\begin{figure}[p!]
+\caption[]{%
 \captionemph{Impact of different structures of noise correlation upon population coding.}
 \protect\subref{fig:Franke2016a}: Two model direction-selective neurons respond to different stimuli (dashed lines) according to tuning curves (solid grey curves), $f_1(\theta)$ and $f_2(\theta)$, with two direction preferences that differ by \SI{90}{\degree}.
 \protect\subref{fig:Franke2016b}: The two tuning curves are represented as a solid grey line parametrized by the stimulus direction, $\theta$.
@@ -614,6 +636,5 @@ Ellipses are contours of equal probability, drawn at \num{2.5} standard deviatio
 % Reprinted from Publication title, Vol /edition number, Author(s), Title of article / title of chapter, Pages No., Copyright (Year), with permission from Elsevier
 Reprinted from \textit{Neuron}, \citet{Franke2016}, Copyright (2016), with permission from Elsevier.
 }
-\label{fig:Franke2016}
 %
 \end{figure}
