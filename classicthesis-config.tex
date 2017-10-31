@@ -452,6 +452,18 @@
 %\usepackage[urw-garamond]{mathdesign} <-- no osf support :-(
 
 % ********************************************************************
+% Adjust headlines
+% ********************************************************************
+% Show chapter and section titles in header, page number in footer
+\lehead{\headmark}
+\rohead{\headmark}
+\lefoot{\thepage}
+\rofoot{\thepage}
+
+% Use plain style on chapter pages: page number in footer, no header
+\renewcommand*\chapterpagestyle{plain}
+
+% ********************************************************************
 % Adjust colour of acronyms
 % ********************************************************************
 \makeatletter
