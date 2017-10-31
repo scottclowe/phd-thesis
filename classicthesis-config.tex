@@ -455,10 +455,12 @@
 % Adjust headlines
 % ********************************************************************
 % Show chapter and section titles in header, page number in footer
-\lehead{\headmark}
-\rohead{\headmark}
+\setheadsepline{0.5pt}
+\lehead{\color{halfgray}\headmark}
+\rohead{\color{halfgray}\headmark}
 \lefoot{\thepage}
 \rofoot{\thepage}
+\addtokomafont{headsepline}{\color{halfgray}}
 
 % Use plain style on chapter pages: page number in footer, no header
 \renewcommand*\chapterpagestyle{plain}
