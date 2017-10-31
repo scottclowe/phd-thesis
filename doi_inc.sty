@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{doi}[2007/07/24 handle doi numbers]
+\ProvidesPackage{doi_inc}[2017/10/06 handle doi numbers]
 
 %% This style file is based original code written by Heiko Oberdiek 
 %% and published on comp.text.tex. It was packaged with permission  
@@ -19,7 +19,7 @@
 %% redefining the \doitext command, which does not take an argument (unlike the
 %% command with the same name in the doipubmed package). 
 %%
-%% Note: the \doi{} command connot be used within other macros.
+%% Note: the \doi{} command cannot be used within other macros.
  
 %% Change history:
 %% December 15, 2003: original code posted on Usenet (see link above)
@@ -30,7 +30,7 @@
 %%     A \doitext command is added, following the example from doipubmed.
 %%     Some comments are added to make the code a little more readable.
 %% July 2007: Michael Orlov sends in a patch to correctly handle underscores.
-%% October 2016: Modified so "doi:" is inside the hyperlink, based on solution
+%% October 2017: Modified so "doi:" is inside the hyperlink, based on solution
 %%     https://tex.stackexchange.com/a/276636 by StackExchange user jarauh
 
 %% We need hyperref, but you probably want to load hyperref 

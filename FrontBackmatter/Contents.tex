@@ -3,7 +3,7 @@
 %*******************************************************
 %\phantomsection
 \refstepcounter{dummy}
-\pdfbookmark[1]{\contentsname}{tableofcontents}
+\pdfbookmark[0]{\contentsname}{tableofcontents}
 \setcounter{tocdepth}{2} % <-- 2 includes up to subsections in the ToC
 \setcounter{secnumdepth}{3} % <-- 3 numbers up to subsubsections
 \manualmark
@@ -18,9 +18,9 @@
 \clearpage
 
 \begingroup 
-    \let\clearpage\relax
-    \let\cleardoublepage\relax
-    \let\cleardoublepage\relax
+%     \let\clearpage\relax
+%     \let\cleardoublepage\relax
+%     \let\cleardoublepage\relax
 %     %*******************************************************
 %     % List of Figures
 %     %*******************************************************    
@@ -60,7 +60,7 @@
     %*******************************************************
     %\phantomsection 
     \refstepcounter{dummy}
-    \pdfbookmark[1]{Initialisms and Abbreviations}{Initialisms and Abbreviations}
+    \pdfbookmark[0]{Initialisms and Abbreviations}{initialisms}
     \markboth{\spacedlowsmallcaps{Initialisms and Abbreviations}}{\spacedlowsmallcaps{Initialisms and Abbreviations}}
     \chapter*{Initialisms and Abbreviations}
     \begin{acronym}[AUROC]

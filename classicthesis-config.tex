@@ -79,7 +79,7 @@
 \PassOptionsToPackage{latin9}{inputenc}	% latin9 (ISO-8859-9) = latin1+"Euro sign"
  \usepackage{inputenc}				
 
-%\PassOptionsToPackage{ngerman,american}{babel}   % change this to your language(s)
+\PassOptionsToPackage{british}{babel}   % change this to your language(s)
 % Spanish languages need extra options in order to work with this template
 %\PassOptionsToPackage{spanish,es-lcroman}{babel}
  \usepackage{babel}					
@@ -127,12 +127,23 @@
 \newcommand{\tableheadline}[1]{\multicolumn{1}{c}{\spacedlowsmallcaps{#1}}}
 \newcommand{\myfloatalign}{\centering} % to be used with each float for alignment
 \usepackage{caption}
-\captionsetup{font=small,font=singlespacing,format=plain,indention=0cm} %font=sf,
+\DeclareCaptionLabelFormat{spacedlowsmallcaps}{%
+  \bothIfFirst{\spacedlowsmallcaps{#1}}{~}\spacedlowsmallcaps{#2}}
+\DeclareCaptionLabelSeparator*{periodenspace}{.\enspace}
+\captionsetup{%
+    hypcap=true,%
+    format=plain,%
+    indention=0cm,%
+    font={small,stretch=1.15},%
+    labelformat=spacedlowsmallcaps,%
+    labelsep=periodenspace}
 \usepackage{subfig}
 
 \usepackage{chngcntr}
 % \counterwithin{figure}{section}
 
+% Add padding below caption
+\setlength{\belowcaptionskip}{3pt}
 
 % ****************************************************************************************************
 % 4b. Other useful packages
@@ -171,6 +182,7 @@
 %\usepackage{units}           % nice units, for 10Hz with a thin space, etc
 \usepackage{siunitx}         % like units, but better
 \DeclareSIUnit\cpd{cpd}      % cycles per degree as a cpd unit
+\DeclareSIUnit\dva{dva}      % degrees of visual angle unit
 \sisetup{separate-uncertainty = true, retain-explicit-plus}
 %
 \usepackage{mhchem}          % For chemical formulae

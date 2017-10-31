@@ -186,7 +186,7 @@ The third most common \ac{RGC} type is the bistratified ganglion cells, which co
 The optic nerve sends visual information from the retina to the \acf{LGN}.
 The \ac{LGN} is banded, with layers of cells of several types, as illustrated in \autoref{fig:bg_pathway}.
 
-\begin{figure}[htb]
+\begin{figure}[htbp]
 \centering
 \includegraphics[scale=1.25]{Nassi2009_fig2.eps}
 \caption{
@@ -435,7 +435,7 @@ Exploiting this, we have
 \begin{equation}
 p_\text{ind}([r_1,r_2,r_3,\cdots]|s) = p(r_1|s) \, p(r_2|s) \, p(r_3|s) \, \cdots
 \end{equation}
-and can can compute $\HH_\text{ind}( R | S )$, the entropy under the independence assumption, directly from estimates of each $p(r_i|s)$ derived from the data.
+and can compute $\HH_\text{ind}( R | S )$, the entropy under the independence assumption, directly from estimates of each $p(r_i|s)$ derived from the data.
 This has very little bias compared with $\HH( R | S )$ since there are so many more samples --- the ratio of samples for unique response vectors to individual response elements rises exponentially with the dimension of the response vector.
 One can alternatively estimate this entropy, $\HH_\text{ind}( R | S )$, from pseudo-response arrays by shuffling each element in the response vector conditioned on the stimulus, producing $\HH_\text{sh}( R | S )$.
 Since this shuffling destroys information contained in the dependencies between elements in the response vector, this is an estimate of the same entropy value as $\HH_\text{ind}( R | S )$.
@@ -547,7 +547,7 @@ However, this line of thinking only holds for a homogeneous population of neuron
 As illustrated in \autoref{fig:Averbeck2006a}, if a pair of neurons have positive signal correlation, then a positive noise correlation points in the direction distinguishing between the two stimuli, reducing the amount of information encoded by the pair of neurons.
 If the pair of neurons have negatively correlated responses with respect to the stimuli, a positive noise correlation increases the amount of information encoded instead (\autoref{fig:Averbeck2006b}).
 
-\begin{figure}
+\begin{figure}[htbp]
 \subfloat{\label{fig:Averbeck2006a}}
 \subfloat{\label{fig:Averbeck2006b}}
 \subfloat{\label{fig:Averbeck2006c}}
@@ -576,7 +576,7 @@ Noise correlations are a hindrance (information-limiting correlations, \citealp{
 Whereas noise correlations which are orthogonal to the manifold are beneficial to the neural code, since the result has lower variability when projected onto the manifold than that of independently generated noise.
 However, when the manifold forms a closed loop (as is the case with orientation tuning, shown in \autoref{fig:Franke2016}) the derivative of the tuning manifold processes through a full \SI{360}{\degree}, and the ideal noise correlation varies depending upon which stimulus signal is under consideration.
 
-\begin{figure}
+\begin{figure}[htbp]
 \centering
 \hspace*{\fill}
 \subfloat[][Tuning curves for two model neurons.\label{fig:Franke2016a}]{%
