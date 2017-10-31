@@ -452,6 +452,28 @@
 %\usepackage[urw-garamond]{mathdesign} <-- no osf support :-(
 
 % ********************************************************************
+% Adjust headlines
+% ********************************************************************
+% Show titles and page number in footer, with vertical line between
+\lehead{}
+\rohead{}
+\lefoot{\thepage\kern1.75em\vline\kern1.75em\headmark}
+\rofoot{\headmark\kern1.75em\vline\kern1.75em\thepage}
+\renewcommand{\headfont}{\small\color{halfgray}}
+
+% Use custom style for chapter pages: only page number in footer
+\defpagestyle{chapterpage}{%
+    {}
+    {}
+    {}
+}{%
+    {\thepage\hfill}
+    {\hfill\thepage}
+    {\hfill\thepage\hfill}
+}
+\renewcommand*\chapterpagestyle{chapterpage}
+
+% ********************************************************************
 % Adjust colour of acronyms
 % ********************************************************************
 \makeatletter
