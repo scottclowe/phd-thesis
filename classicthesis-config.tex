@@ -454,16 +454,24 @@
 % ********************************************************************
 % Adjust headlines
 % ********************************************************************
-% Show chapter and section titles in header, page number in footer
-\setheadsepline{0.5pt}
-\lehead{\color{halfgray}\headmark}
-\rohead{\color{halfgray}\headmark}
-\lefoot{\thepage}
-\rofoot{\thepage}
-\addtokomafont{headsepline}{\color{halfgray}}
+% Show titles and page number in footer, with vertical line between
+\lehead{}
+\rohead{}
+\lefoot{\thepage\kern1.75em\vline\kern1.75em\headmark}
+\rofoot{\headmark\kern1.75em\vline\kern1.75em\thepage}
+\renewcommand{\headfont}{\small\color{halfgray}}
 
-% Use plain style on chapter pages: page number in footer, no header
-\renewcommand*\chapterpagestyle{plain}
+% Use custom style for chapter pages: only page number in footer
+\defpagestyle{chapterpage}{%
+    {}
+    {}
+    {}
+}{%
+    {\thepage\hfill}
+    {\hfill\thepage}
+    {\hfill\thepage\hfill}
+}
+\renewcommand*\chapterpagestyle{chapterpage}
 
 % ********************************************************************
 % Adjust colour of acronyms
