@@ -457,8 +457,9 @@
 % Adjust headlines
 % ********************************************************************
 % Show chapter and section titles in header, page number in footer
-\lehead{\mbox{\footnotesize\thepage\kern2em\headmark\hfil}}
-\rohead{\mbox{\hfil\footnotesize\headmark\kern2em\thepage}}
+\lehead{\thepage\hspace*{\fill}\headmark}
+\rohead{\headmark\hspace*{\fill}\thepage}
+\renewcommand{\headfont}{\footnotesize}
 
 % No footer on chapter pages
 \renewcommand*\chapterpagestyle{empty}
