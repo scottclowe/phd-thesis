@@ -402,7 +402,7 @@ We then computed the Pearson correlation coefficient between responses $X$ and $
 This was repeated for each pair of frames, and we took the average over all pairs as the noise correlation between $X$ and $Y$.
 
 For both the signal and the noise correlation, we produced \num{20} bootstrap correlations by repeating the procedure for randomly paired responses by shuffling over either stimuli (signal) or repetitions (noise).
-After averaging over sessions, correlation coefficients which were less than three standard deviations of the bootstraps from the bootstrap mean were deemed not significantly correlated (shown in white in Figures \ref{fig:lam_cxfrq_cor} and \ref{fig:lam_cxchn_cor}).
+After averaging over sessions, correlation coefficients which were less than three standard deviations of the bootstraps from the bootstrap mean were deemed not significantly correlated (shown in white in Figures \ref{fig:lam_cxfrq_cor}, \ref{fig:lam_cxchn_sigcor}, and \ref{fig:lam_cxchn_noisecor}).
 
 
 \subsection{Information about scene changes}
@@ -717,30 +717,36 @@ The leading diagonal, which is trivially perfectly correlated, and second diagon
 \subsection{Information redundancy across depth}
 
 Next, we investigated whether the information contained in these frequency bands was the same across the cortical depths.
-To this end, we computed the redundancy of the information about the stimulus contained in oscillations at different cortical depths, both within the same band at each depth, and between different bands (\autoref{fig:lam_cxchn_info}; see \autoref{sec:lam_redundancy_method}).
+To this end, we computed the redundancy of the information about the stimulus contained in oscillations at different cortical depths, both within the same band at each depth, and between different bands (Figures \ref{fig:lam_cxchn_red} and  \ref{fig:lam_cxchn_gain}; see \autoref{sec:lam_redundancy_method}).
 
 \begin{figure}[htbp]
     \centering
-    \hspace*{\fill}
-    \subfloat[][Redundancy.\label{fig:lam_cxchn_red}]{%
-        \includegraphics[scale=.36]{%
-figs/redundancy/bndflt3-3-pcred-none-avg-lag=0s_paper.eps}}
-    \hspace*{\fill}
-    \\
-    \hspace*{\fill}
-    \subfloat[][Information gain.\label{fig:lam_cxchn_gain}]{%
-        \includegraphics[scale=.36]{%
-figs/redundancy/bndflt3-3-pcgain-i2d2-none-avg-lag=0s_paper.eps}}
-    \hspace*{\fill}
+    \includegraphics[scale=.425]{%
+figs/redundancy/bndflt3-3-pcred-none-avg-lag=0s_paper.eps}
 %
 \caption{
 \captionemph{Redundancy of information contained in pairs of cortical laminae, for isolated \ac{CSD} frequency bands and \ac{MUA}.}
-We show both the redundancy, \protect\subref{fig:lam_cxchn_red}, and the information gain, $\operatorname{InfoGain}\left(Y\to\left\{X,Y\right\};S\right)$, \protect\subref{fig:lam_cxchn_gain}.
 Since redundancy, as we define in \autoref{eq:redundancy}, is symmetric, the lower triangle (removed) is a mirror image of the upper triangle.
-Information gain is an asymmetric measure, and we show the gain from knowing the $y$-axis datapoint to knowing both $x$ and $y$ datapoints.
 Non-significant datapoints are shown in white, with the median upper and lower thresholds for significance indicated by the black lines across each colour bar.
 }%
 \label{fig:lam_cxchn_info}
+\label{fig:lam_cxchn_red}
+%
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[scale=.425]{%
+figs/redundancy/bndflt3-3-pcgain-i2d2-none-avg-lag=0s_paper.eps}
+%
+\caption{
+\captionemph{Information gain between pairs of cortical laminae, for isolated \ac{CSD} frequency bands and \ac{MUA}.}
+We show the information gain, $\operatorname{InfoGain}\left(Y\to\left\{X,Y\right\};S\right)$.
+Information gain is an asymmetric measure, and we show the gain from knowing the $y$-axis datapoint to knowing both $x$ and $y$ datapoints.
+Non-significant datapoints are shown in white, with the median upper and lower thresholds for significance indicated by the black lines across each colour bar.
+}%
+\label{fig:lam_cxchn_infogain}
+\label{fig:lam_cxchn_gain}
 %
 \end{figure}
 
@@ -758,28 +764,34 @@ It consequently follows that the two localised regions of high information conte
 %Importantly, this argues against a situation where \ac{SG} contains the same information as \ac{G}/\ac{IG} activity transcoded from low-frequency to high-gamma oscillations; at least some of the information is unique to each.
 
 We also evaluated the signal and noise correlation between pairs of channels across these frequency bands.
-As shown in \autoref{fig:lam_cxchn_cor}, the signal and noise correlation both follow the same distribution as the redundancy.
+As shown in \autoref{fig:lam_cxchn_sigcor} and \autoref{fig:lam_cxchn_noisecor}, the signal and noise correlation both follow the same distribution as the redundancy.
 
 \begin{figure}[htbp]
     \centering
-    \hspace*{\fill}
-    \subfloat[][Signal correlation.\label{fig:lam_cxchn_sigcor}]{%
-        \includegraphics[scale=.36]{%
-figs/noisesigcor/bndflt3-3-signal-avg_paper.eps}}
-    \hspace*{\fill}
-    \\
-    \hspace*{\fill}
-    \subfloat[][Noise correlation.\label{fig:lam_cxchn_noisecor}]{%
-        \includegraphics[scale=.36]{%
-figs/noisesigcor/bndflt3-3-noise-avg_paper.eps}}
-    \hspace*{\fill}
+    \includegraphics[scale=.425]{%
+figs/noisesigcor/bndflt3-3-signal-avg_paper.eps}
 %
 \caption{
-\captionemph{Correlation across cortical laminae of power in \ac{CSD} frequency bands and \ac{MUA}.}
+\captionemph{Signal correlation across cortical laminae of power in \ac{CSD} frequency bands and \ac{MUA}.}
 Since correlation is symmetric, the lower triangle (removed) is a mirror image of the upper triangle.
 Non-significant datapoints are shown in white, with minimum and maximum significance thresholds indicated by the black lines across the colour bar.
 }%
 \label{fig:lam_cxchn_cor}
+\label{fig:lam_cxchn_sigcor}
+%
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[scale=.425]{%
+figs/noisesigcor/bndflt3-3-noise-avg_paper.eps}
+%
+\caption{
+\captionemph{Noise correlation across cortical laminae of power in \ac{CSD} frequency bands and \ac{MUA}.}
+Since correlation is symmetric, the lower triangle (removed) is a mirror image of the upper triangle.
+Non-significant datapoints are shown in white, with minimum and maximum significance thresholds indicated by the black lines across the colour bar.
+}%
+\label{fig:lam_cxchn_noisecor}
 %
 \end{figure}
 
