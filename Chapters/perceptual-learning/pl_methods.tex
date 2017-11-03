@@ -33,10 +33,10 @@ Instead, since these problems occurred on a small proportion of the total trials
 Since movement artifacts dominated recordings where they were present, and these artifacts were present in multiple channels simultaneously, we identified trials containing them by changes in the covariance between channels.
 For each trial, we computed the Pearson correlation coefficient,
 \begin{equation}
-\label{eq:pearson}
-\rho(X,Y) = \frac{\operatorname{cov}(X,Y)}{\sigma_X \, \sigma_Y}
+\label{eq:pearson-dummy}
+\rho(X,Y) = \frac{\operatorname{cov}(X,Y)}{\operatorname{var}(X) \, \operatorname{var}(Y)}
 ,\end{equation}
-(where $\sigma_\cdot$ is the standard deviation of $\cdot$) between the signals $X$ and $Y$ from each pair of channels.
+between the signals, $X$ and $Y$ respectively, from each pair of channels.
 Some sessions were entirely free from artifact contamination, and for these sessions the distribution of $\rho(X,Y)$ across all trials and all pairs of channels was unimodal, with centre between \num{0.2} and \num{0.4}.
 For sessions which included trials where the motion artifact was present, the distribution was bimodal with a second smaller group whose centre was between \num{0.4} and \num{0.7}.
 For each session, a cut-off value was manually selected which partitioned the two clusters.
