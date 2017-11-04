@@ -129,11 +129,11 @@ In addition to this, recent work by \citet{Zanos2011} has indicated that low-fre
 As a consequence, there are spurious correlations between the \ac{LFP} and \ac{MUA}.
 These spurious correlations may impact our results, and it would be prudent to remove the waveforms of the spikes from the broadband signal before extracting the power of \ac{LFP} and \ac{CSD} oscillations \citep{Zanos2011} and confirm that the information about the stimulus in the \SIrange{60}{170}{Hz} power is still redundant with that of the \ac{MUA}.
 
-We determined the \ac{CSD} from the \ac{LFP} using the inverse \ac{CSD} method (iCSD; \citealp{Pettersen2006}).
+We determined the \ac{CSD} from the \ac{LFP} using the inverse \ac{CSD} method (\acsfont{iCSD}; \citealp{Pettersen2006}).
 However, the authors have since detailed a more advanced procedure for estimating the \ac{CSD} from \acp{LFP}.
-This, the kernel \acl{CSD} method (kCSD; \citealp{Potworowski2012}), is non-parametric and uses Gaussian kernels with regularisation to estimate the ground truth \ac{CSD}.
-In particular, kCSD provides a native handling for unevenly spaced signal samples, which is useful since we had a small number of faulty electrode contacts, leaving holes in our sampling grid.
-Re-extracting the \ac{CSD} using kCSD would be more accurate, but is unlikely to perturb our results by a large amount.
+This, the kernel \acl{CSD} method (\acsfont{kCSD}; \citealp{Potworowski2012}), is non-parametric and uses Gaussian kernels with regularisation to estimate the ground truth \ac{CSD}.
+In particular, \acsfont{kCSD} provides a native handling for unevenly spaced signal samples, which is useful since we had a small number of faulty electrode contacts, leaving holes in our sampling grid.
+Re-extracting the \ac{CSD} using \acsfont{kCSD} would be more accurate, but is unlikely to perturb our results by a large amount.
 
 When discussing the results for information encoded in the power of cortical oscillations, we speculated that the power of the \SIrange{60}{170}{Hz} range may encode the output of the cortical column.
 Typically, neurons in \ac{V1} are tuned to respond to the movement of oriented bars with specific properties, such as orientation, spatial frequency, direction of motion, and colour.

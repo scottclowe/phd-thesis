@@ -83,8 +83,8 @@ Stimulus-on periods of \SI{120}{\second} (\num{5} sessions; \num{1} session: \SI
 
 In order to best approximate the luminosity perceived by macaques, we relied on analogies with the human visual system.
 Research in humans suggests the luminosity function is linearly related to the L- and M-cone activation, and independent of the S-cone activation \citep{Stockman2008}.
-Furthermore, the weighting of L and M activations towards perceived luminance is believed to be similar to the L:M ratio in the individual \citep{Stockman2008}.
-Old world monkeys such as macaques have an L:M ratio which is approximately 1:1 \citep{Dobkins2000}, so we assumed a luminosity function equally weighed between the L and M cone activations, $Y(f) = L(f) + M(f)$.
+Furthermore, the weighting of L and M activations towards perceived luminance is believed to be similar to the $\text{L}\!:\!\text{M}$ ratio in the individual \citep{Stockman2008}.
+Old world monkeys such as macaques have an $\text{L}\!:\!\text{M}$ ratio which is approximately $1\!:\!1$ \citep{Dobkins2000}, so we assumed a luminosity function equally weighed between the L and M cone activations, $Y(f) = L(f) + M(f)$.
 The \SI{10}{\degree} cone fundamentals%
 \footnote{The cone fundamentals are similar to the pigment response curves shown in \autoref{fig:bg_cone_responses}, but account for the non-linear relationship between the changes in the pigment and the response produced by the cone.}
 of \citet{Stockman2000} were used%
@@ -106,7 +106,7 @@ Electrodes consisted of laminar probes (NeuroNexus Technologies, Ann Arbor, USA)
 These electrodes contained \num{16} contacts on a single shank \SI{3}{\milli\metre} long and \SI{150}{\micro\metre} thick.
 The electrode sites were spaced at \SI{150}{\micro\metre} apart, with a recording area of \SI{413}{\micro\metre^2} each.
 We used a flattened silver wire, which was positioned under the skin, as reference electrode \citep{Murayama2010}.
-The recording access was filed with a mixture of \SI{0.6}{\percent} agar dissolved in \ac{NaCl} \SI{0.9}{\percent}, pH 7.4 solution which guaranteed good electrical connection between the ground contact and the animal \citep{Oeltermann2007760}.
+The recording access was filed with a mixture of \SI{0.6}{\percent} agar dissolved in \ac{NaCl} \SI{0.9}{\percent}, pH \num{7.4} solution which guaranteed good electrical connection between the ground contact and the animal \citep{Oeltermann2007760}.
 The impedance of the contact points was measured during the experiments and ranged from \SIrange{480}{800}{\kilo\ohm}.
 The signals were amplified and filtered into a broadband of \SIrange{1}{8000}{Hz} (Alpha-Omega Engineering, Nazareth, Israel) and then digitised at \SI{20.833}{\kilo\Hz} with \SI{16}{bit} resolution (PCI-6052E; National Instruments, Austin, TX).
 
@@ -381,7 +381,7 @@ We also computed the signal and noise correlation between pairs of unbinned resp
 The power was extracted as described in \autoref{sec:lam_power_method}.
 
 For the signal correlation, the power in response to each stimulus was averaged over repetitions, producing a single mean response to each frame.
-Then, for a given frequency band and recording depth, we correlated the average frame responses against the average responses elicited by another frequency band or depth using the Pearson correlation coefficient.
+Then, for a given frequency band and recording depth, we correlated the average frame responses against the average responses elicited by another frequency band or depth using the Pearson correlation coefficient (defined in \autoref{eq:pearson}).
 
 The noise correlation was computed by considering the power elicited during a single frame over all repetitions of the movie stimulus.
 We then computed the Pearson correlation coefficient between responses $X$ and $Y$ over presentations of the same stimulus.
@@ -460,7 +460,7 @@ In \autoref{fig:lam_latencydiff}, the insignificant ($p>0.05$) latency differenc
 % A paired $t$-test was performed across all \num{6} sessions to test whether the maximum information in the \ac{G} compartment consistently occurred earlier than information in the \ac{IG} compartment.
 
 
-\subsection{Information about spatio-temporal stimulus components}
+\subsection{Information about spatiotemporal stimulus components}
 \label{sec:lam_tmf_method}
 
 We extended the methodology of \autoref{sec:lam_spares_method}, to extract specific temporal components (as well as spatial components) of the movie stimulus.
@@ -950,7 +950,7 @@ Both plots show the average over \num{6} sessions, with non-significant differen
 \end{figure}
 
 
-\subsection{Information about spatio-temporal components of visual stimulus}
+\subsection{Information about spatiotemporal components of visual stimulus}
 \label{sec:lam_spatmf}
 
 Next, we considered the information about different temporal components of the movie.
