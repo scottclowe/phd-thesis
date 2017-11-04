@@ -177,10 +177,10 @@ In both cases, we measured the correlation between the responses from the two ch
 If we let the responses observed from our two recording channels be denoted by the random variables $X$ and $Y$, their Pearson correlation coefficient is given by
 \begin{equation}
 \label{eq:pearson}
-r(X,Y) = \frac{\operatorname{cov}(X,Y)}{\operatorname{var}(X) \, \operatorname{var}(Y)}
+\rho(X,Y) = \frac{\operatorname{cov}(X,Y)}{\operatorname{var}(X) \, \operatorname{var}(Y)}
 .\end{equation}
-This provides a measure of the covariance between $X$ and $Y$ which is normalised again their standard deviations, meaning that $-1 \le r \le 1$ and $r$ is robust against linear rescaling of either $X$ or $Y$ (or both).
-If $r=\pm1$, there is a perfect linear relationship between $X$ and $Y$, whereas $r=0$ when $X$ and $Y$ are completely independent of one another.
+This provides a measure of the covariance between $X$ and $Y$ which is normalised again their standard deviations, meaning that $-1 \le \rho \le 1$ and $\rho$ is robust against linear rescaling of either $X$ or $Y$ (or both).
+If $\rho=\pm1$, there is a perfect linear relationship between $X$ and $Y$, whereas $\rho=0$ when $X$ and $Y$ are completely independent of one another.
 
 To investigate whether the signal and noise correlations rose or fell during the experiments, we compared the average correlation over the first and last three sessions (intervals \zonename{A} and \zonename{B}).
 We used a paired $t$-test to measure whether the correlations changed significantly over all pairs of channels.
@@ -780,10 +780,10 @@ This is illustrated in \autoref{fig:I_vs_invN}, where we compare the estimated i
 This is in keeping with the literature, since $\I_{\text{measured}}$ is known to be proportional to $\nicefrac{1}{N}$ if no bias correction is performed \citep{Treves1995}.
 
 Without correcting for the bias due to finite sampling, the correlation between $\nicefrac{1}{N}$ and $\I_{\text{measured}}$ is large and significant.
-For \ac{V1}, the Pearson's correlation coefficient between them was $R=0.99$ and $0.98$ for \ac{M1} and \ac{M2} respectively, which was a significant correlation ($p < 2 \times 10^{-13}$ and $p < 8 \times 10^{-16}$).
-For \ac{V4}, $R=0.98$ and $R=0.92$ with p-values $p < 2 \times 10^{-14}$ and $p < 2 \times 10^{-10}$.
-But even if we correct for the bias with \ac{PT} or \ac{QE}, the correlation remains large ($R>0.4$) and significant ($p<0.04$) for all datasets except \ac{M2} \ac{V1} with \ac{PT}, where $R=+0.27$ and $p=0.23$.
-The correlation is strongest for \ac{M1} \ac{V1}, with $R>0.89$ and $p < 1 \times 10^{-6}$ with either \ac{PT} or \ac{QE} bias correction.
+For \ac{V1}, the Pearson's correlation coefficient (see \autoref{eq:pearson}) between them was $\rho(\I, \nicefrac{1}{N})=0.99$ and $\rho=0.98$ for \ac{M1} and \ac{M2} respectively, which was a significant correlation in all cases ($p < 2 \times 10^{-13}$ and $p < 8 \times 10^{-16}$).
+For \ac{V4}, $\rho=0.98$ and $\rho=0.92$ with p-values $p < 2 \times 10^{-14}$ and $p < 2 \times 10^{-10}$.
+But even if we correct for the bias with \ac{PT} or \ac{QE}, the correlation remains large ($\rho>0.4$) and significant ($p<0.04$) for all datasets except \ac{M2} \ac{V1} with \ac{PT}, where $\rho=+0.27$ and $p=0.23$.
+The correlation is strongest for \ac{M1} \ac{V1}, with $\rho>0.89$ and $p < 1 \times 10^{-6}$ with either \ac{PT} or \ac{QE} bias correction.
 
 % NvsI labels=balanced, with 0 bootstraps
 % blanco v1  Uncorrected      R=+0.9885  p=0.0000=1.024875e-13
@@ -948,7 +948,7 @@ Results are shown with bias correction either achieved solely from subtracting t
 \end{figure}
 
 We find that using bootstrapping for the bias correction does indeed overestimate the bias, resulting in a negative correlation between information and $\nicefrac{1}{N}$.
-This effect is particularly problematic for the \ac{V1} dataset of \ac{M2}, where the correlation was $R<-0.72$ ($p < 2 \times 10^{-4}$; see \autoref{fig:I_vs_invN_btsp_v1_jack}), and the \ac{V4} \ac{M1} dataset, where the correlation was $R<-0.44$ ($p<0.038$; see \autoref{fig:I_vs_invN_btsp_v4_blanco}) even with bias correction with \ac{PT} or \ac{QE} in addition to using bootstrapping.
+This effect is particularly problematic for the \ac{V1} dataset of \ac{M2}, where the correlation was $\rho<-0.72$ ($p < 2 \times 10^{-4}$; see \autoref{fig:I_vs_invN_btsp_v1_jack}), and the \ac{V4} \ac{M1} dataset, where the correlation was $\rho<-0.44$ ($p<0.038$; see \autoref{fig:I_vs_invN_btsp_v4_blanco}) even with bias correction with \ac{PT} or \ac{QE} in addition to using bootstrapping.
 
 
 %------------------------------------
@@ -1010,7 +1010,7 @@ Results are shown both without correcting for the finite measurement bias (grey 
 
 As anticipated, using only two stimulus classes to increase the number of trials per stimulus class greatly reduces the residual bias after \ac{PT} bias correction.
 This is witnessed in the reduced correlation between estimated information and $\nicefrac{1}{N}$ seen in \autoref{fig:I_vs_invN_target-group}.
-Here we find the magnitude of the correlations between $\nicefrac{1}{N}$ and $\I_\text{measured}$ are reduced and no longer significant, with the exception of \ac{M2} \ac{V1}, where $R<-0.47$ for both \ac{PT} and \ac{QE} ($p < 0.027$).
+Here we find the magnitude of the correlations between $\nicefrac{1}{N}$ and $\I_\text{measured}$ are reduced and no longer significant, with the exception of \ac{M2} \ac{V1}, where $\rho<-0.47$ for both \ac{PT} and \ac{QE} ($p < 0.027$).
 
 
 % NvsI labels=class-group-balanced, with 20 bootstraps
@@ -1060,10 +1060,10 @@ Results are shown both without correcting for the finite measurement bias (grey 
 % jack   v4  sess_num vs num_trials R=-0.1010  p=0.6388=6.387740e-01
 
 We can also consider applying the bootstrap correction from \autoref{sec:pl_bootstrapping} in addition to reducing the number of stimulus labels to the two groups, shown in \autoref{fig:I_vs_invN_target-group_btsp}.
-Using all three bias reduction techniques (including either \ac{PT} or \ac{QE}), the correlation for \ac{M2} \ac{V1} was still significant ($p < 0.008$), with $R<-0.54$.
+Using all three bias reduction techniques (including either \ac{PT} or \ac{QE}), the correlation for \ac{M2} \ac{V1} was still significant ($p < 0.008$), with $\rho<-0.54$.
 We believe this correlation, which only causes a small change in magnitude of the measured information, is because subject \ac{M2} had a tendency to train for longer as the sessions progressed, but only with the stimulus in the retinotopic location for \ac{V1}.
-For this dataset, there was a correlation between the number of sessions elapsed and the number of trials in the session of $R=+0.42$, which was noteworthy but did not exceed our criteria for significance ($p=0.053$).
-None of the other datasets had a comparable level of correlation between the number of the session and how many trials were collected ($|R|<0.22$ with $p > 0.4$).
+For this dataset, there was a correlation between the number of sessions elapsed and the number of trials in the session of $\rho=+0.42$, which was noteworthy but did not exceed our criteria for significance ($p=0.053$).
+None of the other datasets had a comparable level of correlation between the number of the session and how many trials were collected ($|\rho|<0.22$ with $p > 0.4$).
 
 Using bootstrapping to correct for residual bias, the correlations between $\nicefrac{1}{N}$ and $\I_\text{measured}$ are slightly smaller for \ac{PT} than \ac{QE}, though the values are very similar and no claim can justifiably be made about which technique gives superior bias correction.
 Since the \ac{PT} method is faster to compute, we chose to use this for the rest of our analysis.
