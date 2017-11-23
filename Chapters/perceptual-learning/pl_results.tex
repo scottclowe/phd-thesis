@@ -107,10 +107,10 @@ figs/dprime/dprime_sample_hm_hotcold_jack_v4_1_rmon2_rmvet2.eps}
     \hspace*{\fill}
     \caption{\captionemph{Change in sensitivity index, $d'$, over training sessions.}
 \protect\subref{fig:dprime_v1_blanco}: $d'$ for \ac{M1} \ac{V1}, shown for each recording channel, with channels ordered according to average $d'$ over all sessions.
-Above, traces of $d'$ for each channel (colours), and average over channels (black).
+Above, traces of $d'$ for each channel (colours), and their average (black).
 Below, heatmap showing $d'$ for each channel.
-Right top, violin plots showing distribution over channels of the average $d'$ in the first (\zonename{A}) and last (\zonename{B}) three sessions, with mean (solid black line) and median (dashed green line) over channels indicated.
-The violin plot shows a Gaussian kernel density using a bandwidth determined automatically as described in \autoref{sec:violin_plot_method}.
+Right top, violin plots showing distribution over channels of the average $d'$ in the first (\zonename{A}) and last (\zonename{B}) three sessions, with mean (solid black line) and median (dashed green line) over channels.
+The violin plot shows a Gaussian kernel density using a bandwidth determined as described in \autoref{sec:violin_plot_method}.
 \protect\subref{fig:dprime_v1_jack}: Same as \protect\subref{fig:dprime_v1_blanco}, but for \ac{M2}.
 \protect\subref{fig:dprime_v4_blanco} and \protect\subref{fig:dprime_v4_jack}: Same as \protect\subref{fig:dprime_v1_blanco} and \protect\subref{fig:dprime_v1_jack}, but for \ac{V4}.
 }
@@ -1584,9 +1584,9 @@ figs/info2/binlen/I_binlength_jack_v4_chmean18_s24,25,27-38,40-49_oc0_Gclass-gro
     \caption{
     \captionemph{Duration of the window over which firing rate is measured influences the measured information.}
 For each recording channel and window duration, we took the maximum information over all latencies, then averaged over channels.
-Main panels: heatmap showing information against experimental session and window duration.
-For each information value, we took \num{20} bootstrapped information values by randomly pairing stimuli and responses.
-After taking the maximum over latencies, the mean of the bootstraps was subtracted from the reported information, and if the value did not exceed \num{3} standard deviations over the bootstrapped information values it was deemed insignificant (shown in white; median significance threshold indicated by a line across the colour bar).
+Main panels: heatmap showing information against experimental session and window duration (non-significant values shown in white; median significance threshold indicated by a line across the colour bar).
+% For each information value, we took \num{20} bootstrapped information values by randomly pairing stimuli and responses.
+% After taking the maximum over latencies, the mean of the bootstraps was subtracted from the reported information, and if the value did not exceed \num{3} standard deviations over the bootstrapped information values it was deemed insignificant (shown in white; median significance threshold indicated by a line across the colour bar).
 Above: maximum information over all window durations.
 The average over channels is shown (black line), along with the standard error over channels (grey shaded region).
 Right: for each window duration, the average information over the first (\zonename{A}; blue) and last (\zonename{B}; purple) three sessions.
