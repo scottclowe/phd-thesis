@@ -83,8 +83,8 @@ Stimulus-on periods of \SI{120}{\second} (\num{5} sessions; \num{1} session: \SI
 
 In order to best approximate the luminosity perceived by macaques, we relied on analogies with the human visual system.
 Research in humans suggests the luminosity function is linearly related to the L- and M-cone activation, and independent of the S-cone activation \citep{Stockman2008}.
-Furthermore, the weighting of L and M activations towards perceived luminance is believed to be similar to the L:M ratio in the individual \citep{Stockman2008}.
-Old world monkeys such as macaques have an L:M ratio which is approximately 1:1 \citep{Dobkins2000}, so we assumed a luminosity function equally weighed between the L and M cone activations, $Y(f) = L(f) + M(f)$.
+Furthermore, the weighting of L and M activations towards perceived luminance is believed to be similar to the $\text{L}\!:\!\text{M}$ ratio in the individual \citep{Stockman2008}.
+Old world monkeys such as macaques have an $\text{L}\!:\!\text{M}$ ratio which is approximately $1\!:\!1$ \citep{Dobkins2000}, so we assumed a luminosity function equally weighed between the L and M cone activations, $Y(f) = L(f) + M(f)$.
 The \SI{10}{\degree} cone fundamentals%
 \footnote{The cone fundamentals are similar to the pigment response curves shown in \autoref{fig:bg_cone_responses}, but account for the non-linear relationship between the changes in the pigment and the response produced by the cone.}
 of \citet{Stockman2000} were used%
@@ -106,13 +106,13 @@ Electrodes consisted of laminar probes (NeuroNexus Technologies, Ann Arbor, USA)
 These electrodes contained \num{16} contacts on a single shank \SI{3}{\milli\metre} long and \SI{150}{\micro\metre} thick.
 The electrode sites were spaced at \SI{150}{\micro\metre} apart, with a recording area of \SI{413}{\micro\metre^2} each.
 We used a flattened silver wire, which was positioned under the skin, as reference electrode \citep{Murayama2010}.
-The recording access was filed with a mixture of \SI{0.6}{\percent} agar dissolved in \ac{NaCl} \SI{0.9}{\percent}, pH 7.4 solution which guaranteed good electrical connection between the ground contact and the animal \citep{Oeltermann2007760}.
+The recording access was filed with a mixture of \SI{0.6}{\percent} agar dissolved in \ac{NaCl} \SI{0.9}{\percent}, pH \num{7.4} solution which guaranteed good electrical connection between the ground contact and the animal \citep{Oeltermann2007760}.
 The impedance of the contact points was measured during the experiments and ranged from \SIrange{480}{800}{\kilo\ohm}.
 The signals were amplified and filtered into a broadband of \SIrange{1}{8000}{Hz} (Alpha-Omega Engineering, Nazareth, Israel) and then digitised at \SI{20.833}{\kilo\Hz} with \SI{16}{bit} resolution (PCI-6052E; National Instruments, Austin, TX).
 
 
 \acused{CRT}
-\begin{table}[htbp]
+\begin{table}[tbp]
 \small
 \centerline{
 \begin{tabular}{l l m{1.1cm} m{1.05cm} r r}
@@ -395,7 +395,7 @@ We also computed the signal and noise correlation between pairs of unbinned resp
 The power was extracted as described in \autoref{sec:lam_power_method}.
 
 For the signal correlation, the power in response to each stimulus was averaged over repetitions, producing a single mean response to each frame.
-Then, for a given frequency band and recording depth, we correlated the average frame responses against the average responses elicited by another frequency band or depth using the Pearson correlation coefficient.
+Then, for a given frequency band and recording depth, we correlated the average frame responses against the average responses elicited by another frequency band or depth using the Pearson correlation coefficient (defined in \autoref{eq:pearson}).
 
 The noise correlation was computed by considering the power elicited during a single frame over all repetitions of the movie stimulus.
 We then computed the Pearson correlation coefficient between responses $X$ and $Y$ over presentations of the same stimulus.
@@ -430,7 +430,7 @@ We applied a fourth-order \ac{IIR} Butterworth filter with a width of one octave
 We then took the pixel-wise difference between each spatially-filtered pair of consecutive frames.
 We integrated the absolute magnitude of the rate-of-change of spatially filtered luminance within a \SI{2}{\degree} diameter circular window centred at the receptive field location (determined as described in \autoref{sec:lam_rf}).
 
-\begin{figure}[htbp]
+\begin{figure}[tbp]
 % \centerline{
 \includegraphics[width=1.05\linewidth]{paperfigs/fig4.eps}
 % }
@@ -476,7 +476,7 @@ In \autoref{fig:lam_latencydiff}, the insignificant ($p>0.05$) latency differenc
 % A paired $t$-test was performed across all \num{6} sessions to test whether the maximum information in the \ac{G} compartment consistently occurred earlier than information in the \ac{IG} compartment.
 
 
-\subsection{Information about spatio-temporal stimulus components}
+\subsection{Information about spatiotemporal stimulus components}
 \label{sec:lam_tmf_method}
 
 We extended the methodology of \autoref{sec:lam_spares_method}, to extract specific temporal components (as well as spatial components) of the movie stimulus.
@@ -510,7 +510,7 @@ In order to identify the spatial area of the movie stimulus that modulated the n
 The spatial-\ac{RF} locations that we identified (see \autoref{fig:lam_1b} for an example session) did not vary with depth, confirming the angle of the electrode penetration was perpendicular and that all electrode contacts were recording from the same cortical column.
 
 
-\begin{figure}[htbp]
+\begin{figure}[tbp]
 \subfloat{\label{fig:lam_1a}}
 \subfloat{\label{fig:lam_1b}}
 \subfloat{\label{fig:lam_1c}}
@@ -543,7 +543,7 @@ Within this small sample of the overall dataset, one can observe that large, low
 Activity in the \SIrange{28}{44}{Hz} range was more variable across trials, and did not seem to be stimulus modulated.
 
 
-\begin{figure}[htbp]%
+\begin{figure}[tbp]%
     \centering
     \hspace*{\fill}
     \subfloat[][\acs{LFP} power.\label{fig:lam_power_lfp}]{%
@@ -641,7 +641,7 @@ These results raise the question whether the two frequency ranges (\SIrange{4}{1
 To answer this, we computed the redundancy between pairs of frequency bands of the information about the stimulus which they encode (see \autoref{sec:lam_redundancy_method}).
 Computing information redundancy allows us to quantify how similar the information about the stimulus is for a given pair of frequency bands and depths --- high redundancy shows the information about the stimulus is mostly the same in the two bands, low redundancy means the two bands contain independent information about the stimulus.
 
-\begin{figure}[htbp]
+\begin{figure}[tbp]
 \centering
 \begin{tabular}{ll}
 \subfloat[][Redundancy between frequencies.\label{fig:lam_cxfrq_red}]{%
@@ -681,7 +681,7 @@ Furthermore, the information contained in neural frequencies \SI{<40}{Hz} is dif
 Additionally, we note that the same \SI{<40}{Hz} and \SI{>40}{Hz} division is observed for the signal correlation (\autoref{fig:lam_cxfrq_cor}), and our results corroborate earlier findings \citep{Belitski2008}.
 Taken together, our results thus show that the two bands (\SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz}) contain the most information about the stimulus and encode different information about the stimulus.
 
-\begin{figure}[htbp]
+\begin{figure}[tbp]
 \centering
 \begin{tabular}{ll}
 \subfloat[][Signal correlation between frequencies.\label{fig:lam_cxfrq_sigcor}]{%
@@ -719,7 +719,7 @@ The leading diagonal, which is trivially perfectly correlated, and second diagon
 Next, we investigated whether the information contained in these frequency bands was the same across the cortical depths.
 To this end, we computed the redundancy of the information about the stimulus contained in oscillations at different cortical depths, both within the same band at each depth, and between different bands (Figures \ref{fig:lam_cxchn_red} and  \ref{fig:lam_cxchn_gain}; see \autoref{sec:lam_redundancy_method}).
 
-\begin{figure}[htbp]
+\begin{figure}[tbp]
     \centering
     \includegraphics[scale=.425]{%
 figs/redundancy/bndflt3-3-pcred-none-avg-lag=0s_paper.eps}
@@ -734,7 +734,7 @@ Non-significant datapoints are shown in white, with the median upper and lower t
 %
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[tbp]
     \centering
     \includegraphics[scale=.425]{%
 figs/redundancy/bndflt3-3-pcgain-i2d2-none-avg-lag=0s_paper.eps}
@@ -766,7 +766,7 @@ It consequently follows that the two localised regions of high information conte
 We also evaluated the signal and noise correlation between pairs of channels across these frequency bands.
 As shown in \autoref{fig:lam_cxchn_sigcor} and \autoref{fig:lam_cxchn_noisecor}, the signal and noise correlation both follow the same distribution as the redundancy.
 
-\begin{figure}[htbp]
+\begin{figure}[tbp]
     \centering
     \includegraphics[scale=.425]{%
 figs/noisesigcor/bndflt3-3-signal-avg_paper.eps}
@@ -781,7 +781,7 @@ Non-significant datapoints are shown in white, with minimum and maximum signific
 %
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[tbp]
     \centering
     \includegraphics[scale=.425]{%
 figs/noisesigcor/bndflt3-3-noise-avg_paper.eps}
@@ -808,7 +808,7 @@ Similarly, transitions between movie scenes cause discontinuities in the content
 The sudden transitions associated with scene cuts can be considered analogous to the discontinuities in visual stimulation associated with saccades during natural behaviour.
 Consequently, we investigated how much information the cortical response contained about scene cuts in the stimulus.
 
-\begin{figure}[htbp]
+\begin{figure}[tbp]
 \centering
 \subfloat[][As a function the duration after the scene cut horizon threshold.\label{fig:lam_scnchg_dur}]{%
 \includegraphics[scale=.4]{%
@@ -859,7 +859,7 @@ Since neurons in the primary visual cortex are known to respond strongly to movi
 
 We decomposed the series of frames in the movie into set of spatial frequency components by finding the rate of change of luminance within a given set of spatial frequency bands (as described in \autoref{sec:lam_spares_method} and \autoref{fig:lam_spares_method}), and then computed the amount of information about this series contained in the neural activity.
 
-\begin{figure}[htbp]
+\begin{figure}[tbp]
     \centering
     \hspace*{\fill}
     \subfloat[][Information about spatial components.\label{fig:lam_spares_lines}]{%
@@ -905,7 +905,7 @@ Since information theoretic measures capture any possible relationship between s
 To resolve this question, we investigated the correlation between the \ac{CSD} power and both coarse (\SI{<0.3}{\cpd}, low-pass spatial filter) and fine (\SI{>1}{\cpd}, high-pass spatial filter) spatial components of the movie stimulus, illustrative example traces of which are shown above \autoref{fig:lam_6}.
 These two spatial components have a relatively low coefficient of correlation with each other ($r=0.18$), indicating that although these aspects of the movie stimulus do covary, most of their behaviour is independent.
 
-\begin{figure}[htbp]
+\begin{figure}[tbp]
 \centering \includegraphics[scale=.45]{paperfigs/fig6A.eps}
 %
 \caption{
@@ -967,7 +967,7 @@ The channels within the \ac{G} compartment consistently had the shortest respons
 % Lag between information in  G and SG for  mua power    1.000-Infcpd is -0.0048+/-0.0033 seconds, p=0.2024
 % Lag between information in SG and IG for  mua power    1.000-Infcpd is +0.0057+/-0.0030 seconds, p=0.1193
 
-\begin{figure}[htbp]
+\begin{figure}[tbp]
 \centerline{
 \includegraphics[scale=.4]{figs/lag/latencydifference-avg_nonsig1.eps}
 }
@@ -983,13 +983,13 @@ Both plots show the average over \num{6} sessions, with non-significant differen
 \end{figure}
 
 
-\subsection{Information about spatio-temporal components of visual stimulus}
+\subsection{Information about spatiotemporal components of visual stimulus}
 \label{sec:lam_spatmf}
 
 Next, we considered the information about different temporal components of the movie.
 We extracted specific temporal frequency bands of the luminance signal in the movie using the same method as the spatial components, but with a temporal filter after taking the derivative of the spatially filtered luminance (see \autoref{sec:lam_tmf_method} for more details).
 
-\begin{figure}[htbp]
+\begin{figure}[tbp]
 \centerline{
 \includegraphics[scale=.4]{figs/tmf/tmf-v-tmf-sggig-avg-tmfres1b-2Band-2Crs.eps}
 }
@@ -1026,7 +1026,7 @@ We wanted to consider the information about spatiotemporal components of the mov
 For this, we fixed the temporal bandwidth as \SI{6}{Hz} and again fixed the spatial bandwidth as one octave.
 As shown in \autoref{fig:lam_spatmf}, the two \ac{CSD} frequency ranges contain information about entirely complementary spatiotemporal components of the stimulus, and the \ac{MUA} contains information about the same spatiotemporal range as the \SIrange{60}{170}{Hz} power.
 
-\begin{figure}[htbp]
+\begin{figure}[tbp]
 \centerline{
 \includegraphics[scale=.4]{figs/tmf/spatmf2_3bnd.eps}
 }
@@ -1107,12 +1107,12 @@ When coarse and fast changes occur in the movie, the next frame seen by the cort
 Should \ac{V1} be utilising predictive coding, a sudden change in the stimulus such as this would violate the expected input predicted by \ac{V1}.
 Consequently, it may be that \SIrange{4}{16}{Hz} activity reflects an error signal, either triggering the latent state of \ac{V1} neurons to correct for the error or reset ready for a new initialisation.
 
-Recent work has shown that stimulation in \ac{V1} induces gamma (\SIrange{40}{90}{Hz}) activity in \ac{V4} (feedforward), whilst stimulation in \ac{V4} induces alpha (\SIrange{5}{15}{Hz}) oscillations in \ac{V1} (feedback) \citep{VanKerkoerle2014}.
+Recent work by \citet{VanKerkoerle2014} has shown that stimulation in \ac{V1} induces gamma (\SIrange{40}{90}{Hz}) activity in \ac{V4} (feedforward), whilst stimulation in \ac{V4} induces alpha (\SIrange{5}{15}{Hz}) oscillations in \ac{V1} (feedback).
 These results seem to lend further credence to the interpretation of alpha as a feedback error signal and gamma as a feedforward output of \ac{V1}.
-\citet{VanKerkoerle2014} also found that the gamma waves were initiated at \ac{L4}, propagating outwards to the top of \ac{SG} and bottom of \ac{IG}.
+\Citet{VanKerkoerle2014} also found that the gamma waves were initiated at \ac{L4}, propagating outwards to the top of \ac{SG} and bottom of \ac{IG}.
 Alpha waves propagated in the opposite direction, originating at the top and bottom of the cortex and travelling the middle.
 Our own analysis demonstrated that the gamma band was most informative at the top and bottom boundaries of the cortical column, and alpha in the middle of \ac{L4}.
-These localisations are the terminus of the \citet{VanKerkoerle2014} waves, not their origins as we would have initially expected.
+These localisations are the terminus of the waves found by \citet{VanKerkoerle2014}, not their origins as we would have initially expected.
 Reconciling these results together, we hypothesise that the cortical waves are gated as they travel through the cortical depth, such that the amplitude of the oscillations is amplified and supressed in a stimulus-dependent manner.
 However, this is a complex interpretation of the data and more evidence is needed to test its validity.
 

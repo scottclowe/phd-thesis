@@ -37,7 +37,7 @@ Hence for the phase, the bin widths were approximately $\nicefrac{2\pi}{3}$ radi
 
 For both signal and noise correlation calculations, we used directional statistics (also known as circular statistics) which were computed using the \textpackage{CircStat} toolbox \citep{Berens2009}.
 
-The phase-phase correlations were evaluated with the circular-circular correlation coefficient \citep[page~176]{Jammalamadaka2001}, given by
+The phase--phase correlations were evaluated with the circular-circular correlation coefficient \citep[page~176]{Jammalamadaka2001}, given by
 \begin{equation}
 % \rho_\text{CC}
 % \rho_{\circlearrowleft \circlearrowleft}
@@ -49,7 +49,7 @@ The phase-phase correlations were evaluated with the circular-circular correlati
 \end{equation}
 for $N$ samples of pairs of angles from distributions $\alpha$ and $\beta$, whose circular means are empirically determined to be $\bar\alpha$ and $\bar\beta$ respectively.
 
-To find the phase-power correlations, we used the circular-linear correlation \citep[Equation~27.47]{Zar1998}, which is defined in terms of the linear-linear Pearson correlation coefficient, $\rho(X,Y)$, which we described in \autoref{eq:pearson}.
+To find the phase--power correlations, we used the circular-linear correlation \citep[Equation~27.47]{Zar1998}, which is defined in terms of the linear-linear Pearson correlation coefficient, $\rho(X,Y)$, which we described in \autoref{eq:pearson}.
 We define
 $r_{sx} = \rho(\sin(\alpha), X)$,
 $r_{cx} = \rho(\cos(\alpha), X)$, and
@@ -68,8 +68,8 @@ r_{sx}^2 + r_{cx}^2 - 2 \, r_{sx} \, r_{cx} \, r_{sc}
 }.
 \end{equation}
 
-To determine the statistical significance of our results, we also computed bootstrapped phase-phase and phase-power correlation coefficients.
-We performed the correlation coefficient calculation with randomly paired $\alpha_j$ and $\beta_j$ values (for phase-phase) and $\alpha_j$ and $X_j$ values (for phase-power).
+To determine the statistical significance of our results, we also computed bootstrapped phase--phase and phase--power correlation coefficients.
+We performed the correlation coefficient calculation with randomly paired $\alpha_j$ and $\beta_j$ values (for phase--phase) and $\alpha_j$ and $X_j$ values (for phase--power).
 This was repeated for \num{20} shuffled copies of the time series data.%
 \footnote{Which was shuffled after extracting phase and power values.}
 After averaging over sessions, correlation coefficients which were less than three standard deviations of the bootstraps from the bootstrap mean were deemed not significantly correlated (shown in white in Figures \ref{fig:lam_noisesignal_corr_phase} and \ref{fig:lam_noisesignal_corr_depth}).
@@ -94,7 +94,7 @@ R_{\alpha, \beta} = |z_{\alpha, \beta}| = \operatorname{abs}(z_{\alpha, \beta})
 .\end{equation}
 
 
-\subsection{Cross-frequency phase-amplitude coupling}
+\subsection{Cross-frequency phase--amplitude coupling}
 \label{sec:lam_cfc_method}
 
 Strength of cross-frequency coupling was measured using the modulation index \citep{Tort2010}.
@@ -139,7 +139,7 @@ Hence the power of fast oscillations can be stable enough to demonstrate repeata
 Similar to the results for power, we find that the phase of oscillations in the \ac{LFP} and \ac{CSD} produce similar results, but the \ac{CSD} provides superior spatial localisation (although the information in the \ac{CSD} is reduced compared with the \ac{LFP}).
 For brevity, we therefore only consider the information in the \ac{CSD} for the remainder of the chapter.
 
-\begin{figure}[htbp]
+\begin{figure}[tbp]
     \centering
     \hspace*{\fill}
     \subfloat[\ac{LFP} phase information.\label{fig:lam_phase_info_lfp}]{
@@ -156,7 +156,7 @@ Information about the stimulus contained in the phase of the extracellular neura
 \label{fig:lam_phase_info}
 \end{figure}
 
-% \begin{figure}[htbp]
+% \begin{figure}[tbp]
 %     \centering
 %     \hspace*{\fill}
 %     \subfloat[\sesname{H05391}\label{fig:lam_phase_info_lfp_H05391}]{
@@ -194,7 +194,7 @@ Information about the stimulus contained in the phase of the extracellular neura
 % \end{figure}
 
 
-% \begin{figure}[htbp]
+% \begin{figure}[tbp]
 %     \centering
 %     \hspace*{\fill}
 %     \subfloat[\sesname{H05391}\label{fig:lam_phase_info_csd_H05391}]{
@@ -232,7 +232,7 @@ Information about the stimulus contained in the phase of the extracellular neura
 % \end{figure}
 
 %-------------------------------------------------------------------------------
-\subsection{Phase-phase redundancy}
+\subsection{Phase--phase redundancy}
 %-------------------------------------------------------------------------------
 
 These results prompt us to consider the redundancy of the phase of oscillations.
@@ -261,7 +261,7 @@ Since the distribution over phase for any single frequency component is uniform,
 
 For frequencies above \SI{40}{Hz}, the redundancy of the phase with other frequency bands was not significant, due to the low amount of information in this frequency range.
 
-\begin{figure}[htbp]
+\begin{figure}[tbp]
 \centering
 \hspace*{\fill}
 \subfloat[Redundancy.\label{fig:lam_phase_cxfrq_info_red}]{
@@ -285,12 +285,12 @@ The leading diagonal, which is trivially redundant, is removed (black).
 
 We also computed the signal and noise correlation, using the methodology described in \autoref{sec:pl_phase_correlation}.
 Beyond the trivially positively correlated signal correlation of neighbouring frequency bands, as shown in \autoref{fig:lam_signal_corr_phase} we find there are some pairs of frequencies which are positively correlated (phase of \SI{10}{Hz} and \SI{30}{Hz}) and negatively correlated (phase of \SI{3}{Hz} and \SI{30}{Hz}).
-The level of signal correlation is lower than we observed for the power-power correlation across frequency (see \autoref{fig:lam_cxfrq_cor}).
+The level of signal correlation is lower than we observed for the power--power correlation across frequency (see \autoref{fig:lam_cxfrq_cor}).
 % though the two do measure different things
 The noise correlation was small and positive for all pairs of phases considered, shown in \autoref{fig:lam_noise_corr_phase}.
 
 
-\begin{figure}[htbp]
+\begin{figure}[tbp]
     \centering
     \hspace*{\fill}
     \subfloat[Signal correlation\label{fig:lam_signal_corr_phase}]{
@@ -318,13 +318,13 @@ This allows us to compare the information in the phase and power of the same ban
 
 
 %-------------------------------------------------------------------------------
-\subsection{Phase-power redundancy}
+\subsection{Phase--power redundancy}
 
 Similar to the above, we can also consider the redundancy between information in the power and phase as a function of their frequencies.
 As shown in \autoref{fig:lam_cxfrq_powerphase_info}, we find that some pairs of power and phase have redundant information about the stimulus, some synergistic, and others approximately independent.
 
 
-\begin{figure}[htbp]
+\begin{figure}[tbp]
     \centering
     \subfloat[Redundancy.\label{fig:lam_cxfrq_powerphase_info_red}]{
         \includegraphics[scale=.36]{redundancy-cxsfrq/cxsfrq-pcred_phase-power_avg-log_nodiag.eps}
@@ -360,7 +360,7 @@ Synergy is found between the phase (across all frequencies) and the power of osc
 We also see synergy between the phase of frequencies below \SI{20}{Hz} with the power in higher frequencies (\SI{>60}{Hz}).
 These findings could be caused by a coupling of the envelope amplitude of the power for oscillations in one frequency band with the phase of oscillations in another band, which we consider in \autoref{sec:lam_cfc}.
 
-% \begin{figure}[htbp]
+% \begin{figure}[tbp]
 %     \centering
 %     \hspace*{\fill}
 %     \subfloat[Signal correlation\label{fig:lam_signal_corr_phase_power}]{
@@ -394,7 +394,7 @@ This suggests compartmentalisation of the \SIrange{4}{16}{Hz} frequency band, wi
 The results for signal (\autoref{fig:lam_signal_corr_depth}) and noise (\autoref{fig:lam_noise_corr_depth}) correlation support this view, as there is less correlation between \ac{G} or \ac{SG} phase and \ac{IG} phase than there is within either compartment.
 
 
-\begin{figure}[htbp]
+\begin{figure}[tbp]
 \centering
 \subfloat[Redundancy.\label{fig:lam_signal_red_depth}]{
     \includegraphics[scale=.4]{redundancy-cxschn/bndflt4-1-pcred-none-avg-lag=0s_paper.eps}
@@ -420,7 +420,7 @@ Non-significant datapoints are shown in white, with minimum and maximum signific
 
 
 The information about the stimulus in the \SIrange{4}{16}{Hz} phase was synergistic with the \SIrange{4}{16}{Hz} power.
-Our explanation for this ties in with our explanation of the phase-phase synergy discussed above.
+Our explanation for this ties in with our explanation of the phase--phase synergy discussed above.
 Since phase is uniformly instead of sparsely distributed, a secondary signal about the \ac{CSD} helps disambiguate whether the phase occurs during most, lower power, time points or during well-stereotyped waveform events or responses to the stimulus, which have higher power.
 We note that the correlation with the \SIrange{4}{16}{Hz} phase is higher for the \SIrange{4}{16}{Hz} power than the higher frequency bands, whilst the noise is constant across all three, which supports this interpretation.
 
@@ -439,7 +439,7 @@ The fraction of information contained in the \ac{CSD} phase which is explained b
 This indicates that the phase encodes more properties of the stimulus than the power of cortical oscillations.
 
 
-\begin{figure}[htbp]
+\begin{figure}[tbp]
 \centering
 % \hspace*{\fill}
 % \subfloat[][As a function the duration after the scene cut horizon threshold.\label{fig:lam_phs_scnchg_dur}]{%
@@ -480,7 +480,7 @@ These two results appear to be contradictory, since scene transitions typically 
 But we note that the spatiotemporal distribution of information contained in the \SIrange{4}{16}{Hz} phase is the same as the distribution for the \SIrange{4}{16}{Hz} power, though the distribution over depth is skewed towards deeper, \ac{IG}, cortical layers.
 
 
-\begin{figure}[htbp]
+\begin{figure}[tbp]
 \centering
     \includegraphics[scale=.4]{%
 spatmf/tmf-v-spares-sggig-avg-spatmf2_4-16Hz_phase.eps}
@@ -511,7 +511,7 @@ Consequently, the relationship between the spatiotemporal changes in the movie a
 % \subsection{Phase synchrony, \SIrange{4}{16}{Hz}}
 %-------------------------------------------------------------------------------
 
-% \begin{figure}[htbp]
+% \begin{figure}[tbp]
 %     \centering
 %     \hspace*{\fill}
 %     \subfloat[Movie driven\label{fig:lam_phasestats_alpha_line_csd_movie}]{
@@ -529,7 +529,7 @@ Consequently, the relationship between the spatiotemporal changes in the movie a
 % \label{fig:lam_phasestats_alpha_line_csd}
 % \end{figure}
 
-% \begin{figure}[htbp]
+% \begin{figure}[tbp]
 %     \centering
 %     \hspace*{\fill}
 %     \subfloat[Movie driven\label{fig:lam_phasestats_alpha_hist_csd_movie}]{
@@ -553,7 +553,7 @@ As shown in \autoref{fig:lam_phasestats_alpha_combo_csd}, there is high phase sy
 Furthermore, the average phase difference between channels was always near $0$ (wherever there was synchrony).
 These results were similar for stimulus driven and spontaneous activity.
 
-\begin{figure}[htbp]
+\begin{figure}[tbp]
     \centering
     \subfloat[Stimulus driven.\label{fig:lam_phasestats_alpha_combo_csd_movie}]{
         \includegraphics[scale=.4]{phasestats/movie1_Csd_phs4-16_dPhs_combo_5mean.eps}
@@ -574,7 +574,7 @@ The phase synchrony is shown for stimulus driven \protect\subref{fig:lam_phasest
 \end{figure}
 
 
-% \begin{figure}[htbp]
+% \begin{figure}[tbp]
 %     \centering
 %     \hspace*{\fill}
 %     \subfloat[Movie driven\label{fig:lam_phasestats_alpha_summary_csd_movie}]{
@@ -598,7 +598,7 @@ The phase synchrony is shown for stimulus driven \protect\subref{fig:lam_phasest
 % \subsubsection{Phase synchrony, \SIrange{60}{170}{Hz}}
 %-------------------------------------------------------------------------------
 
-% \begin{figure}[htbp]
+% \begin{figure}[tbp]
 %     \centering
 %     \hspace*{\fill}
 %     \subfloat[Movie driven\label{fig:lam_phasestats_gamma_line_csd_movie}]{
@@ -616,7 +616,7 @@ The phase synchrony is shown for stimulus driven \protect\subref{fig:lam_phasest
 % \label{fig:lam_phasestats_gamma_line_csd}
 % \end{figure}
 
-% \begin{figure}[htbp]
+% \begin{figure}[tbp]
 %     \centering
 %     \hspace*{\fill}
 %     \subfloat[Movie driven\label{fig:lam_phasestats_gamma_hist_csd_movie}]{
@@ -642,7 +642,7 @@ There is also a gradient in phase across \ac{SG} and \ac{G}, with the middle of 
 
 We observed there is less synchrony in the spontaneous activity than the stimulus driven activity, but the relationship in the phase across the cortex is the same in both cases.
 
-\begin{figure}[htbp]
+\begin{figure}[tbp]
     \centering
     \subfloat[Stimulus driven.\label{fig:lam_phasestats_gamma_combo_csd_movie}]{
         \includegraphics[scale=.4]{phasestats/movie1_Csd_phs60-170_dPhs_combo_5mean.eps}
@@ -663,7 +663,7 @@ The phase synchrony is shown for stimulus driven \protect\subref{fig:lam_phasest
 \end{figure}
 
 
-% \begin{figure}[htbp]
+% \begin{figure}[tbp]
 %     \centering
 %     \hspace*{\fill}
 %     \subfloat[Movie driven\label{fig:lam_phasestats_gamma_summary_csd_movie}]{
@@ -684,7 +684,7 @@ The phase synchrony is shown for stimulus driven \protect\subref{fig:lam_phasest
 
 %-------------------------------------------------------------------------------
 %\FloatBarrier
-\subsection{Cross-frequency phase-amplitude coupling}
+\subsection{Cross-frequency phase--amplitude coupling}
 \label{sec:lam_cfc}
 %-------------------------------------------------------------------------------
 
@@ -692,7 +692,7 @@ Another manner in which we can investigate the relationship between phase and po
 Cross-frequency coupling occurs when the phase of one frequency band is correlated with the envelope amplitude for another frequency band.
 We investigated the cross-frequency coupling between the \SIrange{4}{16}{Hz} phase and the \SIrange{60}{170}{Hz} envelope amplitude using the modulation index, described in \autoref{sec:lam_cfc_method}.
 
-\begin{figure}[htbp]
+\begin{figure}[tbp]
 \subfloat{\label{fig:lam_cfc_movie}}
 \subfloat{\label{fig:lam_cfc_spont}}
 \subfloat{\label{fig:lam_cfc_movie_traces}}
@@ -702,8 +702,8 @@ We investigated the cross-frequency coupling between the \SIrange{4}{16}{Hz} pha
 }
 %
 \caption{
-\captionemph{Cross-frequency phase-amplitude coupling.}
-Phase-amplitude modulation index between low frequency (\SIrange{4}{16}{Hz}) phase and high frequency (\SIrange{60}{170}{Hz}) amplitude (\protect\subref{fig:lam_cfc_movie}:~movie driven activity; \protect\subref{fig:lam_cfc_spont}:~spontaneous activity).
+\captionemph{Cross-frequency phase--amplitude coupling.}
+Phase--amplitude modulation index between low frequency (\SIrange{4}{16}{Hz}) phase and high frequency (\SIrange{60}{170}{Hz}) amplitude (\protect\subref{fig:lam_cfc_movie}:~movie driven activity; \protect\subref{fig:lam_cfc_spont}:~spontaneous activity).
 Mean of \num{5} sessions.
 \protect\subref{fig:lam_cfc_movie_traces} and \protect\subref{fig:lam_cfc_spont_traces}:~Amplitude as a function of binned phase for a typical example session (\sesname{F10nm1}), for \ac{IG}$\rightarrow$\ac{IG} coupling (left) and \ac{IG}$\rightarrow$\ac{SG} coupling (right).}%
 \label{fig:lam_8}

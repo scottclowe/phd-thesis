@@ -76,7 +76,7 @@ For \ac{V1}, we found $d'$ decreased with training (see \autoref{fig:dprime_v1})
 A similar result was observed for each subject.
 The average change in the sensitivity index was $\Delta d' = -0.323$ ($p=0.02$, paired $t$-test) for \ac{M1} and $\Delta d' = -0.419$ ($p < 4 \times 10 ^{-7}$, paired $t$-test) for \ac{M2}.
 
-\begin{figure}[htbp]
+\begin{figure}[tbp]
     \centering
     \hspace*{\fill}
     \subfloat[\ac{M1} \ac{V1}\label{fig:dprime_v1_blanco}]{
@@ -177,10 +177,10 @@ In both cases, we measured the correlation between the responses from the two ch
 If we let the responses observed from our two recording channels be denoted by the random variables $X$ and $Y$, their Pearson correlation coefficient is given by
 \begin{equation}
 \label{eq:pearson}
-r(X,Y) = \frac{\operatorname{cov}(X,Y)}{\operatorname{var}(X) \, \operatorname{var}(Y)}
+\rho(X,Y) = \frac{\operatorname{cov}(X,Y)}{\operatorname{var}(X) \, \operatorname{var}(Y)}
 .\end{equation}
-This provides a measure of the covariance between $X$ and $Y$ which is normalised again their standard deviations, meaning that $-1 \le r \le 1$ and $r$ is robust against linear rescaling of either $X$ or $Y$ (or both).
-If $r=\pm1$, there is a perfect linear relationship between $X$ and $Y$, whereas $r=0$ when $X$ and $Y$ are completely independent of one another.
+This provides a measure of the covariance between $X$ and $Y$ which is normalised again their standard deviations, meaning that $-1 \le \rho \le 1$ and $\rho$ is robust against linear rescaling of either $X$ or $Y$ (or both).
+If $\rho=\pm1$, there is a perfect linear relationship between $X$ and $Y$, whereas $\rho=0$ when $X$ and $Y$ are completely independent of one another.
 
 To investigate whether the signal and noise correlations rose or fell during the experiments, we compared the average correlation over the first and last three sessions (intervals \zonename{A} and \zonename{B}).
 We used a paired $t$-test to measure whether the correlations changed significantly over all pairs of channels.
@@ -241,7 +241,7 @@ For \ac{V4}, the signal correlations decreased for \ac{M1} ($p=0.00054$), but th
 % same bandwidth bw = 0.032969 used for all cols
 % YLIM4 = [-0.23931881602164 1.09905730731623];
 
-\begin{figure}[htbp]%
+\begin{figure}[tbp]%
     \centering
     \hspace*{\fill}
     \subfloat[][\ac{M1} \ac{V1}.\label{fig:pl_sigcor_v1_blanco}]{%
@@ -322,7 +322,7 @@ For \ac{V4}, noise correlations increased for both subjects ($p < 3 \times 10^{-
 % same bandwidth bw = 0.013825 used for all cols
 % YLIM4 = [-0.0604309666950958 0.522881761936691];
 
-\begin{figure}[htbp]%
+\begin{figure}[tbp]%
     \centering
     \hspace*{\fill}
     \subfloat[][\ac{M1} \ac{V1}.\label{fig:pl_noisecor_v1_blanco}]{%
@@ -422,7 +422,7 @@ We found that information in the overall firing rate of \ac{V1} channels increas
 For \ac{V4}, there was an increase in information for both subjects, however this increase was significant for \ac{M2} (\SI{+0.056\pm0.013}{bits} or \SI{+87\pm21}{\percent} relative change; $p=0.0005$) but was not significant for \ac{M1} (\SI{+0.028\pm0.020}{bits} or \SI{+22\pm16}{\percent} relative change; $p=0.17$).
 
 
-\begin{figure}[htbp]%
+\begin{figure}[tbp]%
     \centering
     \hspace*{\fill}
     \subfloat[][\ac{M1} \ac{V1}.\label{fig:info_sess_1x527_v1_blanco}]{%
@@ -499,7 +499,7 @@ V4      & M1        & 30                & 25 \\
 \end{table}
 
 
-\begin{figure}[htbp]%
+\begin{figure}[tbp]%
     \centering
     \hspace*{\fill}
     \subfloat[][\ac{M1} \ac{V1}.\label{fig:info_sess_1x527_restrictchn_v1_blanco}]{%
@@ -578,7 +578,7 @@ Overall, this means that harder stimuli close to \SI{30}{\percent} contrast are 
 % Outer stimuli: A->B 2.413654
 % Inner stimuli: A->B -2.481668
 
-\begin{figure}[htbp]%
+\begin{figure}[tbp]%
     \centering
     \hspace*{\fill}
     \subfloat[][\ac{M1} \ac{V1}.\label{fig:class_balance_v1_blanco}]{%
@@ -629,7 +629,7 @@ We corrected the class imbalance on a session-by-session basis by subsampling th
 The trials included in the subsample were selected at random across the set of trials for each stimulus, without replacement.
 
 
-\begin{figure}[htbp]%
+\begin{figure}[tbp]%
     \centering
     \hspace*{\fill}
     \subfloat[][\ac{M1} \ac{V1}.\label{fig:info_sess_1x527_balanced_v1_blanco}]{%
@@ -780,10 +780,10 @@ This is illustrated in \autoref{fig:I_vs_invN}, where we compare the estimated i
 This is in keeping with the literature, since $\I_{\text{measured}}$ is known to be proportional to $\nicefrac{1}{N}$ if no bias correction is performed \citep{Treves1995}.
 
 Without correcting for the bias due to finite sampling, the correlation between $\nicefrac{1}{N}$ and $\I_{\text{measured}}$ is large and significant.
-For \ac{V1}, the Pearson's correlation coefficient between them was $R=0.99$ and $0.98$ for \ac{M1} and \ac{M2} respectively, which was a significant correlation ($p < 2 \times 10^{-13}$ and $p < 8 \times 10^{-16}$).
-For \ac{V4}, $R=0.98$ and $R=0.92$ with p-values $p < 2 \times 10^{-14}$ and $p < 2 \times 10^{-10}$.
-But even if we correct for the bias with \ac{PT} or \ac{QE}, the correlation remains large ($R>0.4$) and significant ($p<0.04$) for all datasets except \ac{M2} \ac{V1} with \ac{PT}, where $R=+0.27$ and $p=0.23$.
-The correlation is strongest for \ac{M1} \ac{V1}, with $R>0.89$ and $p < 1 \times 10^{-6}$ with either \ac{PT} or \ac{QE} bias correction.
+For \ac{V1}, the Pearson's correlation coefficient (see \autoref{eq:pearson}) between them was $\rho(\I, \nicefrac{1}{N})=0.99$ and $\rho=0.98$ for \ac{M1} and \ac{M2} respectively, which was a significant correlation in all cases ($p < 2 \times 10^{-13}$ and $p < 8 \times 10^{-16}$).
+For \ac{V4}, $\rho=0.98$ and $\rho=0.92$ with p-values $p < 2 \times 10^{-14}$ and $p < 2 \times 10^{-10}$.
+But even if we correct for the bias with \ac{PT} or \ac{QE}, the correlation remains large ($\rho>0.4$) and significant ($p<0.04$) for all datasets except \ac{M2} \ac{V1} with \ac{PT}, where $\rho=+0.27$ and $p=0.23$.
+The correlation is strongest for \ac{M1} \ac{V1}, with $\rho>0.89$ and $p < 1 \times 10^{-6}$ with either \ac{PT} or \ac{QE} bias correction.
 
 % NvsI labels=balanced, with 0 bootstraps
 % blanco v1  Uncorrected      R=+0.9885  p=0.0000=1.024875e-13
@@ -799,7 +799,7 @@ The correlation is strongest for \ac{M1} \ac{V1}, with $R>0.89$ and $p < 1 \time
 % jack   v4  PT               R=+0.6295  p=0.0010=9.804887e-04
 % jack   v4  QE               R=+0.5349  p=0.0071=7.081659e-03
 
-\begin{figure}[htbp]
+\begin{figure}[tbp]
     \centering
     \hspace*{\fill}
     \subfloat[][\ac{M1} \ac{V1}.\label{fig:I_vs_invN_v1_blanco}]{%
@@ -855,7 +855,7 @@ However, such a view is in contrast with the hypothesis that one of the importan
 Should this be an important contributor towards perceptual learning, one would expect the breaks between sessions not to be irrelevant but to instead enable an increase in performance even without exposure to the training stimuli.
 
 
-\begin{figure}[htbp]%
+\begin{figure}[tbp]%
     \centering
     \hspace*{\fill}
     \subfloat[][\ac{M1} \ac{V1}.\label{fig:info_trial_1x527_balanced_v1_blanco}]{%
@@ -920,7 +920,7 @@ However, since our residual bias will be significantly reduced beforehand due to
 % jack   v4  PT+bootstrap     R=+0.3521  p=0.0915=9.150274e-02
 % jack   v4  QE+bootstrap     R=+0.2892  p=0.1705=1.705225e-01
 
-\begin{figure}[htbp]
+\begin{figure}[tbp]
     \centering
     \hspace*{\fill}
     \subfloat[][\ac{M1} \ac{V1}.\label{fig:I_vs_invN_btsp_v1_blanco}]{%
@@ -948,7 +948,7 @@ Results are shown with bias correction either achieved solely from subtracting t
 \end{figure}
 
 We find that using bootstrapping for the bias correction does indeed overestimate the bias, resulting in a negative correlation between information and $\nicefrac{1}{N}$.
-This effect is particularly problematic for the \ac{V1} dataset of \ac{M2}, where the correlation was $R<-0.72$ ($p < 2 \times 10^{-4}$; see \autoref{fig:I_vs_invN_btsp_v1_jack}), and the \ac{V4} \ac{M1} dataset, where the correlation was $R<-0.44$ ($p<0.038$; see \autoref{fig:I_vs_invN_btsp_v4_blanco}) even with bias correction with \ac{PT} or \ac{QE} in addition to using bootstrapping.
+This effect is particularly problematic for the \ac{V1} dataset of \ac{M2}, where the correlation was $\rho<-0.72$ ($p < 2 \times 10^{-4}$; see \autoref{fig:I_vs_invN_btsp_v1_jack}), and the \ac{V4} \ac{M1} dataset, where the correlation was $\rho<-0.44$ ($p<0.038$; see \autoref{fig:I_vs_invN_btsp_v4_blanco}) even with bias correction with \ac{PT} or \ac{QE} in addition to using bootstrapping.
 
 
 %------------------------------------
@@ -978,7 +978,7 @@ Grouping the stimuli together in this way should reduce the residual bias, since
 % jack   v4  PT               R=+0.3385  p=0.1056=1.056310e-01
 % jack   v4  QE               R=+0.3779  p=0.0687=6.868195e-02
 
-\begin{figure}[htbp]
+\begin{figure}[tbp]
     \centering
     \hspace*{\fill}
     \subfloat[][\ac{M1} \ac{V1}.\label{fig:I_vs_invN_target-group_v1_blanco}]{%
@@ -1010,7 +1010,7 @@ Results are shown both without correcting for the finite measurement bias (grey 
 
 As anticipated, using only two stimulus classes to increase the number of trials per stimulus class greatly reduces the residual bias after \ac{PT} bias correction.
 This is witnessed in the reduced correlation between estimated information and $\nicefrac{1}{N}$ seen in \autoref{fig:I_vs_invN_target-group}.
-Here we find the magnitude of the correlations between $\nicefrac{1}{N}$ and $\I_\text{measured}$ are reduced and no longer significant, with the exception of \ac{M2} \ac{V1}, where $R<-0.47$ for both \ac{PT} and \ac{QE} ($p < 0.027$).
+Here we find the magnitude of the correlations between $\nicefrac{1}{N}$ and $\I_\text{measured}$ are reduced and no longer significant, with the exception of \ac{M2} \ac{V1}, where $\rho<-0.47$ for both \ac{PT} and \ac{QE} ($p < 0.027$).
 
 
 % NvsI labels=class-group-balanced, with 20 bootstraps
@@ -1027,7 +1027,7 @@ Here we find the magnitude of the correlations between $\nicefrac{1}{N}$ and $\I
 % jack   v4  PT+bootstrap     R=+0.3061  p=0.1457=1.456950e-01
 % jack   v4  QE+bootstrap     R=+0.3352  p=0.1094=1.093618e-01
 
-\begin{figure}[htbp]
+\begin{figure}[tbp]
     \centering
     \hspace*{\fill}
     \subfloat[][\ac{M1} \ac{V1}.\label{fig:I_vs_invN_target-group_btsp_v1_blanco}]{%
@@ -1060,10 +1060,10 @@ Results are shown both without correcting for the finite measurement bias (grey 
 % jack   v4  sess_num vs num_trials R=-0.1010  p=0.6388=6.387740e-01
 
 We can also consider applying the bootstrap correction from \autoref{sec:pl_bootstrapping} in addition to reducing the number of stimulus labels to the two groups, shown in \autoref{fig:I_vs_invN_target-group_btsp}.
-Using all three bias reduction techniques (including either \ac{PT} or \ac{QE}), the correlation for \ac{M2} \ac{V1} was still significant ($p < 0.008$), with $R<-0.54$.
+Using all three bias reduction techniques (including either \ac{PT} or \ac{QE}), the correlation for \ac{M2} \ac{V1} was still significant ($p < 0.008$), with $\rho<-0.54$.
 We believe this correlation, which only causes a small change in magnitude of the measured information, is because subject \ac{M2} had a tendency to train for longer as the sessions progressed, but only with the stimulus in the retinotopic location for \ac{V1}.
-For this dataset, there was a correlation between the number of sessions elapsed and the number of trials in the session of $R=+0.42$, which was noteworthy but did not exceed our criteria for significance ($p=0.053$).
-None of the other datasets had a comparable level of correlation between the number of the session and how many trials were collected ($|R|<0.22$ with $p > 0.4$).
+For this dataset, there was a correlation between the number of sessions elapsed and the number of trials in the session of $\rho=+0.42$, which was noteworthy but did not exceed our criteria for significance ($p=0.053$).
+None of the other datasets had a comparable level of correlation between the number of the session and how many trials were collected ($|\rho|<0.22$ with $p > 0.4$).
 
 Using bootstrapping to correct for residual bias, the correlations between $\nicefrac{1}{N}$ and $\I_\text{measured}$ are slightly smaller for \ac{PT} than \ac{QE}, though the values are very similar and no claim can justifiably be made about which technique gives superior bias correction.
 Since the \ac{PT} method is faster to compute, we chose to use this for the rest of our analysis.
@@ -1140,7 +1140,7 @@ These results are shown in \autoref{fig:info_sess_1x527_final}.
 % same bandwidth bw = 0.004996 used for all cols
 % YLIM4 = [-0.0289039033483276 0.238139778331063];
 
-\begin{figure}[htbp]%
+\begin{figure}[tbp]%
     \centering
     \hspace*{\fill}
     \subfloat[][\ac{M1} \ac{V1}.\label{fig:info_sess_1x527_final_v1_blanco}]{%
@@ -1273,7 +1273,7 @@ Since the task\-/nonpertinent information was stable while the task\-/pertinent 
 % n=20  h=1.000000  p=0.000036=3.596357e-05   delta = -7.049025+/-1.315612 = -13.884894%+/-97.550225%
 % selected bw  :  bandwidth=1.236527
 
-\begin{figure}[htbp]%
+\begin{figure}[tbp]%
     \centering
     \hspace*{\fill}
     \subfloat[][\ac{M1} \ac{V1} Information.\label{fig:info_taskpertinent_v1_ch_blanco}]{%
@@ -1337,7 +1337,7 @@ Collectively, this meant the proportion of information which was task\-/pertinen
 % For Task-nonpertinent Info (%)
 % n=1  h=NaN  p=NaN=NaN   delta = -16.382229+/-0.000000 = -44.646533%+/-0.000000%
 
-\begin{figure}[htbp]%
+\begin{figure}[tbp]%
     \centering
     \hspace*{\fill}
     \subfloat[][\ac{M1} \ac{V1} Information.\label{fig:info_taskpertinent_v1_behav_blanco}]{%
@@ -1416,7 +1416,7 @@ This corresponds to a session where several channels changed from stimulus-inhib
 % n=7  h=1.000000  p=0.000051=5.059743e-05   delta = -33.408297+/-3.262665 = -44.213106%+/-360.371435%
 % selected bw  :  bandwidth=2.699929
 
-\begin{figure}[htbp]%
+\begin{figure}[tbp]%
     \centering
     \hspace*{\fill}
     \subfloat[][\ac{M1} \ac{V4} Information.\label{fig:info_taskpertinent_v4_ch_blanco}]{%
@@ -1486,7 +1486,7 @@ Consequently, there is a massive swing of \SI{+54}{\percent} in the fraction of 
 % For Task-nonpertinent Info (%)
 % n=1  h=NaN  p=NaN=NaN   delta = -54.141348+/-0.000000 = -64.026394%+/-0.000000%
 
-\begin{figure}[htbp]%
+\begin{figure}[tbp]%
     \centering
     \hspace*{\fill}
     \subfloat[][\ac{M1} \ac{V4} Information.\label{fig:info_taskpertinent_v4_behav_blanco}]{%
@@ -1560,7 +1560,7 @@ We considered the firing rate of each multi-unit channel as measured within wind
 Since we are using windows shorter than the stimulation period, we also varied the latency of the window with respect to the time of the stimulus onset.
 For each window duration, we varied the latency of the window from the very start to the very end of the stimulus presentation period, at linear intervals equal to either \SI{10}{\milli\second} or one quarter of the window duration (whichever was shorter).
 
-\begin{figure}[htbp]%
+\begin{figure}[tbp]%
     \centering
     \hspace*{\fill}
     \subfloat[][\ac{M1} \ac{V1}.\label{fig:info_winlen_v1_blanco}]{%
@@ -1613,7 +1613,7 @@ Our results are parametrised in three dimensions --- experimental session (numbe
 The results in \autoref{fig:info_winlen} are a summary over two of these dimensions, collapsing the window latency dimension by taking the maximum.
 To understand the results better, we next collapse along the ``session'' dimension instead.
 
-\begin{figure}[htbp]%
+\begin{figure}[tbp]%
     \centering
     \hspace*{\fill}
     \subfloat[][\ac{M1} \ac{V1}.\label{fig:info_offset_vs_winlen_v1_blanco}]{%
@@ -1705,7 +1705,7 @@ This was evaluated using windows \SI{5}{\milli\second} in duration, and \autoref
 % same bandwidth bw = 0.98841 used for all cols
 % YLIM4 = [3.45399420924247 19.8219553927782];
 
-\begin{figure}[htbp]%
+\begin{figure}[tbp]%
     \centering
     \hspace*{\fill}
     \subfloat[][\ac{M1} \ac{V1}.\label{fig:fr_hm_v1_blanco}]{%
@@ -1765,7 +1765,7 @@ Above right: distribution over channels of overall firing rate for \zonename{A} 
 % n=18  h=1.000000  p=0.022284=2.228433e-02   delta = +0.003227+/-0.001283 = +42.414208%+/-16.869162%
 % same bandwidth bw = 0.00080329 used for all cols
 
-\begin{figure}[htbp]%
+\begin{figure}[tbp]%
     \centering
     \hspace*{\fill}
     \subfloat[][\ac{M1} \ac{V1}.\label{fig:info_offset_5ms_v1_blanco}]{%
@@ -1855,7 +1855,7 @@ Here, we can again see a close correspondence between the average firing rate an
 % same bandwidth bw = 0.0018284 used for all cols
 % YLIM4 = [-0.00925019514974664 0.143878587778201];
 
-\begin{figure}[htbp]%
+\begin{figure}[tbp]%
     \centering
     \hspace*{\fill}
     \subfloat[][\ac{M1} \ac{V1}.\label{fig:info_offset_v1_blanco}]{%
@@ -1889,7 +1889,7 @@ The firing rate is most informative when sampled with low latency, but a second 
 However, \autoref{fig:info_offset_vs_winlen} only shows the average information over all sessions and we can not conclude from it whether the information changes with training.
 
 
-\begin{figure}[htbp]%
+\begin{figure}[tbp]%
     \centering
     \hspace*{\fill}
     \subfloat[][\ac{M1} \ac{V1}.\label{fig:info_offset_vs_winlen_dif_v1_blanco}]{%
@@ -2048,7 +2048,7 @@ We computed the amount of task\-/pertinent information encoded in the firing rat
 % same bandwidth bw = 0.0010521 used for all cols
 % YLIM4 = [-0.00828167401529557 0.0190049629596355];
 
-\begin{figure}[htbp]%
+\begin{figure}[tbp]%
     \centering
     \hspace*{\fill}
     \subfloat[][\ac{M1} \ac{V1}, post-stimulus information about stimulus.\label{fig:info_tp5_v1_blanco}]{%
@@ -2088,7 +2088,7 @@ In \protect\subref{fig:info_tp3_v1_blanco} and \protect\subref{fig:info_tp3_v1_j
 \end{figure}
 
 
-\begin{figure}[htbp]%
+\begin{figure}[tbp]%
     \centering
     \hspace*{\fill}
     \subfloat[][\ac{M1} \ac{V4}, post-stimulus information about stimulus.\label{fig:info_tp5_v4_blanco}]{%
@@ -2189,7 +2189,7 @@ Finally, we averaged the difference in firing rate over the first (\zonename{A})
 % n=20  h=1.000000  p=0.000002=2.185237e-06   delta = +1.040692+/-0.155797 = -1846.451525%+/-276.534008%
 % same bandwidth bw = 0.098981 used for all cols
 
-\begin{figure}[htbp]%
+\begin{figure}[tbp]%
     \centering
     \hspace*{\fill}
     \subfloat[][\ac{M1} \ac{V1}.\label{fig:frdelta_tp5_v1_blanco}]{%
@@ -2233,7 +2233,7 @@ From this lower starting point, there is a significant ($p < 3 \times 10^{-6}$) 
 % n=18  h=1.000000  p=0.032290=3.228994e-02   delta = +0.523010+/-0.224328 = +286.632665%+/-123.309243%
 % same bandwidth bw = 0.11655 used for all cols
 
-\begin{figure}[htbp]%
+\begin{figure}[tbp]%
     \centering
     \hspace*{\fill}
     \subfloat[][\ac{M1} \ac{V4}.\label{fig:frdelta_tp5_v4_blanco}]{%
@@ -2439,7 +2439,7 @@ After the animal has been trained on the task and the changes due to perceptual 
 % For jack v1, session 51, ch 12 vs 19, training accuracy is 78.521940%
 % For jack v1, session 72, ch 12 vs 19, training accuracy is 83.840304%
 
-\begin{figure}[htbp]
+\begin{figure}[tbp]
     \centering
     %\hspace*{\fill}
     \subfloat[][\ac{M1} \ac{V1}, session \num{1}.\label{fig:pl_lin_discrim_example_v1_blanco_pre}]{%
@@ -2477,7 +2477,7 @@ After the animal has been trained on the task and the changes due to perceptual 
 % For jack v4, session 24, ch 10 vs 53, training accuracy is 54.143019%
 % For jack v4, session 48, ch 10 vs 53, training accuracy is 73.445212%
 
-\begin{figure}[htbp]
+\begin{figure}[tbp]
     \centering
     %\hspace*{\fill}
     \subfloat[][\ac{M1} \ac{V4}, session \num{1}.\label{fig:pl_lin_discrim_example_v4_blanco_pre}]{%
@@ -2573,7 +2573,7 @@ Finally, we compared the average accuracy of the decoders trained on shuffled re
 %
 % NB: the order in which channels were added in \autoref{fig:dec_nbest} is not the same ordering as they are shown in \autoref{fig:dec_singles}.
 %
-% \begin{figure}[htbp]
+% \begin{figure}[tbp]
 %     \centering
 %     \hspace*{\fill}
 %     \subfloat[][\label{fig:dec_singles}]{
@@ -2639,7 +2639,7 @@ Our results from the population-level decoder correspond to our findings about t
 % Shuff decoder diff   from 0.155bits 0.133bits 0.159bits (0.1490bits) to 0.160bits 0.116bits 0.191bits (0.1556bits)
 % n=22  h=1.000000  p=0.000000=8.568485e-18   delta = +0.160952+/-0.005959 bits = +39.859827%+/-1.858461%
 
-\begin{figure}[htbp]
+\begin{figure}[tbp]
     \centering
     \hspace*{\fill}
     \subfloat[][\ac{M1} \ac{V1}.\label{fig:dec_b1_allp}]{
@@ -2725,7 +2725,7 @@ The decoder trained on data with noise correlations removed attains \SI{94}{\per
 % Shuff decoder diff   from 0.014bits -0.003bits 0.041bits (0.0174bits) to 0.057bits 0.114bits 0.079bits (0.0830bits)
 % n=24  h=1.000000  p=0.000000=1.163857e-07   delta = +0.055772+/-0.007396 bits = +38.742552%+/-5.306497%
 
-\begin{figure}[htbp]
+\begin{figure}[tbp]
     \centering
     \hspace*{\fill}
     \subfloat[][\ac{M1} \ac{V4}.\label{fig:dec_b4_allp}]{
@@ -2849,16 +2849,16 @@ Measuring the response coincidence rate alone is problematic, because the rate a
 In \autoref{sec:dec-meth-prob}, we described how to test whether the response coincidence rate is significantly more than expected under a null-hypothesis assuming independent responses conditioned on the class of the stimulus.
 An alternative solution to this is to measure the mutual information between the behaviour and decoder responses conditioned on the class of the stimulus.
 
-\begin{figure}[htbp]
+\begin{figure}[tbp]
 \centering
 \includegraphics[scale=.425]{figs/venn/conditional-information-diagram.pdf}
 \caption{
 \captionemph{Venn diagram of the mutual information between three random variables, $X$, $Y$, and $Z$.}
 The three black circles represent the entropies of $X$, $Y$, and $Z$ ($\HH(X)$, $\HH(Y)$, and $\HH(Z)$); their total area is the joint uncertainty over all three variables, $\HH(X, Y, Z)$.
-The intersection between all three circles (grey) is $\I{X;Y;Z}$, the entropy (or information) mutually shared by all three variables.
+The intersection between all three circles (grey region) is $\I({X;Y;Z})$, the entropy (or information) mutually shared by all three variables.
 The area covered only by a single circle (red, blue, or green regions) represents the entropy unique to a single variable.
 Of particular interest to us is the area covered by precisely two circles, which denotes the entropy shared exclusively by two variables, such as the magenta region (and similarly also yellow and cyan).
-This is equivalent to the mutual information between two random variables ($X$ and $Y$) conditioned on the simultaneous observation of a third ($Z$), and is given by $\I(X;Y|Z)$ as described in \autoref{eq:conditional-info}.
+This is equivalent to the mutual information between two random variables ($X$ and $Y$) conditioned on the simultaneous observation of a third, $Z$, and is given by $\I(X;Y|Z)$ as described in \autoref{eq:conditional-info}.
 Similar to \autoref{fig:bg_info_venn}, in this diagram all regions are non-empty and as such all three variables are partially but incompletely redundant.
 }
 \label{fig:pl_cond_info_venn}
@@ -2943,7 +2943,7 @@ However for \ac{M2}, shown in \autoref{fig:decag_j1_allp} and \autoref{fig:decag
 % Test 0 for agreement in A 0.011bits vs 95.0% NH of 0.020bits
 % Test 1 for agreement in A 0.033bits vs 95.0% NH of 0.026bits
 
-\begin{figure}[htbp]
+\begin{figure}[tbp]
     \centering
     \hspace*{\fill}
     \subfloat[][\ac{M1} \ac{V1}.\label{fig:decag_b1_allp}]{
@@ -3044,7 +3044,7 @@ For \ac{M2}, the conditional information was significant throughout training and
 % Test 1 for agreement in A 0.014bits vs 95.0% NH of 0.013bits
 % Test 1 for agreement in A 0.062bits vs 95.0% NH of 0.021bits
 
-\begin{figure}[htbp]
+\begin{figure}[tbp]
     \centering
     \hspace*{\fill}
     \subfloat[][\ac{M1} \ac{V4}.\label{fig:decag_b4_allp}]{
