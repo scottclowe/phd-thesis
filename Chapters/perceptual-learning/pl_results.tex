@@ -2855,10 +2855,10 @@ An alternative solution to this is to measure the mutual information between the
 \caption{
 \captionemph{Venn diagram of the mutual information between three random variables, $X$, $Y$, and $Z$.}
 The three black circles represent the entropies of $X$, $Y$, and $Z$ ($\HH(X)$, $\HH(Y)$, and $\HH(Z)$); their total area is the joint uncertainty over all three variables, $\HH(X, Y, Z)$.
-The intersection between all three circles (grey) is $\I{X;Y;Z}$, the entropy (or information) mutually shared by all three variables.
+The intersection between all three circles (grey region) is $\I({X;Y;Z})$, the entropy (or information) mutually shared by all three variables.
 The area covered only by a single circle (red, blue, or green regions) represents the entropy unique to a single variable.
 Of particular interest to us is the area covered by precisely two circles, which denotes the entropy shared exclusively by two variables, such as the magenta region (and similarly also yellow and cyan).
-This is equivalent to the mutual information between two random variables ($X$ and $Y$) conditioned on the simultaneous observation of a third ($Z$), and is given by $\I(X;Y|Z)$ as described in \autoref{eq:conditional-info}.
+This is equivalent to the mutual information between two random variables ($X$ and $Y$) conditioned on the simultaneous observation of a third, $Z$, and is given by $\I(X;Y|Z)$ as described in \autoref{eq:conditional-info}.
 Similar to \autoref{fig:bg_info_venn}, in this diagram all regions are non-empty and as such all three variables are partially but incompletely redundant.
 }
 \label{fig:pl_cond_info_venn}
