@@ -108,52 +108,6 @@
 %*******************************************************
 %\include{FrontBackmatter/DirtyTitlepage}
 \include{FrontBackmatter/Titlepage}
-\include{FrontBackmatter/Titleback}
-%\cleardoublepage\include{FrontBackmatter/Dedication}
-%\cleardoublepage\include{FrontBackmatter/Foreword}
-\cleardoublepage\include{FrontBackmatter/Declaration}
-\cleardoublepage\include{FrontBackmatter/LaySummary}
-\cleardoublepage\include{FrontBackmatter/Abstract}
-%\cleardoublepage\include{FrontBackmatter/Publication}
-\cleardoublepage\include{FrontBackmatter/Acknowledgments}
-\addtocontents{toc}{\protect\vspace{\beforebibskip}} % to have preface a bit from the rest in the toc
-\cleardoublepage\include{FrontBackmatter/Contents} % Contents, list of figures/tables/listings and acronyms
-%
-%********************************************************************
-% Mainmatter
-%*******************************************************
-\pagenumbering{arabic}
-%\setcounter{page}{90}
-% use \cleardoublepage here to avoid problems with pdfbookmark
-\cleardoublepage
-%
-%*******************************************************
-% Chapters
-%*******************************************************
-\acresetall \acused{V2} \acused{V4}
-% \addtocontents{toc}{\protect\vspace{\beforebibskip}} \include{Chapters/Chapter0_GeneralIntroduction}
-\addtocontents{toc}{\protect\vspace{\beforebibskip}} \include{Chapters/Chapter0_Background}
-\addtocontents{toc}{\protect\vspace{\beforebibskip}} \include{Chapters/Chapter1}
-\addtocontents{toc}{\protect\vspace{\beforebibskip}} \include{Chapters/Chapter2}
-\addtocontents{toc}{\protect\vspace{\beforebibskip}} \include{Chapters/Chapter4}
-\include{Chapters/Chapter_GeneralDiscussion}
-% \include{Chapters/ChapterA}
-%
-% ********************************************************************
-% Backmatter
-%*******************************************************
-\appendix
-\cleardoublepage
-%\part{Appendix}
-%\include{Chapters/Chapter0A}
-%
-%********************************************************************
-% Other Stuff in the Back
-%*******************************************************
-\cleardoublepage\include{FrontBackmatter/Bibliography}
-%\cleardoublepage\include{FrontBackmatter/Colophon}
-% ********************************************************************
-% Game Over: Restore, Restart, or Quit?
 %*******************************************************
 \end{document}
 % ********************************************************************
