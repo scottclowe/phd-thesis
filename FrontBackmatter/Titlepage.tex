@@ -12,14 +12,15 @@
         \vfill
 
         \begingroup
+            \DeclareRobustCommand{\titlecaps}[1]{\textls[80]{\MakeTextUppercase{#1}}}%
             %\color{Maroon}
             \bfseries
             %\spacedallcaps{\myTitle}
-            \spacedallcaps{Decoding information}
+            \titlecaps{Decoding information}
             \\
-            \spacedallcaps{from neural populations}
+            \titlecaps{from neural populations}
             \\
-            \spacedallcaps{in the visual cortex}
+            \titlecaps{in the visual cortex}
             \\ \bigskip
         \endgroup
 
