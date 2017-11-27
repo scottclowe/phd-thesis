@@ -113,21 +113,21 @@
 %\setbibpreamble{} % Uncomment to include a preamble to the bibliography - some text before the reference list starts
 \pagenumbering{roman} % Roman page numbering prior to the start of the thesis content (i, ii, iii, etc)
 \pagestyle{scrheadings} % Show chapter titles as headings
-%********************************************************************
 %*******************************************************
 % Titlepage
 %*******************************************************
 % \clearpage
+\DeclareRobustCommand{\titlecaps}[1]{\textls[80]{\MakeTextUppercase{#1}}}%
 \begin{titlepage}%
     \begin{center}%
     \vspace*{\fill}%
-    \vspace{-2.5mm}
-        \Large%
-        \textsc{Ph\,D}
+    \vspace{-5.5mm}%
+        \huge%
+        \textsc{P\hspace{0.020em}h\hspace{0.100em}D}
         \hfill
-        \spacedallcaps{S.C. Lowe}
+        \titlecaps{S.C. Lowe}
         \hfill
-        \myTime
+        $2 \hspace{0.080em} 0 \hspace{0.080em} 1 \hspace{0.080em} 7$
     \vspace*{\fill}%
     \end{center}%
 \end{titlepage}%
