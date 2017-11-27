@@ -1,0 +1,136 @@
+% **************************************************************************************************************
+% A Classic Thesis Style
+% An Homage to The Elements of Typographic Style
+%
+% Copyright (C) 2012 Andr\'e Miede http://www.miede.de
+%
+% If you like the style then I would appreciate a postcard. My address 
+% can be found in the file ClassicThesis.pdf. A collection of the 
+% postcards I received so far is available online at 
+% http://postcards.miede.de
+%
+% License:
+% This program is free software; you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation; either version 2 of the License, or
+% (at your option) any later version.
+%
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with this program; see the file COPYING.  If not, write to
+% the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+% Boston, MA 02111-1307, USA.
+%
+% **************************************************************************************************************
+% Note:
+%    * You must not use "u etc. in strings/commands that will be spaced out (use \"u or real umlauts instead)
+%    * New enumeration (small caps): \begin{aenumerate} \end{aenumerate}
+%    * For margin notes: \marginpar or \graffito{}
+%    * Do not use bold fonts in this style, it is designed around them
+%    * Use tables as in the examples
+%    * See classicthesis-preamble.sty for useful commands
+% **************************************************************************************************************
+% To Do:
+%		 * [high] Check this out: http://www.golatex.de/koma-script-warnung-in-verbindung-mit-listings-package-t2058.html
+%    * [medium] mathbb in section-titles/chapter-titles => disappears somehow in headlines!!!
+% **************************************************************************************************************
+% Changelog:
+%     Modified by Scott Lowe based on changes made by Helen Ramsden for use with University of Edinbugh
+%     Ph.D. theses within the School of Informatics.
+% **************************************************************************************************************
+\documentclass[
+	 twoside,openright,titlepage,numbers=noenddot,headinclude,%1headlines,
+                footinclude=true,cleardoublepage=empty,
+                BCOR=0mm,paper=a4,fontsize=11pt, % Binding correction, paper type and font size
+                american, % Languages
+                ]{scrreprt}
+
+%********************************************************************
+% Note: Make all your adjustments in here
+%*******************************************************
+\input{classicthesis-config}
+%
+%*******************************************************
+% Change the page colour for the cover
+\pagecolor{black}
+% \definecolor{gold}{rgb}{1,0.843,0}  % #FFD700 or (255,215,0)
+\definecolor{gold}{rgb}{1,0.875,0.196}  % #FFDF32 or (255,223,50)
+\color{gold}
+%*******************************************************
+%
+\usepackage[
+    paperheight=17.5mm, paperwidth=297mm,
+        hmargin={30mm, 30mm}, vmargin={0mm,0mm}, headsep=0mm,
+        ]{geometry}
+%
+% Lets you include PDFs in the document
+\usepackage{pdfpages}
+%
+% Provides DOI command, which safely links to the DOI
+\usepackage{doi_inc}
+%
+% Define some commands for handling text formatting
+\newcommand{\sesname}[1]{\textsf{#1}}
+\newcommand{\invivo}{\textit{in vivo}}
+\newcommand{\zonename}[1]{\ensuremath{#1}}
+\newcommand{\textemph}[1]{\textit{#1}}
+\newcommand{\termemph}[1]{\textbf{#1}}
+\newcommand{\captionemph}[1]{\textit{#1}}
+\newcommand{\textpackage}[1]{\textit{#1}}
+%
+\DeclareMathOperator{\I}{I}
+\DeclareMathOperator{\HH}{H}
+%
+\makeglossaries
+%
+%********************************************************************
+% Hyphenation
+%*******************************************************
+\babelhyphenation{ana-lysis ana-lys-ed}
+\babelhyphenation{MATLAB}
+\babelhyphenation{Sch\"on-kirchen}
+%
+%********************************************************************
+% Debugging
+%*******************************************************
+% \usepackage{syntonly}
+% \syntaxonly
+% \tracinggroups=1
+%
+% ********************************************************************
+% GO!GO!GO! MOVE IT!
+%*******************************************************
+\begin{document}
+\acused{V2} \acused{V4}
+\frenchspacing % Reduces space after periods to make text more compact
+\raggedbottom % Makes all pages the height of the text on that page
+\selectlanguage{american} % american ngerman
+%\renewcommand*{\bibname}{new name} % Uncomment to change the name of the bibliography
+%\setbibpreamble{} % Uncomment to include a preamble to the bibliography - some text before the reference list starts
+\pagenumbering{roman} % Roman page numbering prior to the start of the thesis content (i, ii, iii, etc)
+\pagestyle{scrheadings} % Show chapter titles as headings
+%********************************************************************
+%*******************************************************
+% Titlepage
+%*******************************************************
+% \clearpage
+\begin{titlepage}%
+    \begin{center}%
+    \vspace*{\fill}%
+    \vspace{-2.5mm}
+        \Large%
+        \textsc{Ph\,D}
+        \hfill
+        \spacedallcaps{S.C. Lowe}
+        \hfill
+        \myTime
+    \vspace*{\fill}%
+    \end{center}%
+\end{titlepage}%
+% \clearpage
+\end{document}
+% ********************************************************************
