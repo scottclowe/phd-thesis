@@ -5,15 +5,17 @@
 	% if you want the titlepage to be centered, uncomment and fine-tune the line below (KOMA classes environment)
 	%\begin{addmargin}[-1cm]{-3cm}
     \begin{center}
-        \LARGE
+        \Large
+        \bfseries
 
         \hfill
 
         \vfill
 
+        \DeclareRobustCommand{\titlecaps}[1]{\textls[80]{\MakeTextUppercase{#1}}}%
         \begingroup
-            \DeclareRobustCommand{\titlecaps}[1]{\textls[80]{\MakeTextUppercase{#1}}}%
             %\color{Maroon}
+            \LARGE
             \bfseries
             %\spacedallcaps{\myTitle}
             \titlecaps{Decoding information}
@@ -24,14 +26,16 @@
             \\ \bigskip
         \endgroup
 
-        \spacedlowsmallcaps{\myName}
+        \hfill
+
+        \titlecaps{\myName}
+        %\normalfont
 
         \vfill
 
         \includegraphics[width=4.25cm]{uoeMaterial/eushield-gold} \\ \medskip % Picture
         \vfill
 
-        \Large
         %\mySubtitle \\ \medskip % Thesis subtitle
         \myDegree \\
         \myDepartment \\
