@@ -54,8 +54,6 @@
 %*******************************************************
 \input{classicthesis-config}
 %
-\usepackage{contour}
-%
 %*******************************************************
 % Change the page colour for the cover
 \pagecolor{black}
@@ -121,15 +119,14 @@
 % \clearpage
 \DeclareRobustCommand{\titlecaps}[1]{\textls[80]{\MakeTextUppercase{#1}}}%
 \begin{titlepage}%
-%     \bfseries%
+    \bfseries%
     \begin{center}%
     \vspace*{\fill}%
     \vspace{-5.5mm}%
         \huge%
-        \contourlength{0.001em}
-        \contour[10]{gold}{\textsc{P\hspace{0.020em}h\hspace{0.100em}D}}
+        \textsc{P\hspace{0.020em}h\hspace{0.100em}D}
         \hfill
-        \textbf{\titlecaps{S.C. Lowe}}
+        \titlecaps{S.C. Lowe}
         \hfill
         $\mathbf{2 \hspace{0.080em} 0 \hspace{0.080em} 1 \hspace{0.080em} 7}$
     \vspace*{\fill}%
