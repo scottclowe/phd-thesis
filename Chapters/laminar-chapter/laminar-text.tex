@@ -70,7 +70,7 @@ Such phenomena would introduce additional signals, complicating the interpretati
 A few drops of \SI{1}{\percent} cyclopentolate hydrochloride were used in each eye to achieve mydriasis.
 Animals were wearing hard contact lenses (W\"ohlk-Contact-Linsen, Sch\"onkirchen, Germany) to focus the eyes on the stimulus plane.
 The visual stimulation in all experimental sessions was presented to the eye for which the recording sites had the stronger ocular preference.
-The stimulus was presented using either an in-house custom-built projector (SVGA fibre-optic system with a resolution of \num{800x600} pixels, a frame rate of \SI{30}{Hz}), or a \ac{CRT} monitor (Iiyama MA203DT Vision Master Pro 513, frame rate \SI{118}{Hz}) placed at eye level, \SI{50}{\centi\metre} in front of the eye.
+The stimulus was presented using either an in-house custom-built projector (SVGA fibre-optic system with a resolution of \num{800x600} pixels, a frame rate of \SI{30}{Hz}), or a \ac{CRT} monitor (Iiyama MA203DT Vision Master Pro 513, frame rate \SI{118}{Hz}) placed at eye level, \SI{500}{\milli\metre} in front of the eye.
 We found the same results with both display devices, except that when using a monitor refresh of \SI{30}{Hz} the stimulus induced cortical oscillations at \SI{30}{Hz} not seen otherwise.
 Since this is the result of using an artificial stimulus with a low refresh rate (a well-known issue at this stimulus frequency), we removed this from the data (see \autoref{sec:lam_artefact}) and pooled the results across all sessions.
 The visual stimulus consisted of high contrast (\SI{100}{\percent}), gamma corrected, fast-moving, colourful movie clips (no soundtrack) from a commercially available movie.
@@ -165,7 +165,7 @@ Session &
 }
 \caption{
 \captionemph{Metadata for recording sessions.}
-Stimuli were presented using either an in-house custom-built projector (SVGA fibre-optic system with a resolution of \num{800x600} pixels; ``Projector''), or a cathode ray tube monitor (Iiyama MA203DT Vision Master Pro 513; ``\ac{CRT}'') placed at eye level, \SI{50}{\centi\metre} in front of the eye.
+Stimuli were presented using either an in-house custom-built projector (SVGA fibre-optic system with a resolution of \num{800x600} pixels; ``Projector''), or a cathode ray tube monitor (Iiyama MA203DT Vision Master Pro 513; ``\ac{CRT}'') placed at eye level, \SI{500}{\milli\metre} in front of the eye.
 Videos presented at \SI{118}{Hz} were up-sampled versions of the original \SI{30}{Hz} video, which was achieved by repeating each frame four times.
 For artefact removal methodology, see \autoref{sec:lam_artefact}.
 }
@@ -214,7 +214,7 @@ For each session, the \ac{RF} centre was manually located using the average of t
 %
 % For two of the four monkeys involved in the study, we made use of high-resolution \ac{NMR} anatomical scans (collected for a different experiment) to measure the cortical thickness at the recording site used (\autoref{fig:lam_nmr_e07} and \autoref{fig:lam_nmr_h05}).
 %
-% To estimate the cortical thickness at the recording site of the laminar electrodes, high-resolution \ac{NMR} anatomical scans were acquired at the vertical using a \SI{7}{T} scanner with a \SI{60}{\centi\metre} diameter bore (Bruker BioSpin GmbH, Ettlingen, Germany).
+% To estimate the cortical thickness at the recording site of the laminar electrodes, high-resolution \ac{NMR} anatomical scans were acquired at the vertical using a \SI{7}{T} scanner with a \SI{600}{\milli\metre} diameter bore (Bruker BioSpin GmbH, Ettlingen, Germany).
 % A custom-made chair was used to position the monkey in the magnet.
 % We used a single-shot gradient \ac{EPI} with a \ac{FOV} of \SI{96x96}{\milli\metre} and matrix of \num{256x256}.
 % We acquired 18 a thickness of \SI{1}{\milli\metre}, TE/TR 15/\SI{2000}{\milli\second} and flip angle of \SI{90}{\degree}.
@@ -678,7 +678,7 @@ We averaged over both $Y \to \{X,Y\}$ and $X \to \{X,Y\}$ for each pair of frequ
 \end{figure}
 
 As shown in \autoref{fig:lam_cxfrq_info}, we found there are two frequency domains within which information is redundant: \SIrange{4}{40}{Hz} and \SI{>40}{Hz}.
-Furthermore, the information contained in neural frequencies \SI{<40}{Hz} is different to the information contained in frequencies \SI{>40}{Hz}, since we measured these to be independent (redundancy \SI{\le0}{\percent}, information gain \SI{\ge100}{\percent}.
+Furthermore, the information contained in neural frequencies \SI{<40}{Hz} is different to the information contained in frequencies \SI{>40}{Hz}, since we measured these to be independent (redundancy \SI{\le0}{\percent}, information gain \SI{\ge100}{\percent}).
 Additionally, we note that the same \SI{<40}{Hz} and \SI{>40}{Hz} division is observed for the signal correlation (\autoref{fig:lam_cxfrq_cor}), and our results corroborate earlier findings \citep{Belitski2008}.
 Taken together, our results thus show that the two bands (\SIrange{4}{16}{Hz} and \SIrange{60}{170}{Hz}) contain the most information about the stimulus and encode different information about the stimulus.
 
